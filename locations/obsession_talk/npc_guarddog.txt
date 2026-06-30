@@ -1,0 +1,14 @@
+﻿cls&'<center> <<$title[npc]>></center>'&'<center><img src="<<$d_view>>" ></center>'&!$d_view='pic/mob/115.jpg'&
+if mob_sleep[npc]>time:
+	'Пес свернулся клубком и храпит'
+else
+	 if you_slut[npc]>0:
+		'Пес злобно рычит при виде вас'
+	 else
+		 if horny[npc]<50:
+			 'Пес без интереса рассматривает вас'&act'<b>Уйти</b>':gt 'preloc'
+		 else
+			'Пес уставился на вас и вы видите что у него стоит член'
+		 end
+	 end
+end

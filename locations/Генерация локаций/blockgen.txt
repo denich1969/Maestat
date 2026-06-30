@@ -1,0 +1,39 @@
+﻿X=0&Y=0&Z=args[0]&H=0&R=0&Xmax[Z]=args[1]&Ymax[Z]=args[1]
+oxigen[Z]=args[3]&temper[Z]=args[2]&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+!Образец вызова: !gs 'blockgen',номер блока,'название блока',число блоков,номер горизонтали X,номер вертикали X,'название улицы','другое название улицы','описание улицы',номер картинки
+if args[0]=1:
+	Xmax[Z]=4&Ymax[Z]=4
+	$n_board[Z]='Туман'&$w_board[Z]='Море'&$e_board[Z]='Район Блэкберри'&$s_board[Z]='Море'
+	magworld[Z]=1&oxigen[Z]=1&temper[Z]=2
+elseif args[0]=2:
+	Xmax[Z]=4&Ymax[Z]=4
+	$n_board[Z]='Туман'&$w_board[Z]='Рыбацкая деревня'&$e_board[Z]='Туман'&$s_board[Z]='Жилмассив'
+	magworld[Z]=1&oxigen[Z]=1&temper[Z]=2
+elseif args[0]=3:
+	Xmax[Z]=4&Ymax[Z]=4
+	
+	magworld[Z]=1&oxigen[Z]=1&temper[Z]=2
+elseif args[0]=4:
+	Xmax[Z]=4&Ymax[Z]=4
+
+	magworld[Z]=1&oxigen[Z]=1&temper[Z]=2
+elseif args[0]=5:
+	Xmax[Z]=4&Ymax[Z]=4
+
+	magworld[Z]=1&oxigen[Z]=1&temper[Z]=2
+	
+elseif args[0]=6:
+	Xmax[Z]=4&Ymax[Z]=4
+
+	magworld[Z]=1&oxigen[Z]=1&temper[Z]=2
+elseif args[0]=405:
+	Xmax[Z]=4&Ymax[Z]=4
+	$n_board[Z]='Горы'&$w_board[Z]='Горы'&$e_board[Z]='Лес'&$s_board[Z]='Горы'
+	magworld[Z]=1&oxigen[Z]=1&temper[Z]=2
+end
+:markworldgen
+H=0&R=0
+if X=5 and Y>0 and Y<5:d_border_way['<<$temploc>>']=7
+if Y=5 and X>0 and X<5:d_border_way['<<$temploc>>']=2
+X+=1&if X<=Xmax[Z]:jump'markworldgen'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markworldgen'

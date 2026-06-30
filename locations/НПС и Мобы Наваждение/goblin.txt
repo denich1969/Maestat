@@ -1,0 +1,12 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&goblin[]=i
+lvl[i]=1&soul[i]=100&mob[i]=24&mobexp[i]=50
+tipemobpic[i]=1&picture[i]=153
+gs'orc_man_name'&$name[i]=$genname&$surname[i]=''&$nick[i]='Гоблин'
+pol[i]=0&total_goblin+=1
+dick[i]=rand(21,28)&dickd[i]=rand(40,50)&ball[i]=rand(40,70)
+mus[i]=rand(1800,3200)&!minuron[i]=rand(15,20)&maxuron[i]=rand(25,40)
+healthmax[i]=10*rand(30,40)&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+reflex[i]=rand(60,80)
+agro[i]=2&corr[i]=1000
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+obsession_world[]=i&walkprog[i]=0

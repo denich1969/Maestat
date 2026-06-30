@@ -1,0 +1,44 @@
+﻿!0-id npc
+!1-количество проходов
+!2-души собираються с локации на которой находиться этот персонаж
+
+!"soul"+soul_loc['<<X[args[2]]>>,<<Y[args[2]]>>,<<Z[args[2]]>>,<<H[args[2]]>>,<<R[args[2]]>>']
+args[50]=args[1]
+if soul_loc['<<X[args[2]]>>,<<Y[args[2]]>>,<<Z[args[2]]>>,<<H[args[2]]>>,<<R[args[2]]>>']<args[50]:args[50]=soul_loc['<<X[args[2]]>>,<<Y[args[2]]>>,<<Z[args[2]]>>,<<H[args[2]]>>,<<R[args[2]]>>']
+if demon_dick_stomath_max[args[0]]-demon_dick_stomath[args[0]]<args[50]:args[50]=demon_dick_stomath_max[args[0]]-demon_dick_stomath[args[0]]
+soul_loc['<<X[args[2]]>>,<<Y[args[2]]>>,<<Z[args[2]]>>,<<H[args[2]]>>,<<R[args[2]]>>']-=args[50]
+demon_dick_stomath[args[0]]+=args[50]
+!"
+if args[1]=0:args[1]=1
+args[10]=0
+:count
+if args[10]<args[1] and soul_loc['<<X[args[2]]>>,<<Y[args[2]]>>,<<Z[args[2]]>>,<<H[args[2]]>>,<<R[args[2]]>>']>0:
+	soul_loc['<<X[args[2]]>>,<<Y[args[2]]>>,<<Z[args[2]]>>,<<H[args[2]]>>,<<R[args[2]]>>']-=1
+	soul[args[0]]+=1
+	
+	!if demon_dick[args[0]]>0 and demon_dick_exp_day_limit[args[0]]>0:
+	if demon_dick[args[0]]>0:
+		demon_dick_exp[args[0]]+=1
+		!demon_dick_exp_day_limit[args[0]]-=1
+	end
+	args[10]+=1
+	jump'count'
+end	
+
+!lvl up
+if demon_dick[args[0]]>0:
+	demon_dick_exp_need[args[0]]=demon_dick[args[0]]*demon_dick[args[0]]*20
+	if demon_dick_exp[args[0]]>demon_dick_exp_need[args[0]]:
+		demon_dick_exp[args[0]]-=demon_dick_exp_need[args[0]]
+		demon_dick[args[0]]+=1
+		demon_dick_exp_need[args[0]]=demon_dick[args[0]]*demon_dick[args[0]]*20
+	end
+end
+"
+
+!"
+if demon_dick[args[0]]>0 and args[0]=you:
+	if demon_dick_exp_day_limit[you]>0:"Вы чувствуете как ваша сила сукуба ростет"
+	if demon_dick_exp_day_limit[you]<=0:"Вы чувтвуете, что вы поглотили достаточно душ на сегодня"
+end
+"

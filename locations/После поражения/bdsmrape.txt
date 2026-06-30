@@ -1,0 +1,30 @@
+﻿gs'stat'
+cuntlick[you]+=1
+if sexpartner[npc]=0:sexpartner[npc]=1&girl[you]+=1
+gs'soulcraft',5
+if pol[you]=0:'<center><img src="pic/sex/rape/spank.jpg" ></center>'
+if pol[you]>0:'<center><img src="pic/sex/rape/spank_lesb.jpg" ></center>'
+if t_slot[you]>0 and ban_t[you]=0:ts=t_slot[you]&t_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1
+if l_slot[you]>0 and ban_l[you]=0:ls=l_slot[you]&l_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'Госпожа сдирает с вас одежду'
+if ul_slot[you]>0:ul_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'Госпожа рвет в клочья ваши трусы'
+if ut_slot[you]>0:ut_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'Госпожа рвет в клочья ваш лифчик'
+!if ban_l[you]>0:''
+if h_slot[you]=1 and ban_t[you]=0:t_slot[you]=22&ban_t[you]=npc&l_slot[you]=20&ban_l[you]=npc&'Госпожа одевает на вас сбрую и портупею рабыни'
+if h_slot[you]=2:h_slot[you]=0&item_loc_hat['2,10,10,4']=1&'Госпожа вышвыривает вашу диадему и та пропадает'
+if h_slot[you]=0:h_slot[you]=1&ban_h[you]=npc&'Госпожа одевает на вас маску'
+corr[you]+=5
+'Госпожа берет плеть и заставляет вас считать после каждого удара и благодарить ее. Вы вскрикиваете от боли, и кое как заглушив рыдание отсчитывает 50 ударов плетью и благодарите госпожу.'
+act'Далее':
+	anus[you]+=5
+	cls&gs'stat'
+	if pol[you]=0:'<center><img src="pic/sex/rape/bdsm.jpg" ></center>'
+	if pol[you]>0:'<center><img src="pic/sex/rape/bdsm_lesb.jpg" ></center>'
+	'Госпожа ставит вас раком и едва смазав ваш анус, вводит туда свой громный страпон и начинает жестоко трахать вас. Когда ей надоедает она отпускает вас.'
+	act'Стонать':gt 'sex'
+    if m_slot[you]=25:
+		 m_slot[you]=31
+		 $item_m_name[31]='Дилдо'
+		 uron_weapon_m[you]=10
+		 'Сияющий меч в ваших руках превращается в дилдо'
+    end
+end

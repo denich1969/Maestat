@@ -1,0 +1,147 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Тут можно купить разнообразный товар'&gs'Item'&gs 'npconloc'
+'Мыло и полотенце стоят 50 пенсов.'
+'Феромоны самца стоят 1 шиллинг, это зелье способно облегчить флирт с девушками, так как они будут инстинктивно воспринимать вас как отличного самца.'
+'Малое зелье отвода глаз, способное три часа делать так, что в толпе вас не замечают - стоит 1 шиллинг.'
+'Феминайзер стоит 3 шиллинга, это зелье способно изменять тело по женскому типу.'
+'Манайзер стоит 50 шиллингов, это зелье способно изменять тело по мужскому типу.'
+'Зелье отвода глаз, действующее 10 часов, стоит 3 шиллинга.'
+'Малый восстановитель выносливости - 5 шиллингов.'
+'Малое лечение - 5 шиллингов.'
+'Жиросжигатель - 5 шиллингов.'
+'Возбудитель - 10 шиллингов.'
+'30 шиллингов стоит "Свиток магического алфавита", не зная которого невозможно прочитать ни один гримуар.'
+'50 шиллингов стоит "Трактат о душах". Только прочитав этот трактат можно поглощать души и добровольно дарить души.'
+'100 шиллингов стоит "Гримуар ведьм".'
+'50 шиллингов стоит "Гримуар истинной формы". Довольно бесполезная книга, заклинание длинное и его надо читать прямо над иллюзией, чтобы ее разрушить.'
+'20 шиллингов стоит книга "Маестат как высшая цель". Это не магическая книга, а всего лишь древняя легенда о Маестате.'
+'10 шиллингов стоит Амулет защиты от колючек.'
+'Приворотное зелье - 1000 шиллингов.'
+act'Уйти':gt 'preloc'
+if hour>=7 and hour<=16 and X[you]=X[martamarsh] and Y[you]=Y[martamarsh] and Z[you]=Z[martamarsh] and H[you]=H[martamarsh] and R[you]=R[martamarsh]:
+     if map=0:
+		'Карту города можно купить за 10 шиллингов'
+		 if money[you]>=1000:
+			 act'Купить карту':
+				 money[you]-=1000&map=1&cls&gs'stat'&'Вы заплатили деньги и купили карту'&act'<b>Уйти</b>':gt $curloc
+			 end
+		end
+     end
+	if item[26]>0:
+		'Можно продать смартфон и получить за него 5 шиллингов'
+		 act'Продать смартфон':
+			 money[you]+=500&item[26]-=1&burden[you]-=item_burden[26]&cls&gs'stat'&'Вы продали бесполезный без сети смартфон'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if item[91]>0:
+		'Можно продать алмаз и получить за него 25 шиллингов'
+		 act'Продать алмаз':
+			 money[you]+=2500&item[91]-=1&burden[you]-=item_burden[91]&cls&gs'stat'&'Вы продали алмаз'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if item[86]>0:
+		'Можно продать серебряное кольцо и получить за него 10 шиллингов'
+		 act'Продать серебряное кольцо':
+			 money[you]+=1000&item[86]-=1&burden[you]-=item_burden[86]&cls&gs'stat'&'Вы продали кольцо'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	 if item[87]>0:
+		'Можно продать серебряное кольцо и получить за него 30 шиллингов'
+		 act'Продать золотое кольцо':
+			money[you]+=3000&item[87]-=1&burden[you]-=item_burden[87]&cls&gs'stat'&'Вы продали кольцо'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	 if item[88]>0:
+		'Можно продать серебряное кольцо и получить за него 50 шиллингов'
+		 act'Продать кольцо с камнем':
+			 money[you]+=5000&item[88]-=1&burden[you]-=item_burden[88]&cls&gs'stat'&'Вы продали кольцо'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=50:
+		 act'Купить полотенце 50п':
+			 money[you]-=50&item[20]+=1&burden[you]+=item_burden[20]&cls&gs'stat'&'Вы заплатили деньги и купили полотенце'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить мыло 50п':
+			 money[you]-=50&item[17]+=1&burden[you]+=item_burden[17]&cls&gs'stat'&'Вы заплатили деньги и купили мыло'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=100:
+		 act'Купить феромоны самца':
+			 money[you]-=100&item[78]+=1&burden[you]+=item_burden[78]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=100:
+		 act'Купить Малое зелье отвода глаз':
+			 money[you]-=100&item[71]+=1&burden[you]+=item_burden[71]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=300:
+		 act'Купить феминайзер':
+			 money[you]-=300&item[79]+=1&burden[you]+=item_burden[79]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=5000:
+		 act'Купить манайзер':
+			 money[you]-=5000&item[80]+=1&burden[you]+=item_burden[80]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	 if money[you]>=1000:
+		 act'Купить возбудитель':
+			 money[you]-=1000&item[100]+=1&burden[you]+=item_burden[100]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	if money[you]>=100000:
+		 act'Купить приворотное зелье':
+			 money[you]-=100000&item[95]+=1&burden[you]+=item_burden[95]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=500:
+		 act'Купить жиросжигатель 5 шиллингов':
+			 money[you]-=500&item[138]+=1&burden[you]+=item_burden[138]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	if money[you]>=300:
+		 act'Купить зелье отвода глаз':
+			 money[you]-=300&item[73]+=1&burden[you]+=item_burden[73]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	 if money[you]>=500:
+		 act'Купить малый восстановитель выносливости 5 шиллингов':
+			 money[you]-=500&item[49]+=1&burden[you]+=item_burden[49]&cls&gs'stat'& 'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=500:
+		 act'Купить малое лечение 5 шиллингов':
+			 money[you]-=500&item[51]+=1&burden[you]+=item_burden[51]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	if money[you]>=3000:
+		 act'Купить свиток магического алфавита 30ш':
+			 money[you]-=3000&item[72]+=1&burden[you]+=item_burden[72]&cls&gs'stat'&'Вы заплатили деньги и купили свиток'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=5000:
+		 act'Купить трактат о душах 50ш':
+			 money[you]-=5000&item[81]+=1&burden[you]+=item_burden[81]&cls&gs'stat'&'Вы заплатили деньги и купили свиток'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=10000:
+		 act'Купить гримуар ведьм 100ш':
+			 money[you]-=10000&item[56]+=1&burden[you]+=item_burden[56]&cls&gs'stat'&'Вы заплатили деньги и купили гримуар'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=5000:
+		 act'Купить гримуар истинной формы 50ш':
+			 money[you]-=5000&item[83]+=1&burden[you]+=item_burden[83]&cls&gs'stat'&'Вы заплатили деньги и купили гримуар'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=2000:
+		 act'Купить книгу "Маестат как высшая цель" 20ш':
+			 money[you]-=2000&item[84]+=1&burden[you]+=item_burden[84]&cls&gs'stat'&cls&gs'stat'&'Вы заплатили деньги и купили гримуар'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+		if money[you]>=1000:
+		 act'Купить амулет защиты от колючек 10ш':
+			 money[you]-=1000&item[90]+=1&burden[you]+=item_burden[90]&cls&gs'stat'&'Вы заплатили деньги и купили амулет'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+end

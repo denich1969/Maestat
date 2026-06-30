@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&necromancer=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&magik[i]=7&beliver[i]=6&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=14
+$name[i]='Боб'&$surname[i]=''&$nick[i]='Некромант'&$title[i]='Некромант'&$history[i]='Я изучаю тайны смерти, а где этим еще заниматься, как не на кладбище?'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=12&dickd[i]=30&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=165&fat[i]=3000&mus[i]=1000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=1
+age[i]=45&vital[i]=300&will[i]=100&reflex[i]=100
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=0&extrovert[i]=0&ratio[i]=2&brave[i]=1&lust[i]=40&!характер
+!l_hand_t[i]=2&r_hand_t[i]=1
+h_slot[i]=3&t_slot[i]=47&l_slot[i]=7&b_slot[i]=5
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+n_world[]=i&walkprog[i]=9

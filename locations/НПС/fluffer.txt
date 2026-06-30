@@ -1,0 +1,24 @@
+﻿gs'stat'
+energy[you]-=30
+corr[you]+=5
+X=1&Y=0&Z=4&H=6&R=4
+X[verhoven]=X&Y[verhoven]=Y&Z[verhoven]=Z&H[verhoven]=H&R[verhoven]=R
+X[stavrogin]=X&Y[stavrogin]=Y&Z[stavrogin]=Z&H[stavrogin]=H&R[stavrogin]=R
+X[pornstar]=X&Y[pornstar]=Y&Z[pornstar]=Z&H[pornstar]=H&R[pornstar]=R
+X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
+my_last_fucker[you]=npc
+last_fuck_time[you]=time
+gs'add_sex_stat',verhoven,you
+gs'add_sex_stat',stavrogin,you
+if flufferday[you]!daystart:
+	 flufferday[you]=daystart
+	 $global_npc_log[verhoven]+='<br>'
+	 $global_npc_log[verhoven]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой член работая флаффером'
+	 $global_npc_log[you]+='<br>'
+	 $global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала член порно актеру работая флаффером.'
+	 $global_npc_log[stavrogin]+='<br>'
+	 $global_npc_log[stavrogin]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой член работая флаффером'
+end
+ bj_mass['<<verhoven>>,<<you>>']+=1&bj_mass['<<stavrogin>>,<<you>>']+=1&bj[you]+=2&abj[verhoven]+=1&abj[stavrogin]+=1
+gs'stat'&$func('get_images', 'blowjob_kneel', you, verhoven)&'Вы на коленях сосете член но стараетесь не доводить до оргазма а держать член в стоячем положении и не давать кончить. Иногда вы отвлекались от отсоса, что бы актер мог потрахать на камеру актриссу, а затем снова приступали к минету. При этом вы сосали то одному парню, то другому и так весь час. Иногда помогали в съемках и направляли свет и вам даже давали поснимать все на камеру. Это довольно утомительно и у вас за час работы немного устали челюсти.'
+act'Встать':gt'preloc'

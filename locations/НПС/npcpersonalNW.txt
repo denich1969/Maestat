@@ -1,0 +1,147 @@
+﻿if mob[i]>0 and mob_busy[i]=0:
+cooled[i]=0
+     if cum_face[i]>time:
+         if can_drink['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=0:
+			$status[i]=' вытирает лицо'
+         else
+			 cum_face[i]=time&if peecover[i]>time:peecover[i]=time
+			 $status[i]=' умывается'
+         end
+     else
+		randseeyou=rand(1,100)
+		 if mob_sleep[i]>=time:
+			 if $basestatus[i]='':$status[i]=' спит'
+			 if $basestatus[i]!'':$status[i]=$basestatus[i]
+		 elseif mobtalk[i]>=time:
+			$status[i]=' задумчиво смотрит в сторону'
+		 else
+			 randtabul=40
+			 if corr[i]>=100:randtabul+=10
+			 if agro[i]=3:randtabul+=100
+			 if agro[i]=2:randtabul+=20
+			 if agro[i]=1:randtabul+=10
+			 if randseeyou>=randtabul:
+				 if pornfilmnow=0:
+					$status[i]=' смотрит в сторону'
+				 else
+					 gs'hornyness'&$status[i]=' смотрит порнофильм по телевизору'
+				 end
+			 else
+				 if follower[i]=you:cooled[i]=1
+				 gs'hornyness'&!видит
+				 if cooled[i]=0:
+					 if agro[i]=3:
+						 aggressor=i&$status[i]=' агрессивно идет к вам'
+					 else
+						 if corr[i]>=100:
+							 if dick[i]>1:
+								 aggressor=i&$status[i]=' агрессивно идет к вам'& !нападает
+							 else
+								 aggressor=i&$status[i]=' агрессивно идет к вам'
+							 end
+						 else
+							 if you_slut[i]>=1:
+								 if agro[i]=2:aggressor=i&$status[i]=' уверенно идет к вам'
+								 if agro[i]=1 and horny[i]>=50:aggressor=i&$status[i]=' уверенно идет к вам'
+								 if agro[i]=1 and horny[i]<50:$status[i]=' смотрит на вас'
+								 if agro[i]=0 and horny[i]>=100:aggressor=i&$status[i]=' уверенно идет к вам'
+								 if agro[i]=0 and horny[i]<100:$status[i]=' смотрит на вас'
+							 else
+								 !герой норма моб норма
+								 if agro[i]=2 and horny[i]>=50:aggressor=i&$status[i]=' уверенно идет к вам'
+								 if agro[i]=2 and horny[i]<50:$status[i]=' смотрит на вас'	
+								 if agro[i]=1 and horny[i]>=100:aggressor=i&$status[i]=' уверенно идет к вам'
+								 if agro[i]=1 and horny[i]<100:$status[i]=' смотрит на вас'
+								 if agro[i]=0:$status[i]=' смотрит на вас'
+							 end
+						 end
+					 end
+				 else
+					 $status[i]=' дружелюбно улыбается вам'
+				 end
+			 end
+		 end
+     end
+end
+if mob[i]=0 and mob_busy[i]=0:
+	randseeyou=rand(1,100)
+	 if mob_sleep[i]>=time:
+		 if $basestatus[i]='':$status[i]=' спит'
+		 if $basestatus[i]!'':$status[i]=$basestatus[i]
+	 elseif mobtalk[i]>=time:
+		$status[i]=' задумчиво смотрит в сторону'
+	 else
+		 gs'hornyness_npc'
+		 !aggressor=i
+	     if lust[i]>=50 and agro[i]>=50:
+	         if pol[i]=0 and sexiness[you]>0:
+	             if horny[i]>=100:
+					 if pol[i]=0:
+						 if pol[you]>0:
+							 if lust[i]>=20:
+							     if notplayful[npc]<time:
+									 if lust[i]>=75:
+										 if sexiness[you]>90:
+											lusttalker=10
+										 else
+											 if sexiness[you]<=50:
+												 if extrovert[i]>=1 and brave[i]=2:lusttalker=10
+												 if extrovert[i]>=1 and brave[i]=1:lusttalker=rand(8,10)
+												 if extrovert[i]>=1 and brave[i]=0:lusttalker=rand(6,10)
+												 if extrovert[i]=0 and brave[i]=2:lusttalker=rand(8,10)
+												 if extrovert[i]=0 and brave[i]=1:lusttalker=rand(4,10)
+												 if extrovert[i]=0 and brave[i]=0:lusttalker=rand(0,10)
+											 else
+												 if extrovert[i]>=1 and brave[i]=2:lusttalker=10
+												 if extrovert[i]>=1 and brave[i]=1:lusttalker=10
+												 if extrovert[i]>=1 and brave[i]=0:lusttalker=rand(9,10)
+												 if extrovert[i]=0 and brave[i]=2:lusttalker=10
+												 if extrovert[i]=0 and brave[i]=1:lusttalker=rand(9,10)
+												 if extrovert[i]=0 and brave[i]=0:lusttalker=rand(8,10)
+											 end
+										 end
+									 end
+									 if lust[i]<75:
+										 if sexiness[you]=0:lusttalker=rand(0,10)
+										 if sexiness[you]>0 and sexiness[you]<=10:
+											 if extrovert[i]>=1 and brave[i]=2:lusttalker=10
+											 if extrovert[i]>=1 and brave[i]=1:lusttalker=rand(8,10)
+											 if extrovert[i]>=1 and brave[i]=0:lusttalker=rand(6,10)
+											 if extrovert[i]=0 and brave[i]=2:lusttalker=rand(8,10)
+											 if extrovert[i]=0 and brave[i]=1:lusttalker=rand(4,10)
+											 if extrovert[i]=0 and brave[i]=0:lusttalker=rand(0,10)
+										 end
+										 if sexiness[you]>10 and sexiness[you]<=50:
+											 if extrovert[i]>=1 and brave[i]=2:lusttalker=10
+											 if extrovert[i]>=1 and brave[i]=1:lusttalker=rand(9,10)
+											 if extrovert[i]>=1 and brave[i]=0:lusttalker=rand(8,10)
+											 if extrovert[i]=0 and brave[i]=2:lusttalker=rand(8,10)
+											 if extrovert[i]=0 and brave[i]=1:lusttalker=rand(7,10)
+											 if extrovert[i]=0 and brave[i]=0:lusttalker=rand(6,10)
+										 end
+										 if sexiness[you]>50 and sexiness[you]<=90:
+											 if extrovert[i]>=1 and brave[i]=2:lusttalker=10
+											 if extrovert[i]>=1 and brave[i]=1:lusttalker=10
+											 if extrovert[i]>=1 and brave[i]=0:lusttalker=rand(9,10)
+											 if extrovert[i]=0 and brave[i]=2:lusttalker=10
+											 if extrovert[i]=0 and brave[i]=1:lusttalker=rand(9,10)
+											 if extrovert[i]=0 and brave[i]=0:lusttalker=rand(8,10)
+										 end
+										 if sexiness[you]>90:lusttalker=10
+									 end
+									 if lusttalker>=10:aggressor=i&$status[i]=' уверенно идет к вам'
+								 end
+							 end
+						 end
+					end
+				 else
+					$status[i]=' похотливо пожирает вас глазами'
+	             end
+	         else
+				$status[i]=' пялится на вас из подлобья'
+	         end
+	     else
+			$status[i]=' смотрит на вас'
+	     end
+	 end
+end

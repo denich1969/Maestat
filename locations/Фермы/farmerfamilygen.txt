@@ -1,0 +1,8 @@
+﻿prepol=2&gs'farmer'&$temsur=$surname[i]&tman=i
+prepol=1&gs'farmer'&$surname[i]=$temsur&twoman=i
+spouse[tman]=twoman&spouse[twoman]=tman
+girl[tman]=1&guy[twoman]=1
+temp=rand(1,30)&vagsex[twoman]=temp&avagsex[tman]=temp&vag[twoman]=dickd[tman]
+sexpartner['<<twoman>>,<<tman>>']+=1&sexpartner['<<tman>>,<<twoman>>']+=1
+$locname['<<$temploc>>']='Фермерский домик (<<$name[tman]>> и <<$name[twoman]>> <<$surname[tman]>>)'
+$lname['<<$temploc>>']='Фермерский домик (<<$name[tman]>> и <<$name[twoman]>> <<$surname[tman]>>)'

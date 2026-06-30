@@ -1,0 +1,26 @@
+﻿args[10]=orgasm[you]&!orgasm[you] - последний женский оргазм
+if args[10]<empty_ball[you]:args[10]=empty_ball[you]&!empty_ball[you] - последний мужской оргазм
+if args[10]<lastsex:args[10]=lastsex&!lastsex - квестовые события, которые обходят секс события
+superslut[you]=0
+if vag[you]>0:
+	if corr[you]<10 and args[10]+14*60*24<time:pl 'У вас давно не было нормального секса'&!if lastsex+14<daystart:pl 'У вас давно не было нормального секса'
+	if corr[you]>=10 and corr[you]<30 and args[10]+10*60*24<time:pl 'У вас давно не было хорошего секса'&!if lastsex+10<daystart:pl 'У вас давно не было хорошего секса'
+	if corr[you]>=30 and corr[you]<50 and args[10]+8*60*24<time:pl 'Вы давно не занимались сексом, из-за чего немного нервничаете'&!if lastsex+8<daystart:pl '.......... '
+	if corr[you]>=50 and corr[you]<70 and args[10]+6*60*24<time:superslut[you]=1&pl 'Вы хотите секса, причем уже давно'
+	if corr[you]>=70 and corr[you]<95 and args[10]+4*60*24<time:superslut[you]=1&pl 'Желание чтобы вас кто-нибудь поимел, заметно сильно вас нервирует'
+	if corr[you]>95:
+		$view_horny='<center><video src="pic/event/hungrysex0.webm" ></video></center>'&!{view("pic/event/hungrysex0.webm")}
+		if args[10]+2*60*24<time:
+			superslut[you]=1&pl 'Вы хотите трахаться! <a href="exec:dynamic $view_horny">Срочно!</a>'
+		else
+			superslut[you]=0
+		end
+	end
+else
+	if corr[you]<10 and args[10]+14*60*24<time:pl 'У вас давно не было нормального секса'&!if lastsex+14<daystart:pl 'У вас давно не было нормального секса'
+	if corr[you]>=10 and corr[you]<30 and args[10]+12*60*24<time:pl 'У вас давно не было хорошего секса'&!if lastsex+12<daystart:pl 'У вас давно не было хорошего секса'
+	if corr[you]>=30 and corr[you]<50 and args[10]+10*60*24<time:pl 'Вы давно не занимались сексом, из-за чего немного нервничаете'&!if lastsex+10<daystart:pl '.........'
+	if corr[you]>=50 and corr[you]<70 and args[10]+8*60*24<time:superslut[you]=1&pl 'Вы хотите секса, причем уже давно'
+	if corr[you]>=70 and corr[you]<95 and args[10]+5*60*24<time:superslut[you]=1&pl 'Желание нормально потрахаться хоть с кем-нибудь вас сильно тревожит'
+	if corr[you]>95 and args[10]+3*60*24<time:superslut[you]=1&pl 'Вы уже больше суток не трахались! Вам нужен секс!'
+end

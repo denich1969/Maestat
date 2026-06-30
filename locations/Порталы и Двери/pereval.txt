@@ -1,0 +1,15 @@
+﻿if Z[you]=770 and once=0:
+	gs '760_world_gen'
+	once=1&X[you]=5&Y[you]=0&Z[you]=760&H[you]=0&R[you]=0
+ end
+if Z[you]=760 and once=0:
+	gs 'jungle_gen'
+	!gs '771_world_gen'
+	!gs '772_world_gen'
+	!gs '773_world_gen'
+	once=1
+	X[you]=5&Y[you]=10&Z[you]=770&H[you]=0&R[you]=0
+end
+once=0
+gt'world'
+gt'preloc'

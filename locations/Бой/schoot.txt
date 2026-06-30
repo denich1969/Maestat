@@ -1,0 +1,121 @@
+﻿www=w_slot[you]
+w_patron_load[you]-=1
+
+'Вы стреляете из своего оружия'
+if shoot_skill[you]<100:shoot_skill[you]+=1
+
+popal_temp=rand(shoot_skill[you],shoot_skill[you]*2)
+if popal_temp<10:popal_temp=10
+need_popal=rand(1,120)
+if invisibleV>0:need_popal=need_popal+(invisibleV*10)
+if need_popal>popal_temp:
+popad=0
+else
+popad=1
+end
+
+if uskor>0:popad=1
+
+if stunV>0:
+stunV-=1
+popad=1
+end
+if notfastV=1:
+popad=1
+end
+
+if portal_defV>0:
+'Ваш удар попадает в портал и никакого вреда не наносит'
+else
+	if weapon_tipe=1:
+	!огнестрелы
+		if bullet_resistV=1:
+			'<<$name[npc]>> не обращает внимания на ваш выстрел'
+		else
+			 if bullet_stanV=2:
+				 if popad=1:
+					 if clonV>0:
+						 clonV-=1
+						 'Вы попадаете в клона и клон рассеивается'
+					 else
+						 uron=rand(shoot_skill[you],uron_weapon_w[you])
+						 uron=uron/2
+						 if uron<1:uron=1
+						 if superslut[you]=1:uron=uron+(uron/10)
+						 if defenceV<uron:
+							 uron=uron-defenceV
+							 defenceV=0
+							 health[npc]-=uron
+							 '<<$name[npc]>> получает <<uron>> единиц урона'
+							 if defenceV>0:'Защита противника снижает полученный урон и разваливается'
+							 stunV=rand(1,2)
+							 'Противник оглушен попаданием пули'
+						 else
+							 defenceV-=uron
+							 'Защита противника полностью поглощает урон'
+						 end
+					 end
+				 else
+					'Пуля пролетает мимо'
+				 end
+			 end
+			 if bullet_stanV=1:
+				 if popad=1:
+					 uron=0
+					 stunV=rand(1,2)
+					 'Противник оглушен попаданием пули, но урона не получил'
+				 else
+					'Пуля пролетает мимо'
+				 end
+			 end
+			 if bullet_stanV=0:
+				 if popad=1:
+					 uron=rand(shoot_skill[you],uron_weapon_w[you])
+					 if uron<1:uron=1
+					 if superslut[you]=1:uron=uron+(uron/10)
+					 if defenceV<uron:
+						 uron=uron-defenceV
+						 defenceV=0
+						 health[npc]-=uron
+						 '<<$name[npc]>> получает <<uron>> единиц урона'
+						 if defenceV>0:'Защита противника снижает полученный урон и разваливается'
+					 else
+						 defenceV-=uron
+						 'Защита противника полностью поглощает урон'
+					 end
+				 else
+					'Пуля пролетает мимо'
+				 end
+			 end
+		end
+	end
+	if weapon_tipe=2:
+	!огнемет
+		 if firedefV>0:
+		 uron=rand(shoot_skill[you],uron_weapon_w[you])
+			 if firedefV<uron:
+			 uron=uron-firedefV
+			 health[npc]-=uron
+			 '<<$name[npc]>> горит и получает <<uron>> единиц урона'
+			 else
+			 '<<$name[npc]>> не горит'
+			 end
+		 else
+			 uron=rand(shoot_skill[you],uron_weapon_w[you])
+			 health[npc]-=uron
+			 '<<$name[npc]>> горит и получает <<uron>> единиц урона'
+		 end
+	end
+	if weapon_tipe=3:
+	!гравижернов
+		 uron=rand(1,uron_weapon_w[you])
+		 health[npc]-=uron
+		 '<<$name[npc]>> попадает в гравитационную аномалию созданную гравижерновом и получает <<uron>> единиц урона'
+	end
+end
+
+gs'stat'
+act'Далее':gt'fight'
+
+
+

@@ -1,0 +1,49 @@
+﻿act'Намекать на серьезные отношения':
+	if shame_tattoo[you]>0:knowshame[npc]=shame_tattoo[you]
+	cantbf=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+	 if watch_you_slut['<<npc>>,<<you>>']>0:cantbf=1&'<<$name[npc]>> усмехается - встречаться с такой блядью как ты?'
+	 if ex_boyfriend[npc]=you:cantbf=1&'<<$name[npc]>> морщится - у нас с тобой был шанс, но все кончилось'
+	 if boyfriend_num[you]>0 and shame_tattoo[you]>0:cantbf=1&'<<$name[npc]>> усмехается - у нас и так все серьезно, особенно если учитывать твое прошлое, где ты получила свои татуировки.'
+	 if boyfriend_num[you]>0 and shame_tattoo[you]=0:
+		 if npc=boyfriend_num[you]:
+			cantbf=1&'<<$name[npc]>> улыбается - Свадьба? Ты точно этого хочешь?'
+		     if friends['<<npc>>,<<you>>']>=100 and husband[you]=0 and agro[npc]<70:
+				'<<$name[npc]>> - Любимая, давай распишемся и станем мужем и женой.'
+	             act'Расписаться':
+					 husband[you]=npc&husband[npc]=you
+					 key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
+					 can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
+					 $locnameH['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']+=' (Жилье мужа)'
+					 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> и вы расписались и стали мужем и женой.'
+					 act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 else
+			 bf=boyfriend_num[you]
+			 cantbf=1&'<<$name[npc]>> удивляется - Я думал <<$name[bf]>> <<$surname[bf]>> твой парень.'
+		     if watch_you_slut['<<npc>>,<<you>>']=0 and ex_boyfriend[npc]!you:
+				 act'Я его брошу ради тебя':
+					 ex_boyfriend[bf]=you&girlfriend_num[bf]=0&do_ask_bf[npc]=1&boyfriend_num[you]=npc&girlfriend_num[npc]=you
+					 friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался и предложил вам встречаться'
+					 act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 end
+	 end
+	 if sexpartner['<<npc>>,<<you>>']>0 and agro[npc]>=70:cantbf=1&'<<$name[npc]>> морщится - Детка, мы и так классно проводим время, а тебе надо все портить'
+	 if cantbf=0:
+		'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался и предложил вам встречаться'
+		 act'Согласиться':
+			 do_ask_bf[npc]=1&boyfriend_num[you]=npc&girlfriend_num[npc]=you&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+		 act'Отказаться':
+			 do_ask_bf[npc]=1&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно огорчился'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+	 if cantbf>0:act'<b>Уйти</b>':gt 'preloc'
+ end

@@ -1,0 +1,46 @@
+﻿npc=ARGS[0]&if tornton_lose_slave=1 and npc=tornton:tornton_lose_slave=2&gt'tornton_talk'
+if scear['<<npc>>,<<you>>']<=0 and wantbeat['<<npc>>,<<you>>']<=0:	
+	trytokillyou=0&npcmax=arrsize('$name')&nfr=1
+	:marknpcfriendloc
+	if nfr < npcmax:
+		if dead[nfr]!0 or nfr=you or nfr=npc: jump 'next_npc'
+		if isenemy['<<nfr>>,<<you>>'] <= 0: jump 'next_npc'
+		if husband[npc]=nfr:trytokillyou=nfr&wantbeat['<<npc>>,<<you>>']=npc&$wantbeat_desc['<<npc>>,<<you>>'] = '<<nfr>>, {husband}'&jump 'break'
+		if father[npc]=nfr:trytokillyou=nfr&wantbeat['<<npc>>,<<you>>']=npc&$wantbeat_desc['<<npc>>,<<you>>'] = '<<nfr>>, {father}'&jump 'break'
+		if mother[npc]=nfr:trytokillyou=nfr&wantbeat['<<npc>>,<<you>>']=npc&$wantbeat_desc['<<npc>>,<<you>>'] = '<<nfr>>, {mother}'&jump 'break'
+		if father[nfr]=npc:trytokillyou=nfr&wantbeat['<<npc>>,<<you>>']=npc&$wantbeat_desc['<<npc>>,<<you>>'] = '<<nfr>>, {child}'&jump 'break'
+		if mother[nfr]=npc:trytokillyou=nfr&wantbeat['<<npc>>,<<you>>']=npc&$wantbeat_desc['<<npc>>,<<you>>'] = '<<nfr>>, {child}'&jump 'break'
+		if mother[npc]!0 and mother[npc]=mother[nfr] and father[npc]!0 and father[npc]=father[nfr]:
+			trytokillyou=nfr&wantbeat['<<npc>>,<<you>>']=npc&$wantbeat_desc['<<npc>>,<<you>>'] = '<<nfr>>, {brother}'&jump 'break'
+		end
+		if friends['<<npc>>,<<nfr>>']>=100:trytokillyou=nfr&wantbeat['<<npc>>,<<you>>']=npc&$wantbeat_desc['<<npc>>,<<you>>'] = '<<nfr>>, {bestfriend}'&jump 'break'
+		:next_npc
+		nfr+=1 &jump 'marknpcfriendloc'
+    end	
+    :break
+end
+!"if scear_me[npc]=0:
+	nfr=1&npcmax=arrsize('$name')&trytokillyou=0
+	:marknpcfriendloc
+     if friends['<<npc>>,<<nfr>>']>=100 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1&!нашел друга
+     if husband[npc]=nfr and pol[npc]=0 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1
+     if kid_first[npc]=nfr and pol[npc]=0 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1
+     if kid_first[nfr]=npc and pol[npc]=0 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1
+     if father[npc]=nfr and pol[npc]=0 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1
+     if mother[npc]=nfr and pol[npc]=0 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1
+     if father[nfr]=npc and pol[npc]=0 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1
+     if mother[nfr]=npc and pol[npc]=0 and myenemy[nfr]>0:trytokillyou=nfr&wantbeatyou[npc]=1
+	nfr+=1&if nfr<=npcmax and trytokillyou=0:jump'marknpcfriendloc'
+end"
+!if trytokillyou>0:''
+if immobilaze[npc]>0:gt'immobilaze'
+if madness[npc]>0:gs'progcurse'&gt 'prefight'
+if mother[npc]=you or father[npc]=you:
+     if age[npc]<18:
+		gt'kid_talk'
+     else
+		gt'npc'
+     end
+else
+	gt'npc'
+end

@@ -1,0 +1,11 @@
+﻿takeitem=ARGS[0]
+cls
+if burden[you]+item_ub_burden[takeitem]<=burdenmax[you]:
+burden[you]+=item_ub_burden[takeitem]
+item_loc_ub['<<takeitem>>,<<$loc[you]>>']-=1
+item_ub[takeitem]+=1
+!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
+else
+msg("Слишком тяжело")
+end
+gt 'preloc'

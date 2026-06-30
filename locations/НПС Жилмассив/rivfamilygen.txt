@@ -1,0 +1,53 @@
+﻿tipe=rand(0,3)&tipe=3&! так было сделано автором в версии 162. Почему и можно ли вернуть исходный код?
+if tipe=0:
+	polrand=rand(1,10)
+	if polrand<=8:poltemp=0&gs'rivmale_gen'
+	if polrand>8:poltemp=1&gs'rivfemale_gen'
+	$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
+	e_world[]=i&walkprog[i]=26&workrand=rand(1,100)&work[i]=iif(workrand<=70,4,iif(workrand>70 and workrand<98,5,6))
+end
+if tipe=1:
+	gs'rivmale_gen'&$famili_surname=$gensurname_f
+	$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
+	e_world[]=i&walkprog[i]=26&workrand=rand(1,100)&work[i]=iif(workrand<=70,4,iif(workrand>70 and workrand<98,5,6))
+	fi=i
+	pretipename=nation[fi]&gs'rivfemale_gen'&$surname[i]=$famili_surname
+	e_world[]=i&walkprog[i]=26&workrand=rand(1,100)&work[i]=iif(workrand<=70,4,iif(workrand>70 and workrand<98,5,6))
+	vag[i]=1+dickd[fi]&sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100
+	guy[i]+=1&girl[fi]+=1&sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i&a_vag_lon[fi]=100&p_vag_lon[i]=100&husband[i]=fi&husband[fi]=i
+end
+if tipe=2:
+	preage=rand(35,45)&gs'rivmale_gen'&$famili_surname=$gensurname_f
+	$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
+	e_world[]=i&walkprog[i]=26&workrand=rand(1,100)&work[i]=iif(workrand<=70,4,iif(workrand>70 and workrand<98,5,6))
+	fi=i
+	preage=rand(35,45)&pretipename=nation[fi]&gs'rivfemale_gen'&$surname[i]=$famili_surname
+	e_world[]=i&walkprog[i]=26&workrand=rand(1,100)&work[i]=iif(workrand<=70,4,iif(workrand>70 and workrand<98,5,6))
+	vag[i]=1+dickd[fi]&sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100
+	guy[i]+=1&girl[fi]+=1&sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i&a_vag_lon[fi]=100&p_vag_lon[i]=100&husband[i]=fi&husband[fi]=i
+	ma=i
+	preage=18&pretipename=nation[fi]&polrand=rand(1,10)
+	if polrand<=6:pol[i]=0&gs'rivmale_gen'&$surname[i]=$surname[fi]
+	if polrand>6:pol[i]=1&gs'rivfemale_gen'&$surname[i]=$surname[ma]
+	e_world[]=i&walkprog[i]=26&work[i]=100&kid_first[fi]=i&kid_first[ma]=i&father[i]=fi&mother[i]=ma
+end
+if tipe=3:
+	preage=rand(35,45)&gs'rivmale_gen'&$famili_surname=$gensurname_f
+	$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
+	e_world[]=i&walkprog[i]=26&work[i]=iif(rand(1,100)<=70,4,5)
+	fi=i
+	preage=rand(35,45)&pretipename=nation[fi]&gs'rivfemale_gen'&$surname[i]=$famili_surname
+	e_world[]=i&walkprog[i]=26&work[i]=iif(rand(1,100)<=70,4,5)
+	vag[i]=1+dickd[fi]&sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100
+	guy[i]+=1&girl[fi]+=1&sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i&a_vag_lon[fi]=100&p_vag_lon[i]=100&husband[i]=fi&husband[fi]=i
+	ma=i
+	preage=18&pretipename=nation[fi]&polrand=rand(1,10)
+	if polrand<=6:pol[i]=0&gs'rivmale_gen'&$surname[i]=$surname[fi]
+	if polrand>6:pol[i]=1&gs'rivfemale_gen'&$surname[i]=$surname[ma]
+	e_world[]=i&walkprog[i]=26&work[i]=100&kid_first[fi]=i&kid_first[ma]=i&father[i]=fi&mother[i]=ma
+	eld=i
+	preage=18&pretipename=nation[fi]&polrand=rand(1,10)
+	if polrand<=6:pol[i]=0&gs'rivmale_gen'&$surname[i]=$surname[fi]
+	if polrand>6:pol[i]=1&gs'rivfemale_gen'&$surname[i]=$surname[ma]
+	e_world[]=i&walkprog[i]=26&work[i]=100&father[i]=fi&mother[i]=ma&kid_second[fi]=i&kid_second[ma]=i&brother[eld]=i&brother[i]=eld
+end

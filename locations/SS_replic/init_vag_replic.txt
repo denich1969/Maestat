@@ -1,0 +1,41 @@
+﻿killvar('replic_vag_default_before')
+$replic_vag_default_before[]= {
+	if dickd[args[0]]>vag[args[1]]:
+		'<i><<$name[args[0]]>> - Я сейчас тебя хорошенько разработаю!</i>'
+	else
+		'<i><<$name[args[0]]>> - Какая у тебя эластичная пизда, шлюха</i>'&agro[args[1]]-=rand(1)
+	end}
+$replic_vag_default_before[]= {
+	if none_horny[1]+none_horny[3]>75:
+		'<i><<$name[args[0]]>> - Уже подходишь к финишу? Я еще не закончил с тобой!</i>'&agro[args[1]]-=rand(1)
+	else
+		'<i><<$name[args[0]]>> - Я заставлю тебя кончить сучка!</i>'&agro[args[1]]-=rand(1)
+	end}
+$replic_vag_default_before[]= {
+	if sexy_point[args[1]]>30:
+		'<i><<$name[args[0]]>> - У тебя тело настоящей шлюхи!</i>'&agro[args[1]]-=rand(1)
+	else
+		!'<i><<$name[args[0]]>> - Тебе нужно усилить феминность если хочешь, чтоб тебя ругулярно ебали!</i>'&agro[args[1]]-=rand(1)
+	end}
+$replic_vag_default_before[]= {
+	if dickd[args[0]]>40:
+		'<i><<$name[args[0]]>> - Нравиться мой толстый хуй?</i>'&agro[args[1]]-=rand(1)
+	else
+		'<i><<$name[args[0]]>> - Любишь трахаться сучка?</i>'&agro[args[1]]-=rand(1)
+	end}
+killvar('replic_vag_whore_before')
+$replic_vag_whore_before[]= {
+	if fem[args[1]]>femMax*3/4:
+		'<i><<$name[args[0]]>> - Работаешь над своим телом сучка?</i>'&agro[args[1]]-=rand(1)&none_horny[3]-=agro[args[1]]/10
+	else
+		none_horny[3]-=agro[args[1]]/10&!agro[args[1]]-=rand(1)&!'<i><<$name[args[0]]>> - Тебе нужно работать над своим телом, если хочешь больше зарабатывать!</i>'
+	end}
+killvar('replic_vag_default_cum')
+$replic_vag_default_cum[]= {'<i><<$name[args[0]]>> - Похотливая шлюха должна станать от удовольствия, когда ее ебут! </i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_vag_default_cum[]= {'<i><<$name[args[0]]>> - Нравиться как я тебя трахаю сучка?</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_vag_default_cum[]= {'<i><<$name[args[0]]>> - Я приучу твою киску к моему хую!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_vag_default_cum[]= {'<i><<$name[args[0]]>> - Я сделаю тебя настоящей похотливой шлюхой!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+killvar('replic_vagcum_default_before')&killvar('replic_vagcum_default_cum')
+$replic_vagcum_default_cum[]= {'<i><<$name[args[0]]>> - Ох детка я на пределе, ты охрененная сучка для случки!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}
+$replic_vagcum_default_cum[]= {'<i><<$name[args[0]]>> - Ты рождена, для траха!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}
+$replic_vagcum_default_cum[]= {'<i><<$name[args[0]]>> - Я сейчас кончу!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}

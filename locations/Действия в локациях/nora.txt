@@ -1,0 +1,16 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Глубокая и широкая дыра в земле дна которой не видно'
+if mic_road['<<$loc[you]>>']>0:
+	curoad=mic_road['<<$loc[you]>>']&'Мицелиевая дорога готова на <<curoad>>%'
+     if curoad>=100:
+		 act'Прыгнуть в нору':
+			 mushfairy[you]+=1&X[you]=3&Y[you]=1&Z[you]=4&H[you]=0&
+			 cls&gs'stat'&'Вы прыгнули в нору и слились с мицелием, который словно бурный поток подхватил вас и в глазах потемнело'&act'Осмотреться':gt'preloc'
+		 end
+     end
+end
+if spore[you]>0 and mic_road['<<$loc[you]>>']<100:
+	'Это не просто дыра, это тоннель, по которому можно пройтись, если выстроить дорожку из мицелия'
+     act'Посеять спору':spore[you]-=1&mic_road['<<$loc[you]>>']+=5&cls&gt $curloc
+     if rune_spore[you]>0:act'Грибная руна':mic_road['<<$loc[you]>>']+=100&cls&gt $curloc
+end
+gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'

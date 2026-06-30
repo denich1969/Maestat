@@ -1,0 +1,15 @@
+﻿healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=100&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(3,6)&maxuron[i]=rand(8,15)
+soul[you]+=5&mobexp[i]=5&picture[i]=rand(4,10)
+agro[i]=0&lowered[i]=you&!X=rand(1,9)&Y=rand(1,9)&X[i]=X&Y[i]=Y&Z[i]=0&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if sexpartner[npc]=0:sexpartner[npc]=1&girl[you]+=1
+vag[i]=40&reflex[i]=rand(30,40)&horny[you]=0&gs'stat'
+if dick[you]>1:
+	manize[you]+=5&avagsex[you]+=1&'<center><video src="pic/sex/rape/forced.webm" ></video></center>'&'Девушка плачет и умоляет вас отпустить ее'
+	'Вы ставите девушку раком и начинаете ее со всей яростью ебать, делая из нее беспомощную шлюху.'
+	'Жестко оттрахав девушку вы кончаете в ее пизду. И встаете на ноги над плачущей девушкой, которая теперь будет шлюхой.'
+else
+	lesb[you]+=1&'<center><video src="pic/sex/rape/fisting.webm" ></video></center>'&'Девушка плачет и умоляет вас отпустить ее'
+	'Вы засовываете кулак во влагалище девушки и начинаете жестоко ее трахать, делая из нее беспомощную и униженную шлюху.'
+	'Когда вам надоедает и вы устаете, вы вытаскиваете руку и встаете на ноги оставляя девушку плакать над ее новой долей шлюхи.'
+end
+act'Встать':gt 'preloc'

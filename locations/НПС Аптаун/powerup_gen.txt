@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&powerup=i
+lvl[i]=1&soul[i]=500&work[i]=26&subwork[i]=100
+master[i]=0&delusion[i]=0&magik[i]=10&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=110
+$title[i]=''&$history[i]='Я лучший повар города, слышали наверное про повара из Жилмассива Гигеркрафта? Так вот он мой ученик!'
+$name[i]='Томас'&$surname[i]='Пауэр'&$nick[i]='Огромный мужик'
+face[i]=20&gla[i]=0&glacol[i]=2&nose[i]=0
+dick[i]=21&dickd[i]=40&ball[i]=60&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
+rost[i]=210&fat[i]=3000&mus[i]=2000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&eg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=20&hcol[i]=2
+age[i]=50&vital[i]=400&will[i]=50&reflex[i]=100
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=80&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=1&lust[i]=100&!характер
+h_slot[i]=0
+t_slot[i]=76&l_slot[i]=7&b_slot[i]=5
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+se_world[]=i&walkprog[i]=70
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

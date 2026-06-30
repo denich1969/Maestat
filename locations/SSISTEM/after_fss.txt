@@ -1,0 +1,50 @@
+﻿horny[npc]=0&target_soul=2&gs'soulcraft',2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+if lebeda_seed[you]>0:lebeda_seed[npc]+=1
+if lebeda_seed[npc]>0:lebeda_seed[you]+=1
+if cocksucking>0:cocksucking=0
+my_last_fucker[you]=npc&last_fuck_time[you]=time&gs'add_sex_stat', you, npc&if ball[npc]>100:ball[npc]=100
+koefball[npc]=11-(ball[npc]/10)
+if empty_ball[npc]<=time:
+	empty_ball[npc]=time+(60*koefball[npc])
+else
+	empty_ball[npc]+=(60*koefball[npc])
+end
+if temp_ahj>0:hj_mass['<<npc>>,<<you>>']+=1&hj[you]+=1&ahj[npc]+=1&!p_bj['<<npc>>,<<you>>']+=1
+temp_ahj=0
+if temp_blow_fss>0:bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1&!p_bj['<<npc>>,<<you>>']+=1
+temp_blow_fss=0
+if temp_vag_fss>0:vag_mass['<<npc>>,<<you>>']+=1&vagsex[you]+=1&avagsex[npc]+=1& !p_vag['<<npc>>,<<you>>']+=1
+temp_vag_fss=0
+if temp_anal_fss>0:anal_mass['<<npc>>,<<you>>']+=1&anal[you]+=1&aanal[npc]+=1&!p_anal['<<npc>>,<<you>>']+=1
+temp_anal_fss=0&temp_dirt_cock[npc]=0
+$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[you]>> <<$surname[you]>> занимались сексом.'
+$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[npc]>> <<$surname[npc]>> занимались сексом.'
+in_fight=0&in_sex=0
+if grief=npc:
+	oral_fixation[you]+=1
+	 if sexpartner['<<npc>>,<<you>>']=1:
+		 if back_t[you]=0:
+			 backtattoo_grief+=1&grief_brand[you]+=1&if magik[grief]<35:magik[grief]+=1
+			 if backtattoo_grief>6:backtattoo_grief=1
+			 if backtattoo_grief=1:back_t[you]=5
+			 if backtattoo_grief=2:back_t[you]=6
+			 if backtattoo_grief=3:back_t[you]=7
+			 if backtattoo_grief=4:back_t[you]=8
+			 if backtattoo_grief=5:back_t[you]=9
+			 if backtattoo_grief=6:back_t[you]=10
+		 end
+	 end
+	 if sexpartner['<<npc>>,<<you>>']=2:
+		 if r_ass_t[you]=0:
+			 r_ass_t[you]=1&grief_brand[you]+=1&if magik[grief]<35:magik[grief]+=1
+		 end
+	 end
+	 if sexpartner['<<npc>>,<<you>>']>2 and (piss_mass['<<npc>>,<<you>>']>0 or CONFIG['DISABLE_PEE']=1):
+		 if l_hand_t[you]=0:
+			 l_hand_t[you]=1&total_branded_slut[grief]+=1&grief_brand[you]+=1&if magik[grief]<35:magik[grief]+=1
+		 end
+	 end
+end
+if demon_dick[you]>0:gs'get_soul_loc',you,demon_dick[you],you
+if demon_dick[npc]>0:gs'get_soul_loc',npc,demon_dick[npc],you
+gs'sex_func','deleteScene',in_sex[you]&gs'drop_follower'&gt'preloc'

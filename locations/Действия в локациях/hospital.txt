@@ -1,0 +1,9 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Стойка на регистратуре'&gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'
+if work[you]=6:
+	 if week<6:
+		 if hour>=7 and hour<=9:act'Работать':cls&gt'hospital_work'
+	 else
+		'Сейчас выходной день'
+	 end
+end

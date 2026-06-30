@@ -1,0 +1,46 @@
+﻿gs'stat'&'Стойка таверны'
+gs'Item'&pl''
+gs 'npconloc'&pl''
+act'Уйти':gt 'preloc'
+'Рыба - 50 гульденов'
+'Мясо - 50 гульденов'
+'Пиво - 50 гульденов'
+'Полотенце - 10 гульденов'
+if gulden[you]>=2000:
+	 act'Поесть за 20 гульденов':
+		 gulden[you]-=20&time+=5&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и взяли тарелку каши с жареной рыбой.'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+ if gulden[you]>=1000:
+	 act'Купить полотенце 10':
+		 gulden[you]-=10&item[20]+=1&burden[you]+=item_burden[20]&cls&gs'stat'&'Вы заплатили деньги и купили полотенце'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+ if gulden[you]>=5000:
+	 act'Купить рыбу 50':
+		 gulden[you]-=50&item[61]+=1&burden[you]+=item_burden[61]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Купить мясо 50':
+		 gulden[you]-=5000&item[62]+=1&burden[you]+=item_burden[62]&cls&gs'stat'&'Вы заплатили деньги и купили мясо'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Купить пиво 50':
+		 gulden[you]-=5000&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+ end
+ if energy[you]>=5000 and pose[you]=1 and tabernpolday!daystart and h_slot[you]!2:
+	 act'Мыть полы в трактире за деньги':
+		 gulden[you]+=10000
+		 tabernpolday=daystart
+		 if fat[you]>10:fat[you]-=1
+		 if fat[you]>100:fat[you]-=2
+		 if fat[you]>500:fat[you]-=3
+		 if fat[you]>1000:fat[you]-=4
+		 if fat[you]>1500:fat[you]-=5
+		 if fat[you]>2000:fat[you]-=6
+		 if fat[you]>2500:fat[you]-=7
+		 if fat[you]>3000:fat[you]-=8
+		 energy[you]-=50&mus[you]+=1&sportiv[you]+=1
+		 time+=60&cls&gs'walker'&gs'stat'&'Вы целый час оттираете полы в трактире и получаете за работу 100 гульденов.'
+		 act'...':gt $curloc
+	 end
+ end

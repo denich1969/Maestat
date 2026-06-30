@@ -1,0 +1,6 @@
+﻿if plug[you]>0:
+	in_sex_remoove=plug[you]&!Новое
+	if plug[you]=1:item[130]+=1
+	if plug[you]=2:item[129]+=1
+	plug[you]=0&'<<$name[npc]>> вытаскивает из вашей попы затычку'
+end

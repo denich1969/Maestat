@@ -1,0 +1,27 @@
+﻿gs'stat'&'Грибная поляна.'&!'<center><img src="pic/loc/ras/malin.jpg" ></center>'
+if last_mushroom['<<$loc[you]>>']=0 and day_mushroom['<<$loc[you]>>']!daystart:last_mushroom['<<$loc[you]>>']=rand(0,1)&day_mushroom['<<$loc[you]>>']=daystart
+if last_mushroom['<<$loc[you]>>']>0:
+	'Сквозь траву виднеются грибы'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		act'Срезать гриб':item_loc['97,<<$loc[you]>>']+=1&time+=5&last_mushroom['<<$loc[you]>>']=0&'вы быстро срезаете гриб, на который случайно наткнулись, не получая никакого опыта'
+		act'Собирать грибы':
+			time+=30&cls&gs'walker'&gs'stat'&last_mushroom['<<$loc[you]>>']=0&item_loc['97,<<$loc[you]>>']+=max(10,5*lvltravnik[you])&day_mushroom['<<$loc[you]>>']=daystart
+			"В течение получаса вы собирали грибы и собрали <<item_loc['97,<<$loc[you]>>']>> порций"&mushroomnum=item_loc['97,<<$loc[you]>>']+item['97']
+			 'Всего у вас <<mushroomnum>> грибов'
+			 if fat[you]>10:fat[you]-=1
+			 if fat[you]>100:fat[you]-=1
+			 if fat[you]>500:fat[you]-=2
+			 if fat[you]>1000:fat[you]-=2
+			 if fat[you]>1500:fat[you]-=3
+			 if fat[you]>2000:fat[you]-=3
+			 if fat[you]>2500:fat[you]-=4
+			 if fat[you]>3000:fat[you]-=4
+			exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'
+			if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
+			sweat[you]+=2&gt $curloc
+		end
+	 end
+else
+	'На поляне и в подлеске нет грибов'
+end
+gs'Item'&*pl''&gs 'npconloc'&killvar 'mushroomnum'&act'Завершить':gt 'world'

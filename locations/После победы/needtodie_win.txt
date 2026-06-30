@@ -1,0 +1,11 @@
+﻿gs'stat'
+X[npc]=2
+Y[npc]=3
+Z[npc]=1
+H[npc]=0
+R[npc]=0
+dead[npc]=2
+BlackRoseQW[you]=16
+murderer[you]+=1
+'<<$name[npc]>> стонет умирая - За что?'
+act'Уйти':gt'preloc'

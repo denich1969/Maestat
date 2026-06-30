@@ -1,0 +1,127 @@
+﻿$d_border={
+	Znow=Z[you]&Zgo=d_border_way['<<$loc[you]>>']
+	onlyonewalk=0
+	if key_power_wall[you]>0:power_wall['<<$loc[you]>>']=0
+	if master[you]>0:power_wall['<<$loc[you]>>']=0
+     if power_wall['<<$loc[you]>>']>0:
+		 if power_wallQW[you]=0:power_wallQW[you]=1
+		 cls&gs'stat'&'Невидимая стена неожиданно отпихивает вас обратно'&act'Ой!':gt'preloc'
+     else 
+		 if X[you]=Xmax[Znow] and onlyonewalk=0:onlyonewalk=1&Xgo=0&Ygo=Y[you]
+		 if X[you]=0 and onlyonewalk=0:onlyonewalk=1&Xgo=Xmax[Zgo]&Ygo=Y[you]
+		 if Y[you]=Ymax[Znow] and onlyonewalk=0:onlyonewalk=1&Xgo=X[you]&Ygo=0
+		 if Y[you]=0 and onlyonewalk=0:onlyonewalk=1&Xgo=X[you]&Ygo=Ymax[Zgo]
+		onlyonewalk=0
+		 if $locname['<<Xgo>>,<<Ygo>>,<<Zgo>>,0,0']!'':
+			gt'move',Xgo,Ygo,Zgo
+		 else
+			gt'preloc'
+		 end
+     end
+}
+$d_move={gt'move',Xgo,Ygo,Z[you]}
+Xgo=X[you]&Ygo=Y[you]&Z=Z[you]
+$d_go_nord={Ygo=Y[you]+1}&$d_go_suid={Ygo=Y[you]-1}&$d_go_west={Xgo=X[you]-1}&$d_go_east={Xgo=X[you]+1}
+$nord=''&$wnord=''&$enord=''&$west=''&$east=''&$suid=''&$wsuid=''&$esuid=''
+if n_wall['<<$loc[you]>>']=0 and s_wall['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']>0:n_wall['<<$loc[you]>>']=1&$n_wall['<<$loc[you]>>']=$wall_name['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']
+if s_wall['<<$loc[you]>>']=0 and n_wall['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']>0:s_wall['<<$loc[you]>>']=1&$s_wall['<<$loc[you]>>']=$wall_name['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']
+if e_wall['<<$loc[you]>>']=0 and w_wall['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']>0:e_wall['<<$loc[you]>>']=1&$e_wall['<<$loc[you]>>']=$wall_name['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']
+if w_wall['<<$loc[you]>>']=0 and e_wall['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']>0:w_wall['<<$loc[you]>>']=1&$w_wall['<<$loc[you]>>']=$wall_name['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']
+	 if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']!'' and n_wall['<<$loc[you]>>']=0:
+		$nord = "<a href='exec: dynamic $d_go_nord & dynamic $d_move'><<$lname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']>></a>"
+	 end
+	 if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']='':
+		 if d_border_way['<<$loc[you]>>']=0: 
+			$nord = "<<$n_board[Z]>>"&!$nord = "Север"
+		 else
+			$nord = "<a href='exec: dynamic $d_border '><<$n_board[Z]>></a> "
+		 end
+	 end
+	 if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']!'' and n_wall['<<$loc[you]>>']>0:$nord = "<<$n_wall['<<$loc[you]>>']>>"
+	 if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and w_wall['<<$loc[you]>>']=0:
+		$west = "<a href='exec: dynamic $d_go_west & dynamic $d_move '><<$lname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']>></a>"
+	 end
+	 if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']='':
+		 if d_border_way['<<$loc[you]>>']=0: 
+			$west = "<<$w_board[Z]>>"&!$west = "Запад"
+		 else
+			$west = "<a href='exec: dynamic $d_border '><<$w_board[Z]>></a> "
+		 end
+	 end
+	 if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and w_wall['<<$loc[you]>>']>0:$west = "<<$w_wall['<<$loc[you]>>']>>"
+	 if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and e_wall['<<$loc[you]>>']=0:
+		$east = "<a href='exec: dynamic $d_go_east & dynamic $d_move '><<$lname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']>></a>"
+	 end
+	 if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']='':
+		 if d_border_way['<<$loc[you]>>']=0: 
+			$east = "<<$e_board[Z]>>"&!$east = "Восток"
+		 else
+			$east = "<a href='exec: dynamic $d_border '><<$e_board[Z]>></a> "
+		 end
+	 end
+	 if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and e_wall['<<$loc[you]>>']>0:$east = "<<$e_wall['<<$loc[you]>>']>>"
+	 if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']!'' and s_wall['<<$loc[you]>>']=0:
+		$suid = "<a href='exec: dynamic $d_go_suid & dynamic $d_move '><<$lname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']>></a>"
+	 end
+	 if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']='':
+		 if d_border_way['<<$loc[you]>>']=0: 
+			$suid = "<<$s_board[Z]>>"&!$suid = "Юг"
+		 else
+			$suid = "<a href='exec: dynamic $d_border '><<$s_board[Z]>></a> "
+		 end
+	 end
+	 if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']!'' and s_wall['<<$loc[you]>>']>0:$suid = "<<$s_wall['<<$loc[you]>>']>>"
+ !'	 if $locname['<<X[you]-1>>,<<Y[you]+1>>,<<Z[you]>>']!'':
+		$wnord = "<a href='exec: dynamic $d_go_nord & dynamic $d_go_west & dynamic $d_move '><<$lname['<<X[you]-1>>,<<Y[you]+1>>,<<Z[you]>>']>></a> "
+	 else
+		$wnord = "Море"&!$wnord = "С-З"
+	 end
+	 if $locname['<<X[you]+1>>,<<Y[you]+1>>,<<Z[you]>>']!'':
+		$enord = "<a href='exec: dynamic $d_go_nord & dynamic $d_go_east & dynamic $d_move '><<$lname['<<X[you]+1>>,<<Y[you]+1>>,<<Z[you]>>']>></a> "
+	 else
+		$enord = "Море"&!$enord = "С-В"
+	 end
+	 if $locname['<<X[you]-1>>,<<Y[you]-1>>,<<Z[you]>>']!'':
+		$wsuid = "<a href='exec: dynamic $d_go_suid & dynamic $d_go_west & dynamic $d_move '><<$lname['<<X[you]-1>>,<<Y[you]-1>>,<<Z[you]>>']>></a> "
+	 else
+		$wsuid = "Море"&!$wsuid = "Ю-З"
+	 end
+	 if $locname['<<X[you]+1>>,<<Y[you]-1>>,<<Z[you]>>']!'':
+		$esuid = "<a href='exec: dynamic $d_go_suid & dynamic $d_go_east & dynamic $d_move '><<$lname['<<X[you]+1>>,<<Y[you]-1>>,<<Z[you]>>']>></a> "
+	 else
+		$esuid = "Море"&!$esuid = "Ю-В"
+	 end'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if H[you]=0:
+	if busy[you]=0:
+		 if (pose[you]=1 and CONFIG['DISABLE_position']=0) or CONFIG['DISABLE_position']=1:
+			 if energy[you]>0:
+			! '<center><b><<$wnord>>  <<$nord>>  <<$enord>></b></center>'
+			 !'<center><b><<$west>>--+--<<$east>></b></center>'
+			 !'<center><b><<$wsuid>>   <<$suid>>   <<$esuid>></b></center>'
+			 *p '<b><table width=100% align=center cellspacing=0 cellpadding=0><tr>'
+			 *p '<td width=50% align=right><<$wnord>></td>'
+			 *p '<td width=10 nowrap style="white-space:nowrap;"> <<$nord>> </td>'
+			 *p '<td width=50% align=left><<$enord>></td>'
+			 *p '</tr></table></b>'
+			 *p '<b><table width=100% align=center cellspacing=0 cellpadding=0><tr>'
+			 *p '<td width=50% align=right><<$west>></td>'
+			 *p '<td width=10 nowrap style="white-space:nowrap;"> --+-- </td>'
+			 *p '<td width=50% align=left><<$east>></td>'
+			 *p '</tr></table></b>'
+			 *p '<b><table width=100% align=center cellspacing=0 cellpadding=0><tr>'
+			 *p '<td width=50% align=right><<$wsuid>></td>'
+			 *p '<td width=10 nowrap style="white-space:nowrap;"> <<$suid>> </td>'
+			 *p '<td width=50% align=left><<$esuid>></td>'
+			 *p '</tr></table></b>'			 
+			 if portal[you]>0:'На руке у вас <a href="exec:time+=5&gt ''portal''">Портальная машинка</a> выглядящая как часы'
+			 if mlev[you]>=5 and mana[you]>=500 and badworld[myZ]=0 and Z[you]!11:'<a href="exec:time+=5&gt ''mgla''">Уйти во мглу</a>'
+			 else
+				'<center><b>Вы слишком устали.</b></center>'
+			 end
+		 end
+		 if pose[you]>1 and CONFIG['DISABLE_position']=0:'<center><b>Нужно встать на ноги, чтобы передвигаться.</b></center>'
+	else
+		'<center><b>Вы заняты.</b></center>'
+	end
+end

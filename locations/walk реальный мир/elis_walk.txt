@@ -1,0 +1,42 @@
+﻿!rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'&if mob_busy[w]>0:mob_sleep[w]=time+60&mob_busy[w]=0
+else
+    if hour>=22 or hour<=6:
+		 !спит
+	else
+		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			if hour>=7 and hour<=22:
+				tempde=rand(0,10)&event_loc[i]=0
+				if lust[i]>=50:
+					randomelis=rand(1,10)&if $loc[mech]='home_0' and mech_elis_today!daystart and randomelis>=4:event_loc[i]=1
+				end
+				if event_loc[i]=2:event_loc[i]=0
+				if lust[i]>=50 and lillith_event['dom']=1 and lillith_event['clap_curent']=0:
+					if $loc[lillith] = $loc[i]:
+						event_loc[i]=2&if agro[i]>0:agro[i]-=1
+						lust[i]+=3&throat[i]+=3&horny[lillith]=0
+					end
+				end
+				if event_loc[i]=1:$doing[i]='подметает'&$loc[i]='home_0'
+				if event_loc[i]=0:
+					if tempde=0:$doing[i]='гуляет'&$loc[i]='isle'
+					if tempde=1:&$doing[i]='подметает'&$loc[i]='home_0'
+					if tempde=2:$doing[i]='моет посуду'&$loc[i]='home_1'
+					if tempde=3:$doing[i]='убирается'&$loc[i]='home_2'
+					if tempde=4:$doing[i]='убирается'&$loc[i]='home_3'
+					if tempde=5:$doing[i]='убирается'&$loc[i]='home_4'
+					if tempde=6:$doing[i]='убирается'&$loc[i]='home_5'
+					if tempde=7:$doing[i]='убирается'&$loc[i]='home_6'
+					if tempde=8:$doing[i]='убирается'&$loc[i]='home_7'
+					if tempde=9:$doing[i]='убирается'&$loc[i]='home_8'
+					if tempde=10:$doing[i]='убирается'&$loc[i]='home_9'
+				end
+			else
+			$doing[i]='спит на кровати'&$loc[i]='home_5'
+			end
+		else
+			$doing[i]=''&$loc[i]='vill_w_house'
+		end
+	end
+end

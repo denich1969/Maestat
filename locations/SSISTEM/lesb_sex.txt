@@ -1,0 +1,43 @@
+﻿$d_fingering_lesb={
+	 act'Трахнуть пальцами':
+		 if agro[npc]>0:agro[npc]-=1
+		 cls&gs'stat'&'<center><video src="pic/sex/lesb/finger<<rand(0,1)>>.webm" ></video></center>'
+	     if vag[npc]<40:
+			 'Засунув пальцы в вагину своей подруги, вы начали ее ебать рукой, от чего <<$name[npc]>> быстро завелась и кончила.'&act'Уйти':gt 'after_lesb_sex'
+	     else
+			'Вагина достаточно просторная и с легкостью поглощает ваши пальцы'
+	     	 act'Фистить':
+				 if agro[npc]>0:agro[npc]-=1
+				 cls&gs'stat'&'<center><video src="pic/sex/lesb/fisting0.webm" ></video></center>'&'<<$name[npc]>> стонет когда вы трахаете ее пизду своей рукой и вскоре девушка кончает содрогается в оргазме.'
+				 act'Уйти':gt 'after_lesb_sex'
+			 end
+	     end
+	 end
+}
+$d_lick_lesb={
+	 act'Вылизать':
+		cuntlick[you]+=1&horny[you]=0&if superslut[you]!1:health[you]+=50&energy[you]+=100
+		 lust[npc]+=1&cls&gs'stat'&'<center><video src="pic/sex/lesb/<<rand(0,2)>>.webm" ></video></center>'&!if manamax[you]>0:mana[you]+=soul[you]
+		 '<<$name[npc]>> стонет когда вы вылизываете ее мокрое и горячее влагалище и вскоре девушка кончает содрогаясь в оргазме.'&act'Уйти':gt 'after_lesb_sex'
+	 end
+}
+'<center><video src="pic/sex/lesb/kiss0.webm" ></video></center>'
+'<<$name[npc]>> приблизила свое лицо к вашему и вы начали целоваться при этом вы наглаживали женское тело своей подруги и она не оставаясь в долгу ласкала вас'
+act'Раздеваться':
+	cls&gs'stat'&'<center><video src="pic/sex/lesb/kiss_nude.webm" ></video></center>'&'<<$name[npc]>> и вы разделись продолжая страстно ласкать друг друга и целоваться'
+    if dom[you]>=agro[npc]:
+		 act'Сесть на лицо':
+			cuntlick[npc]+=1&horny[you]=0&health[you]+=50&energy[you]+=100&!if manamax[you]>0:mana[you]+=soul[you]
+			cls&gs'stat'&'<center><video src="pic/sex/facesitwoman/<<rand(0,16)>>.webm" ></video></center>'&'Вы сели на лицо и заставили ее отлизать у вас, вскоре вы кончили.'&act'Уйти':gt 'after_lesb_sex'
+			dynamic $d_fingering_lesb
+			dynamic $d_lick_lesb
+		end
+	end 
+	act'Вылижи у меня':
+		cuntlick[npc]+=1&horny[you]=0&health[you]+=50&energy[you]+=100&!if manamax[you]>0:mana[you]+=soul[you]
+		cls&gs'stat'&'<center><video src="pic/sex/lesb/<<rand(0,5)>>.webm" ></video></center>'&'Вы раздвинули ноги и <<$name[npc]>> уткнувшись носом вам в лобок, начала вам вылизывать, вскоре вы кончили.'
+		act'Уйти':gt 'after_lesb_sex'
+		dynamic $d_fingering_lesb
+		dynamic $d_lick_lesb
+	end
+end

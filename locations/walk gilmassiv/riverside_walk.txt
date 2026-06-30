@@ -1,0 +1,187 @@
+﻿rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+     if hour>=22 or hour<=6:
+         if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			$think[w]='думает о всякой фигне'&!спит дома
+         else
+			 $destination[w]='дом'&gs'destination'
+			 $think[w]='хочет домой'&gs'walk_dest'&!вне дома
+         end
+     else
+		$think[w]='думает о том что хватит спать'
+         if week<6:
+			 if work[w]=4:
+				 if hour>=7 and hour<=16:
+					$think[w]='думает о работе'
+				     if subwork[w]=0:$destination[w]='машзавод'
+				     if subwork[w]>0:$destination[w]='машзавод офис'
+				 end
+			 end
+			 if work[w]=5:
+				 if hour>=7 and hour<=16:
+					$think[w]='думает о работе'
+				     if subwork[w]=0:$destination[w]='электростанция'
+				     if subwork[w]>0:$destination[w]='электростанция офис'
+				 end
+			 end
+			 if work[w]=6:
+				 if hour>=7 and hour<=16:
+					 $think[w]='думает о работе'
+					 tipe=rand(0,5)
+					 if w=mother:tipe=0
+					 if tipe=0:$destination[w]='больница'
+					 if tipe=1:$destination[w]='ординаторская'
+					 if tipe=2:$destination[w]='процедурная'
+					 if tipe=3:$destination[w]='лаборатория'
+					 if tipe=4:$destination[w]='операционная'
+					 if tipe=5:$destination[w]='палата'
+				 end
+			 end
+			 if work[w]=7:
+				 if hour>=7 and hour<=16:
+					 $think[w]='думает о работе'
+					 tipe=rand(0,4)
+					 if subwork[w]>0:$destination[w]='адд директор'
+					 if tipe=0:$destination[w]='агентство'
+					 if tipe=1:$destination[w]='адд директор'
+					 if tipe=2:$destination[w]='адд офис'
+					 if tipe=3:$destination[w]='адд архив'
+					 if tipe=4:$destination[w]='адд спорт'
+				 end
+			 end
+			 if work[w]=8:
+				 if hour>=7 and hour<=16:
+					 $think[w]='думает о работе'
+					 tipe=rand(0,3)
+					 if tipe=0:$destination[w]='раздевалка'
+					 if tipe=1:$destination[w]='спорт'
+					 if tipe=2:$destination[w]='спорт'
+					 if tipe=3:$destination[w]='спорт'
+				 end
+			 end
+		     if work[w]=9 and hour>=7 and hour<=18:$destination[w]='богарт<<rand(6)>>'&$think[w]='думает о работе'&!слуги богартов
+		     if work[w]=10 and hour>=7 and hour<=18:$destination[w]='сладков<<rand(6)>>'&$think[w]='думает о работе'&!слуги сладковых
+		     if work[w]=11 and hour>=7 and hour<=18:$destination[w]='телебашня студия'&$think[w]='думает о работе'&!телевиденье
+			 if work[w]=100:
+				 if hour>=7 and hour<=16:
+					 if klass[w]=0:
+						 if klass_A<30:klass_A+=1&klass[w]=1
+						 if klass_A>=30 and klass[w]=0:
+							 if klass_B<30:klass_B+=1&klass[w]=2
+							 if klass_B>=30 and klass[w]=0:klass_C+=1&klass[w]=3
+						 end
+					 end 
+					 $think[w]='думает об учебе'
+					 if klass[w]=0:$destination[w]='школа'
+					 if klass[w]=1:$destination[w]='класс а'
+					 if klass[w]=2:$destination[w]='класс б'
+					 if klass[w]=3:$destination[w]='класс с'
+				 end
+			 end
+			 if work[w]=0:
+				 if hour>=7 and hour<=12:
+					 if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=rand(0,3)
+					 if wantutrodayloc[w]=0:$think[w]='думает о выпивке'&$destination[w]='прогулка'
+					 if wantutrodayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='универсам'
+					 if wantutrodayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='сауна кафе'
+					 if wantutrodayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='спорт'
+				 end
+				 if hour>=13 and hour<=16:
+					 if wantmidday[w]!daystart:wantmidday[w]=daystart&wantmiddayloc[w]=rand(0,3)
+					 if wantmiddayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='прогулка'
+					 if wantmiddayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='универсам'
+					 if wantmiddayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='сауна кафе'
+					 if wantmiddayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='спорт'
+				 end
+			 end
+         else
+			 if hour>=7 and hour<=12:
+				 if wantutroday[w]!daystart:
+					 wantutroday[w]=daystart
+					 wantutrodayloc[w]=rand(0,4)
+					 if work[w]=8:wantutrodayloc[w]=3
+				 end
+				 if wantutrodayloc[w]=0:$think[w]='думает о выпивке'&$destination[w]='прогулка'
+				 if wantutrodayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='универсам'
+				 if wantutrodayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='сауна кафе'
+				 if wantutrodayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='спорт'
+				 if wantutrodayloc[w]=4:
+					 $think[w]='думает о выпивке'
+					 if pol[w]>0:$destination[w]='салон красоты'
+					 if pol[w]=0:$destination[w]='бильярдная'
+				 end
+				 if whore[w]>0 and whoreboss[w]=bocman:$destination[w]='каторга'
+			 end
+			 if hour>=13 and hour<=16:
+				 if wantmidday[w]!daystart:
+					 wantmidday[w]=daystart
+					 wantmiddayloc[w]=rand(0,4)
+					 if work[w]=8:wantmiddayloc[w]=3
+				 end
+				 if wantmiddayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='прогулка'
+				 if wantmiddayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='универсам'
+				 if wantmiddayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='сауна кафе'
+				 if wantmiddayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='спорт'
+				 if wantmiddayloc[w]=4:
+					 $think[w]='думает о выпивке'
+					 if pol[w]>0:$destination[w]='салон красоты'
+					 if pol[w]=0:$destination[w]='бильярдная'
+				 end
+				 if whore[w]>0 and whoreboss[w]=bocman:$destination[w]='каторга'
+			 end
+         end
+         if hour>=17:
+             if wantday[w]!daystart:
+				 wantday[w]=daystart
+				 wantdayloc[w]=rand(0,5)
+				 if work[w]=8:wantdayloc[w]=4
+				 if blackON=1 and skin[w]>3 and skin[w]<7:wantdayloc[w]=10
+             end
+             if hour>=17 and allniggadead=0 and whore[w]=0:
+				 if wantblackcock[w]>0 and hardfucked[w]!daystart:horny[w]=100&wantdayloc[w]=10&party[w]=1 &!mob_busy[w]=0!walker_cooldown[w]=0
+				 if skin[w]>3 and skin[w]<7 and blackganger[w]=1:
+				     if action_tipe[w]=0:
+						 sexperaday[w]=0
+						 agro[w]=100&lust[w]=100
+						 if horny[w]<100:horny[w]+=5
+						 wantdayloc[w]=10&want_talk[w]=1&party[w]=1&tormoza=0&!mob_busy[w]=0 !walker_cooldown[w]=0
+				     end
+				 end
+             end
+			 if wantdayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='прогулка'
+			 if wantdayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='универсам'
+			 if wantdayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='ресторан'
+			 if wantdayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='сауна кафе'
+			 if wantdayloc[w]=4:$think[w]='думает о выпивке'&$destination[w]='спорт'
+			 if wantdayloc[w]=5:
+				 $think[w]='думает о выпивке'
+				 if pol[w]>0:$destination[w]='салон красоты'
+				 if pol[w]=0:$destination[w]='бильярдная'
+			 end
+			 if wantdayloc[w]=10:$think[w]='думает о выпивке'&$destination[w]='общага'
+			 if blackON=1 and whore[w]>0 and whoreboss[w]=tbigg:$destination[w]='общага'
+			 if blackON=1 and whore[w]>0 and whoreboss[w]=mgreen:$destination[w]='общага'
+			 if blackON=1 and whore[w]>0 and whoreboss[w]=dlong:$destination[w]='общага'
+			 if whore[w]>0 and whoreboss[w]=bocman:$destination[w]='каторга'
+         end
+         if grief>0 and Z[grief]=3 and dead[grief]=0 and grief_lover[w]>0:$destination[w]='гриф'
+         if $destination[w]='прогулка':
+			 $think[w]='думает о прогулке'&gs'walk_full_rand'
+         else
+			gs'destination'
+		     if $destination[w]!'':
+				 if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+					$think[w]='думает о всякой ерунде'&!на точке назначения
+				 else
+					gs'walk_dest'&!вне точки назначения
+				 end
+			 else
+				$think[w]='думает о том чем бы заняться'
+			 end
+         end
+     end
+end

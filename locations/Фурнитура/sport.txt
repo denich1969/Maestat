@@ -1,0 +1,74 @@
+﻿if can_do_sport[you]=1:
+	 if energy[you]>=50:
+		 act'Отжиматься':
+			 energy[you]-=50&sportiv[you]+=1
+			 if pol[you]=0 and horny[you]>49:
+				mus[you]+=2&sportiv[you]+=1&horny[you]=25&if fat[you]>10:fat[you]-=1
+			 else
+				mus[you]+=1
+			 end
+			time+=5&cls&gs'stat'
+			if pol[you]>0:
+				 '<center><video src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
+			else
+				 '<center><video src="pic/misc/pushupmen<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
+			end
+			act'...':gt $curloc
+		 end
+		 if health[you]>25:
+			 act'Провести часовую тренировку':
+				 energy[you]=1&health[you]-=rand(5,10)&sportiv[you]+=5&if ass[you]>21:ass[you]-=rand(1,2)		
+				 if pol[you]=0 and horny[you]>49:
+					mus[you]+=10&sportiv[you]+=3&if fat[you]>10:fat[you]-=5
+				 else
+					mus[you]+=5
+				 end
+				 time+=65&cls&gs'stat'
+				if pol[you]>0:
+					 '<center><video src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'
+					 'Вы отжимались пока не выдохлись, но после небольшого перерыва - повторили процедуру и так 5 раз подряд, пока совсем не выбились из сил.'
+				else
+					 '<center><video src="pic/misc/pushupmen<<rand(2)>>.webm" ></video></center>'
+					 'Вы отжимались пока не выдохлись, но после небольшого перерыва - повторили процедуру и так 5 раз подряд, пока совсем не выбились из сил.'
+			    end
+				 act'...':gt $curloc
+			 end
+		 end
+	 end
+	 if energy[you]>=50:
+		 act'Упражнения на пресс':
+			 energy[you]-=50&if fat[you]>10:fat[you]-=1
+			 sportiv[you]+=1&time+=5&cls&gs'stat'
+			if pol[you]>0:'<center><video src="pic/misc/situps.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+			if pol[you]=0: '<center><video src="pic/misc/situpsmen.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+			 act'...':gt $curloc
+		 end
+	 end
+	 if energy[you]>=50:
+		act'Приседать':
+			energy[you]-=25&if fat[you]>10:fat[you]-=1
+			sportiv[you]+=1&mus[you]+=1&if ass[you]<20:ass[you]+=1
+			 if ass[you]>=20 and ass[you]<30:
+				 tempass[you]+=1&if tempass[you]>=20:tempass[you]=0&ass[you]+=1
+			 end
+			time+=5&cls&gs'stat'&!if pol[you]>0:'<center><video src="pic/misc/squat2.webm" ></video></center>'
+			if pol[you]>0:'<center><video src="pic/misc/squatdom<<rand(1)>>.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
+			if pol[you]=0:'<center><video src="pic/misc/squatdommen.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
+			act'...':gt $curloc
+		end
+	end
+	!"smartgirl
+	act'fuck_oral':gs'fuck_oral',you,slutgirl&gs'fuck_final',in_sex[you]
+	act'fuck_vag':gs'fuck_vag',you,slutgirl&gs'fuck_final',in_sex[you]
+	act'fuck_anal':gs'fuck_anal',you,slutgirl&gs'fuck_final',in_sex[you]
+	act"test 100":
+		args[10]=0
+		:test100
+			if args[10]<10000:gs'fuck_vag',you,slutgirl&gs'fuck_final',in_sex[you]
+		args[10]+=1&jump'test100'
+		gs'fuck_cum_oral',you,slutgirl&gs'fuck_final',in_sex[you]
+	end
+	act"fast fuck_oral":gs'fast_sex','fuck_oral',you,slutgirl
+	act"fast all":gs'fast_sex','all',you,slutgirl
+	act"fast minet":gs'fast_sex','minet',you,slutgirl"
+end

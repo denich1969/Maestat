@@ -1,0 +1,21 @@
+﻿if ceep=npc:gs'ceeper_talk'
+if mech=npc:gs'mech_talk'
+if kap=npc:gs'kap_talk'
+if whiteknight=npc:gs'whiteknight_talk'
+if whizard=npc:gs'whizard_talk'
+if traktirman=npc:gs'traktirman_talk'
+if miha=npc:gs'miha_talk'
+if demonboss=npc:gs'demonboss_talk'
+if katja=npc:gs'katja_talk'
+if elis=npc:gs'elis_talk'
+if belinda=npc:gs'belinda_talk'
+if lerch=npc:gs'lerch_talk'
+if lillith=npc:gs'lillith_talk'
+if $title[i]='Свободная девушка':gs'npc_freegirl'
+if know['<<you>>,<<npc>>']>0:gs'npc_talk'
+if know['<<you>>,<<npc>>']>0 and $title[npc]='Работник турагентства' and rubl[you]>=100000 and realdaystart>0:
+	act 'Отправиться в Отель на экзотическом острове':
+		rubl[you]-=100000&rubl[npc]+=100000&gs '771_world_gen'&X[you]=0&Y[you]=0&Z[you]=771&H[you]=0&R[you]=0&gt'world'&!gs '770_world_gen'&gs '772_world_gen'&gs '773_world_gen'
+	end
+end
+!if pol[npc]=1:gs'npc_freegirl'

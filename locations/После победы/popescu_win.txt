@@ -1,0 +1,21 @@
+﻿gs'stat'&'<center><img src="pic/face/5/122.jpg" ></center>'&'Вампирша обессилев пала на землю и начала умолять вас - Отпусти меня, я уйду из этого района'
+act'Живи':
+	vamireQW=3&newVampQW=1
+     husband[popescu]=0&husband[pratchet]=0
+     $surname[popescu]='Попеску'
+     $history[popescu]='Я обосновалась в Блэкберри.'
+	 Xhome[popescu]=Xhome[mabuta]&Yhome[popescu]=Yhome[mabuta]&Zhome[popescu]=Zhome[mabuta]&Hhome[popescu]=Hhome[mabuta]&Rhome[popescu]=Rhome[mabuta]
+	 ne_world[]=popescu&walkprog[popescu]=27
+	 dead[pratchet]=2&soul[popescu]+=1000
+	 $history[lagerta]='После смерти брата и исчезновения вампирши, мне приходится заниматься заводом.'
+	gt'preloc'
+end
+act'Убить':
+	magik[you]+=1&murderer[you]+=1
+	vamireQW=4
+     husband[popescu]=0&husband[pratchet]=0
+     $surname[popescu]='Попеску'
+     dead[popescu]=2&dead[pratchet]=2
+	 $history[lagerta]='После смерти брата и исчезновения вампирши, мне приходится заниматься заводом.'
+	gt'preloc'
+end

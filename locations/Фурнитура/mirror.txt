@@ -1,0 +1,660 @@
+﻿act'<b>Уйти</b>':gt 'preloc'
+if cum_skirt[you]>0 or cum_face[you]>0 or (makeup[you]=0 and pol[you]>0 and womenbrain[you]>30):
+	act'<b>Приводить себя в порядок (почиститься и накраситься)</b>':
+		cum_skirt[you]=0&cum_face[you]=0
+		if kit>0:makeup[you]=1
+		if kit=0:msg'Накраситься не получилось. Макияжа нет.'
+		time+=5&cla&gs'stat'&gt $curloc
+	end
+end
+gs'drop_follower'
+$colorSkin=$iif(skin[you]>5,"b","")
+if moon_curse_num>0:
+	 act'<b>Найти проклятую луной <<$name[moon_curse_num]>> <<$surname[moon_curse_num]>></b>':
+		 X[you]=X[moon_curse_num]&Y[you]=Y[moon_curse_num]&Z[you]=Z[moon_curse_num]&H[you]=H[moon_curse_num]&R[you]=R[moon_curse_num]&gt 'preloc'
+	 end
+end
+if master[you]>0:act'<b>Всмотреться в свои глаза</b>':gt'void'
+if master[you]=100:
+	 act'<b>Всмотреться</b>':
+		 cls&gs'stat'&'Вам доступны тайные пути среди зеркальных коридоров'
+		 act'<b>Маяк</b>':X[you]=0&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt 'preloc'
+		 act'<b>Клуб Реликт</b>':X[you]=2&Y[you]=1&Z[you]=2&H[you]=0&R[you]=0&gt 'preloc'
+		 act'<b>Улица Грез</b>':X[you]=3&Y[you]=1&Z[you]=3&H[you]=0&R[you]=0&gt 'preloc'
+		 act'<b>Аптаун</b>':X[you]=2&Y[you]=2&Z[you]=4&H[you]=0&R[you]=0&gt 'preloc'
+		 act'<b>Церковь святого Иуды</b>':X[you]=2&Y[you]=2&Z[you]=5&H[you]=0&R[you]=0&gt 'preloc'
+	 end
+end
+if master[you]=1:
+	 act'<b>Всмотреться</b>':
+		cls&gs'stat'&'Вам доступны тайные пути среди зеркальных коридоров'
+		 act'<b>Домой</b>':X[you]=3&Y[you]=3&Z[you]=0&H[you]=1&R[you]=0&gt 'preloc'
+		 act'<b>Луна</b>':X[you]=3&Y[you]=3&Z[you]=7777&H[you]=1&R[you]=1&gt 'preloc'
+		 if rememberme>0 and mana[you]>=100:
+			 act'<b>Отель у моря</b>':mana[you]-=100&X[you]=0&Y[you]=0&Z[you]=100&H[you]=0&R[you]=0&gt 'preloc'
+			 act'<b>Маяк</b>':mana[you]-=100&X[you]=0&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt 'preloc'
+			 act'<b>Клуб Реликт</b>':mana[you]-=100&X[you]=2&Y[you]=1&Z[you]=2&H[you]=0&R[you]=0&gt 'preloc'
+			 act'<b>Улица Грез</b>':mana[you]-=100&X[you]=3&Y[you]=1&Z[you]=3&H[you]=0&R[you]=0&gt 'preloc'
+			 act'<b>Аптаун</b>':mana[you]-=100&X[you]=2&Y[you]=2&Z[you]=4&H[you]=0&R[you]=0&gt 'preloc'
+			 act'<b>Церковь святого Иуды</b>':mana[you]-=100&X[you]=2&Y[you]=2&Z[you]=5&H[you]=0&R[you]=0&gt 'preloc'
+		 end
+	 end
+	 if mana[you]>=100:act'<b>Всезнание</b>':gt'allnpc'
+end
+gs'stat'&num=you&gs'body'&makeuptemp=makeup[you]&'<center><b>Зеркало</b></center>'&gs'mirror_view'&'<<$opis[you]>>'
+if whoreboss[you]=0 and slave[you]=0:
+	'<a class="plain" href="exec:gt''renameme''">Сменить имя</a>'
+else
+	'Пока у вас есть хозяин, вы не можете сменить имя'
+end
+if womenbrain[you]>0:'Ваша феминность: <b><<womenbrain[you]>></b>'
+if water_gem[you]>0:'<b>На пальце перстень с переливающимся голубым камнем.</b>'
+if fire_gem[you]>0:'<b>На пальце перстень с переливающимся алым камнем.</b>'
+if earth_gem[you]>0:'<b>На пальце перстень с переливающимся коричнивым камнем.</b>'
+if wind_gem[you]>0:'<b>На пальце перстень с переливающимся прозрачным камнем.</b>'
+if soul_gem[you]>0:'<b>На пальце перстень с переливающимся черным камнем.</b>'
+'Мышцы: <b><<mus[you]>></b>'
+'Жирок: <b><<fat[you]>></b> '
+'Привлекательность: <b><<attraction[you]>></b> '
+if defence[you]>0:'Защита: <b><<defence[you]>></b>'
+if w_slot[you]>0:
+	wslot=w_slot[you]
+	'Оружие дальнего боя: <<$item_w_name[wslot]>> Урон <<uron_weapon_w[you]>> <a href="exec:gt''w_uneq'',<<wslot>>">убрать</a>'
+     if weapon_tipe=1:
+		'Патроны: <<w_patron_load[you]>>/<<w_patron_max[you]>>'
+		 if w_patron_load[you]<w_patron_max[you]:
+			 needpatron=w_patron_max[you]-w_patron_load[you]
+			 patrontipe=w_patrontipe[you]
+			 if item[patrontipe]>0:
+				'У вас <b><<item[patrontipe]>></b> патронов в запасе - <a href="exec:gt''reload'',<<patrontipe>>">Перезарядить</a>'
+			 else
+				'У вас нет патронов для данного оружия.'
+			 end
+		 end
+     end
+end
+if m_slot[you]>0:mslot=m_slot[you]&'Оружие ближнего боя: <<$item_m_name[mslot]>> (Урон: <<uron_weapon_m[you]>>) <a href="exec:gt''m_uneq'',<<mslot>>">убрать</a>'
+if amulet[you]>0:amul=amulet[you]&'На шее висит: <<$item_name[amul]>> <a href="exec:gt''amul_un'',<<amul>>">снять</a>'
+if l_ring[you]>0:lring=l_ring[you]&'На левой руке надето: <<$item_name[lring]>> <a href="exec:gt''lring_un'',<<lring>>">снять</a>'
+if r_ring[you]>0:rring=r_ring[you]&'На правой руке надето: <<$item_name[rring]>> <a href="exec:gt''rring_un'',<<rring>>">снять</a>'
+makeuptemp=makeup[you]
+if makeup[you]=0 and pol[you]>0:'У вас нет макияжа.'
+if makeup[you]=1:'<b>У вас скромный макияж</b>.'
+if makeup[you]=2:'<b>У вас вызывающий макияж</b>.'
+if sexiness[you]>0:'Внешний вид: <b><<sexiness[you]>></b>'&!sexiness - насколько доступным персонаж выглядит для окружающих
+$ARGS['GENDER_COLOR'] = func('util_func', 'get_gender_color', face[you])
+if pol[you]>0:
+	if womenbrain[you]<50:
+		!мужик в теле женщины
+		if sexiness[you]<=0:$sexualiti='Выгляжу как баба, ну, хоть шмотки нормальные.'
+		if sexiness[you]>0 and sexiness[you]<=20:$sexualiti='Выгляжу как симпатичная баба ...'
+		if sexiness[you]>20 and sexiness[you]<=50:$sexualiti='Выгляжу как сексуальная телочка...'
+		if sexiness[you]>50 and sexiness[you]<=90:$sexualiti='Выгляжу как распутная девка...'
+		if sexiness[you]>90:$sexualiti='Выгляжу как шлюха...'
+		if sexiness[you]>50:
+			if corr[you]>=75 and anal_fixation[you]<100:$sexualiti+='. Наверное, мужики так и подумают...'
+			if anal_fixation[you]>=200:$sexualiti+=' Мне очень нравится, когда меня долбят в попку.'
+			if anal_fixation[you]>=100 and anal_fixation[you]<200:$sexualiti+=' Кажется, уже появилось пристрастие к хую в попке.'
+			if oral_fixation[you]>=100 and oral_fixation[you]<150:$sexualiti+=' Да и отсосать я не против...'
+			if oral_fixation[you]>=150 and oral_fixation[you]<200:$sexualiti+=' Слюньки текут, когда я думаю о членах.'
+			if oral_fixation[you]>=200:$sexualiti+=' Люблю насаживаться на хуи своим горлом.'
+			if rand(0,10)=0:$sexualiti+=' Да что же я за мужик блядь!?'
+			if dick[you]>=8:$sexualiti+=' Эх, ну хоть хер при мне.'
+			if dick[you]>0 and dick[you]<8:$sexualiti+=' И от члена, одно название, БЛЯДЬ!'
+			if dick[you]=0:$sexualiti+=' Даже члена нет!'
+		end
+		if corr[you]<50:$sexualiti+=' Как бы подкатывать не начали'
+		if corr[you]>=50 and corr[you]<90:$sexualiti+=' Мне нравится как на меня смотрят мужики'
+		if corr[you]>=90:$sexualiti+=' Надеюсь ко мне кто-нибудь пристанет'
+	else
+		!женщина в теле женщины
+		if sexiness[you]<=0:$sexualiti='Мужики такую стороной обходить будут.'
+		if sexiness[you]>0 and sexiness[you]<=20:$sexualiti='Выгляжу мило и симпатично.'
+		if sexiness[you]>20 and sexiness[you]<=50:$sexualiti='Выгляжу красиво и немного сексуально.'
+		if sexiness[you]>50 and sexiness[you]<=90:$sexualiti='Выгляжу распутно.'
+		if sexiness[you]>90:$sexualiti='Выгляжу как шлюха...'
+		if sexiness[you]>50:
+			if rand(0,10)=0:$sexualiti+=' Какая я же блядь!?'
+			if lust[you]<50:$sexualiti+='. Не слишком ли это?'
+			if anal_fixation[you]>=100 and anal_fixation[you]<200:$sexualiti+=' Кажется, уже появилось пристрастие к хую в попке..'
+			if anal_fixation[you]>=200:$sexualiti+=' Мне так нравится, когда меня долбят в попку.'
+			if oral_fixation[you]>=100 and oral_fixation[you]<150:$sexualiti+=' Да и отсосать я не против...'
+			if oral_fixation[you]>=150 and oral_fixation[you]<200:$sexualiti+=' Слюньки текут, когда я думаю о членах.'
+			if oral_fixation[you]>=200:$sexualiti+=' Люблю насаживаться на хуи своим горлом.'
+		end
+		if corr[you]<50:$sexualiti+=' Не хочу привлекать к себе много внимания'
+		if corr[you]>=50 and corr[you]<90:$sexualiti+=' Меня хотят выебать и я от этого возбуждаюсь'
+		if corr[you]>=90:$sexualiti+=' Надеюсь, что меня скоро оттрахают'
+	end
+else
+	if womenbrain[you]<50:
+		!мужик в теле мужика
+		if sexiness[you]<=0:$sexualiti='Обычный мужик'
+		if sexiness[you]>0 and sexiness[you]<=20:$sexualiti='Меня могут спутать с бабой... нужно быть осторожнее.'
+		if sexiness[you]>20 and sexiness[you]<=50:$sexualiti='Одет как баба.'
+		if sexiness[you]>50 and sexiness[you]<=90:$sexualiti='Бля, не каждая баба так развратно одеваться будет...'
+		if sexiness[you]>90:$sexualiti='Будто шлюху косплею...'
+		if sexiness[you]>50:
+			if corr[you]>=75:$sexualiti+='. Наверное, люди тоже так подумают...'
+			if anal_fixation[you]>=100:$sexualiti+=' Впрочем, я уже пристрастился к хую в попке.'
+			if oral_fixation[you]>=100:$sexualiti+=' Да и отсосать я не против...'
+		end	
+	else
+		!женщина в теле мужика
+		if sexiness[you]<=0:$sexualiti='Выгляжу как мужик'
+		if sexiness[you]>0 and sexiness[you]<=20:$sexualiti='Выгляжу как мужик в гламурном наряде, офигеть просто'
+		if sexiness[you]>20 and sexiness[you]<=50:$sexualiti='Выгляжу как мужик в сексишмотках... как прекрасно.'
+		if sexiness[you]>50 and sexiness[you]<=90:$sexualiti='Выгляжу как транс.'
+		if sexiness[you]>90:$sexualiti='Выгляжу как мужик косплеющий шлюху...'
+		if sexiness[you]>50:
+			if corr[you]>=75:$sexualiti+='. Может кто и клюнет...'
+			if anal_fixation[you]>=100:$sexualiti+=' хочу хуй в попку...'
+			if oral_fixation[you]>=100:$sexualiti+=' хочу в рот!'
+			if lust[you]>=75:$sexualiti+=' Хочу ебаться!'
+		end	
+	end
+end
+if womenbrain[you]>75 and pol[you]>0 and sexiness[you]<20:$sexualiti+=' Может стоит одеться по сексуальней?'
+if womenbrain[you]<50 and pol[you]=0 and sexiness[you]>0:$sexualiti+=' Нужно нормальные мужские шмотки найти'
+if $sexualiti!'':'<b><<$sexualiti>></b>.'
+if attraction[you]>0:
+	if pol[you]>0:
+		if vag[you]>0:
+			if attraction[you]>=1 and attraction[you]<=3:$ARGS['ATTRACTION']='Убогая.'&!attraction - привлекательность
+			if attraction[you]>3 and attraction[you]<=10:$ARGS['ATTRACTION']='Симпотная.'
+			if attraction[you]>10 and attraction[you]<=40:$ARGS['ATTRACTION']='Красавица.'
+			if attraction[you]>40 and attraction[you]<=75:$ARGS['ATTRACTION']='Соблазнительная.'
+			if attraction[you]>75 and attraction[you]<=90:$ARGS['ATTRACTION']='Сексуальная.'
+			if attraction[you]>90 and attraction[you]<=150:$ARGS['ATTRACTION']='Очень сексуальная.'
+			if attraction[you]>150:$ARGS['ATTRACTION']='Секс-бомба.'
+		else
+			if attraction[you]>=1 and attraction[you]<=3:$ARGS['ATTRACTION']='Убожество.'
+			if attraction[you]>3 and attraction[you]<=10:$ARGS['ATTRACTION']='Ни то, ни сё.'
+			if attraction[you]>10 and attraction[you]<=40:$ARGS['ATTRACTION']='На вид красивая девушка.'
+			if attraction[you]>40 and attraction[you]<=75:$ARGS['ATTRACTION']='У многих встанет, даже если я мужик.'
+			if attraction[you]>75 and attraction[you]<=90:$ARGS['ATTRACTION']='Многие дамы позавидуют такой внешности. У мужиков текут слюни.'
+			if attraction[you]>90 and attraction[you]<=150:$ARGS['ATTRACTION']='Все дамы обзавидуются такой внешности. У мужиков жесткий стояк.'
+			if attraction[you]>150:$ARGS['ATTRACTION']='Секс-бомба-без-вагины. Все готовы тебя выебать.'
+		end
+	else
+		if attraction[you]>=1 and attraction[you]<=3:$ARGS['ATTRACTION']='Убожество.'
+		if attraction[you]>3 and attraction[you]<=10:$ARGS['ATTRACTION']='Привлекательный.'
+		if attraction[you]>10 and attraction[you]<=40:$ARGS['ATTRACTION']='Красавец.'
+		if attraction[you]>40 and attraction[you]<=75:$ARGS['ATTRACTION']='Брутальный.'
+		if attraction[you]>75 and attraction[you]<=90:$ARGS['ATTRACTION']='Сексуальный.'
+		if attraction[you]>90 and attraction[you]<=150:$ARGS['ATTRACTION']='Плей-бой.'
+		if attraction[you]>150:$ARGS['ATTRACTION']='Секс-символ.'
+	end
+	'Ваш рейтинг притягательности: <b><<attraction[you]>></b> -> <font color="<<$ARGS[''GENDER_COLOR'']>>"><i><<$ARGS["ATTRACTION"]>></i></font>'
+end
+if gender[you]>0:
+	$args[15]=''
+	if tits_bonus[you]>30:$args[15]+=$IIF($args[15]!'',', Большие сиськи','Большие сиськи')
+	if tits_bonus[you]<15:$args[15]+=$IIF($args[15]!'',', Плоскодонка','Плоскодонка')
+	if waist_bonus_num[you]>=5:$args[15]+=$IIF($args[15]!'',', Осинная талия','Осинная талия')
+	if waist_bonus_num[you]<-15:$args[15]+=$IIF($args[15]!'',', Упитанная','Упитанная')
+	if ass_bonus_num[you]>30:$args[15]+=$IIF($args[15]!'',', Огромная жопа','Огромная жопа')
+	if ass_bonus_num[you]>20 and ass_bonus_num[you]<30:$args[15]+=$IIF($args[15]!'',', Сексуальная задница','Сексуальная задница')
+	if ass_bonus_num[you]<-15:$args[15]+=$IIF($args[15]!'',', Задница как доска','Задница как доска')
+	$args[15] += '.'
+end
+if tot_aristokrat[you]>0:
+     if tot_aristokrat[you]<3:$ARGS['NOBILITY']='Легкий налет аристократичности.'
+     if tot_aristokrat[you]>=3 and tot_aristokrat[you]<6:$ARGS['NOBILITY']='Аристократичный вид.'
+     if tot_aristokrat[you]>=6:$ARGS['NOBILITY']='Утонченно-гламурно-аристократичный вид.'
+	 'Аристократичность: <<$ARGS["NOBILITY"]>>'
+end
+if sfera_amulet[you]>0:'На руке одет браслет с рунами, дающий вам: <b><<sfera_amulet[you]>></b> единиц защиты при входе в бой'
+$full=''
+if h_slot[you]>0:hattemp=h_slot[you]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'&$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
+if t_slot[you]>0:
+	toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
+	!'<<$t_sexy[toptemp]>>'
+	!if aristokrat_t[toptemp]>0:'Офисная одежда'
+	!if leather_t[toptemp]>0:'Непромокаемая одежд'
+	!if sport_t[toptemp]>0:'Спортивная одежда'
+end
+if l_slot[you]>0:
+	lowtemp=l_slot[you]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'&$full+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
+	!'<<$l_sexy[lowtemp]>>'
+	!if aristokrat_l[lowtemp]>0:'Офисная одежда'
+	!if leather_l[lowtemp]>0:'Непромокаемая одежд'
+	!if sport_l[lowtemp]>0:'Спортивная одежда'
+end
+if ub_slot[you]>0:uboottemp=ub_slot[you]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
+if b_slot[you]>0:
+	boottemp=b_slot[you]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
+	!'<<$b_sexy[boottemp]>>'
+	!if aristokrat_b[boottemp]>0:'Офисная обувь'
+	!if sport_b[boottemp]>0:'Спортивная обувь'
+end
+if plug[you]=2:$plug_view='view"pic/bodymod/view_plug2.jpg"'&$full+='<a href="exec:dynamic $plug_view"><img src="pic/bodymod/view_plug2.jpg" height="150"></a>'
+'<<$full>>'
+$under=''
+if ut_slot[you]>0:utoptemp=ut_slot[you]&$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'&$under+='<a href="exec:dynamic $d_utop_view"><img src="pic/clo/utop/<<utoptemp>>.jpg" ></a>'
+if ul_slot[you]=0:$underwear=$iIf(pol[you]=0 and womenbrain[you]<=10,'Вы без трусов','Вы без трусиков')&$underwear&killvar("$underwear")
+if ul_slot[you]>0:ulowtemp=ul_slot[you]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'&$under+='<a href="exec:dynamic $d_ulow_view"><img src="pic/clo/ulow/<<ulowtemp>>.jpg" ></a>'
+'<<$under>>'
+if l_hand_t[you]>0:'Татуировка на левой руке: <img src="pic/tattoo/l_hand_t_<<l_hand_t[you]>>.jpg" >'
+if r_hand_t[you]>0:'Татуировка на правой руке: <img src="pic/tattoo/r_hand_t_<<r_hand_t[you]>>.jpg" >'
+if back_t[you]>0:'Татуировка на спине: <img src="pic/tattoo/back_t_<<back_t[you]>>.jpg" >'
+if stamp_t[you]>0:'Татуировка на пояснице: <img src="pic/tattoo/stamp_t_<<stamp_t[you]>>.jpg" >'
+if tits_t[you]>0:'Татуировка на груди: <img src="pic/tattoo/tits_t_<<tits_t[you]>>.jpg" >'
+if belly_t[you]>0:'Татуировка на животе: <img src="pic/tattoo/belly_t_<<belly_t[you]>>.jpg" >'
+if pubis_t[you]>0:'Татуировка на лобке: <img src="pic/tattoo/pubis_<<pubis_t[you]>>.jpg" >'
+if l_ass_t[you]>0:'Татуировка на левой ягодице: <img src="pic/tattoo/l_ass_t_<<l_ass_t[you]>>.jpg" >'
+if r_ass_t[you]>0:'Татуировка на правой ягодице: <img src="pic/tattoo/r_ass_t_<<r_ass_t[you]>>.jpg" >'
+if lr_ass_t[you]>0:'Татуировка по всей заднице: <img src="pic/tattoo/lr_ass_t.jpg" >'
+if l_leg_t[you]>0:'Татуировка на левой ноге: <img src="pic/tattoo/l_leg_t_<<l_leg_t[you]>>.jpg" >'
+if r_leg_t[you]>0:'Татуировка на правой ноге: <img src="pic/tattoo/r_leg_t_<<r_leg_t[you]>>.jpg" >'
+act'Раздеться до нижнего белья':
+	 if t_slot[you]>0:
+		clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+	 end
+	 if l_slot[you]>0:
+		clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+	 end
+	 if b_slot[you]>0:
+		clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+	 end
+	gt $curloc
+end
+act'Раздеться догола':
+	if h_slot[you]>0:
+		clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$loc[you]>>']+=1&h_slot[you]=0
+	 end
+	 !{if m_slot[you]>0:
+		clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$loc[you]>>']+=1&m_slot[you]=0
+	 end
+	 if w_slot[you]>0:
+		clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$loc[you]>>']+=1&w_slot[you]=0
+	 end}
+	 if c_slot[you]>0:
+		clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$loc[you]>>']+=1&c_slot[you]=0
+	 end
+	  if tz_slot[you]>0:
+		clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$loc[you]>>']+=1&tz_slot[you]=0
+	 end
+	  if tg_slot[you]>0:
+		clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$loc[you]>>']+=1&tg_slot[you]=0
+	 end
+	 if t_slot[you]>0:
+		clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+	 end
+	 if l_slot[you]>0:
+		clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+	 end
+	 if b_slot[you]>0:
+		clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+	 end
+	 if ut_slot[you]>0:
+		clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$loc[you]>>']+=1&ut_slot[you]=0
+	 end
+	 if ul_slot[you]>0:
+		clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+	 end
+	 if ub_slot[you]>0:
+		clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+	 end
+	gt $curloc
+end
+if l_hand_t[you]=2:
+     if moon_veil[you]=0:
+         act'Активировать лунную вуаль':
+			 moon_veil[you]=1&time+=5&cls&gs'stat'&'Вы активировали лунную вуаль, теперь люди не смогут сами подойти к вам'&act'<b>Уйти</b>':gt $curloc
+		 end
+     else
+         act'Отключить лунную вуаль':
+			 moon_veil[you]=0&time+=5&cls&gs'stat'&'Вы активировали лунную вуаль, теперь люди не смогут сами подойти к вам'& act'<b>Уйти</b>':gt $curloc
+		 end
+     end
+end
+if dagongene>110 and insmundface=1:
+	spec_face_pic[you]=6
+	face_tipe[you]=99
+	if face[you]<15:face_pic[you]=6
+	if face[you]>=15 and face[you]<25:face_pic[you]=5
+	if face[you]>=25 and face[you]<45:face_pic[you]=4
+	if face[you]>=45 and face[you]<55:face_pic[you]=3
+	if face[you]>=55 and face[you]<70:face_pic[you]=2
+	if face[you]>=70 and face[you]<90:face_pic[you]=1
+	if face[you]>=90:face_pic[you]=0
+else
+	act'Установить фотку':
+		spec_face_pic[you]=input("Введите номер папки. ЖГГ До 5 стандартные внешности, ввести 0. 5 предустановленные фото. 6 фото по феминности. 7 и 8 только женское лицо.")
+		if spec_face_pic[you]=6:
+			face_tipe[you]=input("Введите тип внешности из 6-й папки.")
+			face_pic[you]=1
+		else
+			face_pic[you]=input("Введите номер фотографии. Фотографию можно посмотреть в файлах игры.")
+		end
+		gt $curloc
+	end
+end
+if cum_face[you]>0:
+	'<b>У вас на лице сперма</b>'
+     act'Стереть сперму с лица':
+		 time+=5&cls&gs'stat'
+		 if cum_face[you]<=6:'<center><video src="pic/cum/<<cum_face[you]>>.webm" ></center>'
+		 if cum_face[you]>6:'<center><video src="pic/cum/6.webm" ></center>'
+	     if cum_face[you]=1:
+			 'Вы старательно отчистили лицо от следов спермы'&act'<b>Уйти</b>':cum_face[you]=0&spit_face[you]=0&gt $curloc
+         else
+			 spit_face[you]=0&'Спермы на лице так много что нечего и думать отчистить ее руками'&act'<b>Уйти</b>':gt $curloc
+         end
+     end
+end
+if cum_skirt[you]>0:
+     act'Стереть сперму с юбки':
+		 time+=5&cls&gs'stat'&'<center><img src="pic/cum/skirt<<rand(0,29)>>.jpg" ></center>'&'Вы старательно отчистили одежду от следов спермы'&act'<b>Уйти</b>':cum_skirt[you]=0&gt $curloc
+     end
+end
+if kit>0 and pol[you]>0:
+	'Макияжа хватит на <<kit>> раз'
+     if makeup[you]<1:act'Нанести скромный макияж':kit-=1&makeup[you]=1&time+=5&gt $curloc
+     if makeup[you]<2 and kit>1:act'Нанести вызывающий макияж':kit-=2&makeup[you]=2&time+=5&gt $curloc
+     if makeup[you]>0:act'Смыть макияж':makeup[you]=0&time+=5&gt $curloc
+end
+act'Посмотреть грудь':
+	 num=you&cls&gs'stat'&gs'body'
+	if tit[you]=0:
+		 if mus[you]>=2000 and mus[you]>fat[you]:
+			 'Мускулистая грудь с <<$nip[you]>>'
+		 else
+			 'Плоская грудь с <<$nip[you]>>'
+		 end
+	else
+		if saggy[you]>0:
+			$sg='saggy'&$sgtext='обвисшая грудь '
+		else
+			$sg=''&$sgtext='упругая грудь '
+		end
+		'<center><img src="pic/tits/<<iif(dagongene>110, "istmtits", "")>><<$sg>><<$colorSkin>><<tit[you]>>.jpg" ></center>'
+		'Вы обнажили грудь перед зеркалом и посмотрели на нее. У вас <<$sgtext>><<tit[you]>> размера'
+		if total_npc_on_loc=0:
+			act'Пощупать грудь':
+				 horny[you]+=rand(5,20)&time+=5&cls&gs'stat'&'<center><video src="pic/sex/solo/tits<<rand(0,2)>>.webm" ></video></center>'&'Вы щупаете свою грудь и вам от этого немного приятно'
+				act'<b>Уйти</b>':gt $curloc
+				act'Ласкать грудь':
+					 horny[you]+=rand(10,30)&time+=5&cls&gs'stat'&! '<center><video src="pic/sex/solo/tits_play0.webm" ></video></center>'
+					 if milking[you]>0:
+						 '<center><video src="pic/sex/solo/tits_play_milk<<rand(1,4)>>.webm" ></video></center>'
+					 else
+						 '<center><video src="pic/sex/solo/tits_play<<rand(0,4)>>.webm" ></video></center>'
+					 end
+					 'Вы ласкаете груди и приятное тепло разливается по вашему телу'&act'<b>Уйти</b>':gt $curloc
+				 end
+			 end
+		end
+	end
+	act'<b>Уйти</b>':gt $curloc
+end
+if nip_p[you]>=1:
+	act'Посмотреть пирсинг сосков':
+		 num=you&time+=5&cls&gs'stat'&'<center><img src="pic/bodymod/nippirs<<nip_p[you]>>.jpg" ></center>'
+		 'Вы обнажили грудь перед зеркалом и посмотрели на нее. У вас <<tit[you]>> размер и проколотые соски с пирсингом'&act'<b>Уйти</b>':gt $curloc
+	end
+end
+act'Посмотреть тело':
+	 num=you
+	 cls&gs'stat'&gs'body'
+	 if pol[you]>0:'<center><img src="pic/body/<<bodypic[you]>>.jpg" ></center>'
+	 if pol[you]=0:'<center><img src="pic/bodyman/<<bodypic[you]>>.jpg" ></center>'
+	 'Вы покрутились перед зеркалом осматривая свое тело. <<$ass[you]>>'
+	 if plug[you]=2:'Из вашего зада торчит пушистых хвост'&'<center><video src="pic/bodymod/hvost<<rand(1,2)>>.webm" ></video></center>'
+    if leg_hair[you]>0:'На ногах растут волосы'
+    if leg_hair[you]<=0:'Ноги гладкие и блестящие'
+	act'<b>Уйти</b>':gt $curloc
+	if total_npc_on_loc=0 and ass[you]>=27:
+		act'Пощупать попу':
+			horny[you]+=rand(1,5)&time+=5&cls&gs'stat'&'<center><video src="pic/sex/solo/ass<<rand(0,3)>>.webm" ></video></center>'&'Вы пощупали свою мягкую попу'&act'<b>Уйти</b>':gt $curloc
+		end
+	end
+end
+act'Посмотреть между ног':
+	 cls&gs'stat'
+     if vag[you]>0 and dick[you]<1:
+		$raznos = 'невинное'&$born = ''&$okon = 'ое'&$colorSkin=$iif(skin[you]>5,"b","")&$okonl = 'ое'
+		if vag[you]>0:
+			if child[num]>0:$born = 'рожавшую '
+			if vag[you]=1:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>.jpg" ></center>'
+				else
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>.jpg" ></center>'&$view_nip_pirst={view("pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg")}
+					'<center>Посмотреть<a href="exec:dynamic $view_nip_pirst">пирсинг</a>.</center>'&!'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'невинное влагалище'
+			 end
+			 if vag[you]>1 and vag[you]<15:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>0.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'более не невинное влагалище'
+			 end
+			 if vag[you]>=15 and vag[you]<35:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>1.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'познавшее не один крепкий член влагалище'
+			 end
+			 if vag[you]>=35 and vag[you]<55:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>2.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end	
+				$raznos = 'эластичное, но пока еще узкое влагалище'
+			 end
+			 if vag[you]>=55 and vag[you]<75:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>3.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'рабочую мокрую пизду'&$okon = 'ую'&$okonl = 'ю'
+			 end
+			 if vag[you]>=75 and vag[you]<90:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>4.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'потасканную податливую пизду'&$okon = 'ую'&$okonl = 'ю'
+			 end
+			 if vag[you]>=90 and vag[you]<110:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>5.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'рыхлую мягкую пизду'&$okon = 'ую'&$okonl = 'ю'
+			 end
+			 if vag[you]>=110 and vag[you]<160:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>6.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'раздолбанную широкую пизду с сочащейся из нее влагой'&$okon = 'ую'&$okonl = 'ю'
+			 end
+			 if vag[you]>=160:
+				if vag_pirs[you]=0:
+					'<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>>7.jpg" ></center>'
+				else
+					'<center><img src="pic/bodymod/pirsclit<<vag_pirs[you]>>.jpg" ></center>'
+				end
+				$raznos = 'широченную незакрывающуюся пиздень опытной шлюхи'&$okon = 'ую'&$okonl = 'ю'
+			 end
+		end
+		if vag_tipe[you]=0:$genitaliihh='выбрит<<$okon>> гладк<<$okon>>,'
+		 if vag_tipe[you]=1:$genitaliihh='покрыт<<$okon>> небольшими волосиками,'
+		 if vag_tipe[you]=2:$genitaliihh='скрыт<<$okon>> волосами,'
+		 'Вы раздвинули ноги и осмотрели сво<<$okonl>> <<$genitaliihh>> ' + $born + '<<$raznos>>.'
+	end
+	if vag[you]>0 and dick[you]<2 and ball[you]>1:
+		'<center><img src="pic/sex/cock-1.jpg" ></center>'&'Вы смотрите между ног, но видите лишь оставшиеся яйца, член исчез совсем, а половую щель не видно из-за яиц ...'
+	end
+	if dick[you]>1:
+	    if skin[you]<4:
+			if vag[you]>0:
+				 $genitaliihh = ""
+				 if vag_tipe[you]=0:$genitaliihh='лысая'
+				 if vag_tipe[you]=1:$genitaliihh='покрытая небольшими волосиками'
+				 if vag_tipe[you]=2:$genitaliihh='волосатая'
+				'<center><img src="pic/sex/germo.jpg" ></center>'&'Вы посмотрели между ног, где помимо пениса <<dick[you]>> см. длинны, видна и <<$genitaliihh>> женская пизда.'
+			else
+				gs 'dick_fig','you'&!Изображения члена в зависимости от размеров
+				 'Вы осмотрели свой член. Он длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
+			end
+		else
+			'<center><video src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
+			'Вы осмотрели свой член. Он длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
+		end
+	else
+		if vag[you]<1:
+			'<center><img src="pic/vag/nodick.jpg" ></center>'&'Вы посмотрели между ног, где кроме уретры уже ничего не осталось.'
+		else
+			if dick[you]>1:'<center><img src="pic/sex/germo.jpg" ></center>'&'Вы посмотрели между ног, где помимо пениса видна и женская половая щель.'
+		end
+	end
+	act'<b>Уйти</b>':gt $curloc
+end
+act'Посмотреть анус':
+	 num=you
+	 cls&gs'stat'&gs'body'
+    if plug[you]>0:
+		 if plug[you]=1:
+		 	$ARGS['EXT']='jpg'
+		    ARGS['RNG']=rand(0,3)
+		    if ARGS['RNG']>2:$ARGS['EXT']='gif'
+			if vag[you]>0 and dick[you]=0:'<center><img src="pic/bodymod/view_plug1_<<ARGS[''RNG'']>>.jpg"></center>'
+			if dick[you]>0 and pol[you]=0:'<center><img src="pic/bodymod/view_plug1_m.jpg"></center>'
+			if dick[you]>0 and pol[you]>0:'<center><img src="pic/bodymod/view_plug1_s_<<ARGS[''RNG'']>>.<<$ARGS[''EXT'']>>"></center>'
+		 elseif plug[you]=2:
+				'<center><img src="pic/bodymod/view_plug2.jpg"></center>'
+		 end
+	    'Вы наклонились и осмотрели свою анальную затычку'
+	    act'Вытащить пробку':
+			 if plug[you]=1:item[130]+=1&'<center><img src="pic/bodymod/anal_plug_out.jpg" ></center>'
+			 if plug[you]=2:item[129]+=1&'<center><img src="pic/bodymod/anal_tail_out.jpg" ></center>'
+			 cls&gs'stat'&'Вы расслабили попку и вынули затычку'&plug[you]=0&act'<b>Уйти</b>':gt $curloc
+		end
+	else
+		 $gend='m'
+		 if pol[you]>0 and dick[you]>0:$gend='s'
+		 if vag[you]>=1:$gend=''
+		if vag[you]>0 and rand(1,3)=2:
+			'<center><video src="pic/anus/<<anus_pic[you]>>.webm" ></video></center>'
+		else
+			'<center><img src="pic/anus/<<$gend>><<$colorSkin>><<anus_pic[you]>>.jpg" ></center>'
+		end
+		 'Вы наклонились и осмотрели свой анус. <<$anus[you]>>'
+	   	 if item[130]>0:
+			 act'Засунуть анальную затычку':
+				 if vag[you]>0 and dick[you]=0:'<center><video src="pic/bodymod/anal_plug_in.webm"></center>'
+				 if dick[you]>0:'<center><video src="pic/bodymod/anal_plug_in_s_<<rand(0,1)>>.webm"></center>'
+				 plug[you]=1&item[130]-=1&anus[you]+=1&cls&gs'stat'&'Вы расслабили попку и запихали затычку в анус'&act'<b>Уйти</b>':gt $curloc
+			 end
+	     end
+	     if item[129]>0:
+			 act'Засунуть анальный хвост':
+				if (l_slot[you]=0 or l_tipe[l_slot[you]]=0) and ul_slot[you]=0:
+					 plug[you]=2&item[129]-=1&anus[you]+=1
+					 cls&gs'stat'&'<center><video src="pic/bodymod/anal_tail_in.webm" ></video></center>'&'Вы расслабили попку и запихали затычку в анус'&act'<b>Уйти</b>':gt $curloc
+				else
+					cls&'Для этого следует сначала снять трусы и надеть юбку, иначе не поместиться, либо использовать обычную пробку'
+				end
+			end
+	     end
+	end
+	act'<b>Уйти</b>':gt $curloc
+end
+if CONFIG['ENABLE_CHEATS']>0:
+	act'<b>[<font color="green">&#11166;</font> ЧИТ-МЕНЮ <font color="green">&#11164;</font>]</b>':gt 'cheat_menu', you
+end
+if disgus[you]>0:
+     if master[you]>0:
+		 act'Притворится смертным':disgus[you]=master[you]&master[you]=0&magik[you]=hu_magik[you]&cls&gt'preloc'
+	 else
+		 act'Проявить силы':master[you]=disgus[you]&hu_magik[you]=magik[you]&magik[you]=37&cls&gt'preloc'
+	 end
+end
+if CONFIG['ENABLE_advanced_menu']>0:
+	act'<b>пирсинг и тату</b>':gs'mirror_peers'
+	if muggle[you]=1:act'Стать магом-у вас есть магия':muggle[you]=0&magik[you]=input("уровень магии 1-36")&gt 'preloc'
+	if muggle[you]=0:act'Стать маглом-игра без магии':muggle[you]=1&magik[you]=0&gt 'preloc'
+	act'Переселиться':
+		Xhome[you]=input("Xhome.")&Yhome[you]=input("Yhome.")&Zhome[you]=input("Zhome.")&Hhome[you]=input("Hhome.")&Rhome[you]=input("Rhome.")
+		key['<<you>>,<<Xhome[you]>>,<<Yhome[you]>>,<<Zhome[you]>>,<<Hhome[you]>>']=1
+		can_sleep['<<Xhome[you]>>,<<Yhome[you]>>,<<Zhome[you]>>,<<Hhome[you]>>,<<Rhome[you]>>']=1
+		gt 'preloc'
+	end
+	act'Сменить или снять ошейник <<h_slot[you]>>':h_slot[you]=input("0-нет 1-маска 6-ошейник")&gt 'preloc'
+	act'Напиться':alko[you]=input("Напиться 1-100")&gt 'preloc'
+	if beliver[you]=0:
+		act'Стать последователем бога':
+			beliver[you]=input("1-Луны 2-Дагона 3-бога света 4-бога войны 5-богини огня 6-бога смерти 7-Мардука
+			8-богини земли 9-Перуна 10-бога ветра Стрибога 11-Анубиса 12-Баала Зебуба 13-Сатаны
+			100-последователь невоплощенного бога")&gt 'preloc'
+		end
+	end
+	if beliver[you]>0:act'Отказаться быть последователем бога':beliver[you]=0&gt 'preloc'
+	if master[you]=0:act'маестат master=1':master[you]=1&gt 'preloc'
+	if master[you]=1:act'маестат master=0':master[you]=0&gt 'preloc'
+	if wantblackcockON=0:act'Разрешить bbc делать шлюх':wantblackcockON=1&gt 'preloc'
+	if wantblackcockON=1:act'Запретить bbc делать шлюх':wantblackcockON=0&gt 'preloc'
+	if blackON=0:act'негры со шлюхами вечером в общаге':skin[w]=rand(4,6)&blackON=1&gt 'preloc'
+	if blackON=1:act'негры со шлюхами вечером отдельно':blackON=0&gt 'preloc'
+	act'<b>Запомнить свой облик</b>':
+		cls
+		knowlanguage[you]+=1
+		rememberme=1
+		i=0
+		$name[i]=$name[you]&$surname[i]=$surname[you]
+		spec_face_pic[i]=spec_face_pic[you]&face_pic[i]=face_pic[you]
+		age[i]=age[you]
+		face[i]=face[you]&gla[i]=gla[you]&glacol[i]=glacol[you]&nose[i]=nose[you]&scull[i]=scull[you]&cheeks[i]=cheeks[you]&beard[i]=beard[you]
+		dick[i]=dick[you]&dickd[i]=dickd[you]&ball[i]=ball[you]&vag[i]=vag[you]&ass[i]=ass[you]&nip[i]=nip[you]&tits[i]=tits[you]
+		rost[i]=rost[you]&fat[i]=fat[you]&mus[i]=mus[you]&skin[i]=skin[you]
+		face_hair[i]=face_hair[you]&tit_hair_can[i]=tit_hair_can[you]&tit_hair[i]=tit_hair[you]&leg_hair_can[i]=leg_hair_can[you]&leg_hair[i]=leg_hair[you]&hlong[i]=hlong[you]&hcol[i]=hcol[you]
+		l_hand_t[i]=l_hand_t[you]&r_hand_t[i]=r_hand_t[you]
+		back_t[i]=back_t[you]&stamp_t[i]=stamp_t[you]&tits_t[i]=tits_t[you]&belly_t[i]=belly_t[you]&pubis_t[i]=pubis_t[you]
+		l_ass_t[i]=l_ass_t[you]&r_ass_t[i]=r_ass_t[you]
+		l_leg_t[i]=l_leg_t[you]&r_leg_t[i]=r_leg_t[you]
+		gt'preloc'
+	end
+	if rememberme>0:
+		act'<b>Восстановить свой облик</b>':
+			cls
+			i=you
+			rem=0
+			$name[i]=$name[rem]&$surname[i]=$surname[rem]
+			spec_face_pic[i]=spec_face_pic[rem]&face_pic[i]=face_pic[rem]
+			age[i]=age[rem]
+			face[i]=face[rem]&gla[i]=gla[rem]&glacol[i]=glacol[rem]&nose[i]=nose[rem]&scull[i]=scull[rem]&cheeks[i]=cheeks[rem]&beard[i]=beard[rem]
+			dick[i]=dick[rem]&dickd[i]=dickd[rem]&ball[i]=ball[rem]&vag[i]=vag[rem]&ass[i]=ass[rem]&nip[i]=nip[rem]&tits[i]=tits[rem]
+			rost[i]=rost[rem]&fat[i]=fat[rem]&mus[i]=mus[rem]&skin[i]=skin[rem]
+			face_hair[i]=face_hair[rem]&tit_hair_can[i]=tit_hair_can[rem]&tit_hair[i]=tit_hair[rem]&leg_hair_can[i]=leg_hair_can[rem]&leg_hair[i]=leg_hair[rem]&hlong[i]=hlong[rem]&hcol[i]=hcol[rem]
+			l_hand_t[i]=l_hand_t[rem]&r_hand_t[i]=r_hand_t[rem]
+			back_t[i]=back_t[rem]&stamp_t[i]=stamp_t[rem]&tits_t[i]=tits_t[rem]&belly_t[i]=belly_t[rem]&pubis_t[i]=pubis_t[rem]
+			l_ass_t[i]=l_ass_t[rem]&r_ass_t[i]=r_ass_t[rem]
+			l_leg_t[i]=l_leg_t[rem]&r_leg_t[i]=r_leg_t[rem]
+			gt'preloc'
+		end
+	end
+	if moon_veil[you]=0:
+		 act'Активировать лунную вуаль':
+			moon_veil[you]=1&cls&gs'stat'&'Вы активировали лунную вуаль, теперь люди не смогут сами подойти к вам'&act'<b>Уйти</b>':gt $curloc
+		end
+	else
+		 act'Отключить лунную вуаль':
+			moon_veil[you]=0&cls&gs'stat'&'Вы активировали лунную вуаль, теперь люди не смогут сами подойти к вам'&act'<b>Уйти</b>':gt $curloc
+		end
+	end
+	act'<b>генератор мобов</b>':gt 'my_gen'
+end

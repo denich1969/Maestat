@@ -1,0 +1,78 @@
+﻿$nameloc[you]=$curloc
+gs'stat'
+'Прилавок секс шопа'
+'Дилдо стоит 20 шиллингов'
+'Анальная затычка 50 шиллингов'
+'Анальный хвост 100 шиллингов'
+'Феминайзер 10 шиллингов'
+'Манайзер 80 шиллингов'
+'Ошейник 30 шиллингов'
+'бдсм маска 50 шиллингов'
+'Кляп 80 шиллингов'
+$hat_loc=''&clo=1&clomax=arrsize('$h_name')
+:markhatthelocss
+    if sexy_h[clo]>=5:hathere['<<clo>>,<<$loc[you]>>']=1
+    if hathere['<<clo>>,<<$loc[you]>>']>0:$d_hatclo_view='view"pic/clo/hat/<<clo>>.jpg"'&$hat_loc+='<a href="exec:gt''gotohatss'',<<clo>>"><img src="pic/clo/hat/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markhatthelocss'
+*pl''&'<<$hat_loc>>'&$clo_loc=''&clo=1&clomax=arrsize('$t_name')
+:markclothelocss
+    if sexy_t[clo]>=20:clohere['<<clo>>,<<$loc[you]>>']=1
+    if clohere['<<clo>>,<<$loc[you]>>']>0:$d_topclo_view='view"pic/clo/top/<<clo>>.jpg"'&$clo_loc+='<a href="exec:gt''gotocloss'',<<clo>>"><img src="pic/clo/top/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markclothelocss'
+*pl''&'<<$clo_loc>>'&$low_loc=''&clo=1&clomax=arrsize('$l_name')
+:marklowthelocss
+    if sexy_l[clo]>=20:lowhere['<<clo>>,<<$loc[you]>>']=1    
+    if lowhere['<<clo>>,<<$loc[you]>>']>0:$d_topclo_view='view"pic/clo/low/<<clo>>.jpg"'&$low_loc+='<a href="exec:gt''gotlowss'',<<clo>>"><img src="pic/clo/low/<<clo>>.jpg" ></a>'& !$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'marklowthelocss'
+*pl''&'<<$low_loc>>'&$low_loc=''&clo=10&$u_topclo_view='view"pic/clo/utop/10.jpg"'
+if tophere['<<clo>>,<<$loc[you]>>']=0:$utop_loc+='<a href="exec:gt''gotoutop'',<<clo>>"><img src="pic/clo/utop/10.jpg" ></a>'&tophere['<<clo>>,<<$loc[you]>>']=1
+*pl''&'<<$utop_loc>>'
+$boot_loc=''&clo=1&clomax=arrsize('$b_name')
+:markbootthelocss
+    if sexy_b[clo]>=20:boothere['<<clo>>,<<$loc[you]>>']=1
+    if boothere['<<clo>>,<<$loc[you]>>']>0:$boot_loc+='<a href="exec:gt''gotobootss'',<<clo>>"><img src="pic/clo/boot/<<clo>>.jpg" ></a>'& !$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markbootthelocss'
+*pl''&'<<$boot_loc>>'&gs'Item'&*pl''&gs 'npconloc'
+act'Отойти':gt 'preloc'
+	if money[you]>=2000:
+		 act'Купить дилдо 20 шиллингов':
+			 money[you]-=2000&item[31]+=1&burden[you]+=item_burden[31]
+			 cls&gs'stat'&'Вы заплатили деньги и купили дилдо'&'<center><img src="pic/misc/dildo.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+	if money[you]>=5000:
+		 act'Купить анальную затычку 50 шиллингов':
+			 money[you]-=5000&item[130]+=1&burden[you]+=item_burden[130]&
+			 cls&gs'stat'&'Вы заплатили деньги и купили анальную затычку'&'<center><img src="pic/misc/plug.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+	if money[you]>=10000:
+		 act'Купить анальный хвост 100 шиллингов':
+			 money[you]-=10000&item[129]+=1&burden[you]+=item_burden[129]&cls&gs'stat'&'Вы заплатили деньги и купили анальный хвост'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+	if money[you]>=1000:
+		 act'Купить феминайзер 10ш':
+			 money[you]-=1000&item[79]+=1&burden[you]+=item_burden[79]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+	if money[you]>=8000:
+		 act'Купить манайзер 80ш':
+			 money[you]-=8000&item[80]+=1&burden[you]+=item_burden[80]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+if money[you]>=3000:
+	 act'Купить ошейник 30ш':
+		money[you]-=3000&item[44]+=1&cls&gs'stat'&'Вы заплатили деньги и купили ошейник'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if money[you]>=5000:
+	 act'Купить бдсм маску 50ш':
+		money[you]-=5000&item_hat[1]+=1&cls&gs'stat'&'Вы заплатили деньги и купили маску'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if money[you]>=8000:
+	 act'Купить кляп 80ш':
+		money[you]-=8000&item[49]+=1&cls&gs'stat'&'Вы заплатили деньги и купили кляп'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end	

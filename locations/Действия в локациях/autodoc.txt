@@ -1,0 +1,281 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Автодок способный вылечить человека от всего, что можно вылечить.'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if autodocQW=100:
+	'Автодок способен заменить половые органы на органы противоположного пола за 1000 шиллингов'
+	'Автодок способен восполнить ману за 10 шиллингов'
+	'Автодок способен за тысячу шиллингов установить нужный уровень феминности, мускулатуры, жира и рост'
+     if lebeda_seed[you]>0:
+		'Автодок пищит и показывает красную надпись "ЗАРАЖЕНИЕ НЕИЗВЕСТНЫМ ПАРАЗИТОМ"'
+         if implant_seed[you]=0:
+			 act'Провериться на паразитов':
+				 if parasitQW=0:parasitQW=1
+				 cls&'У вас <<lebeda_seed[you]>> спор неизвестных грибов которые паразитируют на вашей нервной системе.'
+				 'Автодок предлагает за 10000 шиллингов установить имплант, который будет наномашинами бороться с заражением паразитарными грибами.'&act'...':gt $curloc
+				 if money[you]>=1000000:act'Установить имплант':money[you]-=1000000&implant_seed[you]=1&cls&gs'stat'&gt $curloc
+			 end
+		 else
+			 act'Провериться на паразитов':
+				 cls&gs'stat'&'У вас <<lebeda_seed[you]>> спор неизвестных грибов которые паразитируют на вашей нервной системе.'
+				 'Вы можете форсировать имплант за 1000 шиллингов и несколько ускорить процессы, хотя это негативно сказывается на здоровье.'&act'...':gt $curloc
+				 if money[you]>=100000:
+					 act'Форсировать имплант':
+						 money[you]-=100000&lebeda_seed[you]-=10&if lebeda_seed[you]<0:lebeda_seed[you]=0
+						 age[you]+=5&if mus[you]>500:mus[you]-=200
+						 health[you]=10&mana[you]=0&energy[you]=10
+						 if dick[you]>10:dick[you]-=rand(1,5)
+						 if dickd[you]>20:dickd[you]-=rand(1,3)
+						 if ball[you]>10:ball[you]-=rand(1,5)
+						 cls&gs'stat'&'Вы подключили имплант к автодоку и тот заработал на полную мощь. Ощущения начались просто капец какие. '
+						'Вас чуть ли не начало выворачивать наизнанку и через некоторое время вы поняли ,что больше вынести этого не в состоянии.'&act'Хватит!':gt $curloc
+					 end
+				 end
+			 end
+		 end
+     end
+	 if money[you]>=1000 and manamax[you]>0 and mana[you]<manamax[you]:
+		 act'Восстановить ману 10 шиллингов':money[you]-=1000&mana[you]=manamax[you]&cls&gs'stat'&gt $curloc
+	 end
+     if money[you]>=100000:
+		 if dick[you]>1:
+			 act'Хочу вагину вместо члена 1000 шиллингов':
+				 money[you]-=100000&dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&if face[you]>50 and womenbrain[you]<50:womenbrain[you]=60
+				gs'stat'&gt $curloc
+			 end
+		 else
+			 act'Хочу член вместо вагины 1000 шиллингов':
+				 money[you]-=100000&dick[you]=15&dickd[you]=30&ball[you]=50&vag[you]=0&if face[you]<50 and womenbrain[you]>50:womenbrain[you]=40
+				gs'stat'&gt $curloc
+			 end
+		 end
+		 if money[you]>=50000:
+			 act'Восстановить девственность вагины/ануса - 500 шиллингов':
+				 if vag[you]>0:vag[you]=1
+				 if anus[you]>0:anus[you]=0
+				 money[you]-=50000&cls&gs'stat'&act'Встать':gt 'preloc'
+				'Автодок вкалывает вам анестезию, укладывает на кушетку похожую на гинекологическое кресло и быстрыми механическими движениями сужает вам разношенные отверстия.'
+			 end
+         end
+		 act'Установить уровень феминности и маскулинности 1000 шиллингов':
+			 money[you]-=100000&temp=input("Установить значение феминности, сейчас <<face[you]>> от 0, до 100")
+			 if temp>=0 and temp<=100:face[you]=temp
+			 if face[you]>50 and womenbrain[you]<50:womenbrain[you]=60
+			 if face[you]<50 and womenbrain[you]>50:womenbrain[you]=40
+			cls&gs'stat'&gt $curloc
+		 end
+		 act'Установить мускулатуру 1000 шиллингов':
+			 money[you]-=100000&temp=input("Установить мускулатуру, сейчас <<mus[you]>> от 500, до 3000")
+			 if temp>=500 or temp<=3000:mus[you]=temp
+			 if mus[you]<500:mus[you]=500
+			 cls&gs'stat'&gt $curloc
+		 end
+		 act'Установить жир 1000 шиллингов':
+			 money[you]-=100000&temp=input("Установить уровень жира, сейчас <<fat[you]>> от 100, до 5000")
+			 if temp>=100 or temp<=5000:fat[you]=temp
+			 if fat[you]<100:fat[you]=100
+			 if fat[you]>5000:fat[you]=5000
+			 if fat[you]<1000:ass[you]=28
+			 if fat[you]>=1000 and fat[you]<3000:ass[you]=35
+			 if fat[you]>=3000:ass[you]=42
+			 cls&gt $curloc
+		 end 
+		 act'Установить рост 1000 шиллингов':
+			 money[you]-=100000&temp=input("Установить рост, сейчас <<rost[you]>> от 150, до 200")
+			 if temp>=150 or temp<=200:rost[you]=temp
+			 if rost[you]<150:rost[you]=150
+			 cls&gt $curloc
+		 end
+		 if money[you]>=100000 and ass[you]>2:
+			 act'Сформировать мужскую фигуру 1000ш':
+				money[you]-=100000&ass[you]=2&cls&gs'stat'&'Автодок рекомбинирует вашу фигуру и формирует ей мужские формы и объемы.'&act'Встать':gt 'preloc'
+			end
+		 end
+		 if money[you]>=100000 and ass[you]<20:
+			 act'Сформировать женскую фигуру 1000ш':
+				 money[you]-=100000&ass[you]=20&cls&gs'stat'&'Автодок рекомбинирует вашу фигуру и формирует ей женские формы и объемы.'&act'Встать':gt 'preloc'
+			 end
+		 end
+	 end
+end
+if mutation[you]>0:
+	'Автодок фиксирует у вас опасные мутации и предлагает избавиться от них за 1000 шиллингов'
+     if money[you]>=100000:
+		 act'Избавиться от мутаций 1000ш':
+			 money[you]-=100000&mutation[you]=0&cls&gs'stat'&'Автодок рекомбинирует ваши поврежденные хромосомы и избавляет вас от мутаций.'&act'Встать':gt 'preloc'
+		 end
+     end
+end
+if child_on_hand[you]>0:
+	'Вы можете вырастить своего ребенка в автодоке до 18летнего уровня за 1000 шиллингов'
+	 if money[you]>=100000:
+		 act'Вырастить ребенка 1000ш':
+			 cls
+			 money[you]-=100000&npc=child_on_hand[you]
+			 Xhome[npc]=Xhome[you]&Yhome[npc]=Yhome[you]&Zhome[npc]=Zhome[you]&Hhome[npc]=Hhome[you]&Rhome[npc]=Rhome[you]
+			 X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]&child_on_hand[you]=0&age[npc]=18
+		     if pol[npc]=0:
+				 face_pic[npc]=rand(1,400)&t_slot[npc]=4&l_slot[npc]=5&b_slot[npc]=3
+				 $history[npc]='	Я рос в виртуальной реальности, хотя я не замечал этого. Ты была моя мать и там, хотя теперь я понимаю что это была лишь цифровая копия. 
+										Там все было как на самом деле, дом, школа.'
+		     else
+				 face_pic[npc]=rand(1,100)&t_slot[npc]=13&l_slot[npc]=23&b_slot[npc]=3
+				 $history[npc]='	Я росла в виртуальной реальности, хотя я не замечала этого. Ты была моя мать и там, хотя теперь я понимаю что это была лишь цифровая копия. 
+										Там все было как на самом деле, дом, школа.'
+		     end
+		     n_world[]=npc&ne_world[]=npc&e_world[]=npc&se_world[]=npc&s_world[]=npc&cantwalk[npc]=0
+		     if Zhome[npc]=2:walkprog[npc]=27
+		     if Zhome[npc]=3:walkprog[npc]=26
+			 can_drive[npc]=you&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&puppil[]=npc&my_puppil[npc]=1&total_puppil+=1
+			 gs'stat'&'Автодок помещает вашего ребенка в капсулу, и через некоторое время из капсулы выходит уже ваш взрослый ребенок выращенный в виртуальной реальности.'&act'Встать':gt 'npc'
+		 end
+	 end
+end
+if inseminate[you]>0:
+     if pregnant_day[you]<daystart:
+		'Аборт стоит 500 шиллингов'
+         act'Проверить беременность':
+			 father_you_child=inseminate[you]&cls&gs'stat'&'Отец ребенка <<$name[father_you_child]>> <<$surname[father_you_child]>>'&'Вы забеременели <<daystart-pregnant_day[you]>> дней назад'
+			 'Вы родите через <<9-(daystart-pregnant_day[you])>> дней'&*pl'Будьте осторожны, рождение ребенка отнимает 100 единиц души.'&act'Встать':gt 'preloc'
+         end
+         if money[you]>=50000:
+			 act'Сделать аборт 500ш':
+				 inseminate[you]=0&pregnant_day[you]=0&money[you]-=50000
+				 cls&gs'stat'&'Автодок вкалывает вам анестезию и роботизированное щупальце проникает вам во влагалище. Пара секунд и плод вытащили из вас.'&act'Встать':gt 'preloc'
+			 end
+         end
+     end
+     'Ускорить роды стоит 500 шиллингов.<br>'& !'<br>ДЕТИ ЭТО ЦВЕТЫ ЖИЗНИ!'& Jorge 
+     if money[you]>=50000:act'Ускорить роды 500 шиллингов':money[you]-=50000&pregnant_day[you] = daystart-1&gs'stat'&gt'rodi' 
+end
+if spiral[you]=0 and vag[you]>1 and inseminate[you]=0:
+'Поставить спираль для предотвращения беременности стоит 100 шиллингов'
+     if money[you]>=10000:
+         act'Установить спираль 100ш':
+			 money[you]-=10000&spiral[you]=1&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок. '
+			'Множество металических и пластиковых манипуляторов умного механизма запорхали над вами и вам установили спираль.'&act'Отойти':gt 'preloc'
+         end
+     end
+end
+if spiral[you]>0 and vag[you]>1:
+	'Убрать спираль стоит 100 шиллингов'
+     if money[you]>=10000:
+         act'Убрать спираль 100ш':
+			 money[you]-=10000&spiral[you]=0&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок. '
+			'Множество металических и пластиковых манипуляторов умного механизма запорхали над вами и вам убрали спираль.'&act'Отойти':gt 'preloc'
+         end
+     end
+end
+if health[you]<healthmax[you]:
+	'Лечение в автодоке стоит 10 шиллингов'
+     if money[you]>=1000:
+         act'Вылечиться':
+			 money[you]-=1000&health[you]=healthmax[you]&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок. '
+			'Множество металических и пластиковых манипуляторов умного механизма запорхали над вами и вскоре вам стало лучше.'&act'Отойти':gt 'preloc'
+         end
+     end
+end
+if anal_egg[you]>=1 or vagina_egg[you]>0:
+	'Автодок обнаруживает у вас чужеродное яйцо, которое он может удалить за 100 шиллингов.'
+	 if money[you]>=10000:
+		 act'Удалить чужеродное яйцо - 100 шиллингов':
+			 anal_egg[you]=0&vagina_egg[you]=0 &vagina_egg_timer[you]=0&anal_egg_timer[you]=0&money[you]-=10000
+			 cls&gs'stat'&'Автодок обкалывает вас лекарствами и внедряет щупальце в вас, долго ковыряется и наконец вытаскивает яйцо наружу, после чего убирает его в отдельный бокс.'&act'Встать':gt 'preloc'
+		 end
+	 end
+end
+if magik_egganal[you]>=1:
+	'Автодок обнаруживает в вашем анусе магическое яйцо, которое он может удалить за 1000 шиллингов.'
+	 if money[you]>=50000:
+		 act'Удалить магическое яйцо - 500 шиллингов':
+			 magik_egganal[you]=0&magik_egganal_timer[you]=0&money[you]-=50000
+			 cls&gs'stat'&'Автодок обкалывает вас лекарствами и внедряет щупальце в зад, долго ковыряется и наконец вытаскивает из вас яйцо.'&act'Встать':gt 'preloc'
+		 end
+	 end
+end
+if magik_eggvag[you]>=1:
+	'Автодок обнаруживает в вашей вагине магическое яйцо, которое он может удалить за 1000 шиллингов.'
+	 if money[you]>=50000:
+		 act'Удалить магическое яйцо - 50000 шиллингов':
+			 magik_eggvag[you]=0&magik_eggvag_timer[you]=0&money[you]-=50000
+			 cls&gs'stat'&'Автодок обкалывает вас лекарствами и внедряет щупальце в зад, долго ковыряется и наконец вытаскивает из вас яйцо.'&act'Встать':gt 'preloc'
+		 end
+	 end
+end
+'За 100 шиллингов можно сменить цвет кожи, изменить форму носа, размер и цвет глаз, а также форму скул и щёк.'
+if money[you]>=10000:
+    act'Сменить цвет кожи':
+        money[you]-=10000&cls&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок, появился экран с запросом.'
+        act'Белая кожа':skin[you]=0&gs'stat'&gt 'preloc'
+        act'Светлая кожа':skin[you]=1&gs'stat'&gt 'preloc'
+        act'Загорелая кожа':skin[you]=2&gs'stat'&gt 'preloc'
+        act'Смуглая кожа':skin[you]=3&gs'stat'&gt 'preloc'
+    end
+    act'Сменить форму носа':
+         money[you]-=10000&cls&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок, появился экран с запросом.'
+        act'Обыкновенный нос':nose[you]=0&gs'stat'&gt 'preloc'
+        act'Маленький вздернутый носик':nose[you]=1&gs'stat'&gt 'preloc'
+        act'Утонченный, аристократический нос':nose[you]=2&gs'stat'&gt 'preloc'
+        act'Широкий нос':nose[you]=3&gs'stat'&gt 'preloc'
+        act'Горбатый нос':nose[you]=4&gs'stat'&gt 'preloc'
+    end
+    act'Изменить размер глаз':
+		money[you]-=10000&cls&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок, появился экран с запросом.'
+        act'Обычные глаза':gla[you]=0&gs'stat'&gt 'preloc'
+        act'Маленькие глаза':gla[you]=1&gs'stat'&gt 'preloc'
+        act'Раскосые глаза':gla[you]=2&gs'stat'&gt 'preloc'
+        act'Большие глаза':gla[you]=3&gs'stat'&gt 'preloc'
+    end
+	act'Изменить цвет глаз':
+        money[you]-=10000&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок, появился экран с запросом.'
+        act'Цвет глаз: Черные':glacol[you]=0&gs'stat'&gt 'preloc'
+        act'Цвет глаз: Карие':glacol[you]=1&gs'stat'&gt 'preloc'
+        act'Цвет глаз: Серые':glacol[you]=2&gs'stat'&gt 'preloc'
+        act'Цвет глаз: Зеленые':glacol[you]=3&gs'stat'&gt 'preloc'
+        act'Цвет глаз: Голубые':glacol[you]=4&gs'stat'&gt 'preloc'
+        act'Цвет глаз: Красные':glacol[you]=5&gs'stat'&gt 'preloc'
+		act'Цвет глаз: Желтые':glacol[you]=6&gs'stat'&gt 'preloc'
+    end
+	act'Изменить форму щёк':
+		money[you]-=10000&cls&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок, появился экран с запросом.'
+		act'Обычные щеки':cheeks[you]=0&gs'stat'&gt 'preloc'
+		act'Пухлые щеки':cheeks[you]=1&gs'stat'&gt 'preloc'
+	end
+	act'Изменить форму скул':
+		money[you]-=10000&cls&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок, появился экран с запросом.'
+		act'Обычные скулы':scull[you]=0&gs'stat'&gt 'preloc'
+		act'Широкие скулы':scull[you]=1&gs'stat'&gt 'preloc'
+    end
+end
+if dick[you]>1 and ball[you]<100 and ball[you]>1:
+'Усилить потенцию стоит 100 шиллингов'
+     if money[you]>=10000:
+		 act'Усилить потенцию':
+			 money[you]-=10000&ball[you]+=10&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок, вам сделали укол и начались какие-то манипуляции.'&act'Встать':gt 'preloc'
+		 end
+	 end
+end
+'За 500 шиллингов автодок может установить любой размер груди.'
+if money[you]>=50000:
+    act'Установить размер груди 500ш':
+		 money[you]-=50000&cls&gs'stat'&'Вы положили деньги в деньгоприемник и осталось только выбрать размер.'
+        act'0й размер.':tits[you]=0&cls&gs'stat'&gt 'preloc'
+        act'1й размер. Чашечка А':tits[you]=10&cls&gs'stat'&gt 'preloc'
+        act'2й размер. Чашечка В':tits[you]=14&cls&gs'stat'&gt 'preloc'
+        act'3й размер. Чашечка C':tits[you]=17&cls&gs'stat'&gt 'preloc'
+        act'4й размер. Чашечка D':tits[you]=19&cls&gs'stat'&gt 'preloc'
+        act'5й размер. Чашечка DD':tits[you]=21&cls&gs'stat'&gt 'preloc'
+    end
+end
+'За 1000 шиллингов автодок может установить импланты. В наличии повышающий рефлексы, увеличивающий силу удара, имплант увеличения здоровья.'
+if money[you]>=100000:
+    act'Имплант на рефлексы':
+         money[you]-=100000&implant_speed[you]+=1&reflex[you]+=1&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок. '
+		'Множество металических и пластиковых манипуляторов умного механизма запорхали над вами и вам установили имплант.'&act'Отойти':gt 'preloc'
+    end     
+    act'Имплант на силу удара':
+         money[you]-=100000&implant_power[you]+=1&soulpower[you]+=5&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок. '
+		'Множество металических и пластиковых манипуляторов умного механизма запорхали над вами и вам установили имплант.'&act'Отойти':gt 'preloc'
+    end     
+    act'Имплант увеличения здоровья':
+         money[you]-=100000& implant_vigor[you]+=1&vital[you]+=5&cls&gs'stat'&'Вы положили деньги в деньгоприемник и, раздевшись, легли в автодок. '
+		'Множество металических и пластиковых манипуляторов умного механизма запорхали над вами и вам установили имплант.'&act'Отойти':gt 'preloc'
+    end
+end

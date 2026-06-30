@@ -1,0 +1,16 @@
+﻿in_sex=1&gs'stat'
+if sexpower[npc]>0:
+	temp_blow_fss+=1&sexpower[npc]-=1&gs'stat'
+	if skin[npc]>3 and skin[npc]<7:
+		blacked[you]+=1&'<center><video src="pic/sex/public/bbc_blow<<rand(0,21)>>.webm" ></video></center>'
+	else
+		'<center><video src="pic/sex/public/blow<<rand(0,27)>>.webm" ></video></center>'
+	end
+	$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+	'Вы сидите на корточках и сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'
+	gs'fuck_oral',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Сосать':gt'public_fss_sex_sistem'
+else
+	gs'stat'&$func('get_images', 'cum_in_mouth', you, npc)&'<<$name[npc]>> кончает вам в рот и на лицо.'
+	gs'fuck_cum_face',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+end
+gs 'npconloc_fss'

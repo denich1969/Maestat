@@ -1,0 +1,10 @@
+﻿gs'stat'
+falselife[npc]-=1
+health[npc]=healthmax[npc]
+energy[npc]=energymax[npc]
+mana[npc]=manamax[npc]
+stunV=0
+'<center><img src="pic/misc/raven.jpg" ></center>'
+'<b><<$nick[npc]>> падает на землю и тут же превращается в стаю воронов которые с пронзительным карканьем разлетаются и вы видите что <<$nick[npc]>> стоит позади</b>'
+
+act'...':gt'fight'

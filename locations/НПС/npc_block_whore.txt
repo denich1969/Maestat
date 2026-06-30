@@ -1,0 +1,125 @@
+﻿	 if whore[you]>0 and whoreboss[you]!npc and boyfriend[you]!npc and husband[you]!npc and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+		 if pol[npc]=0:
+			 act'Предложить секс':
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Отчаянно крутя бедрами, вы соблазнительно улыбнулись и промурлякали - Хочешь развлечься?'
+				 needsexiness=rand(10,90)&if sexiness[you]<=needsexiness:'<<$name[npc]>> осмотрел вас и отказался, кажется вы недостаточно сексуально выглядите'
+				 if sexiness[you]>needsexiness:
+					 if last_sex[npc]>time: 
+						'<<$name[npc]>> осмотрел вас и отказался, очевидно он не хочет секса.'
+					 else
+						 if dick[npc]>1 and whoreboss[you]!npc:
+							'<<$name[npc]>> осмотрел вас и предлагает вам за секс <<max(sexiness[you]/2,1)>> шиллингов.'
+							 if whoreboss[you]=tornton:
+								 if X[you]=3 and Y[you]=0 and Z[you]=1 and H[you]=3:
+									 act'Дать прямо тут':
+										 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4
+										 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1&gt'sex'
+									 end
+								 else
+									 act'Пошли в бордель':
+										 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4
+										 whore[you]+=1&gt'go_to_bordel' 
+									 end
+								 end
+							 else
+								if Z[npc]=Zhome[you]:
+									act'Пошли ко мне':
+										 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4
+										 whore[you]+=1&gt'go_to_myhome' 
+									 end
+									act'Пошли к тебе':
+										 know_whore['<<npc>>,<<you>>']+=1&whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1
+										 last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4&gt'go_to_npc_home'
+									 end
+								end
+								act'Могу отсосать':
+									 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/4
+									 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+									 '<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'&gs'block_quick', 'give_bj'
+								 end
+								 act'Дать прямо тут':
+									 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4
+									 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1&gt'sex'
+								 end
+								 gs'block_quick'
+							 end
+						 end
+					 end
+				 end
+				act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+	 end
+	 if whoreboss[you]=npc:
+		'<<$name[npc]>> смотрит вам в глаза - И не забывай! Я твой сутенер!'
+		 if sutenerpay[you]>0:
+			'<<$name[npc]>> - ты должна мне <<sutenerpay[you]/100>> шиллингов'
+			 if money[you]>=sutenerpay[you]:
+				 act'Перетереть о долге':
+					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Как рассчитываться будешь?'&act'<b>Уйти</b>':'Подожди немного, позже отдам.'&gt 'preloc'
+					if vag[you]>0:act'Рассчитаться натурой':gt'sutenerpay_day'
+					 act'Заплатить сутенеру':
+						 money[npc]+=sutenerpay[you]&money[you]-=sutenerpay[you]&sutenerpay[you]=0&sutenerpayday[you]=daystart+7&dom[you]-=1
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы отдаете деньги своему сутенеру'&act'<b>Уйти</b>':gt 'preloc'
+					 end
+				 end
+			 end
+		 end
+	 end
+	 if whore[npc]>0 and slave[npc]=0 and whoreboss[npc]>0 and whoreboss[npc]!you:
+		'<<$name[npc]>> улыбается и качает бедрами'
+		 act'Кто твой сутенер?':
+			 sut=whoreboss[npc]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Шлюха говорит вам что ее сутенер <<$name[sut]>> <<$surname[sut]>>'&act'<b>Уйти</b>':gt 'preloc'
+		     if canbuywhore_tornton>0 and sut=tornton:
+		         if money[you]>=200000:
+					'Вы можете купить шлюху за 2000 шиллингов'
+					 if saunakafehome[npc]=0 and saunakafeowner>=1 and Z[you]<10:
+						 act'Выкупить и поселить в кафе "Рим"':
+							 money[you]-=200000&money[sut]+=200000&saunakafehome[npc]=1&Xhome[npc]=2&Yhome[npc]=0&Zhome[npc]=3&Hhome[npc]=2&Rhome[npc]=3
+							 whoreboss[npc]=you&slave[npc]=you&e_world[]=npc&walkprog[npc]=26&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+							 'Вы объясняете, что теперь можно жить в кафе "Рим", так как оно принадлежит вам.'&act'<b>Уйти</b>':gt 'preloc'
+						 end
+					 end
+		         end
+		     end
+		 end
+	 end
+	 if empty_ball[npc]<time and slave[npc]!you:
+	     if whoreboss[npc]>0 and whore[npc]>0 and dick[you]>1 and whoreboss[npc]!you:
+			if Z[you]<10:'<<$name[npc]>> с обворожительной улыбкой говорит - 50 шиллингов и я воплощу твои мечты в реальность'
+			if Z[you]<300 and Z[you]>=200:'<<$name[npc]>> с обворожительной улыбкой говорит - 500 рублей и я воплощу твои мечты в реальность'
+			 if money[you]>=5000 or rubl[you]>=500000:
+				 act'Секс за деньги':
+					if port_whore[npc]=1:
+						portvenerafix+=1&if rand(1,12)=6:portvenera=1						
+					end 
+					if money[you]>=5000:money[you]-=5000
+					if rubl[you]>=500000:rubl[you]-=500000
+					gt'justsex'
+				 end
+			 end
+	     end 
+	     !' if port_whore[npc]=1:
+			'<<$name[npc]>> устало говорит - 20 шиллингов и я воплощу твои мечты в реальность'
+			 if money[you]>=2000:
+				 act'Секс за деньги':
+					 money[you]-=2000
+					 portvenerafix+=1
+					if rand(1,12)=6:portvenera=1						
+					gt'justsex'
+				 end
+			 end
+		 end
+		 if street_whore[npc]=1:
+			'<<$name[npc]>> с улыбкой говорит - 40 шиллингов и я воплощу твои мечты в реальность'
+			 if money[you]>=4000:act'Секс за деньги':money[you]-=4000&gt'justsex'
+		 end
+		 if upwhore[npc]=1:
+			'<<$name[npc]>> с обворожительной улыбкой говорит - 50 шиллингов и я воплощу твои мечты в реальность'
+			 if money[you]>=5000:act'Секс за деньги':money[you]-=5000&gt'justsex'
+		 end
+		 if downwhore[npc]=1:
+			'<<$name[npc]>> с обворожительной улыбкой говорит - 80 шиллингов и я воплощу твои мечты в реальность'
+			 if money[you]>=8000:act'Секс за деньги':money[you]-=8000&gt'justsex'
+		 end '
+	end

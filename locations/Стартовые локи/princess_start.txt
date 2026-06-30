@@ -1,0 +1,24 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&princess=i&you=i&!saverules=1
+lvl[i]=1&soul[i]=100&gulden[i]=10000000&!money[i]=5500&!
+magik[you]=24
+spec_face_pic[i]=5&face_pic[i]=150&!номер папки с фото и номер фото
+$title[i]='Принцесса'&$history[i]='Вы принцесса '
+$name[i]='Нинэль'&$surname[i]='Вивальди'&$nick[i]='Блондинка'
+face[i]=70&gla[i]=3&glacol[i]=2&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=0&souldar[i]=1
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&ass[i]=30&nip[i]=45&tits[i]=18&throat[i]=0
+rost[i]=170&fat[i]=1200&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&cunthair[i]=10&hlong[i]=30&hcol[i]=3
+healthmax[i]=92&health[i]=healthmax[i]&manamax[i]=7300&mana[i]=manamax[i]&energymax[i]=86&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&&total_generated_female+=1
+womenbrain[i]=100&lust[i]=10&agro[i]=10&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&horny[you]=0&thenoob[i]=1&!Характер 
+h_slot[i]=24&!Головной убор&!Прикид
+t_slot[i]=133&l_slot[i]=0&b_slot[i]=20&!Майка, Рубашка, Блузка, плптье и т п, Юбка, Брюки, штаны, бриджи, шорты, Обувь
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=31&!Лиф, Трусы, Колготки&!Прикид конец
+'<<$name[you]>> <<$surname[you]>>'&*pl'<<$opis[you]>>'
+SHOWSTAT 1&SHOWOBJS 1
+addobj'Персонаж'&addobj'Характеристики'&addobj'Статистика'&addobj'Инвентарь'&addobj'Журнал'&addobj'Обновить'&addobj'Аварийка'&!addobj'Настройки'
+Xstart=10&Ystart=10&Zstart=740&Hstart=0&Rstart=0&gs'castle_gen'
+obsession_world[]=i&walkprog[i]=29
+X[you]=Xstart&Y[you]=Ystart&Z[you]=Zstart&H[you]=Hstart&R[you]=Rstart&ownerloc['<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>']=you
+$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&item_loc['11,<<$loc[you]>>']=1&item_loc['55,<<$loc[you]>>']=1&item_loc['25,<<$loc[you]>>']=1&!Скипетр&!$worldloc[you]='world'
+Xhome[you]=Xstart&Yhome[you]=Ystart&Zhome[you]=Zstart&Hhome[you]=Hstart&Rhome[you]=Rstart&gt'world'

@@ -1,0 +1,12 @@
+﻿gs'stat'&'Вокруг вас вьется мгла рисуя в своих причудливых узорах разные фигуры'&act'Уйти обратно':gt 'preloc'
+if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=10:
+
+else
+     if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:'Вы видите тени порта'
+     if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=2:'Вы видите тени Блэкберри'
+     if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=3:'Вы видите тени Жилмассива'
+     if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=4:'Вы видите тени Аптауна'
+     if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=5:'Вы видите тени Даунтауна'
+     act'Всмотреться в тени':cls&Zs=sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']&gt'shadow_go'
+end
+if master[you]=1:act'<b>Луна</b>':X[you]=3&Y[you]=3&Z[you]=7777&H[you]=1&R[you]=1&gt 'preloc'

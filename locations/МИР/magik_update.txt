@@ -1,0 +1,53 @@
+﻿result=0
+if magik_exp[args[0]]>=magik_exp_need[args[0]] and magik[args[0]]>0:
+	magik[args[0]]+=1
+	magik_exp[args[0]]-=magik_exp_need[args[0]]
+	magik_exp_need[args[0]]=magik[args[0]]*2
+	
+	if magik[args[0]]=0:manamax[args[0]]=0&mlev[args[0]]=0
+	!7
+	if magik[args[0]]=1:manamax[args[0]]=50&mlev[args[0]]=1
+	!6
+	if magik[args[0]]=2:manamax[args[0]]=100&mlev[args[0]]=2
+	if magik[args[0]]=3:manamax[args[0]]=110&mlev[args[0]]=2
+	!5
+	if magik[args[0]]=4:manamax[args[0]]=200&mlev[args[0]]=3
+	if magik[args[0]]=5:manamax[args[0]]=210&mlev[args[0]]=3
+	if magik[args[0]]=6:manamax[args[0]]=220&mlev[args[0]]=3
+	!4
+	if magik[args[0]]=7:manamax[args[0]]=400&mlev[args[0]]=4
+	if magik[args[0]]=8:manamax[args[0]]=410&mlev[args[0]]=4
+	if magik[args[0]]=9:manamax[args[0]]=420&mlev[args[0]]=4
+	if magik[args[0]]=10:manamax[args[0]]=430&mlev[args[0]]=4
+	!3
+	if magik[args[0]]=11:manamax[args[0]]=800&mlev[args[0]]=5
+	if magik[args[0]]=12:manamax[args[0]]=810&mlev[args[0]]=5
+	if magik[args[0]]=13:manamax[args[0]]=820&mlev[args[0]]=5
+	if magik[args[0]]=14:manamax[args[0]]=830&mlev[args[0]]=5
+	if magik[args[0]]=15:manamax[args[0]]=840&mlev[args[0]]=5
+	!2
+	if magik[args[0]]=16:manamax[args[0]]=1600&mlev[args[0]]=6
+	if magik[args[0]]=17:manamax[args[0]]=1610&mlev[args[0]]=6
+	if magik[args[0]]=18:manamax[args[0]]=1620&mlev[args[0]]=6
+	if magik[args[0]]=19:manamax[args[0]]=1630&mlev[args[0]]=6
+	if magik[args[0]]=20:manamax[args[0]]=1640&mlev[args[0]]=6
+	if magik[args[0]]=21:manamax[args[0]]=1650&mlev[args[0]]=6
+	!1
+	if magik[args[0]]=22:manamax[args[0]]=3200&mlev[args[0]]=7
+	if magik[args[0]]=23:manamax[args[0]]=3210&mlev[args[0]]=7
+	if magik[args[0]]=24:manamax[args[0]]=3220&mlev[args[0]]=7
+	if magik[args[0]]=25:manamax[args[0]]=3230&mlev[args[0]]=7
+	if magik[args[0]]=26:manamax[args[0]]=3240&mlev[args[0]]=7
+	if magik[args[0]]=27:manamax[args[0]]=3250&mlev[args[0]]=7
+	if magik[args[0]]=28:manamax[args[0]]=3260&mlev[args[0]]=7
+	!HL
+	if magik[args[0]]=29:manamax[args[0]]=6400&mlev[args[0]]=8
+	if magik[args[0]]=30:manamax[args[0]]=6410&mlev[args[0]]=8
+	if magik[args[0]]=31:manamax[args[0]]=6420&mlev[args[0]]=8
+	if magik[args[0]]=32:manamax[args[0]]=6430&mlev[args[0]]=8
+	if magik[args[0]]=33:manamax[args[0]]=6440&mlev[args[0]]=8
+	if magik[args[0]]=34:manamax[args[0]]=6450&mlev[args[0]]=8
+	if magik[args[0]]=35:manamax[args[0]]=6460&mlev[args[0]]=8
+	if magik[args[0]]=36:manamax[args[0]]=6470&mlev[args[0]]=8
+	result=1
+end

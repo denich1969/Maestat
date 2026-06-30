@@ -1,0 +1,66 @@
+﻿if args[0]>0 and args[1]>0 and args[1]!args[0]:
+	if master[args[1]]>0 and magik[args[0]]>0:
+		args[50]=(magik[args[1]]-magik[args[0]])/10
+		if args[50]>0:
+			magik_exp[args[0]]+=args[50]&if args[0]=you:"Вы чувствуете как ваша сила растет"
+		end
+	end	
+	if master[args[0]]>0 and magik[args[1]]>0:
+		args[50]=(magik[args[0]]-magik[args[1]])/10
+		if args[50]>0:
+			magik_exp[args[1]]+=args[50]&if args[0]=you:"Вы чувствуете как ваша сила растет"
+		end
+	end	
+end
+if solo>0 or demon_dick[args[1]]>5:friends['<<args[0]>>,<<args[1]>>']+=1+temp_orgazm[args[1]]&friends['<<args[1]>>,<<args[0]>>']+=1+temp_orgazm[args[1]]&!если не групповуха
+if succubus[args[1]]>0:soul[args[1]]+=1&soul[args[0]]-=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&'Вы высасываете немного души.'
+if mob[args[0]]=3:dagongene+=rand(5,10)
+if demon_dick[args[1]]>0 and demon_dick_orgazm_day[args[1]]!daystart:exp[args[1]]+=demon_dick[args[1]]*horny[args[1]]/10&demon_dick_orgazm_day[args[1]]=daystart
+if demon_dick[args[0]]>0 and demon_dick_orgazm_day[args[0]]!daystart:exp[args[0]]+=demon_dick[args[0]]*horny[args[1]]/10&demon_dick_orgazm_day[args[0]]=daystart
+exp[args[1]]+=perk_cumnpc[args[1]]*10&exp[args[0]]+=perk_cumnpc[args[0]]*10
+feminize[args[1]]+=perk_feminize[args[1]]
+!statistics_cumnpc[args[1]]+=1&statistics_cumnpc[args[0]]+=1
+!TODO - не всегда очевидно какие координаты брать, как я понял иногда персонажи находяться в разных локах и в какой они окажуться после секса неизвестно
+args[10]=args[1]&if args[0]=you:args[10]=args[0]
+if demon_dick[args[1]]>0:
+	friends['<<args[0]>>,<<args[1]>>']+=1&friends['<<args[1]>>,<<args[0]>>']+=1
+	if args[0]!soulmaster:
+		args[20]=0&if rand(demon_dick[args[1]],15)>=15:args[20]+=1
+		soul_loc['<<X[args[10]]>>,<<Y[args[10]]>>,<<Z[args[10]]>>,<<H[args[10]]>>,<<R[args[10]]>>']+=args[20]&if soul[args[0]]>0:soul[args[0]]-=args[20]
+	end	
+	gs'get_soul_loc',args[1],demon_dick[args[1]]+temp_orgazm[args[1]]*3,args[10]&feminize[args[1]]+=1
+	if demon_dick[args[1]]>1:sportiv[args[1]]+=1+temp_orgazm[args[1]]/3
+	if demon_dick[args[1]]>2:energy[args[1]]=energymax[args[1]]
+	if demon_dick[args[1]]>3 and ball[args[0]]>0 and ball[args[0]]<demon_dick[args[1]]*8 and ball[args[0]]<100 and args[0]!borisbogart:ball[args[0]]+=1
+	if demon_dick[args[1]]>4 and dickd[args[0]]>0 and args[0]!borisbogart:
+		if dick[args[0]]<demon_dick[args[1]]*2:dick[args[0]]+=1
+		if dickd[args[0]]<demon_dick[args[1]]*4:dickd[args[0]]+=1
+		friends['<<args[0]>>,<<args[1]>>']+=5&friends['<<args[1]>>,<<args[0]>>']+=5&!dickd[args[0]]+=1
+	end	
+	if args[1]=you:womenbrain[you]+=1+temp_orgazm[args[1]]*3
+end
+if demon_dick[args[0]]>0 and args[0]!args[1] and args[1]!soulmaster:
+	friends['<<args[0]>>,<<args[1]>>']+=1&friends['<<args[1]>>,<<args[0]>>']+=1
+	if args[1]!soulmaster:
+		args[20]=0&if rand(demon_dick[args[0]],15)>=15:args[20]+=1
+		soul_loc['<<X[args[10]]>>,<<Y[args[10]]>>,<<Z[args[10]]>>,<<H[args[10]]>>,<<R[args[10]]>>']+=args[20]&if soul[args[1]]>0:soul[args[1]]-=args[20]
+	end	
+	if pol[args[0]]=0:manize[args[1]]+=1
+	gs'get_soul_loc',args[0],demon_dick[args[0]]+temp_orgazm[args[1]]*3,args[10]
+	!if ball[args[0]]<100:ball[args[0]]+=1
+	if demon_dick[args[0]]>2:energy[args[0]]=energymax[args[0]]
+	if demon_dick[args[0]]>1:sportiv[args[0]]+=1+temp_orgazm[args[1]]/3
+	!if demon_dick[args[1]]>6:manize[args[0]]+=1
+	if demon_dick[args[0]]>8:feminize[args[1]]+=5
+end
+if args[0]>0 and args[1]>0:
+	!if magik[args[1]]>magik[args[0]] and demon_dick[args[0]]>0: magik_exp[args[0]]+=(magik[args[1]]-magik[args[0]])/20
+	!if magik[args[0]]>magik[args[1]] and demon_dick[args[1]]>0: magik_exp[args[1]]+=(magik[args[0]]-magik[args[1]])/20
+end
+horny[args[1]]-=200+temp_orgazm[args[1]]*25
+if horny[args[1]]>100:horny[args[1]]=100
+if horny[args[1]]<=0 or args[2]=1:horny[args[1]]=0
+orgasm[args[1]]=time+60&orgasm_times[args[1]]+=1
+if manamax[args[1]]>0 and args[1]!args[0]:mana[args[1]]+=soul[args[1]]
+if manamax[args[0]]>0 and args[1]!args[0]:mana[args[0]]+=soul[args[0]]/5
+temp_orgazm[args[1]]+=1&orgazms['<<args[0]>>,<<args[1]>>']+=1

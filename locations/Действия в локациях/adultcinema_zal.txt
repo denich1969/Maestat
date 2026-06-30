@@ -1,0 +1,13 @@
+﻿$nameloc[you]=$curloc&gs'stat'
+if bimboporn=0:'<center><img src="pic/sex/pornpic/pornstar<<rand(0,5)>>.jpg" ></center>'
+if bimboporn>0:'<center><img src="pic/sex/pornpic/bimbo.jpg" ></center>'
+'На большом экране идет порнуха.'
+if bimboporn>0:'Увидев порнуху вы узнали там себя'
+gs'Item'&*pl ''&adultcinema=1&gs 'npconloc'&act'Уйти':gt 'preloc'
+act'Смотреть порно':
+	horny[you]+=50&time+=60&cls&gs'stat'
+	if bimboporn=0:'<center><img src="pic/sex/pornpic/pornstar<<rand(0,5)>>.jpg" ></center>'
+	if bimboporn>0:'<center><img src="pic/sex/pornpic/bimbo.jpg" ></center>'
+	'Вы смотрите на большом экране порнуху и чувствуете что возбуждаетесь'&act'Уйти':gt 'preloc'
+end
+if pol[you]>0 and total_npc_on_loc>0:act'Маструбировать':solo=0&pose[you]=2&cls&gt 'sex'

@@ -1,0 +1,144 @@
+﻿!npcmax=arrsize('$name')
+if Z[w]=0:snpcmax=arrsize('homeworld')
+if Z[w]=10:snpcmax=arrsize('root_world')
+if Z[w]=100:snpcmax=arrsize('paradiseworld')
+if Z[you]>=200 and Z[you]<300:snpcmax=arrsize('real_world')
+if Z[you]>=700 and Z[you]<800:snpcmax=arrsize('obsession_world')
+if Z[w]=7777:snpcmax=arrsize('Moonworld')
+if Z[w]=404:snpcmax=arrsize('romaworld')
+if Z[w]=440:snpcmax=arrsize('mistworld')
+if Z[w]=1:snpcmax=arrsize('n_world')
+if Z[w]=2:snpcmax=arrsize('ne_world')
+if Z[w]=3:snpcmax=arrsize('e_world')
+if Z[w]=4:snpcmax=arrsize('se_world')
+if Z[w]=5:snpcmax=arrsize('s_world')
+sar=0
+:markradar
+if Z[w]=0:s=homeworld[sar]
+if Z[w]=10:s=root_world[sar]
+if Z[w]=100:s=paradiseworld[sar]
+if Z[you]>=200 and Z[you]<300:s=real_world[sar]
+if Z[you]>=700 and Z[you]<800:s=obsession_world[sar]
+if Z[w]=7777:s=Moonworld[sar]
+if Z[w]=404:s=romaworld[sar]
+if Z[w]=440:s=mistworld[sar]
+if Z[w]=1:s=n_world[sar]
+if Z[w]=2:s=ne_world[sar]
+if Z[w]=3:s=e_world[sar]
+if Z[w]=4:s=se_world[sar]
+if Z[w]=5:s=s_world[sar]
+if w!you and s!you and dead[s]=0 and cantwalk[s]=0 and follower[s]=0 and $name[s]!'' and mob_busy[s]=0 and mob_busy[w]=0 and my_puppil[w]=0 and my_puppil[s]=0 and sexperaday[w]!daystart and w!s:
+	if X[w]=X[s] and Y[w]=Y[s] and Z[w]=Z[s] and H[w]=H[s] and R[w]=R[s] and blocksex['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+		if moon_curse[s]>=1:horny[w]=50
+		if dick[w]>1 and vag[s]>0 and horny[w]>=50:
+			sexcanbe=0
+			if agro[w]>agro[s]:sexcanbe=1
+			if lust[s]>=75:sexcanbe=1
+			 if whore[s]>0:sexcanbe=1
+			 if misstress[s]=1:sexcanbe=0
+			 if master[s]>0 and beliver[w]!master[s]:sexcanbe=0
+			 if husband[w]=s:sexcanbe=1
+			 if kid_first[w]=s:sexcanbe=0
+			 if kid_second[w]=s:sexcanbe=0
+			 if mother[w]=s:sexcanbe=0
+			 if father[s]=w:sexcanbe=0
+			 if brother[w]=s:sexcanbe=0
+			 if moon_curse[s]>=1:sexcanbe=1
+			!'husband[tabernman]=tabernwoman&husband[tabernwoman]=tabernman
+			kid_first[tabernman]=elderdot&kid_first[tabernwoman]=elderdot
+			kid_second[tabernman]=youngdot&kid_second[tabernwoman]=youngdot
+			father[elderdot]=tabernman&mother[elderdot]=tabernwoman
+			father[youngdot]=tabernman&mother[youngdot]=tabernwoman
+			brother[youngdot]=elderdot&brother[elderdot]=youngdot	 '
+            if sexcanbe=1:
+				dosex=0
+                if vag[s]=1:
+                   if moon_curse[s]>=1:
+						dosex=rand(0,2)
+                    else
+						if husband[w]=s:
+							dosex=1
+						else
+							if times_foreplay['<<w>>,<<s>>']>=10:
+								if horny[s]>=50:dosex=1
+							else
+								if horny[s]>=50:dosex=2
+							end
+						end
+                    end
+                else
+                    if sexperaday[s]=daystart:
+                         if moon_curse[s]>=1:dosex=rand(0,1)
+                         if whore[s]>0:dosex=rand(0,1)
+                         if lust[s]>=75:dosex=rand(0,1)
+                         if husband[w]=s:dosex=rand(0,1)
+                    else
+                        if moon_curse[s]>=1:
+							dosex=rand(0,1)
+						else
+							if lust[s]>=75:
+								 if horny[s]>=50:dosex=1
+							else
+								if times_foreplay['<<w>>,<<s>>']>=3:
+									if horny[s]>=50:dosex=1
+								else
+									if horny[s]>=50:dosex=2
+								end
+							end
+                        end
+                    end
+                end
+                if dosex=0:horny[w]+=5+(sexiness[s]/2)&horny[s]+=(lust[s]/10)
+                if dosex=1:
+					sexperaday[s]=daystart&sexperaday[w]=daystart
+					if soul[s]>0:soul[w]+=1&soul[s]-=iif(stamp_t[s]>0,rand(0,1),1)&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+					agro[w]+=1&agro[s]-=1&lust[s]+=1
+					 if moon_curse[s]>=1:lust[s]+=2
+					 healthmax[w]=healthmax[w]+10&health[w]=healthmax[w]&energy[w]=energymax[w]&minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)
+					 reflex[w]+=1
+					 under_sub[w]=s&under_sub[s]=w
+					 mob_busy[w]=time+15&mob_busy[s]=time+15
+					 action_tipe[w]=1&action_tipe[s]=1
+					 vag[s]+=1
+					 gs'add_sex_stat',w,s
+					 vagsex[s]+=1&avagsex[w]+=1
+					 bj[s]+=1&abj[w]+=1
+					 $global_npc_log[w]+='<br>'
+					 $global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[s]>> <<$surname[s]>> занимались сексом...'
+					 $global_npc_log[s]+='<br>'
+					 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> занимались сексом...'
+					 horny[w]=0&horny[s]=0
+					if X[w]=1 and Y[w]=1 and Z[w]=1 and H[w]=1 and R[w]=0:
+					     if lust[s]<80:
+							 placeR=rand(2,3)&R[w]=placeR&R[s]=placeR&!трактир
+					     else
+							 action_tipe[w]=3&action_tipe[s]=3
+					     end
+					 end
+					 if statist[s]=1 and whore[s]=0:panic[s]+=1
+					 if thenoob[s]=1 and whore[s]=0:panic[s]+=1
+					 if moon_curse[s]>=1:
+						panic[s]+=1&if soul[s]<=0:dead[s]=2
+						if guy[s]>=20 and port_whore[s]=0 and lust[s]>=75:
+							 port_whore[s]=1&whore[s]+=1&$history[s]='Попав в город я сломалась и стала шлюхой'
+							 if stamp_t[s]=0:stamp_t[s]=rand(1,4)
+							 t_slot[s]=rand(31,36)&l_slot[s]=rand(15,22)&b_slot[s]=rand(8,11)
+							 ut_slot[s]=0&ul_slot[s]=0&ub_slot[s]=0
+							 nip_p[s]=3&vag_pirs[s]=3&nose_p[s]=2&tongue_p[s]=1
+						 end
+					 end
+			     end
+			     if dosex=2:
+					 under_sub[w]=s&under_sub[s]=w
+					 mob_busy[w]=time+15&mob_busy[s]=time+15
+					 action_tipe[w]=2&action_tipe[s]=2
+					 agro[w]+=1&agro[s]-=1&lust[s]+=1
+					 times_foreplay['<<w>>,<<s>>']+=1&times_foreplay['<<s>>,<<w>>']+=1
+					 horny[w]=0&horny[s]=0
+			     end
+             end
+         end
+         if dick[w]>1 and vag[s]>0 and horny[w]<50:horny[w]+=5+(sexiness[s]/2)&horny[s]+=(lust[s]/10)
+     end
+end
+sar+=1&tormoza+=1&tormoza_radar+=1&if sar<=snpcmax:jump'markradar'

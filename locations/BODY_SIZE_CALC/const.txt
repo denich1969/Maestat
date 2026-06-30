@@ -1,0 +1,36 @@
+﻿if $args[0]='':
+	is_debug=0
+	forest_village_sklad_cost=50
+	avg_bullet_dmg = 300&!урон выше которого, цель отправляеться в двойной стан
+	!это нужно для того, чтобы показатели не выходили за рамки разумного
+	femMax = 2000
+	fatNorm = 4000
+	fatMax = 7000
+	musNorm = 20000
+	assMax = 400
+	titsMax = 540
+	stomachMax = 100
+	CONST_MAXBOLL=100
+	perk_whore_num=100
+	breastSizeFlat = 6
+	breastSizeA = 12&!A
+	breastSizeB = 18&!B
+	breastSizeC = 24&!C
+	breastSizeD = 30&!D
+	breastSizeDD = 36&!DD
+	breastSizeE = 42&!E
+	total_sexy_norm=25&!очень сексуально
+	moneyNorm = 128&!деньги среднего класса (больше, значит уже богат, moneyNorm/2 - бедный, moneyNorm/4- очень бедный, moneyNorm/8 - персонаж удариться в крайности) 
+end
+if $args[0]!'':
+	!Для персов и мобов задаётся так, но по идее надо брать формулы в других играх
+	mus[args[0]]=musNorm
+	fat[args[0]]=fatNorm&!мм
+	base_lust[args[0]]=10
+	stomach_v[args[0]]=50
+	stomach_f[args[0]]=50
+	fastFat[args[0]]=100
+	rost[args[0]]=1800
+	tits[args[0]] = 50
+	ass[args[0]] = 100
+end

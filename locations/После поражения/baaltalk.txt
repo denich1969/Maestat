@@ -1,0 +1,8 @@
+﻿time+=60&gs'stat'&'<center><img src="pic/misc/image.png" ></center>'&'Рой жужжащих насекомых выступает из мглы и окружает вас, скрипучий голос спрашивает из глубин тумана - Ты чего то хочешь?'
+act'Уйти':gt'preloc'
+act'Я хочу подраться с одной из твоих тварей':
+	cls&gs'stat'&gs'mistwarior_gen'&npc=i&'<center><img src="pic/mob/68.jpg" ></center>'&'Из тумана на вас бросается существо будто вылепленное из ночных кошмаров'&act'<b>Драться</b>':gt 'prefight'
+end
+act'Я хочу подраться с хрупкой сестрицей':
+	cls&gs'stat'&gs'fragile_sisters_gen'&npc=i&'<center><img src="pic/mob/69.jpg" ></center>'&'Из тумана выходит женщина насекомое и шипит - Я порву тебя.'&act'<b>Драться</b>':&gt 'prefight'
+end

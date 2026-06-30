@@ -1,0 +1,142 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Изменить <<$name[npc]>>.'&act'Уйти':gt 'preloc'
+act'Установить фотку <<$name[npc]>>':
+	spec_face_pic[npc]=input("Введите номер папки. ЖГГ До 5 стандартные внешности, ввести 0. 5 предустановленные фото. 6 фото по феминности. 7 и 8 только женское лицо.")
+     if spec_face_pic[npc]=6:
+		 face_tipe[npc]=input("Введите тип внешности из 6й папки.")&face_pic[npc]=1
+     else
+		face_pic[npc]=input("Введите номер фотографии. Фотографию можно посмотреть в файлах игры.")
+     end
+	gt $curloc
+end
+if muggle[npc]=1:
+	 act'Сделать <<$name[npc]>> магом':
+		 muggle[npc]=0&magik[npc]=input("уровень магии")&act'...':gt $curloc
+	 end
+end
+if muggle[npc]=0:
+	 act'Сделать <<$name[npc]>> маглом':
+		 muggle[npc]=1&magik[npc]=0&act'...':gt $curloc
+	 end
+end
+if lips[npc]!0:'<a href="exec:lips[npc]=0&gt $curloc,''cheat''">Обыкновенные губы</a>'
+if lips[npc]!1:'<a href="exec:lips[npc]=1&gt $curloc,''cheat''">Пухленькие губы</a>'
+if lips[npc]!2:'<a href="exec:lips[npc]=2&gt $curloc,''cheat''">Толстые губы</a>'
+if lips[npc]!3:'<a href="exec:lips[npc]=3&gt $curloc,''cheat''">Огромные губы, похожие на букву О</a>'
+if vag[npc]=0:
+	 act'Установить <<$name[npc]>> вагину':
+		dick[npc]=0&dickd[npc]=0&ball[npc]=0&vag[npc]=1&act'...':gt $curloc
+	 end
+end
+if vag[npc]=1:
+	 act'Установить <<$name[npc]>> член':
+		dick[npc]=15&dickd[npc]=30&ball[npc]=50&vag[npc]=0&act'...':gt $curloc
+	 end
+end
+act'Напоить <<$name[npc]>> манайзером':
+	manize[npc]=input("Введите количество")&gs'stat'&act'...':gt $curloc
+end
+act'Напоить <<$name[npc]>> феминайзером':
+	feminize[npc]=input("Введите количество")&gs'stat'&act'...':gt $curloc
+end
+act'Изменить тело и возраст <<$name[npc]>>':
+	age[npc]=input("Введите возраст")&mus[npc]=input("Установить мускулатуру.")&fat[npc]=input("Установить жир.")&rost[npc]=input("Установить рост.")
+	ass[npc]=input("Размер попы 2- мужская >20-женская.")&tits[npc]=input("Размер груди 10-1 14-2 17-3 19-4 21-5.")&face[npc]=input("лицо <=40-мужск <=60-андрог. >60-женск >80-красив.женск.")
+	act'...':gt $curloc
+end
+act'lust soul agro dom <<$name[npc]>>':
+	cls&lust[npc]=input("lust max 100")&soul[npc]=input("soul жизнь")&agro[npc]=input("agro агрессивность max 100")&dom[npc]=input("dom доминантность max 100")&act'Принять параметры':gt 'preloc'
+end
+act'work <<$name[npc]>>':
+	work[npc]=input("работа 7-агенство 11-студия 100-школа")&gs'stat'&act'...':gt $curloc
+end
+act'walkprog <<$name[npc]>>':
+	walkprog[npc]=input("26-жилмассив программа передвижения")&gs'stat'&act'...':gt $curloc
+end
+if wantblackcock[npc]=0 and pol[npc]>0:
+	 act'<<$name[npc]>> wantblackcock <b>+</b> ':
+		 lust[npc]+=100&agro[npc]=0&r_leg_t[npc]=1&wantblackcock[npc]+=1
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Теперь я смогу участвовать в гангбанге с черными.'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if wantblackcock[npc]>=1:
+	 act'<<$name[npc]>> wantblackcock <b>-</b> ':
+		wantblackcock[npc]=0&r_leg_t[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>>  - Я больше не смогу участвовать в гангбанге с черными.'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if whoreblockON[npc]=0 and pol[npc]>0:act'Запретить <<$name[npc]>> стать whore':whoreblockON[npc]=1&gt 'preloc'
+if whoreblockON[npc]=1 and pol[npc]>0:act'Разрешить <<$name[npc]>> стать whore':whoreblockON[npc]=0&gt 'preloc'
+if noslutON[npc]=0 and pol[npc]>0:act'Вкл noslut <<noslutON[npc]>> <<$name[npc]>> ':noslutON[npc]=1&gt 'preloc'
+if noslutON[npc]=1 and pol[npc]>0:act'Выкл noslut <<noslutON[npc]>> <<$name[npc]>> ':noslutON[npc]=0&gt 'preloc'
+if inseminateON[npc]=0 and vag[npc]>0:act'Разрешить <<$name[npc]>> беременеть':inseminateON[npc]=1&gt 'preloc'
+if inseminateON[npc]=1 and vag[npc]>0:act'Запретить <<$name[npc]>> беременеть':inseminateON[npc]=0&gt 'preloc'
+act'Дать <<$name[npc]>> деньги и жизнь':
+	soul[npc]=input("жизнь 1-100000")&money[npc]=input("деньги 1-100000")&gs'stat'&act'...':gt $curloc
+end
+if vag[you]>0 and vag[npc]>0:
+	act'<<$name[npc]>> сделает вас блядью':
+		lust[npc]+=100&agro[npc]=0&forhorn[npc]+=100&oral_fixation[npc]+=100&corr[npc]+=100&horny[npc]+=100&corr[npc]+=100&lesb[npc]+=1
+		drinkpee[npc]+=100&peecover[npc]+=100&pee[npc]+=100&piss_mass['<<npc>>,<<you>>']+=1
+		open_mouth[npc]=1&open_anus[npc]=1&open_vag[npc]=1&sexpartner['<<npc>>,<<you>>']+=1&lowered_status['<<npc>>,<<you>>']+=100
+		lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&horny[you]+=100&corr[you]+=100&lesb[you]+=1
+		drinkpee[you]+=100&peecover[you]+=100&pee[you]+=100
+		open_mouth[you]=1&open_anus[you]=1&open_vag[you]=1&gs'stat'&act'...':gt $curloc
+	end
+end
+if vag[you]=0 and vag[npc]>0:
+	act'<<$name[npc]>> сделает вас блядью':
+		lust[npc]+=100&agro[npc]=0&forhorn[npc]+=100&oral_fixation[npc]+=100&corr[npc]+=100&corr[npc]+=100
+		drinkpee[npc]+=100&peecover[npc]+=100&pee[npc]+=100&piss_mass['<<npc>>,<<you>>']+=1
+		open_mouth[npc]=1&open_anus[npc]=1&open_vag[npc]=1&sexpartner['<<npc>>,<<you>>']+=1&lowered_status['<<npc>>,<<you>>']+=100
+		lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&corr[you]+=100
+		drinkpee[you]+=100&peecover[you]+=100&pee[you]+=100&open_mouth[you]=1&open_anus[you]=1&gs'stat'&act'...':gt $curloc
+	end
+end
+if vag[you]>0 and dick[npc]>0:
+	act'<<$name[npc]>> сделает вас блядью':
+		avagsex[npc]+=1&aanal[npc]+=1&drinkpee[you]+=100&peecover[you]+=100&piss_mass['<<npc>>,<<you>>']+=1
+		open_mouth[you]=1&open_anus[you]=1&open_vag[you]=1&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100
+		sexpartner['<<npc>>,<<you>>']+=1&lowered_status['<<npc>>,<<you>>']+=100&know['<<npc>>,<<you>>']+=1&know_whore['<<npc>>,<<you>>']+=1&gs'stat'&act'...':gt $curloc
+	end
+end
+if vag[you]=0 and dick[npc]>0:
+	act'<<$name[npc]>> сделает вас блядью':
+		aanal[npc]+=1&forhorn[you]+=100&oral_fixation[you]+=100&open_mouth[you]=1&open_anus[you]=1&corr[you]+=100
+		drinkpee[you]+=100&peecover[you]+=100&piss_mass['<<npc>>,<<you>>']+=1&sexpartner['<<npc>>,<<you>>']+=1
+		lowered_status['<<npc>>,<<you>>']+=100&know['<<npc>>,<<you>>']+=1&know_whore['<<npc>>,<<you>>']+=1&gs'stat'&act'...':gt $curloc
+	end
+end
+if beliver[npc]=0:
+	 act'Сделать <<$name[npc]>> последователем':
+		beliver[npc]=input("введите номер напр. дагон: 2 ")&gs'stat'&act'...':gt $curloc
+	 end
+end
+if beliver[npc]>0:
+	 act'<<$name[npc]>> не будет последователем':
+		beliver[npc]=0&gs'stat'&act'...':gt $curloc
+	 end
+end
+if pol[npc]>0:
+	 act'Сделать <<$name[npc]>> шлюхой npc':
+		 whore[npc]+=1&whoreboss[npc]=input("номер npc")&lust[npc]+=100&agro[npc]=0&stamp_t[npc]=rand(1,4)&t_slot[npc]=rand(32,36)&l_slot[npc]=rand(70,79)&b_slot[npc]=rand(34,36)
+		 ul_slot[npc]=0&ut_slot[npc]=0&forhorn[npc]+=100&oral_fixation[npc]+=100&gs'stat'&act'...':gt $curloc
+	 end
+end
+
+if whore[npc]>0:
+	 act'<<$name[npc]>> больше не будет шлюхой':
+		whoreboss[npc]=0&whore[npc]=0&gs'stat'&act'...':gt $curloc
+	 end
+end
+
+if whore[you]=0:
+	 act'Самой стать шлюхой npc':
+		 whoreboss[you]=npc&whore[you]+=1&lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&horny[you]+=100
+		 drinkpee[you]+=100&peecover[you]+=100&feminize[you]+=100&collar[you]=1&t_slot[you]=86&l_slot[you]=46&b_slot[you]=11&ul_slot[you]=14&ub_slot[you]=2&ut_slot[you]=2
+		 lowered_status['<<npc>>,<<you>>']+=100&sexpartner['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know_whore['<<npc>>,<<you>>']+=1&gs'stat'&act'...':gt $curloc
+	 end
+end
+if whore[you]>0:
+	 act'Я не буду больше шлюхой':
+		whoreboss[you]=0&whore[you]=0&collar[you]=0&gs'stat'&act'...':gt $curloc
+	 end
+end

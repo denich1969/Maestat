@@ -1,0 +1,43 @@
+﻿H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Шеларди'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=6&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+$locopis['<<$temploc>>']='Уютный холл с красивой мебелью и картинами на стенах'
+np['<<$temploc>>']=40
+mirror['<<$temploc>>']=1
+maidwork['<<$templocH>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Спальная комната с огромной кроватью'
+np['<<$temploc>>']=41
+mirror['<<$temploc>>']=1&!moonqwportret['<<$temploc>>']=1
+gs'moongodes_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'manmoon_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
+$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'
+$locopis['<<$temploc>>']='В центре комнаты длинный стол'
+np['<<$temploc>>']=43
+mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Библиотека'
+$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='Библиотека'&$lname_go['<<$temploc>>']='в библиотеку'
+$locopis['<<$temploc>>']='Лабиринт книжных шкафов набитых разными книгами.'
+np['<<$temploc>>']=44
+library['<<$temploc>>']=50&mirror['<<$temploc>>']=1&karta['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1&!tv['<<$temploc>>']=1
+item_loc['70,<<$temploc>>']=1
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+$locopis['<<$temploc>>']='Огромный камин вокруг которого мягкие и уютные диваны'
+np['<<$temploc>>']=42
+mirror['<<$temploc>>']=1
+R=4&	gs 'toilet_gen',5&!gs 'toilet_gen',уровень туалета
+$locopis['<<$temploc>>']='Роскошный туалет особняка'
+R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Огромная плита и холодильные камеры забитые продуктами'
+np['<<$temploc>>']=66
+mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг'
+$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$lname_go['<<$temploc>>']='в комнату для слуг'
+$locopis['<<$temploc>>']='Тесная комнатушка со скрипучими кроватями'
+np['<<$temploc>>']=149
+mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+gs'moonmaid_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R

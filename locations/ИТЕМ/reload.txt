@@ -1,0 +1,19 @@
+﻿wslot=w_slot[you]
+     if w_patron_load[you]<w_patron_max[you]:
+     needpatron=w_patron_max[you]-w_patron_load[you]
+     patrontipe=w_patrontipe[you]
+         if item[patrontipe]>0:
+             if needpatron<item[patrontipe]:
+             item[patrontipe]-=needpatron
+             w_patron_load[you]+=needpatron
+             burden[you]-=item_burden[patrontipe]*needpatron
+             else
+			 w_patron_load[you]+=item[patrontipe]
+			 burden[you]-=item_burden[patrontipe]*item[patrontipe]
+			 item[patrontipe]=0
+             end 
+         else
+         msg("Патроны кончились")
+         end
+     end
+gt 'preloc'

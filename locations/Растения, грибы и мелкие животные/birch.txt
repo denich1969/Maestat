@@ -1,0 +1,28 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/loc/ras/birch.jpg" ></center>'&'Собирать березовые почки лучше всего в конце марта до начала распускания листьев, когда они имеют максимальное количество полезных веществ.'
+if birchknow[you]>0 and pgrudsekret[you]=1 and month = 3 and day>20:
+	'На берёзе висят набухшие почки'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		act'Сорвать пучок веток с почками':item_loc['183,<<$loc[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act'Собирать почки':
+			 time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['183,<<$loc[you]>>']+=max(rand(2),lvltravnik[you])
+			 "В течение получаса вы собирали березовые почки и собрали <<item_loc['183,<<$loc[you]>>']>> порций"&birchnum=item_loc['183,<<$loc[you]>>']+item['183']
+			 'Всего у вас <<birchnum>> порций березового лекарственного сырья'
+			 if fat[you]>10:fat[you]-=1
+			 if fat[you]>100:fat[you]-=1
+			 if fat[you]>500:fat[you]-=2
+			 if fat[you]>1000:fat[you]-=2
+			 if fat[you]>1500:fat[you]-=3
+			 if fat[you]>2000:fat[you]-=3
+			 if fat[you]>2500:fat[you]-=4
+			 if fat[you]>3000:fat[you]-=4
+			 exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'
+			 if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
+			 sweat[you]+=2
+			gt $curloc
+		 end
+	 end
+else
+	'Не сезон. На берёзе нет почек.'
+end
+gs'Item'&*nl ''&gs 'npconloc'&killvar 'birchnum'&act'Завершить':gt 'world'

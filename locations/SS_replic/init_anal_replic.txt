@@ -1,0 +1,81 @@
+﻿killvar('replic_anal_default_before')
+$replic_anal_default_before[]= {
+	if dickd[args[0]]<anus[args[1]]:
+		'<i><<$name[args[0]]>> - У тебя уже вместительная задница шлюха!</i>'&agro[args[1]]-=rand(1)&none_horny[3]-=agro[args[1]]/10
+	else
+		'<i><<$name[args[0]]>> - Я сейчас разработаю твою задницу!</i>'
+	end
+}
+$replic_anal_default_before[]= {
+	if none_horny[1]+none_horny[3]>100 and none_horny[1]+none_horny[3]<125:
+		'<i><<$name[args[0]]>> - Хочешь кончить?</i>'&agro[args[1]]-=rand(1)&none_horny[3]-=agro[args[1]]/10
+	else
+		'<i><<$name[args[0]]>> - Хорошая девочка!</i>'&none_horny[3]-=agro[args[1]]/10&!agro[args[1]]-=rand(1)
+	end
+}
+$replic_anal_default_before[]= {
+	if ass[args[1]]>assMax*3/4:
+		'<i><<$name[args[0]]>> - Такую класную задницу ебать одно удовольствие</i>'&agro[args[1]]-=rand(1)&none_horny[3]-=agro[args[1]]/10
+	else
+		'<i><<$name[args[0]]>> - Тебе нужно поработать над своим задом крошка</i>'&none_horny[3]-=agro[args[1]]/10&!agro[args[1]]-=rand(1)
+	end
+}
+$replic_anal_default_before[]= {
+	if dickd[args[0]]>=21:
+		'<i><<$name[args[0]]>> - Твоей попке нравитсья мой хуй детка?</i>'&agro[args[1]]-=rand(1)&none_horny[3]-=agro[args[1]]/10
+	else
+		'<i><<$name[args[0]]>> - Как тебе мой член, детка?</i>'
+	end
+}
+$replic_anal_default_before[]= {
+	if ass[args[1]]>assMax*3/4:
+		'<i><<$name[args[0]]>> - Отличный станок!</i>'&agro[args[1]]-=rand(1)&none_horny[3]-=agro[args[1]]/10
+	else
+		'<i><<$name[args[0]]>> - Тебе нужно наростить задницу сучка!</i>'&none_horny[3]-=agro[args[1]]/10&!agro[args[1]]-=rand(1)
+	end
+}
+killvar('replic_anal_whore_before')
+$replic_anal_whore_before[]= {
+	if ass[args[1]]>assMax*3/4:
+		'<i><<$name[args[0]]>> - Твоя жопа стоит моих денег!</i>'&agro[args[1]]-=rand(1)&none_horny[3]-=agro[args[1]]/10
+	else
+		'<i><<$name[args[0]]>> - Тебе нужно отрастить жопу, если хочешь больше зарабатывать шлюха!</i>'&none_horny[3]-=agro[args[1]]/10&!agro[args[1]]-=rand(1)
+	end
+}
+killvar('replic_anal_default_cum')
+$replic_anal_default_cum[]= {	'<i><<$name[args[0]]>> - Любиль когда тебя ебут в жопу малышка? </i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_anal_default_cum[]= {'<i><<$name[args[0]]>> - Что нравиться как я ебу тебя в жопу шлюха?</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_anal_default_cum[]= {
+	if sex_times['<<args[0]>>,<<args[1]>>']>3:
+		'<i><<$name[args[0]]>> - Скоро ты без моего хуя в жопе жыть не сможешь сучка!</i>'
+	else	
+		'<i><<$name[args[0]]>> - Сколько раз тебя уже ебали в жопу шлюха?</i>'
+	end	
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20
+}
+$replic_anal_default_cum[]= {
+	if sex_times['<<args[0]>>,<<args[1]>>']>3:
+		'<i><<$name[args[0]]>> - Я воспитаю из тебя настоящую анальную блядь</i>'
+	else
+		'<i><<$name[args[0]]>> - Твоя жопа в воторге от моего хуя детка?</i>'
+	end
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20
+}
+killvar('replic_anal_whore_cum')
+$replic_anal_whore_cum[]= {	'<i><<$name[args[0]]>> - Настоящая шлюха должна любить, когда ее ебут в жопу </i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_anal_whore_cum[]= {	'<i><<$name[args[0]]>> - Шлюха, ты выбрала правильный способ заробатка!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_anal_whore_cum[]= {'<i><<$name[args[0]]>> - Похоже это твое призвание!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+killvar('replic_anal_kargan_cum')
+$replic_anal_whore_cum[]= {	'<i><<$name[args[0]]>> - Я воспитаю из тебя настоящую анальную блядь</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+$replic_anal_whore_cum[]= {'<i><<$name[args[0]]>> - Твоя жопа уже поняла свое призвание, как на счет тебя?</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
+killvar('replic_analcum_default_before')&killvar('replic_analcum_default_cum')&!replic_cumanal
+$replic_analcum_default_cum[]= {'<i><<$name[args[0]]>> - Кончаешь сучка? Я уже на пределе!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}
+$replic_analcum_default_cum[]= {
+	if ass_point[args[1]]>10:
+		'<i><<$name[args[0]]>> - Такую шикарную жопу, хоть каждый день ебать можно!.. Сейчас кончу!</i>'
+	else
+		'<i><<$name[args[0]]>> - Сейчас кончу!</i>'
+	end	
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10
+}
+$replic_analcum_default_cum[]= {'<i><<$name[args[0]]>> - Твоя попка все же добилась своего, я сейчас кончу!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}

@@ -1,0 +1,63 @@
+﻿gs'stat'&'<center><video src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'
+'<<$name[sss]>> <<$surname[sss]>> влажно чавкая сосет член, а <<$name[ddd]>> <<$surname[ddd]>> блаженствует разглядывая лицо девушки.'&!you_see_bj[sss]+=1&you_see_fucker[ddd]+=1
+cangopre=1
+if sss=sister and ddd=borisbogart  and $loc[sss]=$loc[ddd]:
+     if you=brother:
+		 'Нифига себе, моя сестра хуесоска Богарта'&if sluttySisQW=0:sluttySisQW=1
+         if item[26]>0:
+			'Так, у меня есть смартфон, можно сфоткать эту шалаву'
+             act'Сфоткать':
+				 if sluttySisQW=1:sluttySisQW=2
+				 cls&gs'stat'&'<center><img src="pic/sex/pornpic/foto0.jpg" ></center>'&'Вы сфоткали свою сестру с хуем Богарта во рту'
+				 act'Уйти':gt'preloc'
+				 act'Подсматривать':gs'bogartsslut'
+             end
+         else
+			'Хмм, будь у меня смартфон я бы сфоткал эту сучку с хуем во рту, тогда бы не отвертелась'
+         end
+     end
+     if you=mother:
+		'Боже, какое позорище! Моя маленькая дочка сосет у Богарта!'
+		if MinetDocha!1 and MinetDocha!2 and MinetDocha!3 and MinetDocha!4: MinetDocha=1
+		if MinetDocha=3:
+			act'Устроить скандал!':
+				MinetDocha=4&npc=borisbogart&cls&gs'stat'&'<center><img src="pic/face/5/46.jpg" ></center>'
+				 'Вы оторвали голову дочери от члена Богарта и начали кричать про его аморальное поведение и про то, что он сделала с вашим мужем Дэном.'
+				 'Богарт спокойно выслушал всю эту тираду и по ее окончанию лишь хмыкнул.'
+				 '- Ну, раз я такой плохой, то и ты получи свое... - после этих слов он щелкнул пальцами, а вы ощутили, что с вами что-то произошло... '
+				'- А теперь пошла вон, тварь, и не мешай своей доченьки делать мне приятно.'
+				 sluttyMomQW=1&face[you]=100&womenbrain[you]+=100&dom[you]=0&corr[you]=80&dick[you]=12&dickd[you]=60&ball[you]=30&vag[you]=0
+				 dick[father]=0&dickd[father]=0&ball[father]=0&act'Уйти':gt'preloc'
+			end
+		end
+     end
+     if you=father:
+		 cangopre=0
+		 if uberSolderQW[you]<3:uberSolderQW[you]=3
+		 'Богарт наваливает на ротан моей дочери!'
+         if cuntmanQW=0:
+			 act'Ах ты старый козел!':
+				 action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0&npc=borisbogart
+				 in_fight=1&cls&gs'stat'&'<center><img src="pic/face/5/46.jpg" ></center>'&'Вы ворвались вихрем в кабинет и заорали на Богарта'&act'Драться':cant_fight_run=1&gs'progcurse'&gt 'prefight'
+			 end
+		 else
+		     if vag[you]>0:horny[you]+=50&'У вас запорхали бабочки внизу живота'
+             act'Уйти':gt'preloc'
+		 end
+     end
+end
+if sss=sladkovamasha and ddd=borisbogart  and $loc[sss]=$loc[ddd]:
+     if sluttySlmashaQW=0:sluttySlmashaQW=1
+     'Нифига себе, <<$name[sss]>> хуесоска Богарта'
+    if item[26]>0:
+         'Так, у меня есть смартфон, можно сфоткать эту блядь'
+        act'Сфоткать':
+             if sluttySlmashaQW=1:sluttySlmashaQW=2
+             cls&gs'stat'&'<center><img src="pic/sex/pornpic/foto0.jpg" ></center>'&'Вы сфоткали Машу с хуем Богарта во рту'&act'Уйти':gt'preloc'
+             act'Подсматривать':gs'bogartsslut'
+        end
+     else
+         'Хмм, будь у меня смартфон, можно было бы сфоткать эту сучку с хуем во рту, тогда бы она не отвертелась'
+     end
+end
+if cangopre=1:act'Уйти':gt'preloc'

@@ -1,0 +1,70 @@
+﻿num=i&gs'body'
+if $nick[i]!'':$fullname[i]=$nick[i]
+if $nick[i]!'':$fullname[i]=$nick[i]
+if $nick[i]!'' and know['<<i>>,<<you>>']=0:$nick[i]=$nick[i]
+if $nick[i]!'' and know['<<i>>,<<you>>']>0:$nick[i]=$fullname[i]	
+if $nick[i]='' and $nick[i]!'':$nick[i]=$nick[i]
+if $nick[i]!'' and $nick[i]='':$nick[i]=$nick[i]
+if $nick[i]='' and $nick[i]='':$nick[i]=$name[i]&$nick[i]=$name[i]
+$status[i]=''
+tipe_view=0
+if husband[you]=i and pol[i]=0:$status[i]=' <i>муж</i>'&tipe_view=1
+if husband[you]=i and pol[i]=1:$status[i]=' <i>жена</i>'&tipe_view=1
+if kid_first[you]=i and pol[i]=0:$status[i]=' <i>сын</i>'&tipe_view=1
+if kid_first[you]=i and pol[i]=1:$status[i]=' <i>дочь</i>'&tipe_view=1
+if kid_second[you]=i and pol[i]=0:$status[i]=' <i>сын</i>'&tipe_view=1
+if kid_second[you]=i and pol[i]=1:$status[i]=' <i>дочь</i>'&tipe_view=1
+if father[you]=i and husband[you]!i:$status[i]=' <i>отец</i>'&tipe_view=1
+if mother[you]=i and husband[you]!i:$status[i]=' <i>мать</i>'&tipe_view=1
+if brother[you]=i and pol[i]=0:$status[i]=' <i>брат</i>'&tipe_view=1
+if brother[you]=i and pol[i]=1:$status[i]=' <i>сестра</i>'&tipe_view=1
+if tipe_view=0:
+	if sexpartner['<<i>>,<<you>>']>0 and sexpartner['<<you>>,<<i>>']>0 and pol[i]=0 and husband[you]!i:
+		 if ex_boyfriend[i]=you:
+			$status[i]=' <b>бывший</b>'
+		 else
+			$status[i]=' <b>любовник</b>'
+		 end
+		tipe_view=2
+	end
+	if sexpartner['<<i>>,<<you>>']>0 and sexpartner['<<you>>,<<i>>']>0 and pol[i]=1 and husband[you]!i:
+		 if ex_boyfriend[i]=you:
+			$status[i]=' <b>бывшая</b>'
+		 else
+			$status[i]=' <b>любовница</b>'
+		 end
+		tipe_view=2
+	end
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=0 and husband[you]!i and friends['<<i>>,<<you>>']>=90:$status[i]=' <i>лучший друг</i>'&tipe_view=2
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=1 and husband[you]!i and friends['<<i>>,<<you>>']>=90:$status[i]=' <i>лучшая подруга</i>'&tipe_view=2
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=0 and husband[you]!i and friends['<<i>>,<<you>>']>=50 and friends['<<i>>,<<you>>']<90:$status[i]=' <i>друг</i>'&tipe_view=3
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=1 and husband[you]!i and friends['<<i>>,<<you>>']>=50 and friends['<<i>>,<<you>>']<90:$status[i]=' <i>подруга</i>'&tipe_view=3
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=0 and husband[you]!i and friends['<<i>>,<<you>>']>=10 and friends['<<i>>,<<you>>']<50:$status[i]=' <i>приятель</i>'&tipe_view=4
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=1 and husband[you]!i and friends['<<i>>,<<you>>']>=10 and friends['<<i>>,<<you>>']<50:$status[i]=' <i>приятельница</i>'&tipe_view=4
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=0 and husband[you]!i and friends['<<i>>,<<you>>']>0 and friends['<<i>>,<<you>>']<10:$status[i]=' <i>знакомый</i>'&tipe_view=5
+	if sexpartner['<<i>>,<<you>>']=0 and pol[i]=1 and husband[you]!i and friends['<<i>>,<<you>>']>0 and friends['<<i>>,<<you>>']<10:$status[i]=' <i>знакомая</i>'&tipe_view=5
+	if isenemy['<<i>>,<<you>>']>0:$status[i]=' <i>враг</i>'&tipe_view=5
+	if boyfriend_num[you]=i:$status[i]=' <i>бойфренд</i>'&tipe_view=2
+	if girlfriend_num[you]=i:$status[i]=' <i>ваша девушка</i>'&tipe_view=2
+	if whoreboss[i]=you:$status[i]=' <i>ваша шлюха</i>'&tipe_view=2
+	if sexpartner['<<i>>,<<you>>']>0 and bj_mass['<<you>>,<<i>>']>0 and anal_mass['<<you>>,<<i>>']>0 and piss_mass['<<you>>,<<i>>']>0 and orgasm[i]>0:
+		if mysubslut[i]=0:mysubslut[i]=1
+		!'<<$name[npc]>> ваша нижняя которую вы можете иметь как хотите'
+		if slave[i]=you:
+			$status[i]=' <b>ваша рабыня</b>'&tipe_view=2
+		else
+			$status[i]=' <b>соска</b>'&tipe_view=2
+		end
+	end
+	if slut[i]=1 and know_slut[i]>0:$status[i]+=' <i>блядь</i>'
+end
+if whoreboss[you]=i:$status[i]+=' <i>ваш сутенер</i>'
+if follower[i]=you:$status[i]+=' <b>следует за вами</b>'
+$d_viewnpc=''
+if mob[i]=0:
+	gs 'init_d_view', i, 'd_viewnpc'
+else
+	gs'gen_d_view'&!вывод картинки второстепенных НПС и мобов
+end
+if force_male_portrait[i]>0:$d_viewnpc='pic/faceman/<<face_pic[i]>>.jpg'
+if force_fem_portrait[i]>0:$d_viewnpc='pic/face/<<spec_face_pic[i]>>/<<face_pic[i]>>.jpg'

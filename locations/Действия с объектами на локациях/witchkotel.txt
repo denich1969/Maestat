@@ -1,0 +1,78 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/misc/kotel.jpg" ></center>'&'Ведьмин котел над очагом, в котором опытные ведьмы делают свои зелья.' 
+if knowlanguage[you]=0 and master[you]>0:knowlanguage[you]=1&exp[you]+=1500&'Вы читаете надпись на неизвестном языке и вдруг начинаете понимать эти слова.'
+if magik[you]>0 and knowlanguage[you]=0:knowlanguage[you]=1&'Вы читаете надпись на неизвестном языке и вдруг начинаете понимать эти слова.'
+if knowlanguage[you]>0:'Надпись на котле гласит - Для зелья нужна малая тварь, обладающая душой и растение, полное сил природы.'
+gs'Item'&*pl''&gs 'npconloc'
+act'Отойти':gt 'preloc'
+if canbewitch[you]=1:
+     if item[37]>0:act'Камлать в бубен, вызывая портал':X[you]=2&Y[you]=3&Z[you]=1&gt 'preloc'&!item_loc['<<37>>,<<$loc[you]>>']+=1
+	 if item[59]>0:
+		 act'Поглотить душу жабы':
+			 item[59]-=1&soul[you]+=1&cls&gs'stat'&'Вы поглотили душу жабы.'&act'Отойти':gt 'preloc'
+		 end
+	     if item[39]>0:
+		     act'Жаба и Омела (зелье малого лечения)':
+				item[59]-=1&item[39]-=1&tt=51&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получается зелье малого лечения.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+		 if item[38]>0:
+		 	 act'Жаба и 2 Беладонны (зелье малого отдохновения)':
+				 item[59]-=1&item[38]-=1&tt=49&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получается зелье малого отдохновения.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+		 if item[38]>1:
+		 	 act'Жаба и 2 Беладонны (зелье отдохновения)':
+				 item[59]-=1&item[38]-=2&tt=50&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получается зелье отдохновения.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+		 if item[57]>0:
+		 	 act'Жаба и Цикута (феромоны самца)':
+				 item[59]-=1&item[57]-=1&tt=78&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получаются феромоны самца.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+		 if item[57]>1:
+		 	 act'Жаба и 2 Цикуты (манайзер)':
+				 item[59]-=1&item[57]-=2&tt=80&item_loc['<<tt>>,<<$loc[you]>>']+=1
+				 cls&gs'stat'&'Вы варите в котле адское варево, получается манайзер.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+		 if item[58]>0:
+		 	 act'Жаба и Мандрагора (зелье защиты от ужаса)':
+				 item[59]-=1&item[58]-=1&tt=36&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получается зелье защиты от ужаса.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+	 end
+	 if item[60]>0:
+		 act'Поглотить душу пиявки':
+			 item[60]-=1&soul[you]+=1&cls&gs'stat'&'Вы поглотили душу пиявки.'&act'Отойти':gt 'preloc'
+		 end
+	     if item[39]>0:
+		 	 act'Пиявка и Омела (малое зелье отвода глаз)':
+				 item[60]-=1&item[39]-=1&tt=71&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получается малое зелье отвода глаз.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+	     if item[39]>1:
+		 	 act'Пиявка и 2 омелы (зелье отвода глаз)':
+				 item[60]-=1&item[39]-=2&tt=73&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получается зелье отвода глаз.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+		 !if item[38]>0:''&!беладонна
+		 if item[57]>0:
+		 	 act'Пиявка и 2 Цикуты (феминайзер)':
+				 item[60]-=1&item[57]-=2&tt=79&item_loc['<<tt>>,<<$loc[you]>>']+=1&cls&gs'stat'&'Вы варите в котле адское варево, получается феминайзер.'&act'Отойти':gt 'preloc'
+		     end
+		 end
+		 !if item[58]>0:''&!мандрагора
+	 end
+end
+if master[you]>0:candoobisk=1
+if obiskwitch=0 and witchkotel['<<$loc[you]>>']=10:
+	 act'Обыскать':
+		item_loc['<<1>>,<<$loc[you]>>']+=3&item_loc['<<2>>,<<$loc[you]>>']+=7&item_loc['<<20>>,<<$loc[you]>>']+=2&item_loc['<<28>>,<<$loc[you]>>']+=1
+		item_loc['<<30>>,<<$loc[you]>>']+=3&item_loc['<<31>>,<<$loc[you]>>']+=1&item_loc['<<37>>,<<$loc[you]>>']+=1&item_loc['<<38>>,<<$loc[you]>>']+=10
+		item_loc['<<39>>,<<$loc[you]>>']+=10&item_loc['<<40>>,<<$loc[you]>>']+=1&item_loc['<<49>>,<<$loc[you]>>']+=2&item_loc['<<50>>,<<$loc[you]>>']+=1
+		item_loc['<<56>>,<<$loc[you]>>']+=1&item_loc['<<57>>,<<$loc[you]>>']+=10&item_loc['<<58>>,<<$loc[you]>>']+=10&item_loc['<<59>>,<<$loc[you]>>']+=10&item_loc['<<60>>,<<$loc[you]>>']+=10
+		 obiskwitch=1&cls&gt 'preloc'
+	 end
+end

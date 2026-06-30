@@ -1,0 +1,31 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+lvl[i]=1&soul[i]=100&mob[i]=7&mobexp[i]=10&!номер моба для разговора
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&misstress[i]=1&!Не имеет отношения к богине луны, иллюзия
+tipemobpic[i]=1&picture[i]=rand(26,34)&!номер типа фотки и номер фотки
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+gs'woman_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname&$nick[i]='Властительница боли'&$basestatus[i]=''
+face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,38)&nip[i]=rand(30,70)&tits[i]=rand(10,21)
+rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(100,2000)&mus[i]=rand(300,1000)&skin[i]=rand(0,3)
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=rand(60,100)&hcol[i]=0
+!hcolrand=rand(1,100)&!ФОТКА каталог и диапазон цвета волос
+!if hcolrand<=40:hcol[i]=1&spec_face_pic[i]=1&face_pic[i]=rand(5,115)&$nick[i]='Девушка'&$nicksub[i]='девушкой'&$nicksube[i]='девушке'&$nicksubu[i]='девушку'
+!if hcolrand>40 and hcolrand<=70:hcol[i]=0&spec_face_pic[i]=0&face_pic[i]=rand(5,100)&$nick[i]='Брюнетка'&$nicksub[i]='брюнеткой'&$nicksube[i]='брюнетке'&$nicksubu[i]='брюнетку'
+!if hcolrand>70 and hcolrand<=90:hcol[i]=3&spec_face_pic[i]=3&face_pic[i]=rand(5,100)&$nick[i]='Блондинка'&$nicksub[i]='блондинкой'&$nicksube[i]='блондинке'&$nicksubu[i]='блондинку'
+!if hcolrand>90:hcol[i]=2&spec_face_pic[i]=2&face_pic[i]=rand(5,100)&$nick[i]='Рыжая девушка'&$nicksub[i]='рыжей девушкой'&$nicksube[i]='рыжей девушке'&$nicksubu[i]='рыжую девушку'
+age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=40&will[i]=50&reflex[i]=rand(40,50)
+healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
+pol[i]=1&gs'body'&total_generated_female+=1&total_misstress+=1
+bisex[i]=iif(rand(1,100)>=70,1,0)&agro[i]=rand(1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=0&corr[i]=rand(10,100)
+bisexwomantotal+=iif(bisex[i]>0,1,0)&lust[i]=iif(bisex[i]>0,rand(40,100),0)&lust[i]+=iif(extrovert[i]=2,10,0)&lust[i]+=iif(ratio[i]=0,10,0)&womenbrain[i]=rand(70,100)&forbidsex[i]=0&!нет запрета
+if bisex[i]=0:
+     if age[i]<27:
+		templust=rand(1,100)&lust[i]=iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50)))
+	 else
+		templust=rand(1,100)&lust[i]=iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70)))
+     end
+end
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+se_world[]=i&walkprog[i]=0&fight_prog[i]=1&!программа движения и боя
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс

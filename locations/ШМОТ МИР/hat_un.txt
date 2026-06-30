@@ -1,0 +1,7 @@
+﻿if ban_h[you]=0:
+	clo=ARGS[0]
+	item_h[clo]+=1
+	burden[you]+=item_h_burden[clo]
+	h_slot[you]=0
+end
+gt'preloc'

@@ -1,0 +1,23 @@
+﻿gs'stat'&'<center><img src="pic/clo/top/<<clo>>.jpg" ></center>'&'Номер одежды <<clo>>'
+'<<$t_name[clo]>>'&!длина 0 короткая, до пояса 1мини 2середина бедра 3колено 4 ниже колена
+if pol_t[clo]=0:
+	'Мужская одежда'
+else
+	if long_t[clo]=1:'Мини платье едва прикрывающее попу'
+	if long_t[clo]=2:'Платье длиной до середины бедра'
+	if long_t[clo]=3:'Платье до колена'
+	if long_t[clo]=4:'Платье в пол'
+end
+if sheer[clo]>0:'Прозрачная одежда'
+'Сексуальность <<sexy_t[clo]>>'&!сексуальность 0-нет 1-немного 2-много 10-перебор
+if aristokrat_t[clo]>0:'Одежда достойная высшего общества (<<aristokrat_t[clo]>>)'&!аристократичность
+if leather_t[clo]>0:'Не промокаемая одежда'&!промокаемость
+if sport_t[clo]>0:'Спортивная одежда'&!спортивность
+act'Повесить обратно':gt'preloc'
+clopayment=1000&if sexy_t[clo]>=5:clopayment+=sexy_t[clo]*1000
+'Цена <<clopayment/100>> шиллингов'
+if money[you]>=clopayment:
+     act'Купить <<clopayment/100>> шиллингов':
+		money[you]-=clopayment&clohere['<<clo>>,<<$loc[you]>>']=0&burden[you]+=item_t_burden[clo]&item_t[clo]+=1&cls&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
+     end
+end

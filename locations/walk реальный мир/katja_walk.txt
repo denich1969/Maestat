@@ -1,0 +1,43 @@
+﻿!rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+    if hour>=22 or hour<=6:
+		 $loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!спит дома2
+		 
+	else
+		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			$loc[w]=''&$doing[w]=''&in_home[w]=1
+			if hour>=7 and hour<=16:X[w]=1&Y[w]=1&Z[w]=200&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&$doing[w]='перекладывает бумаги'&!$loc[w]='ofis'
+			if katjanightclub=2:$doing[w]='ковыряется в телефоне'&$loc[w]='<<Xhome[w]>>,<<Yhome[w]>>,<<Zhome[w]>>,<<Hhome[w]>>,<<Rhome[w]>>'&in_home[w]=1&!$loc[w]='street_ap'
+			if katjanightclub=10:
+				if week>=7 and hour>=6:
+					
+				else
+					$doing[w]=''&$loc[w]='<<Xhome[w]>>,<<Yhome[w]>>,<<Zhome[w]>>,<<Hhome[w]>>,<<Rhome[w]>>'&!in_home[w]=1&!$loc[w]='apart2'
+				end
+			end
+		end
+		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			katja_test+=1&in_home[w]=1&!дома1
+			if hour>=7 and hour<=22:
+				if hour=8 or hour=13 or hour=17:
+					mechdo=0
+					if foodfish>0 and egg>0:mechdo=rand(1)
+					if foodfish=0 and egg>0:mechdo=1
+					if foodfish>0 and egg=0:mechdo=0
+					if foodfish=0 and egg=0:mechdo=2
+					if mechdo=0:hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&X[w]=0&Y[w]=0&Z[w]=300&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&
+					if mechdo=1:hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&$loc[w]='0,0,300,1,1'
+					if mechdo=2:$doing[w]='пьет воду'&$loc[w]='<<0>>,<<0>>,<<300>>,<<1>>,<<1>>'
+				else
+					$doing[w]='Сидит на берегу'&$loc[w]='0,0,300,0,0'&X[w]=0&Y[w]=0&Z[w]=300&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!$loc[w]='isle'
+				end
+			else
+				$doing[w]='спит на кровати'&X[w]=1&Y[w]=1&Z[w]=300&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!$loc[w]='home_5'
+			end
+		end
+	end
+end

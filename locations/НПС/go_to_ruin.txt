@@ -1,0 +1,4 @@
+﻿X[npc]=1&Y[npc]=2&Z[npc]=1&H[npc]=0&R[npc]=0
+X[you]=1&Y[you]=2&Z[you]=1&H[you]=0&R[you]=0
+solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+'<<$name[npc]>> взяв вас под ручку идет к руинам пакгауза и убедившись на месте, что никто за вами не наблюдает, начинает вас обнимать'&act'Обниматься':gt'sex'

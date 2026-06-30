@@ -1,0 +1,11 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i
+lvl[i]=5&soul[i]=1000&mob[i]=75&mobexp[i]=50
+tipemobpic[i]=1&picture[i]=154
+$nick[i]='Суккуба'&gs'drow_woman_name'&$name[i]=$genname&gs'surname'&$surname[i]=''
+pol[i]=1&total_succubus+=1
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1
+healthmax[i]=500&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(1,3)&maxuron[i]=rand(5,10)
+reflex[i]=60
+womenbrain[i]=100&bisex[i]=0&agro[i]=2&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=2&brave[i]=2&lust[i]=0&corr[i]=1000&!характер
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+obsession_world[]=i&

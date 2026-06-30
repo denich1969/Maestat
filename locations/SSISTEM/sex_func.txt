@@ -1,0 +1,37 @@
+﻿!получить свободный id
+if $args[0]='getId':
+	result=1
+	:getId
+	if sex_scene[result]>=time:result+=1&jump'getId'
+	gs'sex_func','deleteScene',result
+	sex_scene[result]=iif(args[1]>0,time+args[1],time+15)&!время жизни сцены 15 минут (потом поменять)
+end
+!1-id сцены  !2-id персонажа
+if $args[0]='add':
+	!'add '+$name[args[2]]+" to sex_scene_"+args[1]
+	if arrpos("sex_scene_<<args[1]>>",args[2])=-1:
+		dynamic("sex_scene_<<args[1]>>[]=<<args[2]>>")
+		in_sex[args[2]]=args[1]
+	end
+end
+!1-id персонажа
+if $args[0]='remove':args[10]=in_sex[args[1]]&args[11]=arrpos("sex_scene_<<args[10]>>",args[1])&killvar("sex_scene_<<args[10]>>",args[11])&in_sex[args[1]]=0&temp_orgazm[args[1]]=0
+!1-id сцены
+if $args[0]='deleteScene':
+	gs'reset_fuck','all',args[1]&args[10]=0
+	:deleteScene
+	args[20]=dyneval("result = sex_scene_<<args[1]>>[<<args[10]>>]")
+	if args[20]>0:in_sex[args[20]]=0&temp_orgazm[args[20]]=0&temp_oral[args[20]]=0&temp_vag[args[20]]=0&temp_anal[args[20]]=0&args[10]+=1&jump'deleteScene'
+	killvar("sex_scene_<<args[1]>>")&sex_scene[args[1]]=0
+end
+!1-id персонажа   !2-id персонажа   !3-id сцены (не обязательно)
+if $args[0]='findId':
+	if args[3]>0:args[10]=args[3]
+	if args[10]=0:args[10]=in_sex[args[1]]
+	if args[10]=0:args[10]=in_sex[args[2]]
+	if args[10]=0:args[10]=func('sex_func','getId')
+	if in_sex[args[1]]=0:gs'sex_func','add',args[10],args[1]
+	if in_sex[args[2]]=0:gs'sex_func','add',args[10],args[2]
+	!нельзя его просто переназначить т.к. он уже может быть назначен на какие то действия, можно конечно заранее почистить, но это лишняя нагрузка, лучше делать все хорошо сразу
+	if in_sex[args[1]]!in_sex[args[2]]:"ЕБАННЫЙ БАГ!!!"
+end

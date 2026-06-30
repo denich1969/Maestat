@@ -1,0 +1,20 @@
+﻿if useminihome=1:
+	useminihome+=1
+	msg("ВЖУХ!!!")
+end
+if (pose[you]>1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+     if X[you]=5 and Y[you]=5 and Z[you]=0:
+         if underbed=0:
+             act'Заглянуть под кровать':
+             underbed=1
+             item_loc_t['17,5,5,0']=1
+			 item_loc_l['15,5,5,0']=1
+			 item_loc_b['8,5,5,0']=1
+			 item_loc_ut['3,5,5,0']=1
+			 item_loc_ul['4,5,5,0']=1
+			 item_loc_ub['3,5,5,0']=1
+			 gt'preloc'
+			 end
+         end
+     end
+end

@@ -1,0 +1,2 @@
+﻿insemrand=rand(0,10)&if master[you]=1:insemrand=10
+if inseminate[npc]=0 and vag[npc]>0 and insemrand=10 and spiral[npc]=0:father_you_child=you&inseminate[npc]=father_you_child&pregnant_day[npc]=daystart

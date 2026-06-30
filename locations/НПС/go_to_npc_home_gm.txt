@@ -1,0 +1,20 @@
+﻿tipe_walk_npc=rand(0,2)
+if tipe_walk_npc=0:
+	X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+	X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+	solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+	'<<$name[npc]>> взяв вас под ручку провожает к своему дому и войдя в комнату начинает вас обнимать'
+end
+if tipe_walk_npc=1:
+	X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2
+	X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+	solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+	'<<$name[npc]>> взяв вас под ручку ведет вас в сауну и там заплатив за сауну провожает вас в парилку'
+end
+if tipe_walk_npc=2:
+	X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=3
+	X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+	solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+	'<<$name[npc]>> взяв вас под ручку ведет вас в кафе и там заплатив за номер провожает вас туда'
+end
+gs'bonusforsex'&act'Обниматься':gt'sex'

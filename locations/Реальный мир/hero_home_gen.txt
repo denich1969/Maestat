@@ -1,0 +1,36 @@
+﻿H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №1'&if H=Hstart and Z=Zstart:$locnameH['<<$templocH>>']='Ваша квартира'
+$locname['<<$temploc>>']='Квартира №1'&$lname['<<$temploc>>']='квартира №1'&$lname_go['<<$temploc>>']='в квартиру №1'&if hero=you:ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'&if H=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$locname['<<$temploc>>']='Ваша прихожая'
+$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
+np['<<$temploc>>']=153
+mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1
+telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля пельменей'
+np['<<$temploc>>']=154
+if master[you]>0:obed['<<$temploc>>']=1
+can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
+item_loc['1,<<$temploc>>']=1&item_loc['2,<<$temploc>>']=2&item_loc['3,<<$temploc>>']=1&item_loc['5,<<$temploc>>']=1
+item_loc['8,<<$temploc>>']=3&item_loc['13,<<$temploc>>']=1&item_loc['6,<<$temploc>>']=2&item_loc['7,<<$temploc>>']=1
+item_loc['98,<<$loc[you]>>']=10
+!if pol[you]=0:gs'female_w_gen'
+!if pol[you]>0:gs'male_w_gen'
+!homeworld[]=i
+R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
+np['<<$temploc>>']=156
+can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+item_loc_t['2,<<$temploc>>']=1&item_loc_t['16,<<$temploc>>']=1
+item_loc_l['16,<<$temploc>>']=1&item_loc_l['23,<<$temploc>>']=1&item_loc_l['31,<<$temploc>>']=1
+item_loc_ut['2,<<$temploc>>']=1&item_loc_ul['2,<<$temploc>>']=1&item_loc_ub['3,<<$temploc>>']=1
+if hero!you:gs'gopnik_gen'&real_world[]=i
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
+np['<<$temploc>>']=157
+tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+item_loc['4,<<$temploc>>']=1&item_loc['11,<<$temploc>>']=10

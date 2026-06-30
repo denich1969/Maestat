@@ -1,0 +1,39 @@
+﻿gs'stat'
+'<center><img src="pic/clo/boot/<<clo>>.jpg" ></center>'
+'Номер одежды <<clo>>'
+'<<$b_name[clo]>>'
+!длина 0 короткая, до пояса 1мини 2середина бедра 3колено 4 ниже колена
+if pol_b[clo]=0:
+'Мужская обувь'
+end
+!сексуальность 0-нет 1-немного 2-много 10-перебор
+'Сексуальность <<sexy_b[clo]>>'
+!аристократичность
+if aristokrat_b[clo]>0:'Обувь достойная высшего общества: <<aristokrat_b[clo]>>'
+!промокаемость
+!спортивность
+if sport_b[clo]>0:'Спортивная обувь'
+
+
+
+act'Убрать обратно':gt'preloc'
+
+
+clopayment=20000
+if sexy_b[clo]>=5:clopayment+=sexy_b[clo]*1000
+clopayment+=aristokrat_b[clo]*10000
+
+'Цена <<clopayment/100>> шиллингов'
+
+if money[you]>=clopayment:
+     act'Купить <<clopayment/100>> шиллингов':
+     cls
+     money[you]-=clopayment
+     boothere['<<clo>>,<<$loc[you]>>']=0
+     burden[you]+=item_b_burden[clo]
+     item_b[clo]+=1
+     gs'stat'
+     'Вы оплачиваете товар и забираете его'
+     act'...':gt 'preloc'
+     end
+end

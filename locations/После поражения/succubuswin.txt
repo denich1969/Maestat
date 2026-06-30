@@ -1,0 +1,11 @@
+﻿if m_slot[you]!31:m_slot[you]=31&$item_m_name[31]='Дилдо'&uron_weapon_m[you]=10&'Оружие в ваших руках превращается в дилдо'
+soul[you]-=50
+if t_slot[you]>0 and ban_t[you]=0:ts=t_slot[you]&t_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1
+if l_slot[you]>0 and ban_l[you]=0:ls=l_slot[you]&l_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'<<$nick[npc]>> сдирает с вас одежду'
+if ul_slot[you]>0:ul_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'<<$nick[npc]>> рвет в клочья ваши трусы'
+if ut_slot[you]>0:ut_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'<<$nick[npc]>> рвет в клочья ваш лифчик'
+if h_slot[you]=2:
+	h_slot[you]=3&ban_h[you]=npc&item_loc_hat['2,10,10,4']=1&'<<$nick[npc]>> с хохотом забирает вашу диадему и заставляет вас одеть лицевую сбрую'
+    if back_t_[you]=0:back_t_[you]=1&'Кожа на спине между лопаток и выше вспыхивает болью и там образовывается татуировка'
+end
+corr[you]+=10&feminize[you]+=rand(3,6)&'<<$nick[npc]>> накладывает на вас заклинание'&act'...':gt'sex'

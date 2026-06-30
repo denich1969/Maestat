@@ -1,0 +1,59 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Телефон'
+if ring_ding=1:
+	 act'Взять трубку':
+		 dayboyfriendcall[bfnum]=daystart&if Zstsrt=200:dayboyfriendcall[bfnum]=realdaystart
+		 npc=bfnum&cls&gs'stat'&'<<$name[npc]>> <<$surname[npc]>> говорит в трубку - Привет! Как дела? Может прогуляемся?'
+		 act'Подходи к моему дому':X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=0&R[npc]=0&cantwalk[npc]=3&cantwalk_num=npc&bf_want_walk[npc]=3&gt'preloc'
+		 act'Извини, мне некогда':gt'preloc'
+		 act'Расстаться':boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&gt'preloc'
+	 end
+else
+	act'Положить трубку':gt 'preloc'
+end
+'Мои контакты'&J_CanJump=IIF (mlev[you]>=5 and mana[you]>=500 and badworld[Z[you]]=0,1,0)&!Jorge.&Можно ли прыгнуть к контакту через мглу
+npcmax=arrsize('my_contact')
+ar=0
+$npc_loc='<html><head></head><body>'
+$npc_loc+='<table width="100%" border=1 cellspacing="0" cellpadding="3">'&!===== Начало таблицы ====
+$npc_loc+='<tr>'&!---- заголовки колонок -----
+$npc_loc+='<th width="40">Pic</th>'
+$npc_loc+='<th width="4%">Код</th>'
+$npc_loc+='<th>Имя</th>'
+$npc_loc+='<th>Место нахождения</th>'
+$npc_loc+='<th>Статус</th>'
+$npc_loc+='</tr>'&!---- заголовки колонок -----
+:markfamilypod
+w=my_contact[ar]
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and $name[w]!'' and contact[w]>0:
+	$npc_loc+='<tr>'&!----Начало строки----
+	gs 'init_d_view', w, "d_view"&!-- найти картинку лица --
+	$npc_loc+='<td><a href="exec:gt ''gocontact'',<<w>>"><img height="40" src=<<$d_view>>></a></td>'&!колонка картинка
+	IF J_CanJump=1:
+		$npc_loc+='<th><a href="exec: cantwalk[<<w>>]=3 & cantwalk_num=<<w>> & X[<<you>>]=X[<<w>>] & Y[<<you>>]=Y[<<w>>] & Z[<<you>>]=Z[<<w>>] & H[<<you>>]=H[<<w>>] & R[<<you>>]=R[<<w>>] & gt ''preloc'' "><<w>></a></th>'&!колонка Код
+	ELSE
+		$npc_loc+='<td><<w>></td>'
+	END
+	$npc_loc+='<th><a href="exec:gt ''gocontact'',<<w>>"><<$name[w]>> <<$surname[w]>></a></th>'&!колонка Имя
+	$npc_loc+='<td><<$lname[''<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'']>></td>'&!колонка Место нахождения
+	$npc_loc+='<td>'&!колонка статус
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=0 and husband[you]!w and friends['<<w>>,<<you>>']>=90:$npc_loc+=' <i>лучший друг</i>'
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=1 and husband[you]!w and friends['<<w>>,<<you>>']>=90:$npc_loc+=' <i>лучшая подруга</i>'
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=0 and husband[you]!w and friends['<<w>>,<<you>>']>=50 and friends['<<w>>,<<you>>']<90:$npc_loc+=' <i>друг</i>'
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=1 and husband[you]!w and friends['<<w>>,<<you>>']>=50 and friends['<<w>>,<<you>>']<90:$npc_loc+=' <i>подруга</i>'
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=0 and husband[you]!w and friends['<<w>>,<<you>>']>=10 and friends['<<w>>,<<you>>']<50:$npc_loc+=' <i>приятель</i>'
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=1 and husband[you]!w and friends['<<w>>,<<you>>']>=10 and friends['<<w>>,<<you>>']<50:$npc_loc+=' <i>приятельница</i>'
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=0 and husband[you]!w and friends['<<w>>,<<you>>']>0 and friends['<<w>>,<<you>>']<10:$npc_loc+=' <i>знакомый</i>'
+	if sexpartner['<<w>>,<<you>>']=0 and pol[w]=1 and husband[you]!w and friends['<<w>>,<<you>>']>0 and friends['<<w>>,<<you>>']<10:$npc_loc+=' <i>знакомая</i>'
+	if sexpartner['<<w>>,<<you>>']>0 and pol[w]=0 and husband[you]!w:$npc_loc+=' <b>любовник</b>'
+	if sexpartner['<<w>>,<<you>>']>0 and pol[w]=1 and husband[you]!w:$npc_loc+=' <b>любовница</b>'
+	if myagent[w]=you:$npc_loc+=' <b>агент</b>'
+	if mysubslut[w]>0:$npc_loc+=' <b>ваша шлюха</b>'
+	if my_puppil[w]>=1 and free_spirit>0:$npc_loc+=' <b>годное тело для вселения</b>'
+	$npc_loc+='</td>'
+	$npc_loc+='</tr>'&!----конец строки----
+end
+ar+=1&if ar<=npcmax:jump'markfamilypod'&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!конец цикла
+$npc_loc+='</table>'&!----- Конец таблицы ----------
+$npc_loc+='</body></html>'
+'<<$npc_loc>>'

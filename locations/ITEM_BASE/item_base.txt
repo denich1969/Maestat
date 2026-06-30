@@ -1,0 +1,2030 @@
+﻿! 0-Взять и положить в инвентарь
+! 1-Съесть и утолить голод
+! 2-Выпить и утолить жажду
+! 4-Повесить на шею
+! 3-Одеть на палец
+! 5-Порвать тряпку
+! 6-Взять в руку или руки как холодное оружие
+! 7-Взять в руку или руки как оружие дальнего боя
+! 8-Порвать книгу
+! 9-Разобрать (вставить лезвие в бритву)
+! 10-Собрать (вытащить лезвие из бритвы)
+! 11-Вытереться
+! 12-Выстирать
+! 14-Осмотреть, Посмотреть
+! 15-Позвонить
+! 16-Употребить модификатор показателей ПеРСа
+! 17-Выпить алкоголь
+! 18-Взломать замок
+
+
+! 20-Открыть и читать
+! 25-
+! 26-
+! 30-Камлать
+! 45-Варить
+! 46-Использовать
+! 999-Поглотить
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=0
+$item_name[i]='Имя итема'
+can_eat[i]=1&!если можно как то употребить
+$item_eat[i]='Употребить как-нибудь'
+item_burden[i]=5&!вес
+$item_text[i]='описание итема'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=1
+$item_name[i]='Тряпка'
+can_eat[i]=11&!если можно как то употребить
+$item_eat[i]='Вытереться'
+item_burden[i]=100&!вес
+$item_text[i]='обыкновенная тряпка'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=2
+$item_name[i]='Бутылка'
+can_eat[i]=0&$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]='(Небольшая бутылка из прочного стекла)'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=3
+$item_name[i]='Бутылка с водой'
+can_eat[i]=2&$item_eat[i]='Выпить воду'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='(В бутылку налита чистая и прохладная вода)'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=4
+$item_name[i]='Плюшевый медвежонок'
+can_eat[i]=5&$item_eat[i]='Порвать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=5
+$item_name[i]='Чайник'
+can_eat[i]=6&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Чайник'
+uron_m_item[i]=10&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=6
+$item_name[i]='Кастрюля'
+can_eat[i]=6&$item_eat[i]='Взять в руки'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Кастрюля'
+uron_m_item[i]=5&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=7
+$item_name[i]='Сковорода'
+can_eat[i]=6&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Сковорода'
+uron_m_item[i]=20&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=8
+$item_name[i]='Кухонный нож'
+can_eat[i]=6&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Кухонный нож'
+uron_m_item[i]=50&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=9
+$item_name[i]='Пистолет Макарова'
+can_eat[i]=7&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Пистолет Макарова'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=10
+$item_name[i]='Патрон 9х18мм'
+can_eat[i]=0&$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]='Патрон для пистолета Макарова'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=11
+$item_name[i]='Книга'
+can_eat[i]=8&$item_eat[i]='Порвать'&!если можно как то употребить
+item_burden[i]=300&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=12
+$item_name[i]='Бумага'
+can_eat[i]=0&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=13
+$item_name[i]='Зажигалка'
+can_eat[i]=0&$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=14
+$item_name[i]='Бритвенный станок с лезвием'
+can_eat[i]=9&$item_eat[i]='Разобрать'&!если можно как то употребить
+item_burden[i]=12&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=15
+$item_name[i]='Бритвенный станок без лезвия'
+can_eat[i]=10&$item_eat[i]='Собрать'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=16
+$item_name[i]='Лезвие'
+can_eat[i]=0&$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=17
+$item_name[i]='Мыло'
+can_eat[i]=0&$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=20&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=18
+$item_name[i]='Большой обмылок'
+can_eat[i]=0&$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=19
+$item_name[i]='Маленький обмылок'
+can_eat[i]=0&$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=20
+$item_name[i]='Чистое полотенце'
+can_eat[i]=11&$item_eat[i]='Вытереться'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=21
+$item_name[i]='Грязное полотенце'
+can_eat[i]=12&$item_eat[i]='Выстирать'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''&uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=22
+$item_name[i]='Банан'
+can_eat[i]=1&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=23
+$item_name[i]='Апельсин'
+can_eat[i]=1&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=24
+$item_name[i]='Игрушечный домик'
+can_eat[i]=14&$item_eat[i]='Осмотреть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=25
+$item_name[i]='Сияющий меч'
+can_eat[i]=6&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Сияющий меч'
+uron_m_item[i]=350&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=26
+$item_name[i]='Смартфон'
+can_eat[i]=15&$item_eat[i]='Позвонить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=27
+$item_name[i]='Дубинка'
+can_eat[i]=6&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Дубинка'
+uron_m_item[i]=60&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=28
+$item_name[i]='Лекарственные листья'
+can_eat[i]=16&$item_eat[i]='Употребить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=29
+$item_name[i]='Рунный камень'
+can_eat[i]=0&$item_eat[i]='Осмотреть и взять'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=30
+$item_name[i]='Шип'
+can_eat[i]=0&$item_eat[i]='Осмотреть и взять'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=31
+$item_name[i]='Дилдо'
+can_eat[i]=6&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=200&!вес
+$item_text[i]='Дилдо'
+uron_m_item[i]=10&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=32
+$item_name[i]='Бургер'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=33
+$item_name[i]='Пицца'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=34
+$item_name[i]='Бутылка колы'
+can_eat[i]=2
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=35
+$item_name[i]='Плеть'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='Плеть'
+uron_m_item[i]=120&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=36
+$item_name[i]='Зелье защиты от ужаса'
+can_eat[i]=0
+$item_eat[i]='Употребить'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=37
+$item_name[i]='Бубен верхнего мира'
+can_eat[i]=0
+$item_eat[i]='Камлать'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=38
+$item_name[i]='Пучок трав Беладонны'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=39
+$item_name[i]='Пучок трав Омела'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=40
+$item_name[i]='Топор'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='Топор'
+uron_m_item[i]=100&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=41
+$item_name[i]='Меч'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='Меч'
+uron_m_item[i]=120&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=42
+$item_name[i]='Рапира'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='Рапира'
+uron_m_item[i]=120&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=43
+$item_name[i]='Сабля'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='Сабля'
+uron_m_item[i]=120&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=44
+$item_name[i]='Катана'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=150&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=45
+$item_name[i]='Молот'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=150&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=46
+$item_name[i]='Палка'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=30&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=47
+$item_name[i]='Доска'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=30&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=48
+$item_name[i]='Доска с гвоздями'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=50&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=49
+$item_name[i]='Зелье малого отдохновения'
+can_eat[i]=17
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=50
+$item_name[i]='Зелье отдохновения'
+can_eat[i]=18
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=51
+$item_name[i]='Зелье малого лечения'
+can_eat[i]=19
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=52
+$item_name[i]='Земляника'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=53
+$item_name[i]='Малина'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=54
+$item_name[i]='Черника'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=55
+$item_name[i]='Скипетр'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=200&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=56
+$item_name[i]='Гримуар ведьм'
+can_eat[i]=20
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=57
+$item_name[i]='Пучок трав Цикута'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=58
+$item_name[i]='Пучок трав Мандрагоры'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=59
+$item_name[i]='Сушеные жабы'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=60
+$item_name[i]='Пиявки'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=61
+$item_name[i]='Рыба'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=62
+$item_name[i]='Мясо'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=63
+$item_name[i]='Бутылка пива'
+can_eat[i]=26
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=64
+$item_name[i]='Монтировка'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=100&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=65
+$item_name[i]='Масло'
+can_eat[i]=0
+$item_eat[i]='Взять'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=66
+$item_name[i]='Початок кукурузы'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=67
+$item_name[i]='Селедка'
+can_eat[i]=1
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=68
+$item_name[i]='Кристал маны'
+can_eat[i]=36
+$item_eat[i]='Сломать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=69
+$item_name[i]='Перемещающая машинка'
+can_eat[i]=21
+$item_eat[i]='Включить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=70
+$item_name[i]='Свиток Войнича'
+can_eat[i]=22
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=71
+$item_name[i]='Малое зелье отвода глаз'
+can_eat[i]=23
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='(Зелье позволяет вам не выделяться из толпы)'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=72
+$item_name[i]='Свиток мистического алфавита'
+can_eat[i]=24
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=73
+$item_name[i]='Зелье отвода глаз'
+can_eat[i]=25
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='(Зелье позволяет вам не выделяться из толпы)'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=74
+$item_name[i]='Багор'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=120&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+item_w_holdtipe[i]=1
+i=75
+$item_name[i]='Финка'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=100&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+item_w_holdtipe[i]=1
+i=76
+$item_name[i]='Кастет'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=100&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+item_w_holdtipe[i]=1
+i=77
+$item_name[i]='Свинчатка'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=80&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=100&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+item_w_holdtipe[i]=1
+i=78
+$item_name[i]='Феромоны самца'
+can_eat[i]=27
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='(Зелье позволяет получить расположение дам)'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=79
+$item_name[i]='Феминайзер'
+can_eat[i]=28
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='(Зелье изменяет тело по женскому типа)'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=80
+$item_name[i]='Манайзер'
+can_eat[i]=29
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]='(Зелье изменяет тело по мужскому типу)'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=81
+$item_name[i]='Трактат о душах'
+can_eat[i]=30
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=82
+$item_name[i]='Черная роза'
+can_eat[i]=31
+$item_eat[i]='Осмотреть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=83
+$item_name[i]='Гримуар истинной формы'
+can_eat[i]=32
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=84
+$item_name[i]='Книга "Маестат как высшая цель"'
+can_eat[i]=33
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=85
+$item_name[i]='Пыльца фей'
+can_eat[i]=34
+$item_eat[i]='Понюхать'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=86
+$item_name[i]='Серебряное кольцо'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=87
+$item_name[i]='Золотое кольцо'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=88
+$item_name[i]='Кольцо с драгоценным камнем'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=89
+$item_name[i]='Лунный камень'
+can_eat[i]=0
+$item_eat[i]='Сжать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=90
+$item_name[i]='Оберег от колючек'
+can_eat[i]=4
+$item_eat[i]='Повесить на шею'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=91
+$item_name[i]='Алмаз'
+can_eat[i]=0
+$item_eat[i]='Сжать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=92
+$item_name[i]='Заряженная роза'
+can_eat[i]=35
+$item_eat[i]='Сжать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=93
+$item_name[i]='Зелье леченья'
+can_eat[i]=37
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=94
+$item_name[i]='Мухобойка'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=350&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=95
+$item_name[i]='Приворотное зелье'
+can_eat[i]=0
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=96
+$item_name[i]='Обрезок трубы'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Обрезок трубы'
+uron_m_item[i]=60&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=97
+$item_name[i]='Гриб'
+can_eat[i]=38
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=98
+$item_name[i]='Продукты'
+can_eat[i]=0
+$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=99
+$item_name[i]='Травяной меч'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Травяной меч'
+uron_m_item[i]=140&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=100
+$item_name[i]='Возбудитель'
+can_eat[i]=39
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=101
+$item_name[i]='Черная шпага'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=200&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=102
+$item_name[i]='Астральная катана'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=200&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=103
+$item_name[i]='Древняя катана с гравировкой дракона'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=160&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=104
+$item_name[i]='Пистолет Беретта'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Пистолет Беретта'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=105
+$item_name[i]='Патрон 9х19мм Паррабеллум'
+can_eat[i]=0
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]='Патрон для пистолета Беретта'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=106
+$item_name[i]='Пистолет Люгер'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Пистолет Люгер'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=500&item_w_patron_max[i]=8&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=107
+$item_name[i]='Пистолет Смит-Вессон'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Пистолет Смит-Вессон'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=400&item_w_patron_max[i]=20&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=108
+$item_name[i]='Пистолет Глок'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Пистолет Глок'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=350&item_w_patron_max[i]=17&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=109
+$item_name[i]='Патрон 44 магнум'
+can_eat[i]=0
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]='Патрон для мощных пистолетов и револьверов'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=350&item_w_patron_max[i]=17&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=110
+$item_name[i]='Пистолет Дезерт Игл'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Пистолет Дезерт Игл'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=800&item_w_patron_max[i]=8&item_w_patrontipe[i]=109&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=111
+$item_name[i]='Золотой пистолет Дезерт Игл'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Пистолет Дезерт Игл'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=800&item_w_patron_max[i]=8&item_w_patrontipe[i]=109&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=112
+$item_name[i]='Револьвер Кольт Анаконда'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Револьвер Кольт Анаконда'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=900&item_w_patron_max[i]=6&item_w_patrontipe[i]=109&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=113
+$item_name[i]='Трость с каменным набалдашником'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=150&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+item_w_holdtipe[i]=1
+i=114
+$item_name[i]='Кровавая катана бога войны'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=200&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=115
+$item_name[i]='Узловатый черный посох'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=150&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+item_w_holdtipe[i]=1
+i=116
+$item_name[i]='Катана с гравировкой'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=150&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=117
+$item_name[i]='Хлыст'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=70&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+item_w_holdtipe[i]=1
+i=118
+$item_name[i]='Кольцо воды'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=119
+$item_name[i]='Кольцо Приапа'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=120
+$item_name[i]='Кольцо малой лунной тропы'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=121
+$item_name[i]='Кольцо реакции'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=122
+$item_name[i]='Кольцо лунной тропы'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=123
+$item_name[i]='Скатерть самобранка'
+can_eat[i]=0
+$item_eat[i]='Расстелить'&!если можно как то употребить
+item_burden[i]=1000&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=124
+$item_name[i]='Трость с набалдашником'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=110&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=125
+$item_name[i]='Обрез двухстволки'
+can_eat[i]=7
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Обрез двухстволки'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=126
+$item_name[i]='Патрон 12го калибра'
+can_eat[i]=0
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]='Патрон для дробовиков'
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=127
+$item_name[i]='Мачете'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=130&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=128
+$item_name[i]='Эльфийский меч'
+can_eat[i]=6
+$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=$item_name[i]
+uron_m_item[i]=180&!количество урона
+tipe_melee_item[i]=1&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=129
+$item_name[i]='Анальный хвост'
+can_eat[i]=0
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=130
+$item_name[i]='Анальная затычка'
+can_eat[i]=0
+$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=131
+$item_name[i]='Фамильное кольцо Пратчетов'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=132
+$item_name[i]='Малый грозовой амулет'
+can_eat[i]=4
+$item_eat[i]='Повесить на шею'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=133
+$item_name[i]='Грозовой амулет'
+can_eat[i]=4
+$item_eat[i]='Повесить на шею'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=134
+$item_name[i]='Большой грозовой амулет'
+can_eat[i]=4
+$item_eat[i]='Повесить на шею'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=135
+$item_name[i]='Великий грозовой амулет'
+can_eat[i]=4
+$item_eat[i]='Повесить на шею'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=136
+$item_name[i]='Кольцо Саваофа'
+can_eat[i]=3
+$item_eat[i]='Надеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=137
+$item_name[i]='Кольцо Луны'
+can_eat[i]=3
+$item_eat[i]='Надеть'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=138
+$item_name[i]='Жиросжигатель'
+can_eat[i]=40
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=139
+$item_name[i]='Кольцо Шокер'
+can_eat[i]=3
+$item_eat[i]='Надеть'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=140
+$item_name[i]='Книга вафлёрш'
+can_eat[i]=41
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=141
+$item_name[i]='Записка'
+can_eat[i]=42
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=142
+$item_name[i]='Папка'
+can_eat[i]=43
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=143
+$item_name[i]='Стационарный телефон'
+can_eat[i]=44
+$item_eat[i]='Установить'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=144
+$item_name[i]='Ведьмин котел'
+can_eat[i]=45
+$item_eat[i]='Варить'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=145
+$item_name[i]='Мел для пентаграммы'
+can_eat[i]=46
+$item_eat[i]='Использовать'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=146
+$item_name[i]='Магическое яйцо'
+can_eat[i]=47&$item_eat[i]='Сьесть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=147
+$item_name[i]='Кольцо Древнего Бога'
+can_eat[i]=3&$item_eat[i]='Надеть'&!если можно как-то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=148
+$item_name[i]='кольцо Госпожи'
+can_eat[i]=3&$item_eat[i]='Надеть'&!если можно как-то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=149
+$item_name[i]='Кольцо бессмертия'
+can_eat[i]=3&$item_eat[i]='Одеть на палец'&!если можно как то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=150
+$item_name[i]='Арбалет'
+can_eat[i]=6&$item_eat[i]='Взять в руку'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]=''
+uron_m_item[i]=350&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=20&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=151
+$item_name[i]='Шокер'
+can_eat[i]=26&$item_eat[i]='Использовать'&!если можно как-то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=151
+$item_name[i]='Одеяло'
+can_eat[i]=26&$item_eat[i]='Использовать'&!если можно как-то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=153
+$item_name[i]='Оковы'
+can_eat[i]=26&$item_eat[i]='Использовать'&!если можно как-то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=154
+$item_name[i]='Ловушки'
+can_eat[i]=26&$item_eat[i]='Установить'&!если можно как-то употребить
+item_burden[i]=5&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=155
+$item_name[i]='Яйцо'
+can_eat[i]=1&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]='Птичье яйцо'
+i=156
+$item_name[i]='Шкатулка'
+can_eat[i]=0&$item_eat[i]='Рассмотреть'&!если можно как то употребить
+item_burden[i]=800&!вес
+$item_text[i]='Хранит в себе образ'
+i=157
+$item_name[i]='Резиновое кольцо'
+can_eat[i]=3&$item_eat[i]='Одеть на палец'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=158
+$item_name[i]='Кольцо мула'
+can_eat[i]=3&$item_eat[i]='Одеть на палец'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=159
+$item_name[i]='Кольцо похоти'
+can_eat[i]=3&$item_eat[i]='Одеть на палец'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=160
+$item_name[i]='Волшебный Фонарик'
+can_eat[i]=46&$item_eat[i]='Включить'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+i=161
+$item_name[i]='Картошка'
+can_eat[i]=1&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=162
+$item_name[i]='Соленый гриб'
+can_eat[i]=1&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=163
+$item_name[i]='Квашеная капуста'
+can_eat[i]=1&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=164
+$item_name[i]='Соленый огурец'
+can_eat[i]=1&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=165
+$item_name[i]='Бутылка самогонки'
+can_eat[i]=17&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=166
+$item_name[i]='Пустой шприц'
+can_eat[i]=0&$item_eat[i]='Посмотреть'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=167
+$item_name[i]='Укол'
+can_eat[i]=10&$item_eat[i]='Сделать инъекцию'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=168
+$item_name[i]='Слива'
+can_eat[i]=12&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=169
+$item_name[i]='Клубника'
+can_eat[i]=13&$item_eat[i]='Съесть'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+i=171
+$item_name[i]='Записки охотника'
+can_eat[i]=171
+$item_eat[i]='Открыть'&!если можно как то употребить
+item_burden[i]=10&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое!1-острое
+uron_w_item[i]=0&item_w_patron_max[i]=0&item_w_patrontipe[i]=0&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=172
+$item_name[i]='Амулет тропы света'
+can_eat[i]=4&$item_eat[i]='Одеть на шею'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=173
+$item_name[i]='Патрон'
+can_eat[i]=0&$item_eat[i]='осмотреть'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=174
+$item_name[i]='Серебро'
+can_eat[i]=0&$item_eat[i]='осмотреть'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]=''
+i=175
+$item_name[i]='Бутылка виски'
+can_eat[i]=6&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=176
+$item_name[i]='Бутылка молока'
+can_eat[i]=11&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=177
+$item_name[i]='Бутылка зелья вагина инкриментум'
+can_eat[i]=16&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=178
+$item_name[i]='Бутылка зелья пуэр эст моллис'
+can_eat[i]=17&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=179
+$item_name[i]='Бутылка зелья сангуис бистия'
+can_eat[i]=18&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!КРАФТ
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=180
+$item_name[i]='Звездный металл'
+can_eat[i]=0&$item_eat[i]='пощупать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=181
+$item_name[i]='Бутылка вытяжки'
+can_eat[i]=19&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=182
+$item_name[i]='Отмычка'
+can_eat[i]=18&$item_eat[i]='Вставить в замочную скважину'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]='Обыкновенная отмычка, которой можно открывать простые механические замки'
+i=183
+$item_name[i]='Порция берёзовых почек'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=184
+$item_name[i]='Порция горицвета'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=185
+$item_name[i]='Порция хвоща'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=186
+$item_name[i]='Порция лимонника'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=187
+$item_name[i]='Порция мяты'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=188
+$item_name[i]='Цветок розы'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=189
+$item_name[i]='Порция горного чая'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=190
+$item_name[i]='Цветок пиона'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=191
+$item_name[i]='Порция валерианы лекарственной'
+can_eat[i]=0
+$item_eat[i]='Забрать'&!если можно как то употребить
+item_burden[i]=2&!вес
+$item_text[i]=''
+i=231
+$item_name[i]='Бутылка виски'
+can_eat[i]=26
+$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=232
+$item_name[i]='Зелье защиты разума'
+can_eat[i]=20&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=233
+$item_name[i]='Зелье восстановления маны'
+can_eat[i]=21&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=234
+$item_name[i]='Зелье дьявольской жизни'
+can_eat[i]=22&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=235
+$item_name[i]='Божественная кровь'
+can_eat[i]=23&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=236
+$item_name[i]='Сияющий кристалл'
+can_eat[i]=26&$item_eat[i]='Использовать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=237
+$item_name[i]='Коктейль молотова'
+can_eat[i]=25&$item_eat[i]='Бросить'&!если можно как то употребить
+item_burden[i]=50&!вес
+$item_text[i]=''
+i=238
+$item_name[i]='Синий шар'
+can_eat[i]=24&$item_eat[i]='Сломать'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=239
+$item_name[i]='Черное зеркало'
+can_eat[i]=26&$item_eat[i]='Смотреть'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=240
+$item_name[i]='Ухо зверя'
+can_eat[i]=24&$item_eat[i]='Сломать'&!если можно как то употребить
+item_burden[i]=1&!вес
+$item_text[i]=''
+i=241
+$item_name[i]='Яд'
+can_eat[i]=25&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]=''
+i=242
+$item_name[i]='Леденящая колба'
+can_eat[i]=25&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=100&!вес
+$item_text[i]=''
+i=243
+$item_name[i]='Кольцо защиты от огня'
+can_eat[i]=3&$item_eat[i]='Одеть на палец'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=244
+$item_name[i]='Ошейник для Лиллит'
+can_eat[i]=26&$item_eat[i]='Одеть'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=245
+$item_name[i]='Компас'
+can_eat[i]=26&$item_eat[i]='Использовать'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=248
+$item_name[i]='Возбудитель'
+can_eat[i]=26&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=500&!вес
+$item_text[i]='Афродизиак'
+i=249
+$item_name[i]='Кляп'
+can_eat[i]=26&$item_eat[i]='Заткнуть рот'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=250
+$item_name[i]='Усыпляющий газ'
+can_eat[i]=25&$item_eat[i]='Распылить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=251
+$item_name[i]='Дымовая шашка'
+can_eat[i]=25&$item_eat[i]='Установить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=252
+$item_name[i]='Тоник'
+can_eat[i]=26&$item_eat[i]='Выпить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+!ЭТО РАЗДЕЛ ПОКУПКИ РУЧНЫХ ЖИВОТНЫХ
+i=253
+$item_name[i]='Птица'
+can_eat[i]=26&$item_eat[i]='подать команду'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]='питомец'
+i=254
+$item_name[i]='Ищейка'
+can_eat[i]=26&$item_eat[i]='подать команду'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]='питомец'
+i=255
+$item_name[i]='Ретривер'
+can_eat[i]=26&$item_eat[i]='подать команду'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]='питомец'
+i=261
+$item_m_name[i]='Старая сабля охотника'
+$item_m_name_oi[i]='саблей'
+uron_m_item[i]=100
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=150&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+i=262
+$item_m_name[i]='Обычная сабля охотника'
+$item_m_name_oi[i]='саблей'
+uron_m_item[i]=300
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=150&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+i=263
+$item_m_name[i]='Хорошая сабля охотника'
+$item_m_name_oi[i]='саблей'
+uron_m_item[i]=600
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=150&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+i=264
+$item_m_name[i]='Отличная сабля охотника'
+$item_m_name_oi[i]='саблей'
+uron_m_item[i]=800
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+!вес
+item_m_burden[i]=150
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=265
+$item_m_name[i]='Легендарная сабля охотника'
+$item_m_name_oi[i]='саблей'
+uron_m_item[i]=1000
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+!вес
+item_m_burden[i]=150
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=266
+$item_m_name[i]='Кувалда'
+$item_m_name_oi[i]='кувалдой'
+uron_m_item[i]=250
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+!вес
+item_m_burden[i]=250
+$item_m_text[i]=''
+tipe_melee_item[i]=0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=267
+$item_m_name[i]='Топор'
+$item_m_name_oi[i]='топором'
+uron_m_item[i]=250
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+!вес
+item_m_burden[i]=250
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=268
+$item_m_name[i]='Старая рапира охотника'
+$item_m_name_oi[i]='рапирой'
+uron_m_item[i]=200
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+!вес
+item_m_burden[i]=150
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=269
+$item_m_name[i]='Обычная рапира охотника'
+$item_m_name_oi[i]='рапирой'
+uron_m_item[i]=400
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+!вес
+item_m_burden[i]=150
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=270
+$item_m_name[i]='Хорошая рапира охотника'
+$item_m_name_oi[i]='рапирой'
+uron_m_item[i]=700
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=150&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=271
+$item_m_name[i]='Отличная рапира охотника'
+$item_m_name_oi[i]='рапирой'
+uron_m_item[i]=1000
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=150&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=272
+$item_m_name[i]='Легендарная рапира охотника'
+$item_m_name_oi[i]='рапирой'
+uron_m_item[i]=1200
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=150&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=273
+$item_m_name[i]='Электродубина'
+$item_m_name_oi[i]='дубиной'
+uron_m_item[i]=600
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=150&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=274
+$item_m_name[i]='Труба'
+$item_m_name_oi[i]='трубой'
+uron_m_item[i]=80
+clo_m_item[i]=5
+item_m_max[i]=5
+$item_m_use[i]='Взять'
+item_m_burden[i]=250&!вес
+$item_m_text[i]=''
+tipe_melee_item[i]=0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=280
+$item_w_name[i]='Пистолет Затычкина'
+$item_w_name_oi[i]='пистолета'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+item_w_burden[i]=5&!вес
+$item_w_text[i]='Пистолет под патрон 9х18мм, магазин на 8 патронов'
+uron_w_item[i]=350
+item_w_patron_max[i]=8
+!item_w_patron_load[i]=0
+!номер в итемах
+item_w_patrontipe[i]=27
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=281
+$item_w_name[i]='Пищаль охотника'
+$item_w_name_oi[i]='пищаль'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+item_w_burden[i]=5&!вес
+$item_w_text[i]=''
+uron_w_item[i]=350
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=282
+$item_w_name[i]='Волшебная палочка'
+$item_w_name_oi[i]='палочкой'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+item_w_burden[i]=5&!вес
+$item_w_text[i]=''
+uron_w_item[i]=10
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='палочка'
+item_w_patrontipe[i]=0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=283
+$item_name[i]='Однозарядная винтовка'
+$item_name_oi[i]='винтовки'
+!clo_w_item[i]=4
+$item_w_use[i]='Взять'
+item_w_burden[i]=5&!вес
+$item_w_text[i]=''
+uron_w_item[i]=800
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=284
+$item_name[i]='Мушкетон'
+$item_name[i]='мушкетона'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+item_w_burden[i]=5&!вес
+$item_w_text[i]=''
+uron_w_item[i]=500
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=285
+$item_name[i]='Двухстволка'
+$item_name[i]='двухстволки'
+!clo_w_item[i]=4
+$item_use[i]='Взять'
+item_w_burden[i]=5&!вес
+$item_text[i]=''
+uron_w_item[i]=300
+item_w_patron_max[i]=2
+!item_w_patron_load[i]=0
+!номер в итемах
+!$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+$ARGS['PIRS_ICON']='<img width="15" height="auto" src="pic/misc/UI/icons/pirs.png">'
+i=286
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Штанга в язык'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=287
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Колечко в нос'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=288
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Большое кольцо в нос'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=289
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Штанги в соски'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=290
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Кольца в соски'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=291
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Огромные кольца в соски'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=292
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Штанга в клитор'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=293
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Колечки в клитор'
+!если можно как то употребить
+can_eat[i]=47
+$item_eat[i]='Вставить'
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=294
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Набор пирсинга для вагины'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=295
+$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Колокольчик в клитор'
+can_eat[i]=47&$item_eat[i]='Вставить'&!если можно как то употребить
+item_burden[i]=0&!вес
+$item_text[i]=''
+i=338
+$item_name[i]='Ключ от подвала отеля'
+can_eat[i]=0&!если можно как то употребить
+$item_eat[i]='Осмотреть'
+item_burden[i]=50&!вес
+$item_text[i]=''
+i=999
+$item_name[i]='Яйцо морского монстра'
+can_eat[i]=999&!если можно как то употребить
+$item_eat[i]='Поглотить'
+item_burden[i]=80&!вес
+$item_text[i]=''
+uron_m_item[i]=0&!количество урона
+tipe_melee_item[i]=0&!0- тупое&1-острое
+uron_w_item[i]=0&!!!!!!огнестрел
+item_w_patron_max[i]=0
+item_w_patrontipe[i]=0&!номер в итемах патронов

@@ -1,0 +1,140 @@
+﻿total_npc_sex+=1
+znts=Z[w]&npc_sex[znts]+=1
+sexperaday[s]=daystart&sexperaday[w]=daystart
+sextimer[s]=time+120&sextimer[w]=time+120
+startgangtimer[w]=time+60&startgangtimer[s]=time+60
+hardfucked[s]=daystart&hardfucked_timer[s]=time+60
+if brave[s]=2:brave[s]=1
+if lebeda_seed[w]>0:lebeda_seed[s]+=1
+if lebeda_seed[s]>0:lebeda_seed[w]+=1
+if skin[w]>3 and skin[w]<7 and block_blackrule=0 and magworld[Znow]>0:
+ 	if r_leg_t[s]=0:r_leg_t[s]=1
+	if blackgangdead=0 and wantblackcockON=1 and vag[s]>=70 and anus[s]>=60 and throat[s]>=10:wantblackcock[s]=1
+end
+Znow=Z[w]
+if magworld[Znow]>0:
+     if lebeda=s:
+		 if soul[w]>0:
+			 soul[s]+=1&soul[w]-=2&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+		 end
+	 else
+		 if stamp_t[s]>0:
+			 if stampblockday[s]=daystart:
+				slutday[s]+=1
+			 else
+				 stampblockday[s]=daystart&soul[s]-=2&soul[w]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+			 end
+		 else
+			 soul[s]-=2&soul[w]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+		 end
+	 end
+end
+if demon_dick[s]>0:
+	if w!soulmaster:
+		args[20]=0&args[20]+=rand(demon_dick[s],15)/5
+		soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=args[20]
+		if soul[w]>0:soul[w]-=args[20]
+	end	
+	gs'get_soul_loc',s,demon_dick[s],w
+end
+agro[w]+=1&lust[s]+=1
+if mob[s]=0:agro[s]-=10
+if moon_curse[s]>=1:lust[s]+=10
+healthmax[w]+=10&health[w]=healthmax[w]&energy[w]=energymax[w]&minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)&reflex[w]+=1
+under_sub[w]=s&under_sub[s]=w
+mob_busy[w]=time+15&mob_busy[s]=time+15
+if action_tipe[w]<700:action_tipe[w]=700
+if action_tipe[s]<700:action_tipe[s]=700
+aktive_tipe[w]=1&aktive_tipe[s]=0
+if sexpartner['<<w>>,<<s>>']=0:
+	gs'add_sex_stat',w,s
+	if blackganger[w]=1 and block_blackrule=0 and magworld[Znow]>0 and magik[w]<35 and girl[w]>3:magik[w]+=1
+end
+!sexpartner['<<w>>,<<s>>']+=1&sexpartner['<<s>>,<<w>>']+=1
+if vag[s]>0:vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+anus[s]+=1&anal[s]+=1&aanal[w]+=1&bj[s]+=1&abj[w]+=1
+if throat[s]<10:throat[s]=10
+if dick[w]>throat[s]:throat[s]+=1
+$surnamemylastfucker[s]=$surname[w]
+$global_npc_log[w]+='<br>'
+if whore[s]>0:
+	$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+else
+	$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> была выебана мной'
+end
+$global_npc_log[s]+='<br>'
+if whore[s]>0:
+	money[s]+=5000
+	$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
+	insemrand=rand(1,10)
+	if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+	if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+	father_npc_child=w
+else
+    $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> выебал меня.'
+    insemrand=rand(1,10)
+	if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+	if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+	father_npc_child=w
+end
+horny[w]=0&horny[s]=0
+if statist[s]=1 and whore[s]=0:panic[s]+=1
+if thenoob[s]=1 and whore[s]=0:panic[s]+=1
+if skin[w]>3 and skin[w]<7 and blackgangdead=0 and block_blackrule=0 and wantblackcockON=1 and vag[s]>=70 and anus[s]>=60 and throat[s]>=10:wantblackcock[s]+=1
+if action_tipe[s]>700:
+	if remembergangbangday[s]!daystart:
+	     remembergangbangday[s]=daystart
+         $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я получила жесткий гангбанг.'
+    end
+	if skin[w]>3 and skin[w]<7 and r_leg_t[s]=0 and block_blackrule=0 and magworld[Znow]>0:r_leg_t[s]=1
+	if stamp_t[s]=0 and block_blackrule=0 and magworld[Znow]>0:stamp_t[s]=rand(1,4)
+	if blackganger[w]=1 and block_blackrule=0 and magworld[Znow]>0 and s!arhivwoman:
+		if whore[s]>0:
+		    if lips[s]<3:lips[s]=3
+		    if tongue_p[s]<1:tongue_p[s]=1
+		    if nip_p[s]<1:nip_p[s]=rand(1,2)
+		    if vag_pirs[s]<1:vag_pirs[s]=rand(1,2)
+		end
+		if whore[s]=0 and whoreblockON[s]=0:
+		     lust[s]+=100
+			 healthmax[w]=healthmax[w]+20&health[w]=healthmax[w]&energy[w]=energymax[w]&minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)&reflex[w]+=5
+			 slutmaker[w]+=1&whore[s]=1&whoreboss[s]=w
+	         $global_npc_log[s]+='<br>'
+             $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> сделал меня шлюхой.'
+             total_blacked_whore+=1
+	         t_slot[s]=rand(31,36)
+	         tipelow=rand(0,2)
+             if tipelow=0:l_slot[s]=rand(15,22)
+             if tipelow=1:l_slot[s]=rand(45,51)
+             if tipelow=2:l_slot[s]=rand(70,79)
+             b_slot[s]=rand(34,36)
+             ut_slot[s]=0&ul_slot[s]=0&ub_slot[s]=0
+		end
+	end
+end
+if total_blacked_whore>=5 and blackganger[arhivson]=0:blackganger[arhivson]=1
+if total_blacked_whore>=10 and blackganger[arhivman]=0:blackganger[arhivman]=1
+if total_blacked_whore>=15 and total_blacked_whore>blackpower:
+	blackpower=total_blacked_whore+5
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+	lvl[i]=1&soul[i]=100
+	statist[i]=1&muggle[i]=1&blackganger[i]=1
+	face_pic[i]=rand(70001,70029)&!присвоение фотки
+	gs'negr_man_name'&$name[i]=$genname&gs'negr_surname'&$surname[i]=$gensurname&pretipename=0
+	 face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+	 dick[i]=rand(18,30)&dickd[i]=rand(40,55)&ball[i]=rand(70,100)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0&!Половые признаки (член, вагина, жопа, грудь)
+	rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)&skin[i]=rand(4,6)
+	$nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+	age[i]=iif(preage>0,preage,rand(18,30))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(50,70)&$nick[i]+=iif(skin[i]>3 and skin[i]<7,' негр',$iif(age[i]<25,' парень',' мужчина'))
+	face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=0
+	pol[i]=0&gs'body'&total_generated_male+=1
+	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]
+	womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(90,100)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(90,100)&!характер
+	class[i]=pre_class
+	 t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&!низший класс
+	 ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+	 e_world[]=i&walkprog[i]=26
+	 Xhome[i]=Xhome[tbigg]&Yhome[i]=Yhome[tbigg]&Zhome[i]=Zhome[tbigg]&Hhome[i]=Hhome[tbigg]&Rhome[i]=Rhome[tbigg]
+	 X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+end
+horny[w]=0&horny[s]=0

@@ -1,0 +1,14 @@
+﻿gs'stat'&act'Отвести взгляд':gt'sumrak'
+Xs=0&Ys=Ymax[Zs]&Hs=0&Rs=0&!Ys=0
+$sumtxt='<center><table border=1 align=center><tr>'
+:markseeworld
+	$locreal='<<Xs>>,<<Ys>>,<<Zs>>,<<Hs>>,<<Rs>>'
+	$sumtxt+='<td>'&$sumtxt+='<<$locname[''<<$locreal>>'']>>'
+	$sumtxt+='<br>'&$sumtxt+='<a href="exec:gt ''goshad'',<<Xs>>,<<Ys>>">Переместиться</a>'
+	$sumtxt+='&nbsp;&nbsp;<a href="exec:gt ''gosee'',<<Xs>>,<<Ys>>">Узреть</a>'
+	$sumtxt+='</td>'
+Xs+=1&if Xs<=Xmax[Zs]:jump'markseeworld'
+Xs=0&Ys-=1&if Ys>=0: $sumtxt+='</tr><tr>'
+if Ys>=0:jump'markseeworld'
+$sumtxt+='</tr></table></center>'
+*p '<center>Среди теней проступают очертания</center>'&*nl '<<$sumtxt>>'

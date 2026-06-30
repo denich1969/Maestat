@@ -1,0 +1,22 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&elven[]=i
+lvl[i]=1&soul[i]=100&mob[i]=71&mobexp[i]=50
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+tipemobpic[i]=1&picture[i]=rand(137,142)
+$title[i]='Обычный лесной эльф'&$nick[i]='Эльф'
+gs'elf_man_name'&$name[i]=$genname&$surname[i]=''&!gs'surname'
+face[i]=rand(40,70)&gla[i]=3&glacol[i]=4&nose[i]=1&lips[i]=1
+dick[i]=rand(12,16)&dickd[i]=rand(30,40)&ball[i]=rand(30,40)&ass[i]=2&vag[i]=0&tit[i]=0&nip[i]=8
+rost[i]=rand(160,180)&fat[i]=rand(500,1000)&mus[i]=rand(800,1600)&skin[i]=2
+face_hair[i]=0&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=3&beard[i]=0
+healthmax[i]=10*rand(30,50)&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+mustage[i]=0&age[i]=rand(18,100)&vital[i]=rand(500,1000)&will[i]=rand(5,10)&reflex[i]=rand(70,100)
+pol[i]=0&gs'body'&total_elvenman+=1
+womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(0,2)&selfrespect[i]=rand(1)&positiv[i]=rand(1)&extrovert[i]=rand(1)&ratio[i]=1&brave[i]=1&lust[i]=60&!характер
+t_slot[i]=rand(1,10)&l_slot[i]=rand(1,7)&b_slot[i]=rand(1,5)
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=28
+m_slot[i]=0&w_slot[i]=0
+!l_hand_t[i]=2&r_hand_t[i]=1
+t_slot[i]=94&l_slot[i]=91&b_slot[i]=70
+ut_slot[i]=0&ul_slot[i]=40&ub_slot[i]=28
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+obsession_world[]=i&walkprog[i]=0

@@ -1,0 +1,16 @@
+﻿if $selobj='Журнал':gs('add_desc_func', 'Журнал')
+if $selobj='Инвентарь':gs('add_desc_func', 'Инвентарь')
+if $selobj='Персонаж':gs('add_desc_func', 'Персонаж')
+if $selobj='Статистика':gs('add_desc_func', 'Статистика')
+if $selobj='Характеристики':gs('add_desc_func', 'Характеристики')
+if CONFIG['ENABLE_CMD']=1 and no obj 'Команда': addobj'Команда'
+if $selobj='Обновить':
+	if no obj 'Настройки': addobj'Настройки'
+	gs('add_desc_func', 'Обновить')
+end
+if $selobj='Аварийка':gs('add_desc_func', 'Аварийка')
+if $selobj='Настройки':gs('add_desc_func', 'Настройки')
+if $selobj='Команда':gs('add_desc_func', 'Команда')
+if CONFIG['IS_DEBUG']=1 and no obj 'RUN DEBUG':addobj 'RUN DEBUG'
+if $selobj='RUN DEBUG':gs 'add_sex_stat'
+UNSEL

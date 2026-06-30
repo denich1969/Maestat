@@ -1,0 +1,46 @@
+﻿rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'
+	if mob_busy[w]>0:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+    if hour>=22 or hour<=6:
+		$doing[i]='pppp'&$loc[i]='xxx'	
+	else
+		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w] and hour>=7 and hour<23:
+			if foodfish>0:
+				if egg<=0:
+					if eggciper[i]=0:
+						eggciper[i]=rand(1,2)&$doing[i]='ходит по камням и ищет птичьи гнезда'&$loc[i]='isle'
+					else
+						egg+=eggciper[i]&eggciper[i]=0&$doing[i]='жарит яйца стоя у плиты'&$loc[i]='home_1'
+					end
+				end
+			else
+				if hour>=10 and fichcageday!daystart:
+					fichcageday=daystart&fishtemp=rand(1,3)&fish+=fishtemp&$doing[i]='проверяет ловушку для рыбы'&$loc[i]='isle'
+				else
+					if hunger[i]<=4:
+						tipe=rand(0,2)
+						if tipe=0:$doing[i]='сидит на диване'&$loc[i]='home_2'
+						if tipe=1:
+							$doing[i]='читает книгу'&$loc[i]='home_6'&if lust[i]<20:lust[i]+=1
+						end
+						if tipe=2:$doing[i]='протирает лампу'&$loc[i]='home_9'
+					else
+						temprand=rand(0,1)
+						if temprand=0:
+							hunger[i]=0&foodfish-=1&$doing[i]='ест рыбу сидя за столом'&$loc[i]='home_1'
+						else
+							hunger[i]=0&egg-=1&$doing[i]='ест яичницу сидя за столом'&$loc[i]='home_1'
+						end
+					end
+				end
+			end
+		else
+			fish-=1&foodfish+=4&$doing[i]='готовит рыбу стоя у плиты'&$loc[i]='home_1'
+		end
+		
+	end
+end
+!$doing[i]='спит на кровати'&$loc[i]='home_5'

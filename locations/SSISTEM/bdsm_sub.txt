@@ -1,0 +1,74 @@
+﻿gs'stat'&if demon_slave[you]>1:demon_slave[you]=1
+if sexpower[npc]>0:
+	if hardtimer=0:
+		submission[you]+=1
+		if skin[npc]>3 and skin[npc]<7:
+			blacked[you]+=1
+			'<center><video src="pic/sex/degraded/throatfingeringbbc.webm" ></video></center>'&'Вы встали на колени, а господин безцеремонно запихал вам в рот свои пальцы и стал просовывать их вам в горло'
+		else
+			'<center><video src="pic/sex/degraded/throatfingering<<rand(0,8)>>.webm" ></video></center>'
+			'Вы встали на колени, а господин безцеремонно запихал вам в рот свои пальцы и стал просовывать их вам в горло'
+		end
+		act'Сдерживать тошноту':hardtimer+=1&gt $curloc
+	else
+		tipe=0
+		if tipe=0:
+			'<center><img src="pic/sex/bdsm/start.jpg" ></center>'&'Господин крепко привязал вас к какой-то пыточной приспособе и стал смазывать вам анус'&podtipe=rand(0,3)
+			if podtipe=0:
+				act'Молить':
+					target_soul=4&cls&gs'souleater'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&temp_anal_fss+=1&sexpower[npc]=0
+					gs'stat'&'<center><video src="pic/sex/bdsm/anal<<rand(0,2)>>.webm" ></video></center>'
+					'Господин грубо вошел в вашу попу и начал вас трахать. Вы терпите сжав зубы когда вас грубо дерут в очко и боль, стыд и удовольствие смешиваются в одно целое'
+					gs'fuck_anal_hard',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Плакать':gt $curloc
+				end
+			end
+			if podtipe=1:
+				act'Молить':
+					target_soul=4&cls&gs'souleater'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&temp_anal_fss+=1&sexpower[npc]=0
+					gs'stat'&'<center><video src="pic/sex/bdsm/dildo0.webm" ></video></center>'&anus[you]+=1&'Господин ввел вам в анус большой дилдо и начал им трахать вашу попу'
+					gs'fuck_anal_hard',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Плакать':gt $curloc
+				end
+			end
+			if podtipe=2:
+				act'Молить':
+					target_soul=4&cls&gs'souleater'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&temp_anal_fss+=1
+					gs'stat'&'<center><video src="pic/sex/bdsm/hook0.webm" ></video></center>'&anus[you]+=3&'Господин смазал ваш анус и ввел в его анальный крюк'
+					act'Стонать':
+						womenbrain[you]+=1&temp_vag_fss+=1&sexpower[npc]=0&cls&gs'stat'&'<center><video src="pic/sex/bdsm/hook_fuck.webm" ></video></center>'
+						'Стоя раком вы выгибаете спину пока вас трахают в киску и при этом большой железный шар в попе через стенку между анусом и вагиной ощутимо трется о член господина'
+						if vag[you]=1:
+							horny[you]=0&'Вспышка резкой боли, когда вас лишают девственности и вы видите что на члене немного крови'
+						else
+							if vag[you]*2<dickd[npc]:
+								'Вам довольно не приятно и больно когда вас ебут'
+							else
+								'Твердая мужская плоть двигается внутри вашего тела и от этого внизу живота порхают бабочки'
+							end
+						end
+						gs'fuck_vag_hard',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Плакать':gt $curloc
+					end
+				end
+			end
+			if podtipe=3:
+				act'Молить':
+					target_soul=4&cls&gs'souleater'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&sexpower[npc]=0
+					gs'stat'&'<center><video src="pic/sex/bdsm/spanking.webm" ></video></center>'&'Господин медленно и жестко стал пороть вашу задницу, заставляя вас считать каждый удар и говорить ему спасибо.'
+					act'Рыдать':
+						target_soul=4&cls&gs'souleater'&temp_blow_fss+=1&oral_fixation[you]+=1&sexpower[npc]=0&gs'stat'&'<center><video src="pic/sex/bdsm/blow0.webm" ></video></center>'
+						throat[you]+=1&'Господин подсоединил вашу голову к механизму и ввел вам член в рот, а механизм стал насаживать ваше горло на твердый стержень члена'&horny[you]=0
+						gs'fuck_oral_throat_spec',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Плакать':gt $curloc
+					end
+				end
+			end
+		end
+		!if tipe=1:	end&if tipe=2:end
+	end
+else
+	koefball[npc]=11-(ball[npc]/10)&empty_ball[npc]=time+(60*koefball[npc])&horny[npc]=0
+	'<center><img src="pic/sex/bdsm/nose_hook<<rand(0,2)>>.jpg" ></center>'&'Господин одевает вам расширитель рта и начинает дрочить перед вашим лицом'
+	act'Рыдать':
+		cum_face[you]+=rand(1,5)&target_soul=4
+		cls&gs'souleater'&gs'soulcraft'&gs'stat'&'<center><img src="pic/sex/bdsm/cumsub.jpg" ></center>'&'Господин обкончал ваше лицо покрыв его липкой и теплой спермой'
+		gs'fuck_cum_face',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_bdsm'
+	end
+end

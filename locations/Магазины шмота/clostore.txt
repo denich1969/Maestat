@@ -1,0 +1,60 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'На вешалках висит разнообразная одежда любых размеров'
+gs'Item'&'Все продается по 5 шиллингов.'
+gs 'npconloc'
+act'Уйти':gt 'preloc'
+act'Смотреть одежду':
+	cls&gs'stat'&'<center><img src="pic/clo/top/<<rand(1,86)>>.jpg" ></center>'&'Вы осматриваете готовую одежду'
+	act'<b>Отложить</b>':gt $curloc
+	if money[you]>=500:
+		 act'Купить':
+			 money[you]-=500&item_t[po]+=1&burden[you]+=item_t_burden[po]
+			 cls&gs'stat'&'Вы заплатили деньги и купили одежду.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+act'Смотреть низ':
+	 cls&gs'stat'&'<center><img src="pic/clo/low/<<rand(1,89)>>.jpg" ></center>'&'Вы осматриваете готовую одежду'&act'<b>Отложить</b>':gt $curloc
+	 if money[you]>=500:
+		 act'Купить':
+			 money[you]-=500&item_l[po]+=1&burden[you]+=item_l_burden[po]
+			 cls&gs'stat'&'Вы заплатили деньги и купили одежду.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+act'Смотреть обувь':
+	 cls&gs'stat'&'<center><img src="pic/clo/boot/<<rand(1,29)>>.jpg" ></center>'&'Вы осматриваете готовую обувь'&act'<b>Отложить</b>':gt $curloc
+	 if money[you]>=500:
+		 act'Купить':
+			money[you]-=500&item_b[po]+=1&burden[you]+=item_b_burden[po]
+			cls&gs'stat'&'Вы заплатили деньги и купили обувь.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+act'Смотреть колготки':
+	cls&gs'stat'&'<center><img src="pic/clo/uboot/<<rand(1,9)>>.jpg" ></center>'&'Вы осматриваете готовую одежду.'&act'<b>Отложить</b>':gt $curloc
+	 if money[you]>=500:
+		 act'Купить':
+			 money[you]-=500&item_ub[po]+=1&burden[you]+=item_ub_burden[po]
+			 cls&gs'stat'&'Вы заплатили деньги и купили одежду.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+act'Смотреть трусы':
+	cls&gs'stat'&'<center><img src="pic/clo/ulow/<<rand(1,16)>>.jpg" ></center>'&'Вы осматриваете готовую одежду'&act'<b>Отложить</b>':gt $curloc
+	 if money[you]>=500:
+		 act'Купить':
+			 money[you]-=500&item_ul[po]+=1&burden[you]+=item_ul_burden[po]
+			 cls&gs'stat'&'Вы заплатили деньги и купили одежду.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+act'Смотреть лифчики':
+	cls&gs'stat'&'<center><img src="pic/clo/utop/<<rand(1,3)>>.jpg" ></center>'&'Вы осматриваете готовую одежду'&act'<b>Отложить</b>':gt $curloc
+	 if money[you]>=500:
+		 act'Купить':
+			 money[you]-=500&item_ut[po]+=1&burden[you]+=item_ut_burden[po]
+			 cls&gs'stat'&'Вы заплатили деньги и купили одежду.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end

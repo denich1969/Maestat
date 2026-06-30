@@ -1,0 +1,64 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Барная стойка'&gs'Item'&*pl ''&gs 'npconloc'&*pl ''&act'Уйти':gt 'preloc'
+if bartable['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=3:
+	'Еда - 50 пенсов'
+	if money[you]>=50:
+		 act'Поесть 50 пенсов':
+			 money[you]-=50&energy[you]=energyMax[you]&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и взяли фишбургер с содовой.'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+end
+BT = bartable['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']
+if BT=2 or BT=4:
+	*nl'Пиво - 1 шиллинг'&*nl'Еда - 80 пенсов'
+	if money[you]>=100:
+		 act'Купить пиво 1 шиллинг':
+			 money[you]-=100&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=80:
+		 act'Поесть 80 пенсов':
+			 money[you]-=80&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&! 'Вы заплатили деньги и взяли тарелку каши с рыбой.'
+			 if alkofree=1 and BT=4:
+				alko[you]+=rand(5,15)&'Вы заплатили деньги и взяли тарелку каши с рыбой, а так же обещанный вам бокал крепкого пива.'
+				if face[you]>60:
+					'<center><img src="pic/misc/portbareatdrinkwoman.jpg" ></center>'
+				else
+					'<center><img src="pic/misc/portbareatdrinkman.jpg" ></center>'
+				end
+			 else
+				'Вы заплатили деньги и взяли тарелку каши с рыбой.'&'<center><img src="pic/misc/portbareat<<rand(1,2)>>.jpg" ></center>'
+			 end
+			 act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=150:
+		act'Поесть и выпить за 1,5 шиллинга':
+			cls
+			if face[you]>60:
+				'<center><img src="pic/misc/portbareatdrinkwoman.jpg" ></center>'
+			else
+				'<center><img src="pic/misc/portbareatdrinkman.jpg" ></center>'
+			end
+			'Вы заплатили деньги и взяли тарелку каши с рыбой и бокал крепкого пива.'&money[you]-=150&time+=15&alko[you]+=rand(7,15)&gs'eat'&gs'drink'&gs'stat'&act'<b>Уйти</b>':gt $curloc
+		end
+	end
+	if sallivan_work=1 and bar_shepot['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:act'Работать за стойкой': gt 'bar_shepot'
+	act'<b>Уйти</b>':gt 'preloc'
+end
+if bartable['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
+	*nl'Бургер - 1 шиллинг'&*nl'Пицца - 1 шиллинг'&*nl'Кола - 50 пенсов'
+	 if money[you]>=100:
+		 act'Купить бургер 1ш':
+			 money[you]-=100&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'Вы заплатили деньги и купили бургер'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить пиццу 1ш':
+			 money[you]-=100&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'Вы заплатили деньги и купили пиццу'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=50:
+		 act'Купить колу 50п':
+			 money[you]-=50&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'Вы заплатили деньги и купили колу'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if key['<<you>>,3,3,3,1,4']=0 and X[you]=3 and Y[you]=3 and Z[you]=3 and H[you]=1:act'Взять ключ от гримерки':cls&key['<<you>>,3,3,3,1,4']=1&gt 'preloc'
+end

@@ -1,0 +1,6 @@
+﻿'<center><img src="<<$d_view>>" ></center>'&!$d_view='pic/mob/154.jpg'&
+if mob_sleep[npc]>time:
+	'<<$nick[npc]>> спит'
+else
+	'<<$nick[npc]>> угрожающе хихикает'
+end

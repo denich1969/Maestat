@@ -1,0 +1,13 @@
+﻿ass[w]+=1&vag[w]+=15&!vag[you]+=5
+feminize[w]+=iif(face[w]<=50,rand(15,25),rand(5,10))
+ass[w]+=rand(1,2)&tits[w]+=3&!ass[you]+=rand(1,3)
+if dick[w]>5:dick[w]-=1
+if dickd[w]>25:dickd[w]-=1
+face[w]+=rand(1,5)
+if fat[w]>1000:fat[you]-=5
+if fat[w]>1500:fat[you]-=10
+if fat[w]>2000:fat[you]-=15
+if fat[w]>2500:fat[you]-=25
+pregnant_day[w]=0
+gs'child_gen',w
+inseminate[w]=0

@@ -1,0 +1,17 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&cowgirl=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=151
+$name[i]='Сюзи'&$surname[i]='Миклвуд'&$nick[i]='Девушка с большой грудью'&$title[i]=''&$history[i]='Я жила на ферме со своим дядей и ухаживала за пастбищем.'
+face[i]=80&gla[i]=0&glacol[i]=1&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&ass[i]=35&nip[i]=45&tits[i]=45
+rost[i]=167&fat[i]=1200&mus[i]=1600&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=50&curl[i]=1&hcol[i]=1
+age[i]=27&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=100&bisex[i]=1&agro[i]=0&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=0&lust[i]=50&thenoob[i]=1&wantblackcock[i]=1&!характер
+t_slot[i]=33&l_slot[i]=19&b_slot[i]=11
+ut_slot[i]=21&ul_slot[i]=24&ub_slot[i]=32
+n_world[]=i&walkprog[i]=31
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=2&R[i]=0&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'

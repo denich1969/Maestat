@@ -1,0 +1,90 @@
+﻿X=0&Y=0&Z=100&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5
+$n_board[Z]='Море'&$w_board[Z]='Море'&$e_board[Z]='Море'&$s_board[Z]='Море'
+magworld[Z]=100&oxigen[Z]=1&temper[Z]=3&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworldParadise
+H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if X=0 or X=Xmax[Z] or Y=0 or Y=Ymax[Z]:
+     if X=0 and Y=0:
+		$locname['<<$temploc>>']='Отель'&$lname['<<$temploc>>']='Отель'&$locopis['<<$temploc>>']='Современный светлый отель с прямыми формами находится на мысе'
+		np['<<$temploc>>']=32&!gs'hotel_gen'
+		maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+		H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Отель Странное место'&maxPositionR['<<$templocH>>']=8&!ownerloc['<<$templocH>>']=you
+		R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+		$locopis['<<$temploc>>']='Стандартный холл с ковровой дорожкой, светильничками на стенах и одинаковыми дверями ведущими в комнаты.'
+		np['<<$temploc>>']=47
+		mirror['<<$temploc>>']=1
+		R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Ресепшн'
+		$locname['<<$temploc>>']='Ресепшн'&$lname['<<$temploc>>']='Ресепшн'&$lname_go['<<$temploc>>']='на ресепшн'
+		$locopis['<<$temploc>>']='Небольшой холл со стойкой ресепшена.'
+		np['<<$temploc>>']=49
+		mirror['<<$temploc>>']=1&reception['<<$temploc>>']=1
+		gs'hotelmaid_gen'&gs'hotelmaid_gen'&gs'hotelmaid_gen'&gs'hotelmaid_gen'&gs'hotelmaid_gen'
+		R=2&gs 'toilet_gen',4&!gs 'toilet_gen',уровень туалета
+		R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №1'
+		$locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$lname_go['<<$temploc>>']='в комнату №1'
+		$locopis['<<$temploc>>']='Гостинничный номер из двух комната, небольшой гостинной с мягкой мебелью и спальной.'
+		np['<<$temploc>>']=48
+		can_sleep['<<$temploc>>']=0&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+		R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №2'
+		$locname['<<$temploc>>']='Комната №2'&$lname['<<$temploc>>']='Комната №2'&$lname_go['<<$temploc>>']='в комнату №2'
+		$locopis['<<$temploc>>']='Гостинничный номер из двух комната, небольшой гостинной с мягкой мебелью и спальной.'
+		np['<<$temploc>>']=48
+		can_sleep['<<$temploc>>']=0&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+		R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №3'
+		$locname['<<$temploc>>']='Комната №3'&$lname['<<$temploc>>']='Комната №3'&$lname_go['<<$temploc>>']='в комнату №3'
+		$locopis['<<$temploc>>']='Гостинничный номер из двух комната, небольшой гостинной с мягкой мебелью и спальной.'
+		np['<<$temploc>>']=48
+		can_sleep['<<$temploc>>']=0&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+		R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №4'
+		$locname['<<$temploc>>']='Комната №4'&$lname['<<$temploc>>']='Комната №4'&$lname_go['<<$temploc>>']='в комнату №4'
+		$locopis['<<$temploc>>']='Гостинничный номер из двух комната, небольшой гостинной с мягкой мебелью и спальной.'
+		np['<<$temploc>>']=48
+		can_sleep['<<$temploc>>']=0&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+		R=7&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №5'
+		$locname['<<$temploc>>']='Комната №5'&$lname['<<$temploc>>']='Комната №5'&$lname_go['<<$temploc>>']='в комнату №5'
+		$locopis['<<$temploc>>']='Гостинничный номер из двух комната, небольшой гостинной с мягкой мебелью и спальной.'
+		np['<<$temploc>>']=48
+		can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+		R=8&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Ресторан'
+		 $locname['<<$temploc>>']='Ресторан'&$lname['<<$temploc>>']='Ресторан'&$lname_go['<<$temploc>>']='в ресторан'
+		 $locopis['<<$temploc>>']='Небольшой ресторан с большим выбором блюд.'
+		 np['<<$temploc>>']=152
+		 restoran['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+		 H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 else
+		 $locname['<<$temploc>>']='Морское побережье'&$lname['<<$temploc>>']='Морское побережье'
+		 $locopis['<<$temploc>>']='Морские волны мерно омывают песчаный берег'
+		 np['<<$temploc>>']=31
+	 end
+	 can_swim['<<$temploc>>']=1
+else
+	 locrand=rand(1,100)
+     if locrand<=20:
+		 $locname['<<$temploc>>']='Озеро'& $lname['<<$temploc>>']='Озеро'
+		 $locopis['<<$temploc>>']='Чистое и прозрачное озеро'
+		 np['<<$temploc>>']=33
+		 can_swim['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&lake['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=rand(0,1)&list['<<$temploc>>']=1
+	 end
+	 if locrand>=20 and locrand<30:
+		 $locname['<<$temploc>>']='Болото'&$lname['<<$temploc>>']='Болото'
+		 $locopis['<<$temploc>>']='Мутная, зеленая вода заросшая кувшинками и осокой.'
+		 np['<<$temploc>>']=34
+		 can_swim['<<$temploc>>']=1&marsh['<<$temploc>>']=1
+		 frog['<<$temploc>>']=1&koluchka['<<$temploc>>']=rand(0,1)&list['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+	 end
+	 if locrand>=30:
+		 $locname['<<$temploc>>']='Джунгли'&$lname['<<$temploc>>']='Джунгли'
+		 $locopis['<<$temploc>>']='Густые джунгли пахнущие сыростью'
+		 np['<<$temploc>>']=rand(35,38)
+		 list['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&koluchka['<<$temploc>>']=rand(0,1)
+		 omela['<<$temploc>>']=rand(0,1)
+		 zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)&banana['<<$temploc>>']=rand(0,1)&orange['<<$temploc>>']=rand(0,1)
+		 item_loc['46,<<$temploc>>']=rand(0,1)
+	 end
+end
+if rand(0,1)=0:gs'aborigen_gen'&paradiseworld[]=i
+X+=1&if X<=Xmax[Z]:jump'markgenworldParadise'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldParadise'

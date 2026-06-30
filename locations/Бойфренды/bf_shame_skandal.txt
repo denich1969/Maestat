@@ -1,0 +1,22 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+if kraig=npc or boid=npc:
+	knowshame[npc]=shame_tattoo[you]
+	'<<$name[npc]>> <<$surname[npc]>> смеется указывая на вашу позорную татуху - Теперь ты меченная шлюха. Ты должна удовлетворять всех, кто захочет в тебя спустисть. Ты вещь!'
+     act'Да пошел ты нахер!':
+		 boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
+		 dom[you]+=10&corr[you]-=20
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> сплевывает - Ты просто дыра и тупая сука, не думай что ты незаменимая.'
+		 act'<b>Уйти</b>':gt 'preloc'
+     end
+else
+	'<<$name[npc]>> <<$surname[npc]>> - Откуда у тебя эти позорные татуировки?'
+	'Вы нехотя рассказали обстоятельства при которых у вас появилась татуировка.'
+	knowshame[npc]=shame_tattoo[you]
+	if selfrespect[npc]=0:
+		'<<$name[npc]>> поддакивает вам - Ладно, проехали, всякое в жизни бывает!'
+	else
+		boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
+		'<<$name[npc]>> злится на вас - Ну и пошла ты на хуй, дура!'
+	end
+end
+act'<b>Уйти</b>':gt 'preloc'

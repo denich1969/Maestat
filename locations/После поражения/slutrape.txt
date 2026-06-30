@@ -1,0 +1,12 @@
+﻿if m_slot[you]!31:m_slot[you]=31&$item_m_name[31]='Дилдо'&uron_weapon_m[you]=10&'Оружие в ваших руках превращается в дилдо'
+gs'soulcraft',5&gt'sex'
+!'gs'stat'&cuntlick[you]+=1&if sexpartner[npc]=0:sexpartner[npc]=1&girl[you]+=1
+soul[you]-=5&cum_face[you]+=1&'<center><video src="pic/sex/rape/cream.webm" ></video></center>'
+'Шлюха садится сверху на ваше лицо и заставляет вас лизать ее вагину. Из ее хорошо растраханной киски тут же начинает вытекать сперма на ваше лицо. Вскоре шлюха кончает и приказывает вам открыть рот'
+act'Открыть рот':
+	drinkpee[you]+=1
+	cls&gs'stat'&'<center><video src="pic/sex/rape/pee2.webm" ></video></center>'&'Вы открыли рот и шлюха начала ссать вам в рот. Обоссав вас и заставив проглотить шлюха со смешком встала с вашего лица.'
+	act'Встать':gt 'preloc'
+    if m_slot[you]=25:m_slot[you]=31&$item_m_name[31]='Дилдо'&uron_weapon_m[you]=10&'Сияющий меч в ваших руках превращается в дилдо'
+end
+'

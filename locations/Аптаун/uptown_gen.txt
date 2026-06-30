@@ -1,0 +1,28 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Стрипклуб Аптаун'&maxPositionR['<<$templocH>>']=4&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
+$locopis['<<$temploc>>']='У входа в клуб находится приличный бар с огромным ассортиментом.'
+np['<<$temploc>>']=109
+mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Стриптиз'
+$locname['<<$temploc>>']='Стриптиз'&$lname['<<$temploc>>']='Стриптиз'&$lname_go['<<$temploc>>']='в комнату стриптиза'
+$locopis['<<$temploc>>']='Просторная комната с уютными диванами, а в центре подиум с шестом для танцовщиц.'
+np['<<$temploc>>']=110
+mirror['<<$temploc>>']=1&stripclub['<<$temploc>>']=1
+!gs'stripgirl_gen'&se_world[]=i&gs'stripgirl_gen'&se_world[]=i&gs'stripgirl_gen'&se_world[]=i
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Вип  комната'
+$locname['<<$temploc>>']='Вип  комната'&$lname['<<$temploc>>']='Вип  комната'&$lname_go['<<$temploc>>']='в вип комнату'
+$locopis['<<$temploc>>']='Комната где обеспченный клиент находится в обществе стриптизерши.'
+np['<<$temploc>>']=111
+mirror['<<$temploc>>']=1&stripclub['<<$temploc>>']=2
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
+$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Общественный туалет'
+np['<<$temploc>>']=1
+can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&shower['<<$temploc>>']=1
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гримерка'&lock['<<$temploc>>']=1
+Xgrim=X&Ygrim=Y&Zgrim=Z&Hgrim=H&Rgrim=R
+$locname['<<$temploc>>']='Гримерка'&$lname['<<$temploc>>']='Гримерка'&$lname_go['<<$temploc>>']='в гримерку'
+$locopis['<<$temploc>>']='Комната где стриптизерши могут прихорошиться и даже поспать.'
+np['<<$temploc>>']=112
+mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1

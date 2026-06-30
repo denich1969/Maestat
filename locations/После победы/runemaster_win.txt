@@ -1,0 +1,12 @@
+﻿gs'stat'
+X[npc]=2
+Y[npc]=3
+Z[npc]=1
+H[npc]=0
+R[npc]=0
+dead[npc]=2
+murderer[you]+=1
+magik[you]+=1
+'Рунный маг пал от вашей руки, теперь некому стоять на вашем пути к маестату'
+
+act'Уйти':gt'preloc'

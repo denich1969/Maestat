@@ -1,0 +1,122 @@
+﻿X=0&Y=0&Z=750&H=0&R=0
+oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+magworld[Z]=1&!obsession_world[Z]=770
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$n_board[Z]='Городская стена'&$w_board[Z]='Городская стена'&$e_board[Z]='Городская стена'&$s_board[Z]='Море'
+:markgenworldtown
+H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if X=5 and Y=5:
+	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+	!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+    $locname['<<$temploc>>']='Замок'&$lname['<<$temploc>>']='Замок'&$locopis['<<$temploc>>']='Старинный замок в центре города'
+	np['<<$temploc>>']=571&castlegate['<<$temploc>>']=1
+elseif Y=0:
+	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+	!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+    $locname['<<$temploc>>']='Порт'&$lname['<<$temploc>>']='Порт'&$locopis['<<$temploc>>']='Городской порт в котором стоят на якоре торговые корабли'
+	np['<<$temploc>>']=572&can_swim['<<$temploc>>']=1
+	gs'mobgen'
+	if rand(5)=0:gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+else
+     if X=1 and Y=6:
+     	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Таверна'&$lname['<<$temploc>>']='Таверна'&$locopis['<<$temploc>>']='Просторная таверна с крепкими деревянными столами и лавками.'
+		 np['<<$temploc>>']=586
+		 $wall_name['<<$temploc>>']='Таверна'
+		 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+		 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Таверна'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Таверна'
+		 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Таверна'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Таверна'
+		 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&can_drink['<<$temploc>>']=1& tabern['<<$temploc>>']=1
+		 gs'swordmaster'
+		gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+		gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+		gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+	 elseif X=3 and Y=6:
+	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Храм'&$lname['<<$temploc>>']='Храм'&$locopis['<<$temploc>>']='Храм поклонения чистому свету'
+		 np['<<$temploc>>']=596
+		 $wall_name['<<$temploc>>']='Храм'
+		 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+		 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Храм'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Храм'
+		 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Храм'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Храм'
+		 gs'mother'
+		 altar['<<$temploc>>']=1
+	 elseif X=1 and Y=4:
+	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Кузня'&$lname['<<$temploc>>']='Кузня'&$locopis['<<$temploc>>']='Городская кузня в которой изготавливают оружие и броню'
+		 np['<<$temploc>>']=597
+		 $wall_name['<<$temploc>>']='Кузня'
+		 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+		 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Кузня'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Кузня'
+		 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Кузня'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Кузня'
+		 mirror['<<$temploc>>']=1&blacksmith['<<$temploc>>']=1
+	 elseif X=3 and Y=4:
+	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Портной'&$lname['<<$temploc>>']='Портной'&$locopis['<<$temploc>>']='Пошив одежды'
+		 np['<<$temploc>>']=598
+		 $wall_name['<<$temploc>>']='Портной'
+		 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+		 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Портной'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Портной'
+		 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Портной'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Портной'
+		 mirror['<<$temploc>>']=1&portnoi['<<$temploc>>']=1
+	 elseif X=2 and Y=8:
+	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет с кабинками и кабинкой с душем'
+		 np['<<$temploc>>']=1
+		 $wall_name['<<$temploc>>']='Туалет'
+		 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+		 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+		 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+		 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&shower['<<$temploc>>']=1&toilet['<<$temploc>>']=1
+		 item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
+	 elseif X=4 and Y=6:
+	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	     $locname['<<$temploc>>']='Площадь с фонтаном'&$lname['<<$temploc>>']='Площадь с фонтаном'&$locopis['<<$temploc>>']='Не большая площадь в центре которой находится фонтан'
+	     np['<<$temploc>>']=599
+	     can_drink['<<$temploc>>']=1
+	 elseif X=2 and Y=2:
+	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Башня мага'&$lname['<<$temploc>>']='Башня мага'&$locopis['<<$temploc>>']='Пошив одежды'
+		 np['<<$temploc>>']=500
+		 $wall_name['<<$temploc>>']='Башня мага'
+		 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+		 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Башня мага'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Башня мага'
+		 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Башня мага'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Башня мага'
+		 mirror['<<$temploc>>']=1&magik['<<$temploc>>']=1
+		 gs'magus'
+     else
+     	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+         if Y=5 and X<5:
+			  $locname['<<$temploc>>']='Центральная улица'&$lname['<<$temploc>>']='Центральная улица'&$locopis['<<$temploc>>']='Главная улица ведущая от городских ворот до замка'
+         else
+			 $locname['<<$temploc>>']='Городская улица'&$lname['<<$temploc>>']='Городская улица'&$locopis['<<$temploc>>']='Узкая улочка древнего города'
+	     end
+		 np['<<$temploc>>']=rand(562,570)
+		 if rand(10)=0:gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+		 if rand(5)=0:gs'dofemale_gen'&$title[i]='Жительница столицы королевства'&total_towngirl+=1&obsession_world[]=i&walkprog[i]=0
+		 if rand(15)=0:gs'guard'&$title[npc]='Гвардеец королевства'
+	 end
+end
+if X=0 and Y=5:towngate['<<$temploc>>']=1
+X+=1&if X<=10:jump'markgenworldtown'
+X=0&Y+=1&if Y<=10:jump'markgenworldtown'

@@ -1,0 +1,20 @@
+﻿!$loc[you]=$curloc&!gs'color'
+loc_for_drop=0
+gs'stat'&'<b><center>Офис</center></b>'&'<center><img src="pic/loc/app/ofis.jpg" ></center>'&pl ''
+if hour<=10 and R[you]=1 and BossmainQW>0:
+	act'Работать':
+		time+=60*4&cls&gs'stat'&gs'eat','extra'
+		time+=60*4&gs'stat'&'<center><img src="pic/loc/app/ofis.jpg" ></center>'
+		energy[you]=1
+		if BossmainQW=1:BossmainQW=2
+		if soul[you]>50:soul[you]-=1
+		'Вы весь день составляете сметы и пишите отчеты. Начальник отдела Рылов стоит над душой и постоянно придирается и отчитывает вас, не давая вам ни малейшей передышки. Но все когда то кончается, приходит и к концу очередной день офисного ада с верховным демоном Борисом Евгеньевичем.'
+		act'Закончить работу':gt $curloc
+		if week=1:gt'forced_qwest'
+	end
+end
+act'Уйти':gt 'street_work'
+!gs'sleep'
+!gs'sport'
+!gs'npconloc'
+!gs'item'

@@ -1,0 +1,4 @@
+﻿!$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/loc/252.jpg" ></center>'&'Единорог спокойно и уверенно смотрит на вас большими мудрыми глазами. Вокруг единорога порхают крохотные светящиеся феи.'
+gs'Item'&*pl''&gs 'npconloc'&!act'Уйти':gt 'preloc'
+if firsttime_unicorn=0:firsttime_unicorn=1&magik[you]+=1&'От близости к мифическому существу вы начинаете чувствовать нематериальные струны этого мира.'

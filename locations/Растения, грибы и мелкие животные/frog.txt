@@ -1,0 +1,11 @@
+﻿if last_frog['<<$loc[you]>>']=0 and day_frog['<<$loc[you]>>']!daystart:last_frog['<<$loc[you]>>']=rand(0,1)&day_frog['<<$loc[you]>>']=daystart
+if last_frog['<<$loc[you]>>']>0:
+	gs'stat'&'<center><img src="pic/loc/ras/frog.jpg" ></center>'&'По берегу скачет жаба'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		 act'Поймать':time+=5&cls&gs'walker'&gs'stat'&last_frog['<<$loc[you]>>']=0&item_loc['59,<<$loc[you]>>']+=1&day_frog['<<$loc[you]>>']=daystart&gt $curloc
+	 end
+else
+	'На берегу нет жаб'
+end
+gs'Item'&*pl''&gs 'npconloc'
+act'Отойти':gt 'world'

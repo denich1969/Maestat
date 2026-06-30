@@ -1,0 +1,1010 @@
+﻿!Функция для быстрого создания а-тэгов вкл/выкл, в зависимости от состояния.
+!Принимает один++ агрумент, строковое имя индекса CONFIG массива для которого мы создаём вкл/выкл.
+!Основываясь на состоянии переменной - выдаём соответствующий результат.
+!Применение в коде:
+!<<func("generate_links","MY_COOL_SETTING")>>
+!Если CONFIG['MY_COOL_SETTING']=1 - функция вернёт вкл/выкл с активным а-тэгом "Выкл".
+!и наоборот, если CONFIG['MY_COOL_SETTING']=0 функция вернёт вкл/выкл с активным а-тэгом "Вкл".
+!Дополнение: при передачи второго агрумента, будут генерироваться другие кнопки, или кнопки в другой последовательности.
+!* --------------------- Генератор - Включено/отключено --------------------- *!
+if ARGS[1]=0:
+	if CONFIG[$ARGS[0]]=1:
+		$RESULT = '<td align="center"><font color=green>Включено</font></td>'
+		$RESULT += '<td align="center"><a class="plain" href="exec:CONFIG[''<<$ARGS[0]>>''] = 0 & gt $curloc">[Отключить]</a></td>'
+	else
+		$RESULT = '<td align="center"><font color=#be2919>Отключено</font></td>'
+		$RESULT += '<td align="center"><a class="plain" href="exec:CONFIG[''<<$ARGS[0]>>''] = 1 & gt $curloc">[Включить]</a></td>'
+	end
+	!* --------------------- Генератор - Отключено/включено --------------------- *!
+elseif ARGS[1]=1:
+	if CONFIG[$ARGS[0]]=1:
+		$RESULT = '<td align="center"><font color=#be2919>Отключено</font></td>'
+		$RESULT += '<td><a class="plain" href="exec:CONFIG[''<<$ARGS[0]>>''] = 0 & gt $curloc">[Включить]</a></td>'
+	else
+		$RESULT = '<td><font color=green>Включено</font></td>'
+		$RESULT += '<td align="center"><a class="plain" href="exec:CONFIG[''<<$ARGS[0]>>''] = 1 & gt $curloc">[Отключить]</a></td>'
+	end
+	!* ---------------------- Генератор линков для шрифтов ---------------------- *!
+elseif ARGS[1]=2:
+	!Это базовый цикл, для быстрого создания пачки кнопок со шрифтами,
+	!Поскольку они все одинаковые, нет смысла вручную дублировать код.
+	!Намного проще автоматизировать процесс.
+	!Более того, эту конструкцию легко масштабировать, при добавлении нового шрифта в $FONT_LIST[] - нам не придётся ничего переписывать и дополнять.
+	$FONT_LIST[] = "Arimo"
+	$FONT_LIST[] = "BitstromWera"
+	$FONT_LIST[] = "Fira"
+	$FONT_LIST[] = "Hasklug"
+	$FONT_LIST[] = "DroidSans"
+	$FONT_LIST[] = "Cousine"
+	$FONT_LIST[] = "JetBrainsMono"
+	$FONT_LIST[] = "Стандартный"
+	i=0
+	ARGS['ARRSIZE'] = ARRSIZE('$FONT_LIST') - 1
+	:draw_fonts_loop
+		if $FONT_LIST[i] = $CONFIG['CURRENT_FONT']:
+			$ARGS['FONT_NAME'] = '<font color=green><<$FONT_LIST[i]>></font>'
+		else
+			$ARGS['FONT_NAME'] = '<<$FONT_LIST[i]>>'
+		end
+		$RESULT += '<a class="plain" href="exec:$CONFIG[''CURRENT_FONT''] = ''<<$FONT_LIST[i]>>'' & gt $curloc"><<$ARGS[''FONT_NAME'']>></a>'
+		if i<ARGS['ARRSIZE']:$RESULT+=', '
+	if i<ARGS['ARRSIZE']:i+=1 & jump'draw_fonts_loop'&!Реверсируем цикл, чтоб вместо 5-4-3-2-1-0 было 0-1-2-3-4-5.
+	gs 'util_func','KILLVARS','i','$FONT_LIST'& !Убиваем все ненужные переменные.
+	!* ---------------------- Генератор навбара для читменю --------------------- *!
+elseif ARGS[1]=3:
+	i=0
+	$LINKS_LIST[] = "Внешность"
+	$LINKS_LIST[] = "Статы"
+	$LINKS_LIST[] = "Статы+"
+	$LINKS_LIST[] = "Отношения"
+	$LINKS_LIST[] = "Разное"
+	ARGS['ARRSIZE'] = ARRSIZE('$LINKS_LIST') - 1
+	ARGS['ROW_SIZE'] = 100 / ARRSIZE('$LINKS_LIST')
+	$RESULT = '<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><td colspan="<<ARRSIZE(''$LINKS_LIST'')>>" align="center"><h3><font color="#ffffff">[ЧИТ РЕДАКТОР]</font></h3></td></tr><tr>'
+	:draw_links_loop
+		if ARGS[0] = i:
+			$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#ffffff" align="center"><a class="plain" href="exec:CHEAT_MENU[''MODE''] = ''<<i>>'' & gt $curloc"><b><font color="#202020">&#11166;[ <<$LINKS_LIST[i]>> ]&#11164;</font></b></a></td>'
+		else
+			$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#202020" align="center"><a class="plain" href="exec:CHEAT_MENU[''MODE''] = ''<<i>>'' & gt $curloc"><font color="#ffffff">[ <<$LINKS_LIST[i]>> ]</font></a></td>'
+		end
+	if i<ARGS['ARRSIZE']:i+=1 & jump'draw_links_loop'
+	$RESULT += '</tr></table>'
+	gs 'util_func','KILLVARS','i','$LINKS_LIST'&!Убиваем все ненужные переменные.
+elseif ARGS[1]=4:
+	i=0
+	$LINKS_LIST[] = "Голова"
+	$LINKS_LIST[] = "Тело"
+	$LINKS_LIST[] = "Гениталии"
+	$LINKS_LIST[] = "Разное"
+	ARGS['ARRSIZE'] = ARRSIZE('$LINKS_LIST') - 1
+	$RESULT = '<tr bgcolor="#ffffff">'
+	:draw_submode_links_loop
+	if ARGS[0] = i:
+	$RESULT += '<td width="25%" align="center"><a class="plain" href="exec:CHEAT_MENU[''SUBMODE''] = ''<<i>>'' & gt $curloc"><b><font color="green">&#11166;[ <<$LINKS_LIST[i]>> ]&#11164;</font></b></a></td>'
+	else
+		$RESULT += '<td width="25%" align="center"><a class="plain" href="exec:CHEAT_MENU[''SUBMODE''] = ''<<i>>'' & gt $curloc"><b><font color="#5483c4">[ <<$LINKS_LIST[i]>> ]</font></b></a></td>'
+	end
+	if i<ARGS['ARRSIZE']:i+=1 & jump'draw_submode_links_loop'
+	$RESULT += '</tr>'
+	$RESULT += '<tr bgcolor="#ffffff"><td colspan="4"><hr></tr>'
+	gs 'util_func','KILLVARS','i','$LINKS_LIST'&!Убиваем все ненужные переменные.
+	!* ---------------------------- Замена гениталий ---------------------------- *!
+elseif ARGS[1]=5:
+	$ARGS[0]= $UCASE($ARGS[0])
+	if $ARGS[0] = "VAG":
+		if vag[npc_index]>0 and dick[npc_index]=0:
+			$RESULT +='<a class="plain" href="exec:CHEAT_MENU[''SWAP_VAG_ON_DICK'']=1 & dynamic $d_swap_genital & gt $curloc"><font color="#1955cc"><b>[ Заменить <font size=+2 color="#cc19b4">&#9792</font> на <font size=+2 color="#1955cc">&#9794</font> ]</b></font></a>'
+		elseif dick[npc_index]>0 and vag[npc_index]=0 or dick[npc_index]=0 and vag[npc_index]=0:
+			$RESULT +='<a class="plain" href="exec:CHEAT_MENU[''VAG_ADD'']=1 & dynamic $d_add_genital & gt $curloc"><font color=green><b>[ Добавить <font size=+2 color="#cc19b4">&#9792</font> ]</b></font></a>'
+		else
+			$RESULT +='<a class="plain" href="exec:CHEAT_MENU[''VAG_REMOVE'']=1 & dynamic $d_remove_genital & gt $curloc"><font color=red><b>[ Удалить <font size=+2 color="#cc19b4">&#9792</font> ]</b></font></a>'
+		end
+	end
+	if $ARGS[0] = "DICK":
+		if  dick[npc_index]>0 and vag[npc_index]=0:
+			$RESULT +='<a class="plain" href="exec:CHEAT_MENU[''SWAP_DICK_ON_VAG'']=1 & dynamic $d_swap_genital & gt $curloc"><font color="#ea53b2"><b>[ Заменить <font size=+2 color="#1955cc">&#9794</font> на <font size=+2 color="#cc19b4">&#9792</font> ]</b></font></a>'
+		elseif dick[npc_index]=0 and vag[npc_index]>0 or dick[npc_index]=0 and vag[npc_index]=0:
+			$RESULT +='<a class="plain" href="exec:CHEAT_MENU[''DICK_ADD'']=1 & dynamic $d_add_genital & gt $curloc"><font color=green><b>[ Добавить <font size=+2 color="#1955cc">&#9794</font> ]</b></font></a>'
+		else
+			$RESULT +='<a class="plain" href="exec:CHEAT_MENU[''DICK_REMOVE'']=1 & dynamic $d_remove_genital & gt $curloc"><font color=red><b>[ Удалить <font size=+2 color="#1955cc">&#9794</font> ]</b></font></a>'
+		end
+	end
+	!* ----------------------- Неактивные кнопки размеров ----------------------- *!
+elseif ARGS[1]=6:
+	$ARGS[0]= $UCASE($ARGS[0])
+	if $ARGS[0] = "DICK":
+		if dick[npc_index]>0:
+			$RESULT += '<a class="plain" href="exec:dick[<<npc_index>>] <<iif(dick[npc_index]>1, ''-= 1'', ''=50'')>> & dynamic $d_adjust_dick_size & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><<dick[npc_index]>> из 50</font>  '
+			$RESULT += '<a class="plain" href="exec:dick[<<npc_index>>] <<iif(dick[npc_index]<50, ''+= 1'', ''=1'')>> & dynamic $d_adjust_dick_size & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+		else
+			$RESULT += '<a class="plain" href="exec:dick[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><strike>0 из 50</strike></font>  '
+			$RESULT += '<a class="plain" href="exec:dick[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8921</b></font></a>'
+		end
+	end
+	if $ARGS[0] = "VAG":
+		if vag[npc_index]>0:
+			$RESULT += '<a class="plain" href="exec:vag[<<npc_index>>] <<iif(vag[npc_index]>4, ''-= 5'', ''=200'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><<vag[npc_index]>> из 200</font>  '
+			$RESULT += '<a class="plain" href="exec:vag[<<npc_index>>] <<iif(vag[npc_index]<200, ''+= 5'', ''=1'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+		else
+			$RESULT += '<a class="plain" href="exec:vag[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><strike>0 из 200</strike></font>  '
+			$RESULT += '<a class="plain" href="exec:vag[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8921</b></font></a>'
+		end
+	end
+	if $ARGS[0] = "BALL":
+		if dick[npc_index]>0:
+			$RESULT += '<a class="plain" href="exec:ball[<<npc_index>>] <<iif(ball[npc_index]>5, ''-= 5'', ''=100'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><<ball[npc_index]>> из 100</font>  '
+			$RESULT += '<a class="plain" href="exec:ball[<<npc_index>>] <<iif(ball[npc_index]<100, ''+= 5'', ''=1'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+		else
+			$RESULT += '<a class="plain" href="exec:ball[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><strike>0 из 100</strike></font>  '
+			$RESULT += '<a class="plain" href="exec:ball[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8921</b></font></a>'
+		end
+	end
+	if $ARGS[0] = "CUNTHAIR":
+		if vag[npc_index]>0:
+			$RESULT += '<a class="plain" href="exec:cunthair[<<npc_index>>] <<iif(cunthair[npc_index]>0, ''-= 1'', ''=10'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><<cunthair[npc_index]>> из 10</font>  '
+			$RESULT += '<a class="plain" href="exec:cunthair[<<npc_index>>] <<iif(cunthair[npc_index]<10, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+		else
+			$RESULT += '<a class="plain" href="exec:cunthair[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8920</b></font></a>'
+			$RESULT += '  <font size=+2><strike>0 из 10</strike></font>  '
+			$RESULT += '<a class="plain" href="exec:cunthair[<<npc_index>>]=0"><font size=+2 color=gray><b>&#8921</b></font></a>'
+		end
+	end
+elseif ARGS[1]=7:
+	if ARGS[2]=0:$ARGS['FONT_SIZE'] = ''
+	if ARGS[2]>0:$ARGS['FONT_SIZE'] = "size='<<ARGS[2]>>'"
+	!ARGS[3] - опционально, 1 = множитель для денег. 2 = кнопки для не массива.
+	!ARGS[3] - опционально, 3 = неактивные.
+	!Если ARGS[3] не назначено (т.е. = 0) будет генерироваться дефолт.
+	if ARGS[3]=1:
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]-=10000 & dynamic $d_check_for_negative & gt $curloc"><font <<$ARGS["FONT_SIZE"]>> color="#202020"><b>[ <font color="red">-100</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]-=100000 & dynamic $d_check_for_negative & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="red">-1000</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]+=10000 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+100</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]+=100000 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+1000</font> ]</b></font></a>'
+	elseif ARGS[3]=2:
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>-=1 & gt $curloc"><font <<$ARGS["FONT_SIZE"]>> color="#202020"><b>[ <font color="red">-1</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>-=10 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="red">-10</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>+=1 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+1</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>+=10 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+10</font> ]</b></font></a>'
+	elseif ARGS[3]=3:
+		$RESULT+='<a class="plain" href="exec:"><font <<$ARGS["FONT_SIZE"]>> color="#202020"><b>[ <font color="grey">-1</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="grey">-10</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="grey">+1</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="grey">+10</font> ]</b></font></a>'
+	elseif ARGS[3]=4:
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]-=100 & dynamic $d_check_for_negative & gt $curloc"><font <<$ARGS["FONT_SIZE"]>> color="#202020"><b>[ <font color="red">-100</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]-=1000 & dynamic $d_check_for_negative & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="red">-1000</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]+=100 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+100</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]+=1000 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+1000</font> ]</b></font></a>'
+	else
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]-=1 & dynamic $d_check_for_negative & gt $curloc"><font <<$ARGS["FONT_SIZE"]>> color="#202020"><b>[ <font color="red">-1</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]-=10 & dynamic $d_check_for_negative & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="red">-10</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]+=1 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+1</font> ]</b></font></a>'
+		$RESULT+=' &#8596 '
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]+=10 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">+10</font> ]</b></font></a>'
+	end
+elseif ARGS[1]=8:
+	i=0
+	$LINKS_LIST[] = "Черноволосые"
+	$LINKS_LIST[] = "Русые"
+	$LINKS_LIST[] = "Рыжие"
+	$LINKS_LIST[] = "Блонд"
+	$LINKS_LIST[] = "Негритянки"
+	$LINKS_LIST[] = "Уникальные"
+	$LINKS_LIST[] = "Мужики"
+	$LINKS_LIST[] = "Негры"
+	ARGS['ARRSIZE'] = ARRSIZE('$LINKS_LIST') - 1
+	$ARGS['EXIT_BUTTON'] = '<a class="plain" href="exec:killvar ''$IMAGE_VIEW_TEMP'' & gt ''cheat_menu''"><b><font size=+4 color="#ffffff">&#11164;&#11164;&#11164;</font></b></a>'
+	$RESULT = '<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr bgcolor="#202020"><td align="center" width="100"><<$ARGS[''EXIT_BUTTON'']>></td><td align="center"><h3><font color="#ffffff">[ <<UCASE($LINKS_LIST[ARGS[0]])>> ]</font></h3></td><td width="100"></td></tr></table>'
+	$RESULT += '<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><tr>'
+	:draw_links_loop
+		if ARGS[0] = i:
+			$RESULT += '<td width="13%" bgcolor="#202020" align="center"><a class="plain" href="exec:CHEAT_MENU[''IMAGE_VIEW_MODE''] = ''<<i>>'' & gt $curloc"><b><font color="#ffffff">&#11166;[ <<$LINKS_LIST[i]>> ]&#11164;</font></b></a></td>'
+		else
+			$RESULT += '<td width="13%" bgcolor="#202020" align="center"><a class="plain" href="exec:CHEAT_MENU[''IMAGE_VIEW_MODE''] = ''<<i>>'' & gt $curloc"><font color="#ffffff">[ <<$LINKS_LIST[i]>> ]</font></a></td>'
+		end
+	if i<ARGS['ARRSIZE']:i+=1 & jump'draw_links_loop'
+	$RESULT += '</tr></table>'
+	gs 'util_func','KILLVARS','i','$LINKS_LIST'&!Убиваем все ненужные переменные.
+	!* ------------------------ Тогглер - Добавить/Убрать ----------------------- *!
+elseif ARGS[1]=9:
+	if ARGS[3]>0:$ARGS['FONT_SIZE'] = "size='<<ARGS[2]>>'"
+	if ARGS[2]=0 and $ARGS[4]='':
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]=1 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="green">Добавить</font> ]</b></font></a>'
+	elseif ARGS[2]>0 and $ARGS[4]='':
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]=0 & gt $curloc"><font color="#202020"><b>[ <font <<$ARGS["FONT_SIZE"]>> color="red">Убрать</font> ]</b></font></a>'
+	end
+	if ARGS[2]>0 and $ARGS[4]='MAGE':
+		$ARGS['ADD_SOULDAR']='& souldar[<<npc_index>>]=1'
+		if souldar[npc_index]>0:$ARGS['ADD_SOULDAR']=''
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]=1 <<$ARGS[''ADD_SOULDAR'']>> & gt $curloc"><font color="#202020"><b>[ <font class="align-text-middle" <<$ARGS["FONT_SIZE"]>> color="green">Добавить</font> ]</b></font></a>'
+	elseif ARGS[2]=0 and $ARGS[4]='MAGE':
+		$RESULT+='<a class="plain" href="exec:<<$ARGS[0]>>[<<npc_index>>]=0 & souldar[<<npc_index>>]=0 & gt $curloc"><font color="#202020"><b>[ <font class="align-text-middle" <<$ARGS["FONT_SIZE"]>> color="red">Убрать</font> ]</b></font></a>'
+	end
+	if ARGS[2]=0 and $ARGS[4]='DISABLER':
+		$RESULT+='<a class="plain" href="exec:CHEAT_MENU[''<<$ARGS[0]>>'']=1 & gt $curloc"><b><font <<$ARGS["FONT_SIZE"]>> color="red">Отключить</font></b></a>'
+	elseif ARGS[2]>0 and $ARGS[4]='DISABLER':
+		$RESULT+='<a class="plain" href="exec:CHEAT_MENU[''<<$ARGS[0]>>'']=0 & gt $curloc"><b><font <<$ARGS["FONT_SIZE"]>> color="green">Включить</font></b></a>'
+	end
+	if ARGS[2]=0 and $ARGS[4]='ENABLER':
+		$RESULT+='<a class="plain" href="exec:CONFIG[''<<$ARGS[0]>>'']=1 & gt $curloc"><font <<$ARGS["FONT_SIZE"]>> color="green">Включить</font></a>'
+	elseif ARGS[2]>0 and $ARGS[4]='ENABLER':
+		$RESULT+='<a class="plain" href="exec:CONFIG[''<<$ARGS[0]>>'']=0 & gt $curloc"><font <<$ARGS["FONT_SIZE"]>> color="red">Отключить</font></a>'
+	end
+	if ARGS[2]=0 and $ARGS[4]='ENABLER_BIG':
+		$RESULT+='<a class="plain" href="exec:CHEAT_MENU[''<<$ARGS[0]>>'']=1 & gt $curloc"><font color="#202020"><b>[ <font class="align-text-middle" <<$ARGS["FONT_SIZE"]>> color="green">Включить</font> ]</b></font></a>'
+	elseif ARGS[2]>0 and $ARGS[4]='ENABLER_BIG':
+		$RESULT+='<a class="plain" href="exec:CHEAT_MENU[''<<$ARGS[0]>>'']=0 & gt $curloc"><font color="#202020"><b>[ <font class="align-text-middle" <<$ARGS["FONT_SIZE"]>> color="red">Отключить</font> ]</b></font></a>'
+	end
+	!* ------------------ Выбрать цель для вкладки "Отношения" ------------------ *!
+elseif ARGS[1]=10:
+	if ARGS[2]=0:
+		$RESULT+='<a class="plain" href="exec:gt ''select_relationships_target''"><font color="#202020"><b>[ <font color="green">ВЫБРАТЬ</font> ]</b></font></a> <a class="plain" href="exec:gs''util_func'', ''find_npc_by_name'' & gt $curloc"><font color="#202020"><b>[ <font color="green">НАЙТИ</font> ]</b></font></a>'
+	else
+		$RESULT+='<<$name[target_index]>> <<$surname[target_index]>> <a class="plain" href="exec:gt ''select_relationships_target''"><font color="#202020"><b>[ <font color="green">&#8634;</font> ]</b></font></a> <a class="plain" href="exec:gs''util_func'', ''find_npc_by_name'' & gt $curloc"><font color="#202020"><b>[ <font size=+2 color="green">&#8981;</font> ]</b></font></a>'
+	end
+	!* --------------- Генератор навбара для локации "Выбор Цели" --------------- *!
+elseif ARGS[1]=11:
+	i=0
+	$LINKS_LIST[] = "Избранное"
+	$LINKS_LIST[] = "Контакты"
+	$LINKS_LIST[] = "Враги"
+	$LINKS_LIST[] = "Друзья"
+	$LINKS_LIST[] = "Знакомые"
+	$LINKS_LIST[] = "Уникальные"
+	$LINKS_LIST[] = "Все"
+	ARGS['ARRSIZE'] = ARRSIZE('$LINKS_LIST') - 1
+	ARGS['ROW_SIZE'] = 100 / ARRSIZE('$LINKS_LIST')
+	$ARGS['EXIT_BUTTON'] = '<a class="plain" href="exec:gt ''cheat_menu''"><b><font size=+4 color="#ffffff">&#11164;&#11164;&#11164;</font></b></a>'
+	$RESULT = '<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr bgcolor="#202020"><td align="center" width="100"><<$ARGS[''EXIT_BUTTON'']>></td><td align="center"><h3><font color="#ffffff">[ <<UCASE($LINKS_LIST[ARGS[0]])>> ]</font></h3></td><td width="100"></td></tr></table>'
+	$RESULT += '<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><tr>'
+	:draw_links_loop
+		if ARGS[0] = i:
+			$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#202020" align="center"><a class="plain" href="exec:CHEAT_MENU[''GET_TARGED_INDEX_MODE''] = ''<<i>>'' & gt $curloc"><b><font color="#ffffff">&#11166;[ <<$LINKS_LIST[i]>> ]&#11164;</font></b></a></td>'
+		else
+			$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#202020" align="center"><a class="plain" href="exec:CHEAT_MENU[''GET_TARGED_INDEX_MODE''] = ''<<i>>'' & gt $curloc"><font color="#ffffff">[ <<$LINKS_LIST[i]>> ]</font></a></td>'
+		end
+	if i<ARGS['ARRSIZE']:i+=1 & jump'draw_links_loop'
+	$RESULT += '</tr></table>'
+	gs 'util_func','KILLVARS','i','$LINKS_LIST'&!Убиваем все ненужные переменные.
+	!* ---------------------- Генератор кнопок "Отношения" ---------------------- *!
+elseif ARGS[1]=12:
+	if ARGS[3] = you:
+		$ARGS['TARGET_1_WHO']='Вы'
+		$ARGS['TARGET_1_WHO_HE']='Вы'
+		$ARGS['TARGET_1_WHOM']='вас'
+		$ARGS['TARGET_1_WHOS']='вам'
+		$ARGS['TARGET_2_WHO']='<<$name[target_index]>> <<$surname[target_index]>>'
+		$ARGS['TARGET_2_WHO_HE']='<<iif(pol[ARGS[4]] = 0, "Он", "Она")>>'
+		$ARGS['TARGET_2_WHOM']='<<iif(pol[ARGS[4]] = 0, "его", "её")>>'
+		$ARGS['TARGET_2_WHOS']='<<iif(pol[ARGS[4]] = 0, "нему", "ней")>>'
+	elseif ARGS[4] = you:
+		$ARGS['TARGET_1_WHO']='<<$name[target_index]>> <<$surname[target_index]>>'
+		$ARGS['TARGET_1_WHO_HE']='<<iif(pol[ARGS[3]] = 0, "Он", "Она")>>'
+		$ARGS['TARGET_1_WHOM']='<<iif(pol[ARGS[3]] = 0, "её", "его")>>'
+		$ARGS['TARGET_1_WHOS']='<<iif(pol[ARGS[3]] = 0, "ней", "нему")>>'
+		$ARGS['TARGET_2_WHO']='Вы'
+		$ARGS['TARGET_2_WHO_HE']='Вы'
+		$ARGS['TARGET_2_WHOM']='вас'
+		$ARGS['TARGET_2_WHOS']='вам'
+	end
+	if ARGS[3] ! you and ARGS[4] ! you:
+		$ARGS['TARGET_1_WHO']='<<$name[npc_index]>> <<$surname[npc_index]>>'
+		$ARGS['TARGET_1_WHO_HE']='<<iif(pol[ARGS[3]] = 0, "Он", "Она")>>'
+		$ARGS['TARGET_1_WHOM']='<<iif(pol[ARGS[3]] = 0, "его", "её")>>'
+		$ARGS['TARGET_1_WHOS']='<<iif(pol[ARGS[3]] = 0, "ней", "нему")>>'
+		$ARGS['TARGET_2_WHO']='<<$name[target_index]>> <<$surname[target_index]>>'
+		$ARGS['TARGET_2_WHO_HE']='<<iif(pol[ARGS[4]] = 0, "Он", "Она")>>'
+		$ARGS['TARGET_2_WHOM']='<<iif(pol[ARGS[4]] = 0, "его", "её")>>'
+		$ARGS['TARGET_2_WHOS']='<<iif(pol[ARGS[4]] = 0, "нему", "ней")>>'
+	end
+	ARGS['FONT_SIZE'] = 2
+	ARGS['IS_RELATED'] = func("util_func","check_relations_of_npc", ARGS[4], ARGS[3])
+	if UCASE($ARGS[2]) = 'FRIENDS':
+		if ARGS['IS_RELATED'] = 0:
+			$ARGS['TEXT_FOR_TARGET_1'] = '<<iif(ARGS[3]=you, "считаете", "считает")>> <<$ARGS["TARGET_2_WHOM"]>> <<LCASE(func("get_stat_desc", "get_relations_text", ARGS[4], ARGS[3], 1))>>'
+			$ARGS['TEXT_FOR_TARGET_2'] = '<<iif(ARGS[3]=you, "считаете", "считает")>> <<$ARGS["TARGET_1_WHOM"]>> <<LCASE(func("get_stat_desc", "get_relations_text", ARGS[3], ARGS[4], 1))>>'
+		else
+			$ARGS['TEXT_FOR_TARGET_1'] = '<<LCASE(func("get_stat_desc", "get_relations_text", ARGS[3], ARGS[4]))>> к <<$ARGS["TARGET_2_WHOS"]>>'
+			$ARGS['TEXT_FOR_TARGET_2'] = '<<LCASE(func("get_stat_desc", "get_relations_text", ARGS[4], ARGS[3]))>> к <<$ARGS["TARGET_1_WHOS"]>>'
+		end
+		ARGS['AVG_VALUE'] = '<<func("util_func", "get_avg_value_of", "rel", ARGS[3], ARGS[4])>>'
+		$ARGS['AVG_VALUE_COLOR'] = '<<func("util_func", "get_int_color", "from_green_to_gray", ARGS["AVG_VALUE"])>>'
+		$ARGS['DECREASE_REL_BUTTON'] = '<a class="plain" href="exec:gs''util_func'',''decrease_rel_stat'', <<ARGS[3]>>, <<ARGS[4]>>, 10  & gt $curloc"><b><font color="red">&#11164;&#11164;&#11164;</font></b></a>'
+		$ARGS['INCREASE_REL_BUTTON'] = '<a class="plain" href="exec:gs''util_func'',''increase_rel_stat'', <<ARGS[3]>>, <<ARGS[4]>>, 10  & gt $curloc"><b><font color="green">&#11166;&#11166;&#11166;</font></b></a>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TARGET_1_WHO"]>>: <<$ARGS["TEXT_FOR_TARGET_1"]>></span></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+3 color="#202020"><<$ARGS["DECREASE_REL_BUTTON"]>> <b><font color="<<$ARGS[''AVG_VALUE_COLOR'']>>"><<ARGS["AVG_VALUE"]>>%</font></b> <<$ARGS["INCREASE_REL_BUTTON"]>></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TARGET_2_WHO"]>>: <<$ARGS["TEXT_FOR_TARGET_2"]>></span></font></td>'
+	end
+	if UCASE($ARGS[2]) = 'BOYFRIEND':
+		ARGS['TARGET_1_BOYFRIEND'] = func('util_func', 'target_is_boyfriend', ARGS[3])
+		ARGS['TARGET_2_BOYFRIEND'] = func('util_func', 'target_is_boyfriend', ARGS[4])
+		$ARGS['TEXT_FOR_TARGET_1'] = 'не <<iif(ARGS[3]=you, "состоите", "состоит")>> в отношениях.'
+		$ARGS['TEXT_FOR_TARGET_2'] = 'не <<iif(ARGS[4]=you, "состоите", "состоит")>> в отношениях.'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_LOGIC']='girlfriend_num[<<ARGS[3]>>]=0 & boyfriend_num[<<ARGS[3]>>]=0 & girlfriend_num[<<ARGS["TARGET_1_BOYFRIEND"]>>]=0 & boyfriend_num[<<ARGS["TARGET_1_BOYFRIEND"]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_LOGIC']='girlfriend_num[<<ARGS[4]>>]=0 & boyfriend_num[<<ARGS[4]>>]=0 & girlfriend_num[<<ARGS["TARGET_2_BOYFRIEND"]>>]=0 & boyfriend_num[<<ARGS["TARGET_2_BOYFRIEND"]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']=''
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']=''
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC']=''
+		$ARGS['ICON_COLOR'] = 'grey'
+		$ARGS['TEXT_COLOR'] = 'grey'
+		if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "boyfriend")>4:$ARGS['CREATE_RELATIONSHIPS_LOGIC']='<<iif(pol[ARGS[3]]>0, "boyfriend_num[<<ARGS[3]>>]=<<ARGS[4]>> & girlfriend_num[<<ARGS[4]>>]=<<ARGS[3]>>", "boyfriend_num[<<ARGS[4]>>]=<<ARGS[3]>> & girlfriend_num[<<ARGS[3]>>]=<<ARGS[4]>>")>> &' & $ARGS['ICON_COLOR'] = 'red' & $ARGS['TEXT_COLOR'] = 'green'
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR'']>>">Объединить</font> <font color="<<$ARGS[''ICON_COLOR'']>>">&#9829;</font></a>'
+		if ARGS['TARGET_1_BOYFRIEND']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_1_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_2_BOYFRIEND']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_2_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_1_BOYFRIEND']>0:$ARGS['TEXT_FOR_TARGET_1'] = '<<func("get_stat_desc", "get_boyfriend_text", ARGS[3], ARGS["TARGET_1_BOYFRIEND"])>>'
+		if ARGS['TARGET_2_BOYFRIEND']>0:$ARGS['TEXT_FOR_TARGET_2'] = '<<func("get_stat_desc", "get_boyfriend_text", ARGS[4], ARGS["TARGET_2_BOYFRIEND"])>>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TARGET_1_WHO_HE"]>>: <<$ARGS["TEXT_FOR_TARGET_1"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_1_BUTTON"]>></span></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+3><<$ARGS["CREATE_RELATIONSHIPS_BUTTON"]>></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TARGET_2_WHO_HE"]>>: <<$ARGS["TEXT_FOR_TARGET_2"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_2_BUTTON"]>></span></font></td>'
+	end
+	if UCASE($ARGS[2]) = 'MARRIED':
+		ARGS['TARGET_1_MARRIED'] = func('util_func', 'target_is_married', ARGS[3])
+		ARGS['TARGET_2_MARRIED'] = func('util_func', 'target_is_married', ARGS[4])
+		if ARGS[3] = you:
+			$ARGS['TEXT_FOR_TARGET_1'] = 'не <<iif(pol[ARGS[3]]=0, "женаты", "замужем")>>.'
+		else
+			$ARGS['TEXT_FOR_TARGET_1'] = 'не <<iif(pol[ARGS[3]]=0, "женат", "замужем")>>.'
+		end
+		if ARGS[4] = you:
+			$ARGS['TEXT_FOR_TARGET_2'] = 'не <<iif(pol[ARGS[4]]=0, "женаты", "замужем")>>.'
+		else
+			$ARGS['TEXT_FOR_TARGET_2'] = 'не <<iif(pol[ARGS[4]]=0, "женат", "замужем")>>.'
+		end
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_LOGIC']='husband[<<ARGS[3]>>]=0 & husband[<<ARGS["TARGET_1_MARRIED"]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_LOGIC']='husband[<<ARGS[4]>>]=0 & husband[<<ARGS["TARGET_2_MARRIED"]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']=''
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']=''
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC']=''
+		$ARGS['ICON_COLOR'] = 'grey'
+		$ARGS['TEXT_COLOR'] = 'grey'
+		$ARGS['REMOVE_BOYFRIEND_LOGIC'] = ''
+		if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "married")>4:$ARGS['REMOVE_BOYFRIEND_LOGIC'] = 'boyfriend_num[<<ARGS[3]>>]=0 & girlfriend_num[<<ARGS[4]>>]=0 & boyfriend_num[<<ARGS[4]>>]=0 & girlfriend_num[<<ARGS[3]>>]=0 &'
+		if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "married")>0:$ARGS['CREATE_RELATIONSHIPS_LOGIC']='<<$ARGS[''REMOVE_BOYFRIEND_LOGIC'']>> husband[<<ARGS[3]>>]=<<ARGS[4]>> & husband[<<ARGS[4]>>]=<<ARGS[3]>> &' & $ARGS['ICON_COLOR'] = 'red' & $ARGS['TEXT_COLOR'] = 'green'
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR'']>>">Поженить</font> <font color="<<$ARGS[''ICON_COLOR'']>>">&#9829;</font></a>'
+		if ARGS['TARGET_1_MARRIED']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_1_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_2_MARRIED']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_2_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_1_MARRIED']>0:$ARGS['TEXT_FOR_TARGET_1'] = '<<func("get_stat_desc", "get_married_text", ARGS[3], ARGS["TARGET_1_MARRIED"])>>'
+		if ARGS['TARGET_2_MARRIED']>0:$ARGS['TEXT_FOR_TARGET_2'] = '<<func("get_stat_desc", "get_married_text", ARGS[4], ARGS["TARGET_2_MARRIED"])>>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TARGET_1_WHO_HE"]>>: <<$ARGS["TEXT_FOR_TARGET_1"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_1_BUTTON"]>></span></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+3><<$ARGS["CREATE_RELATIONSHIPS_BUTTON"]>></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TARGET_2_WHO_HE"]>>: <<$ARGS["TEXT_FOR_TARGET_2"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_2_BUTTON"]>></span></font></td>'
+	end
+	if UCASE($ARGS[2]) = 'SIBLING':
+		ARGS['TARGET_1_SIBLING'] = func('util_func', 'target_is_brother', ARGS[3])
+		ARGS['TARGET_2_SIBLING'] = func('util_func', 'target_is_brother', ARGS[4])
+		if ARGS[3] = you:
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У вас нет сестры или брата.'
+		else
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У <<iif(pol[ARGS[3]]=0, "него", "неё")>> нет сестры или брата.'
+		end
+		if ARGS[4] = you:
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У вас нет сестры или брата.'
+		else
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У <<iif(pol[ARGS[4]]=0, "него", "неё")>> нет сестры или брата.'
+		end
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_LOGIC']='brother[<<ARGS[3]>>]=0 & brother[<<ARGS["TARGET_1_SIBLING"]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_LOGIC']='brother[<<ARGS[4]>>]=0 & brother[<<ARGS["TARGET_2_SIBLING"]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']=''
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']=''
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC']=''
+		$ARGS['ICON_COLOR'] = 'grey'
+		$ARGS['TEXT_COLOR'] = 'grey'
+		if ARGS['TARGET_1_SIBLING'] = 0 and ARGS['TARGET_2_SIBLING'] = 0:
+			if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "sibling")>4:$ARGS['CREATE_RELATIONSHIPS_LOGIC']='brother[<<ARGS[3]>>]=<<ARGS[4]>> & brother[<<ARGS[4]>>]=<<ARGS[3]>> &' & $ARGS['ICON_COLOR'] = 'green' & $ARGS['TEXT_COLOR'] = 'green'
+		end
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR'']>>">Объединить</font> <font color="<<$ARGS[''ICON_COLOR'']>>">&#10003;</font></a>'
+		if ARGS['TARGET_1_SIBLING']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_1_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_2_SIBLING']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_2_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_1_SIBLING']>0:$ARGS['TEXT_FOR_TARGET_1'] = '<<$ARGS["TARGET_1_WHO"]>> ' + '<<func("get_stat_desc", "get_brother_text", ARGS[3], ARGS["TARGET_1_SIBLING"])>>'
+		if ARGS['TARGET_2_SIBLING']>0:$ARGS['TEXT_FOR_TARGET_2'] = '<<$ARGS["TARGET_2_WHO"]>> ' + '<<func("get_stat_desc", "get_brother_text", ARGS[4], ARGS["TARGET_2_SIBLING"])>>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_1"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_1_BUTTON"]>></span></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+3><<$ARGS["CREATE_RELATIONSHIPS_BUTTON"]>></font></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_2"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_2_BUTTON"]>></span></font></td>'
+	end
+	if UCASE($ARGS[2]) = 'FATHER':
+		ARGS['TARGET_1_HAS_FATHER'] = func('util_func', 'target_has_father', ARGS[3])
+		ARGS['TARGET_2_HAS_FATHER'] = func('util_func', 'target_has_father', ARGS[4])
+		if ARGS[3] = you:
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У вас нет отца.'
+		else
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У <<iif(pol[ARGS[3]]=0, "него", "неё")>> нет отца.'
+		end
+		if ARGS[4] = you:
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У вас нет отца.'
+		else
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У <<iif(pol[ARGS[4]]=0, "него", "неё")>> нет отца.'
+		end
+		if ARGS['TARGET_1_HAS_FATHER']>0:
+			if kid_first[father[ARGS[3]]]=ARGS[3]:$ARGS['GET_KID_INDEX'] = 'kid_first[<<father[ARGS[3]]>>]'
+			if kid_second[father[ARGS[3]]]=ARGS[3]:$ARGS['GET_KID_INDEX'] = 'kid_second[<<father[ARGS[3]]>>]'
+			$ARGS['REMOVE_RELATIONS_OF_TARGET_1_LOGIC']='father[<<ARGS[3]>>]=0 & <<$ARGS["GET_KID_INDEX"]>>=0'
+		end
+		if ARGS['TARGET_2_HAS_FATHER']>0:
+			if kid_first[father[ARGS[4]]]=ARGS[4]:$ARGS['GET_KID_INDEX'] = 'kid_first[<<father[ARGS[4]]>>]'
+			if kid_second[father[ARGS[4]]]=ARGS[4]:$ARGS['GET_KID_INDEX'] = 'kid_second[<<father[ARGS[4]]>>]'
+			$ARGS['REMOVE_RELATIONS_OF_TARGET_2_LOGIC']='father[<<ARGS[4]>>]=0 & <<$ARGS["GET_KID_INDEX"]>>=0'
+		end
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']=''
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']=''
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC']=''
+		$ARGS['ICON_COLOR_1'] = 'grey'
+		$ARGS['ICON_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_1'] = 'grey'
+		$ARGS['TEXT_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_1'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_2'] = 'grey'
+		if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "father")>4:
+			if kid_second[father[ARGS[3]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_1']='& kid_second[<<ARGS[3]>>]=<<ARGS[4]>>'
+			if kid_first[father[ARGS[3]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_1']='& kid_first[<<ARGS[3]>>]=<<ARGS[4]>>'
+			$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1']='father[<<ARGS[4]>>]=<<ARGS[3]>> <<$ARGS["TAKE_KID_SLOT_OF_TARGET_1"]>> &' & $ARGS['ICON_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_NAME_1'] = ''
+		end
+		if func("util_func", "is_able_to_relate", ARGS[4], ARGS[3], "father")>4:
+			if kid_second[father[ARGS[4]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_2']='& kid_second[<<ARGS[4]>>]=<<ARGS[3]>>'
+			if kid_first[father[ARGS[4]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_2']='& kid_first[<<ARGS[4]>>]=<<ARGS[3]>>'
+			$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2']='father[<<ARGS[3]>>]=<<ARGS[4]>> <<$ARGS["TAKE_KID_SLOT_OF_TARGET_2"]>> &' & $ARGS['ICON_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_NAME_2'] = ''
+		end
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_1']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_1'']>>">Сделать отцом</font> <font color="<<$ARGS[''ICON_COLOR_1'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_1'']>>"><<$name[ARGS[3]]>> <<$surname[ARGS[3]]>></font></a>'
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_2']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_2'']>>">Сделать отцом</font> <font color="<<$ARGS[''ICON_COLOR_2'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_2'']>>"><<$name[ARGS[4]]>> <<$surname[ARGS[4]]>></font></a>'
+		if ARGS['TARGET_1_HAS_FATHER']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_1_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_2_HAS_FATHER']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_2_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_1_HAS_FATHER']>0:$ARGS['TEXT_FOR_TARGET_1'] = '<<func("get_stat_desc", "get_father_text", ARGS[3])>>'
+		if ARGS['TARGET_2_HAS_FATHER']>0:$ARGS['TEXT_FOR_TARGET_2'] = '<<func("get_stat_desc", "get_father_text", ARGS[4])>>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_1"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_1_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_2"]>></span>'
+		$RESULT += '</td>'
+		$RESULT += '<td width="33%" align="center" valign="center"></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_2"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_2_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_1"]>></span>'
+		$RESULT += '</td>'
+	end
+	if UCASE($ARGS[2]) = 'MOTHER':
+		ARGS['TARGET_1_HAS_MOTHER'] = func('util_func', 'target_has_mother', ARGS[3])
+		ARGS['TARGET_2_HAS_MOTHER'] = func('util_func', 'target_has_mother', ARGS[4])
+		if ARGS[3] = you:
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У вас нет матери.'
+		else
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У <<iif(pol[ARGS[3]]=0, "него", "неё")>> нет матери.'
+		end
+		if ARGS[4] = you:
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У вас нет матери.'
+		else
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У <<iif(pol[ARGS[4]]=0, "него", "неё")>> нет матери.'
+		end
+		if ARGS['TARGET_1_HAS_MOTHER']>0:
+			if kid_first[mother[ARGS[3]]]=ARGS[3]:$ARGS['GET_KID_INDEX'] = 'kid_first[<<mother[ARGS[3]]>>]'
+			if kid_second[mother[ARGS[3]]]=ARGS[3]:$ARGS['GET_KID_INDEX'] = 'kid_second[<<mother[ARGS[3]]>>]'
+			$ARGS['REMOVE_RELATIONS_OF_TARGET_1_LOGIC']='mother[<<ARGS[3]>>]=0 & <<$ARGS["GET_KID_INDEX"]>>=0'
+		end
+		if ARGS['TARGET_2_HAS_MOTHER']>0:
+			if kid_first[mother[ARGS[4]]]=ARGS[4]:$ARGS['GET_KID_INDEX'] = 'kid_first[<<mother[ARGS[4]]>>]'
+			if kid_second[mother[ARGS[4]]]=ARGS[4]:$ARGS['GET_KID_INDEX'] = 'kid_second[<<mother[ARGS[4]]>>]'
+			$ARGS['REMOVE_RELATIONS_OF_TARGET_2_LOGIC']='mother[<<ARGS[4]>>]=0 & <<$ARGS["GET_KID_INDEX"]>>=0'
+		end
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']=''
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']=''
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC']=''
+		$ARGS['ICON_COLOR_1'] = 'grey'
+		$ARGS['ICON_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_1'] = 'grey'
+		$ARGS['TEXT_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_1'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_2'] = 'grey'
+		if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "mother")>4:
+			if kid_second[mother[ARGS[3]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_1']='& kid_second[<<ARGS[3]>>]=<<ARGS[4]>>'
+			if kid_first[mother[ARGS[3]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_1']='& kid_first[<<ARGS[3]>>]=<<ARGS[4]>>'
+			$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1']='mother[<<ARGS[4]>>]=<<ARGS[3]>> <<$ARGS["TAKE_KID_SLOT_OF_TARGET_1"]>> &' & $ARGS['ICON_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_NAME_1'] = ''
+		end
+		if func("util_func", "is_able_to_relate", ARGS[4], ARGS[3], "mother")>4:
+			if kid_second[mother[ARGS[4]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_2']='& kid_second[<<ARGS[4]>>]=<<ARGS[3]>>'
+			if kid_first[mother[ARGS[4]]]=0:$ARGS['TAKE_KID_SLOT_OF_TARGET_2']='& kid_first[<<ARGS[4]>>]=<<ARGS[3]>>'
+			$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2']='mother[<<ARGS[3]>>]=<<ARGS[4]>> <<$ARGS["TAKE_KID_SLOT_OF_TARGET_2"]>> &' & $ARGS['ICON_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_NAME_2'] = ''
+		end
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_1']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_1'']>>">Сделать матерью</font> <font color="<<$ARGS[''ICON_COLOR_1'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_1'']>>"><<$name[ARGS[3]]>> <<$surname[ARGS[3]]>></font></a>'
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_2']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_2'']>>">Сделать матерью</font> <font color="<<$ARGS[''ICON_COLOR_2'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_2'']>>"><<$name[ARGS[4]]>> <<$surname[ARGS[4]]>></font></a>'
+		if ARGS['TARGET_1_HAS_MOTHER']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_1_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_2_HAS_MOTHER']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_2_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_1_HAS_MOTHER']>0:$ARGS['TEXT_FOR_TARGET_1'] = '<<func("get_stat_desc", "get_mother_text", ARGS[3])>>'
+		if ARGS['TARGET_2_HAS_MOTHER']>0:$ARGS['TEXT_FOR_TARGET_2'] = '<<func("get_stat_desc", "get_mother_text", ARGS[4])>>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_1"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_1_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_2"]>></span>'
+		$RESULT += '</td>'
+		$RESULT += '<td width="33%" align="center" valign="center"></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_2"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_2_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_1"]>></span>'
+		$RESULT += '</td>'
+	end  
+	if UCASE($ARGS[2]) = 'FIRST_KID':
+		ARGS['TARGET_1_HAS_FIRST_KID'] = func('util_func', 'target_has_first_kid', ARGS[3])
+		ARGS['TARGET_2_HAS_FIRST_KID'] = func('util_func', 'target_has_first_kid', ARGS[4])
+		if dick[ARGS[3]]>0:$ARGS['GENDER_OF_TARGET_1']='father'
+		if vag[ARGS[3]]>0:$ARGS['GENDER_OF_TARGET_1']='mother'
+		if dick[ARGS[4]]>0:$ARGS['GENDER_OF_TARGET_2']='father'
+		if vag[ARGS[4]]>0:$ARGS['GENDER_OF_TARGET_2']='mother'
+		if ARGS[3] = you:
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У вас нет первого ребёнка.'
+		else
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У <<iif(pol[ARGS[3]]=0, "него", "неё")>> нет первого ребёнка.'
+		end
+		if ARGS[4] = you:
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У вас нет первого ребёнка.'
+		else
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У <<iif(pol[ARGS[4]]=0, "него", "неё")>> нет первого ребёнка.'
+		end
+		if ARGS['TARGET_1_HAS_FIRST_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_LOGIC']='<<$ARGS["GENDER_OF_TARGET_1"]>>[<<kid_first[ARGS[3]]>>]=0 & kid_first[<<ARGS[3]>>]=0'
+		if ARGS['TARGET_2_HAS_FIRST_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_LOGIC']='<<$ARGS["GENDER_OF_TARGET_2"]>>[<<kid_first[ARGS[4]]>>]=0 & kid_first[<<ARGS[4]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']=''
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']=''
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC']=''
+		$ARGS['ICON_COLOR_1'] = 'grey'
+		$ARGS['ICON_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_1'] = 'grey'
+		$ARGS['TEXT_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_1'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_2'] = 'grey'
+		if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "kid_1")>4:
+			$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1']='<<$ARGS["GENDER_OF_TARGET_1"]>>[<<ARGS[4]>>]=<<ARGS[3]>> & kid_first[<<ARGS[3]>>]=<<ARGS[4]>> &' & $ARGS['ICON_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_NAME_1'] = ''
+		end
+		if func("util_func", "is_able_to_relate", ARGS[4], ARGS[3], "kid_1")>4:
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2']='<<$ARGS["GENDER_OF_TARGET_2"]>>[<<ARGS[3]>>]=<<ARGS[4]>> & kid_first[<<ARGS[4]>>]=<<ARGS[3]>> &' & $ARGS['ICON_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_NAME_2'] = ''
+		end
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_1']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_1'']>>">Сделать первым ребёнком</font> <font color="<<$ARGS[''ICON_COLOR_1'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_1'']>>"><<$name[ARGS[4]]>> <<$surname[ARGS[4]]>></font></a>'
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_2']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_2'']>>">Сделать первым ребёнком</font> <font color="<<$ARGS[''ICON_COLOR_2'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_2'']>>"><<$name[ARGS[3]]>> <<$surname[ARGS[3]]>></font></a>'
+		if ARGS['TARGET_1_HAS_FIRST_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_1_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_2_HAS_FIRST_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_2_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_1_HAS_FIRST_KID']>0:$ARGS['TEXT_FOR_TARGET_1'] = '<<func("get_stat_desc", "get_first_kid_text", ARGS[3])>>'
+		if ARGS['TARGET_2_HAS_FIRST_KID']>0:$ARGS['TEXT_FOR_TARGET_2'] = '<<func("get_stat_desc", "get_first_kid_text", ARGS[4])>>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_1"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_1_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_1"]>></span>'
+		$RESULT += '</td>'
+		$RESULT += '<td width="33%" align="center" valign="center"></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_2"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_2_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_2"]>></span>'
+		$RESULT += '</td>'
+	end
+	if UCASE($ARGS[2]) = 'SECOND_KID':
+		ARGS['TARGET_1_HAS_SECOND_KID'] = func('util_func', 'target_has_second_kid', ARGS[3])
+		ARGS['TARGET_2_HAS_SECOND_KID'] = func('util_func', 'target_has_second_kid', ARGS[4])
+		if dick[ARGS[3]]>0:$ARGS['GENDER_OF_TARGET_1']='father'
+		if vag[ARGS[3]]>0:$ARGS['GENDER_OF_TARGET_1']='mother'
+		if dick[ARGS[4]]>0:$ARGS['GENDER_OF_TARGET_2']='father'
+		if vag[ARGS[4]]>0:$ARGS['GENDER_OF_TARGET_2']='mother'
+		if ARGS[3] = you:
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У вас нет второго ребёнка.'
+		else
+			$ARGS['TEXT_FOR_TARGET_1'] = 'У <<iif(pol[ARGS[3]]=0, "него", "неё")>> нет второго ребёнка.'
+		end
+		if ARGS[4] = you:
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У вас нет второго ребёнка.'
+		else
+			$ARGS['TEXT_FOR_TARGET_2'] = 'У <<iif(pol[ARGS[4]]=0, "него", "неё")>> нет второго ребёнка.'
+		end
+		if ARGS['TARGET_1_HAS_SECOND_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_LOGIC']='<<$ARGS["GENDER_OF_TARGET_1"]>>[<<kid_second[ARGS[3]]>>]=0 & kid_second[<<ARGS[3]>>]=0'
+		if ARGS['TARGET_2_HAS_SECOND_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_LOGIC']='<<$ARGS["GENDER_OF_TARGET_2"]>>[<<kid_second[ARGS[4]]>>]=0 & kid_second[<<ARGS[4]>>]=0'
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']=''
+		$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']=''
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC']=''
+		$ARGS['ICON_COLOR_1'] = 'grey'
+		$ARGS['ICON_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_1'] = 'grey'
+		$ARGS['TEXT_COLOR_2'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_1'] = 'grey'
+		$ARGS['TEXT_COLOR_NAME_2'] = 'grey'
+		if func("util_func", "is_able_to_relate", ARGS[3], ARGS[4], "kid_2")>4:
+		$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1']='<<$ARGS["GENDER_OF_TARGET_1"]>>[<<ARGS[4]>>]=<<ARGS[3]>> & kid_second[<<ARGS[3]>>]=<<ARGS[4]>> &' & $ARGS['ICON_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_1'] = 'green' & $ARGS['TEXT_COLOR_NAME_1'] = ''
+		end
+		if func("util_func", "is_able_to_relate", ARGS[4], ARGS[3], "kid_2")>4:
+			$ARGS['CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2']='<<$ARGS["GENDER_OF_TARGET_2"]>>[<<ARGS[3]>>]=<<ARGS[4]>> & kid_second[<<ARGS[4]>>]=<<ARGS[3]>> &' & $ARGS['ICON_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_2'] = 'green' & $ARGS['TEXT_COLOR_NAME_2'] = ''
+		end
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_1']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_1'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_1'']>>">Сделать вторым ребёнком</font> <font color="<<$ARGS[''ICON_COLOR_1'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_1'']>>"><<$name[ARGS[4]]>> <<$surname[ARGS[4]]>></font></a>'
+		$ARGS['CREATE_RELATIONSHIPS_BUTTON_2']='<a class="plain" href="exec:<<$ARGS[''CREATE_RELATIONSHIPS_LOGIC_FOR_TARGET_2'']>>gt $curloc"><font color="<<$ARGS[''TEXT_COLOR_2'']>>">Сделать вторым ребёнком</font> <font color="<<$ARGS[''ICON_COLOR_2'']>>">&#8594;</font> <font color="<<$ARGS[''TEXT_COLOR_NAME_2'']>>"><<$name[ARGS[3]]>> <<$surname[ARGS[3]]>></font></a>'
+		if ARGS['TARGET_1_HAS_SECOND_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_1_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_1_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_2_HAS_SECOND_KID']>0:$ARGS['REMOVE_RELATIONS_OF_TARGET_2_BUTTON']='<a class="plain" href="exec: <<$ARGS[''REMOVE_RELATIONS_OF_TARGET_2_LOGIC'']>> & gt $curloc"><b><font color="red">&#10007;</font></b></a>'
+		if ARGS['TARGET_1_HAS_SECOND_KID']>0:$ARGS['TEXT_FOR_TARGET_1'] = '<<func("get_stat_desc", "get_second_kid_text", ARGS[3])>>'
+		if ARGS['TARGET_2_HAS_SECOND_KID']>0:$ARGS['TEXT_FOR_TARGET_2'] = '<<func("get_stat_desc", "get_second_kid_text", ARGS[4])>>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_1"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_1_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_1"]>></span>'
+		$RESULT += '</td>'
+		$RESULT += '<td width="33%" align="center" valign="center"></td>'
+		$RESULT += '<td width="33%" align="center" valign="center">'
+		$RESULT += '<font size=+<<ARGS["FONT_SIZE"]>> color="#202020"><span><<$ARGS["TEXT_FOR_TARGET_2"]>> <<$ARGS["REMOVE_RELATIONS_OF_TARGET_2_BUTTON"]>></span></font>'
+		$RESULT += '<br>'
+		$RESULT += '<span><<$ARGS["CREATE_RELATIONSHIPS_BUTTON_2"]>></span>'
+		$RESULT += '</td>'
+	end
+	!* ------------------ Генератор кнопок-иконок доп-описания ------------------ *!
+elseif ARGS[1]=13:
+	if CONFIG['DISABLE_TOOLBAR']=0:
+		i=0
+		!Tooltips
+		$UI_TITLE[]="Описание"
+		$UI_TITLE[]="Характеристики"
+		$UI_TITLE[]="Статистика"
+		$UI_TITLE[]="Инвентарь"
+		$UI_TITLE[]="Журнал"
+		$UI_TITLE[]="Обновить"
+		$UI_TITLE[]="Настройки"
+		$UI_TITLE[]="Ввод команд"
+		$UI_TITLE[]="UI Тогглер"
+		ARGS['AMOUNT'] = ARRSIZE('$UI_TITLE')-1
+		if CONFIG['TOOLBAR_ICON_SIZE']<5:CONFIG['TOOLBAR_ICON_SIZE']=5
+		$ARGS['ICON_COLOR']=''
+		if CONFIG['TOOLBAR_ICON_COLOR']>0:$ARGS['ICON_COLOR']='w'
+		:icons_gen_loop
+			if $ARGS[2] = UCASE($UI_TITLE[i]) or (UCASE($UI_TITLE[i]) = 'UI ТОГГЛЕР' and CONFIG['UI_EDITOR'] = 1):
+				$ARGS['ELEMENTS']+= '<td><a class="plain" title="<<$UI_TITLE[i]>>" href="exec: gs(''add_desc_func'', ''<<$UI_TITLE[i]>>'')"><img width="<<CONFIG[''TOOLBAR_ICON_SIZE'']>>" height="auto" src="pic/misc/UI/icons/<<i>><<$ARGS["ICON_COLOR"]>>_act.png"></a></td>'
+			else
+				$ARGS['ELEMENTS']+= '<td><a class="plain" title="<<$UI_TITLE[i]>>" href="exec: gs(''add_desc_func'', ''<<$UI_TITLE[i]>>'')"><img width="<<CONFIG[''TOOLBAR_ICON_SIZE'']>>" height="auto" src="pic/misc/UI/icons/<<i>><<$ARGS["ICON_COLOR"]>>.png"></a></td>'
+			end
+		if i<ARGS['AMOUNT']:i+=1 & jump 'icons_gen_loop'
+		$RESULT+='<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+		$RESULT+='<tr><td colspan="10"><hr></td></tr>'
+		$RESULT+='<tr><<$ARGS["ELEMENTS"]>></tr>'
+		$RESULT+='<tr><td colspan="10"><hr></td></tr>'
+		$RESULT+='</table>'
+		killvar '$UI_TITLE'
+		killvar 'i'
+	end
+	!* ------------------------- Генератор отключалок UI ------------------------ *!
+elseif ARGS[1]=14:
+	$ARGS['INDEX'] = ARGS[0]
+	if CONFIG['UI_EDITOR'] = 1 :
+		if UI_ELEMENT_STATE[ARGS[0]] = 1:
+			$RESULT='<a class="plain" title="Показать" href="exec:dynamic ''UI_ELEMENT_STATE[<<ARGS[0]>>]=0'' & gs(''stat'')"><font color="green">&#10003;</font></a>'
+		else
+			$RESULT='<a class="plain" title="Скрыть" href="exec:dynamic ''UI_ELEMENT_STATE[<<ARGS[0]>>]=1'' & gs(''stat'')"><font color="red">&#10007;</font></a>'
+		end
+	end
+	!* ------------- Генератор иконок для "Дополнительного описания" ------------ *!
+elseif ARGS[1]=15:
+	i=0
+	$ICON_LIST[] = 'Жизнь'
+	$ICON_LIST[] = 'Энергия'
+	$ICON_LIST[] = 'Мана'
+	$ICON_LIST[] = 'Деньги'
+	$ICON_LIST[] = 'Сытость:'
+	$ICON_LIST[] = 'Жажда:'
+	$ICON_LIST[] = 'Сонливость:'
+	$ICON_LIST[] = 'Сейчас'
+	$ICON_LIST[] = 'Время'
+	$ICON_LIST[] = 'Карта города'
+	$ICON_LIST[] = 'Душа'
+	$ICON_LIST[] = 'Нагрузка'
+	$ICON_LIST[] = 'Наполненность мочевого пузыря'
+	$ICON_LIST[] = 'Предупреждение'
+	ARGS['ICON_SIZE']=15
+	ARGS['AMOUNT'] = ARRSIZE('$ICON_LIST')-1
+     :add_desc_icons_gen_loop
+		if CONFIG['DISABLE_ICONS']=0:
+			if ARGS[3]>0:ARGS['ICON_SIZE']=ARGS[3]
+			if UCASE($ARGS[2]) = UCASE($ICON_LIST[i]):$RESULT='<img width="<<ARGS[''ICON_SIZE'']>>" height="auto" src="pic/misc/UI/icons/add_desc_icon_<<i>>.png">'
+		else
+			if UCASE($ARGS[2]) = UCASE($ICON_LIST[i]):$RESULT='<b><<$ICON_LIST[i]>></b>'
+		end
+     if i<ARGS['AMOUNT']:i+=1 & jump 'add_desc_icons_gen_loop'
+	killvar '$ICON_LIST'
+	killvar 'i'
+	!* --------------------------- Генератор магазинов -------------------------- *!
+elseif ARGS[1]=16:
+	!$ARGS[0] - название магазина.
+	!$ARGS[2] - Активная вкладка.
+	!$ARGS[3]+ - какие вкладки генерируем.
+	if $ARGS[3] ! '':
+		i=3
+		$ACTIVE_TAB=''
+		ACTIVE_TAB_INDEX=0
+		ARGS_AMOUNT=ARRSIZE('ARGS') - 1
+		:check_tabs_loop
+			$POSSIBLE_STORES['Ботинки']='Ботинки'
+			$POSSIBLE_STORES['Шапки']='Шапки'
+			$POSSIBLE_STORES['Штаны']='Штаны/Юбки'
+			$POSSIBLE_STORES['Рубашки']='Рубашки/Блузки'
+			$POSSIBLE_STORES['Трусы']='Трусы/Лифчики'
+			$POSSIBLE_STORES['Броня']='Броня'
+			$POSSIBLE_STORES['Оружие']='Оружие'
+			$POSSIBLE_STORES['Зелья']='Зелья'
+			$POSSIBLE_STORES['Разное']='Разное'
+			if $POSSIBLE_STORES['<<$ARGS[i]>>'] ! '':$TABS_TO_ADD[] = $POSSIBLE_STORES['<<$ARGS[i]>>']
+		if i<ARGS_AMOUNT:i+=1 & jump'check_tabs_loop'
+		if $ARGS[2] = '':$ARGS[2]=$TABS_TO_ADD[0]
+		$RESULT='<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><td colspan="<<ARRSIZE(''TABS_TO_ADD'')>>" align="center"><h3><font color="#ffffff">[<<$ARGS[0]>>]</font></h3></td></tr>'
+		if ARRSIZE('TABS_TO_ADD')>1:
+			ARGS['ROW_SIZE'] = 100 / ARRSIZE('$TABS_TO_ADD')
+			i=0
+			$RESULT+='<tr>'
+			:generate_store_tabs_loop
+				if UCASE($ARGS[2]) = UCASE($TABS_TO_ADD[i]):
+					$ACTIVE_TAB=$ARGS[2]
+					ACTIVE_TAB_INDEX=i
+					$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#ffffff" align="center"><a class="plain" href="exec:$STORES_MENU[''MODE''] = ''<<$TABS_TO_ADD[i]>>''"><b><font color="#202020">&#11166;[ <<$TABS_TO_ADD[i]>> ]&#11164;</font></b></a></td>'
+				else
+					$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#202020" align="center"><a class="plain" href="exec:$STORES_MENU[''MODE''] = ''<<$TABS_TO_ADD[i]>>'' & gt $curloc"><font color="#ffffff">[ <<$TABS_TO_ADD[i]>> ]</font></a></td>'
+				end
+				if RE_CACHE_STORE=1:RE_CACHE_TAB[i]=1
+			if i<ARRSIZE('TABS_TO_ADD')-1:i+=1 & jump'generate_store_tabs_loop'
+			$RESULT+='</tr>'
+		else
+			$RESULT+=$func('generate_links', $TABS_TO_ADD[0], 17)
+			if RE_CACHE_STORE=1:RE_CACHE_TAB[0]=1
+		end
+		if $STORE_CACHE[ACTIVE_TAB_INDEX]='' or RE_CACHE_TAB[ACTIVE_TAB_INDEX]=1:$STORE_CACHE[ACTIVE_TAB_INDEX]=$func('generate_links', $ACTIVE_TAB, 17) & RE_CACHE_TAB[ACTIVE_TAB_INDEX]=0
+		if $ACTIVE_TAB ! '':$RESULT+=$STORE_CACHE[ACTIVE_TAB_INDEX]
+		$RESULT+='<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><td colspan="4" align="center"><h3><font color="#202020"> </font></h3></td></tr></table>'
+	end
+	killvar'POSSIBLE_STORES'
+	killvar'TABS_TO_ADD'
+	killvar'ARGS_AMOUNT'
+	killvar'ACTIVE_TAB'
+	killvar'RE_CACHE_STORE'
+	killvar'i'
+	!* ----------------- Генератор списка предметов для магазина ---------------- *!
+elseif ARGS[1]=17:
+	$ITEMS_CAT['Ботинки']='$b_name'
+	$ITEMS_CAT['Шапки']='$h_name'
+	$ITEMS_CAT['Штаны/Юбки']='$l_name'
+	$ITEMS_CAT['Рубашки/Блузки']='$t_name'
+	$ITEMS_CAT['Шлемы']='$h_name'
+	$ITEMS_CAT['Броня']='$t_name'
+	if $ARGS[0] ! '' and UCASE($ARGS[0]) ! 'ТРУСЫ/ЛИФЧИКИ':
+		$RESULT+='<table border=1 width="100%"><tr>'
+		if $ITEMS_CAT[$ARGS[0]]='$b_name':$ARGS['IMG_FOLDER']='boot' & $ITEM_VAR_NAME='item_b' & $ITEMS_LIMITER='b' & $ARGS['LOCAL_LIMITER']='no_armor'
+		if $ITEMS_CAT[$ARGS[0]]='$h_name':$ARGS['IMG_FOLDER']='hat' & $ITEM_VAR_NAME='item_h' & $ITEMS_LIMITER='h' & $ARGS['LOCAL_LIMITER']='no_armor'
+		if $ITEMS_CAT[$ARGS[0]]='$l_name':$ARGS['IMG_FOLDER']='low' & $ITEM_VAR_NAME='item_l' & $ITEMS_LIMITER='l' & $ARGS['LOCAL_LIMITER']='no_armor'
+		if $ITEMS_CAT[$ARGS[0]]='$t_name':$ARGS['IMG_FOLDER']='top' & $ITEM_VAR_NAME='item_t' & $ITEMS_LIMITER='t' & $ARGS['LOCAL_LIMITER']='no_armor'
+		if $ITEMS_CAT[$ARGS[0]]='$h_name' and UCASE($ARGS[0])=UCASE('ШЛЕМЫ'):$ARGS['IMG_FOLDER']='hat' & $ITEM_VAR_NAME='item_h' & $ITEMS_LIMITER='h' & $ARGS['LOCAL_LIMITER']='armor'
+		if $ITEMS_CAT[$ARGS[0]]='$t_name' and UCASE($ARGS[0])=UCASE('БРОНЯ'):$ARGS['IMG_FOLDER']='top' & $ITEM_VAR_NAME='item_t' & $ITEMS_LIMITER='t' & $ARGS['LOCAL_LIMITER']='armor'
+		ARGS['TD_COUNTER']=0
+		i=1
+		ARGS['AMOUNT'] = ARRSIZE('<<$ITEMS_CAT[$ARGS[0]]>>') - 1
+		:generate_main_store_clothes_loop
+			if $LIMIT_STORE_BY='' and $ARGS['LOCAL_LIMITER']='':ARGS['ITEM_IS_VALID']=1
+			if $LIMIT_STORE_BY ! '' or $ARGS['LOCAL_LIMITER'] ! '':ARGS['ITEM_IS_VALID']=func('util_func','store_apply_filter', $ITEMS_LIMITER, i, $ARGS['LOCAL_LIMITER'])
+			if ARGS['ITEM_IS_VALID']=0 and i=ARGS['AMOUNT']:jump'generate_main_store_clothes_loop_end'
+			if ARGS['ITEM_IS_VALID']=0 and i<ARGS['AMOUNT']:i+=1 & jump'generate_main_store_clothes_loop'
+			if ARGS['TD_COUNTER']=3:$RESULT+='</tr><tr>' & ARGS['TD_COUNTER']=0
+			dynamic'$get_item_name=<<$ITEMS_CAT[$ARGS[0]]>>[<<i>>]'
+			$ARGS['ITEM_ICON_LIST'] = $func("util_func","get_item_icons", $ARGS['IMG_FOLDER'], i)&  !Получаем список иконок для предмета.
+			ARGS['IS_ABLE_TO_BUY']=func('util_func','get_clothes_price', $ARGS['IMG_FOLDER'], i)& !Возможно-ли купить, если да - генерируем кнопку "Купить", если нет, показываем сколько нехватает денег.
+			if ARGS['IS_ABLE_TO_BUY']<=money[you]:
+				$ARGS['BUY_LOGIC']='dynamic ''<<$ITEM_VAR_NAME>>[<<i>>]+=1 & money[you]-=<<ARGS[''IS_ABLE_TO_BUY'']>>'' & burden[you]+=<<$ITEM_VAR_NAME>>_burden[<<i>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ITEM_VAR_NAME>>'', <<i>>) & gs''stat'' & gt $curloc'
+				$ARGS['BUY_BUTTON']='<a class="plain" href="exec:<<$ARGS[''BUY_LOGIC'']>>">[Купить <font color=green><<ARGS["IS_ABLE_TO_BUY"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a>'
+			else
+				$ARGS['BUY_BUTTON']='[Нехватает <font color=red><<(ARGS["IS_ABLE_TO_BUY"] - money[you])/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]'
+			end
+			ARGS['IS_ABLE_TO_SELL']=func('util_func','is_able_to_sell_item', $ARGS['IMG_FOLDER'], i)&!Возможно-ли продать, если да - генерируем кнопку.
+			$ARGS['SELL_BUTTON']=''
+			if ARGS['IS_ABLE_TO_SELL']>0:
+				$ARGS['SELL_LOGIC']='dynamic ''<<$ITEM_VAR_NAME>>[<<i>>]-=1 & money[you]+=<<ARGS[''IS_ABLE_TO_SELL'']>>'' & burden[you]-=<<$ITEM_VAR_NAME>>_burden[<<i>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ITEM_VAR_NAME>>'', <<i>>) & gs''stat'' & gt $curloc'
+				ARGS['CURRENT_ITEM_AMOUNT']=func('util_func','get_own_items_amount', $ARGS['IMG_FOLDER'], i)
+				$ARGS['SELL_BUTTON']='<a class="plain" href="exec:<<$ARGS[''SELL_LOGIC'']>>">[Продать <font color=green><<ARGS["IS_ABLE_TO_SELL"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a> <i>У вас <<ARGS["CURRENT_ITEM_AMOUNT"]>>шт</i>'
+			end
+			$RESULT+='<td width="33%" align="center">'&!Ячейка "предмета" начало
+			$RESULT+='<table width="100%">'
+			$RESULT+='<tr>'
+			$RESULT+='<td rowspan="3" align="center">'
+			$RESULT+='<a class="plain" href="exec:gs''util_func'',''GET_MSG_FOR_CLOTHES'', ''<<$ARGS["IMG_FOLDER"]>>'', <<i>>"><img width="50" height="auto" src="pic/clo/<<$ARGS["IMG_FOLDER"]>>/<<i>>.jpg"></a>'
+			$RESULT+='</td>'
+			$RESULT+='<td width="100%"><<$get_item_name>> <<$ARGS["ITEM_ICON_LIST"]>></td>'
+			$RESULT+='</tr>'
+			$RESULT+='<tr>'
+			$RESULT+='<td width="100%"><hr class="zero_p_m"></td>'
+			$RESULT+='</tr>'
+			$RESULT+='<tr>'
+			$RESULT+='<td rowspan="3" width="100%"><<$ARGS["BUY_BUTTON"]>> <<$ARGS["SELL_BUTTON"]>></td>'
+			$CACHE_STORE_BUTTONS['<<$ITEM_VAR_NAME>>_<<i>>']='<td rowspan="3" width="100%"><<$ARGS["BUY_BUTTON"]>> <<$ARGS["SELL_BUTTON"]>></td>'
+			$RESULT+='</tr>'
+			$RESULT+='</table>'
+			$RESULT+='</td>'
+			!BASE_LAYOUT
+			! $RESULT+='<td width="33%" align="center">'
+			! $RESULT+='<table width="100%">'
+			! $RESULT+='<tr>'
+			! $RESULT+='<td rowspan="2" align="center">'
+			! $RESULT+='<a class="plain" href="exec:gs''util_func'',''GET_MSG_FOR_CLOTHES'', ''<<$ARGS["IMG_FOLDER"]>>'', <<i>>"><img width="50" height="auto" src="pic/clo/<<$ARGS["IMG_FOLDER"]>>/<<i>>.jpg"></a>'
+			! $RESULT+='</td>'
+			! $RESULT+='<td width="100%"><<$get_item_name>> <<$ARGS["ITEM_GENDER_ICON"]>></td>'
+			! $RESULT+='</tr>'
+			! $RESULT+='<tr>'
+			! $RESULT+='<td rowspan="2" align="center" width="100%"><<$ARGS["BUY_BUTTON"]>> <<$ARGS["SELL_BUTTON"]>></td>'
+			! $RESULT+='</tr>'
+			! $RESULT+='</table>'
+			! $RESULT+='</td>'
+		if i<ARGS['AMOUNT']:i+=1 & ARGS['TD_COUNTER']+=1 & jump'generate_main_store_clothes_loop'
+		:generate_main_store_clothes_loop_end
+			$RESULT+='</tr></table>'
+			!* -------------------- Генератор вкладки "Трусы/Лифчики" ------------------- *!
+		elseif UCASE($ARGS[0]) = 'ТРУСЫ/ЛИФЧИКИ':
+			killvar'$ITEMS_CAT'
+			$ITEMS_CAT[]='$ub_name'
+			$ITEMS_CAT[]='$ul_name'
+			$ITEMS_CAT[]='$ut_name'
+			$RESULT+='<table border=1 width="100%"><tr>'
+			ARGS['TD_COUNTER']=0
+			ARGS['CAT_AMOUNT'] = ARRSIZE('$ITEMS_CAT') - 1
+			ARGS['ITEMS_AMOUNT'] = ARRSIZE('<<$ITEMS_CAT[ARGS["CAT_AMOUNT"]]>>') - 1
+			:generate_next_underware_loop
+			i=1
+  if $ITEMS_CAT[ARGS['CAT_AMOUNT']]='$ut_name':$ARGS['IMG_FOLDER']='utop' & $ITEM_VAR_NAME='item_ut' & $ITEMS_LIMITER='ut'
+  if $ITEMS_CAT[ARGS['CAT_AMOUNT']]='$ul_name':$ARGS['IMG_FOLDER']='ulow' & $ITEM_VAR_NAME='item_ul' & $ITEMS_LIMITER='ul'
+  if $ITEMS_CAT[ARGS['CAT_AMOUNT']]='$ub_name':$ARGS['IMG_FOLDER']='uboot' & $ITEM_VAR_NAME='item_ub' & $ITEMS_LIMITER='ub'
+  if $ITEM_VAR_NAME='item_ut':$RESULT+='<td align="center" colspan="3"><h4>ЛИФЧИКИ</h4></td></tr><tr>'
+  if $ITEM_VAR_NAME='item_ul':$RESULT+='<td align="center" colspan="3"><h4>ТРУСЫ</h4></td></tr><tr>'
+  if $ITEM_VAR_NAME='item_ub':$RESULT+='<td align="center" colspan="3"><h4>ЧУЛКИ</h4></td></tr><tr>'
+  :generate_main_store_underware_loop
+  if $LIMIT_STORE_BY='':ARGS['ITEM_IS_VALID']=1
+  if $LIMIT_STORE_BY ! '':ARGS['ITEM_IS_VALID']=func('util_func','store_apply_filter', $ITEMS_LIMITER, i)
+  if ARGS['ITEM_IS_VALID']=0 and i=ARGS['ITEMS_AMOUNT']:jump'generate_main_store_underware_loop_end'
+  if ARGS['ITEM_IS_VALID']=0 and i<ARGS['ITEMS_AMOUNT']:i+=1 & jump'generate_main_store_underware_loop'
+  if ARGS['TD_COUNTER']=3:$RESULT+='</tr><tr>' & ARGS['TD_COUNTER']=0
+  dynamic'$get_item_name=<<$ITEMS_CAT[ARGS["CAT_AMOUNT"]]>>[<<i>>]'
+  $ARGS['ITEM_ICON_LIST'] = $func("util_func","get_item_icons", $ARGS['IMG_FOLDER'], i)&!Получаем список иконок для предмета.
+  ARGS['IS_ABLE_TO_BUY']=func('util_func','get_clothes_price', $ARGS['IMG_FOLDER'], i)&!Возможно-ли купить, если да - генерируем кнопку "Купить", если нет, показываем сколько нехватает денег.
+  if ARGS['IS_ABLE_TO_BUY']<=money[you]:
+	$ARGS['BUY_LOGIC']='dynamic ''<<$ITEM_VAR_NAME>>[<<i>>]+=1 & money[you]-=<<ARGS[''IS_ABLE_TO_BUY'']>>'' & burden[you]+=<<$ITEM_VAR_NAME>>_burden[<<i>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ITEM_VAR_NAME>>'', <<i>>) & gs''stat'' & gt $curloc'
+    $ARGS['BUY_BUTTON']='<a class="plain" href="exec:<<$ARGS[''BUY_LOGIC'']>>">[Купить <font color=green><<ARGS["IS_ABLE_TO_BUY"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a>'
+  else
+    $ARGS['BUY_BUTTON']='[Нехватает <font color=red><<(ARGS["IS_ABLE_TO_BUY"] - money[you])/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]'
+  end
+  ARGS['IS_ABLE_TO_SELL']=func('util_func','is_able_to_sell_item', $ARGS['IMG_FOLDER'], i)&!Возможно-ли продать, если да - генерируем кнопку.
+  $ARGS['SELL_BUTTON']=''
+  if ARGS['IS_ABLE_TO_SELL']>0:
+    $ARGS['SELL_LOGIC']='dynamic ''<<$ITEM_VAR_NAME>>[<<i>>]-=1 & money[you]+=<<ARGS[''IS_ABLE_TO_SELL'']>>'' & burden[you]-=<<$ITEM_VAR_NAME>>_burden[<<i>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ITEM_VAR_NAME>>'', <<i>>) & gs''stat'' & gt $curloc'
+     ARGS['CURRENT_ITEM_AMOUNT']=func('util_func','get_own_items_amount', $ARGS['IMG_FOLDER'], i)
+    $ARGS['SELL_BUTTON']='<a class="plain" href="exec:<<$ARGS[''SELL_LOGIC'']>>">[Продать <font color=green><<ARGS["IS_ABLE_TO_SELL"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a> <i>У вас <<ARGS["CURRENT_ITEM_AMOUNT"]>>шт</i>'
+  end
+  $RESULT+='<td width="33%" align="center">'&!Ячейка "предмета" начало
+  $RESULT+='<table width="100%">'
+  $RESULT+='<tr>'
+  $RESULT+='<td rowspan="3" align="center">'
+  $RESULT+='<a class="plain" href="exec:gs''util_func'',''GET_MSG_FOR_CLOTHES'', ''<<$ARGS["IMG_FOLDER"]>>'', <<i>>"><img width="50" height="auto" src="pic/clo/<<$ARGS["IMG_FOLDER"]>>/<<i>>.jpg"></a>'
+  $RESULT+='</td>'
+  $RESULT+='<td width="100%"><<$get_item_name>> <<$ARGS["ITEM_ICON_LIST"]>></td>'
+  $RESULT+='</tr>'
+  $RESULT+='<tr>'
+  $RESULT+='<td width="100%"><hr class="zero_p_m"></td>'
+  $RESULT+='</tr>'
+  $RESULT+='<tr>'
+  $RESULT+='<td rowspan="3" width="100%"><<$ARGS["BUY_BUTTON"]>> <<$ARGS["SELL_BUTTON"]>></td>'
+  $CACHE_STORE_BUTTONS['<<$ITEM_VAR_NAME>>_<<i>>']='<td rowspan="3" width="100%"><<$ARGS["BUY_BUTTON"]>> <<$ARGS["SELL_BUTTON"]>></td>'
+  $RESULT+='</tr>'
+  $RESULT+='</table>'
+  $RESULT+='</td>'
+  if i<ARGS['ITEMS_AMOUNT']:i+=1 & ARGS['TD_COUNTER']+=1 & jump'generate_main_store_underware_loop'
+  :generate_main_store_underware_loop_end
+  if ARGS['CAT_AMOUNT']>0:ARGS['CAT_AMOUNT']-=1 & ARGS['TD_COUNTER']=0 & $RESULT+='</tr><tr>' & jump'generate_next_underware_loop'
+  $RESULT+='</tr></table>'
+  end
+  gs'stat'
+  killvar'$ITEMS_CAT'
+  killvar'$get_item_name'
+  killvar'$ITEM_VAR_NAME'
+!* ------------------------ Генератор снятия пирсинга ----------------------- *!
+elseif ARGS[1]=18:
+  $ARGS['PIRS_ICON']='<img width="15" height="auto" src="pic/misc/UI/icons/pirs.png">'
+  if tongue_p[you]>0:
+     $RESULT+='<<$ARGS["PIRS_ICON"]>> Язык: '
+     if tongue_p[you]=1:$RESULT+='Штанга' & ARGS['INDEX']=286
+     $ARGS['REMOVE_BUTTON']='<a class="plain" href="exec:tongue_p[you]=0 & item[<<ARGS[''INDEX'']>>]+=1 & gs(''add_desc_func'', ''Описание'')">Снять</a><br>'
+     $RESULT+=' <<$ARGS["REMOVE_BUTTON"]>>'
+  end
+  if nose_p[you]>0:
+     $RESULT+='<<$ARGS["PIRS_ICON"]>> Нос: '
+     if nose_p[you]=1:$RESULT+='Колечко' & ARGS['INDEX']=287
+     if nose_p[you]=2:$RESULT+='Большое кольцо' & ARGS['INDEX']=288
+     $ARGS['REMOVE_BUTTON']='<a class="plain" href="exec:nose_p[you]=0 & item[<<ARGS[''INDEX'']>>]+=1 & gs(''add_desc_func'', ''Описание'')">Снять</a><br>'
+     $RESULT+=' <<$ARGS["REMOVE_BUTTON"]>>'
+  end
+  if nip_p[you]>0:
+     $RESULT+='<<$ARGS["PIRS_ICON"]>> Соски: '
+     if nip_p[you]=1:$RESULT+='Штанги' & ARGS['INDEX']=289
+     if nip_p[you]=2:$RESULT+='Кольца' & ARGS['INDEX']=290
+     if nip_p[you]=3:$RESULT+='Огромные кольца' & ARGS['INDEX']=291
+     $ARGS['REMOVE_BUTTON']='<a class="plain" href="exec:nip_p[you]=0 & item[<<ARGS[''INDEX'']>>]+=1 & gs(''add_desc_func'', ''Описание'')">Снять</a><br>'
+     $RESULT+=' <<$ARGS["REMOVE_BUTTON"]>>'
+  end
+  if vag_pirs[you]>0 and vag[you]>0:
+     $RESULT+='<<$ARGS["PIRS_ICON"]>> Вагина: '
+     if vag_pirs[you]=1:$RESULT+='Штанга' & ARGS['INDEX']=292
+     if vag_pirs[you]=2:$RESULT+='Колечки' & ARGS['INDEX']=293
+     if vag_pirs[you]=3:$RESULT+='Пирсинг всей промежности' & ARGS['INDEX']=294
+     if vag_pirs[you]=4:$RESULT+='Колокольчик' & ARGS['INDEX']=295
+     $ARGS['REMOVE_BUTTON']='<a class="plain" href="exec:vag_pirs[you]=0 & item[<<ARGS[''INDEX'']>>]+=1 & gs(''add_desc_func'', ''Описание'')">Снять</a><br>'
+     $RESULT+=' <<$ARGS["REMOVE_BUTTON"]>>'
+  end
+!* --------------- Генератор навбара для локации "Список NPC" --------------- *!
+elseif ARGS[1]=19:
+  i=0
+  $LINKS_LIST[] = "Избранное"
+  $LINKS_LIST[] = "Уникальные"
+  $LINKS_LIST[] = "Поиск"
+  $LINKS_LIST[] = "Цель"
+  ARGS['ARRSIZE'] = ARRSIZE('$LINKS_LIST') - 1
+  ARGS['ROW_SIZE'] = 100 / ARRSIZE('$LINKS_LIST')
+  $ARGS['EXIT_BUTTON'] = '<a class="plain" href="exec:gt ''cheat_menu''"><b><font size=+4 color="#ffffff">&#11164;&#11164;&#11164;</font></b></a>'
+  $RESULT = '<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr bgcolor="#202020"><td align="center" width="100"><<$ARGS[''EXIT_BUTTON'']>></td><td align="center"><h3><font color="#ffffff">[ <<UCASE($LINKS_LIST[ARGS[0]])>> ]</font></h3></td><td width="100"></td></tr></table>'
+  $RESULT += '<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><tr>'
+  :draw_links_loop
+  if ARGS[0] = i:
+	$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#202020" align="center"><a class="plain" href="exec:CHEAT_MENU[''GET_NPC_LIST_MODE''] = ''<<i>>'' & gt $curloc"><b><font color="#ffffff">&#11166;[ <<$LINKS_LIST[i]>> ]&#11164;</font></b></a></td>'
+  else
+	$RESULT += '<td width="<<ARGS[''ROW_SIZE'']>>%" bgcolor="#202020" align="center"><a class="plain" href="exec:CHEAT_MENU[''GET_NPC_LIST_MODE''] = ''<<i>>'' & gt $curloc"><font color="#ffffff">[ <<$LINKS_LIST[i]>> ]</font></a></td>'
+  end
+  if i<ARGS['ARRSIZE']:i+=1 & jump'draw_links_loop'
+  $RESULT += '</tr></table>'
+  gs 'util_func','KILLVARS','i','$LINKS_LIST'&!Убиваем все ненужные переменные.
+!* ------------------ Генератор вкладки "Тело" для читменю ------------------ *!
+elseif ARGS[1]=99:
+	ARGS['COUNTER']=0
+	$ARGS['GET_VAR_LIST'] = func("get_var_list", "body")
+	$ARGS['VAR_NAME'] = ''
+	npc_index = 1
+	$nose_desc[1] = "PLACEHOLDER"
+	$RESULT += '<tr bgcolor="#ffffff">'
+	if $ARGS['VAR_NAME'] = '': jump 'string_parser'
+	:main_body_gen_loop
+		if ARGS['COUNTER'] = 4: $RESULT += '</tr>' & ARGS['COUNTER']=0
+		if ARGS['COUNTER'] = 0: $RESULT += '<tr bgcolor="#ffffff">'
+		!dynamic "$TEMP['INDEX_0'] = $BODY_<<$ARGS['VAR_NAME']>>[0]"
+		dynamic "$TEMP['INDEX_1'] = $BODY_<<$ARGS['VAR_NAME']>>[1]"
+		dynamic "$TEMP['INDEX_2'] = $BODY_<<$ARGS['VAR_NAME']>>[2]"
+		dynamic "$TEMP['INDEX_3'] = $BODY_<<$ARGS['VAR_NAME']>>[3]"
+		$var_name = $ARGS['VAR_NAME']
+		dynamic "$current_value = <<$var_name>>[npc_index]"
+		$RESULT +='<td width="25%" align="center"><div><<$TEMP[''INDEX_1'']>>: <b><<$nose_desc[nose[1]]>></b></div><div><a class="plain" href="exec:<<$var_name>>[<<npc_index>>] -= 1 & gt $curloc"><font size=+4 color=red><b>&#8920</b></font></a>  <font size=+4> <<$current_value>> из <<$TEMP[''INDEX_2'']>></font>  <a class="plain" href="exec:<<$var_name>>[<<npc_index>>] += 1 & gt $curloc"><font size=+4 color=green><b>&#8921</b></font></a></div></td>'
+	:string_parser
+		ARGS['MARK'] = 0
+		ARGS['MARK'] = INSTR($ARGS['GET_VAR_LIST'], ",")&!Ищем первую запятую и записываем её индекс. !Если нашли запятую - запускаем процесс.
+		if ARGS['MARK'] ! 0:
+			$ARGS['VAR_NAME'] = $MID($ARGS['GET_VAR_LIST'], 1, ARGS['MARK'])&!Записываем значение до запятой как результат.
+			$ARGS['GET_VAR_LIST'] = $MID($ARGS['GET_VAR_LIST'], ARGS['MARK'] + 1)&!Удаляем значение до запятой из оригинала.
+			$ARGS['VAR_NAME'] = $REPLACE($ARGS['VAR_NAME'], ',', '')& !Удаляем запятую из результата.
+			ARGS['COUNTER']+=1 & jump 'main_body_gen_loop'
+		end
+	if ARGS['COUNTER']>0 and ARGS['COUNTER']<4:$RESULT += '</tr>'
+end

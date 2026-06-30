@@ -1,0 +1,51 @@
+﻿gs'stat'
+spar=1
+$sexpartnertext_man=''&$sexpartnertext_fem=''&$sexpartnertext_shem=''
+:markspar
+if sexpartner_num_f['<<npc>>,<<spar>>']>0:
+	$sexpartnertext_fem+='<br>'
+	numpar=sexpartner_num_f['<<npc>>,<<spar>>']
+	$sexpartnertext_fem+='<<$name[numpar]>> <<$surname[numpar]>>'
+	spar+=1
+	jump'markspar'
+end
+spar=1
+:marksparm
+if sexpartner_num_m['<<npc>>,<<spar>>']>0:
+	$sexpartnertext_man+='<br>'
+	numpar=sexpartner_num_m['<<npc>>,<<spar>>']
+	$sexpartnertext_man+='<<$name[numpar]>> <<$surname[numpar]>>'
+	spar+=1
+	jump'marksparm'
+end
+spar=1
+:markspars
+if sexpartner_num_s['<<npc>>,<<spar>>']>0:
+	$sexpartnertext_shem+='<br>'
+	numpar=sexpartner_num_s['<<npc>>,<<spar>>']
+	$sexpartnertext_shem+='<<$name[numpar]>> <<$surname[numpar]>>'
+	spar+=1
+	jump'markspars'
+end
+if $sexpartnertext_man='' and $sexpartnertext_fem='' and $sexpartnertext_shem='':
+    if girl[npc]=0 and guy[npc]=0 and shemale[npc]=0:
+		'<<$name[npc]>> - Никого не было'
+    else
+		'<<$name[npc]>> - Я всех не помню'
+    end
+else
+     if girl[npc]=1:'<<$name[npc]>> - У меня была <<girl[npc]>> девушка'
+     if girl[npc]>1 and girl[npc]<100:'<<$name[npc]>> - У меня было <<girl[npc]>> <<func("get_word", "девушка", girl[npc])>>.'
+     if girl[npc]>=100:'<<$name[npc]>> - У меня было очень много девушек, я не помню всех'
+     if guy[npc]=1:'<<$name[npc]>> - У меня был <<guy[npc]>> парень'
+     if guy[npc]>1 and guy[npc]<100:'<<$name[npc]>> - У меня было <<guy[npc]>> <<func("get_word", "парень", guy[npc])>>.'
+     if guy[npc]>=100:'<<$name[npc]>> - У меня было очень много парней, я не помню всех'
+     if shemale[npc]=1:'<<$name[npc]>> - У меня была одна членодевка.'
+     if shemale[npc]>1 and shemale[npc]<100:'<<$name[npc]>> - У меня было <<shemale[npc]>> <<func("get_word", "щимейл", shemale[npc])>>.'
+     if shemale[npc]>=100:'<<$name[npc]>> - У меня было очень много шимейлов, я не помню всех.'
+	if $sexpartnertext_man ! '':'<<$sexpartnertext_man>>'
+	if $sexpartnertext_fem ! '':'<<$sexpartnertext_fem>>'
+	if $sexpartnertext_shem ! '':'<<$sexpartnertext_shem>>'
+end
+if $global_npc_log[npc]!'':'<<$global_npc_log[npc]>>'
+act'<b>Уйти</b>':gt 'preloc'

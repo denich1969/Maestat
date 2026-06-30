@@ -1,0 +1,151 @@
+﻿nextdoorgirl[npc]=0&if pol[npc]>0 and sexpartner['<<npc>>,<<you>>']=0 and port_whore[npc]=0 and misstress[npc]=0 and street_whore[npc]=0 and upwhore[npc]=0 and downwhore[npc]=0:nextdoorgirl[npc]=1
+if cum_face[you]>0 or cum_clo[you]>0 or peecover[you]>0 or fishsmell[you]>0:gt'smelllikeshit'
+if l_slot[you]=0:
+	tempslot=t_slot[you]
+     if t_slot[you]>0 and long_t[tempslot]>0:
+     else
+		gt'nudereact'
+     end
+end
+if boyfriend_num[you]=npc and bf_want_walk[npc]>0:gt'bf_talk'
+if follower[npc]=you and secfoll>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+     if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and threfoll=0:
+         if pol[you]>0 and total_npc_on_loc<=2:
+             act'Устроить групповушку':
+				 gang[firstfoll]+=1&gang[secfoll]+=1
+				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+                 horny[firstfoll]=50&horny[secfoll]=50&pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 '<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'&act'...':gs'drop_follower'&gt'sex'
+            end
+        end
+        if pol[you]=0 and total_npc_on_loc<=2 and vag[firstfoll]>0 and vag[secfoll]>0 and mysubslut[firstfoll]>=1 and mysubslut[secfoll]>=1:
+             act'Устроить групповушку':
+				 gang[firstfoll]+=1&gang[secfoll]+=1
+				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+                 horny[firstfoll]=50&horny[secfoll]=50
+				 pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'
+			     act'...':first=firstfoll&second=secfoll&gs'drop_follower'&gs'sexpower'&gt'ffm'
+             end
+         end
+     end
+     if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and sexpartner['<<threfoll>>,<<you>>']>0:
+         if pol[you]>0 and total_npc_on_loc<=3:
+             act'Устроить групповушку':
+				 gang[firstfoll]+=1&gang[secfoll]+=1&gang[threfoll]+=1
+				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+				 if watch_you_slut['<<threfoll>>,<<you>>']=0:watch_you_slut['<<threfoll>>,<<you>>']=1
+                 horny[firstfoll]=50&horny[secfoll]=50&horny[threfoll]=50&pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 '<<$name[firstfoll]>>, <<$name[secfoll]>> и <<$name[threfoll]>> переглядываются и соглашаются на групповуху.'&act'...':gs'drop_follower'&gt'sex'
+             end
+         end
+     end
+end
+if pol[npc]=0:
+     if pol[you]>0:
+         if lust[npc]>=20:
+             if mob_sleep[npc]>time:notplayful[npc]=time+15
+             if notplayful[npc]<time:
+				notplayful[npc]=time+120&lusttalker=0
+				if lust[npc]>=75:
+					 if sexiness[you]>90:
+						lusttalker=10
+					 else
+						 if sexiness[you]<=50:
+							 if extrovert[npc]>=1 and brave[npc]=2:lusttalker=10
+							 if extrovert[npc]>=1 and brave[npc]=1:lusttalker=rand(8,10)
+							 if extrovert[npc]>=1 and brave[npc]=0:lusttalker=rand(6,10)
+							 if extrovert[npc]=0 and brave[npc]=2:lusttalker=rand(8,10)
+							 if extrovert[npc]=0 and brave[npc]=1:lusttalker=rand(4,10)
+							 if extrovert[npc]=0 and brave[npc]=0:lusttalker=rand(0,10)
+						 else
+							 if extrovert[npc]>=1 and brave[npc]=2:lusttalker=10
+							 if extrovert[npc]>=1 and brave[npc]=1:lusttalker=10
+							 if extrovert[npc]>=1 and brave[npc]=0:lusttalker=rand(9,10)
+							 if extrovert[npc]=0 and brave[npc]=2:lusttalker=10
+							 if extrovert[npc]=0 and brave[npc]=1:lusttalker=rand(9,10)
+							 if extrovert[npc]=0 and brave[npc]=0:lusttalker=rand(8,10)
+						 end
+					 end
+				end
+				if lust[npc]<75:
+					 if sexiness[you]=0:lusttalker=rand(0,10)
+					 if sexiness[you]>0 and sexiness[you]<=10:
+						 if extrovert[npc]>=1 and brave[npc]=2:lusttalker=10
+						 if extrovert[npc]>=1 and brave[npc]=1:lusttalker=rand(8,10)
+						 if extrovert[npc]>=1 and brave[npc]=0:lusttalker=rand(6,10)
+						 if extrovert[npc]=0 and brave[npc]=2:lusttalker=rand(8,10)
+						 if extrovert[npc]=0 and brave[npc]=1:lusttalker=rand(4,10)
+						 if extrovert[npc]=0 and brave[npc]=0:lusttalker=rand(0,10)
+					 end
+					 if sexiness[you]>10 and sexiness[you]<=50:
+						 if extrovert[npc]>=1 and brave[npc]=2:lusttalker=10
+						 if extrovert[npc]>=1 and brave[npc]=1:lusttalker=rand(9,10)
+						 if extrovert[npc]>=1 and brave[npc]=0:lusttalker=rand(8,10)
+						 if extrovert[npc]=0 and brave[npc]=2:lusttalker=rand(8,10)
+						 if extrovert[npc]=0 and brave[npc]=1:lusttalker=rand(7,10)
+						 if extrovert[npc]=0 and brave[npc]=0:lusttalker=rand(6,10)
+					 end
+					 if sexiness[you]>50 and sexiness[you]<=90:
+						 if extrovert[npc]>=1 and brave[npc]=2:lusttalker=10
+						 if extrovert[npc]>=1 and brave[npc]=1:lusttalker=10
+						 if extrovert[npc]>=1 and brave[npc]=0:lusttalker=rand(9,10)
+						 if extrovert[npc]=0 and brave[npc]=2:lusttalker=10
+						 if extrovert[npc]=0 and brave[npc]=1:lusttalker=rand(9,10)
+						 if extrovert[npc]=0 and brave[npc]=0:lusttalker=rand(8,10)
+					 end
+					 if sexiness[you]>90:lusttalker=10
+				end
+				 if spyson=npc and vag[you]>0 and ex_boyfriend[npc]=0 and boyfriend_num[you]=0:lusttalker=10
+				 if doctor=npc and IamMilfQW>=1:lusttalker=0
+				 if addboss=npc:lusttalker=0
+				 if addkiller=npc:lusttalker=0
+				 if borisbogart=npc:lusttalker=0
+				 if frank_visconti=npc:lusttalker=0
+				 if father[npc]=you:lusttalker=0
+				 if mother[npc]=you:lusttalker=0
+				 if brother[npc]=you:lusttalker=0
+				 if tommysolomon=npc:lusttalker=0
+				 if harrysolomon=npc:lusttalker=0
+				 if dicksolomon=npc:lusttalker=0
+				 if blackwood=npc and work[you]=25:lusttalker=0
+				 if gilman=npc and work[you]=25:lusttalker=0
+                 if lusttalker>=10 and whore[you]=0 and empty_ball[npc]<time:gt'lust_talk'
+             end
+         end
+     end
+end
+if pol[npc]>0 and dick[you]>0 and l_slot[you]=0 and (t_slot[you]=70 or t_slot[you]=91 or t_slot[you]=69 or t_slot[you]=67 or t_slot[you]=66 or t_slot[you]=65) and horny[you]>=50:
+	act'Ку-Ку!':
+		 cls&gs'stat'
+		 if skin[you]<4:
+			gs 'dick_fig','you'&!Изображения члена в зависимости от размеров
+		 else
+			'<center><video src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
+		 end
+		'Вы распахиваете свой плащ и показываете свой стоячий член'
+	     if lust[npc]>=75:
+	         if agro[npc]<70:
+				 if dick[you]>=20:
+					'<<$name[npc]>> краснеет - какой красавец'
+					 if total_npc_on_loc>1 and whore[npc]=0:
+						 act'Хочешь потрогать?':
+							 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> оглядывается - Дурак что ли?'&act'...':gt'preloc'
+						 end
+					 else
+						 act'Хочешь потрогать?':gs'drop_follower'&gs'sexpower'&gt'justsex'&friends[npc]+=1&!corr[npc]-=10
+					 end
+				 else
+					'<<$name[npc]>> смотрит на вас строго - тебе на свой отросток нужно одеть клетку и держать его в штанах'
+				 end
+	         else
+				'<<$name[npc]>> хихикает - какой милый крохотулька!'
+	         end
+	     else
+			'<<$name[npc]>> ругается - чертов извращенец!'
+	     end
+		act'...':gt'preloc'
+	 end
+end

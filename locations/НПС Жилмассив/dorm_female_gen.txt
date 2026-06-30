@@ -1,0 +1,77 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&iradav=i
+lvl[i]=1&soul[i]=100&work[i]=100&klass_A+=1&klass[i]=1
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=1&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=133&!эмили браунинг
+$name[i]='Ирина'&$surname[i]='Давыдкина'&$nick[i]='Формастая девушка'&$title[i]=''&$history[i]='Мы попали в жилмассив из порта, нам помогло Агентство Добрых Дел. Они такие добрые.'
+face[i]=100&gla[i]=0&glacol[i]=1&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=1
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=0&ass[i]=40&nip[i]=40&tits[i]=18
+rost[i]=170&fat[i]=1800&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=1
+age[i]=18&vital[i]=80&will[i]=50&reflex[i]=80
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=40&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=0&brave[i]=0&lust[i]=20&!характер
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=60&l_slot[i]=23&b_slot[i]=9
+ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
+e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&albinabar=i
+lvl[i]=1&soul[i]=100&work[i]=100&klass_A+=1&klass[i]=1
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=3&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=134
+$title[i]=''&$history[i]='В порту мы едва выжили, но нам помогли люди из агенства пройти сквозь барьер, уж не знаю зачем им это надо.'
+$name[i]='Альбина'&$surname[i]='Барловская'&$nick[i]='Яркая блондинка'
+face[i]=100&gla[i]=3&glacol[i]=2&nose[i]=2&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=0&ass[i]=35&nip[i]=40&tits[i]=16
+rost[i]=175&fat[i]=800&mus[i]=1000&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=3
+age[i]=18&vital[i]=80&will[i]=50&reflex[i]=80
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=0&brave[i]=1&lust[i]=100&!характер
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=99&l_slot[i]=0&b_slot[i]=30
+ut_slot[i]=3&ul_slot[i]=7&ub_slot[i]=4
+e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&nadia=i
+lvl[i]=1&soul[i]=100&work[i]=100&klass_A+=1&klass[i]=1
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=1&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=135
+$name[i]='Надежда'&$surname[i]='Суслова'&$nick[i]='Светлокожая брюнетка'&$title[i]=''&$history[i]='Надеюсь мне удастся обзавестись собственным жильем, а не всю жизнь торчать в общаге.'
+face[i]=100&gla[i]=3&glacol[i]=2&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=0&ass[i]=36&nip[i]=40&tits[i]=12
+rost[i]=168&fat[i]=1200&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=0
+age[i]=18&vital[i]=80&will[i]=50&reflex[i]=80
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=2&lust[i]=10&!характер
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=93&l_slot[i]=83&b_slot[i]=16
+ut_slot[i]=3&ul_slot[i]=7&ub_slot[i]=0
+e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&redgirl=i
+lvl[i]=1&soul[i]=100&work[i]=100&klass_A+=1&klass[i]=1
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=1&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=136
+$title[i]=''&$history[i]='Общага абсолютно бесплатная и там может поселиться любой. Это с одной стороны хорошо, бери и селись ничего не тратя, а с другой стороны, общага это проходной двор.'
+$name[i]='Алена'&$surname[i]='Маслова'&$nick[i]='Рыжая красавица'
+face[i]=100&gla[i]=3&glacol[i]=2&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=0&ass[i]=36&nip[i]=40&tits[i]=12
+rost[i]=172&fat[i]=1400&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=2
+age[i]=18&vital[i]=80&will[i]=50&reflex[i]=80
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=10&selfrespect[i]=1&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=1&lust[i]=100&!характер
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=46&l_slot[i]=0&b_slot[i]=12
+ut_slot[i]=3&ul_slot[i]=7&ub_slot[i]=0
+e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

@@ -1,0 +1,31 @@
+﻿if $args[2]='before':
+	args[20]=arrsize('replic_suck_default_before')&!реплики по умолчанию
+	if GF_whore>3:args[20]+=arrsize('replic_suck_kargan_before')
+	if whore=1:args[20]+=arrsize('replic_suck_whore_before')
+	args[21]=rand(args[20]-1)&if args[21]<arrsize('replic_suck_default_before'):dynamic $replic_suck_default_before[args[21]],args[0],args[1]&exit
+	args[21]-=arrsize('replic_suck_default_before')
+	if GF_whore>3:
+		if args[21]<arrsize('replic_suck_kargan_before'):dynamic $replic_suck_kargan_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_suck_kargan_before')
+	end
+	if whore=1:
+		if args[21]<arrsize('replic_suck_whore_before'):dynamic $replic_suck_whore_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_suck_whore_before')
+	end
+end
+if $args[2]='cum':
+	args[20]=arrsize('replic_suck_default_cum')&!реплики по умолчанию
+	if GF_whore>3:args[20]+=arrsize('replic_suck_kargan_cum')
+	if whore=1:args[20]+=arrsize('replic_suck_whore_cum')
+	args[21]=rand(args[20]-1)&if args[21]<arrsize('replic_suck_default_before'):dynamic $replic_suck_default_before[args[21]],args[0],args[1]&exit
+	args[21]-=arrsize('replic_suck_default_before')
+	if GF_whore>3:
+		if args[21]<arrsize('replic_suck_kargan_before'):dynamic $replic_suck_kargan_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_suck_kargan_before')
+	end
+	if whore=1:
+		if args[21]<arrsize('replic_suck_whore_before'):dynamic $replic_suck_whore_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_suck_whore_before')
+	end	
+end
+if $args[2]='after':$result = $replic_suck_after_kargan[rand(arrsize('replic_suck_after_kargan')-1)]

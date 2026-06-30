@@ -1,0 +1,20 @@
+﻿gs'stat'&gs'mirror_view'&'<<$opis[you]>>'
+if spec_face_pic[you]!7:act'Переключить на другую внешность (1)':spec_face_pic[you]=7&gt $curloc
+if spec_face_pic[you]!8:act'Переключить на другую внешность (2)':spec_face_pic[you]=8&gt $curloc
+if spec_face_pic[you]!9:act'Переключить на другую внешность (3)':spec_face_pic[you]=9&gt $curloc
+if spec_face_pic[you]!10:act'Переключить на другую внешность (4)':spec_face_pic[you]=10&gt $curloc&!emily rudd
+if spec_face_pic[you]!11:act'Переключить на другую внешность (5)':spec_face_pic[you]=11&gt $curloc
+if bodytipe!0:act'Стройное тело':bodytipe=0&fat[you]=1000&mus[you]=600&gt $curloc
+if bodytipe!1:act'Спортивное тело':bodytipe=1&fat[you]=1000&mus[you]=1200&gt $curloc
+if bodytipe!2:act'Пухлое тело':bodytipe=2&fat[you]=2300&mus[you]=800&gt $curloc
+if tits[you]!12:act'Грудь 1го размера':tits[you]=12&gt $curloc
+if tits[you]!16:act'Грудь 2го размера':tits[you]=16&gt $curloc
+if tits[you]!18:act'Грудь 3го размера':tits[you]=18&gt $curloc
+if ass[you]!28:act'Стандартная попа':ass[you]=28&gt $curloc
+if ass[you]!35:act'Крупная попа':ass[you]=35&gt $curloc
+if ass[you]!42:act'Большая попа':ass[you]=42&gt $curloc
+if hcol[you]!0:act'Черные волосы':hcol[you]=0&gt $curloc
+if hcol[you]!1:act'Русые волосы':hcol[you]=1&gt $curloc
+if hcol[you]!2:act'Рыжие волосы':hcol[you]=2&gt $curloc
+if hcol[you]!3:act'Светлые волосы':hcol[you]=3&gt $curloc
+act'<b>НАЧАТЬ</b>':SHOWSTAT 1&SHOWOBJS 1&health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]&gt'preloc'

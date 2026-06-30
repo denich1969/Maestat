@@ -1,0 +1,36 @@
+﻿H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №1'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'dj_gen'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'djgirl'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №2'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №3'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №4'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №5'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета

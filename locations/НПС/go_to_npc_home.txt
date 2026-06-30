@@ -1,0 +1,4 @@
+﻿X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+'<<$name[npc]>> взяв вас под ручку провожает к своему дому и войдя в комнату начинает вас обнимать'&gs'bonusforsex'&act'Обниматься':gt'sex'

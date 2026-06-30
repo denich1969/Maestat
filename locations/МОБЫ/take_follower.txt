@@ -1,0 +1,35 @@
+﻿!позвать с собой персонажа&здесь надо вставить набор фраз: идём, побежали, за мной, вперёд и т. п. в зависимости от характристик персонажей (доминантность, дружба, возбуждение и т.д.) и других условий
+if $args[0]='':
+	rands=rand(1,4)
+	if horny[npc]>=50: 
+		$invitation='<b>Идём!</b>' 
+	elseif rands=1:
+		$invitation='<b>Следуй за мной</b>' 
+	elseif rands=2:
+		$invitation='<b>Иди за мной</b>'
+	elseif rands=3:
+		$invitation='<b>Прогуляемся?</b>'
+	elseif rands=4:
+		$invitation='<b>Давай прогуляемся</b>'
+	end
+end
+if $args[0]='Lebeda':TargetLebeda=1&$invitation='<b>Давай!</b>' 
+if $args[0]='раб':$invitation='<b>Иди за мной!</b>' 
+if follower[you]<=10 and npc ! you:
+	act $invitation:
+		cls&!probegfoll_a=1
+		if firstfoll=0 and follower[npc]=0:
+			sex_follow[you]=npc&firstfoll=npc&follower[npc]=you&follower[you]=npc&!probegfoll_b=1
+		elseif secfoll=0 and follower[npc]=0:
+			sex_follow[you]=npc&secfoll=npc&follower[npc]=you&follower[you]=npc&!probegfoll_c=1
+		elseif threfoll=0 and follower[npc]=0:
+			sex_follow[you]=npc&threfoll=npc&follower[npc]=you&follower[you]=npc&!probegfoll_d=1
+		elseif follower[npc]=0:
+			follower[npc]=you&follower[you]=npc
+		else
+			'Извини я гуляю с  <<follower[npc]>>'
+		end
+		gt 'preloc'
+	end
+end
+gs 'stat'

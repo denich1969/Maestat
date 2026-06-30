@@ -1,0 +1,74 @@
+﻿H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №1'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'
+$locopis['<<$temploc>>']='Современный светлый дом с качественной мебелью.'
+np['<<$temploc>>']=87
+mirror['<<$temploc>>']=1
+gs'brokk_man'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'brokk_woman'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №2'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Современный светлый дом с качественной мебелью.'
+np['<<$temploc>>']=87
+mirror['<<$temploc>>']=1
+gs'mabuta_man'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'mabutaslaves_gen'
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №3'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'pele_gen'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №4'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'merlin_man'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №5'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Ветхое жилье.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'twardovski_gen'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №6'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Удивительное дело, но вместо комнаты в доме поляна с самым настоящим небом, травой, деревьями и единорогом в центре всего этого. Воздух пропитан сладковатым дурманящим ароматом.'
+np['<<$temploc>>']=252
+mirror['<<$temploc>>']=1&unicorn['<<$temploc>>']=1
+gs'elfmag_gen'
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=7&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №7'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Современный светлый дом с качественной мебелью.'
+np['<<$temploc>>']=251
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=8&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №8'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Современный светлый дом с качественной мебелью.'
+np['<<$temploc>>']=251
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=9&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №9'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'&$locopis['<<$temploc>>']='Современный светлый дом с качественной мебелью.'
+np['<<$temploc>>']=251
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=10&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом №10'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1
+!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'
+$locopis['<<$temploc>>']='Современный светлый дом с качественной мебелью.'
+np['<<$temploc>>']=251
+mirror['<<$temploc>>']=1
+gs'peoplegen'&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета

@@ -1,0 +1,179 @@
+﻿killvar('replic_suck_kargan_before')
+$replic_suck_kargan_before[]= {
+	if all_in_oral[args[1]]>1000:
+		'<i><<$name[args[0]]>> - Cосешь как умелая шлюха!</i>'&agro[args[1]]-=rand(1)	
+	else
+		'<i><<$name[args[0]]>> - Сосешь еще не очень умело, почаще забегай на практику, шлюха</i>'&agro[args[1]]-=rand(1)
+	end}
+$replic_suck_kargan_before[]= {
+	if all_in_oral[args[1]]>1000:
+		'<i><<$name[args[0]]>> - Ты реализовала свой потенциал шлюха!</i>'&agro[args[1]]-=rand(1)	
+	else
+		'<i><<$name[args[0]]>> - Тебе еще нужно практиковаться в этом, мое учебное пособие к твоим услугам крошка</i>'&agro[args[1]]-=rand(1)
+	end}
+killvar('replic_suck_kargan_cumslut')
+$replic_suck_kargan_cumslut[]= {'<i><<$name[args[0]]>> - Уже кончаешь от моего хуя? молодец шлюха!</i>'&agro[args[1]]-=rand(1)}
+$replic_suck_kargan_cumslut[]= {'<i><<$name[args[0]]>> - Вижу тебе очень нравиться мой хуй!</i>'&agro[args[1]]-=rand(1)}
+!replic_face
+killvar('replic_face_kargan_cumslut')
+$replic_face_kargan_cumslut[]= {
+	if cumslut[args[1]]<10:'<i><<$name[args[0]]>> - Скоро ты полюбишь это всей душой детка </i>'
+	if cumslut[args[1]]>=10:'<i><<$name[args[0]]>> - Смотрю тебе уже нравиться крепкие члены шлюха? </i>'
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}
+$replic_face_kargan_cumslut[]= {'<i><<$name[args[0]]>> - Скоро ты полюбишь это всей душой детка </i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}
+killvar('replic_face_kargan_cum1')
+$replic_face_kargan_cum1[]= {
+	if cumslut[args[1]]<50:'<i><<$name[args[0]]>> - Я сделаю тебя настоящей охотнице на члены! </i>'
+	if cumslut[args[1]]>=50:'<i><<$name[args[0]]>> - Балдеешь когда тебя покрывают кончей шлюха? </i>'
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10}
+!replic_mouth
+killvar('replic_mouth_kargan_cumslut')
+$replic_mouth_kargan_cumslut[]= {
+	if cumslut[args[1]]<10:'<i><<$name[args[0]]>> - Кушай дорогуша, кормить людей моя работа </i>'
+	if cumslut[args[1]]>=10:'<i><<$name[args[0]]>> - Смотри не поперхнись шлюха! </i>'
+	agro[args[1]]-=rand(1)
+	if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10+cumslut}
+$replic_mouth_kargan_cumslut[]= {'<i><<$name[args[0]]>> - Вот и бесплатный обед! </i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10+cumslut}
+$replic_mouth_kargan_cumslut[]= {
+	if clothe_sexy_point[args[1]]>25:
+		'<i><<$name[args[0]]>> - Как одеваешься, так тебя и кормить будут! </i>'
+	else
+		'<i><<$name[args[0]]>> - В следующий раз надень шмотки, что я тебе дал, будет бонус! </i>'
+	end
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10+cumslut}
+killvar('replic_mouth_kargan_cum1')
+$replic_mouth_kargan_cum1[]= {
+	if cumslut[args[1]]<50:'<i><<$name[args[0]]>> - Нравиться моя конча шлюха? </i>'
+	if cumslut[args[1]]>=50:'<i><<$name[args[0]]>> - Кушай, твое любимое блюдо подано! </i>'
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10+cumslut}
+$replic_mouth_kargan_cum1[]= {
+	if clothe_sexy_point[args[1]]>25:
+		'<i><<$name[args[0]]>> - К твоему наряду конча, на твоей похатливой морде, просто неотемлемый атрибут! </i>'
+	else
+		'<i><<$name[args[0]]>> - Жаль, что ты так и не надела те шмотки, с кончей на лице смотрелось бы очень горманично! </i>'
+	end
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10+cumslut}
+!"$replic_mouth_kargan_cum1[]= {
+	if sexy_point[args[1]]>12:
+		'<i><<$name[args[0]]>> - Вот теперь красотка, ты выглядишь как настоящая шлюха! </i>'
+	else
+		'<i><<$name[args[0]]>> - Эх, была бы ты по сексуальнее, с кончей смотрелась бы превосходно! </i>'
+	end
+	agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10+cumslut}"
+
+!replic_kargan_bar
+killvar('replic_suck_kargan_bar_before')&$replic_suck_kargan_bar_before[]= {"<<$name[args[0]]>> стоит за стойкой временами проталкивая тазом свой хуй по глубже вам в рот"}
+$replic_suck_kargan_bar_before[]= {"<<$name[args[0]]>> облокотился на стойку и наслождаеться вашей работой"}
+$replic_suck_kargan_bar_before[]= {"<<$name[args[0]]>> обслуживает какого-то клиента"}
+killvar('replic_suck_kargan_bar_cumslut')&$replic_suck_kargan_bar_cumslut[]= {"<<$name[args[0]]>> , довольно мычит стреляя спермой вам в рот"}
+killvar('replic_suck_kargan_bar_cumslut')&$replic_suck_kargan_bar_cumslut[]= {"<<$name[args[0]]>> Щелкает языком и продолжает заниматься своими делами"}
+killvar('replic_throat_kargan_bar_before')&$replic_throat_kargan_bar_before[]= {"<<$name[args[0]]>> Протерает стаканы"}
+killvar('replic_throat_kargan_bar_cumslut')&$replic_throat_kargan_bar_cumslut[]= {"<<$name[args[0]]>> Насвистывает мелодию"}
+killvar('replic_hold_kargan_bar_before')&$replic_hold_kargan_bar_before[]= {"<<$name[args[0]]>> Протерает стаканы"}
+killvar('replic_hold_kargan_bar_cumslut')&$replic_hold_kargan_bar_cumslut[]= {"<<$name[args[0]]>> Насвистывает мелодию"}
+killvar('replic_mouth_kargan_bar_before')&$replic_mouth_kargan_bar_before[]= {"<<$name[args[0]]>> Протерает стаканы"}
+killvar('replic_mouth_kargan_bar_cumslut')&$replic_mouth_kargan_bar_cumslut[]= {"<<$name[args[0]]>> Насвистывает мелодию"}
+killvar('replic_bj_kargan_event_belinda_before')
+$replic_bj_kargan_event_belinda_before[]= {
+	if event_kargan_bar['belinda']=0:
+		"<i>(<<$name[belinda]>>) - Привет, пап. Не видел <<$name[you]>>? я видела она заходила, но только отвернулась и ее нет...</i>"&event_kargan_bar['belinda']+=1
+		if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=1:
+		"<i>(<<$name[traktirman]>>) - Ох.. она сейчас немного не доступна... для тебя</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=2:
+		"<i>(<<$name[belinda]>>) - Что ты имеешь ввиду?</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=3:
+		"<i> (<<$name[traktirman]>>)- Ну она же охотница! И прямо сейчас она выполняет свои обязанности охотници</i>"&event_kargan_bar['belinda']+=1
+		if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=4:
+		"<i>(<<$name[belinda]>>) - Она, что ушла в лес охотиться?</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=5:
+		"<i>(<<$name[traktirman]>>) - Да, она нашла здоровенного монстра и сейчас пытается его укротить!</i>"&event_kargan_bar['belinda']+=1
+		if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=6:
+		"<i>(<<$name[belinda]>>) - Блин, а я хотела с ней поболтать, думала она раскажет мне захватывающую историю, о том как она за демонами охотиться, здесь так скучно!</i>"
+		event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=7:
+		"<i>(<<$name[traktirman]>>) - Ничего дорогая! она скоро вернеться!</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=8:
+		"<i>(<<$name[belinda]>>) - Ладно, тогда давай!</i>"&event_kargan_bar['belinda']+=1&event_kargan_bar['event']=0&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/10&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=20:
+		"<i>(<<$name[traktirman]>>) - Ну я не говорил, что <<$name[you]>> монстра укрощает?</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		you_slut[belinda]+=1&exit
+	end
+	if event_kargan_bar['belinda']=21:
+		"<i>(<<$name[belinda]>>) - Хочешь сказать что <<$name[you]>> у тебя там хуй сосет?</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=22:
+		"<i>(<<$name[traktirman]>>) - Ох и делает она это как настоящая охотница на члены!</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=23:"<b>Вы слышите звук быстро удаляющихся шагов</b>"&event_kargan_bar['event']=0&exit
+}
+killvar('replic_bj_kargan_event_belinda_cum')
+$replic_bj_kargan_event_belinda_cum[]= {
+	if event_kargan_bar['belinda']<20:
+		"<i>(<<$name[belinda]>>)- Что это за звук? У тебя там что опять какая-то шлюха хуй сосет?</i>"&event_kargan_bar['belinda']=20&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']>20:
+		"<i>(<<$name[belinda]>>)- Опять кончила...</i>"&*nl"<i>(<<$name[traktirman]>>)- Да... Эта шлюха обажает мой хуй!</i>"&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end}
+killvar('replic_bj_kargan_event_belinda_know_before')
+$replic_bj_kargan_event_belinda_know_before[]= {
+	if event_kargan_bar['belinda']=0:
+		"<i>(<<$name[belinda]>>) - Привет, пап. Не видел <<$name[you]>>? я видела она заходила, но только отвернулась и ее нет...</i>"&event_kargan_bar['belinda']+=1
+		if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=1:
+		"<i>(<<$name[traktirman]>>) - Она занята делом</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=2:
+		"<i>(<<$name[belinda]>>) - Она у тебя за стойкой?</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=3:
+		"<i>(<<$name[traktirman]>>) - Ну да, какие у нее еще дела могут быть?</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=4:
+		"<i>(<<$name[belinda]>>) - Ну она же вроде как охотница...</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=5:
+		"<i>(<<$name[traktirman]>>) - Ага, охотница на члены!</i>"&event_kargan_bar['belinda']+=1&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end
+	if event_kargan_bar['belinda']=6:
+		"<i>(<<$name[belinda]>>) - Да ну тебя!</i>"&event_kargan_bar['belinda']+=1&event_kargan_bar['event']=0&if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)
+		exit
+	end}
+killvar('replic_bj_kargan_event_belinda_know_cum')
+$replic_bj_kargan_event_belinda_know_cum[]= {"<i>(<<$name[belinda]>>) - Она там опять кончила?</i>"&*nl"<i>(<<$name[traktirman]>>) - Дааа, эта профессионалка обажает глотать хуй!</i>"
+	if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)}
+$replic_bj_kargan_event_belinda_know_cum[]= {"<i>(<<$name[belinda]>>) - Хмм...</i>"&*nl"<i>(<<$name[traktirman]>>) - Ох... эта шлюха опять кончила!</i>"
+	if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)}
+$replic_bj_kargan_event_belinda_know_cum[]= {"<i>(<<$name[belinda]>>) - Что за звук?</i>"&*nl"<i>(<<$name[traktirman]>>) - Ох... эта шлюха опять кончила!</i>"
+	if lust[you]>50:none_horny[2]+=(lust[args[1]]-50)/5&agro[args[1]]-=rand(1)}

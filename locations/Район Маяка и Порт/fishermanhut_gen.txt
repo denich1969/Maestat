@@ -1,0 +1,8 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Лачуга Рыбака'&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Лачуга'&$lname['<<$temploc>>']='Лачуга'&$lname_go['<<$temploc>>']='в лачугу'
+$locopis['<<$temploc>>']='Тесная лачуга со снастями для рыбалки'
+np['<<$temploc>>']=63
+mirror['<<$temploc>>']=0
+gs'fisher'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R

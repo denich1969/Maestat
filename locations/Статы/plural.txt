@@ -1,0 +1,16 @@
+﻿! Согласование с числом одной из форм существительного.
+! args[0] - число
+! $args[1] - единственное число, например 1, 21 минута
+! $args[2] - родит. падеж ед. числа, н., 2, 3, 4 минуты
+! $args[3] - родит. падеж мн. числа, н., 5...20  минут
+set args['rem']=args[0] mod 100
+$result = $args[3]
+if args['rem']>10 and args['rem']<20: exit
+set args['rem'] = args['rem'] mod 10
+if args['rem'] = 1:
+	$result =  $args[1]
+elseif args['rem'] >= 2 and args['rem']<=4:
+	$result =  $args[2]
+end
+!plural
+!pl'Время <B><<hour>></B> '+$func('plural',hour,'час','часа','часов')+' <B><<$nilmin>><<minut>></B> '+$func('plural',minut,'минута','минуты','минут')

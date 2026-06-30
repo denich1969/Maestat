@@ -1,0 +1,44 @@
+﻿!rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+     if hour>=22 or hour<=6:
+		 !спит дома
+	else
+		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			in_home[w]=2
+			if healedWK=0:
+				temphealed+=1
+				if temphealed>=10:
+					healedWK=1
+					h_slot[whiteknight]=2
+					c_slot[whiteknight]=3&tz_slot[whiteknight]=0&tg_slot[whiteknight]=2
+					t_slot[whiteknight]=8&l_slot[whiteknight]=7&b_slot[whiteknight]=8
+					ut_slot[whiteknight]=0&ul_slot[whiteknight]=3&ub_slot[whiteknight]=0
+				end
+				$doing[w]='сидит возле раненного'&!$loc[w]='home_3'
+			else
+				if hour>=7 and hour<=22:
+					if hour=7 or hour=12 or hour=16:
+						mechdo=0
+						if foodfish>0 and egg>0:mechdo=rand(1)
+						if foodfish=0 and egg>0:mechdo=1
+						if foodfish>0 and egg=0:mechdo=0
+						if foodfish=0 and egg=0:mechdo=2
+						if mechdo=0:hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&!$loc[w]='home_1'
+						if mechdo=1:hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&!$loc[w]='home_1'
+						if mechdo=2:$doing[w]='пьет воду'&!$loc[w]='home_1'
+					else
+						$doing[w]='читает книги'&!$loc[w]='home_6'
+					end
+				else
+					$doing[w]='спит на кровати'&!$loc[w]='home_5'
+				end
+			end
+		else
+			$doing[w]='спит на кровати'&!$loc[w]='xxx'
+		end
+	end
+end

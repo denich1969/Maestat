@@ -1,0 +1,26 @@
+﻿seelok=0&$buildingsList = ""&!в коридоре, поиск комнат&!"<p>Вы можете войти в: "
+if maxPositionR['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']>0:
+	i=1
+	:areaHouseHLoop
+     $buildingsList += "<br>"
+     if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+         if lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<i>>']=0 or lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<i>>']>0 and key['<<you>>,<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<i>>']>0:
+			$buildingsList += "<a href='exec:  gt""moveToR"", <<i>>'> <<$locnameR['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<i>>']>></a>"	
+         else
+			$buildingsList += " <<$locnameR['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<i>>']>> (Заперто)"	
+         end
+     end
+     if (pose[you]!1 and CONFIG['DISABLE_position']=0) or (energy[you]<1 and CONFIG['DISABLE_position']=1):$buildingsList += " <<$locnameR['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<i>>']>>"				
+	i+=1&if i <= maxPositionR['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']: jump 'areaHouseHLoop'
+	$buildingsList&*pl''
+end
+!' act'<b>Уйти</b>':time+=1&H[you]=0&R[you]=0&gt 'world'
+if livingloc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1 and ownerloc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=0 and you_own[you]=0:
+ 	act'Поселиться':
+		 time+=1
+		 homeX[you]=X[you]&homeY[you]=Y[you]&homeZ[you]=Z[you]&homeH[you]=H[you]
+		 ownerloc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=you
+		 you_own[you]+=1
+		 gt 'world'
+	end
+end	 '

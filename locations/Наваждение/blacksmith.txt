@@ -1,0 +1,38 @@
+﻿gs'stat'&*pl 'Стойка кузни'
+gs'Item'
+gs 'npconloc'
+act'Уйти':gt 'preloc'
+*nl 'Топор 100 урон - 1000 гульденов'
+'Меч 120 урон - 1200 гульденов'
+'Рапира 120 урон - 1200 гульденов'
+'Сабля 120 урон - 1200 гульденов'
+'Катана 150 урон - 2000 гульденов'
+'Молот 150 урон - 2000 гульденов'
+'Кираса 100 защиты 10 сексуальности - 2000 гульденов'
+if gulden[you]>=100000:
+	 act'Топор 1000':
+		 gulden[you]-=100000&item[40]+=1&burden[you]+=item_burden[40]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if gulden[you]>=120000:
+	 act'Меч 1200':
+		 gulden[you]-=120000&item[41]+=1&burden[you]+=item_burden[41]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Рапира 1200':
+		 gulden[you]-=120000&item[42]+=1&burden[you]+=item_burden[42]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Сабля 1200':
+		 gulden[you]-=120000&item[43]+=1&burden[you]+=item_burden[43]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if gulden[you]>=200000:
+	 act'Катана 2000':
+		 gulden[you]-=200000&item[44]+=1&burden[you]+=item_burden[44]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Молот 2000':
+		 gulden[you]-=200000&item[45]+=1&burden[you]+=item_burden[45]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Кираса 2000':
+		 gulden[you]-=200000&takeitem=25&burden[you]+=item_t_burden[takeitem]&item_t[takeitem]+=1&cls&gs'stat'&'Вы заплатили деньги и купили кирасу'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end

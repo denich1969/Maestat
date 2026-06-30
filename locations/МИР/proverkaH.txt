@@ -1,0 +1,4 @@
+﻿i=1&npcmax=arrsize('$name')
+:marknpclocprov&!Начало цикла
+if i!you and dead[i]=0 and X[you]=X[i] and D[you]=D[i] and H[you]=H[i]:gosty[i]=1&gt'gonpc',i
+i+=1&if i<=npcmax:jump'marknpclocprov'&!конец цикла

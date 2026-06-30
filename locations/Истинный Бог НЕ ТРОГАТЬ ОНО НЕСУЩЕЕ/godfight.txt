@@ -1,0 +1,9 @@
+﻿'<center><img src="pic/godoutofendless/trueform2.png" ></center>'&'Ты стоишь перед противником воплощённый в свою истинную форму. '
+'Перед его взором предстаёт антропоморфное сущство напоминающие рыцаря объятого чёрной пеленой. '
+'Вокруг него в причудливых узорах то возникают, то исчезают галактики, звёзды, чёрные дыры, само время и сам свет. Это единственный образ доступный его восприятию'
+godform=1&action_god[godform]=0&gs'stat'&action_god[godform]=1
+act'Удар Чёрным Клинком':gt'godfightaction'
+act'Уничтожитель':action_god[godform]=2&gt'godfightaction'
+act'Истощитель':action_god[godform]=3&gt'godfightaction'
+act'За пределами пустоты':action_god[godform]=4&gt'godfightaction'
+act'Выйти из воплощения оставив лишь защиту':action_god[godform]=5&gt'godfightaction'

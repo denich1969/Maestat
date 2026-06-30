@@ -1,0 +1,11 @@
+﻿if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'
+	 if mob_busy[w]>0:mob_sleep[w]=time+60&mob_busy[w]=0
+else
+     if hour>=22 or hour<=6:
+		$doing[w]='Спит'
+	else
+		$loc[w]='<<Xhome[mark]>>,<<Yhome[mark]>>,<<Zhome[mark]>>,<<Hhome[mark]>>,<<Rhome[mark]>>'
+		$doing[w]='Смотрит на вас'
+	end
+end

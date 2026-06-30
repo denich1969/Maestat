@@ -1,0 +1,12 @@
+﻿$loc[you]=$curloc
+gs'stat'
+gs'color'
+loc_for_drop=0
+'<b><center>Двор</center></b>'&'<center><img src="pic/loc/app/street.jpg" ></center>'&'Двор многоэтажек похож на дно колодца и лишь где то в вышине виден рваный клочок грязного неба.'
+'На стоянке стоит <a href="exec:time+=1&gt ''car_street''">ваша машина</a>'
+act'В подъезд':time+=1&energy[you]-=1&gt 'podezd'
+!act'маяк тест':gt'home_9'
+!gs'sleep'&!gs'sport'
+gs'npconloc'&gs'item'
+if mainQW=5:gt'lillithmeet'
+act'Гулять пол часа':cls&time+=30&gs $curloc

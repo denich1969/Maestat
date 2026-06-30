@@ -1,0 +1,72 @@
+﻿gs'stat'&!door = args[0]
+'Дверь закрыта'&$locH=$loc[you]
+act'<b>Уйти</b>':$locH=''&gt 'preloc'
+if master[you]>0:
+     act'Пройти сквозь дверь':cls&H[you]=args[0]&gt'preloc'
+else
+	if StealQW<6:
+		'Вы не умеете взламывать замки'
+	else
+		act 'Взломать замок':
+			if expSteal[you]>=16:lvlSteal[you]=1
+			if expSteal[you]>=32:lvltSteal[you]=2
+			if expSteal[you]>=64:lvlSteal[you]=3
+			if expSteal[you]>=128:lvlSteal[you]=4
+			if expSteal[you]>=256:lvlSteal[you]=5
+			if expSteal[you]>=512:lvlSteal[you]=6
+			if expSteal[you]>=1024:lvlSteal[you]=7
+			if expSteal[you]>=2048:lvlSteal[you]=8
+			if expSteal[you]>=4096:lvlSteal[you]=9
+			if expSteal[you]>=8192:lvlSteal[you]=10
+			!otmickadom=rand(lvlSteal[you],10)
+			time+=5&cla
+		    if total_npc_on_loc>0:
+				 !'Вы взламывали замок, но увидели отряд стражников, идущих в вашу сторону. К счастью они вас еще не заметили. Вы решили прервать свое занятие, пока стража не уйдет.'
+				 'Вы взламывали замок, но услышали чьи-то шаги. Вы решили прервать свое занятие на некоторое время.'
+		     	 act 'Отойти и подождать':time+=rand(1,5)&cls&gt'preloc'
+		    else
+				if 10-rand(1,11-lvlSteal[you])>5:
+					item[182]-=1&'Вы сломали отмычку'&act 'Попробовать снова':time+=1&gt $curloc&!gt'vzlom'
+				else
+					 item[182]-=1&expSteal[you]+=1&'Вы смогли открыть замок'&!otmicka-=1
+					 act 'Войти внутрь':time+=1&H[you]=args[0]&cls&gt'preloc'
+					 hacking['<<$locH>>']=1&lock['<<X>>,<<Y>>,<<Z>>,<<H>>']=0
+				end
+			end
+	    end
+		if StealQW>5 and $loc[you]='3,0,1,0,0':
+			hacking['<<$loc[you]>>']=1&act'Украсть магический кристалл':rome_pass=1&StealQW=7&delact 'Украсть магический кристалл'
+		else
+			H[you] = args[0]
+			!item[182]-=1
+			gt 'preloc'
+			if $locnameR['<<$loc[you]>>']='Прихожая' or R[you] = 0:
+				hacking['<<$loc[you]>>']=1&'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
+				if rand(1)=1:tt=rand(1,131)&item_loc_t['<<tt>>,<<$loc[you]>>']=1&'<<$t_name[tt]>>'
+				if rand(1)=1:tt=rand(1,68)&item_loc_b['<<tt>>,<<$loc[you]>>']=1&'<<$b_name[tt]>>'
+				if rand(1)=1:tt=rand(1,121)&item_loc_l['<<tt>>,<<$loc[you]>>']=1&'<<$l_name[tt]>>'
+			end
+			if R[you] > 0:
+				if $locnameR['<<$loc[you]>>']='Спальная':
+					hacking['<<$loc[you]>>']=1&'Вы обшариваете спальню и обнаруживаете, что имеется:  '
+					if rand(1)=1:tt=rand(1,26)&item_loc_ut['<<tt>>,<<$loc[you]>>']=1&'<<$ut_name[tt]>>'
+					if rand(1)=1:tt=rand(1,29)&item_loc_ub['<<tt>>,<<$loc[you]>>']=1&'<<$ub_name[tt]>>'
+					if rand(1)=1:tt=rand(1,41)&item_loc_ul['<<tt>>,<<$loc[you]>>']=1&'<<$ul_name[tt]>>'
+				end
+				if $locnameR['<<$loc[you]>>']='Гостиная':
+					hacking['<<$loc[you]>>']=1&'Вы обшариваете гостиную и обнаруживаете, что имеется:  '
+					if rand(1)=1:tt=rand(85,87)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				end
+				if $locnameR['<<$loc[you]>>']='Кухня':
+					hacking['<<$loc[you]>>']=1&'Вы обшариваете кухню и обнаруживаете, что имеется:  '
+					if rand(1)=1:tt=rand(32,34)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				end
+				if $locnameR['<<$loc[you]>>']='Библиотека':
+					hacking['<<$loc[you]>>']=1&'Вы обшариваете библиотеку и обнаруживаете, что имеется:  '
+					if rand(1)=1:tt=rand(11,12)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				end
+			end
+		end
+		act'Выйти и закрыть дверь':lock['<<X>>,<<Y>>,<<Z>>,<<H>>']=1&hacking['<<$locH>>']=0&gt $locH
+	end
+end

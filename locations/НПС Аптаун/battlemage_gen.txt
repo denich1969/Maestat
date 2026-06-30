@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+lvl[i]=1&soul[i]=100&mob[i]=11&mobexp[i]=10&!номер моба для разговора
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=1&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+tipemobpic[i]=1&picture[i]=rand(61,67)&!номер типа фотки и номер фотки
+gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname&$nick[i]='Боевой маг'&$nick[i]=$nick[i]&$basestatus[i]=''
+face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+dick[i]=rand(25,30)&dickd[i]=rand(45,55)&ball[i]=rand(60,70)
+rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(3000,6000)&skin[i]=rand(0,3)
+$nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)
+age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(40,50)&$nick[i]+=$iif(age[i]<25,' парень',' мужчина')
+healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=400&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+!&minuron[i]=rand(25,50)&maxuron[i]=rand(55,100)
+pol[i]=0&gs'body'&total_generated_male+=1&visualpol[i]=0&!видимый пол, не зависит от половых органов
+forbidsex[i]=0&!присвоение отсутствия запрета
+womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&corr[i]=rand(10,500)
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+se_world[]=i&walkprog[i]=0&fight_prog[i]=15&!программа движения и боя
+defence[i]=500&def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс

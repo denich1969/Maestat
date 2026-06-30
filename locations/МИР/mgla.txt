@@ -1,0 +1,65 @@
+﻿gs'stat'
+mana[you]-=500
+if Z[you]=0 or Z[you]>5:
+     if X[you]>10:X[you]=0
+     if Y[you]>10:Y[you]=0
+end
+if Z[you]=1:X[you]=0&Y[you]=2
+if Z[you]=2:X[you]=1&Y[you]=2
+if Z[you]=3:X[you]=1&Y[you]=1
+if Z[you]=4:X[you]=1&Y[you]=0
+if Z[you]=5:X[you]=0&Y[you]=0
+Z[you]=11
+gt'world'
+'Вокруг вас вьется мгла, вы находитесь нигде'
+'Место откуда вы пришли <<$lname[''<<X[you]>>,<<Y[you]>>,<<Z[you]>>,0,0'']>>'&!'Координаты дома X=4 Y=3 Жилмассив.'
+act'Уйти обратно':gt 'preloc'
+act'Подготовить портал':
+     cls&gs'stat'
+     Xdest=input("Координата Х от 0 до 4")
+     if Xdest>=0 and Xdest<=4:
+     else
+         gt $curloc
+     end
+     Ydest=input("Координата Y от 0 до 4")
+     if Ydest>=0 and Ydest<=4:
+     else
+         gt $curloc
+     end
+     Zdest=input("Координата Z от 1 до 5")
+     if Ydest>=1 and Ydest<=5:
+     else
+         gt $curloc
+     end
+     'Место назначения <<$lname[''<<Xdest>>,<<Ydest>>,<<Zdest>>,0,0'']>>'
+     act'Отмена':gt $curloc
+     if Zdest>=1 and Zdest<=5: 
+		 act'Портал':
+			 cls
+			 X[you]=Xdest
+			 Y[you]=Ydest
+			 Z[you]=Zdest
+			 gt 'preloc'
+		 end
+     end
+end
+act'Найти человека':
+	 cls&gs'stat'
+	 npc=input("Номер человека согласно Пифагорейской метафизике")
+     if $name[npc]!'' and dead[npc]=0:
+     else
+         gt $curloc
+     end
+     'Приблизительное место нахождения <<$lname[''<<X[npc]>>,<<Y[npc]>>,<<Z[npc]>>,0,0'']>>'
+     '<<X[npc]>>,<<Y[npc]>>,<<Z[npc]>>,<<H[npc]>>,<<R[npc]>>'
+     act'Отмена':gt $curloc
+    if Z[npc]>=1 and Z[npc]<=5:
+		 act'Портал':
+			 cls
+			 X[you]=X[npc]
+			 Y[you]=Y[npc]
+			 Z[you]=Z[npc]
+			 gt 'preloc'
+		 end
+    end
+end

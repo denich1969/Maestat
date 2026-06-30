@@ -1,0 +1,69 @@
+﻿if cocksucking>0 and pose[you]!2:$status[i]=' ставит вас на колени'&pose[you]=2&cantdo=1
+if once_pose=0 and cocksucking=0:pose[you]=rand(2,4)&once_pose=1
+if pose[you]=2:
+	!'<b>Вы на коленях</b>'
+	if open_mouth[you]=1:
+		open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+	else
+		if open_lhand[you]=1:
+			open_lhand[you]=0&lhand=i&$status[i]=' сует вам в левую руку свой <<dick[i]>> сантиметровый член'
+		else
+			if open_rhand[you]=1:
+				open_rhand[you]=0&rhand=i&$status[i]=' сует вам в правую руку свой <<dick[i]>> сантиметровый член'
+			else
+				$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+			end
+		end
+	end
+end
+ if pose[you]=3 and cantdo=0:
+	!'<b>Вы лежите на спине</b>'
+	if open_vag[you]=1:
+		open_vag[you]=0&vag_fucker=i&$status[i]=' сует вам в киску свой <<dick[i]>> сантиметровый член'
+	else
+		if open_mouth[you]=1:
+			open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+		else
+			$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+		end
+	end
+end
+if pose[you]=4 and cantdo=0:
+	!'<b>Вы стоите на четвереньках</b>'
+	doggyrand=rand(0,1)
+	if vag[you]=0:tiperand=1
+	if doggyrand=0:
+		if open_vag[you]=1:
+			open_vag[you]=0&vag_fucker=i&$status[i]=' сует вам в киску свой <<dick[i]>> сантиметровый член'
+		else
+			if open_mouth[you]=1:
+				open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+			else
+			    if open_anus[you]=1:
+					open_anus[you]=0&anal_fucker=i&$status[i]=' сует вам в попку свой <<dick[i]>> сантиметровый член'
+		        else
+					$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+			    end
+			end
+		end
+	 end
+	if doggyrand=1:
+		if open_anus[you]=1:
+			open_anus[you]=0&anal_fucker=i&$status[i]=' сует вам в попку свой <<dick[i]>> сантиметровый член'
+		else
+			if open_mouth[you]=1:
+				open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+			else
+			 	if vag[you]>0:
+			 	 	if open_vag[you]=1:
+						open_vag[you]=0&vag_fucker=i&$status[i]=' сует вам в киску свой <<dick[i]>> сантиметровый член'
+					else
+						$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+			 	    end
+				else
+					$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+				end
+			end
+		end
+	end
+end

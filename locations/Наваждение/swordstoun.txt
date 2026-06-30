@@ -1,0 +1,12 @@
+﻿gs'stat'
+'Меч воткнутый в камень'
+gs'Item'
+''
+gs 'npconloc'
+act'Отойти':gt 'world'
+act'Вытащить':
+	if takeoffsword[you]=0:takeoffsword[you]=1
+	swordstoun['<<$loc[you]>>']=0
+	item_loc['25,<<$loc[you]>>']=1
+	cls&gt'preloc'
+end

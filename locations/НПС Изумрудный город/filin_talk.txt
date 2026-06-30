@@ -1,0 +1,38 @@
+﻿if friends[npc]>0:
+	'<<$name[npc]>> дружелюбно смотрит на вас'
+	 if npc=filin:
+	 
+	 end
+	 if npc=kaggikarr:
+	 
+	 end
+end
+if friends['<<npc>>,<<you>>']=0:
+	 if know['<<npc>>,<<you>>']=0:
+		 act'Познакомиться':know['<<npc>>,<<you>>']+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>>.'&act'<b>Уйти</b>':gt 'preloc'
+	 else
+		'<<$name[npc]>> хохлится'
+	     if npc=filin:
+	     	 act'Магия':
+				 if lurlina_know=0:lurlina_know=1
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> рассказывает - Сила Гингемы в ее серебряных башмачках. '
+				'Их ей подарила создательница волшебной страны и богиня фей - Лурлина. Ну и конечно ее силу развивает диета из жаб и пиявок.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+			 if lurlina_know=1:
+			 	 act'Лурлина':
+					if lurlina_know=0:lurlina_know=1
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> рассказывает:  '
+					'Лурлина - это создательница волшебной страны и богиня фей. Она дает волшебные силы. Где ее найти, мне неизвестно.'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+	     end
+	     if npc=kaggikarr:
+	         act'Мир':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> рассказывает: '
+				'Гингема - сильная ведьма. Тот провал в земле на востоке она наколдовала, через него даже птицы перелететь не могут, там что-то с гравитацией. '
+				'На севере - болота, а на юге и западе - непроходимые горы, окружающие волшебную страну.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+	     end
+	 end
+end
+act'<b>Уйти</b>':gt 'preloc'

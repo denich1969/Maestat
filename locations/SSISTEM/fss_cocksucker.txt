@@ -1,0 +1,52 @@
+﻿in_sex=1&gs'stat'
+if sexpower[npc]>0:
+	temp_blow_fss+=1&sexpower[npc]-=1&gs'stat'
+	if H[you]>0:
+		$func('get_images', 'blowjob', you, npc)
+	else
+		$func('get_images', 'public_blow', you, npc)
+	end
+	$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+	'Вы сосете <<dick[npc]>> сантиметровый член'&gs'fuck_oral',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&destiny=0
+	if agro[npc]>=50 and agro[npc]<75 and rand(20,80)>=agro[npc]:destiny=rand(1,3)
+	if agro[npc]>=75:
+		destiny=rand(1,3)&if CONFIG['DISABLE_SPIT']=1 and destiny=2:destiny=3
+	end
+	if destiny=0:
+		act'Сосать':gt'fss_cocksucker'
+	else
+		if destiny=1:
+			act'Сосать':
+				cls&gs'stat'&$func('get_images', 'dickslap', you, npc)&'<<$name[npc]>> шлепает вам своим <<dick[npc]>> сантиметровым членом по лицу'
+				gs'fuck_oral_slap',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_cocksucker'
+			end
+		end
+		if destiny=2:
+			act'Сосать':
+				cls&gs'stat'
+				if skin[npc]>3 and skin[npc]<7:
+					blacked[you]+=1&'<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$name[npc]>> неожиданно харкает вам в лицо'
+				else
+					'<center><video src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'&'<<$name[npc]>> неожиданно харкает вам в лицо'
+				end
+				gs'fuck_oral_spit',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_cocksucker'
+			end
+		end
+		if destiny=3:
+			act'Сосать':
+				cls&$func('get_images', 'facefuck', you, npc)
+				if dick[npc]>throat[you]:
+					spit_face[you]+=1&hotthroat[you]+=1&'<<$name[npc]>> силой вгоняет вам свой член в горло и вы давитесь. Слезы подступают к глазам и вы едва сдерживаете рвотные позывы'
+				else
+					'<<$name[npc]>> ебёт вас в горло, но вы умело расслабляете горло и спокойно заглатываете ртом член так, как будто у вас на лице влагалище'
+				end
+				gs'fuck_oral_throat',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_cocksucker'
+			end
+		end
+	end
+else
+	horny[npc]=0&cum_face[you]+=1&if skin[npc]>3 and skin[npc]<7:cum_face[you]+=rand(1,5)
+	koefball[npc]=11-(ball[npc]/10)&empty_ball[npc]=time+(60*koefball[npc])&gs'stat'&$func('get_images', 'cum_in_mouth', you, npc)&'<<$name[npc]>> кончает вам в рот и на лицо.'
+	gs'fuck_cum_face',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+end
+gs'npconloc_fss'

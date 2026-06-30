@@ -1,0 +1,16 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&masterBDSM=i
+masterBDSM[i]=1
+$name[i]='Валеро'&$surname[i]='Вивальди'&!gs'man_name'
+face_pic[you]=66
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0&scull[i]=0&cheeks[i]=0
+dick[i]=17&dickd[i]=35&ball[i]=30&vag[i]=0&ass[i]=2&nip[i]=10&tits[i]=0
+rost[i]=185&fat[i]=3800&mus[i]=1400&skin[i]=3
+face_hair[i]=0&tit_hair_can[i]=1&tit_hair[i]=10&leg_hair_can[i]=1&leg_hair[i]=10&hlong[i]=10&hcol[i]=0&beard[i]=5
+age[i]=42&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+
+pol[i]=0&gs'body'
+t_slot[i]=rand(1,10)&l_slot[i]=rand(1,7)&b_slot[i]=rand(1,5)
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=28
+kre=5
+gt'create_player'

@@ -1,0 +1,10 @@
+﻿gs'stat'
+satansToyQW[you]=101
+dead[npc]=2
+murderer[you]+=1
+magik[you]+=1
+soul_gem[you]=1
+luksDeadQW=100
+'Земля разверзлась и огненная бездна затащила в себя Люкса отчаянно цепляющегося за все подряд.'
+
+act'Уйти':gt'preloc'

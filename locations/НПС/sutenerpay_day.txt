@@ -1,0 +1,53 @@
+﻿cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&!'<center><video src="pic/event/view_pregnant2.webm" ></center>'
+'<<$name[npc]>> Сидит в кресле и, смотря как вас ебут, дрочит член.'
+act 'Ждать':
+	cls&gs'stat'&'<center><video src="pic/sex/gloryhole/predp.webm" ></video></center>'
+	'Вы почувствовали, что вас снизу кто-то трогает, но поделать с этим ничего не можете. Что должно случиться - все равно случиться...'
+	act 'Ждать':
+		dom[you]-=1&if face[you]<100:face[you]+=1
+		feminize[you]+=rand(1,3)&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/f/act<<rand(1,19)>>.webm" ></video></center>'
+		'Клиент, которого вы даже не видите, начинает размашисто трахать вас в пизду, не интересуясь вашим мнением и делает это неприлично долго. '
+		'Вы лишь молча принимаете член и ждете окончания этой унизительной процедуры...'
+		act 'Ждать':
+			vag[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/f/pussycum<<rand(1,4)>>.webm" ></video></center>'
+			'Вы почувствовали, что клиент разрядился прямо в вашу вагину, что радости конечно никак не добавляло - вами просто воспользовались как мастурбатором, вот и все...'
+			act 'Ждать':
+				anus[you]+=1&anal[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/a/aact<<rand(1,7)>>.webm" ></video></center>'
+				'Клиент, которого вы даже не видите, начсинает размашисто страхать вас в жопу, не интересуясь вашим мнением и делает это неприлично долго. '
+				'Вы лишь молча принимаете член и ждете окончания этой унизительной процедуры...'	
+				act 'Ждать':
+					cls&gs'stat'&'<center><video src="pic/sex/gloryhole/a/tr<<rand(1,3)>>.webm" ></video></center>'
+					'Вы почувствовали, что клиент ускорился и вынув член, кончил на ваши половые органы - вами просто воспользовались как мастурбатором, вот и все...'
+					act 'Ждать':
+						bj[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
+						'Клиент, которого вы даже не видите, начинает размашисто страхать вас в рот, не интересуясь вашим мнением и делает это неприлично долго. '
+						'Вы лишь молча принимаете член и ждете окончания этой унизительной процедуры...'
+						act 'Ждать':
+							cum_face[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'
+							'Вы почувствовали, что клиент ускорился и вынув член, стал кончать на ваше лицо - вами просто воспользовались как мастурбатором, вот и все...'
+							act 'Ждать':
+								drinkpee[you]+=1&cls&gs'stat'
+								if (skin[npc]>3 and skin[npc]<7):
+									'<center><video src="pic/sex/bj/pee/angelbbc.webm" ></video></center>'
+									'Клиент, которого вы даже не видите, стоит и дрочит член, глядя на вас. Поднеся член к вашему лицу, он ссыт вам в рот'
+								else
+									'<center><video src="pic/sex/bj/pee/piss_angel<<rand(0,5)>>.webm" ></video></center>'
+									'Клиент, которого вы даже не видите, стоит и дрочит член, глядя на вас. Поднеся член к вашему лицу, он ссыт вам в рот'
+								end
+								act 'Ждать':
+									money[npc]+=sutenerpay[you]&peecover[you]+=1&peecover[you]=time+60&sutenerpay[you]=0&sutenerpay_day[you]=0&sutenerpayday[you]=daystart&cls&gs'stat'
+									if skin[npc]>3 and skin[npc]<7:
+										'<center><video src="pic/sex/bj/pee/piss_no_openbbc.webm" ></video></center>'&'Подойдя к вам, клиент начал ссать на вас'
+									else
+										'<center><video src="pic/sex/bj/pee/piss_no_open<<rand(0,1)>>.webm" ></video></center>'&'Подойдя к вам, клиент начал ссать на вас'
+									end
+									act'Уйти':gt 'preloc'
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end

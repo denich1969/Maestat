@@ -1,0 +1,39 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&grief=i
+lvl[i]=1&soul[i]=100&money[i]=0&seamann[i]=0&whiteknight[i]=3
+master[i]=0&delusion[i]=0&statist[i]=0&muggle[i]=0&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=128&!ФОТКА
+$name[i]='Серхио'&$surname[i]='Гриф'&$nick[i]='Устрашающий мужчина с пронзительным взглядом'&$title[i]=''&$title[i]=''&$history[i]='Прикол, я не знаю как попал в этот город. Помню набухался, хреново стало совсем, а потом очухался на этой ржавой посудине с чекнутым капитаном и лысым копом попутчиком и даже похмелья не было.'
+face[i]=0&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=24&dickd[i]=50&ball[i]=100&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=190&fat[i]=500&mus[i]=1800&skin[i]=3
+face_hair[i]=10&beard[i]=100&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=0
+age[i]=43&vital[i]=160&will[i]=50&reflex[i]=120
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=0&bisex[i]=0&lust[i]=100&agro[i]=100&alfa[i]=1&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=2&horny[i]=50&thenoob[i]=1&!характер
+tits_t[i]=2&!Тату
+t_slot[i]=84&l_slot[i]=58&b_slot[i]=27&!Прикид
+ul_slot[i]=5
+n_world[]=i&walkprog[i]=31&!Программа деятельности
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=0&R[i]=0&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&sparrow=i
+lvl[i]=1&soul[i]=100&money[i]=0&seamann[i]=0&whiteknight[i]=3
+master[i]=0&delusion[i]=0&statist[i]=0&muggle[i]=0&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=129&!ФОТКА
+$title[i]=''&$history[i]='Я очнулся на корабле и как туда попал не помню. Крутится в памяти что то непонятное, кровавая пелена, звон в ушах.'
+$name[i]='Джек'&$surname[i]='Спарроу'&$nick[i]='Подвижный лысый мужчина'
+face[i]=0&gla[i]=0&glacol[i]=2&nose[i]=0
+dick[i]=17&dickd[i]=40&ball[i]=100&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=180&fat[i]=500&mus[i]=1200&skin[i]=1
+face_hair[i]=0&beard[i]=0&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=0&hcol[i]=0
+age[i]=48&vital[i]=160&will[i]=50&reflex[i]=120
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&lust[i]=100&agro[i]=100&alfa[i]=1&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=2&horny[i]=50&thenoob[i]=1&!характер
+	anal_lover[i]=1
+	bdsm_lover[i]=1
+t_slot[i]=11&l_slot[i]=3&b_slot[i]=6
+ul_slot[i]=5
+n_world[]=i&walkprog[i]=31
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=0&R[i]=0&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'

@@ -1,0 +1,53 @@
+﻿if spawnerday<daystartobsession and spawnline=0:
+	spawnline+=1&spawnerday=daystartobsession+3
+     if cladka['4,4,770,0,0']=2:cladka['4,4,770,0,0']=1&X=4&Y=4&Z=770&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'
+     X=10&Y=5&Z=770&H=0&R=0&gs'goblin'&gs'goblin'&gs'goblin'&!джунгли
+     X=5&Y=0&Z=775&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'succubus'&$name[i]='Аграт'&!город
+     X=13&Y=13&Z=740&H=0&R=0&gs'succubus'&$name[i]='Астарта'&gs'succubus'&$name[i]='Барбело'&gs'succubus'&$name[i]='Елизаздра'&!замок
+     X=11&Y=3&Z=771&H=0&R=0&gs'succubus'&$name[i]='Ишет-Зенуним'&!отель
+end
+if spawnerday<daystartobsession and spawnline=1:
+	spawnline+=1&spawnerday=daystartobsession+3
+     if cladka['0,3,770,0,0']=2:cladka['0,3,770,0,0']=1&X=0&Y=3&Z=770&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'
+     X=4&Y=0&Z=770&H=0&R=0&!джунгли
+     piroga['<<$temploc>>']=1
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'&$nick[i]='Туземец в боевой раскраске'
+     reflex[i]=100&mobexp[i]=50&gs'aborigen_gen'&$title[i]='Туземец'&$nick[i]='Туземец с перьями в украшениях'
+     reflex[i]=100&mobexp[i]=50&gs'shaman'&$title[i]='Шаман'
+     gs'succubus'&$name[i]='Махаллат'
+     gs'succubus'&$name[i]='Наама'
+     gs'succubus'&$name[i]='Нега'
+     X=5&Y=0&Z=740&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&!город
+end
+if spawnerday<daystartobsession and spawnline=2:
+	spawnline+=1&spawnerday=daystartobsession+3
+     if cladka['10,3,770,0,0']=2:cladka['10,3,770,0,0']=1&X=10&Y=3&Z=770&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&!джунгли
+     X=10&Y=10&Z=773&H=0&R=0&gs'succubus'&gs'succubus'&gs'succubus'&!второй этаж
+     X=5&Y=0&Z=750&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'succubus'&gs'succubus'&gs'succubus'&!город
+     X=10&Y=5&Z=770&H=0&R=0&gs'goblin'&gs'goblin'&gs'goblin'&!джунгли
+end
+if spawnerday<daystartobsession and spawnline=3:
+	spawnline+=1&spawnerday=daystartobsession+3
+     X=10&Y=5&Z=770&H=0&R=0&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&!джунгли
+     X=10&Y=5&Z=760&H=0&R=0&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&!лес
+     X=5&Y=0&Z=750&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'succubus'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&!город
+end
+if total_slut<15:X=4&Y=7&Z=770&H=0&R=0&gs'justgirl'&$title[i]='Пападанка'
+if total_whore<5:X=11&Y=2&Z=771&H=0&R=0&gs'justgirl'&$title[i]='Пападанка'
+if total_client<20:
+	X=4&Y=5&Z=771&H=0&R=0
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+end
+if need_pornakter>0:need_pornakter-=1&X=10&Y=10&Z=773&H=0&R=0&gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
+!if total_slut<=1:X=rand(1,9)&Y=rand(1,9)&Z=770&gs'slut'

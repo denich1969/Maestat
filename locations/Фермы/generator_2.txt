@@ -1,0 +1,67 @@
+﻿X=0&Y=0&Z=420&Xmax[Z]=10&Ymax[Z]=10
+$n_board[Z]='Озеро'&$w_board[Z]='Трещина в земле за которой виден лес'&$e_board[Z]='Река за которой виден тигровый лес'&$s_board[Z]='Горы'
+:markgenworldTWO
+if Y=0:
+     $locname['<<$temploc>>']='Предгорье'&$lname['<<$temploc>>']='Предгорье'&$locopis['<<$temploc>>']='Зеленый яркий лес растущий у подножия горного хребта'
+	 np['<<$temploc>>']=rand(73,80)
+elseif X=10 and Y!8:
+     $locname['<<$temploc>>']='Берег реки'&$lname['<<$temploc>>']='Берег реки'&$locopis['<<$temploc>>']='Широкая и быстрая река текущая с высоких гор в озеро'
+	 np['<<$temploc>>']=115
+	 lake['<<$temploc>>']=2&can_drink['<<$temploc>>']=3&can_swim['<<$temploc>>']=1
+elseif X=0 and Y!8:
+     $locname['<<$temploc>>']='Разлом'&$lname['<<$temploc>>']='Разлом'&$locopis['<<$temploc>>']='Глубокая и широкая трещина в земле какую не перепрыгнуть'
+	 np['<<$temploc>>']=108&!d_border_way['<<$temploc>>']=1
+elseif Y=10:
+     $locname['<<$temploc>>']='Берег озера'&$lname['<<$temploc>>']='Берег озера'&$locopis['<<$temploc>>']='Большое озеро противоположный берег которого скрыт туманом'
+	 np['<<$temploc>>']=113
+	 lake['<<$temploc>>']=1&can_drink['<<$temploc>>']=2&can_swim['<<$temploc>>']=1&frog['<<$temploc>>']=rand(0,1)&Hirudinea['<<$temploc>>']=rand(0,1)&list['<<$temploc>>']=rand(0,1)
+elseif Y=8:
+     $locname['<<$temploc>>']='Мощеная дорога'&$lname['<<$temploc>>']='Мощеная дорога'&$locopis['<<$temploc>>']='Дорога вымощенная камнем идущая сквозь кукурузные поля'
+	 np['<<$temploc>>']=114
+	 road['<<$temploc>>']=3 &if X=0:mostwood['<<$temploc>>']=1
+else
+	locrand=rand(1,20)
+     if locrand<=16:
+		 $locname['<<$temploc>>']='Кукурузное поле'&$lname['<<$temploc>>']='Кукурузное поле'&$locopis['<<$temploc>>']='Поля засеянные высокой кукурузой'
+		 np['<<$temploc>>']=rand(116,120)
+		 scarecrow['<<$temploc>>']=rand(0,1)&corn['<<$temploc>>']=1
+	 end
+	 if locrand=17:
+		 $locname['<<$temploc>>']='Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Озеро среди полей кукурузы вокруг которого растут деревья'
+		 np['<<$temploc>>']=82
+		 can_drink['<<$temploc>>']=2&lake['<<$temploc>>']=1&frog['<<$temploc>>']=rand(0,1)&Hirudinea['<<$temploc>>']=rand(0,1)&list['<<$temploc>>']=rand(0,1)
+	 end
+	 if locrand=18 or locrand=19:
+		 $locname['<<$temploc>>']='Амбар'&$lname['<<$temploc>>']='Амбар'&$locopis['<<$temploc>>']='Старый амбар'
+		 np['<<$temploc>>']=121
+		 $wall_name['<<$temploc>>']='Амбар'
+		 horand=rand(0,3)
+		 if horand=0:n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 if horand=1:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 if horand=2:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+		 if horand=3:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+		 $n_wall['<<$temploc>>']='Ферма'&$s_wall['<<$temploc>>']='Ферма'&$e_wall['<<$temploc>>']='Ферма'&$w_wall['<<$temploc>>']='Ферма'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+		 mirror['<<$temploc>>']=1
+		 can_sleep['<<$temploc>>']=1&can_drink['<<$temploc>>']=1
+		 item_loc['66,<<$temploc>>']=rand(1,10)
+		 gs'batrakgen'&gs'batrakgen'&gs'batrakgen'
+	 end
+	 if locrand=20:
+	 $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный фермерский домик'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Ферма'
+	 horand=rand(0,3)
+	  if horand=0:n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 if horand=1:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		 if horand=2:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+		 if horand=3:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+		 $n_wall['<<$temploc>>']='Ферма'&$s_wall['<<$temploc>>']='Ферма'&$e_wall['<<$temploc>>']='Ферма'&$w_wall['<<$temploc>>']='Ферма'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+		 mirror['<<$temploc>>']=1
+		 can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
+		 gs'farmerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+	 end
+end
+X+=1&if X<=Xmax[Z]:jump'markgenworldTWO'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldTWO'

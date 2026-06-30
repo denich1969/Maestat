@@ -1,0 +1,103 @@
+﻿!$loc[you]=$curloc
+loc_for_drop=0
+gs'stat'&'<b><center>Магазин редкостей Мистры</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'''
+gs'npconloc'&gs'item'
+if nuat[you]>0:
+	act'Показать нуаты':
+		iskrmist=0
+		cls&gs'stat'
+		if nuat[you]>0 and nuat[you]<100:iskrmist=1&'Мистра осмотрев нуаты говорит, за это я могу дать 1 искру.'
+		if nuat[you]>=100:iskrmist=nuat[you]/100&'Мистра осмотрев нуаты говорит, за это я могу дать <<iskrmist>> искр'
+		act'Нет, так не пойдет':gt $curloc
+		act'Сделка':iskr[you]+=iskrmist&nuat[you]=0&gt $curloc
+	end
+end
+if money[you]>0:
+	act'Показать шиллинги':
+		iskrmist=0
+		cls&gs'stat'
+		if money[you]>0 and nuat[you]<100:iskrmist=1&'Мистра осмотрев шиллинги говорит, за это я могу дать 1 искру.'
+		if money[you]>=100:iskrmist=money[you]/100&'Мистра осмотрев шиллинги говорит, за это я могу дать <<iskrmist>> искр'
+		act'Нет, так не пойдет':gt $curloc
+		act'Сделка':iskr[you]+=iskrmist&money[you]=0&gt $curloc
+	end
+end
+if item[24]>0:
+	act'Обменять серебро на искры':
+		cls&gs'stat'&'Вы подошли к Мистре и предложили обменять серебро. Мистра осмотрев ваше серебро говорит что готов обменять 1 серебра на 1 искру'
+		maxnuat=item[24]
+		nuattemp=input("У вас <<item[24]>> серебра, по цене 1 искра за 1 серебра вы можете получить <<maxnuat>> искр. Сколько искр, вы хотите купить за серебро?")
+		if nuattemp<=maxnuat:
+			item[24]-=nuattemp
+			burden[you]-=item_burden[24]*nuattemp
+			iskr[you]+=nuattemp
+			'Мистра забрал ваше серебро и отсчитал вам <<nuattemp>> искр'
+		else
+			'Мистра пожал плечами'
+		end
+		act'...':gt $curloc
+	end
+end
+IF NO OBJ "Книга заклятий":
+	ACT "Купить Книга заклятий":
+		IF money < 100:msg "К сожалению, у Вас не хватает денег."&GT "заклинания"
+		money-=100
+		ADDOBJ "Книга заклятий"
+		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
+		msg "Спасибо за покупку!"
+		GT "заклинания"
+	END
+END
+IF NO OBJ "Амулет защиты" and chain = 0:
+	ACT "Купить Амулет защиты":
+		IF sex = 1:msg "Подумав, вы решаете отказаться от покупки."&GT "заклинания"
+		IF money < 360:msg "К сожалению, у Вас не хватает денег."&GT "заклинания"
+		money-=360
+		ADDOBJ "Амулет защиты"
+		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
+		msg "Спасибо за покупку!"
+		GT "заклинания"
+	END
+END
+IF NO OBJ "Кольцо невидимости" and cloack = 0:
+	ACT "Купить Кольцо невидимости":
+		IF money < 320:msg "К сожалению, у Вас не хватает денег."&GT "заклинания"
+		money-=320
+		ADDOBJ "Кольцо невидимости"
+		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
+		msg "Спасибо за покупку!"
+		GT "заклинания"
+	END
+END
+IF NO OBJ "Молния":
+	ACT "Купить заклятие молнии":
+		IF money < 220:msg "К сожалению, у Вас не хватает денег."&GT "заклинания"
+		money-=220
+		ADDOBJ "Молния"
+		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
+		msg "Спасибо за покупку!"
+		GT "заклинания"
+	END
+END
+IF NO OBJ "Огненный шар":
+	ACT "Купить заклятие огненного шара":
+		IF money < 370:msg "К сожалению, у Вас не хватает денег."&GT "заклинания"
+		money-=370
+		ADDOBJ "Огненный шар"
+		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
+		msg "Спасибо за покупку!"
+		GT "заклинания"
+	END
+END
+IF NO OBJ "Парализация":
+	ACT "Купить заклятие парализации":
+		IF money < 250:msg "К сожалению, у Вас не хватает денег."&GT "заклинания"
+		money-=250&ADDOBJ "Парализация"
+		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
+		msg "Спасибо за покупку!"
+		GT "заклинания"
+	END
+END
+ACT "Посмотреть другие товары":GT "Shop_catalog"
+ACT "Закончить покупки":&cls&cla&$loc[you]=$loc[mistra] 
+CLR&PL "В кошельке: <<money>> з.м."

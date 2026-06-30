@@ -1,0 +1,29 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/loc/ras/cvety<<rand(1,4)>>.jpg" ></center>'&'Розы собирают утром в период максимального цветения, обычно с июля по август.'
+if roseknow[you]>0 and trezvsekret[you]=1 and month > 5 and month < 9 and hour<12:
+	'На поляне растут розы'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		act'Срезать цветок':item_loc['188,<<$loc[you]>>']+=1&time+=5&'Вы быстро срезаете стебель розы с цветком, на который случайно наткнулись, не получая никакого опыта.'
+		act 'Собирать розы':
+			 time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['188,<<$loc[you]>>']+=max(10,5*lvltravnik[you])
+			 "В течение получаса вы собирали розы и собрали <<item_loc['188,<<$loc[you]>>']>> цветков"&rosenum=item_loc['188,<<$loc[you]>>']+item['188']
+			if rand(5)=5: 'Кроме роз вы нашли пионы'&item_loc['190,<<$loc[you]>>']+=max(10,5*lvltravnik[you])&pionnum=item_loc['190,<<$loc[you]>>']+item['190']&'Пионов удалось собрать: <<pionnum>> шт.'
+			 'Всего у вас <<rosenum>> цветков'
+			 if fat[you]>10:fat[you]-=1
+			 if fat[you]>100:fat[you]-=1
+			 if fat[you]>500:fat[you]-=2
+			 if fat[you]>1000:fat[you]-=2
+			 if fat[you]>1500:fat[you]-=3
+			 if fat[you]>2000:fat[you]-=3
+			 if fat[you]>2500:fat[you]-=4
+			 if fat[you]>3000:fat[you]-=4
+			 exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'
+			 if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
+			 sweat[you]+=2
+			gt $curloc
+		 end
+	 end
+else
+	'Не сезон. На кустах роз нет цветов'
+end
+gs'Item'&*nl ''&gs 'npconloc'&killvar 'rosenum'&killvar 'pionnum'&act'Завершить':gt 'world'

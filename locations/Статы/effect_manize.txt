@@ -1,0 +1,33 @@
+﻿:effect_manize
+if manize[args[0]]>0:
+	feminize[args[0]]=0&statistics_manize[args[0]]+=1&manize[args[0]]-=1
+	if preskin[args[0]]>0:preskin[args[0]]=0
+	if rost[args[0]]<196:rost[args[0]]+=1
+	if face[args[0]]>5:face[args[0]]-=rand(1,2)
+	if mus[args[0]]<2500:mus[args[0]]+=1
+	if ass[args[0]]>2:ass[args[0]]-=1
+	if nip[args[0]]>0:nip[args[0]]-=1
+	if tits[args[0]]>0:tits[args[0]]-=1
+	if dick[args[0]]>0:
+		if dick[args[0]]<26:dick[args[0]]+=rand(1)
+		if dickd[args[0]]<50:dickd[args[0]]+=rand(1)
+		if ball[args[0]]<100:ball[args[0]]+=1
+		if dick[args[0]]<30:dick[args[0]]+=rand(1)
+		if dickd[args[0]]<60:dickd[args[0]]+=rand(1)
+	else
+		horny[args[0]]+=rand(1,50)
+	end
+	if args[0]=you:
+		womenbrain[args[0]]-=1
+		if tits[you]=0 and face[you]<=5 and dom[you]>80 and mus[you]>2500 and rost[you]>=185 and Gendersvapblock=1:  		 
+			if vag[you]>0:
+				vag[you]=0&dick[you]=0&dickd[you]=0&ball[you]=0
+				msg("Похоже ваше стремление стать самцом нашло отклик в этом волшебном мире. 
+						Вы ощутили, что утратили свою киску, а клитор вывалился вперед, став небольшим членом. 
+						Поздравляем, вы теперь: мальчик. Удачи!")
+				dick[you]=3&dickd[you]=2&ball[you]=1&$name[you]='Вася'
+			end
+		end
+	end	
+	!нужно вызывать body чтоб не было багов&if rand(manize[args[0]])>10:jump'effect_manize'
+end

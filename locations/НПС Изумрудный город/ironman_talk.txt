@@ -1,0 +1,37 @@
+﻿ if know['<<npc>>,<<you>>']=0:
+	act'Познакомиться':
+		know['<<npc>>,<<you>>']+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		'<<$nick[npc]>> говорит что он заржавел и стоит тут уже целый год. Масло находится в его доме и <<$nick[npc]>> просит принести масло.'&act'<b>Уйти</b>':gt 'preloc'
+	end
+else
+	if stander[npc]=1:
+		'<<$nick[npc]>> скрипит - Я заржавел и не могу двигаться.'
+		if item[65]>0:
+			 act'Смазать':
+				 item[65]-=1&friends[npc]=100&stander[npc]=0
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы смазали суставы железного человека и он начал двигаться'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+	 else
+		'<<$nick[npc]>> скрипит суставами'
+		if friends['<<npc>>,<<you>>']>0:gs'take_follower'
+		act'Поболтать':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			if dick[npc]=0 and vag[npc]=0:
+				'<<$nick[npc]>> грустно вздыхает - Ведьма была против моей свадьбы и заколдовала мой топор. '
+				'Сначала он отрубил мне ноги и кузнец сделал мне новые, потом руки. Потом разрубил туловище на две части. Теперь у меня нет члена и я не могу женится.'
+				if item[31]>0:
+					act'Давай приделаем тебе дилдо':
+						 dick[npc]=18&dickd[npc]=46&ball[npc]=100&vag[npc]=0&item[31]-=1& act'<b>Уйти</b>':gt 'preloc'
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы приделываете дилдо к стальному паху'&*pl'<<$nick[npc]>> осматривает себя - Ого! Я теперь могу чувствовать этой штукой!'
+					end
+				end
+			else
+				'<<$nick[npc]>> задумчиво говорит - Я стоял заржавевший в лесу целый год и думал о том как ужасно не иметь сердца и члена.'
+				 if sexiness[you]>0:horny[npc]+=sexiness[you]&'<<$name[npc]>> ухмыляется разглядывая вас - У меня теперь нет невесты и я свободен.'
+			end
+			act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+ end
+act'<b>Уйти</b>':gt 'preloc'

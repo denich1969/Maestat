@@ -1,0 +1,53 @@
+﻿if Zhome[you]>0:
+	args[21]=girlfriend_num[you]
+	if args[21]=0:args[21]=husband[you]
+	!возлюбленная не против (ее нет иил (она есть и (она ваша нижняя или (ее легко убедить и у вас неплохие отношения))))
+	args[20]=(args[21]=0 or npc=args[21] or (args[21]!0 and (mysubslut[args[21]]>0 or (agro[args[21]]<=10 and friends['<<args[21]>>,<<you>>']>50))))
+	args[25] = (Xhome[npc]!Xhome[you] or Yhome[npc]!Yhome[you] or Zhome[npc]!Zhome[you] or Hhome[npc]!Hhome[you])&!не живет с вами
+	if args[25]!-1:"<b>Сожительница</b>"
+	"walkprog[npc] "+walkprog[npc]
+	!кому можно предложить перехать (нижней или девушке/жене)
+	args[26]=(mysubslut[npc]>0 or npc=args[21] or slave[npc]=you or friends['<<npc>>,<<you>>']>100)
+	if args[25] and args[20] and args[26] and (husband[npc]=0 or husband[npc]=you):
+		act'Предложить переехать к вам':
+			args[50]=0
+			if agro[npc]>40:
+				if args[21]!0 and (Xhome[args[21]]!Xhome[you] or Yhome[args[21]]!Yhome[you] or Zhome[args[21]]!Zhome[you] or Hhome[args[21]]!Hhome[you]):
+					'У тебя уже вроде есть любимая, ты хочешь чтоб я с вами жила??? Отвали!'
+					args[50]=-1
+				end
+			end	
+			if boyfriend_num[npc]!0 and boyfriend_num[npc]!you:
+				if pol[boyfriend_num[npc]]=0:'У меня вообще то есть парень!'
+				args[50]=-1
+			end
+			if girlfriend_num[npc]!0 and girlfriend_num[npc]!you:'У меня вообще то есть девушка, не думаю что она обрадуется!'&args[50]=-1
+			if npc=smartgirl and smartgirlTower=1:'Мне в башне больше нравится'&args[50]=-1
+			if args[50]=0:
+				'А действительно можно? я не против!'
+				walkprog_before[npc]=walkprog[npc]&!сохраняем программу и домашнюю локацию
+				Xhome_before[npc]=Xhome[npc]&Yhome_before[npc]=Yhome[npc]&Zhome_before[npc]=Zhome[npc]&Hhome_before[npc]=Hhome[npc]&Rhome_before[npc]=Rhome[npc]
+				Xhome[npc]=Xhome[you]&Yhome[npc]=Yhome[you]&Zhome[npc]=Zhome[you]&Hhome[npc]=Hhome[you]&Rhome[npc]=Rhome[you]
+				!если персонаж просто меняет дом в том же районе где живет, менять ничего не требуеться
+				if Zhome_before[npc]!Zhome[npc]:
+					if Zhome_before[npc]=1:killvar('n_world', arrpos('n_world', npc))
+					if Zhome_before[npc]=2:killvar('ne_world', arrpos('ne_world', npc))
+					if Zhome_before[npc]=3:killvar('e_world', arrpos('e_world', npc))
+					if Zhome_before[npc]=4:killvar('se_world', arrpos('se_world', npc))
+					if Zhome_before[npc]=5:killvar('s_world', arrpos('s_world', npc))
+					if Zhome[npc]=1:n_world[]=npc
+					if Zhome[npc]=2:ne_world[]=npc
+					if Zhome[npc]=3:e_world[]=npc
+					if Zhome[npc]=4:se_world[]=npc
+					if Zhome[npc]=5:s_world[]=npc
+					walkprog[npc]=90
+				end
+				cla&gs'stat'
+				act'Дать ключи':gt'npc'
+			else
+				cla&gs'stat'
+				act'Ладно, проехали':gt'npc'
+			end
+		end
+	end
+end

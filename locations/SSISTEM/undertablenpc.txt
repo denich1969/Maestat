@@ -1,0 +1,15 @@
+﻿gs'stat'
+if dick[dom]>0:
+	'<center><video src="pic/sex/public/undertable<<rand(0,5)>>.webm" ></video></center>'
+	'<<$name[sub]>> <<$surname[sub]>> сидя под столом жадно отсасывает член, а <<$name[dom]>> <<$surname[dom]>> делает вид что ничего не происходит.'
+	you_see_bj[sub]+=1&you_see_fucker[dom]+=1
+else
+	if pol[sub]=0:
+		'<center><video src="pic/sex/lickstandman/<<rand(0,4)>>.webm" ></video></center>'
+		'<<$name[sub]>> <<$surname[sub]>> отлизывает пизду, а <<$name[dom]>> <<$surname[dom]>> делает вид что ничего не происходит.'
+	else
+		'<center><video src="pic/sex/lickstandwoman/<<rand(0,1)>>.webm" ></video></center>'
+		'<<$name[sub]>> <<$surname[sub]>> отлизывает пизду, а <<$name[dom]>> <<$surname[dom]>> делает вид что ничего не происходит.'	
+	end
+end
+act'Уйти':gt'preloc'

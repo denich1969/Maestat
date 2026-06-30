@@ -1,0 +1,52 @@
+﻿num=npc&gs'body'& if ball[npc]=0:sexpower[npc]=0
+if ball[npc]>0:
+	 if ball[npc]<=30:sexpower[npc]=1
+	 if ball[npc]>30 and ball[npc]<=40:sexpower[npc]=2
+	 if ball[npc]>40 and ball[npc]<=50:sexpower[npc]=3
+	 if ball[npc]>50 and ball[npc]<=60:sexpower[npc]=4
+	 if ball[npc]>60 and ball[npc]<=70:sexpower[npc]=5
+	 if ball[npc]>70 and ball[npc]<=80:sexpower[npc]=6
+	 if ball[npc]>80 and ball[npc]<=90:sexpower[npc]=7
+	 if ball[npc]>90:sexpower[npc]=8
+	 if master[npc]>0:sexpower[npc]+=4
+	 if demon_dick[npc]>0:sexpower[npc]+=demon_dick[npc]
+	if demon_dick[you]>0:sexpower[npc]+=demon_dick[you]
+end
+maxsexpower[npc]=sexpower[npc]&midsexpower[npc]=maxsexpower[npc]/2&sextipeprog=0
+if cocksucking>0:
+	gt'fss_cocksucker'&!только сосать хуй
+else
+	 if agro[npc]<=25 and whoreboss[you]>0:
+		if lust[npc]<=25:'Клиент ведёт себя как импотент'
+		if lust[npc]>25 and lust[npc]<75:'Клиент ведёт себя как вялый увалень'
+		if lust[npc]>=75:'Клиент ведёт себя как типичный лизун'
+	 end
+	 if agro[npc]>25 and agro[npc]<75 and whoreboss[you]>0:
+		if lust[npc]<=25:'Клиент ведёт себя как ленивый середняк'
+		if lust[npc]>25 and lust[npc]<75:'Клиент ведёт себя как середняк с фантазией'
+		if lust[npc]>=75:'Клиент ведёт себя как сексмашина'
+	 end
+	 if agro[npc]>=75 and whoreboss[you]>0:
+		if lust[npc]<=25:'Клиент ведёт себя как ленивый любитель'
+		if lust[npc]>25 and lust[npc]<75:'Клиент ведёт себя как середняк с заскоками'
+		if lust[npc]>=75:'Клиент ведёт себя как агрессивный извращенец'
+	 end
+end
+if mob[npc]>0:
+     if H[you]>0:
+		hardtimer=0&gt'hard_fss_sex_sistem'
+     else
+		gt'public_fss_sex_sistem'
+     end
+end
+if mob[npc]=0:
+	 if H[you]>0:
+		 if agro[npc]<=50:
+			gt'fss_sex_sistem'&!управляемый секс
+		 else
+			hardtimer=0&gt'hard_fss_sex_sistem'&!не управляемый секс
+		 end
+	 else
+		gt'public_fss_sex_sistem'
+	 end
+end

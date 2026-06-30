@@ -1,0 +1,63 @@
+﻿Y=1&Z=120&H=0&R=0
+pre_class=1&gs'fermerman_gen'&$farmname=$gensurname
+$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Фермерский дом семьи <<$farmname>>'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Фермерский дом'&$locopis['<<$temploc>>']='Жилой фермерский дом'
+np['<<$temploc>>']=0
+maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+H=1
+$locnameH['<<$templocH>>']='Туалет'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Обыкновенный дощатый туалет с дыркой в полу'
+np['<<$temploc>>']=0
+mir['<<$temploc>>']=1
+H=2
+$locnameH['<<$templocH>>']='Кухня'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Кухня'&$locopis['<<$temploc>>']='Огромная фермерская кухня'
+np['<<$temploc>>']=0
+H=3
+$locnameH['<<$templocH>>']='Гостинная'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Гостинная'&$locopis['<<$temploc>>']='Просторная гостинная с резной мебелью'
+np['<<$temploc>>']=0
+H=4
+$locnameH['<<$templocH>>']='Спальная'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Спальная'&$locopis['<<$temploc>>']='Хозяйская спальная'
+np['<<$temploc>>']=0
+bed['<<$temploc>>']=1
+H=5
+$locnameH['<<$templocH>>']='Гостевая спальная'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Спальная'&$locopis['<<$temploc>>']='Спальная комната'
+np['<<$temploc>>']=0
+bed['<<$temploc>>']=1
+Y=2&H=0&R=0
+$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом батраков'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Барак'&$locopis['<<$temploc>>']='Большой барак для наемных работников'
+np['<<$temploc>>']=0
+maxPositionH['<<X>>,<<Y>>,<<Z>>']=2
+H=1
+$locnameH['<<$templocH>>']='Туалет'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Обыкновенный дощатый туалет с дыркой в полу'
+np['<<$temploc>>']=0
+mir['<<$temploc>>']=1
+H=2
+$locnameH['<<$templocH>>']='Спальная'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Спальная'&$locopis['<<$temploc>>']='Длинное помещение с дощатыми нарами'
+np['<<$temploc>>']=0
+bed['<<$temploc>>']=1
+kolvobatr=rand(3,5)
+pre_class=1
+if kolvobatr=3:gs'batrak_gen'&gs'batrak_gen'&gs'batrak_gen'
+if kolvobatr=4:gs'batrak_gen'&gs'batrak_gen'&gs'batrak_gen'&gs'batrak_gen'
+if kolvobatr=5:gs'batrak_gen'&gs'batrak_gen'&gs'batrak_gen'&gs'batrak_gen'&gs'batrak_gen'
+Y=3&H=0&R=0
+$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Амбар'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Амбар'&$locopis['<<$temploc>>']='Большое помещение для хранения инвентаря и урожая'
+np['<<$temploc>>']=0

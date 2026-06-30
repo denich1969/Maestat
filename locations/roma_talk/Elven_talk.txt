@@ -1,0 +1,35 @@
+﻿$loc[you]=$curloc
+gs'stat'&loc_for_drop=0&'<b><center>Салон Elven laid</center></b>'&*pl ''&'Салон красоты где предлагают полный спектр услуг'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+gs'npconloc'&*pl ''&gs'item'&!act'Уйти': GT "preloc"
+if pet_follower>0:
+slave=pet_follower
+	if sl_skin[slave]=0:
+		'За 100 искр вы можете улучшить кожу у рабыни косметологическими процедурами'
+		if iskr[you]>=100:act'Улучшить кожу рабыни':sl_skin[slave]=1&iskr[you]-=100&cls&gs'stat'&'Вашей рабыне улучшили кожу'&act'...':gt $curloc
+	end
+	if sl_skin[slave]=1:
+		'За 150 искр вашей рабыне могут сделать идеальную кожу'
+		if iskr[you]>=150:act'Улучшить кожу рабыни':sl_skin[slave]=2&iskr[you]-=150&cls&gs'stat'&'Вашей рабыне улучшили кожу'&act'...':gt $curloc
+	end
+	act'Сколько вы заплатите за рабыню?':
+	slave=pet_follower&cls&gs'stat'
+		if sl_total[slave]>=8 and sl_age[slave]<=23:
+			if sl_obediance[slave]>=60 and sl_lust[slave]>=50 and sl_oral[slave]>=5 and sl_emo[slave]>=50:
+				summa=sl_total[slave]*200&summa=summa+sl_lust[slave]*20+sl_oral[slave]*30+sl_emo[slave]*50&'Хозяйка салона - Я ее могу взять за <<summa>> искр'
+				act'Продать':
+					pet_tipe=0&iskr[you]+=summa&pet_follower=0&$loc_slave[slave]='elfenlaid'&owner[slave]=5&slave_massage+=1
+					cls&gs'stat'&'Вы продали рабыню в массажистки'&act'Уйти':gt $curloc
+				end 
+			else
+				'Хозяка салона - она мне не подходит, мне нужны нежные и похотливые девочки умеющие ротиком ублажить любого клиента.'
+				if sl_obediance[slave]<60:'У нее проблемы с послушанием'
+				if sl_lust[slave]<50:'Она слишком не похотливая, это отпугнет клиентов'
+				if sl_oral[slave]<5:'Она слишком плохо сосет'
+				if sl_emo[slave]<50:'Она слишком холодная, массажистка должна быть ласковая'
+			end
+		else
+			'Хозяйка салона морщится - Нам требуются только очень красивые девушки не старше 23 лет'
+		end
+		act'Уйти':gt $curloc
+	end
+end

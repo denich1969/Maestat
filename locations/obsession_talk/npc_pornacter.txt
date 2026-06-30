@@ -1,0 +1,16 @@
+﻿cls&'<center> <<$title[npc]>></center>'&'<center><img src="<<$d_view>>" ></center>'&!$d_view='pic/faceman/<<picture[npc]>>.jpg'&
+if mob_sleep[npc]>time:
+	'Порноактер дремлет'
+else
+	 if you_slut[npc]>0:
+		'Порноактер усмехается глядя на вас'
+	 else
+		 if horny[npc]<50:
+			'Порноактер с интересом смотрит на вас - ты пришла на съемки? Могу заплатить 300 гульденов.'
+		 	 act'Секс за 300 гульденов':gulden[you]+=30000&pose[you]=2&whore[you]+=1&gt'sex'
+			act'<b>Уйти</b>':gt 'preloc'
+		 else
+			'Порноактер напряженно пялится на вас и вы замечаете что у него стоит член'
+		 end
+	 end
+end

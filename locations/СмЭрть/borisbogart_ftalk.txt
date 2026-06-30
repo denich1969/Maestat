@@ -1,0 +1,11 @@
+﻿gs'stat'&npc=borisbogart&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+'<center><img src="pic/face/5/46.jpg" ></center>'
+if dead[antey]=2 or dead[techer]=2 or dead[addboss]=2 or dead[dukevalorama]=2 or dead[frank_visconti]=2 or dead[sladkov]=2:
+	'Перед вами появляется Борис Богарт, он гневно смотрит на вас - Убивать моих друзей и надеятся что это сойдет тебе с рук?'&act'<b>Драться</b>':gs'progcurse'&gt 'prefight'
+else
+     if sinner[3]=1:
+		'Перед вами появляется Борис Богарт, он гневно смотрит на вас - Это первое и последнее предупреждение, я никому не позволяю убивать на своей земле.'&act'Уйти':gt'preloc'
+     else
+		'Перед вами появляется Борис Богарт, он гневно смотрит на вас - Мне только в районе еще маньяка убийцы не хватало. Придется с тобой разобраться.'&act'<b>Драться</b>':gs'progcurse'&gt 'prefight'
+     end
+end

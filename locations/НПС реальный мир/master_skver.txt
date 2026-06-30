@@ -1,0 +1,18 @@
+﻿!$thatloc[you]=$curloc
+!Z[you]=9999
+!gs'Poser'
+!loc_for_drop=1
+!cls&*clr&$loc[you]='3,4,200,0,0'&gt'world'
+cls&cla&delact '<i>Отдохнуть 5 минут</i>'&delact '<i>Отдохнуть ....</i>'&gs'stat'&'<center><b>Сквер</b></center>'&'<center><img src="pic/loc/21.jpg" ></center>'
+'Вы идете через скверик и вас сзади кто то нагоняет быстрым шагом и внезапно кладет вам руку на плечо. Вам внезапно становится дурно и начинает кружится голова.'
+act'Обернуться':
+	rubl[you]=0
+	 time+=1
+	 daystartobsession=1
+	 gs'771_world_gen'&gs'772_world_gen'&gs'773_world_gen'
+	 X[you]=4&Y[you]=7&Z[you]=770
+	 $loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+	gt'world'
+end
+gs'item'
+gs'npconloc'

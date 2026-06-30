@@ -1,0 +1,13 @@
+﻿!Определяем "Пол" субъекта.
+if pol[ARGS[1]]>0:$ARGS['GENDER_SHORT'] = 'f'
+if pol[ARGS[1]]>0 and dick[ARGS[1]]>0:$ARGS['GENDER_SHORT'] = 's'
+if pol[ARGS[1]]=0:$ARGS['GENDER_SHORT'] = 'm'
+!Определяем нужную циферку по прификсу пола, для использования его в динамике.!И присваиваем +1 к секс-счётчику объекта.
+if $ARGS['GENDER_SHORT'] = 'f': girl[ARGS[0]]+=1 && ARGS['GENDER_VAL'] = girl[ARGS[0]]
+if $ARGS['GENDER_SHORT'] = 'm' : guy[ARGS[0]]+=1 && ARGS['GENDER_VAL'] = guy[ARGS[0]]
+if $ARGS['GENDER_SHORT'] = 's' : shemale[ARGS[0]]+=1 && ARGS['GENDER_VAL'] = shemale[ARGS[0]]
+!Если $ARGS['GENDER_SHORT'] = 'f' и ARGS['GENDER_VAL']=3 и ARGS[0]=323 и ARGS[1]=542, то эта трудно-читабельная штука будет выглядеть вот так:   sexpartner_num_f['323,3']=542
+!В статичном виде, который использовался в игре, это выглядело так - sexpartner_num_f['<<npc>>,<<girl[npc]>>']=you
+!Т.е. мы автоматизируем весь процесс динамическим кодом и нам не нужно каждый раз запариваться над ручной интерпретацией.!Это нужно, для сознания списка имён секс-партнеров.
+!Это крайне спорный метод, т.к. он используется только для вывода имён и больше нигде не используется, и для каждого пола - список свой, что является крайне странным решением, но спорить не буду.
+dynamic "sexpartner_num_<<$ARGS['GENDER_SHORT']>>['<<ARGS[0]>>,<<ARGS['GENDER_VAL']>>'] = <<ARGS[1]>>"

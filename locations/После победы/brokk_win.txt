@@ -1,0 +1,15 @@
+﻿gs'stat'&'<center><img src="pic/face/5/36.jpg" ></center>'
+'Брок не в силах сопротивлятся рухнул на колени, его броня отключилась и он стал пытаться выбраться из нее'
+act'Портал в полицейский участок':
+	npc=brokk
+	X=2&Y=0&Z=3&H=3&R=3
+	e_world[]=npc
+	X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+	immobilaze[npc]=1
+	dead[npc]=0
+	mob_busy[npc]=0
+	X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
+	cls&gs'stat'&'<center><img src="pic/face/5/36.jpg" ></center>'
+	'Вы швырнули в клетку Брокка и закрыли его там.'
+	act'...':gt'world'
+end

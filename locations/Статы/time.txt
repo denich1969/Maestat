@@ -1,0 +1,351 @@
+﻿clr
+if medusa_pouder_timer[you]>0:
+	medusa_pouder_timer[you]-=1&energy[you]-=5&if horny[you]<20:horny[you]=20
+	horny[you]+=15&if vag[you]>1:womenbrain[you]+=2&!vag[you]+=1
+end
+if lastmin<time:
+	minut+=time-lastmin&lastmin=time&if energized[you]>0:energy[you]+=10
+end
+if minut >= 60:
+	:loopmin
+		hour+=1&minut-=60&lasthour+=1
+		if Z[you]>=770 and Z[you]<800:
+			if princess!you and dead[princess]=1000 and startnewspawn=1:dead[princess]=0
+			if canspawnmob=0:gs'mobspawn'
+		end
+		if alko[you]>0:alko[you]-=1
+		if energized[you]>0:energized[you]-=1
+		Xrain=rand(0,4)&Yrain=rand(0,4)&Zrain=rand(1,5)&itsrainingday['<<Xrain>>,<<Yrain>>,<<Zrain>>,0,0']=time+120
+		if demon_slave[you]>=1 and subbdsmwant[you]=0:health[you]+=3*(1+fullpierce[you])&energy[you]+=3*(1+fullpierce[you])&mana[you]+=5*(1+fullpierce[you])
+		if manareload[you]>0 and manamax[you]>0:mana[you]+=manareload[you]
+		if health[you]<healthmax[you] and superslut[you]!1:health[you]+=5
+		if milking[you]>0:milking[you]-=1
+		if myrealbody>0 and myrealbody!you:soul[myrealbody]-=1
+		if hotass[you]>10:hotass[you]=10
+		if hotass[you]>0:hotass[you]-=1
+		if spit_face[you]>0:spit_face[you]=0
+		if hotthroat[you]>0:hotthroat[you]-=1
+		if water_gem[you]>0:mana[you]+=soul[you]
+		if fire_gem[you]>0:mana[you]+=soul[you]
+		if earth_gem[you]>0:mana[you]+=soul[you]
+		if wind_gem[you]>0:mana[you]+=soul[you]
+		if soul_gem[you]>0:mana[you]+=soul[you]
+		gs'demon_dick_stomath_func',you&!переработка душ
+		if cantwalk_num>0:
+			if cantwalk[cantwalk_num]>0:cantwalk[cantwalk_num]-=1
+			if cantwalk[cantwalk_num]<=0:cantwalk_num=0&cantwalk[cantwalk_num]=0&bf_want_walk[cantwalk_num]=0
+		end
+		if mutation[you]>=10 and spore[you]<mutation[you]:spore[you]+=mutation[you]/10
+		if mutation[you]=0 and spore[you]>0:spore[you]-=1
+		if feromon[you]>0:feromon[you]-=1
+		if peecover[you]>0:peecover[you]-=1
+		if magik_egganal_timer[you]>0:magik_egganal_timer[you]-=1&!Счётчики времени откладывания яиц
+		if magik_eggvag_timer[you]>0:magik_eggvag_timer[you]-=1
+		if anal_egg_timer[you]>0:anal_egg_timer[you]-=1
+		if vagina_egg_timer[you]>0:vagina_egg_timer[you]-=1
+		if ball[you]>1:horny[you]+=5
+		if ball[you]>3:horny[you]+=5
+		if blockneed=0:
+			horny[you]+=rand(0,1)+(corr[you]/10)+(lust[you]/10)+mistcurse[you]
+			hunger[you]+=1
+			thirst[you]+=1
+			sleep[you]+=1
+			if nopee=0:pisswasser[you]+=1
+		end
+		if hunger[you]>8:loosw[you]+=1
+		if loosw[you]>=5:loosw[you]=0&fat[you]-=1&fit[you]-=1
+		in_fight=0&in_sex=0&gs'effect',you
+		maxnpcnum=arrsize('$name')&npcnum=1&!возбуждение НПС
+		:arousenpc
+		gs'npc_arouse'&npcnum+=1&if npcnum<=maxnpcnum:jump 'arousenpc'
+    if minut >= 60:jump 'loopmin'
+end
+if hour >= 24:
+	:loop
+	set day+=1
+	if daystart>0 and Z[you]>0 and Z[you]<11:daystart+=1
+	if romadaystart>0 and Z[you]>=400 and Z[you]<500:romadaystart+=1
+	if daystartobsession>0 and Z[you]>=700 and Z[you]<800:daystartobsession+=1
+	if realdaystart>0 and Z[you]>=200 and Z[you]<300:realdaystart+=1
+	if princessdaystart>0 and Z[you]>=700 and Z[you]<800 and you=prinsess:princessdaystart+=1
+	!if daystartobsession>0 and Z[you]>=700 and Z[you]<800:daystartobsession+=1
+	sumdaystart=daystart+realdaystart+romadaystart+daystartobsession+princessdaystart
+	set week+=1&set hour-=24&hlong[you]+=1&paidnpc=1&npcmax=arrsize('$name')&!зарплата НПС и переодевание 19.04.2026
+	payday1=rand(200,300)&payday2=rand(250,500)&payday3=rand(300,600)&payday4=rand(400,700)&payday5=rand(500,800)&payday6=rand(500,1000)&payday7=rand(800,1300)
+	if daylypaymantdone=0:
+		:paynpc
+		sextoday[paidnpc]=0&payable_npc=iif(money[paidnpc]<10000 and Zhome[paidnpc]>0 and Zhome[paidnpc]<6,1,0)
+		if paidnpc!you and payable_npc=1:gs'npc_getpaid'
+		if paidnpc!you and pol[paidnpc]>0 and (payable_npc=1 or boyfriend_num[paidnpc]!0 or husband[paidnpc]!0) and (money[paidnpc]>500+(class[paidnpc]+1)*1500) and buyclothtoday[paidnpc]!daystart:gs'npc_rewear'&!меняем одежду
+		paidnpc+=1&if paidnpc<=npcmax:jump 'paynpc'
+		daylypaymantdone=1
+	end
+	ind=1&!Tabun 15.11.2024
+	istmundnpc=0
+	:newctrlinsmouth_gen
+	if ind<=npcmaxnum:
+		if mob[ind]=3:istmundnpc+=1
+		ind+=1&jump 'newctrlinsmouth_gen'
+	end
+	if istmundnpc<13:gs'insmouth_gen'&gs'insmouth_gen'&gs'insmouth_gen'&!Увеличение числа истмутцев Tabun 15.11.2024
+	if pol[you]=0:beard[you]+=1
+	leg_hair[you]+=1
+	if vag[you]>0:cunthair[you]+=1
+	if vag[you]>10:vag[you]-=1
+	if anus[you]>5:anus[you]-=1
+	if dick[you]>1 and pregnant_day[you]>daystart:dick[you]-=rand(0,1)
+	if muggle[you]=1 and soul[you]<100:soul[you]+=1
+     if implant_seed[you]=1:
+         if lebeda_seed[you]>0:lebeda_seed[you]-=1
+         if mutation[you]>0:mutation[you]-=1
+         if spore[you]>0:spore[you]-=1
+     end
+     if daystart=2:gs'sallivandot'
+     if popescu_dohod>0 and Zhome[popescu]=1 and dead[popescu]=0:popescu_day+=1
+     if vamireQW=100 and newVampQW=0:
+		 newVampQW=1&husband[popescu]=0&husband[pratchet]=0&$surname[popescu]='Попеску'
+		 $history[popescu]='Что бы избежать неприятностей с Маршами мне пришлось переселиться в Блэкберри.'
+		 Xhome[popescu]=Xhome[mabuta]&Yhome[popescu]=Yhome[mabuta]&Zhome[popescu]=Zhome[mabuta]&Hhome[popescu]=Hhome[mabuta]&Rhome[popescu]=Rhome[mabuta]
+		 X[popescu]=Xhome[mabuta]&Y[popescu]=Yhome[mabuta]&Z[popescu]=Zhome[mabuta]&H[popescu]=Hhome[mabuta]&R[popescu]=Rhome[mabuta]
+		 ne_world[]=popescu&walkprog[popescu]=27
+		 dead[pratchet]=2&soul[popescu]+=1000&$history[lagerta]='После смерти брата и исчезновения вампирши, мне приходится заниматься заводом.'
+     end
+     if runemasterQW>=1 and dead[sparrow]=0 and megamentQW=0:
+         if dead[sladkovadot]=0:
+			 megamentQW=1&friends['<<sparrow>>,<<sladkovadot>>']+=100&friends['<<sladkovadot>>,<<sparrow>>']+=100
+			 Xhome[sparrow]=Xhome[sladkovadot]&Yhome[sparrow]=Yhome[sladkovadot]&Zhome[sparrow]=Zhome[sladkovadot]&Hhome[sparrow]=Hhome[sladkovadot]&Rhome[sparrow]=Rhome[sladkovadot]
+			 X[sparrow]=Xhome[sparrow]&Y[sparrow]=Yhome[sparrow]&Z[sparrow]=Zhome[sparrow]&H[sparrow]=Hhome[sparrow]&R[sparrow]=Rhome[sparrow]
+			 $history[sparrow]='Я женился на прекрасной девушке из Жилмассива и стал командиром полиции.'
+			 e_world[]=sparrow&walkprog[sparrow]=26
+			 husband[sparrow]=sladkovadot&husband[sladkovadot]=sparrow
+			 whore[sladkovadot]=0&whoreboss[sladkovadot]=0&r_leg_t[sladkovadot]=0&wantblackcock[sladkovadot]=0
+         end
+     end
+     if dead[grief]=0 and daygilmassgrif+10<=daystart and grief_worldQW=2 and magik[grief]>=35 and sexpartner['<<grief>>,<<bianka_visconti>>']>0 and runemasterQW>=9:grief_worldQW=3
+     if dead[grief]=0 and total_branded_slut[grief]>=needbanggrief and grief_worldQW=1 and magik[grief]>=25:
+		 grief_worldQW=2&daygilmassgrif=daystart&friends['<<grief>>,<<bocman>>']+=100&friends['<<bocman>>,<<grief>>']+=100
+		 Xhome[grief]=Xhome[bocman]&Yhome[grief]=Yhome[bocman]&Zhome[grief]=Zhome[bocman]&Hhome[grief]=Hhome[bocman]&Rhome[grief]=Rhome[bocman]
+		 X[grief]=Xhome[grief]&Y[grief]=Yhome[grief]&Z[grief]=Zhome[grief]&H[grief]=Hhome[grief]&R[grief]=Rhome[grief]
+		 $history[grief]='В Блэкберри я не слишком поладил с местными воротилами, потому переехал в Жилмассив.'
+		 e_world[]=grief&e_world[]=youngdot&e_world[]=elderdot
+		 walkprog[grief]=26&! walkprog[elderdot]=26&walkprog[youngdot]=26
+		! Xhome[elderdot]=Xhome[grief]&Yhome[elderdot]=Yhome[grief]&Zhome[elderdot]=Zhome[grief]&Hhome[elderdot]=Hhome[grief]&Rhome[elderdot]=Rhome[grief]
+        ! Xhome[elderdot]=Xhome[grief]&Yhome[youngdot]=Yhome[grief]&Zhome[youngdot]=Zhome[grief]&Hhome[youngdot]=Hhome[grief]&Rhome[youngdot]=Rhome[grief]
+	     if dead[silviabrokk]=0:
+			gs'add_sex_stat',grief,silviabrokk&! if sexpartner['<<grief>>,<<silviabrokk>>']=0:
+			 bj[silviabrokk]+=1&abj[grief]+=1
+			 vag[silviabrokk]+=1&vagsex[silviabrokk]+=1&avagsex[grief]+=1
+			 anus[silviabrokk]+=1&anal[silviabrokk]+=1&aanal[grief]+=1
+			 if throat[silviabrokk]<10:throat[silviabrokk]=10
+			 if dick[grief]>throat[silviabrokk]:throat[silviabrokk]+=5
+		     $global_npc_log[grief]+='<br>'
+			 $global_npc_log[grief]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[silviabrokk]>> <<$surname[silviabrokk]>> была выебана мной во все дыры как полная шлюха.'
+		     $global_npc_log[silviabrokk]+='<br>'
+			 if dead[brokk]=0:$global_npc_log[silviabrokk]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> поимел меня и моему мужу это не понравилось.'
+			 if dead[brokk]>0:$global_npc_log[silviabrokk]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> поимел меня.'
+	     end
+	     if dead[lebeda]=0:
+			gs'add_sex_stat',grief,lebeda
+			 bj[lebeda]+=1&abj[grief]+=1
+			 if throat[lebeda]<10:throat[lebeda]=10
+			 if dick[grief]>throat[lebeda]:throat[lebeda]+=5
+		     $global_npc_log[grief]+='<br>'
+			 $global_npc_log[grief]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[lebeda]>> <<$surname[lebeda]>> взяла у меня на ротан.'
+		     $global_npc_log[lebeda]+='<br>'
+			 $global_npc_log[lebeda]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> дал мне в рот.'
+			 lebeda_seed[grief]+=1
+	     end
+		 if dead[brokk]=0:
+			 win[brokk]+=1&loss[grief]+=1
+			 $fightlog[brokk]+='<br>'
+			 $fightlog[brokk]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[brokk]>>-<<loss[brokk]>> vs <<$name[grief]>> <<$surname[grief]>>. <<win[grief]>>-<<loss[grief]>>'
+			 $fightlog[s]+='<br>'
+			 $fightlog[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[grief]>>-<<loss[grief]>> vs <<$name[brokk]>> <<$surname[brokk]>>. <<win[brokk]>>-<<loss[brokk]>>'
+		 end
+		 e_world[]=mrspiggy&walkprog[mrspiggy]=26&!mrspiggy
+		 Xhome[mrspiggy]=Xhome[bocman]&Yhome[mrspiggy]=Yhome[bocman]&Zhome[mrspiggy]=Zhome[bocman]&Hhome[mrspiggy]=Hhome[bocman]&Rhome[mrspiggy]=Rhome[bocman]
+		 X[mrspiggy]=Xhome[grief]&Y[mrspiggy]=Yhome[grief]&Z[mrspiggy]=Zhome[grief]&H[mrspiggy]=Hhome[grief]&R[mrspiggy]=Rhome[grief]
+     end
+     if dead[grief]=0 and sexpartner['<<youngdot>>,<<grief>>']>0 and sexpartner['<<elderdot>>,<<grief>>']>0 and grief_worldQW=0:
+		 grief_worldQW=1
+		 needbanggrief=total_branded_slut[grief]+3
+		 friends['<<grief>>,<<jeff>>']+=100&friends['<<jeff>>,<<grief>>']+=100&!jeff
+		 Xhome[grief]=Xhome[jeff]&Yhome[grief]=Yhome[jeff]&Zhome[grief]=Zhome[jeff]&Hhome[grief]=Hhome[jeff]&Rhome[grief]=Rhome[jeff]
+		 X[grief]=Xhome[grief]&Y[grief]=Yhome[grief]&Z[grief]=Zhome[grief]&H[grief]=Hhome[grief]&R[grief]=Rhome[grief]
+		 $history[grief]='Мне надоело торчать в порту и я переехал к корешу в Блэкберри.'
+	     if dead[moongodes]=0:
+			gs'add_sex_stat',grief,moongodes
+			 bj[moongodes]+=1&abj[grief]+=1
+			 vag[moongodes]+=1&vagsex[moongodes]+=1&avagsex[grief]+=1
+			 anus[moongodes]+=1&anal[moongodes]+=1&aanal[grief]+=1
+			 if throat[moongodes]<10:throat[moongodes]=10
+			 if dick[grief]>throat[moongodes]:throat[moongodes]+=5
+		     $global_npc_log[grief]+='<br>'
+			 $global_npc_log[grief]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[moongodes]>> <<$surname[moongodes]>> хоть и богиня, но стонала на моем хуе как обыкновенная шлюха.'
+		     $global_npc_log[moongodes]+='<br>'
+			 $global_npc_log[moongodes]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> оттрахал меня.'
+	     end
+		 ne_world[]=grief&ne_world[]=youngdot&ne_world[]=elderdot
+		 walkprog[grief]=24&! walkprog[elderdot]=24&walkprog[youngdot]=24
+		! Xhome[elderdot]=Xhome[grief]&Yhome[elderdot]=Yhome[grief]&Zhome[elderdot]=Zhome[grief]&Hhome[elderdot]=Hhome[grief]&Rhome[elderdot]=Rhome[grief]
+        ! Xhome[elderdot]=Xhome[grief]&Yhome[youngdot]=Yhome[grief]&Zhome[youngdot]=Zhome[grief]&Hhome[youngdot]=Hhome[grief]&Rhome[youngdot]=Rhome[grief]
+		 gs'mrspiggy_gen'
+     end
+     if demon_slave[you]>=1:demon_slave[you]+=1
+	if addams_time>0:
+		 addams_time+=1
+		 if addams_time>=6 and magik[popescu]<30:magik[popescu]+=1
+		 if husband[popescu]=0 and husband[pratchet]=0 and dead[popescu]=0 and dead[pratchet]=0 and addams_time>=5:
+			 husband[popescu]=pratchet&husband[pratchet]=popescu
+			 $surname[popescu]='Пратчет'&$history[popescu]='Я жена владельца рыбзавода Пратчета.'
+			 Xhome[popescu]=Xhome[pratchet]&Yhome[popescu]=Yhome[pratchet]&Zhome[popescu]=Zhome[pratchet]&Hhome[popescu]=Hhome[pratchet]&Rhome[popescu]=Rhome[pratchet]
+			 magik[popescu]+=1
+			 friends['<<popescu>>,<<pratchet>>']+=100&friends['<<pratchet>>,<<popescu>>']+=100
+			 agro[pratchet]=10&lust[pratchet]=10&positiv[pratchet]=0&extrovert[pratchet]=0&ratio[pratchet]=0&selfrespect[pratchet]=0&brave[pratchet]=0
+			 agro[popescu]=100&lust[popescu]=100
+			 vampire[popescu]+=1&trall[pratchet]=popescu
+			 soul[popescu]+=1000
+			 vital[popescu]=1000&reflex[popescu]=150
+		 end
+		 if grief>0 and dead[grief]=0 and daystart>=12:
+			 if sexpartner['<<youngdot>>,<<grief>>']=0 or sexpartner['<<elderdot>>,<<grief>>']=0:
+				 if dead[youngdot]=0:
+					gs'add_sex_stat',grief,youngdot
+					 bj[youngdot]+=1&abj[grief]+=1
+					 vag[youngdot]+=1&vagsex[youngdot]+=1&avagsex[grief]+=1
+					 anus[youngdot]+=1&anal[youngdot]+=1&aanal[grief]+=1
+					 if throat[youngdot]<10:throat[youngdot]=10
+					 if dick[grief]>throat[youngdot]:throat[youngdot]+=5
+					 $global_npc_log[grief]+='<br>'
+					 $global_npc_log[grief]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[youngdot]>> <<$surname[youngdot]>> взяла у меня на ротан и я ее отшпехал во все дырки.'
+					 $global_npc_log[youngdot]+='<br>'&$global_npc_log[youngdot]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> трахнул меня.'
+				 end
+				 if dead[elderdot]=0:
+					gs'add_sex_stat',grief,elderdot
+					 bj[elderdot]+=1&abj[grief]+=1
+					 vag[elderdot]+=1&vagsex[elderdot]+=1&avagsex[grief]+=1
+					 anus[elderdot]+=1&anal[elderdot]+=1&aanal[grief]+=1
+					 if throat[elderdot]<10:throat[elderdot]=10
+					 if dick[grief]>throat[elderdot]:throat[elderdot]+=5
+					 $global_npc_log[grief]+='<br>'
+					 $global_npc_log[grief]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[elderdot]>> <<$surname[elderdot]>> взяла у меня на ротан и я ее отшпехал во все дырки.'
+					 $global_npc_log[elderdot]+='<br>'&$global_npc_log[elderdot]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> трахнул меня.'
+				 end
+			 end
+		 end
+		 if boyfriend_num[addams]=necromancer and dead[necromancer]=0 and dead[addams]=0:
+			 if magik[addams]<35 and magik[addams]*magik[addams]<addams_time:
+			 magik[addams]+=1
+			 end
+		 end
+		 if addams_time>=3 and boyfriend_num[addams]=0 and dead[necromancer]=0 and dead[addams]=0:
+			 girlfriend_num[necromancer]=addams&boyfriend_num[addams]=necromancer
+			 magik[addams]+=1
+			 vital[addams]=1000&reflex[addams]=150
+		 end
+	end
+	if addams>0 and addams_time=0:addams_time=1
+	if beliver[you]=2:soul[you]+=iif(dagongene>50,dagongene/10,5)
+	if dilaminaFallQW=1:dilaminaFallQW=2
+	if saunakafeowner=1:saunakafemoney+=rand(1000,10000)
+	if hotelowner=1:hotelmoney+=rand(5000,20000)
+	if earth_gem[you]>0:resoranmoney+=rand(5000,15000)
+	if lebeda_head[you]=1:lebeda_day+=1&soul[you]-=lebeda_day
+	if total_haron_gen>0 and brightentar=0:brightentar=1&gs'brightentar_gen'
+	if total_haron_gen>0 and cowgirl=0:cowgirl=1&gs'cowgirl_gen'
+	haron_pass+=1
+	if haron_pass>=haron_pass*haron_pass and total_haron_gen<50 and Z[you]>=1 and Z[you]<=5:
+		total_haron_gen+=1&haron_pass=0
+		if total_haron_gen=1:
+			 gs'generate_haron_pass_first'
+		else
+			 gs'generate_haron_pass'
+		end
+	end
+	if globalQW=7 and you=father:
+		 if magik[sister]<35:magik[sister]+=1
+		 if magik[brother]<35:magik[brother]+=1
+	end
+	if master[you]=1:gs'soulcraft'&!soul[you]-=monosoul
+	if follower[you]!0:follower[you]=0
+	if magik[smartgirl]>0 and magik[smartgirl]<35:magik[smartgirl]+=1
+	if magik[smartgirl]>=35 and smartgirlTower=0:
+		 smartgirlTower=1
+		 X=4&Y=4&Z=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+		 H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+		 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Башня'&$lname['<<$temploc>>']='Башня'&$locopis['<<$temploc>>']='На голых скалах возвышается башня'
+		 np['<<$temploc>>']=178		 		 
+		 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Магическая башня'&lock['<<$templocH>>']=0&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=2
+		 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Магическая башня'&$lname['<<$temploc>>']='Магическая башня'&$lname_go['<<$temploc>>']='в башню'&$locopis['<<$temploc>>']='Холл магической башни'
+		 np['<<$temploc>>']=179
+		 mirror['<<$temploc>>']=1&magtower['<<$temploc>>']=1&witchkotel['<<$temploc>>']=10&pentagramm['<<$temploc>>']=1		 		 
+		 R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+		 $locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+		 $locopis['<<$temploc>>']='Уютная комната с несколькими кроватями'
+		 np['<<$temploc>>']=180
+		 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+		 Xhome[smartgirl]=X&Yhome[smartgirl]=Y&Zhome[smartgirl]=Z&Hhome[smartgirl]=H&Rhome[smartgirl]=R
+		 smgirl=girlfriend_num[smartgirl]&smboy=boyfriend_num[smartgirl]
+		 girlfriend_num[smartgirl]=0&boyfriend_num[smartgirl]=0
+		 girlfriend_num[smboy]=0&boyfriend_num[smboy]=0
+		 girlfriend_num[smgirl]=0&boyfriend_num[smgirl]=0
+		 if husband[smartgirl]>0:smhus=husband[smartgirl]&husband[smartgirl]=0&husband[smhus]=0 
+		 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
+		 $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'
+		 $locopis['<<$temploc>>']='Туалетная комната с ванной, умывальником и унитазом.'
+		 np['<<$temploc>>']=4
+		 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&shower['<<$temploc>>']=1&toilet['<<$temploc>>']=1
+	end
+	!if work[father]=7:money+=1000
+	!if work[mother]=6:money+=1000
+	!if Hhome[you]>0:dayrent-=1
+	!money-=1000
+     if hour >= 24:
+		if anus[you]>30:anus[you]-=2
+		if vag[you]>40:vag[you]-=1
+		jump 'loop'
+     end
+	npcnum=1&maxnpcnum=arrsize('$name')&!фикс хп 19.04.2026
+	:fixhp
+		if health[npcnum]<healthmax[npcnum]:health[npcnum]=healthmax[npcnum]
+	npcnum+=1&if npcnum<=maxnpcnum: jump'fixhp'
+	daylypaymantdone=0
+end
+if month = 1 or month = 3 or month = 5 or month = 7 or month = 8 or month = 10 or month = 12:
+	if day > 31:day -= 31 & month += 1&!31
+elseif month = 2:
+	if day > 28:day -= 28 & month += 1&!28
+elseif month = 0:
+	month = 1&if day > 31:day -= 31 & month += 1
+elseif month = 13:
+	month = 1&if day > 31:day -= 31 & month += 1
+else
+	if day > 30:day -= 30 & month += 1&!30
+end
+if day = 0:day = 1
+if week > 7:
+	:loopweek
+	set week-=7&if week > 7:jump 'loopweek'
+end
+if week = 1:Set $week = 'Понедельник'
+if week = 2:Set $week = 'Вторник'
+if week = 3:Set $week = 'Среда'
+if week = 4:Set $week = 'Четверг'
+if week = 5:Set $week = 'Пятница'
+if week = 6:Set $week = 'Суббота'
+if week = 7:Set $week = 'Воскресенье'
+if month = 0:Set month = 1
+if month = 13:Set month = 1&year+=1
+If month = 1:set $month = 'Январь'
+If month = 2:set $month = 'Февраль'
+If month = 3:set $month = 'Март'
+If month = 4:set $month = 'Апрель'
+If month = 5:set $month = 'Май'
+If month = 6:set $month = 'Июнь'
+If month = 7:set $month = 'Июль'
+If month = 8:set $month = 'Август'
+If month = 9:set $month = 'Сентябрь'
+If month = 10:set $month = 'Октябрь'
+If month = 11:set $month = 'Ноябрь'
+If month = 12:set $month = 'Декабрь'

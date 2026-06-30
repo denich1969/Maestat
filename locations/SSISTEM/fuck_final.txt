@@ -1,0 +1,319 @@
+﻿!"Памятка для добавления позиций
+1) добавляем локацию fuck_<name_position> имя локации по большому счету не важно, скорее для стандарта
+внутрни локации
+gs'sex_func','findId',args[0],args[1],args[2]
+dynamic("<куда>_<name_position>_<<args[1]>>[]=<<args[0]>>")
+куда - это oral, anal, vag - просто чтоб было понятно с чем работаем (само по себе это не обязательно и может иметь и другие значения)
+2) в локации fuck_final_dinamics создаем переменную с динамическим значением <куда>_<name_position>_dyn - она будет выполняться, когда происходит данное действие (в переменной result будет храниться возбуждение от сцены, не следует просто прибавлять horny, без веский причин)
+3) в текущей локации добавляем if arrsize("<куда>_<name_position>_<<sex_cel>>")>0:dynamic($sex_dinamic, "<куда>_<name_position>", sex_cel) (над БЛОК ГРУППИРОВКИ)
+4) можно добавить в БЛОК ГРУППИРОВКИ  sex_<куда>_slot и sex_<куда>_slot_horny если нужно это предпологалось как помощ в описании, в общем добавлять или нет по усмотрению
+5) в самом конце текущей локации в финальном блоке, добавить условие врод if <куда>_<name_position>_horny_isset[sex_cel]>0:... что будет если ГГ/НПС словит оргазм в текущей позиции (она отработает и в групповухе и в дуэте, если такого не нужно, нужно поработать над условиями внутри)
+6) в локации reset_fuck добавить killvar("<куда>_<name_position>_<<args[1]>>") - в раздел poses - которая будет сбрасывать эту позицию в конце каждого цикла
+7) в локации reset_fuck добавить 
+	- killvar("<куда>_<name_position>_horny", args[0]) в последний раздел который удалит переменную с значением возбуждения у персонажа в коце цикла
+	- killvar("<куда>_<name_position>_horny_isset", args[0]) в последний раздел который удалит флаг, что это действие происходило
+переменные <куда>_<name_position>_horny и <куда>_<name_position>_horny_isset генерируються автоматом при отработки сцены в локации fuck_final_dinamics->$sex_dinamic
+архитектура ДП (больше 1 члена в рот, киску, попку), не реализованна, работать будет, но расчеты возбуждения будут не точными и с описанием могут быть проблемы, хотя ее можно сюда внедрить (если перепилить все динамики в локации fuck_final_dinamics переписав их с поправкой на колличество одновоременного проникновения) т.к. колличество врятли будет больше 3 можно всех передавать как аргументы и чекать их колличество
+архитектура поддерживает несколько сцен секса одновременно (у каждой сцены есть id) есть возможность проводить секс сеансы для всех нпс в фоне (в дополнительном потоке) чтоб понять на сколько партнеры удовлетворяют друг друга, что можно использовать в ивентах, да и статы будут соответствено расти"
+
+!0 - id сцены
+!1 - нужно ли сбрасывать сцену? (0 - сброс, 1 не сбрасывать, но нужно ее все равно сбросить вручную позже (до повторного вызова этой локации), хотя бы возбуждение, делаеться в локации reset_fuck) 
+!перенести в локацию загрузки
+gs'fuck_final_dinamics'
+
+result=0
+!0-id scene
+copyarr("sex_scene_npc", "sex_scene_<<args[0]>>")
+args[100]=0
+:sex_scene_npc
+if sex_scene_npc[args[100]]>0:
+	sex_cel=sex_scene_npc[args[100]]&!какого персонажа трахают
+	sex_horny_cikl[sex_cel]=0&!количество возбуждения за цикл, подсчитываеться автоматом
+	sex_last_orgazm[sex_cel]=0&!просто флаг, что персонаж получил оргазм (можно использовать после отработки локации, т.к. она не сбрасывается до окончания сцены)
+	if arrsize("oral_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_fuckers", sex_cel)&!---------------------------------- минет
+	if arrsize("oral_slap_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_slap_fuckers", sex_cel)&!-------------------- шлепать членом
+	if arrsize("oral_spit_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_spit_fuckers", sex_cel)&!---------------------- плевок
+	if arrsize("oral_throat_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_throat_fuckers", sex_cel)&!----------------- глубокий минет
+	if arrsize("oral_throat_spec_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_throat_spec_fuckers", sex_cel)&!- особый глубокий минет (зажатие между ног)
+	if arrsize("oral_lick_dick_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_lick_dick_fuckers", sex_cel)&!---------- лизать хуй
+	if arrsize("oral_lick_vag_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_lick_vag_fuckers", sex_cel)&!------------ лизать вагину
+	if arrsize("oral_hit_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_hit_fuckers", sex_cel)&!--------------------------- ударить по лицу
+	if arrsize("oral_fingers_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "oral_fingers_fuckers", sex_cel)&!--------------- пальцы в рот
+	if arrsize("piss_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "piss_fuckers", sex_cel)&!----------------------------------- ссать
+	if arrsize("vag_jerk_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "vag_jerk_fuckers", sex_cel)&!------------------------ дрочить киску
+	if arrsize("vag_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "vag_fuckers", sex_cel)&!------------------------------------- в киску
+	if arrsize("vag_hard_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "vag_hard_fuckers", sex_cel)&!---------------------- в киску жостко
+	if arrsize("anal_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "anal_fuckers", sex_cel)&!----------------------------------- в попку
+	if arrsize("anal_hard_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "anal_hard_fuckers", sex_cel)&!--------------------- Жосткий анал
+	if arrsize("anal_fisting_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "anal_fisting_fuckers", sex_cel)&!----------------- фистинг
+	if arrsize("anal_lift_legs_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "anal_lift_legs_fuckers", sex_cel)&!------------- в задницу с задранными ногами
+	if arrsize("anal_slap_face_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "anal_slap_face_fuckers", sex_cel)&!-------- дать пощечену во время анала
+	if arrsize("anal_spit_face_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "anal_spit_face_fuckers", sex_cel)&!---------- плюнуть во время анала
+	if arrsize("anal_lick_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "anal_lick_fuckers", sex_cel)&!------------------------- анилингус
+	if arrsize("cum_anus_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "cum_anus_fuckers", sex_cel)&!--------------------- кончил в задницу
+	if arrsize("cum_oral_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "cum_oral_fuckers", sex_cel)&!------------------------ кончил в рот
+	if arrsize("cum_face_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "cum_face_fuckers", sex_cel)&!---------------------- кончил на лицо
+	if arrsize("cum_vag_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "cum_vag_fuckers", sex_cel)&!------------------------ кончил в киску
+	if arrsize("cum_ass_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "cum_ass_fuckers", sex_cel)&!------------------------ кончил на задницу
+	if arrsize("handjob_fuckers_<<sex_cel>>")>0:dynamic($sex_dinamic, "handjob_fuckers", sex_cel)&!---------------------------- работа ручками
+	!БЛОК ГРУППИРОВКИ---------
+	!действие происходит над ртом (значение это сколько человек)
+	sex_oral_slot[sex_cel]=oral_fuckers_horny_isset[sex_cel]+oral_slap_fuckers_horny_isset[sex_cel]+oral_spit_fuckers_horny_isset[sex_cel]+oral_throat_fuckers_horny_isset[sex_cel]+oral_throat_spec_fuckers_horny_isset[sex_cel]+oral_lick_dick_fuckers_horny_isset[sex_cel]+oral_lick_vag_fuckers_horny_isset[sex_cel]+oral_hit_fuckers_horny_isset[sex_cel]+oral_fingers_fuckers_horny_isset[sex_cel]+cum_oral_fuckers_horny_isset[sex_cel]+cum_face_fuckers_horny_isset[sex_cel]
+	!сколько будет полученно возбуждения
+	sex_oral_slot_horny[sex_cel]=oral_fuckers_horny[sex_cel]+oral_slap_fuckers_horny[sex_cel]+oral_spit_fuckers_horny[sex_cel]+oral_throat_fuckers_horny[sex_cel]+oral_throat_spec_fuckers_horny[sex_cel]+oral_lick_dick_fuckers_horny[sex_cel]+oral_lick_vag_fuckers_horny[sex_cel]+oral_hit_fuckers_horny[sex_cel]+oral_fingers_fuckers_horny[sex_cel]+cum_oral_fuckers_horny[sex_cel]+cum_face_fuckers_horny[sex_cel]
+	if sex_oral_slot[sex_cel]>0:temp_oral[sex_cel]+=1
+	if sex_oral_slot[sex_cel]=0:temp_oral[sex_cel]=0
+	!тоже что и выше с киской
+	sex_vag_slot[sex_cel]=cum_vag_fuckers_horny_isset[sex_cel]+vag_fuckers_horny_isset[sex_cel]+vag_hard_fuckers_horny_isset[sex_cel]
+	sex_vag_slot_horny[sex_cel]=cum_vag_fuckers_horny[sex_cel]+vag_fuckers_horny[sex_cel]+vag_hard_fuckers_horny[sex_cel]
+	if sex_vag_slot[sex_cel]>0:temp_vag[sex_cel]+=1
+	if sex_vag_slot[sex_cel]=0:temp_vag[sex_cel]=0
+	!тоже что и выше с попой
+	sex_anal_slot[sex_cel]=anal_fuckers_horny_isset[sex_cel]+anal_hard_fuckers_horny_isset[sex_cel]+anal_fisting_fuckers_horny_isset[sex_cel]+anal_lift_legs_fuckers_horny_isset[sex_cel]+anal_slap_face_fuckers_horny_isset[sex_cel]+anal_spit_face_fuckers_horny_isset[sex_cel]+anal_lick_fuckers_horny_isset[sex_cel]+cum_anus_fuckers_horny_isset[sex_cel]
+	sex_anal_slot_horny[sex_cel]=anal_fuckers_horny[sex_cel]+anal_hard_fuckers_horny[sex_cel]+anal_fisting_fuckers_horny[sex_cel]+anal_lift_legs_fuckers_horny[sex_cel]+anal_slap_face_fuckers_horny[sex_cel]+anal_spit_face_fuckers_horny[sex_cel]+anal_lick_fuckers_horny[sex_cel]+cum_anus_fuckers_horny[sex_cel]
+	if sex_anal_slot[sex_cel]>0:temp_anal[sex_cel]+=1
+	if sex_anal_slot[sex_cel]=0:temp_anal[sex_cel]=0
+	!сколько раз кончили активы
+	sex_cum_slot[sex_cel]=+cum_anus_fuckers_horny_isset[sex_cel]+cum_vag_fuckers_horny_isset[sex_cel]+cum_oral_fuckers_horny_isset[sex_cel]+cum_face_fuckers_horny_isset[sex_cel]+cum_ass_fuckers_horny_isset[sex_cel]
+	!БЛОК ГРУППИРОВКИ КОНЕЦ-------------
+	!групповуха (больше 1 партнера)
+	if arrsize("sex_gangs_<<sex_cel>>")>1:sex_horny_cikl[sex_cel]=sex_horny_cikl[sex_cel]*(corr[sex_cel]+lust[sex_cel])/200
+	sex_horny_cikl[sex_cel] = func('to_arouse',sex_cel,sex_horny_cikl[sex_cel])
+	!сколько раз всего кончили
+	if horny[sex_cel]+sex_horny_cikl[sex_cel]>200:dynamic("cums_<<args[0]>>+=1")
+	args[100]+=1&jump'sex_scene_npc'
+end	
+args[100]=0&!промежуточный этап
+:sex_scene_npc_m
+if sex_scene_npc[args[100]]>0:
+	!"промежуточный этап"
+	sex_cel=sex_scene_npc[args[100]]&!какого персонажа трахают
+	!тот или те кто ебет sex_cel кончили (sex_cel как правило в групповухах ГГ, а в дуэте пассив)
+	if sex_cum_slot[sex_cel]>0 and horny[sex_cel]+sex_horny_cikl[sex_cel]>100:sex_horny_cikl[sex_cel]+=lust[sex_cel]&!чтоб кончилил одновременно
+	if arrsize("sex_gangs_<<sex_cel>>")>0:
+		if sex_cel = you:
+			$ARGS[200]='вы'
+		else
+			if pol[sex_cel]=0:$ARGS[200]='он'
+			if pol[sex_cel]>0:$ARGS[200]='она'
+		end	
+		if vag[sex_cel]>0:$ARGS[201]='киску'
+		if dick[sex_cel]>0:$ARGS[201]=$func("get_stat_desc","get_dick_word", sex_cel)
+		if arrsize("vag_jerk_fuckers_<<sex_cel>>")=0:
+			!если девушка сильно возбуждена
+			if sex_horny_cikl[sex_cel]+horny[sex_cel]>150 and vag[sex_cel]>0:
+				!если свободны руки, не дрочит, ее ебут
+				if arrsize("handjob_fuckers_<<sex_cel>>")<2 and arrsize("vag_fuckers_<<sex_cel>>")=0 and arrsize("sex_gangs_<<sex_cel>>")>0:
+					gs'fuck_vag_jerk',sex_cel,sex_cel&dynamic($sex_dinamic, "vag_jerk_fuckers", sex_cel)&!------------------------ дрочить киску
+					if in_sex[sex_cel]=in_sex[you]:'<b>В порыве желания, свободной рукой <<$ARGS[200]>> яростно <<iif(sex_cel=you, "теребите", "теребит")>> <<iif(dick[sex_cel]>0, "свой", "свою")>> <<$ARGS[201]>> стараясь приблизить оргазм.</b>'
+				end	
+			end
+		else	
+			if in_sex[sex_cel]=in_sex[you]:'<b>Свободной рукой <<$ARGS[200]>> яростно <<iif(sex_cel=you, "теребите", "теребит")>> <<iif(dick[sex_cel]>0, "свой", "свою")>> <<$ARGS[201]>> стараясь приблизить оргазм.</b>'
+		end
+	end
+	args[100]+=1&jump'sex_scene_npc_m'
+end		
+!финальный этап
+args[100]=0
+:sex_scene_npc_f
+if sex_scene_npc[args[100]]>0:
+	sex_cel=sex_scene_npc[args[100]]&!какого персонажа трахают
+	horny[sex_cel]+=sex_horny_cikl[sex_cel]
+	!"финальный этап "+$name[sex_cel]+ ' '+horny[sex_cel]+" "+arrsize("sex_gangs_<<sex_cel>>")
+	!if sex_cum_slot[sex_cel]
+	!if sex_oral_slot[sex_cel]=0 and horny[sex_cel]>200:"<b>Глк-глк, Фаа!</b>"
+	if in_sex[sex_cel]=in_sex[you]:
+		if sex_cel = you:
+			$ARGS[200]='вы'
+		else
+			if pol[sex_cel]=0:$ARGS[200]='он'
+			if pol[sex_cel]>0:$ARGS[200]='она'
+		end			
+		!для позы минета или горлового
+		if oral_fixation[sex_cel]>100 and temp_oral[sex_cel]=1 and sex_oral_slot_horny[sex_cel]>100 and (oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0):
+			if sex_cel=you:"<font color='pink'><b>Ощутив во рту мясистый, пульсирющий хуй, вы принялись его жадно обсасывать</b></font>"
+			if sex_cel!you:"<font color='pink'><b><<$name[npc]>> страстно обсасывает, с явным желанием</b></font>"
+		end	
+		!для поз анального, жесткого анала, с поднятыми ногами
+		if anal_fixation[sex_cel]>100 and temp_anal[sex_cel]=1 and sex_anal_slot_horny[sex_cel]>100 and anal_fuckers_horny_isset[sex_cel]+anal_hard_fuckers_horny_isset[sex_cel]+anal_lift_legs_fuckers_horny_isset[sex_cel]>0: 
+			if sex_cel=you:"<font color='pink'><b>Едва вам вставили хуй в зад, как вы тут же возбудились</b></font>"
+			if sex_cel!you:"<font color='pink'><b><<$name[npc]>> ахнула от удовольствия? едва вы сунули хуй ей в жопу</b></font>"
+		end
+		!для позы минета или горлового 
+		if oral_fuckers_horny[sex_cel]>200 and (oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0):
+			if sex_cel=you:
+				"<font color='pinc'>Вы жадно сосете хер, будт-то это единсвенная цель вашей жизни</font>"
+			else	
+				"<font color='pinc'><<$name[sex_cel]>> жадно сосет член, будт-то это единсвенная цель в ее жизни</font>"
+			end
+		end	
+	end
+	!только для пассивов	
+	if horny[sex_cel]>=200 and arrsize("sex_gangs_<<sex_cel>>")>0:	
+		sex_last_orgazm[sex_cel]=horny[sex_cel]/200
+		if orgasm[sex_cel]<time:
+			orgasm[sex_cel]=time+90-lust[sex_cel]/3
+		else
+			orgasm[sex_cel]+=90-lust[sex_cel]/3
+		end
+		orgasm_times[sex_cel]+=1&temp_orgazm[sex_cel]+=1&copyarr('sex_gangs',"sex_gangs_<<sex_cel>>")
+		args[10]=0
+		:sex_gangs_succub_effect
+		if sex_gangs[args[10]]>0:
+			if demon_dick[sex_gangs[args[10]]]>0 or demon_dick[sex_cel]>0: gs'succub_effect',sex_gangs[args[10]],sex_cel
+			if manamax[sex_gangs[args[10]]]>0 and mana[sex_gangs[args[10]]]<manamax[sex_gangs[args[10]]]:
+				mana[sex_gangs[args[10]]]+=soul[sex_gangs[args[10]]]/5
+				if mana[sex_gangs[args[10]]]>manamax[sex_gangs[args[10]]]:mana[sex_gangs[args[10]]]=manamax[sex_gangs[args[10]]]
+			end
+			args[10]+=1&jump'sex_gangs_succub_effect'
+		end
+		if horny[sex_cel]>250:base_lust[sex_cel]+=1
+		if manamax[sex_cel]>0 and mana[sex_cel]<manamax[sex_cel]:
+			mana[sex_cel]+=soul[sex_cel]&if mana[sex_cel]>manamax[sex_cel]:mana[sex_cel]=manamax[sex_cel]
+		end
+		!если гг участвует в данном событии (можно добавить смачные описания)
+		if in_sex[sex_cel]=in_sex[you]:
+			if in_sex[sex_cel]=in_sex[you]:
+				if sex_horny_cikl[sex_cel]>100:
+					if sex_cum_slot[sex_cel]>0:
+						!минет, одному человеку
+						if oral_fuckers_horny_isset[sex_cel]>0 and sex_oral_slot[sex_cel]=1:$ARGS[200]+"Вы сосредоточено сосёте чей-то очередной хуй"
+					else
+						if oral_fuckers_horny_isset[sex_cel]>0 and sex_oral_slot[sex_cel]=1:$ARGS[200]+"Вы сосредоточено сосёте первый хуй"
+					end
+				end
+			end			
+			if sex_last_orgazm[sex_cel]>0 and $args[2]='':
+				if dick[sex_cel]=0:
+					if oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0 or oral_throat_spec_fuckers_horny_isset[sex_cel]>0: 
+						if sex_cel!you:'<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
+						if sex_cel=you:'<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
+					else
+						if sex_cel!you:'<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
+						if sex_cel=you:'<b>Вы изгибаете в оргазме и громко стонете</b>'
+					end
+				else	
+					if oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0 or oral_throat_spec_fuckers_horny_isset[sex_cel]>0: 
+						if sex_cel!you:'<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
+						if sex_cel=you:'<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
+					else
+						if sex_cel!you:'<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
+						if sex_cel=you:'<b>Вы изгибаете в оргазме и громко стонете</b>'
+					end
+				end	
+			end
+			if sex_last_orgazm[sex_cel]>0 and $args[2]!'' and $args[2]!'null':$args[2]
+		end
+		!только в соло играх
+		if arrsize("sex_gangs_<<sex_cel>>")=1:
+			args[25]=dyneval("result = sex_gangs_<<sex_cel>>[0]")
+			if sex_cel!args[25]:
+				if master[sex_cel]>0 and fuckgiftday[sex_cel]!daystart:
+					fuckgiftday[sex_cel]=daystart&magik[args[25]]+=1
+					if args[25]=you:'Богиня одаривает вас каналом магии'
+					if sex_cel=you:'Вы одариваете <<$name[sex_gangs[0]]>> каналом магии'
+				end
+				if master[args[25]]>0 and fuckgiftday[args[25]]!daystart:
+					fuckgiftday[args[25]]=daystart&magik[sex_cel]+=1
+					if sex_cel=you:'Бог одаривает вас каналом магии'
+					if args[25]=you:'Вы одаряете <<$name[args[25]]>> каналом магии'
+				end
+				
+				if args[25]>0 and sex_cel>0:
+					if master[sex_cel]>0 and magik[args[25]]>0 and sex_cel!borisbogart:
+						args[50]=(magik[sex_cel]-magik[args[25]])/20
+						if args[50]>0:
+							magik_exp[args[25]]+=args[50]&if args[25]=you:"Вы чувствуете как ваша сила растет"
+						end
+					end	
+					if master[args[25]]>0 and magik[sex_cel]>0 and args[25]!borisbogart:
+						args[50]=(magik[args[25]]-magik[sex_cel])/20
+						if args[50]>0:
+							magik_exp[sex_cel]+=args[50]&if sex_cel=you:"Вы чувствуете как ваша сила растет"
+						end
+					end	
+				end
+			end
+		end
+		result+=sex_last_orgazm[sex_cel]&!дополнительные эффекты от оргазма
+		if sex_last_orgazm[sex_cel]>0:
+			args[10]=0&!мазохизм
+			if arrsize("sex_gangs_<<sex_cel>>")>1:gang_fixation[sex_cel]+=arrsize("sex_gangs_<<sex_cel>>")-1&!гангбанг
+			if oral_fuckers_horny_isset[sex_cel]>0:oral_fixation[sex_cel]+=1&!работа ртом
+			if oral_slap_fuckers_horny_isset[sex_cel]>0:oral_fixation[sex_cel]+=1&!бить хуем по лицу
+			if oral_spit_fuckers_horny_isset[sex_cel]>0:piss_fixation[sex_cel]+=rand(1)&oral_fixation[sex_cel]+=1&!сплевывают
+			if oral_throat_fuckers_horny_isset[sex_cel]>0:
+				oral_fixation[sex_cel]+=1&if dick[oral_throat_fucker[sex_cel]]>throat[sex_cel]:args[10]+=1&!в горло
+			end
+			if oral_throat_spec_fuckers_horny_isset[sex_cel]>0: 
+				oral_fixation[sex_cel]+=1&if dick[oral_throat_spec_fucker[sex_cel]]>throat[sex_cel]:args[10]+=1&!обхватили ногами и прижали к яйцам
+			end	
+			if oral_lick_dick_fuckers_horny_isset[sex_cel]>0:oral_fixation[sex_cel]+=1&!лизать хуй
+			if oral_lick_vag_fuckers_horny_isset[sex_cel]>0:agro[sex_cel]+=1&!куни
+			if oral_hit_fuckers_horny_isset[sex_cel]>0:agro[sex_cel]-=1&!пощечина во время минета
+			if oral_fingers_fuckers_horny_isset[sex_cel]>0:agro[sex_cel]-=1&!пальцы в рот
+			if vag_fuckers_horny_isset[sex_cel]>0 and dickd[vag_fucker[sex_cel]]>vag[sex_cel]:args[10]+=1&!vag_jerk_fuckers_horny
+			if anal_fuckers_horny_isset[sex_cel]>0: 
+				anal_fixation[sex_cel]+=1&if dickd[anal_fucker[sex_cel]]>anus[sex_cel]:args[10]+=1&!работа задницей
+			end	
+			if anal_hard_fuckers_horny_isset[sex_cel]>0: 
+				anal_fixation[sex_cel]+=1&if dickd[anal_fucker[sex_cel]]>anus[sex_cel]:args[10]+=1
+			end
+			if anal_fisting_fuckers_horny_isset[sex_cel]>0:anal_fixation[sex_cel]+=1&args[10]+=1&!фистинг
+			if anal_lift_legs_fuckers_horny_isset[sex_cel]>0:anal_fixation[sex_cel]+=1&args[10]+=1&!с поднятыми ногами
+			if anal_slap_face_fuckers_horny_isset[sex_cel]>0:anal_fixation[sex_cel]+=1&args[10]+=1&!удар по лицу во время анала
+			if anal_spit_face_fuckers_horny_isset[sex_cel]>0:anal_fixation[sex_cel]+=1&piss_fixation[sex_cel]+=rand(1)&args[10]+=1&!плевок во время анала
+			!анилингус
+			if anal_lick_fuckers_horny_isset[sex_cel]>0: 
+				
+			end
+			!работа ручками
+			if handjob_fuckers_horny_isset[sex_cel]>0:
+			
+			end
+			if cum_anus_fuckers_horny_isset[sex_cel]>0:cum_fixation[sex_cel]+=1&!накачали в задницу
+			if cum_oral_fuckers_horny_isset[sex_cel]>0:cum_fixation[sex_cel]+=1&!накачали в рот
+			!накочали в киску
+			if cum_vag_fuckers_horny_isset[sex_cel]>0: 
+				
+			end
+			if cum_face_fuckers_horny_isset[sex_cel]>0:cum_fixation[sex_cel]+=1&!обкончали лицо
+			!обкончали задницу
+			if cum_ass_fuckers_horny_isset[sex_cel]>0: 
+				
+			end
+			!обоссали
+			if piss_horny_isset[sex_cel]>0: 
+				
+			end
+			if args[10]>0:maso_fixation[sex_cel]+=1
+			horny[sex_cel]=0
+		end
+	else
+		temp_orgazm[sex_cel]=0
+	end	
+	if sex_cum_slot[sex_cel]>0:
+		!"orgasm[sex_cel] "+orgasm[sex_cel]
+		!"time "+time
+	end
+	args[100]+=1&jump'sex_scene_npc_f'
+end	
+!"reset scene "+args[0]
+if args[1]=0:gs'reset_fuck','all',args[0]
+!"if args[0]>0 and args[1]>0 and args[1]!args[0]:
+	if master[args[1]]>0 and magik[args[0]]>0 and args[1]!borisbogart:
+		args[50]=(magik[args[1]]-magik[args[0]])/20
+		if args[50]>0:
+			magik_exp[args[0]]+=args[50]
+			if args[0]=you:"Вы чувствуете как ваша сила растет"
+		end
+	end	
+	if master[args[0]]>0 and magik[args[1]]>0 and args[0]!borisbogart:
+		args[50]=(magik[args[0]]-magik[args[1]])/20
+		if args[50]>0:
+			magik_exp[args[1]]+=args[50]
+			if args[0]=you:"Вы чувствуете как ваша сила растет"
+		end
+	end	
+end"

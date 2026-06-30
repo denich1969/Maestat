@@ -1,0 +1,10 @@
+﻿gs'stat'&horny[npc]=0&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&scear['<<npc>>,<<you>>']+=1
+headhunterQW=10&gs'npcbase'
+'<b><<$nick[npc]>> стонет лежа не земле - Ладно, ты мне не по зубам. Награда обнуляется. И если ты меня убьешь, тогда награда только выростет и за тобой придет кто нибудь посильнее меня.</b>'
+act'Уйти':reward[you]=0&gt'preloc'
+act'Убить':
+	item_loc_t['<<t_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_l['<<l_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_b['<<b_slot[npc]>>,<<$loc[you]>>']+=1
+	 if m_slot[npc]>0:item_loc['<<m_slot[npc]>>,<<$loc[you]>>']+=1
+	 if w_slot[npc]>0:item_loc['<<w_slot[npc]>>,<<$loc[you]>>']+=1
+	 dead[npc]=2&reward[you]+=rand(250000,2500000)&murderer[you]+=1&cls&gt'preloc'&!magik_exp[you]+=1
+end

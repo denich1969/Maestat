@@ -1,0 +1,29 @@
+﻿gs'stat'&'<center><img src="pic/face/5/30.jpg" ></center>'&'Сзади Антея хлопнул портал и оттуда пружиной вылетел Джофри, в его руках клубилось какое-то переливающееся марево. '
+'Он воткнул это марево в покрытую камнями спину Антея, по каменному телу Сына Земли пробежали искры и его вдруг разорвало на тысячи кусочков, а потом все эти кусочки втянуло в портал.'
+act'...':
+	 $fightlog[addboss]+='<br>'
+	 $fightlog[addboss]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[addboss]>>-<<loss[addboss]>> vs <<$name[antey]>> <<$surname[antey]>>. <<win[antey]>>-<<loss[antey]>>'
+	X[addboss]=X[npc]&Y[addboss]=Y[npc]&Z[addboss]=Z[npc]&H[addboss]=H[npc]&R[addboss]=R[npc]
+	magik[addboss]+=5
+	earth_gem[addboss]=1
+	walker_cooldown[addboss]=time+60
+	dead[npc]=2
+	if afterBogartQW=4:afterBogartQW=5
+	murderer[you]+=1
+	magik[you]+=3
+	if earth_gem[addboss]=0 and afterBogartQW=5:earth_gem[addboss]=1
+	busy[you]=0
+	in_fight=0&in_sex=0
+	if necromancerFight=1:necromancerFight=0
+	win[you]+=1
+	Zgen=Z[you]
+	if soulMG[you]>0:soul[you]+=1
+	soul[npc]-=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+	exp[you]+=mobexp[npc]
+	if beliver[you]=4:
+		exp[you]+=mobexp[npc]*3&if magik[you]>0:magik_exp[you]+=1
+	end
+	horny[npc]=0&fightwinwer=0&dom[you]+=1&cant_fight_run=0&loss[npc]+=1
+	defenceV=0&sfera_psihV=0&sfera_fiz=0&defence_you=0&sfera_psih=0&fire_defence[you]=0&sfera_antigrav=0
+	clon=0&gt'preloc'
+end

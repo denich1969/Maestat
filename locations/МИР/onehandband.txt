@@ -1,0 +1,393 @@
+﻿$nameloc[you]=$curloc
+gs'stat'
+'<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+'Игровой автомат'
+'Три окошка с цифрами, опустив монету в 1 шиллинг, можно дернуть рычаг и получить комбинацию из трех чисел.'
+'777 - 100 шиллингов'
+'333 - 50 шиллингов'
+'999 - 50 шиллингов'
+'Все остальные совпадения - 10 шиллингов'
+'Сумма чисел равная 7 - 1 шиллинг'
+'после получения первых цифр доступно 3 опции, заново, перебросить 2 из чисел за 1 шиллинг, либо перебросить 1 число за 10 шиллнгов'
+act'Уйти':gt 'preloc'
+onehander=0
+if money[you]>=100:
+     act'Играть':
+		 cls
+		 money[you]-=100
+		 time+=5
+		 gs'stat'
+		 fchislo=rand(1,9)
+		 dchislo=rand(1,9)
+		 tchislo=rand(1,9)
+		 '<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+		 '<<fchislo>>-<<dchislo>>-<<tchislo>>'
+         if fchislo=7 and dchislo=7 and tchislo=7:
+			 money[you]+=10000
+			 onehander=1
+			 'Вы выиграли 100 шиллингов!'
+         end
+         if fchislo=3 and dchislo=3 and tchislo=3:
+			 money[you]+=5000
+			 onehander=1
+			 'Вы выиграли 50 шиллингов!'
+         end
+         if fchislo=9 and dchislo=9 and tchislo=9:
+			 money[you]+=5000
+			 onehander=1
+			 'Вы выиграли 50 шиллингов!'
+         end
+         if fchislo=1 and dchislo=1 and tchislo=1:
+			 money[you]+=1000
+			 onehander=1
+			 'Вы выиграли 10 шиллингов!'
+         end
+         if fchislo=2 and dchislo=2 and tchislo=2:
+			 money[you]+=1000
+			 onehander=1
+			 'Вы выиграли 10 шиллингов!'
+         end
+         if fchislo=4 and dchislo=4 and tchislo=4:
+			 money[you]+=1000
+			 onehander=1
+			 'Вы выиграли 10 шиллингов!'
+         end
+         if fchislo=5 and dchislo=5 and tchislo=5:
+			 money[you]+=1000
+			 onehander=1
+			 'Вы выиграли 10 шиллингов!'
+         end
+         if fchislo=6 and dchislo=6 and tchislo=6:
+			 money[you]+=1000
+			 onehander=1
+			 'Вы выиграли 10 шиллингов!'
+         end
+         if fchislo=8 and dchislo=8 and tchislo=8:
+			 money[you]+=1000
+			 onehander=1
+			 'Вы выиграли 10 шиллингов!'
+         end
+         if fchislo+dchislo+tchislo=7:
+			 money[you]+=100
+			 onehander=1
+			 'Вы выиграли 1 шиллинг!'
+         end
+		act'...':gt $curloc
+		 if money[you]>=100 and onehander=0:
+			 act'Зафиксировать 1е число. 1 шиллинг':
+				 cls
+				 money[you]-=100
+				 time+=5
+				 gs'stat'
+				 !fchislo=rand(1,9)
+				 dchislo=rand(1,9)
+				 tchislo=rand(1,9)
+				 '<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+				 '<<fchislo>>-<<dchislo>>-<<tchislo>>'
+				 if fchislo=7 and dchislo=7 and tchislo=7:
+				 money[you]+=10000
+				 'Вы выиграли 100 шиллингов!'
+				 end
+				 if fchislo=3 and dchislo=3 and tchislo=3:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=9 and dchislo=9 and tchislo=9:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=1 and dchislo=1 and tchislo=1:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=2 and dchislo=2 and tchislo=2:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=4 and dchislo=4 and tchislo=4:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=5 and dchislo=5 and tchislo=5:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=6 and dchislo=6 and tchislo=6:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=8 and dchislo=8 and tchislo=8:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo+dchislo+tchislo=7:
+				 money[you]+=100
+				 'Вы выиграли 1 шиллинг!'
+				 end
+				act'...':gt $curloc
+			 end
+			 act'Зафиксировать 2е число. 1 шиллинг':
+				 cls
+				 money[you]-=100
+				 time+=5
+				 gs'stat'
+				 fchislo=rand(1,9)
+				 !dchislo=rand(1,9)
+				 tchislo=rand(1,9)
+				 '<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+				 '<<fchislo>>-<<dchislo>>-<<tchislo>>'
+				 if fchislo=7 and dchislo=7 and tchislo=7:
+				 money[you]+=10000
+				 'Вы выиграли 100 шиллингов!'
+				 end
+				 if fchislo=3 and dchislo=3 and tchislo=3:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=9 and dchislo=9 and tchislo=9:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=1 and dchislo=1 and tchislo=1:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=2 and dchislo=2 and tchislo=2:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=4 and dchislo=4 and tchislo=4:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=5 and dchislo=5 and tchislo=5:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=6 and dchislo=6 and tchislo=6:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=8 and dchislo=8 and tchislo=8:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo+dchislo+tchislo=7:
+				 money[you]+=100
+				 'Вы выиграли 1 шиллинг!'
+				 end
+				act'...':gt $curloc
+			 end
+			 act'Зафиксировать 3е число. 1 шиллинг':
+				 cls
+				 money[you]-=100
+				 time+=5
+				 gs'stat'
+				 fchislo=rand(1,9)
+				 dchislo=rand(1,9)
+				 !tchislo=rand(1,9)
+				 '<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+				 '<<fchislo>>-<<dchislo>>-<<tchislo>>'
+				 if fchislo=7 and dchislo=7 and tchislo=7:
+				 money[you]+=10000
+				 'Вы выиграли 100 шиллингов!'
+				 end
+				 if fchislo=3 and dchislo=3 and tchislo=3:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=9 and dchislo=9 and tchislo=9:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=1 and dchislo=1 and tchislo=1:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=2 and dchislo=2 and tchislo=2:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=4 and dchislo=4 and tchislo=4:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=5 and dchislo=5 and tchislo=5:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=6 and dchislo=6 and tchislo=6:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=8 and dchislo=8 and tchislo=8:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo+dchislo+tchislo=7:
+				 money[you]+=100
+				 'Вы выиграли 1 шиллинг!'
+				 end
+				act'...':gt $curloc
+			 end
+		 end
+		 if money[you]>=1000 and onehander=0:
+			 act'Перебросить 1е число 10ш':
+				 cls
+				 money[you]-=1000
+				 time+=5
+				 gs'stat'
+				 fchislo=rand(1,9)
+				 !dchislo=rand(1,9)
+				 !tchislo=rand(1,9)
+				 '<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+				 '<<fchislo>>-<<dchislo>>-<<tchislo>>'
+				 if fchislo=7 and dchislo=7 and tchislo=7:
+				 money[you]+=10000
+				 'Вы выиграли 100 шиллингов!'
+				 end
+				 if fchislo=3 and dchislo=3 and tchislo=3:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=9 and dchislo=9 and tchislo=9:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=1 and dchislo=1 and tchislo=1:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=2 and dchislo=2 and tchislo=2:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=4 and dchislo=4 and tchislo=4:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=5 and dchislo=5 and tchislo=5:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=6 and dchislo=6 and tchislo=6:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=8 and dchislo=8 and tchislo=8:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo+dchislo+tchislo=7:
+				 money[you]+=100
+				 'Вы выиграли 1 шиллинг!'
+				 end
+				act'...':gt $curloc
+			 end
+			 act'Перебросить 2е число 10ш':
+				 cls
+				 money[you]-=1000
+				 time+=5
+				 gs'stat'
+				 !fchislo=rand(1,9)
+				 dchislo=rand(1,9)
+				 !tchislo=rand(1,9)
+				 '<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+				 '<<fchislo>>-<<dchislo>>-<<tchislo>>'
+				 if fchislo=7 and dchislo=7 and tchislo=7:
+				 money[you]+=10000
+				 'Вы выиграли 100 шиллингов!'
+				 end
+				 if fchislo=3 and dchislo=3 and tchislo=3:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=9 and dchislo=9 and tchislo=9:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=1 and dchislo=1 and tchislo=1:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=2 and dchislo=2 and tchislo=2:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=4 and dchislo=4 and tchislo=4:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=5 and dchislo=5 and tchislo=5:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=6 and dchislo=6 and tchislo=6:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=8 and dchislo=8 and tchislo=8:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo+dchislo+tchislo=7:
+				 money[you]+=100
+				 'Вы выиграли 1 шиллинг!'
+				 end
+				act'...':gt $curloc
+			 end
+			 act'Перебросить 3е число 10ш':
+				 cls
+				 money[you]-=1000
+				 time+=5
+				 gs'stat'
+				 !fchislo=rand(1,9)
+				 !dchislo=rand(1,9)
+				 tchislo=rand(1,9)
+				 '<center><img src="pic/loc/ras/onehand.jpg" ></center>'
+				 '<<fchislo>>-<<dchislo>>-<<tchislo>>'
+				 if fchislo=7 and dchislo=7 and tchislo=7:
+				 money[you]+=10000
+				 'Вы выиграли 100 шиллингов!'
+				 end
+				 if fchislo=3 and dchislo=3 and tchislo=3:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=9 and dchislo=9 and tchislo=9:
+				 money[you]+=5000
+				 'Вы выиграли 50 шиллингов!'
+				 end
+				 if fchislo=1 and dchislo=1 and tchislo=1:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=2 and dchislo=2 and tchislo=2:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=4 and dchislo=4 and tchislo=4:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=5 and dchislo=5 and tchislo=5:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=6 and dchislo=6 and tchislo=6:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo=8 and dchislo=8 and tchislo=8:
+				 money[you]+=1000
+				 'Вы выиграли 10 шиллингов!'
+				 end
+				 if fchislo+dchislo+tchislo=7:
+				 money[you]+=100
+				 'Вы выиграли 1 шиллинг!'
+				 end
+				act'...':gt $curloc
+			 end
+		 end
+	 end
+end

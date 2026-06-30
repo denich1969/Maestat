@@ -1,0 +1,4 @@
+﻿gs'stat'&'Картина на которой изображен замок'
+gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+act'Дотронутся до пещеры':X[you]=1&Y[you]=1&Z[you]=1&gt 'preloc'
+!'act'Дотронутся до храма':X[you]=3&Y[you]=6&Z[you]=5&gt 'preloc'   '

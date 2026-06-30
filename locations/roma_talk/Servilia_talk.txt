@@ -1,0 +1,3 @@
+﻿$loc[you]=$curloc
+gs'stat'&loc_for_drop=0&'<b><center>Бутик Сервилии Квинты</center></b>'&*pl ''&'Магазин одежды'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+gs'npconloc'&*pl ''&gs'item'&!act'Уйти': GT "preloc"

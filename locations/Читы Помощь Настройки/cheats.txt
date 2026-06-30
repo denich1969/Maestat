@@ -1,0 +1,469 @@
+﻿CLS&gs 'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(161,183,201)
+*CLR
+act'Убрать':gt 'preloc' 
+act'Карта (Geo)':gt 'GeoMap' 
+!act'CHEATS':gt 'CHEATS','cheat' 
+act'HELP':gt 'MyHelp' 
+IF $ARGS[0] = '': gt curloc, 'cheat'
+IF $ARGS[0] = 'cheat':
+	act 'Введите команду': 
+		$command = input("Введите команду:")&!Run command
+		if len(trim($command)) > 0:dynamic $command & gs 'stat'
+	end 
+	!--
+	!act'!локи ниже могут убить или все поломать!':gs 'stat'
+	!act'Реальный мир':gt $curloc,'DrawTable',0,5,5,'Реальный мир'
+	!act'Корневище':gt $curloc,'DrawTable',10
+	!act'Райский остров':gt $curloc,'DrawTable',100
+	!act'Астрал ':gt $curloc,'DrawTable',101,5,5,'Реальный мир (астрал)'
+	!act'Туман':gt $curloc,'DrawTable',404
+	!act'Луна (нет воздуха)':gt $curloc,'DrawTable',7777
+	!act'в замок Лунной королевы':gt $curloc,'GoCord',3,3,7777,1
+	!'<a href="exec:gt ''CHEATS'',''cheat''">cheats</a>|<a href="exec:gt ''CHEATS'',''HELP''">help</a>|'
+	!'<a href="exec: horny[you]=0 & gs ''stat''">h0</a> <a href="exec: horny[you]=55 & horny[npc]=55 & gs ''stat''">h50</a> <a href="exec: horny[you]=200 & horny[npc]=200 & gs ''stat''">org</a>'
+	'<b>ИСПОЛЬЗОВАНИЕ ЧИТОВ МОЖЕТ НАРУШИТЬ ЛОГИКУ ИГРЫ</b>'
+	'<a href="exec:gt ''preloc''">Выход</a>'
+	!'<a href="exec:HardMode=1">Отключить читы навсегда<a>'
+	'Координаты <<$loc[you]>>'
+	'ВРЕМЯ'
+	*p '<a href="exec:hour=1  & minut=0 & gs ''stat''">01:00</a> |'
+	*p '<a href="exec:hour=2  & minut=0 & gs ''stat''">02:00</a> | '
+	*p '<a href="exec:hour=7  & minut=0 & gs ''stat''">07:00</a> | '
+	*p '<a href="exec:hour=9  & minut=0 & gs ''stat''">09:00</a> | '
+	*p '<a href="exec:hour=12 & minut=0 & gs ''stat''">12:00</a> | '
+	*p '<a href="exec:hour=15 & minut=0 & gs ''stat''">15:00</a> | '
+	*p '<a href="exec:hour=18 & minut=0 & gs ''stat''">18:00</a> | '
+	*p '<a href="exec:hour=21 & minut=0 & gs ''stat''">21:00</a> | '
+	*p '<a href="exec:hour=23 & minut=0 & gs ''stat''">23:00</a> | '
+	$TimeText=''
+	if hour>0: 
+		$TimeText+='<a href="exec:hour-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1час </a> |'
+	else
+		$TimeText+=' -1час |'
+	end	
+	if hour<23:$TimeText+=' <a href="exec:hour+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1час </a>| '
+	*p '<<$TimeText>>'
+	!<button type = "button" name = "button1"><b>+1 час</b></button>
+	IF Map=0:'<br><a href="exec:Map=1 & gs ''stat'' & gt $curloc,''cheat''">Получить карту города</a>'
+	if tornton_dolg[you]=0:
+		'<br>Деньги <a href="exec:money[<<you>>]+=10000 & gs ''stat''">+100</a> <a href="exec:money[<<you>>]+=100000 & gs ''stat''">+1000</a> <a href="exec:money[<<you>>]+=1000000 & gs ''stat''">+10000</a>'
+	else
+		'<br>В связи с вашим долгом Торнтону, выдача беспалатных денег закрыта. Получайте удовольствие от игры)'
+	end
+	'<br>Душа <a href="exec:soul[<<you>>]+=10 & gs ''stat''">+10</a> <a href="exec:soul[<<you>>]+=100 & gs ''stat''">+100</a> <a href="exec:soul[<<you>>]+=1000 & gs ''stat''">+1000</a>'
+	'Сила духа (<<soulpower[you]>>)<a href="exec:soulpower[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''"> +10</a>'
+	'Мускулы (<<mus[you]>>) <a href="exec:mus[<<you>>]+=100 & gs ''stat'' & gt $curloc,''cheat''">+100</a>'
+	'Жирок (<<fat[you]>>) <a href="exec:fat[<<you>>]-=100 & gs ''stat'' & gt $curloc,''cheat''">-100</a> <a href="exec:fat[<<you>>]+=100 & gs ''stat'' & gt $curloc,''cheat''">+100</a>'
+	'Выживаемость (<<vital[you]>>) <a href="exec:vital[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>'
+	'Рефлексы (<<reflex[you]>>) <a href="exec:reflex[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>'
+	'Навыки драчуна (<<fight_skill[you]>>) <a href="exec:fight_skill[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>'
+	'Навык стрельбы (<<shoot_skill[you]>>) <a href="exec:shoot_skill[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>'
+	'Увеличить переносимый вес <a href="exec:dopburden[<<you>>]+=100 & gs ''stat''">+100</a>'
+	'Доминантность (<<dom[you]>>) <a href="exec:dom[<<you>>]=0 & gs ''stat'' & gt $curloc,''cheat''">0</a>, <a href="exec:dom[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1</a>, <a href="exec:dom[<<you>>]+=5 & gs ''stat'' & gt $curloc,''cheat''">+5</a>, <a href="exec:dom[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>, <a href="exec:dom[<<you>>]=91 & gs ''stat'' & gt $curloc,''cheat''">91</a>'
+	'Сексуальность (<<sexiness[you]>>) |<a href="exec:sexiness[<<you>>]=100 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:sexiness[<<you>>]-=10 & gs ''stat'' & gt $curloc,''cheat''">-10</a>|<a href="exec:sexiness[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>|'
+	'Развращенность (<<corr[you]>>) |<a href="exec:corr[<<you>>]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:corr[<<you>>]-=10 & gs ''stat'' & gt $curloc,''cheat''">-10</a>|<a href="exec:corr[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>|'
+	'Horny (<<horny[you]>>) |<a href="exec:horny[<<you>>]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:horny[<<you>>]-=10 & gs ''stat'' & gt $curloc,''cheat''">-10</a>|<a href="exec:horny[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>|'
+	''
+	*p 'Грудь (<<tits[you]>>) |<a href="exec:tits[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:tits[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:tits[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:tits[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:tits[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	!*p'<br>Развращенность: (<<corr[you]>>) '
+	!*p'|<a href="exec:corr[<<you>>]-=10 & gs ''stat'' gt $curloc,''cheat''"> -10 </a>'
+	!*p'|<a href="exec:corr[<<you>>]=0 & gs ''stat'' gt $curloc,''cheat''"> 0 </a>|'
+	!*p'<a href="exec:corr[<<you>>]+=5 & gs ''stat'' gt $curloc,''cheat''"> +5 </a>|'
+	!*p'<a href="exec:corr[<<you>>]+=10 & gs ''stat'' gt $curloc,''cheat''"> +10 </a>|'
+	''
+	if tits[you]=0:'<a href="exec: tit[you]=0 & gt $curloc,''cheat''"></a>'
+	if tits[you]>=1 and tits[you]<10:'<a href="exec: tit[you]=0 & gt $curloc,''cheat''">Плоская грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=10 and tits[you]<14:'<a href="exec: tit[you]=1 & gt $curloc,''cheat''">Крошечная грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=14 and tits[you]<17:'<a href="exec: tit[you]=2 & gt $curloc,''cheat''">Маленькая грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=17 and tits[you]<19:'<a href="exec: tit[you]=3 & gt $curloc,''cheat''">Округлая грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=19 and tits[you]<21:'<a href="exec: tit[you]=4 & gt $curloc,''cheat''">Объемная грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=21 and tits[you]<23:'<a href="exec: tit[you]=5 & gt $curloc,''cheat''">Большая грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=23 and tits[you]<25:'<a href="exec: tit[you]=6 & gt $curloc,''cheat''">Огромная грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=25 and tits[you]<29:'<a href="exec: tit[you]=7 & gt $curloc,''cheat''">Огромная грудь <<tit[you]>>го размера</a>'
+	if tits[you]>=30:'<a href="exec: & gt $curloc,''cheat''"></a>'
+	*p 'Соски в мм (<<nip[you]>>) |<a href="exec:nip[<<you>>]=0 & gt $curloc,''cheat''"> 0 </a>|<a href="exec:nip[<<you>>]-=1 & gt $curloc,''cheat''"> -1</a>|<a href="exec:ass[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:nip[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:nip[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	if nip[you]=0:'<a href="exec: nip[you]=0 & gt $curloc,''cheat''"></a>'
+	if nip[you]>=1 and nip[you]<10:'<a href="exec: nip[you]>=0 & gt $curloc,''cheat''">Крохотными сосками</a>'
+	if nip[you]>=10 and nip[you]<20:'<a href="exec: nip[you]>=10 & gt $curloc,''cheat''">Маленькими сосками</a>'
+	if nip[you]>=20 and nip[you]<50:'<a href="exec: nip[you]>=20 & gt $curloc,''cheat''">Крупными сосками</a>'
+	if nip[you]>=50 and nip[you]<80:'<a href="exec: nip[you]>=50 & gt $curloc,''cheat''">Огромными как блюдца сосками</a>'
+	if nip[you]>=81:'<a href="exec: gt $curloc,''cheat''"></a>'
+	*p 'Диаметр сосков в мм <<nip[you]>>'
+	if nip[you]>8 :*p' <a href="exec:nip[<<you>>]-=1 & gt $curloc,''cheat''">-1</a>'
+	if nip[you]<80:*p' <a href="exec:nip[<<you>>]+=1 & gt $curloc,''cheat''">+1</a>'
+	*p 'Попа (<<ass[you]>>) |<a href="exec:ass[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:ass[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:ass[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:ass[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:ass[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	if ass[you]=0:'<a href="exec: ass[you]=0 & gt $curloc,''cheat''"></a>'
+	if ass[you]>=1 and ass[you]<5:'<a href="exec: ass[you]>=1 & gt $curloc,''cheat''">Плоская мужская попа</a>'
+	if ass[you]>=5 and ass[you]<10:'<a href="exec: ass[you]>=5 & gt $curloc,''cheat''">Крохотная попа</a>'
+	if ass[you]>=10 and ass[you]<15:'<a href="exec: ass[you]>=10 & gt $curloc,''cheat''">Маленькая попа</a>'
+	if ass[you]>=15 and ass[you]<20:'<a href="exec: ass[you]>=15 & gt $curloc,''cheat''">Небольшая попа</a>'
+	if ass[you]>=20 and ass[you]<25:'<a href="exec: ass[you]>=20 & gt $curloc,''cheat''">Девичья попа</a>'
+	if ass[you]>=25 and ass[you]<30:'<a href="exec: ass[you]>=25 & gt $curloc,''cheat''">Женственная попа</a>'
+	if ass[you]>=30 and ass[you]<35:'<a href="exec: ass[you]>=30 & gt $curloc,''cheat''">Крупная попа</a>'
+	if ass[you]>=35 and ass[you]<40:'<a href="exec: ass[you]>=35 & gt $curloc,''cheat''">Большая попа</a>'
+	if ass[you]>=40 and ass[you]<50:'<a href="exec: ass[you]>=40 & gt $curloc,''cheat''">Огромная попа</a>'
+	if ass[you]>=51:'<a href="exec: ass[you]>=50 & gt $curloc,''cheat''">Огромная попа</a>'
+	''
+	if dick[you]<=1 and vag[you]=0 and ball[you]<1:'<a href="exec: dick[you]<=1 & vag[you]=0 & ball[you]<1 & gs ''stat'' & gt $curloc,''cheat''">Между ног гладкая поверхность с дырочкой для мочеиспускания и никаких признаков половых органов.</a>'
+	if dick[you]>1 and ball[you]=1:'<a href="exec: dick[you]>1 & ball[you]=1 & gt $curloc,''cheat''">Между ног вялый член с кастрированными яйцами.</a>'
+	if dick[you]>1 and ball[you]=0:'<a href="exec: dick[you]>1 & ball[you]=0 & gt $curloc,''cheat''">Между ног <<$dicktipe[you]>> длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.</a>'
+	if dick[you]=1 and ball[you]=1:'<a href="exec: dick[you]=1 & ball[you]=1 & pol[you]=0 & gt $curloc,''cheat''">Между ног лишь треугольный след от утраченных половых органов и дырочка, через которую вы можете мочиться.</a>'
+	if dick[you]=1 and ball[you]>1:'<a href="exec: dick[you]=1 & ball[you]>1 & pol[you]=0 & gt $curloc,''cheat''">Между ног шрам от отрезанного члена, ниже которого висят <<$ball[you]>>.</a>'
+	*nl 'Член тип (<<dicktipe[you]>>) |<a href="exec:dicktipe[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:dicktipe[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:dicktipe[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>| '
+	if dicktipe[you]=0:'<a href="exec:dicktipe[you]=0 & gt $curloc,''cheat''">обыкновенный человеческий член</a>'
+	if dicktipe[you]=1:'<a href="exec:dicktipe[you]=1 & gt $curloc,''cheat''">лошадиный член с плоской головкой</a>'
+	if dicktipe[you]=2:'<a href="exec:dicktipe[you]=2 & gt $curloc,''cheat''">собачий член</a>'
+	if dicktipe[you]=3:'<a href="exec:dicktipe[you]=3 & gt $curloc,''cheat''">кошачий член с треугольными, мягкими шипами из плоти</a>'
+	if dicktipe[you]=4:'<a href="exec:dicktipe[you]=4 & gt $curloc,''cheat''">демонический член с крупными шарообразными шишками</a>'
+	if dicktipe[you]=5:'<a href="exec:dicktipe[you]=5 & gt $curloc,''cheat''">мясистый бычий член</a>'
+	if dicktipe[you]=6:'<a href="exec:dicktipe[you]=6 & gt $curloc,''cheat''">закрученный как штопор поросячий член</a>'
+	if dicktipe[you]=7:'<a href="exec: gt $curloc,''cheat''"></a>'
+	*p 'Член в см (<<dick[you]>>) |<a href="exec:dick[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:dick[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:dick[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:dick[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:dick[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	if dick[you]=0:'<a href="exec:dick[you]=0 & gt $curloc,''cheat''"></a>'
+	if dick[you]=1:'<a href="exec:ball[you]=1 & gt $curloc,''cheat''">Членик</a>'
+	if dick[you]>=2 and dick[you]<50:'<a href="exec:dick[you]>=2 & gs ''stat'' & gt $curloc,''cheat''">Длинный</a>'
+	if dick[you]>=51:'<a href="exec: & gs ''stat'' & gt $curloc,''cheat''"></a>'
+	*p 'Член в мм (<<dickd[you]>>) |<a href="exec:dickd[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:dickd[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:dickd[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:dickd[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:dickd[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	if dickd[you]=0:'<a href="exec:ball[you]=0 & gt $curloc,''cheat''"></a>'
+	if dickd[you]=1:'<a href="exec:ball[you]=1 & gt $curloc,''cheat''">Членик</a>'
+	if dickd[you]>=2 and dickd[you]<50:'<a href="exec:dickd[you]>=2 & gs ''stat'' & gt $curloc,''cheat''">Толстый</a>'
+	if dickd[you]>=51:'<a href="exec: & gs ''stat'' & gt $curloc,''cheat''"></a>'
+	*p 'Яйца (<<ball[you]>>) |<a href="exec:ball[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:ball[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:ball[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:ball[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:ball[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	if ball[you]=0:'<a href="exec:ball[you]=0 & gt $curloc,''cheat''"></a>'
+	if ball[you]=1:'<a href="exec:ball[you]=1 & gt $curloc,''cheat''">Маленькие яйчишки</a>'
+	if ball[you]>=2 and ball[you]<25:'<a href="exec:ball[you]>=2 & gt $curloc,''cheat''">Яйчишки</a>'
+	if ball[you]>=25 and ball[you]<50:'<a href="exec:ball[you]>=25 & gt $curloc,''cheat''">Яйца</a>'
+	if ball[you]>=50 and ball[you]<75:'<a href="exec:ball[you]>=50 & gt $curloc,''cheat''">Крупные яйца</a>'
+	if ball[you]>=75:'<a href="exec:ball[you]>=75 & gt $curloc,''cheat''">Огромные яйца</a>'
+	*p 'Анус (<<anus[you]>>) |<a href="exec:anus[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:anus[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:anus[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:anus[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:anus[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	if anus[you]=0:'<a href="exec: anus[you]=0 & gt $curloc,''cheat''"></a>'
+	if anus[you]=1:'<a href="exec: anus[you]=1 & gt $curloc,''cheat''">Девственный анус</a>'
+	if anus[you]>=2 and anus[you]<10:'<a href="exec: anus[you]>=1 & gt $curloc,''cheat''">Анус в виде маленькой щелочки</a>'
+	if anus[you]>=10 and anus[you]<20:'<a href="exec: anus[you]>=10 & gt $curloc,''cheat''">Анус в виде звездочки</a>'
+	if anus[you]>=20 and anus[you]<30:'<a href="exec: anus[you]>=20 & gt $curloc,''cheat''">Рабочий анус в виде щелки</a>'
+	if anus[you]>=30 and anus[you]<50:'<a href="exec: anus[you]>=30 & gt $curloc,''cheat''">Раздолбанный анус в виде щели</a>'
+	if anus[you]>=50:'<a href="exec: anus[you]>=50 & gt $curloc,''cheat''">Не закрывающаяся разъебанная дыра в жопе</a>'
+	*p 'Пизда (<<vag[you]>>) |<a href="exec:vag[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:vag[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:vag[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:vag[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:vag[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	if vag[you]=0:'<a href="exec: vag[you]=0 & gt $curloc,''cheat''"></a>'
+	if vag[you]=1 and vag[you]=1:'<a href="exec: vag[you]=1 & gt $curloc,''cheat''">Девственное влагалище</a>'
+	if vag[you]>=2 and vag[you]<15:'<a href="exec: vag[you]>=2 & gt $curloc,''cheat''">Более не невинное влагалище</a>'
+	if vag[you]>=15 and vag[you]<35:'<a href="exec: vag[you]>=15 & gt $curloc,''cheat''">Познавшее не один крепкий член влагалище</a>'
+	if vag[you]>=35 and vag[you]<55:'<a href="exec: vag[you]>=35 & gt $curloc,''cheat''">Эластичное, но пока еще узкое влагалище</a>'
+	if vag[you]>=55 and vag[you]<75:'<a href="exec: vag[you]>=55 & gt $curloc,''cheat''">Рабочая мокрая пизда</a>'
+	if vag[you]>=75 and vag[you]<90:'<a href="exec: vag[you]>=75 & gt $curloc,''cheat''">Потасканная податливая пизда</a>'
+	if vag[you]>=90 and vag[you]<110:'<a href="exec: vag[you]>=90 & gt $curloc,''cheat''">Рыхлая мягкую пизда</a>'
+	if vag[you]>=110 and vag[you]<160:'<a href="exec: vag[you]>=110 & gt $curloc,''cheat''">Раздолбанная широкая пизда с сочащейся из нее влагой</a>'
+	if vag[you]>=161:'<a href="exec: vag[you]>=160 & gt $curloc,''cheat''">Широченная незакрывающуюся пиздень опытной шлюхи</a>'
+	if lips[you]!0:'<a href="exec:lips[you]=0&gt $curloc,''cheat''">Обыкновенные губы</a>'
+	if lips[you]!1:'<a href="exec:lips[you]=1&gt $curloc,''cheat''">Пухленькие губы</a>'
+	if lips[you]!2:'<a href="exec:lips[you]=2&gt $curloc,''cheat''">Толстые губы</a>'
+	if lips[you]!3:'<a href="exec:lips[you]=3&gt $curloc,''cheat''">Огромные губы, похожие на букву О</a>'
+	'Горло (<<throat[you]>>) |<a href="exec:throat[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:throat[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:throat[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:throat[you]-=5 & gs ''stat'' & gt $curloc,''cheat''"> -5</a>|<a href="exec:throat[you]+=5 & gs ''stat'' & gt $curloc,''cheat''"> +5</a>| '
+	'<br>Горло (<<throat[you]>>) <a href="exec:throat[<<you>>]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>, <a href="exec:throat[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1</a>, <a href="exec:throat[<<you>>]+=5 & gs ''stat'' & gt $curloc,''cheat''">+5</a>'
+	*p 'Gender (<<gender[you]>>) |<a href="exec:gender[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:gender[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:gender[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>| '
+	*p 'Pol (<<pol[you]>>) |<a href="exec:pol[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:pol[you]=1 & gs ''stat'' & gt $curloc,''cheat''"> 1 </a>| '
+	if face[you]>=50 and ass[you]>=20:
+		pol[you]=1
+		!if vag[you]<1:vag[you]=1&dick[you]=0
+	else
+		pol[you]=0
+		!if dick[you]<1:dick[you]=15&vag[you]=0
+	end
+	if pol[you]=0:
+		 if dick[you]>0:'<a href="exec:gender[you]=0 & gt $curloc,''cheat''">Мужчина</a>'
+		 if vag[you]>0:'<a href="exec:gender[you]=2 & gt $curloc,''cheat''">Кунтбой</a>'
+	end
+	if pol[you]=1:
+		 if dick[you]>0:'<a href="exec:gender[you]=3 & gt $curloc,''cheat''">Шимейл</a>'
+		 if vag[you]>0:'<a href="exec:gender[you]=1 & gt $curloc,''cheat''">Женщина</a>'
+	end
+	if face[you]<0:face[you]=0
+	if face[you]>100:face[you]=100
+	*p 'Лицо (<<face[you]>>) |<a href="exec:face[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:face[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:face[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>|<a href="exec:face[you]-=10 & gs ''stat'' & gt $curloc,''cheat''">-10</a>|<a href="exec:face[you]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>| '
+	if face[you]=0:'<a href="exec: face[you]=0 & gt $curloc,''cheat''"></a>'
+	if face[you]>=1 and  face[you]<20:'<a href="exec: face[you]>=1 & gt $curloc,''cheat''">Мужественное лицо с чертами, будто бы высеченными из гранита</a>'
+	if face[you]>=20 and face[you]<40:'<a href="exec: face[you]>=20 & gt $curloc,''cheat''">Мужское лицо</a>'
+	if face[you]>=40 and face[you]<60:'<a href="exec: face[you]>=40 & gt $curloc,''cheat''">Андрогинное лицо без определенных половых признаков</a>'
+	if face[you]>=60 and face[you]<80:'<a href="exec: face[you]>=60 & gt $curloc,''cheat''">Женское лицо</a>'
+	if face[you]>=80 and face[you]<100:'<a href="exec: face[you]>=80 & face[you]<100 & gt $curloc,''cheat''">Красивое женское лицо с мягкими чертами</a>'
+	*nl 'preskin (<<preskin[you]>>) |<a href="exec:preskin[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:preskin[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:preskin[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>| '
+	if preskin[you]=0:'<a href="exec:preskin[you]=0 & gt $curloc,''cheat''"></a>'
+	if preskin[you]=1:'<a href="exec:preskin[you]=1 & gt $curloc,''cheat''">Гладкая </a>'
+	if preskin[you]=2:'<a href="exec:preskin[you]=2 & gt $curloc,''cheat''">Блестящая </a>'
+	if preskin[you]=3:'<a href="exec:preskin[you]=3 & gt $curloc,''cheat''">Маслянистая </a>'
+	*p 'skin (<<skin[you]>>) |<a href="exec:skin[you]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:skin[you]-=1 & gs ''stat'' & gt $curloc,''cheat''"> -1</a>|<a href="exec:skin[you]+=1 & gs ''stat'' & gt $curloc,''cheat''"> +1</a>| '
+	if mutation[you]>=10 and preskin[you]>0:preskin[you]=0
+	if preskin[you]>=1:tit_hair[you]=0&leg_hair[you]=0
+	if preskin[you]>0:
+		if skin[you]=0:'<a href="exec:skin[you]=0 & gt $curloc,''cheat''"><<$preskin[you]>><b>белая</b> кожа</a>'
+		if skin[you]=1:'<a href="exec:skin[you]=1 & gt $curloc,''cheat''"><<$preskin[you]>><b>светлая</b> кожа</a>'
+		if skin[you]=2:'<a href="exec:skin[you]=2 & gt $curloc,''cheat''"><<$preskin[you]>><b>загорелая</b> кожа</a>'
+		if skin[you]=3:'<a href="exec:skin[you]=3 & gt $curloc,''cheat''"><<$preskin[you]>><b>смуглая</b> кожа</a>'
+		if skin[you]=4:'<a href="exec:skin[you]=4 & gt $curloc,''cheat''"><<$preskin[you]>><b>шоколадная</b> кожа</a>'
+		if skin[you]=5:'<a href="exec:skin[you]=5 & gt $curloc,''cheat''"><<$preskin[you]>><b>темная</b> кожа</a>'
+		if skin[you]=6:'<a href="exec:skin[you]=6 & gt $curloc,''cheat''"><<$preskin[you]>><b>черная</b> кожа</a>'
+	else
+		if skin[you]=0:'<a href="exec:skin[you]=0 & gt $curloc,''cheat''"><b>Белая</b> кожа</a>'
+		if skin[you]=1:'<a href="exec:skin[you]=1 & gt $curloc,''cheat''"><b>Светлая</b> кожа</a>'
+		if skin[you]=2:'<a href="exec:skin[you]=2 & gt $curloc,''cheat''"><b>Загорелая</b> кожа</a>'
+		if skin[you]=3:'<a href="exec:skin[you]=3 & gt $curloc,''cheat''"><b>Смуглая</b> кожа</a>'
+		if skin[you]=4:'<a href="exec:skin[you]=4 & gt $curloc,''cheat''"><b>Шоколадная</b> кожа</a>'
+		if skin[you]=5:'<a href="exec:skin[you]=5 & gt $curloc,''cheat''"><b>Темная</b> кожа</a>'
+		if skin[you]=6:'<a href="exec:skin[you]=6 & gt $curloc,''cheat''"><b>Черная</b> кожа</a>'
+	end
+	'Анус (<<anus[you]>>) <a href="exec:anus[<<you>>]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>, <a href="exec:anus[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1</a>,<a href="exec:anus[<<you>>]+=5 & gs ''stat'' & gt $curloc,''cheat''">+5</a>'
+	if vag[you]>0:'Вагина (<<vag[you]>>) <a href="exec:vag[<<you>>]=1 & gs ''stat'' & gt $curloc,''cheat''">целка</a>, <a href="exec:vag[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1</a>'
+	if dick[you]>0:'Пенис: <<dick[you]>> - <a href="exec:dick[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1</a>, <a href="exec:dick[<<you>>]-=1 & gs ''stat'' & gt $curloc,''cheat''">-1</a>'
+	if dick[you]>0:'Яйца: <<ball[you]>> - <a href="exec:ball[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1</a>, <a href="exec:ball[<<you>>]-=1 & gs ''stat'' & gt $curloc,''cheat''">-1</a>'
+	if tongue_p[you]>0: *p' <a href="exec:tongue_p[<<you>>]=0 & gt $curloc,''cheat''">убрать пирсинг языка</a> '
+	if nose_p[you]>0  : *p' <a href="exec:nose_p[<<you>>]=0   & gt $curloc,''cheat''">убрать пирсинг носа</a> '
+	if nip_p[you]>0   : *p' <a href="exec:nip_p[<<you>>]=0    & gt $curloc,''cheat''">убрать пирсинг сосков</a> '
+	if Gendersvapblock=0: '<a href="exec:Gendersvapblock=1 & gt $curloc,''cheat''">Включить гармональную смену пола</a> '
+	if Gendersvapblock=1: '<a href="exec:Gendersvapblock=0 & gt $curloc,''cheat''">Отключить гармональную смену пола</a> '
+	*nl&'Парметры самопала:'
+	'Женское мышление: <<womenbrain[you]>>'
+	'Воздействие Истмунда: <<dagongene>>'
+	'Фемильность: <<face[you]>>'
+	'Работа в баре Шепот: <<barwork>>/<<ExpWorkSallivan>>'
+	'Гармоны проституток порта: <<portvenerafix>> - ' 
+	'Перевозбуждение: <<sexhunger>> хочка: <<superslut[you]>>'&*nl
+	'<br><a href="exec:money[<<you>>]+=100000 & portal[<<you>>]=1 & portal_zar[<<you>>]+=10 & gs ''stat''">Деньги, портальная машинка, +10 зарядов</a>'
+	!--------------
+	'<br><a href="exec:item[45]+=1 & burden[you]+=item_burden[45] & gs ''stat''">молот</a>, <a href="exec:item[114]+=1 & burden[you]+=item_burden[114] & gs ''stat''">катана Ареса</a>, <a href="exec:gs $curloc,''Gun'',9,150">ПМ</a>, <a href="exec:gs $curloc,''Gun'',110,50">Дезерт</a> не забудьте зайти в инвентарь и взять оружие в руку (пистолет еще и перезарядить)
+	, <a href="exec:sfera_amulet[you]=500 & gs ''stat''">Защитный амулет (500)</a>, <a href="exec:sfera_amulet[you]=2000 & gs ''stat''">Защитный амулет Ареса (2000)</a>, <a href="exec:sfera_amulet[you]+=5000 & gs ''stat''">Защитный амулет гнусного читера +5000 (сейчас защита <<sfera_amulet[you]>>)</a>'
+	!-------------------
+	'<br>Возбудитель: <a href="exec:gs $curloc, ''GetItem'',100">+1</a>, <a href="exec:gs $curloc, ''GetItem'',100,5">+5</a>'
+	'Приворотное зелье: <a href="exec:gs $curloc, ''GetItem'',95">+1</a>, <a href="exec:gs $curloc, ''GetItem'',95,5">+5</a>' 
+	'<a href="exec:gs $curloc,''showAllItems'',0,35">Все предметы</a> <a href="exec:gs $curloc,''Shop''">Shop</a>'&*nl
+	if vag[you]>0:*p'<b> СМЕНА ПОЛА!!!</b>'
+	'<a href="exec:gs $curloc,''Macho'' & gs ''stat''">Мачо (потенция, яйца, феромоны, тестостерон)</a>'
+	'<br>'
+	If souldar[you]=0:
+		'<br><a href="exec:souldar[you]+=1 & gs ''stat'' & gt $curloc,''cheat''">Открыть дар</a>'
+	Else	
+		'<br>Уровень магии: <<mlev[you]>>. Каналов: <<magik[you]>>. <a href="exec:magik[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1 канал</a>'
+	End
+	if item[89]=0:*p'<br><a href="exec:item[89]+=1">Получить лунный камень</a> может все поламать'
+	'<br>==================================================================='
+	'Локации ниже могут убить или поломать игровой процесс, сохранитесь.'
+	'<a href="exec:gt ''GeoMap'',''DrawTable'',10">Корневище</a>'
+	!'<a href="exec:gt $curloc,''DrawTable'',100">Райский остров</a> (оставь одежду всяк сюда входящий)'
+	!'<a href="exec:gt $curloc,''DrawTable'',0,5,5">Реальный мир</a>'
+	!'<a href="exec:gt $curloc,''DrawTable'',404">Туман</a>'
+	!'<a href="exec:gt $curloc,''DrawTable'',7777">Луна (очень холодно и нет воздуха)</a>'
+	!'<a href="exec:gt ''TechLoc'',''GoCord'',3,3,7777,1">в замок Лунной королевы</a> в замке безопасно, но замок на луне'
+	!'<a href="exec:gt ''preloc''">Выход</a>'
+END
+act 'Потерять память. Очистить известность персонажа': gs 'cleanfate'
+IF $ARGS[0]='Macho':
+	if sexpower[you]<9:sexpower[you]=9
+	ball[you]=200 
+	feromon[you]+=200
+	manize[you]+=100
+	if mus[you]<4000:mus[you]=4000
+	if fat[you]>1000:fat[you]=1000
+	pregnant_day[you]=0
+	inseminate[you]=0
+	vag[you]=0
+	if dick[you]<15:dick[you]=15
+	if dickd[you]<30:dickd[you]=30
+	if face[you]>20:face[you]=0
+	gt $curloc, 'cheat'
+END
+!код предмета, количество, стоимость (сумма)
+!gs $curloc,''GetItem'',100,2,2*500
+IF $ARGS[0]='GetItem':
+	money[you]-=args[3]
+	if args[2]=0:
+		item[args[1]]+=1
+	else	
+		item[args[1]]+=args[2] 
+	end
+	burden[you]+=item_burden[args[1]]
+	gt $curloc, 'cheat'
+END
+!код пистолета, код патронов, количество патронов (если не указан то на 3 магазина)
+!gs $curloc, ''Gun'',110,50
+IF $ARGS[0]='Gun':
+	if item[ARGS[1]]=0: item[ARGS[1]]+=1 & burden[you]+=item_burden[ARGS[1]]
+	if ARGS[2]=0:ARGS[2]=item_w_patron_max[ARGS[1]]*5
+	item[item_w_patrontipe[ARGS[1]]]+=ARGS[2]
+	burden[you]+=item_burden[item_w_patrontipe[ARGS[1]]]*ARGS[2]
+	gt $curloc, 'cheat'
+END
+!------------------------------------------------------------------------------------
+!gt $curloc, 'Shop'
+IF $ARGS[0]='Shop':*CLR&gs $curloc, 'Shop_showItemTab','food'
+IF $ARGS[0]='Shop_showItemTab':
+	*CLR
+	*p '|<a href="exec:gs $curloc, ''Shop_showItemTab'',''food''">'+IIF($ARGS[1]='food','<b>Еда</b>','Еда')+'</a>|'
+	*p '|<a href="exec:gs $curloc, ''Shop_showItemTab'',''items''">'+IIF($ARGS[1]='items','<b>Предметы</b>','Предметы')+'</a>|'
+	*p '|<a href="exec:gs $curloc, ''Shop_showItemTab'',''sword'',1">'+IIF($ARGS[1]='sword','<b>Оружие режущее</b>','Оружие режущее')+'</a>|'
+	*p '|<a href="exec:gs $curloc, ''Shop_showItemTab'',''club'' ,1">'+IIF($ARGS[1]='club','<b>Оружие дробящее</b>','Оружие дробящее')+'</a>|'
+	*p '|<a href="exec:gs $curloc, ''Shop_showItemTab'',''Gun''  ,1">'+IIF($ARGS[1]='Gun','<b>Огнестрел</b>','Огнестрел')+'</a>|'
+	!*p '|<a href="exec:gs $curloc, ''Shop_showItemTab'',''Patron''">Боеприпасы</a>|'
+	*p '|<a href="exec:gs $curloc, ''Shop_showItemTab'',''other''">'+IIF($ARGS[1]='other','<b>Прочее</b>','Прочее')+'</a>|'
+	!'<hr><table width="100%" border="1" cellspacing="0">'
+	*p'<hr><table border="1" cellspacing="0">'
+	*p'<tr>'
+    *p'<th>id</th>'
+    *p'<th>Наименование</th>'
+    *p'<th>в инвентаре</th>'
+    *p'<th>Добавить</th>'
+    *p IIF(ARGS[2]=0,'','<th> Урон </th>')
+    *p'<th> вес </th>'
+	*p'</tr>'
+	jmax_i=arrsize('$item_name') 
+	jcur_i=1
+	!-------------------------------------
+	$J_text=''	
+	$J_Patrons=''
+	:Jmark_showItemTab
+	$J_text['урон']=''
+	$J_text['добавить']=''
+	!получим значение, а потом будем собирать строку таблицы
+	!-------------------------------------
+	if uron_w_item[jcur_i]>0:
+		$J_text['урон']=uron_w_item[jcur_i]
+		$J_text['тип'] = 'Gun'
+		$J_text['добавить']='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,1 & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>'',1">+1</a>'
+	elseif uron_m_item[jcur_i]>0:
+		if tipe_melee_item[jcur_i]=0:
+			$J_text['тип']='club'
+		else
+			$J_text['тип']='sword'
+		end
+		$J_text['урон']=uron_m_item[jcur_i]	
+		$J_text['добавить']='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,1 & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>'',1">+1</a>'
+	else
+		if ARRPOS('item_w_patrontipe',jcur_i)>0:
+			$J_text['тип']='Patron'
+			$J_Patrons+='<tr>'
+			$J_Patrons+='<td><<jcur_i>></td>'
+			$J_Patrons+='<td><<$item_name[jcur_i]>></td>'
+			$J_Patrons+='<td align="right">'+IIF(item[jcur_i]>0,item[jcur_i],'')+'</td>'
+			$J_Patrons+='<td colspan="2">'
+			$J_Patrons+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>, 10 & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>'',1">+10</a>, '
+			$J_Patrons+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>, 50 & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>'',1">+50</a>, '
+			$J_Patrons+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,100 & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>'',1">+100</a>'
+			$J_Patrons+='</td>'
+			!$J_Patrons+='<td align="right">'+IIF($J_text['урон']='','',$J_text['урон'])+'</td>'
+			$J_Patrons+='<td align="right"><<item_burden[jcur_i]>></td>'
+			$J_Patrons+='</tr>'
+		else
+			if can_eat[jcur_i]=0:
+			$J_text['тип']='items'
+			elseif can_eat[jcur_i]=1 or can_eat[jcur_i]=2:
+			$J_text['тип']='food'    
+			else
+			$J_text['тип']='other'
+			end
+			$J_text['добавить']+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,1  & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>''">+1</a>, '
+			$J_text['добавить']+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,5  & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>''">+5</a>, '
+			$J_text['добавить']+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,10 & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>''">+10</a>'
+		end
+	end
+	!-------------------------------------
+	!Собираем строку
+	If $J_text['тип'] = $ARGS[1]:
+    *p'<tr>'
+    	*p'<td><<jcur_i>></td>'
+    	*p'<td>'+$item_name[jcur_i]+'</td>'
+    	!+iif($item_text[jcur_i]='','',iif($item_name[jcur_i]!$item_text[jcur_i],' (<<$item_text[jcur_i]>>)',''))
+    	*p'<td align="right">'+IIF(item[jcur_i]>0,item[jcur_i],'')+'</td>'
+    	*p'<td align="center">'+$J_text['добавить']+'</td>'
+    	if ARGS[2]>0:*p'<td align="right"><<$J_text[''урон'']>></td>'
+    	*p'<td align="right">'+item_burden[jcur_i]+'</td>'
+    *p'</tr>'
+	end
+	!-------------------------------------	
+	jcur_i+=1
+	if jcur_i<jmax_i:jump'Jmark_showItemTab'
+	!-------------------------------------
+	If $ARGS[1]='Gun': '<tr><th colspan="6">Боеприпасы</th></tr><<$J_Patrons>>'
+	'</table>'
+	killvar 'jcur_i'
+	killvar 'jmax_i'
+	killvar '$J_text'
+	killvar '$J_Patrons'
+END
+IF $ARGS[0]='showAllItems':
+	*CLR
+	jmax_i=min(ARGS[1]+ARGS[2],arrsize('$item_name')-1) 
+	jcur_i=max(ARGS[1],1)
+	!-------------------------------------
+	$J_text=''	
+	$J_text+='<table width="100%" border="1" cellspacing="0">'
+	!------------------------------------
+	$J_text+='<tr>'	
+	$J_text+='<th>номер</th>'
+	$J_text+='<th>Наименование</th>'
+	$J_text+='<th>в инвентаре</th>'
+	$J_text+='<th>вес</th>'
+	$J_text+='<th>Урон</th>'
+	$J_text+='<th>тип</th>'
+	$J_text+='<th>добавить</th>'
+	$J_text+='</tr>'
+	!-------------------------------------
+	:Jmark_showItem
+	!$J_text=''
+	$J_text+='<tr><td><<jcur_i>></td>'
+	$J_text+='<td><<$item_name[jcur_i]>>'
+	!if $item_name[jcur_i]!$item_name[jcur_i] :$J_text+=' (<<$item_name[jcur_i]>>)'
+	if item_w_patrontipe[jcur_i]>0: $J_text+=', зарядов: <<item_w_patron_max[jcur_i]>>, патроны: <<$item_name[item_w_patrontipe[jcur_i]]>>'
+	$J_text+='<td align="right"><<IIF(item[jcur_i]>0,item[jcur_i],'''')>></td>'
+	$J_text+='</td><td align="right"><<item_burden[jcur_i]>></td>'
+	if uron_w_item[jcur_i]>0:
+		$J_text+='<td align="right"><<uron_w_item[jcur_i]>></td>'
+		$J_text+='<td align="center">огнестрел</td>'
+		$J_text+='<td>'
+		$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,1  & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+1</a>, '
+		$J_text+='</td>'
+	elseif uron_m_item[jcur_i]>0:
+		$J_text+='<td align="right"><<uron_m_item[jcur_i]>></td>'
+		if tipe_melee_item[jcur_i]=0:
+			$J_text+='<td align="right">тупое</td>'
+		else
+			$J_text+='<td align="left">острое</td>'    	
+		end
+		$J_text+='<td>'
+		$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,1  & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+1</a> '
+		$J_text+='</td>'
+	else
+		$J_text+='<td></td><td></td>'
+		if ARRPOS('item_w_patrontipe',jcur_i)>0:
+			$J_text+='<td>'
+			$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,10  & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+10</a>, '
+			$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,50  & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+50</a>, '
+			$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,100 & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+100</a>'
+			$J_text+='</td>'
+		else	
+			$J_text+='<td>'
+			$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,1  & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+1</a>, '
+			$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,5  & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+5</a>, '
+			$J_text+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,10 & gs $curloc,''showAllItems'',<<ARGS[1]>>,<<ARGS[2]>>">+10</a>'
+			$J_text+='</td>'
+		end
+	end
+	$J_text+='</tr>'
+	jcur_i+=1
+	if jcur_i<=jmax_i:jump'Jmark_showItem'
+	!--------
+	!$J_text='<table width="100%" border="1" cellspacing="0">'
+	
+	$J_text+='<tr><td colspan="7">'
+	!--- навигация ------------------------
+	jmax_i=arrsize('$item_name')-1
+	jcur_i=0
+	:Jmark_showItem2
+	$J_text+='| <a href="exec:gs $curloc,''showAllItems'',<<jcur_i>>,<<ARGS[2]>>"><<Max(jcur_i,1)>>-<<Min(jcur_i+ARGS[2],jmax_i)>></a> '
+	jcur_i+=ARGS[2]
+	if jcur_i<=jmax_i:jump'Jmark_showItem2'
+	$J_text+='|</td></tr></table>'
+	'<<$J_text>>'	
+	killvar 'jcur_i'
+	killvar 'jmax_i'
+	killvar '$J_text'
+END

@@ -1,0 +1,54 @@
+﻿if rand(1)=0:
+	lvl[i]=1&soul[i]=100&rubl[you]=5000000&item[26]=1
+	master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0
+	$title[i]=''&gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname
+	face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+	dick[i]=rand(8,28)&dickd[i]=rand(30,50)&ball[i]=rand(30,100)&vag[i]=0&ass[i]=2&tits[i]=0&nip[i]=8
+	rost[i]=rand(165,195)&fat[i]=rand(800,1500)&mus[i]=rand(1000,2500)&skin[i]=rand(0,3)
+	face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)
+	healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energymax[i]=rand(80,160)&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(50,70)&pol[i]=0&gs'body'&total_generated_male+=1&!gs'body_auto',i,'old_npc_once'
+	womenbrain[you]=rand(40)&ust[i]=10&agro[i]=10&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&!Характер
+	spec_face_pic[i]=6&&face_tipe[i]=6&pic_hcol[i]=hcol[i]&face_pic[i]=4&!gs 'init_d_view', i, 'face_pic[i]'&!!face_pic[i]=rand(1,230)
+	if age[i]>30:
+		t_slot[i]=4&l_slot[i]=5&b_slot[i]=3
+		ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!Прикид
+	else
+		t_slot[i]=2&l_slot[i]=1&b_slot[i]=2
+		ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!Прикид
+	end
+else
+	lvl[i]=1&soul[i]=100&rubl[you]=5000000&item[26]=1
+	master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0
+	$title[i]=''&gs'ru_woman_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname_f
+	face[i]=rand(55,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+	dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,38)&tits[i]=rand(10,25)&nip[i]=rand(30,70)
+	rost[i]=rand(155,180)&fat[i]=rand(1000,3000)&mus[i]=rand(600,1200)&skin[i]=rand(0,3)
+	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=rand(60,100)&curl[i]=rand(1)&hcol[i]=rand(3)
+	healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energymax[i]=rand(80,160)&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1&if age[i]>=20:vag[i]=rand(1,40)
+	!gs'body_auto',i,'old_npc_once'&
+	womenbrain[you]=rand(60,100)&lust[i]=10&agro[i]=10&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&dom[i]=70&!Характер
+	!r_leg_t[i]=1&stamp_t[i]=1&!Прикид
+	spec_face_pic[i]=6&face_tipe[i]=6&pic_hcol[i]=hcol[i]&face_pic[i]=0&!gs 'init_d_view', i, 'face_pic[i]'&!face_pic[i]=6
+	if age[i]>30:
+		t_slot[i]=15&l_slot[i]=26&b_slot[i]=13
+		ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0&!Прикид
+	else
+		t_slot[i]=30&l_slot[i]=16&b_slot[i]=13
+		ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0&!Прикид
+	end
+end
+cls&clr&*p'<<$name[you]>> <<$surname[you]>>'&*nl'<<$opis[you]>>'
+!act'Самособраться':kre=5&gt'create_player'
+act'Заново сгенерировать':cls&gt $curloc
+!act'Вручную':kre=0&gt'create_player'
+real_world[]=i&walkprog[i]=29
+act'Самособраться':
+	SHOWSTAT 1&SHOWOBJS 1
+	addobj'Персонаж'&addobj'Характеристики'&addobj'Статистика'&addobj'Инвентарь'&addobj'Журнал'&addobj'Обновить'&addobj'Аварийка'&!addobj'Настройки'
+	Xstart=3&Ystart=3&Zstart=200&Hstart=2&Rstart=4&gs'200_world_gen'
+	X[you]=Xstart&Y[you]=Ystart&Z[you]=Zstart&H[you]=Hstart&R[you]=Rstart&ownerloc['<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>']=you&!TTTTTT=ownerloc["<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>"]
+	!msg '<<you>>  собственник "<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>"  поэтому <<TTTTTT>>   твоя квартира <<ownerloc["<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>"]>>'
+	Xhome[you]=Xstart&Yhome[you]=Ystart&Zhome[you]=Zstart&Hhome[you]=Hstart&Rhome[you]=Rstart&gt'world'
+end

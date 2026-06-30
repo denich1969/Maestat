@@ -1,0 +1,43 @@
+﻿gs'stat'&'Энергия формируется в виде лезвий и мчится во врага'
+hod=1&uron=mlev[you]*100&if uron<1:uron=1
+if superslut[you]=1:uron=uron+(uron/10)
+popad=0&percentV=reactV*20/100&defV=rand(reactV-percentV,reactV+percentV)&if invisibleV>0:defV=defV+(invisibleV*3)
+percent=react[you]*20/100&atk=rand(react[you]-percent,react[you]+percent)&atk=20+atk+(fight_skill[you]/10)
+if def_tipeV=0:'<<$name[npc]>> пытается увернутся'&popad=iif(defV<=atk,1,iif(rand(0,2)=2,1,0))
+if def_tipeV=1:'<<$name[npc]>> даже не пытается защищаться'&popad=1
+if uskor>0 and uskorV=0:popad=1
+if uskor=0 and uskorV>0:popad=0
+if stunV>0:stunV-=1&popad=2
+if portal_defV>0:
+	'Ваш удар попадает в портал и никакого вреда не наносит'
+else
+	 if popad>=1:
+	 	 if clonV>0:'Лезвия рассекают клонов и те исчезают'&clonV=0
+		 if uron<1:uron=1
+		 if superslut[you]=1:uron=uron+(uron/10)
+		 if popad=2:uron=uron*2 
+		 if defenceV>0:
+			 if defenceV<uron:
+				uron-=defenceV&defenceV=0
+				 if ironhand[npc]>0:
+					'<<$name[npc]>> отбивает рукой лезвие'
+				 else
+					health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
+					if defenceV>0:'Вы разбиваете защиту противника'
+					if popad=2:'Критическое попадание'
+				 end
+			 else
+				defenceV-=uron&'Защита противника полностью поглощает урон и снижается теряя прочность'
+			 end
+		 else
+			 if ironhand[npc]>0:
+				'<<$name[npc]>> отбивает рукой лезвие'
+			 else
+				'<<$name[npc]>> получает <<uron>> единиц урона'&health[npc]-=uron&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
+		     end
+		 end
+	 else
+		'<<$name[npc]>> избегает урона'
+	 end
+end
+gs'stat'&act'Далее':gt'fight'

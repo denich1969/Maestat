@@ -1,0 +1,183 @@
+﻿in_sex=1&gs'stat'
+if sexpower[npc]>0:
+	if hardtimer=0:
+		if skin[npc]>3 and skin[npc]<7:
+		     '<center><video src="pic/sex/public/beforeb.webm" ></video></center>'
+		 else
+		     '<center><img src="pic/sex/public/before0.jpg" ></center>'
+		 end
+		'<<$name[npc]>> лапает вас сжимая сиськи и попу, его пальцы скользят по вашей промежности.'
+		act'На корточки':
+			corr[you]+=1&pose[you]=2&hardtimer+=1&cls&gs'stat'
+			if skin[npc]>3 and skin[npc]<7:
+			    '<center><video src="pic/sex/blackcock<<rand(0, 24)>>.webm" ></video></center>'
+			else
+			    '<center><img src="pic/sex/public/before_blow<<rand(0,6)>>.jpg" ></center>'
+			end
+			'Вы садитесь на корточки и стоячий член оказывается прямо напротив вашего лица.'&act'...':gt $curloc
+		end
+	else
+		:sexvagmark
+		if pose[you]=2:
+			temp_blow_fss+=1&sexpower[npc]-=1&gs'stat'&!на кортах
+			if skin[npc]>3 and skin[npc]<7:
+				blacked[you]+=1
+				if dick[you]>0:
+			        '<center><video src="pic/sex/public/toilet_blowbbc<<rand(3,24)>>.webm" ></video></center>'
+			    else
+			        '<center><video src="pic/sex/public/toilet_blowbbc<<rand(0,24)>>.webm" ></video></center>'
+			    end
+			else
+				'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+			end
+			$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+			'Вы сидите на корточках в сортире и сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'
+			if oral_fixation[you]>0 and orgasm[you]<time:gs'to_arouse',you,oral_fixation[you]&'Вас возбуждает мужской прибор между ваших губок и вы увлеченно его сосете причмокивая'
+			act'Сосать':
+				cls&gs'stat'
+				if corr[you]<10:corr[you]+=1
+				if rand(1,10)<=8:tipe=1
+				if onlyblowjob=time:tipe=0
+				if tipe=0:
+					gt $curloc
+				else
+					gs'stat'&'<center><video src="pic/sex/public/mid.webm" ></video></center>'&'<<$name[npc]>> приказывает вам - Я так сейчас кончу, встань раком'
+					act'Давай я лучше дососу':onlyblowjob=time&gs'fuck_oral',npc,you&wait 500&gs'fuck_final',in_sex[you]&gt $curloc
+					act'Раком':pose[you]=4&cls&'<center><img src="pic/sex/public/before_sex<<rand(0,6)>>.jpg" ></center>'&wait 500&gt $curloc&!exit&jump 'sexvagmark'
+				end
+			end
+		end
+		if pose[you]=4:
+			if total_npc_on_loc>1:
+				'<center><video src="pic/sex/public/watch<<rand(0,2)>>.webm" ></video></center>'&'<b>За вами наблюдают пока <<$name[npc]>> ебёт вас в туалете как последнюю шлюху.</b>'
+			else
+				'<center><img src="pic/sex/public/before_sex<<rand(0,6)>>.jpg" ></center>'&'<b>Вы стоите наклонившись и оттопырив попу</b>'
+			end
+			gs'anal_plug_remuve'
+			if vag[you]>0:
+				act'В киску':
+					if corr[you]<20:corr[you]+=1
+					temp_vag_fss+=1&sexpower[npc]-=1&cls&gs'stat'
+					if skin[npc]>3 and skin[npc]<7:
+						blacked[you]+=1
+						if rand(0,1)=1:
+				             '<center><video src="pic/sex/public/toilet_pb<<rand(0,4)>>.webm" ></video></center>'
+				        else
+				             '<center><video src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
+				        end
+					else
+					     if rand(0,1)=1:
+						     '<center><video src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
+						 else
+						     '<center><video src="pic/sex/public/toilet_p<<rand(0,7)>>.webm" ></video></center>'
+						 end
+					end
+					'Стоя раком, вы выгибаете спину пока вас трахают в киску.'
+					if vag[you]=1:
+						horny[you]=0&'Вспышка резкой боли, когда вас лишают девственности и вы видите, что на члене немного крови.'
+					else
+						if vag[you]*2<dickd[npc]:
+							'Вам довольно неприятно и больно, когда член внедряется в ваше тело.'
+						else
+							'Твердая мужская плоть двигается внутри вашего тела и от этого внизу живота порхают бабочки.'
+						end
+						if grief=npc:vag[you]+=5&horny[you]+=25
+					end
+					gs'fuck_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+					act'Подмахивать':
+						tipe=0&rander=0&cls&gs'stat'
+						if agro[npc]>=100 and you_dirty_slut[npc]>=10:rander=rand(1,10)
+						if rander>1 and rander<=4:tipe=1
+						if CONFIG['DISABLE_SPIT']=1:tipe=0
+						if tipe=0:gt $curloc
+						if tipe=1:
+							spit_face[you]+=1&you_dirty_slut[npc]+=5&if corr[you]<50:corr[you]+=1
+							'<center><video src="pic/sex/public/toilet_spit0.webm" ></video></center>'&'<<$name[npc]>> поднимает ваше лицо и внезапно харкает в него'&act'...':gt $curloc
+						end
+					end
+				end
+			end
+			act'В попу':
+				if corr[you]<20:corr[you]+=1
+				temp_anal_fss+=1&sexpower[npc]-=1&cls&gs'stat'
+				if skin[npc]>3 and skin[npc]<7:
+					blacked[you]+=1
+					if dick[you]>0:
+				         '<center><video src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
+				     else
+				         if rand(0,1)=1:
+				             '<center><video src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
+				         else
+				             '<center><video src="pic/sex/public/toilet_analb<<rand(0,4)>>.webm" ></video></center>'
+				         end
+				     end
+				else
+					 if dick[you]>0:
+				         '<center><video src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
+				     else
+				         if rand(0,1)=1:
+				             '<center><video src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
+				         else
+				             '<center><video src="pic/sex/public/toilet_anal<<rand(0,7)>>.webm" ></video></center>'
+				         end
+				     end
+				end
+				if dickd[npc]>anus[you]:
+					'Вам больно, когда толстый член ебёт вашу задницу, ощущение как будто у вас там все горит огнем.'
+				else
+					'Вы стоите раком и выгибаете спину, пока вас трахают в задницу.'&*pl'Вы спокойно расслабляетесь, когда в вашей заднице ходит ходуном член.'
+				end
+				gs'fuck_anal',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+				act'Подмахивать':
+					tipe=0&rander=0&cls&gs'stat'
+					if agro[npc]>=100 and you_dirty_slut[npc]>=10:rander=rand(1,10)
+					if rander>1 and rander<=7:tipe=rand(1,2)
+					if CONFIG['DISABLE_SPIT']=1 and tipe=1:tipe=2
+					if tipe=0:gt $curloc
+					if tipe=1:
+						if corr[you]<50:corr[you]+=1
+						spit_face[you]+=1&you_dirty_slut[npc]+=5&'<center><video src="pic/sex/public/toilet_spit0.webm" ></video></center>'&'<<$name[npc]>> поднимает ваше лицо и внезапно харкает в него'
+						gs'fuck_anal',npc,you&gs'fuck_anal_spit_face',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt $curloc
+					end
+					if tipe=2:
+						if corr[you]<80:corr[you]+=1
+						spit_face[you]=0&you_dirty_slut[npc]+=10&'<center><video src="pic/sex/public/toilet_humiliation<<rand(0,4)>>.webm" ></video></center>'
+						'<<$name[npc]>> засовывает вашу голову в унитаз и продолжает размашисто трахать вас в жопу.'
+						gs'fuck_anal_hard',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt $curloc
+					end
+				end
+			end
+			if corr[you]>=90:
+				act'Облизать унитаз':
+					you_dirty_slut[npc]+=10&cls&gs'stat'&'<center><video src="pic/sex/public/lick<<rand(0,8)>>.webm" ></video></center>'&'Вы наклонились к унитазу и облизали его холодный белый стульчак'
+					'<<$name[npc]>> усмехается - ну ты и шлюха.'&act'...':gt $curloc
+				end
+			end
+		end
+	end
+else
+	horny[npc]=0&cum_face[you]+=1&if skin[npc]>3 and skin[npc]<7:cum_face[you]+=rand(1,5)
+	koefball[npc]=11-(ball[npc]/10)&empty_ball[npc]=time+(60*koefball[npc])&hardtimer=0&gs'stat'
+	if skin[npc]>3 and skin[npc]<7:
+		blacked[you]+=1&'<center><video src="pic/sex/public/toilet_cumb<<rand(0,6)>>.webm" ></video></center>'
+	else
+		'<center><video src="pic/sex/public/toilet_cum<<rand(0,11)>>.webm" ></video></center>'
+	end
+	'<<$name[npc]>> кончает вам в рот и на лицо.'&gs'fuck_cum_face',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+	if piss_mass['<<npc>>,<<you>>']=0 or CONFIG['DISABLE_PEE']=0:
+		act'Уйти':gt 'after_fss'
+	else
+		act'...':
+			you_dirty_slut[npc]+=50&peecover[you]+=2&cum_face[you]=0&spit_face[you]=0&pissonloc['<<$loc[you]>>']=time+250
+			corr[you]+=5&target_soul=4&piss_mass['<<npc>>,<<you>>']+=1&drinkpee[you]+=1&!gs'souleater'
+			cls&gs'stat'
+			if rand(0, 1) = 0:
+				'<center><video src="pic/sex/public/toilet_gold<<rand(0, 1)>>.webm" ></video></center>'&'<<$name[npc]>> направляет член вам на лицо и начинает ссать на вас.'
+			else
+				'<center><video src="pic/sex/public/toilet_gold_un<<rand(0, 1)>>.webm" ></video></center>'&'<<$name[npc]>> засовывает вашу голову в унитаз и начинает на вас ссать сверху.'
+			end
+			act'Уйти':gt 'after_fss'&!if total_npc_on_loc>1:''
+		end
+	end
+end
+gs 'npconloc_fss'

@@ -1,0 +1,47 @@
+﻿if mob[npc]=0 and health[npc]<=0:health[npc]+=healthmax[npc]
+round=0&gs'gofight'
+cooldown_prth=0&cooldown_trth=0
+uronV=0&mag_uronV=0&portal_defV=0&uskor=0&uskorV=0&mistice=0&hod=0&proboyV=0&proboy=0&anticlonV=0&anticlon=0&sfera_round=0&sfera_antigrav=0&!horny[you]=0
+regenerator=0&regeneratorV=0
+defenceV=0&!fire_defence[you]=0
+busy[you]=1&firedef=0&firedefV=0&sfera_psih=0&sfera_psihV=0&invisible=0&can_blocking=0&enemy_udar=0&sbivatel=0&!dubleuron=0
+drunk_bloodV=0&tentaV=0&cumming_atk=0&restrikt=0&defence_you=defence[you]&fearatkV=0&fire_resistV=0&firedefV=0&stunV=0
+storm_shildV=0&storm_shild=0&godhand_defV=0&godhand_def=0&evilgrassV=0&evilgrass=0&bullet_resistV=0&blunt_resist=0&regenerator_manaV=0&nostunnerV=0&mana[npc]=manamax[npc]
+if mob[npc]=0:
+	mobexp[npc]=(lvl[npc]*10)+(magika[npc]*10)&def_tipeV=def_tipe[npc]&minuronV=minuron[npc]&maxuronV=maxuron[npc]&progV=fight_prog[npc]&notfastV=notfast[npc]
+	reactV=reflex[npc]&blunt_resist=bl_resist[npc]&defenceV=defence[npc]&sfera_psihV=psihresist[npc]&clonV=canclon[npc]
+end
+if mob[npc]>0:
+	def_tipeV=def_tipe[npc]&minuronV=minuron[npc]&maxuronV=maxuron[npc]&progV=fight_prog[npc]&notfastV=notfast[npc]
+	reactV=reflex[npc]&blunt_resist=bl_resist[npc]&defenceV=defence[npc]&sfera_psihV=psihresist[npc]&clonV=canclon[npc]
+end
+totalhodmy=reflex[you]+rand(1,50)&totalhoden=reflex[npc]+rand(1,50)&hod=iif(totalhodmy>=totalhoden,0,1)&horny[you]=0
+if sfera_amulet[you]>0:sfera_fiz=sfera_amulet[you]
+if sfera_amulet[npc]>0:defenceV=sfera_amulet[npc]
+if master[you]>0:sfera_fiz=2000
+if master[npc]>0:defenceV=2000
+if hiperbrona[npc]>0:defenceV+=hiperbrona[npc]
+if mag_shild[you]>0:sfera_fiz+=mag_shild[you]
+if amulregen[npc]>0:regeneratorV=1
+if vampire[npc]>0:bullet_resistV=1&blunt_resist=1
+if fire_defence[you]>0:firedef=fire_defence[you]
+if fire_defence[npc]>0:firedefV=fire_defence[npc]
+if storm_defence[npc]>0:storm_shildV+=storm_defence[npc]
+if storm_defence[you]>0:storm_shild+=storm_defence[you]
+if godshand[npc]>0:godhand_defV=godshand[npc]
+if godshand[you]>0:godhand_def=godshand[you]
+if evil_grass[npc]>0:evilgrassV=evil_grass[npc]
+if evil_grass[you]>0:evilgrass=evil_grass[you]
+if firstfoll>0 and cant_fight_run=0:
+firstfoll_uron=mus[firstfoll]/100&firstfoll_uron=firstfoll_uron+uron_weapon_m[firstfoll]+soulpower[firstfoll]-uronstraf[firstfoll]
+percent=firstfoll_uron*20/100&minuron[firstfoll]=firstfoll_uron-percent&maxuron[firstfoll]=firstfoll_uron+percent
+end
+if secfoll>0 and cant_fight_run=0:
+	secfoll_uron=mus[secfoll]/100&secfoll_uron=secfoll_uron+uron_weapon_m[secfoll]+soulpower[secfoll]-uronstraf[secfoll]
+	percent=secfoll_uron*20/100&minuron[secfoll]=secfoll_uron-percent&maxuron[secfoll]=secfoll_uron+percent
+end
+if threfoll>0 and cant_fight_run=0:
+	threfoll_uron=mus[threfoll]/100&threfoll_uron=threfoll_uron+uron_weapon_m[threfoll]+soulpower[threfoll]-uronstraf[threfoll]
+	percent=threfoll_uron*20/100&minuron[threfoll]=threfoll_uron-percent&maxuron[threfoll]=threfoll_uron+percent
+end
+gt'fight'

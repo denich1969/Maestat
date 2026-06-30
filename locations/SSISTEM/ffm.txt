@@ -1,0 +1,47 @@
+﻿in_sex=1&gs'stat'
+if sexpower[you]<=0:
+	if tipe_orgasm=1:'<center><video src="pic/sex/ffm/snowball0.webm" ></video></center>'
+	'Вы кончили и удовлетворенно посмотрели на девчонок обслуживших вас'&if tipe_orgasm=1:'<<$name[first]>> и <<$name[second]>> играют со спермой и целуются'
+	act'Уйти':gt 'after_ffm'
+else
+	act'Дать девчонкам в рот':
+		sexpower[you]-=1&temp_blow+=1&temp_blow_s+=1
+		cls&'<center><video src="pic/sex/ffm/double_blow<<rand(0,2)>>.webm" ></video></center>'&'<<$name[first]>> и <<$name[second]>> сосут ваш член в двоем'
+		gs'fuck_oral',you,first&gs'fuck_oral',you,second&args[10]=func('fuck_final',in_sex[you])&gs'stat'&!if corr[npc]>50:gs'fuck_vag_jerk',npc,npc
+		if sexpower[you]<=0:
+			act'Кончить':
+				womenbrain[you]-=2&tipe_orgasm=1&cls&gs'stat'&'<center><video src="pic/sex/ffm/double_cum0.webm" ></video></center>'&'Вы кончили девчонкам на лица и в рты'
+				gs'fuck_cum_face',you,first&gs'fuck_cum_face',you,second&args[10]=func('fuck_final',in_sex[you])&act'...':gt $curloc
+			end
+		else
+			act'...':gt $curloc
+		end
+	end
+	act'Сказать что бы <<$name[first]>> встала раком и трахнуть ее в киску':
+		sexpower[you]-=1&temp_vag+=1
+		cls&'<center><video src="pic/sex/ffm/dog<<rand(0,2)>>.webm" ></video></center>'&'<<$name[first]>> стонет пока вы ее трахаете и <<$name[second]>> пристраивает свою киску ей ко рту'&vag[first]+=1
+		gs'fuck_vag',you,first&gs'fuck_oral_lick_vag',first,second&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+		if sexpower[you]<=0:
+			act'Кончить':
+				womenbrain[you]-=1&tipe_orgasm=1
+				cls&gs'stat'&'<center><video src="pic/sex/ffm/double_cum0.webm" ></video></center>'&'Вы поставили девченок перед собой на колени и начали кончать им на лица и в рты'
+				gs'fuck_cum_face',you,first&gs'fuck_cum_face',you,second&args[10]=func('fuck_final',in_sex[you])&act'...':gt $curloc
+			end
+		else
+			act'...':gt $curloc
+		end
+	end
+	act'Сказать что бы <<$name[first]>> легла на спину и трахнуть ее в киску':
+		sexpower[you]-=1&temp_vag+=1
+		cls&gs'stat'&'<center><video src="pic/sex/ffm/miss<<rand(0,2)>>.webm" ></video></center>'&'<<$name[first]>> стонет пока вы ее трахаете и <<$name[second]>> пристраивает свою киску ей ко рту'
+		gs'fuck_vag',you,first&gs'fuck_oral_lick_vag',first,second&args[10]=func('fuck_final',in_sex[you])
+		if sexpower[you]<=0:
+			act'Кончить':
+				womenbrain[you]-=1&tipe_orgasm=1
+				cls&gs'stat'&'<center><video src="pic/sex/ffm/double_cum0.webm" ></video></center>'&'Вы поставили девченок перед собой на колени и начали кончать им на лица и в рты'&act'...':gt $curloc
+			end
+		else
+			act'...':gt $curloc
+		end
+	end
+end

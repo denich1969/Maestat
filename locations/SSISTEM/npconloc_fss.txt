@@ -1,0 +1,37 @@
+﻿$npc_loc=''&aggressor=0&i=1&npcmax=arrsize('$name')
+total_npc_on_loc=0&insmouth_loc_num=0&tent_want=0&slut_want=0
+:marknpclocpashfss
+if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] and i!you and dead[i]=0 and i!npc and $name[i]!'':
+     total_npc_on_loc+=1
+     if mob_busy[i]=0:
+		$doing[i]=''
+        if mob_sleep[i]>time:$doing[i]+=' пребывает в задумчивости'
+		if mob_busy[i]>0:$doing[i]+=' пребывает в задумчивости'
+		if master[you]>0:$doing[i]+=' <<$think[i]>> (<<horny[i]>> возбуждение) (<<corr[i]>> испорченность) Назначение <<$destination[i]>>'
+		gs'watch_sex_fss'
+        if mob[i]=0:
+			 $npc_loc+='<br>'&!if $title[i]!'':$npc_loc+='<<$title[i]>> '
+			 $npc_loc+='За вами подглядывает '
+			 if know['<<i>>,<<you>>']=0:$npc_loc+='<<$nick[i]>><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<<$name[i]>> <<$surname[i]>><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<<$nick[i]>> <<$name[i]>><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<<$title[i]>> <<$name[i]>><<$status[i]>>'
+			 if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
+			 watch_you_slut['<<i>>,<<you>>']+=1
+	    end
+	    if mob[i]>0:
+			 if mob[i]=3:insmouth_loc_num=i
+			 $npc_loc+='<br>'&!if $title[i]!'':$npc_loc+='<<$title[i]>> '
+			 $npc_loc+='За вами подглядывает '
+			 if know['<<i>>,<<you>>']=0:$npc_loc+='<<$nick[i]>><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]!'' and $nick[i]='':$npc_loc+='<<$name[i]>> <<$surname[i]>><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $nick[i]='':$npc_loc+='<<$nick[i]>> <<$name[i]>><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $nick[i]!'':$npc_loc+='<<$nick[i]>><<$status[i]>>'
+			 if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
+		     watch_you_slut['<<i>>,<<you>>']+=1
+	    end
+	    if pol[you]>0 and dick[i]>1:$npc_loc+=' <a href="exec:solo=0&horny[i]=50&gt ''sex''">подмигнуть</a>'
+	 end
+end
+i+=1&if i<=npcmax:jump'marknpclocpashfss'
+*pl '<<$npc_loc>>'

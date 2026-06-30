@@ -1,0 +1,30 @@
+﻿if pol[npcnum]>0:
+	if lust[npcnum]<30:
+		horny[npcnum]+=2+ball[npcnum]/20
+	elseif lust[npcnum]<75:
+		horny[npcnum]+=rand(3,5)+ball[npcnum]/20
+	elseif corr[npcnum]<65:
+		horny[npcnum]+=rand(7,10)+ball[npcnum]/10
+	elseif lust[npcnum]>95 and corr[npcnum]>95:
+		horny[npcnum]+=rand(20,30)+ball[npcnum]/10
+	else
+		horny[npcnum]+=rand(10,15)+ball[npcnum]/10
+	end
+else
+	if sexperaday[npcnum]=daystart:
+		horny[npcnum]+=rand(0,2)
+	else
+		if dom[npcnum]>agro[npcnum]:dominance=dom[npcnum]
+		if dom[npcnum]<=agro[npcnum]:dominance=agro[npcnum]
+		if (lust[npcnum]+dominance+corr[npcnum])/3<25:
+			horny[npcnum]+=2+ball[npcnum]/10
+		elseif (lust[npcnum]+dominance+corr[npcnum])/3<50:
+			horny[npcnum]+=rand(3,5)+ball[npcnum]/10
+		elseif (lust[npcnum]+dominance+corr[npcnum])/3<75:
+			horny[npcnum]+=rand(7,10)+ball[npcnum]/10	
+		else
+			horny[npcnum]+=rand(10,20)+ball[npcnum]/10	
+		end
+	end
+end
+if horny[npcnum]>100:horny[npcnum]=100

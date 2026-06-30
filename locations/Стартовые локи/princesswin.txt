@@ -1,0 +1,135 @@
+﻿winprincessonce=1&item[60]=0
+'<b>ПОБЕДА</b>'&*pl'Вы победили Хмуров и остановили вторжение.'&*nl
+num=you&gs'body'
+makeuptemp=makeup[you]
+if face_pic[you]>0:
+	if face[you]>=50:$d_view_mirr='pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg'
+	if face[you]<50:$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'&!'нпс <<npc>>. Цвет волос <<hcol[npc]>>. Номер пикчи <<face_pic[npc]>>.'
+	'<center><img src="<<$d_view_mirr>>" ></center>'
+end
+'<<$opis[you]>>'&*pl'Мышцы <<mus[you]>>'&*pl'Жир <<fat[you]>>'
+if defence[you]>0:'Защита <<defence[you]>>ед'
+if w_slot[you]>0:wslot=w_slot[you]&'Оружие дальнего боя. <<$item_w_name[wslot]>> Урон <<uron_weapon_w[you]>>'
+if m_slot[you]>0:mslot=m_slot[you]&'Оружие ближнего боя. <<$item_m_name[mslot]>> Урон <<uron_weapon_m[you]>>'
+if amulet[you]>0:amul=amulet[you]&'На шее висит "<<$item_name[amul]>>"'
+if l_ring[you]>0:lring=l_ring[you]&'На левой руке надето "<<$item_name[lring]>>"'
+if r_ring[you]>0:rring=r_ring[you]&'На правой руке надето "<<$item_name[rring]>>"'
+makeuptemp=makeup[you]
+if makeup[you]=0 and pol[you]>0:'У вас нет макияжа'
+if makeup[you]=1:'У вас легкий макияж'
+if makeup[you]=2:'У вас тяжелый	макияж'
+'Сексуальность <<sexiness[you]>>'
+if sexiness[you]=0 and pol[you]>0:'Я выгляжу целомудренной как монашка'
+if sexiness[you]>0 and sexiness[you]<=10 and pol[you]=0:'Я выгляжу как трап'
+if sexiness[you]>0 and sexiness[you]<=10 and pol[you]>0:'Я выгляжу влекущей и цветущей'
+if sexiness[you]>10 and sexiness[you]<=50:'Я выгляжу сексуально'
+if sexiness[you]>50 and sexiness[you]<=90:'Я выгляжу распущенно'
+if sexiness[you]>90:'Я выгляжу как конченная шлюха'
+$full=''
+if h_slot[you]>0:
+	hattemp=h_slot[you]
+	$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'
+	$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
+end
+if t_slot[you]>0:
+	toptemp=t_slot[you]
+	$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'
+	$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
+	!'<<$t_sexy[toptemp]>>'
+	!if aristokrat_t[toptemp]>0:'Офисная одежда'&!if leather_t[toptemp]>0:'Непромокаемая одежд'&!if sport_t[toptemp]>0:'Спортивная одежда'
+end
+if l_slot[you]>0:
+	lowtemp=l_slot[you]
+	$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'
+	$full+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
+	!'<<$l_sexy[lowtemp]>>'
+	!if aristokrat_l[lowtemp]>0:'Офисная одежда'&!if leather_l[lowtemp]>0:'Непромокаемая одежд'&!if sport_l[lowtemp]>0:'Спортивная одежда'
+end
+if ub_slot[you]>0:
+	uboottemp=ub_slot[you]
+	$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'
+	$full+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
+end
+if b_slot[you]>0:
+	boottemp=b_slot[you]
+	$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'
+	$full+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
+	!'<<$b_sexy[boottemp]>>'&!if aristokrat_b[boottemp]>0:'Офисная обувь'&!if sport_b[boottemp]>0:'Спортивная обувь'
+end
+'<<$full>>'
+$under=''
+if ut_slot[you]>0:
+	utoptemp=ut_slot[you]
+	$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'
+	$under+='<a href="exec:dynamic $d_utop_view"><img src="pic/clo/utop/<<utoptemp>>.jpg" ></a>'
+end
+if ul_slot[you]=0:
+	If pol[you]=0 and womenbrain[i]<=10: 
+		'Вы без трусов'
+	else
+		'Вы без трусиков'
+	end
+end 
+if ul_slot[you]>0:
+	ulowtemp=ul_slot[you]
+	$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'
+	$under+='<a href="exec:dynamic $d_ulow_view"><img src="pic/clo/ulow/<<ulowtemp>>.jpg" ></a>'
+end
+'<<$under>>'
+if l_hand_t[you]>0:'Татуировка на левой руке - <img src="pic/tattoo/l_hand_t_<<l_hand_t[you]>>.jpg" >'
+if r_hand_t[you]>0:'Татуировка на правой руке - <img src="pic/tattoo/r_hand_t_<<r_hand_t[you]>>.jpg" >'
+if back_t[you]>0:'Татуировка на спине - <img src="pic/tattoo/back_t_<<back_t[you]>>.jpg" >'
+if stamp_t[you]>0:'Татуировка на пояснице - <img src="pic/tattoo/stamp_t_<<stamp_t[you]>>.jpg" >'
+if tits_t[you]>0:'Татуировка на груди - <img src="pic/tattoo/tits_t_<<tits_t[you]>>.jpg" >'
+if belly_t[you]>0:'Татуировка на животе - <img src="pic/tattoo/belly_t_<<belly_t[you]>>.jpg" >'
+if pubis_t[you]>0:'Татуировка на лобке - <img src="pic/tattoo/pubis_<<pubis_t[you]>>.jpg" >'
+if l_ass_t[you]>0:'Татуировка на левой ягодице - <img src="pic/tattoo/l_ass_t_<<l_ass_t[you]>>.jpg" >'
+if lr_ass_t[you]>0:'Татуировка по всей заднице - <img src="pic/tattoo/lr_ass_t.jpg" >'
+if r_ass_t[you]>0:'Татуировка на правой ягодице - <img src="pic/tattoo/r_ass_t_<<r_ass_t[you]>>.jpg" >'
+if l_leg_t[you]>0:'Татуировка на левой ноге - <img src="pic/tattoo/l_leg_t_<<l_leg_t[you]>>.jpg" >'
+if r_leg_t[you]>0:'Татуировка на правой ноге - <img src="pic/tattoo/r_leg_t_<<r_leg_t[you]>>.jpg" >'&*nl
+'<<lvl[you]>>й уровень. Опыт <<exp[you]>>/<<expneed[you]>>'&*pl'Жизнь <<health[you]>>/<<healthmax[you]>>'&*pl'Энергия <<energy[you]>>/<<energymax[you]>>'
+if manamax[you]>0:*pl'Мана <<mana[you]>>/<<manamax[you]>>'&*nl
+if second_life[you]>0:*pl'<<second_life[you]>> число прожитых жизней.'
+if hunter[you]>0 or magik[you]>0 or insight[you]>0:
+	if magik[you]=1:'<b><<magik[you]>></b> канал магии'
+	if magik[you]>=2 and magik[you]<5:'<b><<magik[you]>></b> канала магии'
+	if magik[you]>=5:'<b><<magik[you]>></b> каналов магии'
+	if soul[you]>=20:
+		 'Ваша душа <<soul[you]>>% от человеческой души'
+	else
+		 'Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>'
+	end
+end
+'Живучесть <<vital[you]>>'
+'Мускулатура <<mus[you]>>'
+if soulpower[you]>0:'Сила духа дающая бонус к урону, грузоподъемности и выносливости <<soulpower[you]>>'
+if will[you]>0:'Воля <<will[you]>>, параметр удержания канала магии'
+if fight_skill[you]>0:'Навыки рукопашного боя <<fight_skill[you]>>'
+if shoot_skill[you]>0:'Навык стрельбы <<shoot_skill[you]>>'
+'Рефлексы <<reflex[you]>>'
+if gro[you]>0:*pl'Агрессивность <<agro[you]>>'
+*pl'Развращенность <<corr[you]>>'&*pl'Похоть <<lust[you]>>'&*pl'<b>Побед <<win[you]>>, поражений <<loss[you]>>, бегств <<run[you]>></b>'
+if guy[you]>0:'У вас было <<guy[you]>> парней'
+if girl[you]>0:'У вас было <<girl[you]>> девушек'
+if shemale[you]>0:'У вас было <<shemale[you]>> шимейлов'
+if tentacle[you]>0:'Вас <<tentacle[you]>> раз насиловали тентакли, <<t_anal[you]>> раз в попу, <<t_bj[you]>> раз в рот'
+if ork[you]>0:'Вас <<ork[you]>> раз трахали орки'
+if goblin[you]>0:'Вас <<goblin[you]>> раз трахали гоблины'
+if gang[you]>0:'У вас был <<gang[you]>> раз групповой секс.'
+if lesb[you]>0:'Вы <<lesb[you]>> раз занимались лесбийским сексом'
+if bj[you]>0 and glory[you]=0:'Вы <<bj[you]>> раз сосали член'
+if bj[you]>0 and glory[you]>0:'Вы <<bj[you]>> раз сосали член, из этого вы <<glory[you]>> раз сосали член в глорихоле'
+if abj[you]>0:'Вам <<abj[you]>> раз сосали член'
+if glory_bj[you]>0:'Вы отсосали <<glory_bj[you]>> хуев в глорихоле'
+if vagsex[you]>0:'Вас трахали во влагалище <<vagsex[you]>> раз'
+if avagsex[you]>0:'Вы трахали во влагалище <<avagsex[you]>> раз'
+if aanal[you]>0:'<<aanal[you]>> вы трахали в попу'
+if anal[you]>0:'Вас трахали в попу <<anal[you]>> раз'
+if mastr[you]>0:'<<mastr[you]>> раз мастурбировали.'
+if orgasm_times[you]>0:'Вы получили <<orgasm_times[you]>> оргазмов'
+if cuntlick[you]>0:'<<cuntlick[you]>> раз вас заставляли лизать пизду'
+if pee[you]>0 and CONFIG['DISABLE_PEE']=0:'<<pee[you]>> раз вы мочились в рот'
+if drinkpee[you]>0 and CONFIG['DISABLE_PEE']=0:'<<drinkpee[you]>> раз пили мочу'
+if whore[you]>0:'Вы <<whore[you]>> раз занимались проституцией'
+act'Продолжить странствие':SHOWSTAT 1&SHOWOBJS 1&cls&gt'world'

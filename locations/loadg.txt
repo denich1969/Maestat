@@ -1,0 +1,3 @@
+﻿gs'const'
+gs'init_replic'
+!gs'npc_update'

@@ -1,0 +1,18 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Вешалки с юбками и штанами'&!gs'Item'
+*pl''&!gs 'npconloc'
+act'Отойти':gt 'preloc'
+$low_loc=''&clo=1&clomax=arrsize('$l_name')&newgenclo=0
+if today_lowgeneratar['<<$loc[you]>>']!daystart:today_lowgeneratar['<<$loc[you]>>']=daystart&newgenclo=1
+:marklowtheloc
+    if newgenclo=1:
+		lowhere['<<clo>>,<<$loc[you]>>']=rand(0,2)
+        if aristokrat_l[clo]>0:lowhere['<<clo>>,<<$loc[you]>>']=0
+        if sheer[clo]>0:lowhere['<<clo>>,<<$loc[you]>>']=0
+        if sexy_l[clo]>=25:lowhere['<<clo>>,<<$loc[you]>>']=0
+        if pol_l[clo]=0 and pol[you]>0:lowhere['<<clo>>,<<$loc[you]>>']=0
+        if pol_l[clo]=1 and pol[you]=0:lowhere['<<clo>>,<<$loc[you]>>']=0
+    end
+    if lowhere['<<clo>>,<<$loc[you]>>']>0:$d_topclo_view='view"pic/clo/low/<<clo>>.jpg"'&$low_loc+='<a href="exec:gt''gotlow'',<<clo>>"><img src="pic/clo/low/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'marklowtheloc'
+*pl''&'<<$low_loc>>'

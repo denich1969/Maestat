@@ -1,0 +1,13 @@
+﻿gs'stat'
+	 $fightlog[addkiller]+='<br>'
+	 $fightlog[addkiller]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[addkiller]>>-<<loss[addkiller]>> vs <<$name[npc]>> <<$surname[npc]>>. <<win[npc]>>-<<loss[npc]>>'
+addkiller_attk=0
+dead[npc]=10
+magik[you]+=1
+wind_gem[addkiller]=1
+portAvatarQW=100
+magik[addkiller]+=5
+cantwalk[addkiller]=1
+'Тетушка Лебеда внезапно пустила корни и засохла, после чего ее тело просто рассыпалось в прах, но вам показалось что откуда то из под земли до вас донеслось хихиканье тетушки Лебеды. На пальце Фишера внезапно появилось кольцо.'
+
+act'Уйти':gt'preloc'

@@ -1,0 +1,52 @@
+﻿solomonkinkday[npc]=daystart&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&gs'stat'&'<center><img src="pic/face/5/137.jpg" ></center>'
+if kinkdickslut[you]=0:
+	'Дик воровато оглядывается и предлагает вам - Девочка, хочешь полтинник? Не бойся, ничего не будет, просто покажи мне свою грудь'
+	 act'Отвали от меня! Извращенец!':fuckoffdick[you]=1&dom[you]+=10&gt'preloc'
+	 act'Показать':
+		 money[you]+=5000&kinkdickslut[you]=1&corr[you]+=5&cls&gs'stat'&'<center><video src="pic/sex/solo/tits.webm" ></video></center>'
+		 'Зайдя в укромное место вы обнажили грудь и старый извращенец пуская слюни стал пялится на вашу грудь. Вам стало не по себе от его внимания и вы буркнули плешивому извращенцу что хватит. '
+		'Он вздохнул и дал вам деньги. После чего развернулся и ушел.'&act'Спрятать грудь':gt'preloc'
+	 end
+end
+if kinkdickslut[you]=1:
+	'Дик воровато оглядывается и предлагает вам - Ох ты моя красавица. Покажи киску! Я дам тебе полтинник!'&act'Отвали от меня! Извращенец!':fuckoffdick[you]=1&dom[you]+=10&gt'preloc'
+	 act'Показать':
+		 money[you]+=5000&kinkdickslut[you]=2&corr[you]+=5
+		 cls&gs'stat'&'<center><video src="pic/sex/solo/cunt.webm" ></video></center>'&'Зайдя в укромное место вы показали старому извращенцу свою промежность. '
+		'У плешивого старика аж слюни потекли от увиденного и он трясущейся рукой дал вам деньги'&act'Привести себя в порядок':gt'preloc'
+	 end
+end
+if kinkdickslut[you]=2:
+	'Дик воровато оглядывается и предлагает вам - Ох ты моя красавица. Можно я подрочу на твои трусики? Я заплачу! Пойдем в укромное место!'
+	 act'Отвали от меня! Извращенец!':fuckoffdick[you]=1&dom[you]+=10&gt'preloc'
+	 act'Идти к извращенцу':
+		 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+		 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+		 money[you]+=5000&kinkdickslut[you]=3&corr[you]+=5&cls&gs'stat'&'<center><video src="pic/sex/foreplay/pantyjerkcum.webm" ></video></center>'
+		 'Пройдя вместе с извращенцем в общагу вы убедившись в том, что вы остались одни, наклонились и показали свои трусики. '
+		'Дик достал свой член и начал пыхтеть дроча свой член над вашей попой. Он очень быстро застонал и на вашу спину и трусы стала приземляться его горячая сперма.'
+		 act'Привести себя в порядок':gt'preloc'
+	 end
+end
+if kinkdickslut[you]=3:
+	'Дик воровато оглядывается и предлагает вам - Ох ты моя красавица. Девочка! Я хочу потереться об твое сладкое тело! Пошли в укромное место!'
+	 act'Отвали от меня! Извращенец!':fuckoffdick[you]=1&dom[you]+=10&gt'preloc'
+	 act'Идти к извращенцу':
+		 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+		 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+		 money[you]+=5000&kinkdickslut[you]=4&corr[you]+=5
+		 cls&gs'stat'&'<center><video src="pic/sex/foreplay/frot0.webm" ></video></center>'&'Пройдя вместе с извращенцем в общагу вы убедившись в том, что стались одни с извращенцем. '
+		'Сняв верхнюю одежду вы встали перед извращугой, тот засунул свой стоящий член между ваших ног, которые вы сжали и начал трахать вас и лапать своими масляными волосатыми пальцами. '
+		'Вскоре Дик застонал и кончил, его сперма разлилась по твоим ляшкам.'&act'Привести себя в порядок':gt'preloc'
+	 end
+end
+if kinkdickslut[you]=4:
+	'Дик воровато оглядывается и предлагает вам - Ох ты моя красавица. Девочка моя! '&act'Отвали от меня! Извращенец!':fuckoffdick[you]=1&dom[you]+=10&gt'preloc'
+	act'Идти к извращенцу': 
+		 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+		 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+		 money[you]+=5000&kinkdickslut[you]=2&corr[you]+=5&cls&gs'stat'&'<center><video src="pic/sex/foreplay/frot1.webm" ></video></center>'
+		 'Пройдя вместе с извращенцем в общагу вы убедившись в том, что стались одни с извращенцем. Сняв верхнюю одежду вы встали перед извращугой, тот сел на стул и взял вас за руку подводя к себе.'
+		'Вы сели сверху так ,что бы член оказался между ваших ног. Сжав бедра вы начали двигаться вверх и вниз и вскоре извращенец кончил на твои ляшки.'&act'Привести себя в порядок':gt'preloc'
+	 end
+end

@@ -1,0 +1,11 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Съемочная площадка с направленными на нее осветительными приборами и камерами'&gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'
+if week<6:
+     if hour>=7 and hour<=16 and work[you]=11:
+         act'Работать':
+			 nopee=1&money[you]+=1000&time+=rand(45,90)&cls&gs'stat'&gs'walker'&nopee=0
+			 'Вы зачитываете текст с телесуфлера с уверенным видом. И за это вам платят 10 шиллингов.'&act'Отойти':gt 'preloc'
+         end
+     end
+else
+	'Сейчас выходной день'
+end

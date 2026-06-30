@@ -1,0 +1,5 @@
+﻿if $replic_programm[args[0]]!'' and arrsize('replic_vag_'+$replic_programm[args[0]]+"_"+$args[2])>0: 	
+	gs'replic_vag_'+$replic_programm[args[0]],args[0],args[1],$args[2]
+else
+	gs'replic_vag_default',args[0],args[1],$args[2]
+end

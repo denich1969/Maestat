@@ -1,0 +1,5 @@
+﻿takeitem=ARGS[0]
+cls
+item_loc_ub['<<takeitem>>,<<$loc[you]>>']-=1
+ub_slot[you]=takeitem
+gt 'preloc'

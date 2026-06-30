@@ -1,0 +1,9 @@
+﻿mistagressor=0&busy[you]=1
+frasis=0&if mistreit[you]>=10:frasis=rand(0,1)
+cls&gs'stat'
+if frasis=0:
+	gs'mistwarior_gen'&npc=i&'<center><img src="pic/mob/68.jpg" ></center>'&'Из тумана на вас бросается существо будто вылепленное из ночных кошмаров'
+	if mistreit[you]>=10:'Существо ритмично завывает будто призывая кого то.'
+end
+if frasis=1:gs'fragile_sisters_gen'&npc=i&'<center><img src="pic/mob/69.jpg" ></center>'&'Из тумана выходит женщина насекомое и шипит - Я хрупкая сестрица, и ты будешь принадлежать мне.'
+act'<b>Драться</b>':gt 'prefight'

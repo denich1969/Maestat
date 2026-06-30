@@ -1,0 +1,11 @@
+﻿!under_sub[w]=s&under_sub[s]=w&mob_busy[w]=time+15&mob_busy[s]=time+15&action_tipe[w]=1&action_tipe[s]=1&aktive_tipe[w]=1&aktive_tipe[s]=0
+!$global_npc_log[s]+='<br>'&$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> отказала мне в сексе.'
+!$global_npc_log[w]+='<br>'&$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> получил отказ в сексе.'
+If forbidcheck=0:
+	$global_npc_log[s]+='<br>'&$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> Блокировка сработала хотя не должна была.'
+else
+	$global_npc_log[s]+='<br>'&$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> блокировка сработала, как и должна была'
+end
+$global_npc_log[s]+='<br>'&$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> получил отказ в сексе.'  
+$global_npc_log[w]+='<br>'&$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> отказала мне в сексе.'
+forbidcheck=0

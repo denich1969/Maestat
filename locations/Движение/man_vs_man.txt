@@ -1,0 +1,69 @@
+﻿fightresult=0&!далее расчет вероятности драки & условие - нпс агрессивен
+if agro[w]>=75:
+	if loser['<<w>>,<<s>>']=0:
+		if agro[s]>=75:
+			if friends['<<w>>,<<s>>']=0:
+				 fightresult=1&!два агрессора только драка
+			else
+				 fightresult=0
+			end
+		else
+			if brave[w]=2:
+				if friends['<<w>>,<<s>>']=0:
+					 fightresult=1&!два агрессора только драка
+				else
+					 fightresult=0
+				end
+			else
+				 fightresult=0
+			end
+		end
+	else
+	     fightresult=0
+	end
+else
+	 fightresult=0
+end
+if beliver[w]>0 and beliver[w]=beliver[s]:fightresult=0
+if lastdayfight[w]=daystart:
+    fightresult=0
+    if loser['<<w>>,<<s>>']>0:fightresult=2
+    if winner['<<w>>,<<s>>']>0:fightresult=2
+end
+if mutation[w]>0:fightresult=1
+if fightresult=1:
+	if grief=s and magik[grief]<35:magik[grief]+=1
+	if grief=w and magik[grief]<35:magik[grief]+=1
+     lastdayfight[w]=daystart&lastdayfight[s]=daystart
+	 action_tipe[w]=6&action_tipe[s]=7&!драка
+	 under_sub[w]=s&under_sub[s]=w
+	 mob_busy[w]=time+15&mob_busy[s]=time+15
+	 pow[w]=(((rost[w]-100)*mus[w])*2)/10&batl[w]=pow[w]+fight_skill[w]
+	 pow[s]=(((rost[s]-100)*mus[s])*2)/10&batl[s]=pow[s]+fight_skill[s]
+	 fight_skill[w]+=1&fight_skill[s]+=1
+	 gs'whowininfight'&!расчет драки
+	 gs'winlosresult'&!результат драки
+elseif fightresult=2:
+	 if know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1
+	 action_tipe[w]=4&action_tipe[s]=5
+	 under_sub[w]=s&under_sub[s]=w
+	 mob_busy[w]=time+15&mob_busy[s]=time+15
+else
+	 if know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1
+	action_tipe[w]=4&action_tipe[s]=5&!нет драки
+	under_sub[w]=s&under_sub[s]=w
+	mob_busy[w]=time+15&mob_busy[s]=time+15
+	if win[s]<=loss[s]:agro[s]-=1
+	if win[s]>loss[s]:agro[s]+=1
+	if brave[s]=0:agro[s]-=5
+     if extrovert[w]=1:
+         !if extrovert[s]=0:''
+         if extrovert[s]=1:friends['<<w>>,<<s>>']+=1&friends['<<s>>,<<w>>']+=1
+		 if extrovert[s]=2:friends['<<w>>,<<s>>']+=5&friends['<<s>>,<<w>>']+=5
+     end
+     if extrovert[w]=2:
+         if extrovert[s]=0:friends['<<w>>,<<s>>']+=1&friends['<<s>>,<<w>>']+=1
+         if extrovert[s]=1:friends['<<w>>,<<s>>']+=5&friends['<<s>>,<<w>>']+=5
+		 if extrovert[s]=2:friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+     end
+end

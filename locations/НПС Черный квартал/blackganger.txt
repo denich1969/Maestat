@@ -1,0 +1,38 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+lvl[i]=1&soul[i]=100&mob[i]=4&mobexp[i]=50&!номер моба для разговора
+tipemobpic[i]=1&picture[i]=rand(15,25)&!номер типа фотки и фотки
+gs'negr_man_name'&$name[i]=$genname&gs'negr_surname'&$surname[i]=$gensurname&$basestatus[i]=' чешет яйца'
+tipe=rand(0,10)
+if tipe=0:$nick[i]='Роад дог. '
+if tipe=1:$nick[i]='Ганста. '
+if tipe=2:$nick[i]='Олд ганста. '
+if tipe=3:$nick[i]='Стрит плэя. '
+if tipe=4:$nick[i]='Пушер. '
+if tipe=5:$nick[i]='Бро. '
+if tipe=6:$nick[i]='Хоуми. '
+if tipe=7:$nick[i]='Баста. '
+if tipe=8:$nick[i]='Туг. '
+if tipe=9:$nick[i]='Ориджинал ганста. '
+if tipe=10:$nick[i]='Плэя. '
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+dick[i]=rand(18,28)&dickd[i]=rand(40,55)&ball[i]=rand(40,70)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
+!dick[i]=rand(12,20)&dickd[i]=rand(30,45)&ball[i]=rand(40,70)
+rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(800,2400)&skin[i]=rand(4,6)
+$nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=0
+age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(40,50)&$nick[i]+=iif(skin[i]>3 and skin[i]<7,' негр',$iif(age[i]<25,' парень',' мужчина'))
+healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1&!minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
+womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(0,2)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&corr[i]=rand(10,500)
+if lust[i]>=75 and agro[i]>=75:alfa[i]=1&total_alfa+=1
+class[i]=pre_class
+if class[i]=0:t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&!низший класс
+if class[i]=1:t_slot[i]=rand(5,7)&l_slot[i]=rand(4,5)&b_slot[i]=rand(2,3)&!средний класс
+if class[i]=2:t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&!элитный класс
+ul_slot[i]=5
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+ne_world[]=i&walkprog[i]=24&!программа движения
+!slumsworld[]=i&walkprog[i]=0&fight_prog[i]=11&!программа движения!программа боя
+!def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+!notfast[i]=0&!если 1 то все удары героя попадают в нпс

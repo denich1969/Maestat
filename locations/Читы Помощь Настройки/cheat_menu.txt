@@ -1,0 +1,1048 @@
+﻿if npc_index=0:npc_index=ARGS[0]
+CHEAT_MENU['IN_CHEAT_MENU']=1
+!Генерируем хэдер
+*p'<<func("generate_links", CHEAT_MENU["MODE"], 3)>>'
+gs 'util_func', "update_portrait", npc_index
+!* -------------------------------------------------------------------------- *!
+!*                                   MODE_0                                   *!
+!* -------------------------------------------------------------------------- *!
+
+if CHEAT_MENU['MODE'] = 0:
+
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+
+!* -------------------------------------------------------------------------- *!
+!*                                  СЕКЦИЯ_1                                  *!
+!* -------------------------------------------------------------------------- *!
+
+!* ----------------------------- СЕКЦИЯ_1_TITLE ----------------------------- *!
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td>'
+'<<func("generate_links", CHEAT_MENU["SUBMODE"], 4)>>'
+
+if CHEAT_MENU['SUBMODE'] = 0:
+!* -------------------------------------------------------------------------- *!
+!*                                 ЛИЦО: TR_1                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'<tr bgcolor="#ffffff">'
+!* ----------------------------- ФЕМИННОСТЬ ЛИЦА ---------------------------- *!
+  *p'<td width="25%" align="center"><div>Лицо: <b><<func("get_stat_desc", "face", face[npc_index])>></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''face'', 100 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:face[<<npc_index>>] <<iif(face[npc_index]>9, ''-= 10'', ''=0'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<func("util_func", "get_empty", face[npc_index])>><<face[npc_index]>> из 100</font>  '
+  *p'<a class="plain" href="exec:face[<<npc_index>>] <<iif(face[npc_index]<90, ''+= 10'', ''=100'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------- ФОРМА НОСА ------------------------------- *!
+  *p'<td width="25%" align="center"><div>Форма носа: <b><<func("get_stat_desc", "nose", nose[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:nose[<<npc_index>>] <<iif(nose[npc_index]>0, ''-= 1'', ''=5'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<nose[npc_index]+1>> из 6</font>  '
+  *p'<a class="plain" href="exec:nose[<<npc_index>>] <<iif(nose[npc_index]<5, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* -------------------------------- ЦВЕТ ГЛАЗ ------------------------------- *!
+  *p'<td width="25%" align="center"><div>Цвет глаз: <b><<func("get_stat_desc", "glacol", glacol[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:glacol[<<npc_index>>] <<iif(glacol[npc_index]>0, ''-= 1'', ''=6'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<glacol[npc_index]+1>> из 7</font>  '
+  *p'<a class="plain" href="exec:glacol[<<npc_index>>] <<iif(glacol[npc_index]<6, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------- РАЗМЕР ГЛАЗ ------------------------------ *!
+  *p'<td width="25%" align="center"><div>Размер глаз: <b><<func("get_stat_desc", "gla", gla[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:gla[<<npc_index>>] <<iif(gla[npc_index]>0, ''-= 1'', ''=3'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<gla[npc_index]+1>> из 4</font>  '
+  *p'<a class="plain" href="exec:gla[<<npc_index>>] <<iif(gla[npc_index]<3, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* -------------------------------------------------------------------------- *!
+!*                               ЛИЦО: TR_1:END                               *!
+!* -------------------------------------------------------------------------- *!
+
+
+!* -------------------------------------------------------------------------- *!
+!*                                 ЛИЦО: TR_2                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'<tr bgcolor="#ffffff">'
+!* ------------------------------- ЦВЕТ ВОЛОС ------------------------------- *!
+  *p'<td width="25%" align="center"><div>Цвет волос: <b><<func("get_stat_desc", "hcol", hcol[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:hcol[<<npc_index>>] <<iif(hcol[npc_index]>0, ''-= 1'', ''=6'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<hcol[npc_index]+1>> из 7</font>  '
+  *p'<a class="plain" href="exec:hcol[<<npc_index>>] <<iif(hcol[npc_index]<6, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------ ДЛИННА ВОЛОС ------------------------------ *!
+  *p'<td width="25%" align="center"><div>Длинна волос: <b><<func("get_stat_desc", "hlong", hlong[npc_index])>></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''hlong'', 100 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:hlong[<<npc_index>>] <<iif(hlong[npc_index]>9, ''-= 10'', ''=0'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p' <font size=+2><<func("util_func", "get_empty", hlong[npc_index])>><<hlong[npc_index]>> из 100</font>  '
+  *p'<a class="plain" href="exec:hlong[<<npc_index>>] <<iif(hlong[npc_index]<90, ''+= 10'', ''=100'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* -------------------------------- ФОРМА ЩЁК ------------------------------- *!
+  *p'<td width="25%" align="center"><div>Форма щёк: <b><<func("get_stat_desc", "cheeks", cheeks[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:cheeks[<<npc_index>>] <<iif(cheeks[npc_index]>0, ''-= 1'', ''=1'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<cheeks[npc_index]+1>> из 2</font>  '
+  *p'<a class="plain" href="exec:cheeks[<<npc_index>>] <<iif(cheeks[npc_index]=0, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------- РАЗМЕР ГУБ ------------------------------- *!
+  *p'<td width="25%" align="center"><div>Размер губ: <b><<func("get_stat_desc", "lips", lips[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:lips[<<npc_index>>] <<iif(lips[npc_index]>0, ''-= 1'', ''=3'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<lips[npc_index]+1>> из 4</font>  '
+  *p'<a class="plain" href="exec:lips[<<npc_index>>] <<iif(lips[npc_index]<3, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+*p'</tr>'
+!* -------------------------------------------------------------------------- *!
+!*                               ЛИЦО: TR_2:END                               *!
+!* -------------------------------------------------------------------------- *!
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* -------------------------------------------------------------------------- *!
+!*                                СЕКЦИЯ_1:END                                *!
+!* -------------------------------------------------------------------------- *!
+end
+
+
+
+if CHEAT_MENU['SUBMODE'] = 1:
+!* -------------------------------------------------------------------------- *!
+!*                                  СЕКЦИЯ_2                                  *!
+!* -------------------------------------------------------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                 ТЕЛО: TR_1                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'<tr bgcolor="#ffffff">'
+!* -------------------------------- ЦВЕТ КОЖИ ------------------------------- *!
+  *p'<td width="25%" align="center"><div>Цвет кожи: <b><<func("get_stat_desc", "skin", skin[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:skin[<<npc_index>>] <<iif(skin[npc_index]>0, ''-= 1'', ''=6'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<skin[npc_index]+1>> из 7</font>  '
+  *p'<a class="plain" href="exec:skin[<<npc_index>>] <<iif(skin[npc_index]<6, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* -------------------------------- ТИП КОЖИ -------------------------------- *!
+  *p'<td width="25%" align="center"><div>Тип кожи: <b><<func("get_stat_desc", "preskin", preskin[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:preskin[<<npc_index>>] <<iif(preskin[npc_index]>0, ''-= 1'', ''=3'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<preskin[npc_index]+1>> из 4</font>  '
+  *p'<a class="plain" href="exec:preskin[<<npc_index>>] <<iif(preskin[npc_index]<3, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------ МУСКУЛИСТОСТЬ ----------------------------- *!
+  *p'<td width="25%" align="center"><div>Мускулистость: <b><<mus[npc_index]>></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''mus'', 5000 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:mus[<<npc_index>>] <<iif(mus[npc_index]>99, ''-= 100'', ''=0'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p' <font size=+2><<func("util_func", "get_empty", mus[npc_index])>><<mus[npc_index]>> из 5000</font>  '
+  *p'<a class="plain" href="exec:mus[<<npc_index>>] <<iif(mus[npc_index]<4900, ''+= 100'', ''=5000'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ----------------------------------- ЖИР ---------------------------------- *!
+  *p'<td width="25%" align="center"><div>Жир: <b><<fat[npc_index]>></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''fat'', 5000 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:fat[<<npc_index>>] <<iif(fat[npc_index]>99, ''-= 100'', ''=0'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p' <font size=+2><<func("util_func", "get_empty", fat[npc_index])>><<fat[npc_index]>> из 5000</font>  '
+  *p'<a class="plain" href="exec:fat[<<npc_index>>] <<iif(fat[npc_index]<4900, ''+= 100'', ''=5000'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* -------------------------------------------------------------------------- *!
+!*                               ТЕЛО: TR_1:END                               *!
+!* -------------------------------------------------------------------------- *!
+
+
+
+
+!* -------------------------------------------------------------------------- *!
+!*                                 ТЕЛО: TR_2                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'<tr bgcolor="#ffffff">'
+!* ---------------------------------- РОСТ ---------------------------------- *!
+if rost[npc_index]<140:rost[npc_index]=140
+  *p'<td width="25%" align="center"><div>Рост: <b><<func("util_func","get_float", rost[npc_index])>>м</b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''rost'', 250 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:rost[<<npc_index>>] <<iif(rost[npc_index]>140, ''-= 5'', ''=140'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p' <font size=+2><<func("util_func", "get_empty", rost[npc_index])>><<func("util_func","get_float", rost[npc_index])>>м из 2.5м</font>  '
+  *p'<a class="plain" href="exec:rost[<<npc_index>>] <<iif(rost[npc_index]<245, ''+= 5'', ''=250'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------ РАЗМЕР ГРУДИ ------------------------------ *!
+  *p'<td width="25%" align="center"><div>Размер груди: <b><<func("get_stat_desc", "tits", tits[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:tits[<<npc_index>>] <<iif(tits[npc_index]>0, ''-= 1'', ''=25'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<tits[npc_index]>> из 25</font>  '
+  *p'<a class="plain" href="exec:tits[<<npc_index>>] <<iif(tits[npc_index]<25, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ----------------------------- РАЗМЕР ЗАДНИЦЫ ----------------------------- *!
+  *p'<td width="25%" align="center"><div>Размер задницы: <b><<func("get_stat_desc", "ass", ass[npc_index])>></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''ass'', 100 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:ass[<<npc_index>>] <<iif(ass[npc_index]>0, ''-= 1'', ''=100'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<ass[npc_index]>> из 100</font>  '
+  *p'<a class="plain" href="exec:ass[<<npc_index>>] <<iif(ass[npc_index]<100, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------ РАЗМЕР СОСКОВ ----------------------------- *!
+  *p'<td width="25%" align="center"><div>Размер сосков: <b><<func("get_stat_desc", "nip", nip[npc_index])>></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''nip'', 50 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:nip[<<npc_index>>] <<iif(nip[npc_index]>4, ''-= 5'', ''=50'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<nip[npc_index]>> из 50</font>  '
+  *p'<a class="plain" href="exec:nip[<<npc_index>>] <<iif(nip[npc_index]<50, ''+= 5'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* -------------------------------------------------------------------------- *!
+!*                               ТЕЛО: TR_2:END                               *!
+!* -------------------------------------------------------------------------- *!
+
+
+!* -------------------------------------------------------------------------- *!
+!*                                СЕКЦИЯ_2:END                                *!
+!* -------------------------------------------------------------------------- *!
+end
+
+
+if CHEAT_MENU['SUBMODE'] = 2:
+!* -------------------------------------------------------------------------- *!
+!*                                  СЕКЦИЯ_3                                  *!
+!* -------------------------------------------------------------------------- *!
+
+$d_remove_genital = {
+
+  if CHEAT_MENU['DICK_REMOVE']=1:
+    CHEAT_MENU['BK_DICK_SIZE']=dick[npc_index]
+    CHEAT_MENU['BK_DICK_THICKNESS']=dickd[npc_index]
+    CHEAT_MENU['BK_BALLS_SIZE']=ball[npc_index]
+    dick[npc_index]=0
+    dickd[npc_index]=0
+    ball[npc_index]=0
+    CHEAT_MENU['DICK_REMOVE']=0
+  end
+
+  if CHEAT_MENU['VAG_REMOVE']=1:
+    CHEAT_MENU['BK_VAG'] = vag[npc_index]
+    CHEAT_MENU['BK_VAG_HAIR']=cunthair[npc_index]
+    CHEAT_MENU['BK_VAG_PIRS']=vag_pirs[npc_index]
+    vag[npc_index]=0
+    cunthair[npc_index]=0
+    vag_pirs[npc_index]=0
+    CHEAT_MENU['VAG_REMOVE']=0
+  end
+}
+
+$d_add_genital = {
+
+  if CHEAT_MENU['DICK_ADD']=1:
+    if CHEAT_MENU['BK_DICK_SIZE']>0 and CHEAT_MENU['BK_DICK_THICKNESS']>0 and CHEAT_MENU['BK_BALLS_SIZE']>0:
+      dick[npc_index]=CHEAT_MENU['BK_DICK_SIZE']
+      dickd[npc_index]=CHEAT_MENU['BK_DICK_THICKNESS']
+      ball[npc_index]=CHEAT_MENU['BK_BALLS_SIZE']
+    else
+      dick[npc_index]=15
+      dickd[npc_index]=25
+      ball[npc_index]=25
+    end
+   CHEAT_MENU['DICK_ADD']=0
+  end
+
+  if CHEAT_MENU['VAG_ADD']=1:
+    if CHEAT_MENU['BK_VAG']>0:
+      vag[npc_index]=CHEAT_MENU['BK_VAG']
+      cunthair[npc_index]=CHEAT_MENU['BK_VAG_HAIR']
+      vag_pirs[npc_index]=CHEAT_MENU['BK_VAG_PIRS']
+    else
+      vag[npc_index]=1
+      cunthair[npc_index]=0
+      vag_pirs[npc_index]=0
+    end
+   CHEAT_MENU['VAG_ADD']=0
+  end
+}
+
+$d_swap_genital = {
+
+ if CHEAT_MENU['SWAP_DICK_ON_VAG']=1:
+  CHEAT_MENU['DICK_REMOVE']=1
+  CHEAT_MENU['VAG_ADD']=1
+  CHEAT_MENU['SWAP_DICK_ON_VAG']=0
+ end
+
+ if CHEAT_MENU['SWAP_VAG_ON_DICK']=1:
+  CHEAT_MENU['VAG_REMOVE']=1
+  CHEAT_MENU['DICK_ADD']=1
+  CHEAT_MENU['SWAP_VAG_ON_DICK']=0
+ end
+
+  dynamic $d_remove_genital
+  dynamic $d_add_genital
+}
+
+$d_adjust_dick_size = {
+  dickd[npc_index] = dick[npc_index] * 2 + dick[npc_index]/2
+}
+
+
+*p'<tr bgcolor="#ffffff">'
+!Добавляем новую <table>, чтоб разделить её на 3 части вместо 4х.
+*p'<td colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0">'
+!* ----------------------------- ГЕНИТАЛИИ TR_1 ----------------------------- *!
+*p'<tr bgcolor="#ffffff">'
+!* ---------------------------------- ЧЛЕН ---------------------------------- *!
+  *p'<td width="33%" align="center"><div><b>Член:</b> <<iif(dick[npc_index]>0, "<font color=green><b>Есть</b></font>", "<font color=red><b>Нет</b></font>")>></div>'
+  *p'<div>'
+  *p'<<func("generate_links", "DICK", 5)>>'
+  *p'</div>'
+  *p'</td>'
+!* --------------------------------- ВАГИНА --------------------------------- *!
+  *p'<td width="33%" align="center"><div><b>Вагина:</b> <<iif(vag[npc_index]>0, "<font color=green><b>Есть</b></font>", "<font color=red><b>Нет</b></font>")>></div>'
+  *p'<div>'
+  *p'<<func("generate_links", "VAG", 5)>>'
+  *p'</div>'
+  *p'</td>'
+!* ----------------------------- СОСТОЯНИЕ АНУСА ---------------------------- *!
+  *p'<td width="33%" align="center"><div>Состояние ануса: <b><<func("get_stat_desc", "anus", anus[npc_index])>></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''anus'', 40 & gt $curloc"><font size=4 color="green">&#9998</font></a></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:anus[<<npc_index>>] <<iif(anus[npc_index]>0, ''-= 1'', ''=40'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<anus[npc_index]>> из 40</font>  '
+  *p'<a class="plain" href="exec:anus[<<npc_index>>] <<iif(anus[npc_index]<40, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+*p'</tr>'
+!* --------------------------- ГЕНИТАЛИИ TR_1:END --------------------------- *!
+
+
+
+!* ----------------------------- ГЕНИТАЛИИ TR_2 ----------------------------- *!
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr bgcolor="#ffffff">'
+!* ------------------------------ РАЗМЕР ЧЛЕНА ------------------------------ *!
+  *p'<td width="33%" align="center"><div>Размер члена: <b>Длинна: <<func("get_stat_desc", "dicksize", dicksize[npc_index])>></div>'
+  *p'<div>'
+  *p'<<func("generate_links", "DICK", 6)>>'
+  *p'</div>'
+  *p'</td>'
+!* ---------------------------- СОСТОЯНИЕ ВАГИНЫ ---------------------------- *!
+  *p'<td width="33%" align="center"><div>Состояние вагины: <b><<func("get_stat_desc", "vag", vag[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<<func("generate_links", "VAG", 6)>>'
+  *p'</div>'
+  *p'</td>'
+*p'</tr>'
+!* --------------------------- ГЕНИТАЛИИ TR_2:END --------------------------- *!
+
+
+
+
+
+!* ----------------------------- ГЕНИТАЛИИ TR_3 ----------------------------- *!
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr bgcolor="#ffffff">'
+!* ------------------------------- РАЗМЕР ЯИЦ ------------------------------- *!
+  *p'<td width="33%" align="center"><div>Размер яиц: <b><<func("get_stat_desc", "ball", ball[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<<func("generate_links", "BALL", 6)>>'
+  *p'</div>'
+  *p'</td>'
+!* ----------------------------- ЛОБКОВЫЕ ВОЛОСЫ ---------------------------- *!
+  *p'<td width="25%" align="center"><div>Лобковые волосы: <b><<func("get_stat_desc", "cunthair", cunthair[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<<func("generate_links", "CUNTHAIR", 6)>>'
+  *p'</div>'
+  *p'</td>'
+
+
+*p'</tr>'
+!* --------------------------- ГЕНИТАЛИИ TR_3:END --------------------------- *!
+
+
+
+
+
+*p'</table></td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* -------------------------------------------------------------------------- *!
+!*                                СЕКЦИЯ_3:END                                *!
+!* -------------------------------------------------------------------------- *!
+end
+
+
+!* -------------------------------------------------------------------------- *!
+!*                                  СЕКЦИЯ_4                                  *!
+!* -------------------------------------------------------------------------- *!
+
+if CHEAT_MENU['SUBMODE'] = 3:
+!* ------------------------------- РАЗНОЕ TR_1 ------------------------------ *!
+*p'<tr bgcolor="#ffffff">'
+
+!* ----------------------------- ВОЛОСЫ НА ГРУДИ ---------------------------- *!
+  *p'<td width="25%" align="center"><div>Волосы на груди: <b><<iif(tit_hair[npc_index]>0, ''Есть'', ''Нет'')>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:tit_hair[<<npc_index>>] <<iif(tit_hair[npc_index]>0, ''-= 1'', ''=1'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<tit_hair[npc_index]+1>> из 2</font>  '
+  *p'<a class="plain" href="exec:tit_hair[<<npc_index>>] <<iif(tit_hair[npc_index]=0, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ----------------------------- ВОЛОСЫ НА НОГАХ ---------------------------- *!
+  *p'<td width="25%" align="center"><div>Волосы на ногах: <b><<iif(leg_hair[npc_index]>0, ''Есть'', ''Нет'')>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:leg_hair[<<npc_index>>] <<iif(leg_hair[npc_index]>0, ''-= 1'', ''=1'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<leg_hair[npc_index]+1>> из 2</font>  '
+  *p'<a class="plain" href="exec:leg_hair[<<npc_index>>] <<iif(leg_hair[npc_index]=0, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ----------------------------- ПИРСИНГ СОСКОВ ----------------------------- *!
+  *p'<td width="25%" align="center"><div>Пирсинг сосков: <b><<func("get_stat_desc", "nip_p", nip_p[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:nip_p[<<npc_index>>] <<iif(nip_p[npc_index]>0, ''-= 1'', ''=3'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<nip_p[npc_index]+1>> из 4</font>  '
+  *p'<a class="plain" href="exec:nip_p[<<npc_index>>] <<iif(nip_p[npc_index]<3, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* ------------------------------ ПИРСИНГ ЯЗЫКА ----------------------------- *!
+  *p'<td width="25%" align="center"><div>Пирсинг языка: <b><<iif(tongue_p[npc_index]>0, ''Вставлена штанга'', ''Нет'')>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:tongue_p[<<npc_index>>] <<iif(tongue_p[npc_index]>0, ''-= 1'', ''=1'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<tongue_p[npc_index]+1>> из 2</font>  '
+  *p'<a class="plain" href="exec:tongue_p[<<npc_index>>] <<iif(tongue_p[npc_index]=0, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* ----------------------------- РАЗНОЕ TR_1:END ---------------------------- *!
+
+
+!* ------------------------------- РАЗНОЕ TR_2 ------------------------------ *!
+*p'<tr bgcolor="#ffffff">'
+
+!* ------------------------------ ПИРСИНГ НОСА ------------------------------ *!
+  *p'<td width="25%" align="center"><div>Пирсинг носа: <b><<func("get_stat_desc", "nose_p", nose_p[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:nose_p[<<npc_index>>] <<iif(nose_p[npc_index]>0, ''-= 1'', ''=2'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<nose_p[npc_index]+1>> из 3</font>  '
+  *p'<a class="plain" href="exec:nose_p[<<npc_index>>] <<iif(nose_p[npc_index]<2, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+!* --------------------------------- РОДИНКА -------------------------------- *!
+  *p'<td width="25%" align="center"><div>Родинка: <b><<func("get_stat_desc", "souldar", souldar[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:souldar[<<npc_index>>] <<iif(souldar[npc_index]>0, ''-= 1'', ''=3'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<souldar[npc_index]+1>> из 4</font>  '
+  *p'<a class="plain" href="exec:souldar[<<npc_index>>] <<iif(souldar[npc_index]<3, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+
+  !* ------------------------------- ФОРМА СКУЛ ------------------------------- *!
+  *p'<td width="25%" align="center"><div>Форма скул: <b><<func("get_stat_desc", "scull", scull[npc_index])>></b></div>'
+  *p'<div>'
+  *p'<a class="plain" href="exec:scull[<<npc_index>>] <<iif(scull[npc_index]>0, ''-= 1'', ''=1'')>> & gt $curloc"><font size=+2 color=red><b>&#8920</b></font></a>'
+  *p'  <font size=+2><<scull[npc_index]+1>> из 2</font>  '
+  *p'<a class="plain" href="exec:scull[<<npc_index>>] <<iif(scull[npc_index]=0, ''+= 1'', ''=0'')>> & gt $curloc"><font size=+2 color=green><b>&#8921</b></font></a>'
+  *p'</div>'
+  *p'</td>'
+
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* ----------------------------- РАЗНОЕ TR_2:END ---------------------------- *!
+
+
+end
+!* -------------------------------------------------------------------------- *!
+!*                                СЕКЦИЯ_4:END                                *!
+!* -------------------------------------------------------------------------- *!
+
+
+
+!* -------------------------------------------------------------------------- *!
+!*                              MODE_0 - ОПИСАНИЕ                             *!
+!* -------------------------------------------------------------------------- *!
+gs 'util_func', 'interpolate_color', npc_index
+$ARGS['NAME_COLOR'] = func('util_func', 'RGB_TO_HEX', CONFIG['CURRENT_COLOR_R'], CONFIG['CURRENT_COLOR_G'], CONFIG['CURRENT_COLOR_B'])
+gs'mirror_view', npc_index
+
+*p'<tr bgcolor="#ffffff"><td colspan="4">'
+*p'<table bgcolor="#ffffff" width="100%" border="0" cellspacing="0" cellpadding="0">'
+*p'<tr width="100%">'
+*p'<td bgcolor="#ffffff" align="center">'
+*p'<table bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="2">'
+*p'<tr><td bgcolor="#ffffff" align="center"><<func("util_func", "get_gender_utf", npc_index)>><b><font color="<<$ARGS[''NAME_COLOR'']>>"><<$name[npc_index]>> <<$surname[npc_index]>></font></b> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NAME'',''name'', 1 & gs ''util_func'',''SHOW_INPUT_FOR_NAME'',''surname'', 2 & gt $curloc"><font size=4 color="green">&#9998</font></a></td>'
+*p'<tr>'
+*p'<td bgcolor="#ffffff" align="center">'
+*p'<img width="300" height="auto" src=<<iif(npc_index = you, ''<<$d_view_mirr>>'' ,''<<$d_view>>'')>>>'
+*p'</td>'
+*p'<td bgcolor="#ffffff" align="left" valign="top">'
+*p'<a class="plain" href="exec:view(''<<iif(npc_index = you, ''<<$d_view_mirr>>'' ,''<<$d_view>>'')>>'')"><font size=+4 color="#28a4e6">&#8981</font></a><br>'
+*p'<a class="plain" href="exec:gt''draw_images''"><font size=+3 color="green">&#8634</font></a>'
+*p'</td>'
+*p'</tr>'
+*p'</table>'
+*p'</td>'
+*p'</tr>'
+*p'<<func("body", "RETURN_DESC", npc_index)>>'
+*p'</table>'
+*p'</td></tr>'
+*p'</table>'
+!* -------------------------------------------------------------------------- *!
+!*                            MODE_0 - ОПИСАНИЕ:END                           *!
+!* -------------------------------------------------------------------------- *!
+
+end
+!* -------------------------------------------------------------------------- *!
+!*                                 MODE_0:END                                 *!
+!* -------------------------------------------------------------------------- *!
+
+if CHEAT_MENU['MODE'] = 1:
+!* -------------------------------------------------------------------------- *!
+!*                                MODE_1:START                                *!
+!* -------------------------------------------------------------------------- *!
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+
+$d_check_for_negative = {
+  if vital[npc_index]<0:vital[npc_index]=0
+  if soulpower[npc_index]<0:soulpower[npc_index]=0
+  if reflex[npc_index]<0:reflex[npc_index]=0
+  if magik[npc_index]<0:magik[npc_index]=0
+  if shoot_skill[npc_index]<0:shoot_skill[npc_index]=0
+  if fight_skill[npc_index]<0:fight_skill[npc_index]=0
+  if dom[npc_index]<0:dom[npc_index]=0
+  if corr[npc_index]<0:corr[npc_index]=0
+  if lust[npc_index]<0:lust[npc_index]=0
+  if guy[npc_index]<0:guy[npc_index]=0
+  if girl[npc_index]<0:girl[npc_index]=0
+  if shemale[npc_index]<0:shemale[npc_index]=0
+  if aanal[npc_index]<0:aanal[npc_index]=0
+  if avagsex[npc_index]<0:avagsex[npc_index]=0
+  if abj[npc_index]<0:abj[npc_index]=0
+  if anal[npc_index]<0:anal[npc_index]=0
+  if vagsex[npc_index]<0:vagsex[npc_index]=0
+  if bj[npc_index]<0:bj[npc_index]=0
+  if gang[npc_index]<0:gang[npc_index]=0
+  if glory_bj[npc_index]<0:glory_bj[npc_index]=0
+  if cuntlick[npc_index]<0:cuntlick[npc_index]=0
+  if lesb[npc_index]<0:lesb[npc_index]=0
+  if orgasm_times[npc_index]<0:orgasm_times[npc_index]=0
+}
+
+!* --------------------------- MODE_1 ROW_1:START --------------------------- *!
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td>'
+'<tr>'
+!* -------------------------------- ЖИВУЧЕСТЬ ------------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#FF4500"><b>Живучесть</b></font><font size=+2 color="#202020">: <<vital[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''vital'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Влияет на максимальное количество <font color="#FF4500"><b>здоровья</b></font> и максимальное количество <font color="#f1a727"><b>энергии</b></font>.</font></div>'
+*p'<div><<func("generate_links", "vital", 7)>></div>'
+*p'</td>'
+!* -------------------------------- СИЛА ДУХА ------------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#6A0DAD"><b>Сила Духа</b></font><font size=+2 color="#202020">: <<soulpower[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''soulpower'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Увеличивает <font color="green"><b>грузоподъемность</b></font>, максимальное количество <font color="#f1a727"><b>энергии</b></font> и даёт прямой бонус к <font color="red"><b>урону</b></font>.</font></div>'
+*p'<div><<func("generate_links", "soulpower", 7)>></div>'
+*p'</td>'
+!* -------------------------------- РЕФЛЕКСЫ -------------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#00CED1"><b>Рефлексы</b></font><font size=+2 color="#202020">: <<reflex[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''reflex'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020"><i>Вроде-как влияет на <font color="#00CED1"><b>увороты</b></font>... Точно сказать сложно, т.к. боевая система это месиво.</i> <b>TBD</b></font></div>'
+*p'<div><<func("generate_links", "reflex", 7)>></div>'
+*p'</td>'
+!* ---------------------------- MODE_1 ROW_1:END ---------------------------- *!
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+!* --------------------------- MODE_1 ROW_2:START --------------------------- *!
+*p'<tr>'
+!* ------------------------------ КАНАЛЫ МАГИИ ------------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#1E90FF"><b>Каналы Магии</b></font><font size=+2 color="#202020">: <<magik[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''magik'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Влияет на максимальное кол-во <font color="#00BFFF"><b>маны</b></font>, возможность творить продвинутые <font color="#1E90FF"><b>заклинания</b></font> и на <font color="green"><b>эффективность</b></font> этих заклинаний.</font></div>'
+*p'<div><<func("generate_links", "magik", 7)>></div>'
+*p'</td>'
+!* ----------------------------- НАВЫК СТРЕЛЬБЫ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#4682B4"><b>Стрельба</b></font><font size=+2 color="#202020">: <<shoot_skill[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''shoot_skill'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Влияет на <font color="red"><b>урон</b></font> и <font color="green"><b>точность</b></font> огнестрельного оружия.</font></div>'
+*p'<div><<func("generate_links", "shoot_skill", 7)>></div>'
+*p'</td>'
+!* -------------------------- НАВЫК РУКОПАШНОГО БОЯ ------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#8B0000"><b>Рукопашный бой</b></font><font size=+2 color="#202020">: <<fight_skill[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''fight_skill'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Влияет на <font color="red"><b>урон</b></font> и <font color="green"><b>точность</b></font> в ближнем бою.</font></div>'
+*p'<div><<func("generate_links", "fight_skill", 7)>></div>'
+*p'</td>'
+!* ---------------------------- MODE_1 ROW_2:END ---------------------------- *!
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+
+!* --------------------------- MODE_1 ROW_3:START --------------------------- *!
+*p'<tr>'
+!* ------------------------------ ДОМИНАНТНОСТЬ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#228B22"><b>Доминантность</b></font><font size=+2 color="#202020">: <<dom[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''dom'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Доминантность влияет на разные проверки в диалогах, чем ниже доминантность NPC/Игрока, тем покорней он будет и Vice-Versa.</font></div>'
+*p'<div><<func("generate_links", "dom", 7)>></div>'
+*p'</td>'
+!* ----------------------------- РАЗВРАЩЁННОСТЬ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#FFA500"><b>Развращенность</b></font><font size=+2 color="#202020">: <<corr[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''corr'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Отражает развращённость NPC/Игрока, чем выше этот параметр, тем более <i>экстремальные</i> события будут доступны.</font></div>'
+*p'<div><<func("generate_links", "corr", 7)>></div>'
+*p'</td>'
+!* --------------------------------- ПОХОТЬ --------------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+2 color="#FF1493"><b>Похоть</b></font><font size=+2 color="#202020">: <<lust[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''lust'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><font size=3 color="#202020">Похоть влияет на сексуальную развращённость NPC/Игрока. Чем выше этот параметр, тем <i>охотнее</i> он будет участвовать в подобных событиях.</font></div>'
+*p'<div><<func("generate_links", "lust", 7)>></div>'
+*p'</td>'
+!* ---------------------------- MODE_1 ROW_3:END ---------------------------- *!
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4" align="center"><i>Я не стал ограничивать кол-во параметров которые можно накрутить, многие из них изначально ограничены самой игрой и если их лимит будет превышен - позднее они будут сброшены на максимально-возможное значение.</i></td></tr>'
+
+!* -------------------------------------------------------------------------- *!
+!*                                 MODE_1:END                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'</table>'
+
+
+end
+
+
+if CHEAT_MENU['MODE'] = 2:
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+!* -------------------------------------------------------------------------- *!
+!*                                MODE_2:START                                *!
+!* -------------------------------------------------------------------------- *!
+
+!* --------------------------- MODE_2 ROW_1:START --------------------------- *!
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr><td colspan="4" width="100%" align="center"><font size=+1 color="#202020"><b>Секс-Партнеры</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+!* ------------------------------- СТАТА - МУЖ ------------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#1E90FF"><b>Мужчины &#9794</b></font><font size=+1 color="#202020">: <<guy[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''guy'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "guy", 7, 3)>></div>'
+*p'</td>'
+!* ------------------------------- СТАТА - ЖЕН ------------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#FF69B4"><b>Женщины &#9792</b></font><font size=+1 color="#202020">: <<girl[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''girl'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "girl", 7, 3)>></div>'
+*p'</td>'
+!* ------------------------------- СТАТА - ЩЕМ ------------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#C71585"><b>Щимэйлы &#9895</b></font><font size=+1 color="#202020">: <<shemale[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''shemale'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "shemale", 7, 3)>></div>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* ---------------------------- MODE_2 ROW_1:END ---------------------------- *!
+
+
+
+!* --------------------------- MODE_2 ROW_2:START --------------------------- *!
+*p'<tr><td colspan="4" width="100%" align="center"><font size=+1 color="#202020"><b>Активный Секс</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff" align="center"><td colspan="4"><i>Активный: Вы насували кому-то.</i></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+
+*p'<tr>'
+!* ------------------------------ АКТИВ - АНАЛ ------------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Анал</b></font><font size=+1 color="#202020">: <<aanal[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''aanal'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "aanal", 7, 3)>></div>'
+*p'</td>'
+!* ------------------------------- АКТИВ - ВАГ ------------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Вагинал</b></font><font size=+1 color="#202020">: <<avagsex[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''avagsex'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "avagsex", 7, 3)>></div>'
+*p'</td>'
+!* ------------------------------ АКТИВ - ОТСОС ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Орал</b></font><font size=+1 color="#202020">: <<abj[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''abj'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "abj", 7, 3)>></div>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+!* ---------------------------- MODE_2 ROW_2:END ---------------------------- *!
+
+
+!* --------------------------- MODE_2 ROW_3:START --------------------------- *!
+*p'<tr><td colspan="4" width="100%" align="center"><font size=+1 color="#202020"><b>Пассивный Секс</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff" align="center"><td colspan="4"><i>Пассивный: Насували вам.</i></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+!* ------------------------------ ПАССИВ - АНАЛ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#2786f1"><b>Анал</b></font><font size=+1 color="#202020">: <<anal[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''anal'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "anal", 7, 3)>></div>'
+*p'</td>'
+!* ------------------------------ ПАССИВ - ВАГ ------------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#2786f1"><b>Вагинал</b></font><font size=+1 color="#202020">: <<vagsex[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''vagsex'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "vagsex", 7, 3)>></div>'
+*p'</td>'
+!* ----------------------------- ПАССИВ - ОТСОС ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#2786f1"><b>Орал</b></font><font size=+1 color="#202020">: <<bj[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''bj'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "bj", 7, 3)>></div>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+!* ---------------------------- MODE_2 ROW_3:END ---------------------------- *!
+
+
+!* --------------------------- MODE_2 ROW_4:START --------------------------- *!
+
+*p'<tr>'
+!* --------------------------- ПАССИВ - ГРУПОВУХА --------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#f19a27"><b>Груповуха</b></font><font size=+1 color="#202020">: <<gang[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''gang'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "gang", 7, 3)>></div>'
+*p'</td>'
+!* ----------------------------- ПАССИВ - ГЛОРИ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#f19a27"><b>Отсосов в глорихоле</b></font><font size=+1 color="#202020">: <<glory_bj[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''glory_bj'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "glory_bj", 7, 3)>></div>'
+*p'</td>'
+!* ------------------------------ ПАССИВ - КУНИ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#f19a27"><b>Кунилингус</b></font><font size=+1 color="#202020">: <<cuntlick[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''cuntlick'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "cuntlick", 7, 3)>></div>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+!* ---------------------------- MODE_2 ROW_4:END ---------------------------- *!
+
+
+!* --------------------------- MODE_2 ROW_5:START --------------------------- *!
+*p'<tr><td colspan="4" width="100%" align="center"><font size=+1 color="#202020"><b>Разное</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+
+*p'<tr>'
+!* ------------------------------ РАЗНОЕ - ЛЕСБ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#a427f1"><b>Лесбийских актов</b></font><font size=+1 color="#202020">: <<lesb[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''lesb'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "lesb", 7, 3)>></div>'
+*p'</td>'
+!* ------------------------------ РАЗНОЕ - ДРОЧ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#a427f1"><b>Мастурбаций</b></font><font size=+1 color="#202020">: <<mastr[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''mastr'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "mastr", 7, 3)>></div>'
+*p'</td>'
+!* ---------------------------- РАЗНОЕ - ОРГАЗМЫ ---------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#a427f1"><b>Оргазмов</b></font><font size=+1 color="#202020">: <<orgasm_times[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''orgasm_times'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "orgasm_times", 7, 3)>></div>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+
+!* ---------------------------- MODE_2: ROW_5:END --------------------------- *!
+
+
+!* -------------------------------------------------------------------------- *!
+!*                                 MODE_2:END                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'</table>'
+end
+
+if CHEAT_MENU['MODE'] = 3:
+!* -------------------------------------------------------------------------- *!
+!*                                MODE_3:START                                *!
+!* -------------------------------------------------------------------------- *!
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+!* --------------------------- MODE_3 ROW_1:START --------------------------- *!
+*p'<tr>'
+*p'<td colspan="3" align="center" valign="center">'
+*p'<font size=+3 color="#202020"><span>Первая цель: <<$name[npc_index]>> <<$surname[npc_index]>></span> <font color="green">&#11166;&#11166;&#11166;</font> <span>Вторая цель: <<func("generate_links", "target_index", 10, target_index)>></span></font>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* ---------------------------- MODE_3 ROW_1:END ---------------------------- *!
+
+if target_index ! 0:
+
+!* --------------------------- MODE_3 ROW_2:START --------------------------- *!
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "FRIENDS", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "BOYFRIEND", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "MARRIED", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "SIBLING", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "FATHER", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "MOTHER", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "FIRST_KID", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+*p'<tr>'
+*p'<<func("generate_links", "target_index", 12, "SECOND_KID", npc_index, target_index)>>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+
+!* ---------------------------- MODE_3: ROW_2:END --------------------------- *!
+
+end
+
+
+
+!* -------------------------------------------------------------------------- *!
+!*                                 MODE_3:END                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'</table>'
+end
+
+
+if CHEAT_MENU['MODE'] = 4:
+!* -------------------------------------------------------------------------- *!
+!*                                MODE_4:START                                *!
+!* -------------------------------------------------------------------------- *!
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+
+
+
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+!* --------------------------- MODE_4 ROW_1:START --------------------------- *!
+*p'<tr>'
+!* ----------------------------- РАЗНОЕ - ДЕНЬГИ ---------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Деньги &#8381</b></font><font size=+1 color="#202020">: <<money[npc_index] / 100>> Шиллингов <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''money'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "money", 7, 3, 1)>></div>'
+*p'</td>'
+!* ------------------------------ РАЗНОЕ - ДУШИ ----------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#a427f1"><b>Душа</b></font><font size=+1 color="#202020">: <<soul[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''soul'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "soul", 7, 3)>></div>'
+*p'</td>'
+
+!* ------------------------ РАЗНОЕ - ЖЕНСКОЕ МЫШЛЕНИЕ ----------------------- *!
+if npc_index = you:
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#a427f1"><b>Женское Мышление</b></font><font size=+1 color="#202020">: <<womenbrain[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''womenbrain'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "womenbrain[npc_index]", 7, 3, 2)>></div>'
+*p'</td>'
+else
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="#a427f1"><b>Женское Мышление</b></font><font size=+1 color="#202020">: 0 <a class="plain" href=""><font size=4 color="grey">&#9998</font></a></b></font></div>'
+*p'<div><i><font size=2>Этот показатель работает только для ГГ.</font></i></div>'
+*p'<div><<func("generate_links", "womenbrain[npc_index]", 7, 3, 3)>></div>'
+*p'</td>'
+end
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="3"><hr></td></tr>'
+!* ---------------------------- MODE_4 ROW_1:END ---------------------------- *!
+
+!* --------------------------- MODE_4 ROW_1.5:START --------------------------- *!
+*p'<tr>'
+!* ---------------------------- РАЗНОЕ - МАКС ВЕС --------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+gs'body_stat','update_stats', npc_index
+*p'<div><font size=+1 color="green"><b>Макс-Вес</b></font><font size=+1 color="#202020">: '+ $func('util_func', 'get_weight_text_all', burdenmax[npc_index]) + ' Бонус: ' + $func('util_func', 'get_weight_text_all', burdenmax_bonus[npc_index]) + ' <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''burdenmax_bonus'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "burdenmax_bonus", 7, 3, 4)>></div>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="3"><hr></td></tr>'
+!* ---------------------------- MODE_4 ROW_1.5:END ---------------------------- *!
+
+
+
+!* --------------------------- MODE_4 ROW_2:START --------------------------- *!
+*p'<tr><td colspan="3" width="100%" align="center"><font size=+1 color="#202020"><b>Способности</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr>'
+!* -------------------------- СПОСОБНОСТИ - СУККУБ -------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Способности Суккуба</b></div>'
+*p'<div><<func("generate_links", "demon_dick", 9, demon_dick[npc_index], 6, "")>></div>'
+*p'</td>'
+!* --------------------------- СПОСОБНОСТИ - МАГИЯ -------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Магические способности</b></div>'
+*p'<div><<func("generate_links", "muggle", 9, muggle[npc_index], 6, "MAGE")>></div>'
+*p'</td>'
+
+*p'</tr>'
+
+
+
+*p'<tr bgcolor="#ffffff"><td colspan="3"><hr></td></tr>'
+
+!* ---------------------------- MODE_4 ROW_2:END ---------------------------- *!
+
+!* --------------------------- MODE_4 ROW_3:START --------------------------- *!
+*p'<tr><td colspan="3" width="100%" align="center"><font size=+1 color="#202020"><b>Функции</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr>'
+!* ------------------------ ФУНКЦИИ - ТЕЛЕПОРТ К NPC ------------------------ *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Телепорт к NPC</b></div>'
+*p'<div><a class="plain" href="exec:gs''util_func'', ''find_npc_by_name_for_teleport''"><font size=2 color="#202020"><b>[ <font size=2 color="blue">Найти NPC по имени</font> ]</b></font></a></div>'
+*p'</td>'
+
+!* -------------------------- ФУНКЦИИ - СПИСОК NPC -------------------------- *!
+*p'<td width="33%" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Список NPC</b></div>'
+*p'<div><a class="plain" href="exec:TEMP_SELECTED_TARGET=0 & gt''get_npc_list''"><font size=2 color="#202020"><b>[ <font size=2 color="blue">Показать всех NPC</font> ]</b></font></a></div>'
+*p'</td>'
+
+*p'</tr>'
+
+*p'<tr bgcolor="#ffffff"><td colspan="3"><hr></td></tr>'
+
+!* ---------------------------- MODE_4 ROW_3:END ---------------------------- *!
+
+!* --------------------------- MODE_4 ROW_4:START --------------------------- *!
+ARGS['CELL_WIDTH'] = 100/7
+*p'<tr><td colspan="3" width="100%" align="center"><font size=+1 color="#202020"><b>Отключалки</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr>'
+*p'<td colspan="4">'
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+*p'<tr>'
+!* --------------------------- ОТКЛЮЧАЛКИ - ГОЛОД --------------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Голод</b> - <i><font color="grey" size=2><<iif(CHEAT_MENU["DISABLE_HUNGER"]=0, "Дефолт", "Отключено")>></font></i></div>'
+*p'<div><<func("generate_links", "DISABLE_HUNGER", 9, CHEAT_MENU["DISABLE_HUNGER"], 8, "DISABLER")>></div>'
+*p'</td>'
+
+!* --------------------------- ОТКЛЮЧАЛКИ - ЖАЖДА --------------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Жажда</b> - <i><font color="grey" size=2><<iif(CHEAT_MENU["DISABLE_THIRST"]=0, "Дефолт", "Отключено")>></font></i></div>'
+*p'<div><<func("generate_links", "DISABLE_THIRST", 9, CHEAT_MENU["DISABLE_THIRST"], 8, "DISABLER")>></div>'
+*p'</td>'
+
+!* ---------------------------- ОТКЛЮЧАЛКИ - СОН ---------------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Сон</b> - <i><font color="grey" size=2><<iif(CHEAT_MENU["DISABLE_SLEEP"]=0, "Дефолт", "Отключено")>></font></i></div>'
+*p'<div><<func("generate_links", "DISABLE_SLEEP", 9, CHEAT_MENU["DISABLE_SLEEP"], 8, "DISABLER")>></div>'
+*p'</td>'
+
+!* ---------------------------- ОТКЛЮЧАЛКИ - ПИПИ --------------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Писать!</b> - <i><font color="grey" size=2><<iif(CHEAT_MENU["DISABLE_BLADDER"]=0, "Дефолт", "Отключено")>></font></i></div>'
+*p'<div><<func("generate_links", "DISABLE_BLADDER", 9, CHEAT_MENU["DISABLE_BLADDER"], 8, "DISABLER")>></div>'
+*p'</td>'
+
+!* ----------------------- ОТКЛЮЧАЛКИ - СПЕРМА НА ЛИЦЕ ---------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Сперма [Лицо]</b> - <i><font color="grey" size=2><<iif(CHEAT_MENU["DISABLE_CUM_ON_FACE"]=0, "Дефолт", "Отключено")>></font></i></div>'
+*p'<div><<func("generate_links", "DISABLE_CUM_ON_FACE", 9, CHEAT_MENU["DISABLE_CUM_ON_FACE"], 8, "DISABLER")>></div>'
+*p'</td>'
+
+!* ---------------------- ОТКЛЮЧАЛКИ - СПЕРМА НА ОДЕЖДЕ --------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Сперма [Тело]</b> - <i><font color="grey" size=2><<iif(CHEAT_MENU["DISABLE_CUM_ON_BODY"]=0, "Дефолт", "Отключено")>></font></i></div>'
+*p'<div><<func("generate_links", "DISABLE_CUM_ON_BODY", 9, CHEAT_MENU["DISABLE_CUM_ON_BODY"], 8, "DISABLER")>></div>'
+*p'</td>'
+
+!* ---------------------- ОТКЛЮЧАЛКИ - СПЕРМА НА ОДЕЖДЕ --------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Сперма [Одежда]</b> - <i><font color="grey" size=2><<iif(CHEAT_MENU["DISABLE_CUM_ON_CLOTHES"]=0, "Дефолт", "Отключено")>></font></i></div>'
+*p'<div><<func("generate_links", "DISABLE_CUM_ON_CLOTHES", 9, CHEAT_MENU["DISABLE_CUM_ON_CLOTHES"], 8, "DISABLER")>></div>'
+*p'</td>'
+
+
+*p'</tr>'
+*p'</table>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="3"><hr></td></tr>'
+
+!* ---------------------------- MODE_4 ROW_4:END ---------------------------- *!
+
+!* --------------------------- MODE_4 ROW_5:START --------------------------- *!
+ARGS['CELL_WIDTH'] = 100/3
+*p'<tr><td colspan="3" width="100%" align="center"><font size=+1 color="#202020"><b>Предметы</b></font></td></tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="4"><hr></td></tr>'
+*p'<tr>'
+*p'<td colspan="4">'
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+*p'<tr>'
+!* -------------------------- ПРЕДМЕТЫ - ТЕЛЕПОРТЕР ------------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Телепортер</b></div>'
+*p'<div><<func("generate_links", "portal", 9, portal[npc_index])>></div>'
+*p'</td>'
+
+!* ---------------------- ПРЕДМЕТЫ - ЗАРЯДЫ ТЕЛЕПОРТЕРА --------------------- *!
+
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>" align="center" valign="top">'
+*p'<div><font size=+1 color="green"><b>Заряды телепортера: </b></font><font size=+1 color="#202020">: <<portal_zar[npc_index]>> <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS'',''portal_zar'' & gt $curloc"><font size=4 color="green">&#9998</font></a></b></font></div>'
+*p'<div><<func("generate_links", "portal_zar", 7, 3, 999)>></div>'
+*p'</td>'
+
+!* ---------------------- ПРЕДМЕТЫ - БЕСКОНЕЧНЫЙ МАКИЯЖ --------------------- *!
+*p'<td width="<<ARGS[''CELL_WIDTH'']>>%" align="center" valign="middle">'
+*p'<div><font size=+1 color="#ad61ea"><b>Бесконечный макияж</b></div>'
+*p'<div><<func("generate_links", "INF_MAKEUP", 9, CHEAT_MENU["INF_MAKEUP"], 0, "ENABLER_BIG")>></div>'
+*p'</td>'
+
+*p'</tr>'
+*p'</table>'
+*p'</td>'
+*p'</tr>'
+*p'<tr bgcolor="#ffffff"><td colspan="3"><hr></td></tr>'
+
+!* ---------------------------- MODE_4 ROW_5:END ---------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                 MODE_4:END                                 *!
+!* -------------------------------------------------------------------------- *!
+*p'</table>'
+end
+!Футтер
+*p'<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><td colspan="4" align="center"><h3><font color="#202020"> </font></h3></td></tr>'
+
+
+killvar '$IMAGE_VIEW_TEMP'
+killvar '$NPC_LIST_TEMP'
+
+act'<b><font color="green">&#11164;&#11164;&#11164;</font> Назад</b>':
+npc_index=0
+target_index=0
+CHEAT_MENU['IN_CHEAT_MENU']=0
+gt 'preloc'
+end

@@ -1,0 +1,6 @@
+﻿it = ARGS[0]
+clr
+item_m[it]-=1
+burden[you]-=item_m_burden[it]
+item_loc_m['<<it>>,<<$loc[you]>>']+=1
+gt 'world'

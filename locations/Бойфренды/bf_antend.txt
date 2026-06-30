@@ -1,0 +1,11 @@
+﻿gs'stat'
+'<center><img src="<<$d_view>>" ></center>'
+'<<$name[npc]>> <<$surname[npc]>> - Думаю нам пора закончить наши отношения, мне если честно надоело. Так что пора двигаться дальше, пока детка.'
+
+boyfriend_num[you]=0
+girlfriend_num[npc]=0
+ex_boyfriend[npc]=you
+
+
+
+act'<b>Уйти</b>':gt 'preloc'

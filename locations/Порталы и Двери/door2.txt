@@ -1,0 +1,8 @@
+﻿if item[338]=0:
+	msg("На двери замок")
+else
+	if Z[you]=772 and once=0:once=1&X[you]=10&Y[you]=5&Z[you]=771
+	if Z[you]=771 and once=0:once=1&X[you]=0&Y[you]=3&Z[you]=772
+	once=0
+end
+gt'preloc'

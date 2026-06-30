@@ -1,0 +1,4 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Рабочий стол'
+gs'Item'&*pl''&gs 'npconloc'
+act'Уйти':gt 'preloc'

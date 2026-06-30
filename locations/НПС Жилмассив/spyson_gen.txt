@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&spyson=i
+lvl[i]=1&soul[i]=100&work[i]=100&klass_A+=1&klass[i]=1
+master[i]=0&delusion[i]=0&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=67
+$name[i]='Шир'&$surname[i]='Лотфи'&$nick[i]='Высокий парень'&$title[i]=''&$history[i]='Мой отец работает в Агентстве, а мать на мануфактуре, в офисе.'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=15&dickd[i]=35&ball[i]=50&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=196&fat[i]=800&mus[i]=1000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&it_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=20&hcol[i]=3
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=60&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=1&lust[i]=70&!характер
+h_slot[i]=0
+t_slot[i]=49&l_slot[i]=7&b_slot[i]=5
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+e_world[]=i&walkprog[i]=62
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

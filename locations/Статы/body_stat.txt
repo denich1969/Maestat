@@ -1,0 +1,106 @@
+﻿if $UCASE($ARGS[0])='UPDATE_STATS':num=ARGS[1]
+fullpierce[num]=0&fullpierce[num]=demon_gangbang[num]&fullpierce[num]=tongue_p[num]+nose_p[num]+nip_p[num]+vag_pirs[num]
+if pol[num]=0:health_koeff[num]=60
+if pol[num]=1:health_koeff[num]=40
+healthmax[num]=vital[num]+health_koeff[num]+((vital[num]*lvl[num])/10)+health_dop[num]+(mus[num]/100)+(mutation[num]*10)
+if will[num]>100:will[num]=100
+if will[num]<0:will[num]=0
+if ball[num]>1:koefball[num]=2
+if ball[num]<=1 or koefball[num]<1:koefball[num]=1
+pow[num]=(((rost[num]-100)*mus[num])*koefball[num])/10
+subenergy[num]=iif(fat[num]>=mus[num],(sportiv[num]/10),(sportiv[num]/10)+((mus[num]-fat[num])/100))
+if subenergy[num]<0:subenergy[num]=0
+if num = you:sleep_bonus[you]=0
+if sleep[you]<=5 and num = you:sleep_bonus[you] = (energymax[you] * 10) / 100
+energymax[num]=30+vital[num]+(soulpower[num]*2)+subenergy[num]+(mus[num]/100)+(mutation[num]*10)+sleep_bonus[you]&if energymax[num]<50:energymax[num]=50
+if energy[num]<0:energy[num]=0
+pow_real[num]=pow[num]*energy[num]/energymax[num]&real_fight_skill[num]=fight_skill[num]*energy[num]/energymax[num]
+batl[num]=pow_real[num]+real_fight_skill[num]&ustal[num]=(pow[num]*fat[num])/1000
+if ustal[num]<1:ustal[num]=1
+react[num]=(mutation[num]+mag_reflex[num]+reflex[num])*energy[num]/energymax[num]&if mutagen[num]>100:mutagen[num]=100
+!manamax[num]=(soul[num]*magik[num])-corr[num]
+if magik[num]=0:manamax[num]=0&mlev[num]=0
+if magik[num]=1:manamax[num]=50&mlev[num]=1&!7
+if magik[num]=2:manamax[num]=100&mlev[num]=2&!6
+if magik[num]=3:manamax[num]=110&mlev[num]=2
+if magik[num]=4:manamax[num]=220&mlev[num]=3&!5
+if magik[num]=5:manamax[num]=230&mlev[num]=3
+if magik[num]=6:manamax[num]=250&mlev[num]=3
+if magik[num]=7:manamax[num]=500&mlev[num]=4&!4
+if magik[num]=8:manamax[num]=550&mlev[num]=4
+if magik[num]=9:manamax[num]=600&mlev[num]=4
+if magik[num]=10:manamax[num]=650&mlev[num]=4
+if magik[num]=11:manamax[num]=1300&mlev[num]=5&!3
+if magik[num]=12:manamax[num]=1350&mlev[num]=5
+if magik[num]=13:manamax[num]=1400&mlev[num]=5
+if magik[num]=14:manamax[num]=1450&mlev[num]=5
+if magik[num]=15:manamax[num]=1500&mlev[num]=5
+if magik[num]=16:manamax[num]=3000&mlev[num]=6&!2
+if magik[num]=17:manamax[num]=3100&mlev[num]=6
+if magik[num]=18:manamax[num]=3200&mlev[num]=6
+if magik[num]=19:manamax[num]=3300&mlev[num]=6
+if magik[num]=20:manamax[num]=3400&mlev[num]=6
+if magik[num]=21:manamax[num]=3500&mlev[num]=6
+if magik[num]=22:manamax[num]=7000&mlev[num]=7&!1
+if magik[num]=23:manamax[num]=7150&mlev[num]=7
+if magik[num]=24:manamax[num]=7300&mlev[num]=7
+if magik[num]=25:manamax[num]=7450&mlev[num]=7
+if magik[num]=26:manamax[num]=7600&mlev[num]=7
+if magik[num]=27:manamax[num]=7750&mlev[num]=7
+if magik[num]=28:manamax[num]=8000&mlev[num]=7
+if magik[num]=29:manamax[num]=16000&mlev[num]=8&!HL
+if magik[num]=30:manamax[num]=17000&mlev[num]=8
+if magik[num]=31:manamax[num]=18000&mlev[num]=8
+if magik[num]=32:manamax[num]=19000&mlev[num]=8
+if magik[num]=33:manamax[num]=20000&mlev[num]=8
+if magik[num]=34:manamax[num]=21000&mlev[num]=8
+if magik[num]=35:manamax[num]=22000&mlev[num]=8
+if magik[num]=36:manamax[num]=23000&mlev[num]=8
+if master[num]=0 and magik[num]>36:magik[num]=36&!GL
+if master[num]>0 and magik[num]<37:magik[num]=37&mana[num]=46000
+if master[num]>0 and infinitmana[num]=0:infinitmana[num]=1
+if magik[num]>=37:manamax[num]=12800&mlev[num]=9
+!сила сукуба зависит от количества душ
+if demon_dick[num]>0:
+	demon_dick[num]=1
+	if soul[num]>100:
+		:demon_dick_lvl
+		if soul[num]>=100+demon_dick[num]*demon_dick[num]*demon_dick[num]*20:demon_dick[num]+=1&jump'demon_dick_lvl'
+	end
+	demon_dick_soul_need[num]=100+demon_dick[num]*demon_dick[num]*demon_dick[num]*20&demon_dick_stomath_max[num]=demon_dick[num]*100
+end
+if demon_dick[num]>0 and magik[num]>0:
+	manamax[num]+=demon_dick[num]*demon_dick[num]*demon_dick[num]
+	if orgasm_times[num]<100:manamax[num]+=orgasm_times[num]*10
+	if orgasm_times[num]>=100:manamax[num]+=1000
+	manamax[num]+=anal_deflorator[num]*10&manamax[num]+=oral_deflorator[num]*10&manamax[num]+=vag_deflorator[num]*10
+	if temp_multiorgazm[num]<100:manamax[num]+=temp_multiorgazm[num]*25
+	if temp_multiorgazm[num]>=100:manamax[num]+=2500
+end
+!if demon_dick[num]>0 and demon_dick_exp_day[num]!daystart:demon_dick_exp_day[num]=daystart&demon_dick_exp_day_limit[num]=demon_dick[num]*10
+if water_gem[num]>0:
+	manamax[num]+=100000&if water_spell[num]=0:water_spell[num]=1
+end
+if fire_gem[num]>0:
+	manamax[num]+=100000&if firebane_spell[num]=0:firebane_spell[num]=1
+end
+if earth_gem[num]>0:
+	manamax[num]+=100000&if rock_spell[num]=0:rock_spell[num]=1
+end
+if wind_gem[num]>0:
+	manamax[num]+=100000&if storm_spell[num]=0:storm_spell[num]=1
+end
+if soul_gem[num]>0:
+	manamax[num]+=100000&if soul_spell[num]=0:soul_spell[num]=1
+end
+if demon_slave[num]>=1 and demon_slave[num]>fullpierce[num]+2:
+	manamax[num]-=10*demon_slave[num]-fullpierce[num]+2&if manamax[num]<0:manamax[num]=0
+end
+if satanstoy[num]>0:manamax[num]+=satanstoy[num]
+expneed[num]=lvl[num]*lvl[num]*5
+if magik[num]>0:magik_exp_need[num]=magik[num]*2
+if magik[num]=0:magik_exp_need[num]=1
+burdenmax[num]=mus[num]+dopburden[num]+magik_burden[num]+(soulpower[num]*20) + burdenmax_bonus[num]+perk_burdenmax[you]*1000
+if burdenmax[num]<1000:burdenmax[num]=1000
+maxsoul[num]=500+(manamax[num]*2)
+if num=you and mainbody>0:burdenmax[num]=burdenmax[mainbody]

@@ -1,0 +1,22 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Прилавок'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+*nl'Дубинка - 30 шиллингов'&*nl'Финка - 30 шиллингов'&*nl'Топор - 50 шиллингов'&*nl'Багор - 55 шиллингов'
+if money[you]>=3000:
+	 act'Купить дубинку 30ш':
+		 money[you]-=3000&item[27]+=1&burden[you]+=item_burden[27]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=3000:
+	 act'Купить финку 30ш':
+		 money[you]-=3000&item[75]+=1&burden[you]+=item_burden[75]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=5000:
+	 act'Купить топор 50ш':
+		 money[you]-=5000&item[40]+=1&burden[you]+=item_burden[40]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=5500:
+	 act'Купить багор 55ш':
+		 money[you]-=5500&item[74]+=1&burden[you]+=item_burden[74]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end

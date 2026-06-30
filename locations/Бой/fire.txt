@@ -1,0 +1,87 @@
+﻿gs'stat'
+'Вы швыряете фаерболл'
+
+if spell_fireball[you]<100:spell_fireball[you]+=1
+mana[you]-=10
+hod=1
+uron=spell_fireball[you]*magik[you]
+
+popad=0
+percentV=reactV*20/100
+defV=rand(reactV-percentV,reactV+percentV)
+if invisibleV>0:defV=defV+(invisibleV*3)
+percent=react[you]*20/100
+atk=rand(react[you]-percent,react[you]+percent)
+atk=atk+(fight_skill[you]/10)
+if def_tipeV=0:
+'<<$name[npc]>> пытается увернутся'
+     if defV<=atk:
+     popad=1
+     else
+     popad=0
+     stupidluck=rand(0,2)
+     if stupidluck=2:popad=1
+     end
+end
+if def_tipeV=1:
+'<<$name[npc]>> даже не пытается защищаться'
+     popad=1
+end
+
+if uskor>0:popad=1
+
+if stunV>0:
+stunV-=1
+popad=2
+end
+
+if portal_defV>0:
+'Ваш удар попадает в портал и никакого вреда не наносит'
+else
+	if fire_resistV=1:
+	'<<$name[npc]>> не обращает внимания на огонь'
+	else
+		 if popad>=1:
+			 if clonV>0:
+			 clonV-=1
+			 'Вы попадаете в клона и клон рассеивается'
+			 else
+				 if uron<1:uron=1
+				 if superslut[you]=1:uron=uron+(uron/10)
+				 if popad=2:uron=uron*2
+				 if mob[npc]=1:uron=uron*2
+				 if firedefV<=0:
+					 if defenceV>0:
+						 if defenceV<uron:
+						 uron=uron-defenceV
+						 defenceV=0
+						 health[npc]-=uron
+						 '<<$name[npc]>> получает <<uron>> единиц урона'
+						 if defenceV>0:'Вы разбиваете защиту противника'
+						 if popad=2:'Критическое попадание'
+						 else
+						 defenceV-=uron
+						 'Защита противника полностью поглощает урон и снижается теряя прочность'
+						 end
+					 else
+					 health[npc]-=uron
+					 '<<$name[npc]>> получает <<uron>> единиц урона'
+					 end
+				 else
+				 firedefV-=uron
+					 if firedefV>0:
+					 'Защита от огня ослабла но выдержала удар'
+					 else
+					 firedefV=0
+					 'Защита от огня разлетелась брызгами, но выдержала удар'
+					 end
+				 end
+			 end
+		 else
+		 '<<$name[npc]>> избегает урона увернувшись от вашего фаербола'
+		 end
+	end
+end
+
+gs'stat'
+act'Далее':gt'fight'

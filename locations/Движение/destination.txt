@@ -1,0 +1,160 @@
+﻿if $destination[w]='дом':Xdest[w]=Xhome[w]&Ydest[w]=Yhome[w]&Zdest[w]=Zhome[w]&Hdest[w]=Hhome[w]&Rdest[w]=Rhome[w]
+if $destination[w]='гриф':Xdest[w]=X[grief]&Ydest[w]=Y[grief]&Zdest[w]=Z[grief]&Hdest[w]=H[grief]&Rdest[w]=R[grief]
+if $destination[w]='маяк':Xdest[w]=0&Ydest[w]=0&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='маяк лампа':Xdest[w]=0&Ydest[w]=0&Zdest[w]=1&Hdest[w]=1&Rdest[w]=3
+if $destination[w]='трактир':Xdest[w]=1&Ydest[w]=1&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='трактир кухня':Xdest[w]=1&Ydest[w]=1&Zdest[w]=1&Hdest[w]=1&Rdest[w]=1
+if $destination[w]='трактир спальная':Xdest[w]=1&Ydest[w]=1&Zdest[w]=1&Hdest[w]=1&Rdest[w]=3
+if $destination[w]='пирс':Xdest[w]=1&Ydest[w]=0&Zdest[w]=1&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='пирс лачуга':Xdest[w]=1&Ydest[w]=0&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='пакгауз':Xdest[w]=1&Ydest[w]=2&Zdest[w]=1&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='колодец':Xdest[w]=2&Ydest[w]=1&Zdest[w]=1&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='храм':Xdest[w]=2&Ydest[w]=2&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='кладбище':Xdest[w]=2&Ydest[w]=3&Zdest[w]=1&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='сторожка':Xdest[w]=2&Ydest[w]=3&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='бар':Xdest[w]=3&Ydest[w]=0&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='бар2':Xdest[w]=3&Ydest[w]=2&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='бар3':Xdest[w]=4&Ydest[w]=3&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='порт':Xdest[w]=3&Ydest[w]=0&Zdest[w]=1&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='рыбзавод':Xdest[w]=3&Ydest[w]=1&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='рыбзавод офис':Xdest[w]=3&Ydest[w]=1&Zdest[w]=1&Hdest[w]=1&Rdest[w]=1
+if $destination[w]='шериф':Xdest[w]=3&Ydest[w]=3&Zdest[w]=1&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='бордель':Xdest[w]=3&Ydest[w]=0&Zdest[w]=1&Hdest[w]=3&Rdest[w]=0
+if $destination[w]='книжный':Xdest[w]=3&Ydest[w]=2&Zdest[w]=1&Hdest[w]=2&Rdest[w]=0
+if $destination[w]='одежда':Xdest[w]=3&Ydest[w]=2&Zdest[w]=1&Hdest[w]=3&Rdest[w]=0
+if $destination[w]='снасти':Xdest[w]=3&Ydest[w]=3&Zdest[w]=1&Hdest[w]=2&Rdest[w]=0
+if $destination[w]='спортзал_лена':Xdest[w]=4&Ydest[w]=3&Zdest[w]=1&Hdest[w]=2&Rdest[w]=0
+
+if $destination[w]='круг друида':Xdest[w]=4&Ydest[w]=2&Zdest[w]=2&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='кирпичный завод':Xdest[w]=3&Ydest[w]=0&Zdest[w]=2&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='кирпичный офис':Xdest[w]=3&Ydest[w]=0&Zdest[w]=2&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='баскетбол':Xdest[w]=3&Ydest[w]=1&Zdest[w]=2&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='тату салон':Xdest[w]=3&Ydest[w]=1&Zdest[w]=2&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='забегаловка':Xdest[w]=1&Ydest[w]=1&Zdest[w]=2&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='забегаловка_кухня':Xdest[w]=1&Ydest[w]=1&Zdest[w]=2&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='бар2_0':Xdest[w]=2&Ydest[w]=0&Zdest[w]=2&Hdest[w]=1&Rdest[w]=0&!олден
+if $destination[w]='бар2_1':Xdest[w]=1&Ydest[w]=2&Zdest[w]=2&Hdest[w]=1&Rdest[w]=0&!мох
+if $destination[w]='пивоварня':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='пивоварня_офис':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='клуб':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=2&Rdest[w]=0
+if $destination[w]='клуб_туалет':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=2&Rdest[w]=1
+if $destination[w]='клуб_офис':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=2&Rdest[w]=2
+if $destination[w]='арсенал':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=3&Rdest[w]=0
+if $destination[w]='арсенал_туалет':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=3&Rdest[w]=1
+if $destination[w]='арсенал_офис':Xdest[w]=2&Ydest[w]=1&Zdest[w]=2&Hdest[w]=3&Rdest[w]=2
+
+if $destination[w]='общага':Xdest[w]=1&Ydest[w]=0&Zdest[w]=3&Hdest[w]=6&Rdest[w]=3
+if $destination[w]='универсам':Xdest[w]=3&Ydest[w]=0&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='машзавод':Xdest[w]=4&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='машзавод офис':Xdest[w]=4&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='каторга':Xdest[w]=1&Ydest[w]=4&Zdest[w]=3&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='электростанция':Xdest[w]=1&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='электростанция офис':Xdest[w]=1&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='школа':Xdest[w]=3&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='класс а':Xdest[w]=3&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=1
+if $destination[w]='класс б':Xdest[w]=3&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='класс с':Xdest[w]=3&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=3
+if $destination[w]='физкультура':Xdest[w]=3&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=4
+if $destination[w]='учительская':Xdest[w]=3&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=6
+if $destination[w]='сквер':Xdest[w]=2&Ydest[w]=1&Zdest[w]=3&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='больница':Xdest[w]=2&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='ординаторская':Xdest[w]=2&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='процедурная':Xdest[w]=2&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=3
+if $destination[w]='лаборатория':Xdest[w]=2&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=4
+if $destination[w]='операционная':Xdest[w]=2&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=5
+if $destination[w]='палата':Xdest[w]=2&Ydest[w]=3&Zdest[w]=3&Hdest[w]=1&Rdest[w]=6
+if $destination[w]='агентство':Xdest[w]=4&Ydest[w]=4&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='адд директор':Xdest[w]=4&Ydest[w]=4&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='адд офис':Xdest[w]=4&Ydest[w]=4&Zdest[w]=3&Hdest[w]=1&Rdest[w]=3
+if $destination[w]='адд архив':Xdest[w]=4&Ydest[w]=4&Zdest[w]=3&Hdest[w]=1&Rdest[w]=4
+if $destination[w]='адд спорт':Xdest[w]=4&Ydest[w]=4&Zdest[w]=3&Hdest[w]=1&Rdest[w]=5
+if $destination[w]='бильярдная':Xdest[w]=2&Ydest[w]=4&Zdest[w]=3&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='ресторан':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='ресторан кухня':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='квартира зал':Xdest[w]=3&Ydest[w]=1&Zdest[w]=3&Hdest[w]=1&Rdest[w]=4
+if $destination[w]='квартира кухня':Xdest[w]=3&Ydest[w]=1&Zdest[w]=3&Hdest[w]=1&Rdest[w]=1
+if $destination[w]='квартира туалет':Xdest[w]=3&Ydest[w]=1&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='телебашня':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='телебашня студия':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='сауна кафе':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=0
+if $destination[w]='парилка':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=2
+if $destination[w]='траходром':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=3
+if $destination[w]='салон красоты':Xdest[w]=3&Ydest[w]=1&Zdest[w]=3&Hdest[w]=10&Rdest[w]=0
+if $destination[w]='раздевалка':Xdest[w]=4&Ydest[w]=1&Zdest[w]=3&Hdest[w]=6&Rdest[w]=2&!спортзал
+if $destination[w]='спорт':Xdest[w]=4&Ydest[w]=1&Zdest[w]=3&Hdest[w]=6&Rdest[w]=3
+if $destination[w]='богарт0':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=0
+if $destination[w]='богарт1':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=1
+if $destination[w]='богарт2':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=2
+if $destination[w]='богарт3':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=3
+if $destination[w]='богарт4':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=4
+if $destination[w]='богарт5':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=5
+if $destination[w]='богарт6':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=2&Rdest[w]=6
+if $destination[w]='сладков0':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=5&Rdest[w]=0
+if $destination[w]='сладков1':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=5&Rdest[w]=1
+if $destination[w]='сладков2':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=5&Rdest[w]=2
+if $destination[w]='сладков3':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=5&Rdest[w]=3
+if $destination[w]='сладков4':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=5&Rdest[w]=4
+if $destination[w]='сладков5':Xdest[w]=4&Ydest[w]=0&Zdest[w]=3&Hdest[w]=5&Rdest[w]=5
+if $destination[w]='полиция':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=3&Rdest[w]=0
+if $destination[w]='полиция офис':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=3&Rdest[w]=2
+if $destination[w]='полиция тюрьма':Xdest[w]=2&Ydest[w]=0&Zdest[w]=3&Hdest[w]=3&Rdest[w]=3
+
+if $destination[w]='лебеда':Xdest[w]=X[lebeda]&Ydest[w]=Y[lebeda]&Zdest[w]=Z[lebeda]&Hdest[w]=H[lebeda]&Rdest[w]=R[lebeda]
+if $destination[w]='аптаун':Xdest[w]=2&Ydest[w]=2&Zdest[w]=4&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='стриптиз':Xdest[w]=2&Ydest[w]=2&Zdest[w]=4&Hdest[w]=1&Rdest[w]=1&!стриптиз бар
+if $destination[w]='вип':Xdest[w]=2&Ydest[w]=2&Zdest[w]=4&dest[w]=1&Rdest[w]=2&!вип зал в стриптиз баре
+if $destination[w]='теплица':Xdest[w]=0&Ydest[w]=4&Zdest[w]=4&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='теплица2':Xdest[w]=0&Ydest[w]=4&Zdest[w]=4&Hdest[w]=2&Rdest[w]=0
+if $destination[w]='теплица3':Xdest[w]=0&Ydest[w]=4&Zdest[w]=4&Hdest[w]=3&Rdest[w]=0
+if $destination[w]='теплица офис':Xdest[w]=0&Ydest[w]=4&Zdest[w]=4&Hdest[w]=4&Rdest[w]=0
+if $destination[w]='теплица5':Xdest[w]=0&Ydest[w]=4&Zdest[w]=4&Hdest[w]=5&Rdest[w]=0
+if $destination[w]='рынок':Xdest[w]=0&Ydest[w]=1&Zdest[w]=4&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='дуб':Xdest[w]=3&Ydest[w]=1&Zdest[w]=4&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='озеро':Xdest[w]=3&Ydest[w]=2&Zdest[w]=4&Hdest[w]=0&Rdest[w]=0
+if $destination[w]='бар наваждение':Xdest[w]=2&Ydest[w]=4&Zdest[w]=4&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='винзавод':Xdest[w]=0&Ydest[w]=3&Zdest[w]=4&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='винзавод офис':Xdest[w]=0&Ydest[w]=3&Zdest[w]=4&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='столярка':Xdest[w]=1&Ydest[w]=4&Zdest[w]=4&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='хлебозавод':Xdest[w]=0&Ydest[w]=0&Zdest[w]=4&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='хлебозавод офис':Xdest[w]=0&Ydest[w]=0&Zdest[w]=4&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='батори':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='батори1':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=1
+if $destination[w]='батори2':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=2
+if $destination[w]='батори3':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=3
+if $destination[w]='батори4':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=4
+if $destination[w]='батори5':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=5
+if $destination[w]='батори6':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=6
+if $destination[w]='батори7':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=7
+if $destination[w]='батори8':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=8
+if $destination[w]='батори9':Xdest[w]=2&Ydest[w]=1&Zdest[w]=4&Hdest[w]=1&Rdest[w]=9
+if $destination[w]='сексшоп':Xdest[w]=1&Ydest[w]=3&Zdest[w]=4&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='сексшоп глори':Xdest[w]=1&Ydest[w]=3&Zdest[w]=4&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='варьете':Xdest[w]=0&Ydest[w]=2&Zdest[w]=4&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='варьете офис':Xdest[w]=0&Ydest[w]=2&Zdest[w]=4&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='варьете кухня':Xdest[w]=0&Ydest[w]=2&Zdest[w]=4&Hdest[w]=6&Rdest[w]=3
+if $destination[w]='порнотеатр':Xdest[w]=1&Ydest[w]=0&Zdest[w]=4&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='порнотеатр зал':Xdest[w]=1&Ydest[w]=0&Zdest[w]=4&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='порнотеатр студия':Xdest[w]=1&Ydest[w]=0&Zdest[w]=4&Hdest[w]=6&Rdest[w]=4
+if $destination[w]='преисподняя':Xdest[w]=0&Ydest[w]=4&Zdest[w]=4&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='гермиона':Xdest[w]=X[germiona]&Ydest[w]=Y[germiona]&Zdest[w]=Z[germiona]&Hdest[w]=H[germiona]&Rdest[w]=R[germiona]
+if $destination[w]='массаж':Xdest[w]=1&Ydest[w]=2&Zdest[w]=4&Hdest[w]=Hmass&Rdest[w]=0
+if $destination[w]='массаж кабинет':Xdest[w]=1&Ydest[w]=2&Zdest[w]=4&Hdest[w]=Hmass&Rdest[w]=2
+
+if $destination[w]='иуда':Xdest[w]=2&Ydest[w]=2&Zdest[w]=5&Hdest[w]=1&Rdest[w]=0
+if $destination[w]='бар сияние':Xdest[w]=3&Ydest[w]=2&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='бар мельбурн':Xdest[w]=2&Ydest[w]=3&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='бар художников':Xdest[w]=1&Ydest[w]=1&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='выставка':Xdest[w]=1&Ydest[w]=1&Zdest[w]=5&Hdest[w]=7&Rdest[w]=0
+if $destination[w]='кинотеатр':Xdest[w]=4&Ydest[w]=1&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='кинотеатр проектор':Xdest[w]=4&Ydest[w]=1&Zdest[w]=5&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='телепорт':Xdest[w]=4&Ydest[w]=0&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='телепорт офис':Xdest[w]=4&Ydest[w]=0&Zdest[w]=5&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='химлаб':Xdest[w]=2&Ydest[w]=0&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='химлаб офис':Xdest[w]=2&Ydest[w]=0&Zdest[w]=5&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='души':Xdest[w]=1&Ydest[w]=3&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='души офис':Xdest[w]=1&Ydest[w]=3&Zdest[w]=5&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='охота':Xdest[w]=1&Ydest[w]=2&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='охота офис':Xdest[w]=1&Ydest[w]=2&Zdest[w]=5&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='театр':Xdest[w]=3&Ydest[w]=1&Zdest[w]=5&Hdest[w]=6&Rdest[w]=0
+if $destination[w]='театр гримерка':Xdest[w]=3&Ydest[w]=1&Zdest[w]=5&Hdest[w]=6&Rdest[w]=2
+if $destination[w]='театр зал':Xdest[w]=3&Ydest[w]=1&Zdest[w]=5&Hdest[w]=6&Rdest[w]=3

@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+lvl[i]=1&soul[i]=100&mob[i]=2&mobexp[i]=50&!номер моба для разговора и уровень опыта
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+tipemobpic[i]=0&picture[i]=92&!номер типа фотки иномер фотки 
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+gs'negr_man_name'&$name[i]=$genname&gs'negr_surname'&$surname[i]=$gensurname
+$title[i]='Туземец'&tipe=rand(2)&$nick[i]=iif(tipe=1,'Островитянин',iif(tipe=2,'Дикарь','Абориген'))&$basestatus[i]=' чешет яйца'
+dick[i]=rand(18,28)&dickd[i]=rand(40,55)&ball[i]=rand(40,70)&!Половые признаки (член, вагина, жопа, грудь)
+rost[i]=rand(165,195)&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)&skin[i]=rand(4,6)
+healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
+age[i]=rand(18,100)&vital[i]=rand(60,90)&will[i]=rand(5,10)&reflex[i]=rand(40,50)&pol[i]=0&gs'body'&total_generated_male+=1&total_aborigen+=1
+bisex[i]=0&agro[i]=rand(0,2)&selfrespect[i]=rand(1)&positiv[i]=rand(1)&extrovert[i]=rand(1)&ratio[i]=1&brave[i]=1&lust[i]=60&corr[i]=rand(10,100)&!характер
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+paradiseworld[]=i&walkprog[i]=0&fight_prog[i]=1&!Регион и программа движения!программа боя
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс
+if Z>700 and Z<800:mobexp[i]=10&energymax[i]=200&energy[i]=energymax[i]&corr[i]=rand(5,20)&maxuron[i]=rand(15,30)&reflex[i]=rand(30,60)
+if chiff=0 and Z>700 and Z<800:chiff=i&$nick[i]='Вождь'&mobexp[i]=100&reflex[i]=rand(50,70)&healthmax[i]=10*rand(30,50)&health[i]=healthmax[i]&minuron[i]=rand(10,15)&maxuron[i]=rand(20,35)

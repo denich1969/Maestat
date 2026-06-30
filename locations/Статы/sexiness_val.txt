@@ -1,0 +1,97 @@
+﻿sexiness[args[0]]=0&t_nude[args[0]]=0&tot_aristokrat[args[0]]=0
+if h_slot[args[0]]>0:
+	hattemp=h_slot[args[0]]&sexiness[args[0]]+=sexy_h[hattemp]&if aristokrat_h[hattemp]>0:tot_aristokrat[args[0]]+=aristokrat_h[hattemp]&!головной убор
+end
+visible_nipple[args[0]]=0
+if t_slot[args[0]]>0:
+	toptemp=t_slot[args[0]]&if aristokrat_t[toptemp]>0:tot_aristokrat[args[0]]+=aristokrat_t[toptemp]&!платье, футболка
+	sexiness[args[0]]+=sexy_t[toptemp]&if (ut_slot[args[0]]=0 or ut_slot[args[0]]=10) and nip[args[0]]>=20:visible_nipple[args[0]]=1
+end
+if l_slot[args[0]]>0:
+	lowtemp=l_slot[args[0]]&sexiness[args[0]]+=sexy_l[lowtemp]&if aristokrat_l[lowtemp]>0:tot_aristokrat[args[0]]+=aristokrat_l[lowtemp]&!юбка штаны
+end
+if b_slot[args[0]]>0:
+	boottemp=b_slot[args[0]]&sexiness[args[0]]+=sexy_b[boottemp]&if aristokrat_b[boottemp]>0:tot_aristokrat[args[0]]+=aristokrat_b[boottemp]&!обувь
+end
+if t_slot[args[0]]=0 or sheer[t_slot[args[0]]]>0: t_nude[args[0]]=2&!что прикрывает грудь
+args[50]=-1&!непрозрачная юбка
+args[51]=-1&!что прикрывает жопу
+if t_slot[args[0]]>0 and sheer[t_slot[args[0]]]=0 and long_t[t_slot[args[0]]]>0: args[50]=long_t[t_slot[args[0]]]&!непрозрачный верх имеющий юбку
+if l_slot[args[0]]>0 and sheer_l[l_slot[args[0]]]=0: args[51]=long_l[l_slot[args[0]]]&!непрозрачный низ
+!шорты, штаны, джинсы
+!if l_slot[args[0]]>0 and sheer_l[l_slot[args[0]]]=0 and l_tipe[l_slot[args[0]]]>0: args[51]=5
+if args[51]>args[50]:args[50]=args[51]
+args[60]=-1&!прозрачная юбка
+args[61]=-1&!что прикрывает жопу
+if t_slot[args[0]]>0 and long_t[t_slot[args[0]]]>0: args[60]=long_t[t_slot[args[0]]]&!непрозрачный верх имеющий юбку
+if l_slot[args[0]]>0: args[61]=long_l[l_slot[args[0]]]&!непрозрачный низ
+if args[61]>args[60]:args[60]=args[61]
+in_skirt[args[0]]=args[60]&!если больше 0 значит надета юбка, значение это её длина
+visible_lift[args[0]]=0&!лифчик не виден
+if ut_slot[args[0]]>0 and t_nude[args[0]]=2:
+	utoptemp=ut_slot[args[0]]&sexiness[args[0]]+=sexy_ut[utoptemp]&t_nude[args[0]]=1&visible_lift[args[0]]=1&!видно лифчик
+	if sexy_ut[utoptemp]>50:visible_lift[args[0]]=2
+end
+l_nude[args[0]]=0&!трусы не видно
+visout_panties[args[0]]=0&!если надета юбка или не надето ничего
+if ul_slot[args[0]]>0:
+	if args[50]=-1:sexiness[args[0]]+=sexy_ul[ul_slot[args[0]]]&l_nude[args[0]]=2&visout_panties[args[0]]=5&!полностью открыта
+	if args[50]=1:sexiness[args[0]]+=sexy_ul[ul_slot[args[0]]]/4&l_nude[args[0]]=1&!мини !ветер может поднять юбку и все увидят турсики!visout_panties[args[0]]=1	
+	if sexy_ul[ul_slot[args[0]]]>50 and args[50]!0 and args[50]<2:visout_panties[args[0]]=2&!сбруя
+	if args[50]<1 and args[60]=1:sexiness[args[0]]+=sexy_ul[ul_slot[args[0]]]/4&visout_panties[args[0]]=3&!прозрачная юбка !через прозрачную юбку видно тусики
+else
+	if args[50]=-1:l_nude[args[0]]=4&!полностью открыта
+	if args[50]=1:l_nude[args[0]]=3&visout_panties[args[0]]=1&!мини
+	if args[50]<1 and args[60]=1:sexiness[args[0]]+=sexy_ul[ul_slot[args[0]]]/4&visout_panties[args[0]]=4&!через прозрачную юбку видно голую жопу
+end
+canseelegs[args[0]]=0&!чулки не надеты
+if ub_slot[args[0]]>0:
+	!если юбка, шорты или нет ничего (-1,0,1,2,...) в общем любой вариант кроме штанов и джинс
+	if l_tipe[l_slot[args[0]]]=0 or l_tipe[l_slot[args[0]]]=1 and args[50]<=2:canseelegs[args[0]]=1&uboottemp=ub_slot[args[0]]&sexiness[args[0]]+=sexy_ub[uboottemp]&!если не ниже колена
+end
+if cum_face[args[0]]>0:sexiness[args[0]]+=min(cum_face[args[0]] * 2, 10)
+if plug[args[0]]=2 and args[50]<2:sexiness[args[0]]+=50
+args[10]=0
+if lips[args[0]]=1:args[10]+=5
+if lips[args[0]]=2:args[10]+=10
+if lips[args[0]]=3:args[10]+=15
+if preskin[args[0]]=1:args[10]+=5
+if preskin[args[0]]=2:args[10]+=10
+if preskin[args[0]]=3:args[10]+=15
+if beard[args[0]]>=1 and sexiness[args[0]]>0:args[10]-=beard[args[0]]
+!sexiness[args[0]]=maksex[args[0]]+sexiness[args[0]]
+if rost[args[0]]>0:
+	if pol[you]=0:sexiness[args[0]]-=20&!дебаф если мужик
+	waist_bonus_num[args[0]]=(rost[args[0]]*10/3-waist[args[0]]*10)*180/rost[args[0]]/10&!отклонение талии от нормы!args[11]=(200*rost[args[0]]/3/waist[args[0]]-200)
+	ass_bonus_num[args[0]]=-(rost[args[0]]*10/2-hips[args[0]]*10)*180/rost[args[0]]/10&!отклонение бедер от нормы!args[12]=-(200*rost[args[0]]/2/hips[args[0]]-200)
+	ass_bonus[args[0]]=ass_bonus_num[args[0]]
+	if ass_bonus[args[0]]>30:ass_bonus[args[0]]=30-args[12]*2
+	tits_bonus_num[args[0]]=tits_real[args[0]]
+	tits_bonus[args[0]]=tits_real[args[0]]*3/2
+	if waist_bonus_num[args[0]]>0:
+		waist_bonus[args[0]]=waist_bonus_num[args[0]]*3
+	else
+		waist_bonus[args[0]]=waist_bonus_num[args[0]]
+	end
+	args[15]=(waist_bonus[args[0]]+ass_bonus[args[0]]+tits_bonus[args[0]])+args[10]
+	args[15]+=tits_bonus[args[0]]*visible_nipple[args[0]]/3
+	args[15]+=ass_bonus[args[0]]*l_nude[args[0]]/4
+	args[15]+=tits_bonus[args[0]]*t_nude[args[0]]/2
+	if age[args[0]]>0:args[15]=args[15]*21/age[args[0]]
+	args[15]+=maksex[args[0]]&!косметика
+	args[15]+=args[15]*demon_dick[args[0]]*5/100
+	args[15]+=args[15]*perk_sexy[args[0]]*10/100
+	attraction_num[args[0]]=args[15]&!естественная привлекательность
+	attraction[args[0]]=args[15]*(sexiness[args[0]]+90)/140&!привлекательность
+	if perk_sexy[args[0]]>0: attraction[args[0]]+=perk_sexy[args[0]]*10&!Влияние перка
+	if saggy[args[0]]>0:attraction[args[0]]-=10
+	args[10]=sexiness[args[0]]&sexiness[args[0]]-=tot_aristokrat[args[0]]*5
+	if sexiness[args[0]]<40:
+		if args[10]>40:sexiness[args[0]]=40
+		if args[10]<40:sexiness[args[0]]=args[10]
+	end
+	!"tot_aristokrat[args[0]] "+tot_aristokrat[args[0]]*5
+	!"sexiness[args[0]] "+sexiness[args[0]]
+	!"sexiness[args[0]] "+sexiness[args[0]]
+	if attraction[args[0]]<0:attraction[args[0]]=0
+end

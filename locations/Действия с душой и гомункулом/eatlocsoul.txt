@@ -1,0 +1,3 @@
+﻿soul[you]+=soul_loc['<<$loc[you]>>']
+soul_loc['<<$loc[you]>>']=0
+gt'preloc'

@@ -1,0 +1,20 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Прилавок бутика'
+$clo_loc=''&clo=1&clomax=arrsize('$t_name')
+:markclothelocssb
+    if aristokrat_t[clo]>0:clohere['<<clo>>,<<$loc[you]>>']=1
+    if clohere['<<clo>>,<<$loc[you]>>']>0 and pol[you]=pol_t[clo]:$d_topclo_view='view"pic/clo/top/<<clo>>.jpg"'&$clo_loc+='<a href="exec:gt''gotoclossb'',<<clo>>"><img src="pic/clo/top/<<clo>>.jpg" ></a>'
+clo+=1&if clo<clomax:jump'markclothelocssb'
+*pl''&'<<$clo_loc>>'&$low_loc=''&clo=1&clomax=arrsize('$l_name')
+:marklowthelocssb
+    if aristokrat_l[clo]>0:lowhere['<<clo>>,<<$loc[you]>>']=1  
+    if lowhere['<<clo>>,<<$loc[you]>>']>0 and pol[you]=pol_l[clo]:$d_topclo_view='view"pic/clo/low/<<clo>>.jpg"'&$low_loc+='<a href="exec:gt''gotlowssb'',<<clo>>"><img src="pic/clo/low/<<clo>>.jpg" ></a>'
+clo+=1&if clo<clomax:jump'marklowthelocssb'
+*pl''&'<<$low_loc>>'&$boot_loc=''&clo=1&clomax=arrsize('$b_name')
+:markbootthelocssb
+    if aristokrat_b[clo]>0:boothere['<<clo>>,<<$loc[you]>>']=1
+    if boothere['<<clo>>,<<$loc[you]>>']>0 and pol[you]=pol_b[clo]:$boot_loc+='<a href="exec:gt''gotobootssb'',<<clo>>"><img src="pic/clo/boot/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markbootthelocssb'
+*pl''&'<<$boot_loc>>'&gs'Item'
+*pl''&gs 'npconloc'
+act'Отойти':gt 'preloc'

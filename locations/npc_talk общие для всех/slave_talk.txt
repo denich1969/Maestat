@@ -1,0 +1,143 @@
+﻿if mywhoreformoney[npc]>=1 and slave[npc]=0:slave[npc]=you
+if slave[npc]=you:
+	act'Давай я тебя переодену':gt'npc_cloth'
+	 if money[npc]>0:
+		'У шлюхи <<money[npc]/100>> шиллингов'
+		 act'<i>Забрать деньги у рабыни <<money[npc]/100>> шиллингов</i>':
+			 money[you]+=money[npc]
+			 money[npc]=0
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> отдает вам деньги'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+	 if mysubslut[npc]=0:mysubslut[npc]=1
+	 '<<$name[npc]>> ваша рабыня'
+	 if mywhoreformoney[npc]=1:
+		 '<<$name[npc]>> ваша шлюха работающая в кафе Рим'
+		 act'<i>Гуляй по округе, ищи клиентов</i>':
+			 mywhoreformoney[npc]=2
+			 walkprog[npc]=76
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> выслушивает ваши приказы и соглашается'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+		 if hotelowner>=1:
+			 act'<i>Иди в отель Мардук</i>':
+				 X=1&Y=1&Z=4&H=6&R=3
+				 Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R
+				 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+				 walkprog[npc]=77
+				 mywhoreformoney[npc]=10
+				 walkprog[npc]=76
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 '<<$name[npc]>> выслушивает ваши приказы и соглашается'
+				 act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+	 end
+	 if mywhoreformoney[npc]=2:
+		 '<<$name[npc]>> ваша шлюха ищущая клиентов по району Жилмассив'
+		 act'<i>Иди в кафе Рим</i>':
+			 mywhoreformoney[npc]=1
+			 walkprog[npc]=76
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> выслушивает ваши приказы и соглашается'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+	 if mywhoreformoney[npc]=10:
+		 '<<$name[npc]>> ваша шлюха работающая в районе Аптауна'
+		 if saunakafeowner>=1:
+			 act'<i>Иди в кафе Рим</i>':
+				 X=2&Y=0&Z=3&H=2&R=3
+				 Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R
+				 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+				 walkprog[npc]=76
+				 mywhoreformoney[npc]=1
+				 walkprog[npc]=76
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 '<<$name[npc]>> выслушивает ваши приказы и соглашается'
+				 act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+	 end
+	 if saunakafeowner>=1 and mywhoreformoney[npc]=0:
+		 act'<b>Ты будешь шлюхой в моем кафе Рим</b>':
+			 cls
+			 if mywhoreformoney[npc]=0:
+				 mywhoreformoney[npc]=1
+				 if thenoob[npc]=1:
+					$history[npc]='Я попала в этот город, доверилась тебе, а ты сделал из меня шлюху.'
+				 else
+					$history[npc]='Я думала что сумела приспособиться в этом городе, но доверилась тебе, а ты сделал из меня шлюху.'
+				 end
+			end
+			 whore[npc]+=1
+			 whoreboss[npc]=you	 
+			gs'multi_world'	 
+			 if stamp_t[npc]=0:stamp_t[npc]=rand(1,4)
+			 t_slot[npc]=rand(31,36)&l_slot[npc]=rand(15,22)&b_slot[npc]=rand(8,11)
+			 X=2&Y=0&Z=3&H=2&R=3
+			 Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R
+			 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+			 walkprog[npc]=76
+			 gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 'Вы объясняете рабыне, что она теперь будет вашей шлюхой в кафе Рим и будет вам зарабатывать деньги. <<$name[npc]>> вытирая слезы соглашается'
+			 act'<b>Уйти</b>':gt 'preloc'
+		end
+	 end
+	 if hotelowner>=1 and mywhoreformoney[npc]=0:
+		 act'<b>Ты будешь шлюхой в моем отеле в Аптауне/b>':
+			 cls
+			 if mywhoreformoney[npc]=0:
+				 mywhoreformoney[npc]=10
+				 if thenoob[npc]=1:
+					$history[npc]='Я попала в этот город, доверилась тебе, а ты сделал из меня шлюху.'
+				 else
+					$history[npc]='Я думала что сумела приспособиться в этом городе, но доверилась тебе, а ты сделал из меня шлюху.'
+				 end
+			 end
+			 whore[npc]+=1
+			 whoreboss[npc]=you	 
+			 gs'multi_world'
+			 if stamp_t[npc]=0:stamp_t[npc]=rand(1,4)
+			 t_slot[npc]=rand(31,36)&l_slot[npc]=rand(15,22)&b_slot[npc]=rand(8,11)
+			 X=1&Y=1&Z=4&H=6&R=3
+			 Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R
+			 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+			 walkprog[npc]=77
+			 gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 'Вы объясняете рабыне, что она теперь будет вашей шлюхой в кафе Рим и будет вам зарабатывать деньги. <<$name[npc]>> вытирая слезы соглашается'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+else
+	 act'<b>Кто твой хозяин?</b>':
+		 mymas=slave[npc]
+		  time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 '<<$name[npc]>> отвечает - <<$name[mymas]>> <<$surname[mymas]>>'
+		 act'<b>Уйти</b>':gt 'preloc'
+		 if canbuywhore_tornton>0 and mymas=tornton:
+			 if money[you]>=200000:
+				'Вы можете купить шлюху за 2000 шиллингов'
+				 if saunakafehome[npc]=0 and saunakafeowner>=1:
+					 act'Выкупить и поселить в кафе "Рим"':
+						 money[you]-=200000
+						 money[mymas]+=200000
+						 saunakafehome[npc]=1
+						 Xhome[npc]=2&Yhome[npc]=0&Zhome[npc]=3&&Hhome[npc]=2&Rhome[npc]=3
+						 whoreboss[npc]=you
+						 slave[npc]=you
+						 !gs'multi_world'
+						 e_world[]=npc
+						 walkprog[npc]=26
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						 'Вы объясняете, что теперь можно жить в кафе "Рим", так как оно принадлежит вам.'
+						 act'<b>Уйти</b>':gt 'preloc'
+					 end
+				 end
+			 end
+		 end
+	 end
+end

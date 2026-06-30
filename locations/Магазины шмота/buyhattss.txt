@@ -1,0 +1,33 @@
+﻿gs'stat'
+'<center><img src="pic/clo/hat/<<clo>>.jpg" ></center>'
+'Номер одежды <<clo>>'
+'<<$h_name[clo]>>'
+!длина 0 короткая, до пояса 1мини 2середина бедра 3колено 4 ниже колена
+!сексуальность 0-нет 1-немного 2-много 10-перебор
+'Сексуальность <<sexy_h[clo]>>'
+!аристократичность
+
+
+
+
+act'Убрать обратно':gt'preloc'
+
+
+clopayment=10000
+if sexy_h[clo]>=5:clopayment+=sexy_h[clo]*1000
+
+
+'Цена <<clopayment/100>> шиллингов'
+
+if money[you]>=clopayment:
+     act'Купить <<clopayment/100>> шиллингов':
+     cls
+     money[you]-=clopayment
+     hathere['<<clo>>,<<$loc[you]>>']=0
+     burden[you]+=item_h_burden[clo]
+     item_h[clo]+=1
+     gs'stat'
+     'Вы оплачиваете товар и забираете его'
+     act'...':gt 'preloc'
+     end
+end

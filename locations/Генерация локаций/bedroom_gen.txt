@@ -1,0 +1,70 @@
+﻿$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&!Образец вызова:gs 'bedroom_gen',уровень спальной, 'жильцы',номер предмета
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+gs'item_base'
+if args[0]=0:
+	$locopis['<<$temploc>>']=''&!описание
+	np['<<$temploc>>']=5&!номер картинки
+elseif  args[0]=1:
+	$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'&!описание
+	np['<<$temploc>>']=5&!номер картинки
+	item_loc['rand(30),<<$temploc>>']=1
+elseif  args[0]=2:
+	$locopis['<<$temploc>>']='Большая спальная комната'&!описание
+	np['<<$temploc>>']=5&!номер картинки
+	item_loc['rand(30),<<$temploc>>']=1
+elseif  args[0]=3:
+	$locopis['<<$temploc>>']='Просторная комната с широкой кроватью и гардеробом'& !описание
+	np['<<$temploc>>']=5&!номер картинки
+	item_loc['rand(30),<<$temploc>>']=1
+elseif  args[0]=4:
+	$locopis['<<$temploc>>']='Большая спальная с кроватью траходромом'&!описание
+	np['<<$temploc>>']=5&!номер картинки
+	item_loc['rand(30),<<$temploc>>']=1
+elseif  args[0]=5:
+	$locopis['<<$temploc>>']='Шикарные апартаменты, напоминающие намера люкс в лучших отелях'&!описание
+	np['<<$temploc>>']=5&!номер картинки
+	item_loc['rand(30),<<$temploc>>']=1
+end
+!Генератор жильцов (можно указывать принадлежность хозяину любым способом)
+if $args[1]='mortimer_gen':
+	gs'mortimer_gen'&!У Мортимера нет фамилии, поэтому его дом был безымянным, теперь подписан именем
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$name[i]>>)'
+elseif $args[1]='spiro':
+	gs'spiro_gen'&gs'spirowife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='takemura':
+	gs'takemura_gen'&gs'takemurawife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='finch':
+	gs'finch_gen'&gs'finchwife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='kinomeh':
+	gs'kinomeh_gen'&gs'kinomehwife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='cromar':
+	gs'cromar_gen'&gs'cromarwife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='kalhorn':
+	gs'kalhorn_gen'&gs'kalhornwife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='himic':
+	gs'himic_gen'&gs'himicwife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='soul':
+	gs'soulmaster_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+	gs'soulmistress_gen'&gs'soulslut_gen'
+elseif $args[1]='teleport':
+	gs'teleportboss_gen'&gs'teleportwife_gen'
+	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+elseif $args[1]='downfamilygen':
+	gs 'downfamilygen'
+elseif $args[1]='upfamilygen':
+	gs 'upfamilygen'
+!msg	"<<$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'>>"
+else
+
+end
+mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+if Z=200 or Z=777 or Z=7777: biospere['<<$temploc>>']=1&!включение биосферы на Лунной базе или космическом корабле

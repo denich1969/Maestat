@@ -1,0 +1,35 @@
+﻿if Z[you]=770:
+	$d_view='pic/mob/<<rand(143,149)>>.jpg'&'<center><img src="<<$d_view>>" ></center>'
+	if mob_sleep[npc]>time:
+		'<<$nick[npc]>> дремлет'
+	else
+		if you_slut[npc]>0:
+			'<<$nick[npc]>> усмехается глядя на вас'&if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+			dynamic $d_fear
+		else
+			if corr[npc]<100:
+				if glooms_here=1:
+					'<<$nick[npc]>> насвистывая мелодию - берегись, в этом лесу семейство Хмуров вершит свою черную магию'
+					act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+					act'Расскажи о Хмурах':
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						'<<$nick[npc]>> - Хмуры это муж и жена Хильди и Грим, они очень сильные колдуны, они оскверняют лес и привели сюда гоблинов.'&act'<b>Уйти</b>':gt 'preloc'
+					end
+				else
+					'<<$nick[npc]>> насвистывая мелодию - Это наш лес, чудесное место, хотя берегись колючек'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+				end
+				if friends[npc]>0 and corr[npc]<100:gs'take_follower'
+				if friends[npc]>0 and horny[you]>=50:act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&gt'justasex'
+			else
+				'<<$nick[npc]>> напряженно пялится на вас и вы замечаете что она покраснела'
+				dynamic $d_fear
+			end
+		end
+	end
+elseif Z[you]=100:
+
+elseif Z[you]=600:
+
+else
+
+end

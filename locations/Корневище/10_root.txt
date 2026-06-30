@@ -1,0 +1,135 @@
+﻿X=0&Y=0&Z=10&H=0&R=0&Xmax[Z]=30&Ymax[Z]=30&badworld[Z]=1&!20 npc
+$n_board[Z]='Стена переплетенных корней'&$w_board[Z]='Стена переплетенных корней'&$e_board[Z]='Стена переплетенных корней'&$s_board[Z]='Стена переплетенных корней'
+magworld[Z]=1&oxigen[Z]=2&temper[Z]=3&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworldRoot
+H=0&R=0
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if noraonce=0:
+	Xr=rand(2,28)&	Yr=rand(2,28)
+     if Xr=15 and Yr=15:
+     else
+		 noraonce=1&nora['<<Xr>>,<<Yr>>,<<Z>>,0,0']=1
+     end
+end
+if X=15 and Y=15:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Заросшая корнями избушка'&$lname['<<$temploc>>']='Заросшая корнями избушка'
+	 $locopis['<<$temploc>>']='В сумрачном переплетении корней виднеется избушка'
+	 np['<<$temploc>>']=182
+	 megamycete['<<$temploc>>']=100
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Избушка'
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Избушка'&$lname['<<$temploc>>']='Избушка'&$lname_go['<<$temploc>>']='в избушку'
+ 	 $locopis['<<$temploc>>']='Тесная избушка с углами затянутыми паутиной, кое где растущими грибами. Под потолком сушатся разные травы. В печке горит огонь на котором стоит ведьмовской котел. А на столе склянки со странным содержимым.'
+	 np['<<$temploc>>']=183
+	 mirror['<<$temploc>>']=1&	 witchkotel['<<$temploc>>']=1&babaiga['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&megamycete['<<$temploc>>']=100
+else
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	tipeforest=rand(10)
+     if tipeforest=0:
+		 $locname['<<$temploc>>']='Мрачный лес'&$lname['<<$temploc>>']='Мрачный лес'
+		 $locopis['<<$temploc>>']='Вокруг туманно и сумрачно, кривые стволы деревьев уходят куда то в небо и не видно их крон. Лишь только на самых тонких деревцах виднелись голые и безжизненные верхушки.'
+		 np['<<$temploc>>']=181
+		 mushroom['<<$temploc>>']=rand(1)&mandragora['<<$temploc>>']=rand(1)&cikuta['<<$temploc>>']=rand(1)&bella['<<$temploc>>']=rand(1)
+		 koluchka['<<$temploc>>']=rand(1)&omela['<<$temploc>>']=rand(1)&zemla['<<$temploc>>']=rand(1)&malin['<<$temploc>>']=rand(1)&chern['<<$temploc>>']=rand(1)
+	 end
+	 if tipeforest=1:
+		 $locname['<<$temploc>>']='Дремучий лес'&$lname['<<$temploc>>']='Дремучий лес'
+		 $locopis['<<$temploc>>']='Тяжелый, влажный воздух, с деревьев свисают лианы и в некоторых клубках лиан угадываются запутанные там человеческие фигуры'
+		 np['<<$temploc>>']=185
+		 mushroom['<<$temploc>>']=rand(1)&mandragora['<<$temploc>>']=rand(1)&cikuta['<<$temploc>>']=rand(1)&bella['<<$temploc>>']=rand(1)
+		 koluchka['<<$temploc>>']=rand(1)&omela['<<$temploc>>']=rand(1)&zemla['<<$temploc>>']=rand(1)&malin['<<$temploc>>']=rand(1)&chern['<<$temploc>>']=rand(1)
+	 end
+	 if tipeforest=2:
+		 $locname['<<$temploc>>']='Чащоба'&$lname['<<$temploc>>']='Чащоба'
+		 $locopis['<<$temploc>>']='Толстые и кряжистые деревья таинственно скрипят во влажном воздухе леса'
+		 np['<<$temploc>>']=186
+		 mushroom['<<$temploc>>']=rand(1)&mandragora['<<$temploc>>']=rand(1)&cikuta['<<$temploc>>']=rand(1)&bella['<<$temploc>>']=rand(1)
+		 koluchka['<<$temploc>>']=rand(1)&omela['<<$temploc>>']=rand(1)&zemla['<<$temploc>>']=rand(1)&malin['<<$temploc>>']=rand(1)&chern['<<$temploc>>']=rand(1)
+	 end
+	 if tipeforest=3:
+		 $locname['<<$temploc>>']='Колючки'&$lname['<<$temploc>>']='Колючки'
+		 $locopis['<<$temploc>>']='Деревья переплетены колючими лозами и в жухлой траве белеют кости'
+		 np['<<$temploc>>']=184
+		 koluchka['<<$temploc>>']=1&mushroom['<<$temploc>>']=rand(1)
+	 end
+	 if tipeforest=4:
+		 $locname['<<$temploc>>']='Переплетенный лес'&$lname['<<$temploc>>']='Переплетенный лес'
+		 $locopis['<<$temploc>>']='Лес переплетен толстыми стеблями какой-то колючей лозы'
+		 np['<<$temploc>>']=187
+		 koluchka['<<$temploc>>']=1&mushroom['<<$temploc>>']=rand(1)&mushroom['<<$temploc>>']=rand(1)
+	 end
+	 if tipeforest=5:
+		 $locname['<<$temploc>>']='Гнилые болота'&$lname['<<$temploc>>']='Гнилые болота'
+		 $locopis['<<$temploc>>']='Гнилые остовы деревьев торчат из водянистых кочек едва возвышающихся над мутной жижей болота'
+		 np['<<$temploc>>']=188
+		 can_swim['<<$temploc>>']=1&marsh['<<$temploc>>']=1
+		 frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=rand(1)&list['<<$temploc>>']=1
+	 end
+	 if tipeforest=6:
+		 $locname['<<$temploc>>']='Туманные болота'&$lname['<<$temploc>>']='Туманные болота'
+		 $locopis['<<$temploc>>']='Гнилые стволы деревьев поросли мхом и лишь едва видны среди ползущего над болотом тумана.'
+		 np['<<$temploc>>']=189
+		 can_swim['<<$temploc>>']=1&marsh['<<$temploc>>']=1
+		 frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=rand(1)&list['<<$temploc>>']=1
+	 end
+	 if tipeforest=7:
+		 $locname['<<$temploc>>']='Топкое место'&$lname['<<$temploc>>']='Топкое место'
+		 $locopis['<<$temploc>>']='Огромные стволы деревьев покрыты зеленым мхом растут прямо из покрытой ряской болотины.'
+		 np['<<$temploc>>']=190
+		 can_swim['<<$temploc>>']=1&marsh['<<$temploc>>']=1
+		 frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=rand(1)&list['<<$temploc>>']=1
+	 end
+	 if tipeforest=8:
+		 $locname['<<$temploc>>']='Лесное болото'&$lname['<<$temploc>>']='Лесное болото'
+		 $locopis['<<$temploc>>']='Зелень, растущая на болотине, с небольшими окошками чистой воды и старые деревья, поросшие мхом и оплетающими их стволы лианами.'
+		 np['<<$temploc>>']=191
+		 can_swim['<<$temploc>>']=1&marsh['<<$temploc>>']=1
+		 frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=rand(1)&list['<<$temploc>>']=1
+	 end
+	 if tipeforest=9:
+		 $locname['<<$temploc>>']='Руины в болотах'&$lname['<<$temploc>>']='Руины в болотах'
+		 $locopis['<<$temploc>>']='Сквозь гиблые болотные топи торчат гнилые остовы домов, когда-то тут стоявших и утонувших в болоте.'
+		 np['<<$temploc>>']=192
+		 can_swim['<<$temploc>>']=1&marsh['<<$temploc>>']=1
+		 frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=rand(1)&list['<<$temploc>>']=1
+		maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+		 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Руины'
+		 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Руины'&$lname['<<$temploc>>']='Руины'&$lname_go['<<$temploc>>']='в руины'
+		 $locopis['<<$temploc>>']='Прогнившие и местами обрушившиеся руины, впрочем, кое-что сохранилось и тут даже можно переночевать.'
+		 np['<<$temploc>>']=194
+		 run_ruins['<<$temploc>>']=1&mirror['<<$temploc>>']=1&witchkotel['<<$temploc>>']=rand(1)&can_sleep['<<$temploc>>']=4&megamycete['<<$temploc>>']=100
+		 item_loc['1,<<$temploc>>']=rand(1)&item_loc['2,<<$temploc>>']=rand(1)
+	 end
+	 if tipeforest=10:
+		 $locname['<<$temploc>>']='Озеро'&$lname['<<$temploc>>']='Озеро'
+		 $locopis['<<$temploc>>']='Из чистой и прозрачной воды растут гиганские стволы деревьев, верхушки которых скрываются в дымке, нависающей сверху.'
+		 np['<<$temploc>>']=193
+		 can_swim['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&lake['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=rand(1)&list['<<$temploc>>']=1
+	 end
+	 item_loc['46,<<$temploc>>']=rand(1)
+	 megamycete['<<$temploc>>']=rand(10,100)
+	 if rand(1,10)>=6:
+	    if rand(1,10)<=6:
+			gs'wilder_gen'
+	     else
+			 tipebeast=rand(1,10)
+			 rootmonster+=1
+			 if tipebeast<=6:gs'rootdog_gen'
+			 if tipebeast=7:gs'lesh_gen'
+			 if tipebeast=8:gs'kikimora_gen'
+			 if tipebeast=9:gs'dreven_gen'
+			 if tipebeast=10:gs'skolop_gen'&!nora['<<$temploc>>']=1
+	     end
+	 end
+end
+X+=1&if X<=Xmax[Z]:jump'markgenworldRoot'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldRoot'

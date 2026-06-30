@@ -1,0 +1,9 @@
+﻿gs'stat'
+falselife[you]-=1
+health[you]=healthmax[you]
+energy[you]=energymax[you]
+mana[you]=manamax[you]
+'<center><img src="pic/misc/raven.jpg" ></center>'
+'Смертельный удар настиг вас, и тут же сработала магия. Ваше тело обратилось в стаю воронов и тут же пересобралось заново. У вас осталось <<falselife[you]>> ложных жизней.'
+
+act'...':gt'fight'

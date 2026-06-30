@@ -1,0 +1,144 @@
+﻿gs'stat'&if master[you]=1 and canremember[you]=0:canremember[you]=1
+'Алтарь испещренный рунами.'&gs'Item'&*pl''&gs 'npconloc'&act'Отойти':gt 'world'&altarkoef=300
+if blocktits[you]>0:'Ваша грудь не может быть больше <<blocktits[you]>> размера'
+if altarpower['<<$loc[you]>>']>=time:'Алтарь тусклый и не готов к использованию.'
+if altarpower['<<$loc[you]>>']<time:
+	'Алтарь сияет и готов к использовани'
+     if use_altar[you]>=3:
+     	 act'Просить защиту разума':&use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef&item_loc['36,<<$loc[you]>>']+=1&gt $curloc
+		 act'Просить зелье выносливости':use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef&item_loc['50,<<$loc[you]>>']+=1&gt $curloc
+		 act'Молитва о защите':
+			use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef
+			item_loc_t['21,<<$loc[you]>>']=1&item_loc_l['19,<<$loc[you]>>']=1
+			if ban_h[you]>0:ban_h[you]=0
+			if ban_t[you]>0:ban_t[you]=0
+			if ban_l[you]>0:ban_l[you]=0
+			if ban_b[you]>0:ban_b[you]=0
+			cls&gs'stat'&'Вы ложитесь на алтарь и молите о защите. Вы чувствуете что что то упало на землю.'&act'Встать':gt $curloc
+		 end
+     end
+	 act'Заблокировать рост груди':
+		use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef
+		if blocktits[you]>0:blocktits[you]-=1
+		if blocktits[you]=0:blocktits[you]=6
+		gt $curloc
+	 end
+     if m_slot[you]=25 and runealtar=0:
+		'Сияющий меч в ваших руках начинает как то по особому сиять при приближении к алтарю'
+	 	 act'Положить меч на алтарь':
+			use_altar[you]+=1&runealtar=1&item_loc['29,<<$loc[you]>>']+=1&altarpower['<<$loc[you]>>']=time+altarkoef
+			cls&gs'stat'&'Вы кладете меч на алтарь и на алтаре материализуется рунный камень'&act'Встать':gt $curloc
+		 end
+     end
+	 if anal_egg[you]>=1 and soul[you]>1:
+	 	 act'Избавиться от анального яйца':
+			use_altar[you]+=1&anal_egg[you]=0&anal_egg_timer[you]=0&altarpower['<<$loc[you]>>']=time+altarkoef
+			cls&gs'stat'&'Вы ложитесь на алтарь и чувствуете как яйцо внутри вас исчзает без следа'&act'Встать':gt $curloc
+		 end
+	 end
+	 if feminize[you]>0:
+	 	 act'Избавиться от феминизации':
+			use_altar[you]+=1&feminize[you]=0&altarpower['<<$loc[you]>>']=time+altarkoef
+		     if dick[you]>1:manize[you]+=10
+		     if tits[you]<10:tits[you]-=1
+			 if tits[you]>=10 and tits[you]<14:tits[you]-=2
+			 if tits[you]>=14 and tits[you]<17:tits[you]-=3
+			 if tits[you]>=17 and tits[you]<19:tits[you]-=4
+			 if tits[you]>=19 and tits[you]<21:tits[you]-=5
+			 if tits[you]>=21 and tits[you]<23:tits[you]-=6
+			 if tits[you]>=23 and tits[you]<26:tits[you]-=7
+			cls&gs'stat'&'Вы ложитесь на алтарь и чувствуете что эффект феминизации пропадает'&act'Встать':gt $curloc
+		 end
+	 end
+	 if tits[you]>0:
+	 	 act'Уменьшить грудь':
+			use_altar[you]+=1&feminize[you]=0&altarpower['<<$loc[you]>>']=time+altarkoef
+		     if dick[you]>1:manize[you]+=10
+		     if tits[you]<10:nip[you]=1&tits[you]=0
+			 if tits[you]>=10:tits[you]=5
+			 if tits[you]>=14 and tits[you]<17:			 
+				 tits[you]-=20&if tits[you]<=0:tits[you]=0
+			 end
+			cls&gs'stat'&'Вы ложитесь на алтарь и чувствуете что грудь уменьшается'&act'Встать':gt $curloc
+		 end
+	 end
+	 if ass[you]>2:
+	 	 act'Уменьшить зад':
+			use_altar[you]+=1&feminize[you]=0&altarpower['<<$loc[you]>>']=time+altarkoef&ass[you]-=10&if ass[you]<2:ass[you]=2
+			cls&gs'stat'&'Вы ложитесь на алтарь и чувствуете что ваша пятая точка уменьшается'&act'Встать':gt $curloc
+		 end
+	 end
+	 if health[you]<healthmax[you]:
+	 	 act'Излечиться':
+			use_altar[you]+=1&health[you]=healthmax[you]&altarpower['<<$loc[you]>>']=time+altarkoef&item_loc['28,<<$loc[you]>>']+=1
+			cls&gs'stat'&'Вы ложитесь на алтарь и чувствуете что ваше здоровье восстанавливается и раны затягиваются. А так же на алтаре появляется волшебный, лечащий лист.'&act'Встать':gt $curloc
+		 end
+	 end
+	 if mana[you]<manamax[you] and manamax[you]>0:
+	 	 act'Восстановить магическую энергию':
+			use_altar[you]+=1&mana[you]=manamax[you]&altarpower['<<$loc[you]>>']=time+altarkoef
+			cls&gs'stat'&'Вы ложитесь на алтарь и чувствуете что ваша магическая энергия возвращается к вам.'&act'Встать':gt $curloc
+		 end
+	 end
+	 act'Молитва об одежде':
+		use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef
+		 item_loc_t['<<rand(12,19)>>,<<$loc[you]>>']=1&item_loc_l['<<rand(9,17)>>,<<$loc[you]>>']=1&item_loc_b['<<rand(8,9)>>,<<$loc[you]>>']=1
+		 item_loc_ut['<<rand(1,3)>>,<<$loc[you]>>']=1&item_loc_ul['<<rand(1,4)>>,<<$loc[you]>>']=1&item_loc_ub['<<rand(1,5)>>,<<$loc[you]>>']=1
+		 if ban_h[you]>0:ban_h[you]=0
+         if ban_t[you]>0:ban_t[you]=0
+         if ban_l[you]>0:ban_l[you]=0
+         if ban_b[you]>0:ban_b[you]=0
+		cls&gs'stat'&'Вы ложитесь на алтарь и молите об одежде. Вы чувствуете что что то упало на землю.'&act'Встать':gt $curloc
+	 end
+	 act'Просить оружие':
+		use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef&cls&gs'stat'&'Вы ложитесь на алтарь и просите оружие.'
+		 if takeoffsword[you]=0:
+			 X[you]=7&Y[you]=7&Z[you]=0&'У вас перед глазами возникает видение, в джунглях есть камень с воткнутым туда мечом'&act'Встать':gt 'preloc'
+		 else
+			item_loc['44,<<$loc[you]>>']+=1&mus[you]+=rand(5,10)&if fat[you]>100:fat[you]-=rand(1,10)
+			'Вы чувствуете что стали немного сильнее и рядом с алтарем падает катана'&act'Встать':gt $curloc
+		 end
+	 end
+	 act'Сменить имя и фамилию':
+		cls&use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef
+		$name[you]=input("Введите имя")
+         if $name[you]='' or $name[you]=' ':
+             if pol[you]=0:gs'man_name'&$name[you]=$genname
+             if pol[you]=1:gs'woman_name'&$name[you]=$genname
+         end
+		$surname[you]=input("Введите фамилию")&if $surname[you]='' or $surname[you]=' ':gs'surname'&$surname[you]=$iif(pol[you]=0,$gensurname,$gensurname_f)
+		gt $curloc
+	 end
+	 if item[29]>0 and corr[you]>0:
+		 act'Полностью очистится от скверны разломив рунный камень':cls&corr[you]=0&item[29]-=1&burden[you]-=item_burden[29]&use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef&gt $curloc
+	 end
+	 if corr[you]>=50:act'Немного очиститься от скверны':cls&corr[you]-=10&use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef&gt $curloc
+	 if item[29]>0:act'Получить душу из рунного камня':throneonce+=1&item[29]-=1&soul[you]+=100&gt 'preloc'
+	 if inseminate[you]>0 and pregnant_day[you]<sumdaystart:
+	 	 act'Аборт':cls&corr[you]=0&use_altar[you]+=1&altarpower['<<$loc[you]>>']=time+altarkoef&inseminate[you]=0&pregnant_day[you]=0&gt $curloc
+	 end
+	 !if dead[witchnum]=0 and mob[witchnum]=3:'Ведьма <<X[witchnum]>> <<Y[witchnum]>> <<Z[witchnum]>>'
+	 !if dead[bdsmnum]=0 and mob[bdsmnum]=8:'Госпожа <<X[bdsmnum]>> <<Y[bdsmnum]>> <<Z[bdsmnum]>>'
+	 !if buben_miracle>0:'Бубен сотворил <<buben_miracle>> чудес воскрешения'
+	 !if total_demon>0:'По отелю бродит демон мести <<X[hoteldemon]>> <<Y[hoteldemon]>> <<Z[hoteldemon]>>'
+	if rememberme>0:
+		 act'Восстановить свой облик':
+			i=you&rem=0&age[i]=age[rem]&face[i]=face[rem]
+			gla[i]=gla[rem]&glacol[i]=glacol[rem]&nose[i]=nose[rem]&scull[i]=scull[rem]&cheeks[i]=cheeks[rem]&beard[i]=beard[rem]
+			dick[i]=dick[rem]&dickd[i]=dickd[rem]&ball[i]=ball[rem]&vag[i]=vag[rem]&ass[i]=ass[rem]&tits[i]=tits[rem]&nip[i]=nip[rem]
+			rost[i]=rost[rem]&fat[i]=fat[rem]&mus[i]=mus[rem]&skin[i]=skin[rem]
+			face_hair[i]=face_hair[rem]&tit_hair_can[i]=tit_hair_can[rem]&tit_hair[i]=tit_hair[rem]&leg_hair_can[i]=leg_hair_can[rem]&leg_hair[i]=leg_hair[rem]&hlong[i]=hlong[rem]&hcol[i]=hcol[rem]
+			cls&gt'world'
+		 end
+	end
+     if canremember[you]=1:
+		act'Запомнить свой облик':
+			cls&rememberme=1&i=0&age[i]=age[you]&face[i]=face[you]
+			gla[i]=gla[you]&glacol[i]=glacol[you]&nose[i]=nose[you]&scull[i]=scull[you]&cheeks[i]=cheeks[you]&beard[i]=beard[you]
+			dick[i]=dick[you]&dickd[i]=dickd[you]&ball[i]=ball[you]&vag[i]=vag[you]&ass[i]=ass[you]&nip[i]=nip[you]&tits[i]=tits[you]
+			rost[i]=rost[you]&fat[i]=fat[you]&mus[i]=mus[you]&skin[i]=skin[you]
+			face_hair[i]=face_hair[you]&tit_hair_can[i]=tit_hair_can[you]&tit_hair[i]=tit_hair[you]&leg_hair_can[i]=leg_hair_can[you]&leg_hair[i]=leg_hair[you]&hlong[i]=hlong[you]&hcol[i]=hcol[you]
+			gt'world'
+		end
+	 end
+end

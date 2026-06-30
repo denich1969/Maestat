@@ -1,0 +1,43 @@
+﻿if m_slot[you]!31:m_slot[you]=31&$item_m_name[31]='Дилдо'&uron_weapon_m[you]=10&'Оружие в ваших руках превращается в дилдо'
+gs'soulcraft',50
+if t_slot[you]>0 and ban_t[you]=0:ts=t_slot[you]&t_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'<<$nick[npc]>> сдирает с вас одежду сверху'
+if l_slot[you]>0 and ban_l[you]=0:ls=l_slot[you]&l_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'<<$nick[npc]>> сдирает с вас одежду снизу'
+if ul_slot[you]>0:ul_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'<<$nick[npc]>> рвет в клочья ваши трусы'
+if ut_slot[you]>0:ut_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'<<$nick[npc]>> рвет в клочья ваш лифчик'
+if h_slot[you]=2:
+     h_slot[you]=3
+     ban_h[you]=npc
+     item_loc_hat['2,10,10,4']=1
+     '<<$nick[npc]>> с хохотом забирает вашу диадему и заставляет вас одеть лицевую сбрую'
+    if back_t_[you]=0:back_t_[you]=1&'Кожа на спине между лопаток и выше вспыхивает болью и там образовывается татуировка'
+end
+if ban_t[you]=0:
+     t_slot[you]=22&ban_t[you]=npc
+     l_slot[you]=20&ban_l[you]=npc
+     b_slot[you]=11
+     '<<$nick[npc]>> одевает на вас сбрую и портупею рабыни'
+end
+l_ass_t[you]=1&'<<$nick[npc]>> достает раскаленное клеймо и прижигает вашу левую ягодицу - теперь ты станешь покорной и сломленной шлюхой.'
+reflex[you]=20
+corr[you]+=10
+feminize[you]+=rand(3,6)&'<<$nick[npc]>> накладывает на вас заклинание'
+act'...':
+	master[you]=0
+	X=22&Y=15&Z=773&H=0&R=0
+	X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gt'preloc'
+	dead[hildiglum]=0&X[hildiglum]=10&Y[hildiglum]=10&Z[hildiglum]=740&H[hildiglum]=0&R[hildiglum]=0
+	dead[grimglum]=0&X[grimglum]=10&Y[grimglum]=10&Z[grimglum]=740&H[grimglum]=0&R[grimglum]=0
+end

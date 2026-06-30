@@ -1,0 +1,68 @@
+﻿$d_lezdom_end={
+	horny[you]=0
+	if magworld[Znow]>0:
+		 if stamp_t[you]>0:
+			 if stampblockday[you]=daystart:
+				slutday[you]+=1
+			 else
+				stampblockday[you]=daystart&gs'soulcraft'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+			 end
+		 else
+		 gs'soulcraft'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+		 end
+	end
+	gs'add_sex_stat', you, npc
+	$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> был отдоминирована мной'
+	$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> отдоминировала меня'
+	lesb[you]+=1&lesb[npc]+=1&anal_mass['<<npc>>,<<you>>']+=1&anal[you]+=1&aanal[npc]+=1&corr[you]+=5&gt'preloc'
+}
+gs'stat'&'<center><img src="pic/event/book/lezdom.jpg" ></center>'&'<<$name[npc]>> раздевается и взяв кнут ледяным тоном приказывает вам - На колени!'
+act'На колени':
+	cls
+	 if t_slot[you]>0:
+		clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
+	 end
+	 if l_slot[you]>0:
+		clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+	 end
+	 if b_slot[you]>0:
+		clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+	 end
+	 if ut_slot[you]>0:
+		clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$loc[you]>>']+=1
+	 end
+	 if ul_slot[you]>0:
+		clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+	 end
+	 if ub_slot[you]>0:
+		clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+	 end
+	 h_slot[you]=1&ul_slot[you]=14&ub_slot[you]=2
+	gs'stat'&'<center><img src="pic/event/book/lezdom_00.jpg" ></center>'&'Госпожа раздевает вас стимулируя кнутом и надевает вам на голову маску и ошейник к которому цепляет цепочку.'
+	'Растянувшись на диване и скинув туфли ведьма со смешком приказала вам - Вылижи мне ножки.'
+     act'Лизать':
+		cls&gs'stat'&'<center><img src="pic/event/book/lezdom_01.jpg" ></center>'&
+		'Расположившись поудобнее вы начали вылизывать и обсасывать пальцы на ногах госпожи, когда же ей надоело она приказала лечь вам к ней на колени'
+		 act'Выполнить приказ':
+			anus[you]+=500&cls&gs'stat'&'<center><video src="pic/sex/lesb/finger_anal0.webm" ></video></center>'
+			'Едва вы легли на ноги госпожи ,как она принялась смазывать ваш анус чем то взяким и вводить внутрь вас пальцы расслабляя вашу дырочку.'
+			'Натренировав и расслабив ваш анус, госпожа звонко шлепнула вам по заднице и приказала встать раком.'
+			 act'Выполнить приказ':
+				 hotass[you]+=1&cls&gs'stat'&'<center><img src="pic/event/book/lezdom_strapon.jpg" ></center>'
+				 'Вы встали и наклонились уперевшись руками в диван. Проникновение не заставило себя ждать. Госпожа ввела вам в попу страпон и начала жестко дрючить вас.'
+				 'Как бы вы не были подготовлены, но такое бурение вашей жопы не могло пройти легко. Вы начали стонать, а затем орать и визжать умоляя о снисхождении неистово ебущей вас госпожи.'
+				 'Госпожа была глуха к вашим мольбам и лишь бодрила вас ударами хлыста по заднице, но все таки она устала и ее кожа заблестела от пота. '
+				'Она вынула страпон из вашей едва не дымящейся задницы с развороченным очком в которое спокойно могла бы залезть бутылка донышком внутрь. '
+				'Госпожа сняла страпон и села раздвинув ноги - отблагодари меня!'
+				 act'Вылизать':
+					 cls&gs'stat'&'<center><video src="pic/sex/lesb/5.webm" ></video></center>'
+					 'Сев на колени между ног госпожи вы принялись вылизывать ее сколькую от смазки пизду, вскоре госпожа застонала от оргазма и отстранила вас от своей промежности и приказала открыть рот.'
+					 act'Открыть рот':
+						 cls&gs'stat'&'<center><video src="pic/sex/lesb/spit.webm" ></video></center>'
+						 'Внезапно госпожа набрала полный рот слюны и харкнула вам в рот, а после заставила вас проглотить ее харчок - а теперь проваливай отсюда шлюха!'&act'...':dynamic $d_lezdom_end
+					 end
+				 end
+			 end
+		 end
+     end
+end

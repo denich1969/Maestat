@@ -1,0 +1,15 @@
+﻿if demon_dick[args[0]]>0 and demon_dick_stomath[args[0]]>0 and demon_dick_stomath_time[args[0]]!hour:
+	demon_dick_stomath_time[args[0]]=hour
+	if demon_dick_stomath[args[0]]>=demon_dick[args[0]]:		
+		soul[args[0]]+=demon_dick[args[0]]
+		demon_dick_stomath[args[0]]-=demon_dick[args[0]]
+	else
+		soul[args[0]]+=demon_dick_stomath[args[0]]
+		demon_dick_stomath[args[0]]=0
+	end
+end
+if demon_dick_stomath[args[0]]>demon_dick_stomath_max[args[0]]:
+	soul_loc['<<X[args[0]]>>,<<Y[args[0]]>>,<<Z[args[0]]>>,<<H[args[0]]>>,<<R[args[0]]>>']+=demon_dick_stomath[args[0]]-demon_dick_stomath_max[args[0]]
+	demon_dick_stomath[args[0]]=demon_dick_stomath_max[args[0]]
+	if args[0]=you:"Из-за падения уровня и резервуар душ не выдержал и излишки покинули его!"
+end	

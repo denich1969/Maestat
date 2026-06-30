@@ -1,0 +1,22 @@
+﻿candoanal[args[1]]=0
+if anus[args[1]]>20:candoanal[args[1]]=1
+if lust[args[1]]>=70:candoanal[args[1]]=1
+if agro[args[1]]<=20:candoanal[args[1]]=1
+if dick[args[1]]>0:candoanal[args[1]]=1
+if anal_fixation[args[1]]>0:candoanal[args[1]]=1
+if demon_dick_queen[args[1]]=args[0]:candoanal[args[1]]=1
+if dom[args[0]]>=90 and agro[args[1]]<50 and candoanal[args[1]]=1:candoanal[args[1]]=2
+candoblow[args[1]]=0
+if temp_dirt_cock[args[0]]=0:
+	if bj[args[1]]>0:candoblow[args[1]]=1
+	if lust[args[1]]>=70:candoblow[args[1]]=1
+	if agro[args[1]]<=20:candoblow[args[1]]=1
+	if dick[args[1]]>1:candoblow[args[1]]=1
+	if oral_fixation[args[1]]>0:candoblow[args[1]]=1
+else
+	if lust[args[1]]>=80:candoblow[args[1]]=1
+	if agro[args[1]]<=10:candoblow[args[1]]=1
+	if oral_fixation[args[1]]>0:candoblow[args[1]]=1
+end
+if demon_dick_queen[args[1]]=args[0] and candoblow[args[1]]=0:candoblow[args[1]]=2
+if dom[args[0]]>=90 and agro[args[1]]<50 and candoblow[args[1]]=0:candoblow[args[1]]=2

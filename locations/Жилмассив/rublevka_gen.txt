@@ -1,0 +1,152 @@
+﻿H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Богарта'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=7&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Особняк'&$lname['<<$temploc>>']='Особняк'&$lname_go['<<$temploc>>']='в особняк'
+$locopis['<<$temploc>>']='Деревянные панели на стенах, деревянные колонны и камин'
+np['<<$temploc>>']=171
+mirror['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная Богарта'
+$locname['<<$temploc>>']='Спальная Богарта'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=172
+mirror['<<$temploc>>']=1
+gs'bogart_gen'&!решала Борис Богарт
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная богини'
+$locname['<<$temploc>>']='Спальная богини'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=173
+mirror['<<$temploc>>']=1
+gs'motherearth_gen'
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная сына земли'
+$locname['<<$temploc>>']='Спальная сына земли'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=174
+mirror['<<$temploc>>']=1
+gs'antey_gen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг'
+$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$lname_go['<<$temploc>>']='в комнату для слуг'
+$locopis['<<$temploc>>']='Простенькая спальная с грубыми кроватями'
+np['<<$temploc>>']=175
+mirror['<<$temploc>>']=1
+gs'bogartsmaid_gen'
+R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
+$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'
+$locopis['<<$temploc>>']='В центре комнаты длинный стол'
+np['<<$temploc>>']=176
+mirror['<<$temploc>>']=1
+R=6&gs 'toilet_gen',2&!gs 'toilet_gen',уровень туалета
+R=7&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Библиотека'
+$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='Библиотека'&$lname_go['<<$temploc>>']='в библиотеку'
+$locopis['<<$temploc>>']='Огромное помещение набитое книгами всех времен и народов'
+library['<<$temploc>>']=10
+np['<<$temploc>>']=177
+witchkotel['<<$temploc>>']=1&pentagramm['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+husband[borisbogart]=motherearth&husband[motherearth]=borisbogart
+kid_first[borisbogart]=antey&kid_first[motherearth]=antey&father[antey]=borisbogart&mother[antey]=motherearth
+H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Висконти'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=5&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Особняк'&$lname['<<$temploc>>']='Особняк'&$lname_go['<<$temploc>>']='в особняк'
+$locopis['<<$temploc>>']='Вычурный особняк в стиле цыганского барроко где слишком много блеска и золота'
+np['<<$temploc>>']=40
+mirror['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная хозяев'
+$locname['<<$temploc>>']='Спальная хозяев'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=41
+mirror['<<$temploc>>']=1
+gs'frank_visconti_gen'&!владелец мануфактуры
+gs'bianka_visconti_gen'
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная детская'
+$locname['<<$temploc>>']='Спальная детская'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=173
+mirror['<<$temploc>>']=1
+gs'victoria_visconti_gen'
+kid_first[frank_visconti]=victoria_visconti&kid_first[bianka_visconti]=victoria_visconti&father[victoria_visconti]=frank_visconti&mother[victoria_visconti]=bianka_visconti
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг'
+$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$lname_go['<<$temploc>>']='в комнату для слуг'
+$locopis['<<$temploc>>']='Простенькая спальная с грубыми кроватями'
+np['<<$temploc>>']=149
+mirror['<<$temploc>>']=1
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
+$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'
+$locopis['<<$temploc>>']='В центре комнаты длинный стол'
+np['<<$temploc>>']=43
+mirror['<<$temploc>>']=1
+R=5&gs 'toilet_gen',2&!gs 'toilet_gen',уровень туалета
+H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Вишневских'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Особняк'&$lname['<<$temploc>>']='Особняк'&$lname_go['<<$temploc>>']='в особняк'
+$locopis['<<$temploc>>']='Вычурный особняк в стиле цыганского барроко где слишком много блеска и золота'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=1
+gs'docktor_fam'
+kid_first[doctor]=doctordother&father[doctordother]=doctor
+R=1&gs 'toilet_gen',2&!gs 'toilet_gen',уровень туалета
+H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Сладковых'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=5&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Особняк'&$lname['<<$temploc>>']='Особняк'&$lname_go['<<$temploc>>']='в особняк'
+$locopis['<<$temploc>>']='Вычурный особняк в стиле цыганского барроко где слишком много блеска и золота'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная хозяев'
+$locname['<<$temploc>>']='Спальная хозяев'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=1
+gs'sladkov_gen'&gs'sladkova_gen'
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная детская'
+$locname['<<$temploc>>']='Спальная детская'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=1
+gs'sladkovadot_gen'&gs'sladkovadotyoung_gen'
+kid_first[sladkov]=sladkovadot&kid_first[sladkova]=sladkovadot&father[sladkovadot]=sladkov&mother[sladkovadot]=sladkova
+kid_second[sladkov]=sladkovamasha&kid_second[sladkova]=sladkovamasha&father[sladkovamasha]=sladkov&mother[sladkovamasha]=sladkova
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг'
+$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$lname_go['<<$temploc>>']='в комнату для слуг'
+$locopis['<<$temploc>>']='Простенькая спальная с грубыми кроватями'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=1
+gs'sladkovmaid_gen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
+$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'
+$locopis['<<$temploc>>']='В центре комнаты длинный стол'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=1
+R=5&gs 'toilet_gen',2&!gs 'toilet_gen',уровень туалета
+H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Гигеркрафт'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=6&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Особняк'&$lname['<<$temploc>>']='Особняк'&$lname_go['<<$temploc>>']='в особняк'
+$locopis['<<$temploc>>']='Вычурный особняк в стиле цыганского барроко где слишком много блеска и золота'
+np['<<$temploc>>']=40
+mirror['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная хозяев'
+$locname['<<$temploc>>']='Спальная хозяев'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=41
+mirror['<<$temploc>>']=1
+gs'povar_gen'&gs'techer_gen'
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная детская'
+$locname['<<$temploc>>']='Спальная детская'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=173
+mirror['<<$temploc>>']=1
+gs'odri_gen'
+kid_first[povar]=odri&kid_first[techer]=odri&father[odri]=povar&mother[odri]=techer
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг'
+$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$lname_go['<<$temploc>>']='в комнату для слуг'
+$locopis['<<$temploc>>']='Простенькая спальная с грубыми кроватями'
+np['<<$temploc>>']=149
+mirror['<<$temploc>>']=1
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
+$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'
+$locopis['<<$temploc>>']='В центре комнаты длинный стол'
+np['<<$temploc>>']=43
+mirror['<<$temploc>>']=1
+R=5&gs 'toilet_gen',2&!gs 'toilet_gen',уровень туалета
+R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Библиотека'
+$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='Библиотека'&$lname_go['<<$temploc>>']='в библиотеку'
+$locopis['<<$temploc>>']='Огромное помещение набитое книгами всех времен и народов'
+library['<<$temploc>>']=10
+np['<<$temploc>>']=177
+witchkotel['<<$temploc>>']=1&pentagramm['<<$temploc>>']=1&mirror['<<$temploc>>']=1

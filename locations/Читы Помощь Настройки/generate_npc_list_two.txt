@@ -1,0 +1,126 @@
+﻿!Генератор списка NPC.
+if $ARGS[0] ! '':
+	 ARGS['AMOUNT_OF_IMAGES_PER_ROW'] = 6&!Кол-во картинок в ряду
+	 $ARGS['HR'] = '<tr bgcolor="#ffffff"><td colspan="<<ARGS[''AMOUNT_OF_IMAGES_PER_ROW'']>>"><hr></td></tr>'
+	 if $UCASE($ARGS[0]) = 'UNIQUE_NPC':
+		$ARGS['UNIQUE_NPC'] = "captain, sportgirl, smartgirl, slutgirl, negrec, addboss, necromancer, sherif, martamarsh, obedmarsh, addkiller, melifaro, moonmaid, moongodes, antey, borisbogart, povar, techer, doctor, doctordother, janevalorama, dukevalorama, frank_visconti, bianka_visconti, victoria_visconti, brokk, silviabrokk, merlin, mabuta, prudence, bocman, teleportwife, elderbatory, fembatory, dotbatory, lebeda, blackwood, cavendish, germiona, gilman, gilmanwife, gruber, teleportboss, mortimer, spiro, kalhornwife, finchwife, kinomehwife, soulmaster, lord_dagon, twardovski, runemaster, djgirl, dj, pele, ares, olan, jeff, savaof, mrflesh, spyman, spywoman, spyson, sladkov, sladkova, sladkovadot, sladkovamasha, sladkovamaid, domina, menhunter, Butcher, Servilia, Elven, Aptekar, Guildman, consul, Farid, slavemaker, nari, Jofre, Surgeon, innkeeper, Bo, mistra, Horse, Stalina,, cowgirl"&!Уникальные NPC
+		ARGS['COUNTER']=0
+		$ARGS['VAR_NAME'] = ''
+		$ARGS['UNIQUE_NPC'] = $TRIM($ARGS['UNIQUE_NPC'])
+		:string_parser
+		ARGS['MARK'] = 0
+		ARGS['MARK'] = INSTR($ARGS['UNIQUE_NPC'], ",")&!Ищем первую запятую и записываем её индекс.		!Если нашли запятую - запускаем процесс.
+		if ARGS['MARK'] ! 0:
+			$ARGS['VAR_NAME'] = $MID($ARGS['UNIQUE_NPC'], 1, ARGS['MARK'])&!Записываем значение до запятой как результат.
+			$ARGS['UNIQUE_NPC'] = $MID($ARGS['UNIQUE_NPC'], ARGS['MARK'] + 1)&!Удаляем значение до запятой из оригинала.
+			$ARGS['VAR_NAME'] = $TRIM($REPLACE($ARGS['VAR_NAME'], ',', ''))&!Удаляем запятую из результата.
+			dynamic('i = <<$ARGS["VAR_NAME"]>>')
+			if i = npc_index:jump 'string_parser'
+			if TRIM($name[i]) = '':jump 'string_parser'
+			gs('init_d_view', i, "d_view")
+			$ARGS['APPLY_TARGET_LOGIC']='CHEAT_MENU[''GET_NPC_LIST_MODE'']=3 & TEMP_SELECTED_TARGET=<<i>> & gt $curloc'
+			if my_favs[i]=0:
+				$ARGS['APPLY_FAV_LOGIC']='my_favs[<<i>>]=<<i>> & gt $curloc'
+				$ARGS['FAV_ICON'] = '<font size=+2 color="red">&#9825;</font>'
+			else
+				$ARGS['APPLY_FAV_LOGIC']='my_favs[<<i>>]=0 & gt $curloc'
+				$ARGS['FAV_ICON'] = '<font size=+2 color="red">&#9829;</font>'
+			end
+			if ARGS['TR_COUNTER'] = 0: $ARGS['CONTENT'] += '<tr>'
+			ARGS['TR_COUNTER']+=1
+			$ARGS['BUTTON_1'] = '<td width="50%" align="center"><a class="plain" href="exec:<<$ARGS[''APPLY_FAV_LOGIC'']>>"><<$ARGS[''FAV_ICON'']>></a></td>'
+			$ARGS['BUTTON_2'] = '<td width="50%" align="center"><a class="plain" href="exec:<<$ARGS[''APPLY_TARGET_LOGIC'']>>"><font size=+2 color="green">&#10003</font></a></td>'
+			$ARGS['BUTTONS'] = '<table width="100%" border="0"><tr><<$ARGS["BUTTON_1"]>><<$ARGS["BUTTON_2"]>></tr></table>'
+			$ARGS['NUMBER'] = '<table width="100%" border="0"><tr><td align="center"><font><b>[ <<$name[i]>> ]</b></font></td></tr></table>'
+			$ARGS['CONTENT'] += '<td width="150" height="auto"><<$ARGS[''NUMBER'']>><a class="plain" href="exec:<<$ARGS[''APPLY_TARGET_LOGIC'']>>"><img width="150" height="auto" src="<<$d_view>>"></a><<$ARGS[''BUTTONS'']>></td>'
+			if ARGS['TR_COUNTER'] = ARGS['AMOUNT_OF_IMAGES_PER_ROW']:$ARGS['CONTENT'] += '</tr> <<$ARGS["HR"]>>' & ARGS['TR_COUNTER']=0
+			ARGS['COUNTER']+=1 & jump 'string_parser'
+		end
+    elseif $UCASE($ARGS[0]) = 'MY_FAVS':
+		 i=0&!Избранное
+		 ARGS['TR_COUNTER']=0
+		 ARGS["AMOUNT"] = ARRSIZE('<<$ARGS[0]>>')
+		 if ARGS["AMOUNT"]=0:jump 'end_of_the_loop'
+		 :find_contact_loop
+		 dynamic('temp_index = <<$ARGS[0]>>[<<i>>]')
+		if $name[temp_index] ! '' and temp_index ! you and dead[temp_index]=0 and temp_index ! npc_index:
+			gs('init_d_view', temp_index, "d_view")
+			$ARGS['APPLY_TARGET_LOGIC']='CHEAT_MENU[''GET_NPC_LIST_MODE'']=3 & TEMP_SELECTED_TARGET=<<i>> & gt $curloc'
+			if my_favs[temp_index]=0:
+				$ARGS['APPLY_FAV_LOGIC']='my_favs[<<temp_index>>]=<<temp_index>> & gt $curloc'
+				$ARGS['FAV_ICON'] = '<font size=+2 color="red">&#9825;</font>'
+			else
+				$ARGS['APPLY_FAV_LOGIC']='my_favs[<<temp_index>>]=0 & gt $curloc'
+				$ARGS['FAV_ICON'] = '<font size=+2 color="red">&#9829;</font>'
+			end
+			 if ARGS['TR_COUNTER'] = 0: $ARGS['CONTENT'] += '<tr>'
+			 ARGS['TR_COUNTER']+=1
+			 $ARGS['BUTTON_1'] = '<td width="50%" align="center"><a class="plain" href="exec:<<$ARGS[''APPLY_FAV_LOGIC'']>>"><<$ARGS[''FAV_ICON'']>></a></td>'
+			 $ARGS['BUTTON_2'] = '<td width="50%" align="center"><a class="plain" href="exec:<<$ARGS[''APPLY_TARGET_LOGIC'']>>"><font size=+2 color="green">&#10003</font></a></td>'
+			 $ARGS['BUTTONS'] = '<table width="100%" border="0"><tr><<$ARGS["BUTTON_1"]>><<$ARGS["BUTTON_2"]>></tr></table>'
+			 $ARGS['NUMBER'] = '<table width="100%" border="0"><tr><td align="center"><font><b>[ <<$name[temp_index]>> ]</b></font></td></tr></table>'
+			 $ARGS['CONTENT'] += '<td width="150" height="auto"><<$ARGS[''NUMBER'']>><a class="plain" href="exec:<<$ARGS[''APPLY_TARGET_LOGIC'']>>"><img width="150" height="auto" src="<<$d_view>>"></a><<$ARGS[''BUTTONS'']>></td>'
+			 if ARGS['TR_COUNTER'] = ARGS['AMOUNT_OF_IMAGES_PER_ROW']:$ARGS['CONTENT'] += '</tr> <<$ARGS["HR"]>>' & ARGS['TR_COUNTER']=0
+        end
+		if i<ARGS["AMOUNT"]:i+=1 & jump 'find_contact_loop'
+	elseif $UCASE($ARGS[0]) = 'ALL_NPC':
+		 i=1
+		 ARGS['TR_COUNTER']=0
+		 ARGS["AMOUNT"] = ARRSIZE('$name')
+		 if $ARGS[1] ! '':$ARGS["FIND_BY_NAME"]=UCASE($ARGS[1])
+		 if $ARGS[2] ! '':$ARGS["FIND_BY_SURNAME"]=UCASE($ARGS[2])
+		 if $ARGS[3] ! '':$ARGS["FIND_BY_GENDER"]=UCASE($ARGS[3])
+		 if ARGS[4] > 0:ARGS["FIND_BY_REGION"]=ARGS[4]
+		 :find_all_npc_two
+		 rel_value = 0
+		 if TRIM($name[i]) ! '' and i ! you and dead[i]=0 and i ! npc_index:
+			 gs('init_d_view', i, 'd_view')
+			 !Фильтр по имени и полу или району.
+			 if $ARGS["FIND_BY_NAME"] ! '' or $ARGS["FIND_BY_SURNAME"] ! '' or $ARGS["FIND_BY_GENDER"] ! '' or ARGS["FIND_BY_REGION"]>0:
+			 if $ARGS["FIND_BY_NAME"] ! ''and $ARGS["FIND_BY_NAME"] ! $UCASE($name[i]):i+=1 & jump 'find_all_npc_two'& !Найти по имени.
+			 if $ARGS["FIND_BY_SURNAME"] ! '' and $ARGS["FIND_BY_SURNAME"] ! $UCASE($surname[i]):i+=1 & jump 'find_all_npc_two'& !Найти по фамилии.
+			 if $ARGS["FIND_BY_GENDER"] ! '':
+				$ARGS["GENDER_IS"] = ''&!Найти по полу.
+				if $ARGS["FIND_BY_GENDER"] = 'MALE':
+				   if dick[i]>0 and vag[i]=0 and face[i]<50 and ass[i]<20:$ARGS["GENDER_IS"]='MALE'&!Мужик
+				   if $ARGS["FIND_BY_GENDER"] ! $ARGS["GENDER_IS"]:i+=1 & jump 'find_all_npc_two'
+				end
+				if $ARGS["FIND_BY_GENDER"] = 'FEMALE':
+				   if dick[i]=0 and vag[i]>0 and face[i]>=50 and ass[i]>=20:$ARGS["GENDER_IS"]='FEMALE'&!Женщина
+				   if $ARGS["FIND_BY_GENDER"] ! $ARGS["GENDER_IS"]:i+=1 & jump 'find_all_npc_two'
+				end
+				if $ARGS["FIND_BY_GENDER"] = 'TRANS':
+				   if dick[i]>0 and vag[i]=0 and face[i]>=50 and ass[i]>=20:$ARGS["GENDER_IS"]='TRANS'&!Транс
+				   if $ARGS["FIND_BY_GENDER"] ! $ARGS["GENDER_IS"]:i+=1 & jump 'find_all_npc_two'
+				end
+			 end
+			 !Найти по району.
+			if ARGS["FIND_BY_REGION"]>0 and Z[i] ! ARGS["FIND_BY_REGION"]:i+=1 & jump 'find_all_npc_two'
+		end
+		$ARGS['APPLY_TARGET_LOGIC']='CHEAT_MENU[''GET_NPC_LIST_MODE'']=3 & TEMP_SELECTED_TARGET=<<i>> & gt $curloc'
+		if my_favs[i]=0:
+			 $ARGS['APPLY_FAV_LOGIC']='my_favs[<<i>>]=<<i>> & gt $curloc'
+			 $ARGS['FAV_ICON'] = '<font size=+2 color="red">&#9825;</font>'
+		else
+			 $ARGS['APPLY_FAV_LOGIC']='my_favs[<<i>>]=0 & gt $curloc'
+			 $ARGS['FAV_ICON'] = '<font size=+2 color="red">&#9829;</font>'
+		end
+		if ARGS['TR_COUNTER'] = 0: $ARGS['CONTENT'] += '<tr>'
+		ARGS['TR_COUNTER']+=1
+		$ARGS['BUTTON_1'] = '<td width="50%" align="center"><a class="plain" href="exec:<<$ARGS[''APPLY_FAV_LOGIC'']>>"><<$ARGS[''FAV_ICON'']>></a></td>'
+		$ARGS['BUTTON_2'] = '<td width="50%" align="center"><a class="plain" href="exec:<<$ARGS[''APPLY_TARGET_LOGIC'']>>"><font size=+2 color="green">&#10003</font></a></td>'
+		$ARGS['BUTTONS'] = '<table width="100%" border="0"><tr><<$ARGS["BUTTON_1"]>><<$ARGS["BUTTON_2"]>></tr></table>'
+		$ARGS['NUMBER'] = '<table width="100%" border="0"><tr><td align="center"><font><b>[ <<$name[i]>> ]</b></font></td></tr></table>'
+		$ARGS['CONTENT'] += '<td width="150" height="auto"><<$ARGS[''NUMBER'']>><a class="plain" href="exec:<<$ARGS[''APPLY_TARGET_LOGIC'']>>"><img width="150" height="auto" src="<<$d_view>>"></a><<$ARGS[''BUTTONS'']>></td>'
+		if ARGS['TR_COUNTER'] = ARGS['AMOUNT_OF_IMAGES_PER_ROW']:$ARGS['CONTENT'] += '</tr> <<$ARGS["HR"]>>' & ARGS['TR_COUNTER']=0
+    end
+    if i<ARGS["AMOUNT"]:i+=1 & jump 'find_all_npc_two'
+ end
+  :end_of_the_loop
+  if $ARGS["CONTENT"] = '':$ARGS["CONTENT"]="ПУСТО"
+  if ARGS['TR_COUNTER']>0 and ARGS['TR_COUNTER']<ARGS['AMOUNT_OF_IMAGES_PER_ROW']:$ARGS['CONTENT'] += '</tr> <<$ARGS["HR"]>>'
+  $RESULT +='<center><table border="0" cellspacing="0" cellpadding="2"><<$ARGS["CONTENT"]>></table></center>'
+  killvar 'temp_index'
+  killvar 'rel_value'
+  killvar 'i'
+end

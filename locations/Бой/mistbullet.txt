@@ -1,0 +1,43 @@
+﻿gs'stat'&'Мгла струится сквозь ваши пальцы и стелится у ваших ног, а затем стремительно преследует врага'
+hod=1&uron=mlev[you]*150&if uron<1:uron=1
+if superslut[you]=1:uron=uron+(uron/10)
+popad=0&percentV=reactV*20/100&defV=rand(reactV-percentV,reactV+percentV)&if invisibleV>0:defV=defV+(invisibleV*3)
+percent=react[you]*20/100&atk=rand(react[you]-percent,react[you]+percent)&atk=30+atk+(fight_skill[you]/10)
+'Мгла сама наводится и от нее не увернуться'&popad=1
+if stunV>0:stunV-=1&popad=2
+if portal_defV>0:
+	'Мгла насланая вами засасывается в портал и никакого вреда не наносит'
+else
+	 if storm_shildV>0:
+		uron-=storm_shildV
+	     if uron<=0:
+			popad=0&'Вихрь кружащийся вокруг противника полностью расшвыривает мглу'
+	     else
+			'Вихрь кружащийся вокруг противника уменьшает урон мглы раздирая ее'
+	     end
+	 end
+	 if popad>=1:
+	 	 if clonV>0:'Мгла растворяет клонов и те исчезают'&clonV=0
+		 if uron<1:uron=1
+		 if superslut[you]=1:uron=uron+(uron/10)
+		 if popad=2:uron=uron*2
+		 if mgla_resist[npc]=0:
+			 if defenceV>0:
+				 if defenceV<uron:
+					uron-=defenceV&defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
+					 if defenceV>0:'Вы разбиваете защиту противника'
+					 if popad=2:'Критическое попадание'
+				 else
+					defenceV-=uron&'Защита противника полностью поглощает урон и снижается теряя прочность'
+				 end
+			 else
+				'<<$name[npc]>> получает <<uron>> единиц урона'&health[npc]-=uron&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
+			 end
+		 else
+			'<<$name[npc]>> стоит в вашей мгле и она не наносит ему никакого урона'
+		 end
+	 else
+		'<<$name[npc]>> избегает урона'
+	 end
+end
+gs'stat'&act'Далее':gt'fight'

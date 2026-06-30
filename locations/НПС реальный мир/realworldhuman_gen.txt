@@ -1,0 +1,68 @@
+﻿if rand(1,10)<=8:
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+	lvl[i]=1&soul[i]=100
+	statist[i]=1&muggle[i]=1
+	gs'ru_woman_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname_f&$title[i]=''&nation[i]=tipename
+	face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+	dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,42)&nip[i]=rand(30,70)&tits[i]=rand(10,21)
+	rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(500,3000)&mus[i]=rand(300,1500)&skin[i]=rand(0,3)
+	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=rand(60,100)&curl[i]=rand(1)
+	hcolrand=rand(1,100)&!face_pic[i]=rand(5,100)&!ФОТКА каталог и диапазон цвета волос
+	if hcolrand<=40:hcol[i]=1&spec_face_pic[i]=1&face_pic[i]=rand(5,115)&$nick[i]='Девушка'&$nicksub[i]='девушкой'&$nicksube[i]='девушке'&$nicksubu[i]='девушку'
+	if hcolrand>40 and hcolrand<=70:hcol[i]=0&spec_face_pic[i]=0&face_pic[i]=rand(5,100)&$nick[i]='Брюнетка'&$nicksub[i]='брюнеткой'&$nicksube[i]='брюнетке'&$nicksubu[i]='брюнетку'
+	if hcolrand>70 and hcolrand<=90:hcol[i]=3&spec_face_pic[i]=3&face_pic[i]=rand(5,100)&$nick[i]='Блондинка'&$nicksub[i]='блондинкой'&$nicksube[i]='блондинке'&$nicksubu[i]='блондинку'
+	if hcolrand>90:hcol[i]=2&spec_face_pic[i]=2&face_pic[i]=rand(5,100)&$nick[i]='Рыжая девушка'&$nicksub[i]='рыжей девушкой'&$nicksube[i]='рыжей девушке'&$nicksubu[i]='рыжую девушку'
+	age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=40&will[i]=50&reflex[i]=40
+	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	pol[i]=1&gs'body'&total_generated_female+=1&total_freegirl+=1
+	womenbrain[i]=rand(70,100)&bisex[i]=iif(rand(1,100)>=70,1,0)&agro[i]=rand(1,90)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&!характер
+	bisexwomantotal+=iif(bisex[i]>0,1,0)&!lust[i]=iif(bisex[i]>0,rand(40,100),0)&lust[i]+=iif(extrovert[i]=2,10,0)&lust[i]+=iif(ratio[i]=0,10,0)
+	if bisex[i]=0:
+		 if age[i]<27:
+			templust=rand(1,100)&lust[i]=iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50)))
+		 else
+			templust=rand(1,100)&lust[i]=iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70)))
+		 end
+	end
+	if lust[i]>=75 and agro[i]>=75:misstress[i]=1&total_misstress+=1
+	if lust[i]>=75 and agro[i]>=50 and agro[i]<75:femwhore[i]=1&total_femwhore+=1
+	if lust[i]>=75 and agro[i]<50:subslut[i]=1&total_subslut+=1
+	class[i]=pre_class
+	if class[i]=0:t_slot[i]=rand(12,16)&l_slot[i]=rand(23,26)&b_slot[i]=iif(rand(1)=0,13,rand(2,3))&!низший класс
+	if class[i]=1:t_slot[i]=rand(16,24)&l_slot[i]=rand(27,44)&b_slot[i]=rand(8,9)&!средний класс
+	if class[i]=2:t_slot[i]=rand(25,30)&l_slot[i]=rand(9,14)&b_slot[i]=rand(17,19)&!элитный класс
+	ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
+	if misstress[i]=1:t_slot[i]=40&l_slot[i]=9&b_slot[i]=rand(14,16)
+	if subslut[i]=1:
+		vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100
+		stamp_t[i]=rand(1,4)
+		t_slot[i]=rand(31,36)&l_slot[i]=rand(15,22)&b_slot[i]=rand(8,11)
+	end
+	if femwhore[i]=1:vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&stamp_t[i]=rand(1,4)&t_slot[i]=rand(31,36)&l_slot[i]=rand(45,51)&b_slot[i]=rand(8,11)
+	real_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+else
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+	lvl[i]=1&soul[i]=100
+	statist[i]=1&muggle[i]=1
+	male_pic+=1&if male_pic>400:male_pic=1
+	face_pic[i]=male_pic&!присвоение фотки
+	gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname
+	nation[i]=tipename&pretipename=0
+	face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+	dickd[i]=rand(30,55)&ball[i]=rand(30,100)&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+	dicklongrand=rand(1,100)&dick[i]=iif(dicklongrand<=80,rand(12,17),iif(dicklongrand>80 and dicklongrand<=90,rand(7,13),iif(dicklongrand>90 and dicklongrand<100,rand(18,25),rand(25,28))))
+	rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)&skin[i]=rand(0,3)
+	$nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+	face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)
+	age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(50,70)&$nick[i]+=$iif(age[i]<25,' парень',' мужчина')
+	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	pol[i]=0&gs'body'&total_generated_male+=1&total_freegay+=1
+	womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(10,100)&selfrespect[i]=rand(0,2)&	positiv[i]=rand(0,2)&	extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&!характер
+	if lust[i]>=75 and agro[i]>=75:alfa[i]=1&total_alfa+=1
+	class[i]=pre_class
+	if class[i]=0:t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&!низший класс
+	if class[i]=1:t_slot[i]=rand(5,7)&l_slot[i]=rand(4,5)&b_slot[i]=rand(2,3)&!средний класс
+	if class[i]=2:t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&!элитный класс
+	ul_slot[i]=5
+	real_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+end

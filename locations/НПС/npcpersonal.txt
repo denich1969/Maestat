@@ -1,0 +1,401 @@
+﻿!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ТЕНТАКЛЬ
+if mob[i]=14:
+	tent_want=i
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+		 if randseeyou<70:
+			$status[i]=' извивается'
+		 else
+			 aggressor=i&$status[i]=' агрессивно шипит'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!АБОРИГЕН
+if mob[i]=2:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+		 if randseeyou<40:
+			$status[i]=' смотрит в сторону'
+		 else
+		     if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+					 $status[i]=' смотрит на вас'&gs'hornyness'
+				 end
+		     else
+				 aggressor=i&$status[i]=' агрессивно идет к вам'&gs'hornyness'
+		     end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ВЕДЬМА
+if mob[i]=53:
+randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' медитирует'
+     else
+		 if randseeyou<70:
+		     if cum_face[you]>0:
+				 if you_slut[i]=0:you_slut[i]=1
+				 $status[i]=' брезгливо смотрит на вас и говорит - Шлюха'
+		     else
+				$status[i]=' смотрит на вас'
+		     end
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ШЛЮХА
+if mob[i]=54:
+	slut_want=i
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' медитирует'
+     else
+		 if randseeyou<90:
+		     if cum_face[you]>0:
+				 if you_slut[i]=0:you_slut[i]=1
+				 $status[i]=' брезгливо смотрит на вас и говорит - Шлюха'
+		     else
+				$status[i]=' смотрит на вас'
+		     end
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!КЛИЕНТ
+if mob[i]=55:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+		 if randseeyou<40:
+		     if pornfilmnow=0:
+				$status[i]=' смотрит в сторону'
+		     else
+				 gs'hornyness'&$status[i]=' смотрит порнофильм по телевизору'
+		     end
+		 else
+		     if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+					 $status[i]=' смотрит на вас'&gs'hornyness'
+				 end
+		     else
+				 aggressor=i&$status[i]=' агрессивно идет к вам'&gs'hornyness'
+		     end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ПРОСТИТУТКА
+if mob[i]=56:
+	slut_want=i
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' медитирует'
+     else
+		 if randseeyou<90:
+		     if cum_face[you]>0:
+				if you_slut[i]=0:you_slut[i]=1
+				$status[i]=' брезгливо смотрит на вас и говорит - Шлюха'
+		     else
+				$status[i]=' смотрит на вас'
+		     end
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!СЛУГА
+if mob[i]=57:
+if cooled[i]>0:cooled[i]-=1
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+         if cooled[i]=0:
+			 if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+				 	 if pornfilmnow=0:
+						$status[i]=' смотрит в сторону'
+					 else
+						 gs'hornyness'&$status[i]=' смотрит порнофильм по телевизору'
+					 end
+				 end
+			 else
+				 aggressor=i&$status[i]=' агрессивно идет к вам'&gs'hornyness'
+			 end
+		 else
+			$status[i]=' почтительно улыбается вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ГОСПОЖА
+if mob[i]=58:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' медитирует'
+     else
+		 if randseeyou<60:
+		     if cum_face[you]>0:
+				$status[i]=' брезгливо смотрит на вас и говорит - Шлюха'
+		     else
+				 gs'hornyness'&$status[i]=' смотрит на вас'
+		     end
+		 else
+			 gs'hornyness'&aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ДЕМОН
+if mob[i]=59:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' медитирует'
+     else
+		 if randseeyou<20:
+			$status[i]=' брезгливо смотрит на вас и говорит - Презренное существо, ты будешь наказано!'
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ДЕВУШКА
+if mob[i]=60:
+	slut_want=i
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' медитирует'
+     else
+		 if randseeyou<90:
+		     if cum_face[you]>0:
+				 if you_slut[i]=0:you_slut[i]=1
+				 $status[i]=' брезгливо смотрит на вас и говорит - фу'
+		     else
+				$status[i]=' смотрит на вас'
+		     end
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ШАМАН
+if mob[i]=62:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		 health[i]=healthmax[i]
+		 $status[i]=' камлает'
+     else
+		 if randseeyou<40:
+			$status[i]=' смотрит в сторону'
+		 else
+		     if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+					 health[i]=healthmax[i]&$status[i]=' смотрит на вас перебирая четки и что то бормоча'
+					 energy[you]-=10
+				 end
+		     else
+				 health[i]=healthmax[i]&energy[you]-=10&$status[i]=' агрессивно идет к вам напевая и яростно поколачивая в бубен'
+		     end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ПЕС
+if mob[i]=43:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+		 if randseeyou<50:
+			$status[i]=' яростно гавкает'
+		 else
+			 gs'hornyness'&aggressor=i&$status[i]=' рыча идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ХОЗЯИН
+if mob[i]=64:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+		 aggressor=i&$status[i]=' оглушительно топая идет к вам'
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ПОРНОАКТЕР
+if mob[i]=65:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+		 if randseeyou<40:
+			$status[i]=' смотрит в сторону'
+		 else
+		     if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+					 $status[i]=' смотрит на вас'&gs'hornyness'
+				 end
+		     else
+				 aggressor=i&$status[i]=' агрессивно идет к вам'&gs'hornyness'
+		     end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ОХРАНА
+if mob[i]=66:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' решает сканворды'
+     else
+		 if randseeyou<40:
+			$status[i]=' смотрит в сторону'
+		 else
+		     if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+					 $status[i]=' смотрит на вас'&gs'hornyness'
+				 end
+		     else
+				 aggressor=i&$status[i]=' агрессивно идет к вам'&gs'hornyness'
+		     end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!СЛУЖАНКА
+if mob[i]=67:
+	slut_want=i
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' задумалась'
+     else
+		 if randseeyou<90:
+		     if cum_face[you]>0:
+				 if you_slut[i]=0:you_slut[i]=1
+				 $status[i]=' брезгливо смотрит на вас и говорит - фу'
+		     else
+				$status[i]=' смотрит на вас'
+		     end
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!СТРАЖНИК
+if mob[i]=68:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' задумался'
+     else
+		 if randseeyou<40:
+			$status[i]=' смотрит в сторону'
+		 else
+		     if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+					 $status[i]=' смотрит на вас'&gs'hornyness'
+				 end
+		     else
+				 aggressor=i&$status[i]=' агрессивно идет к вам'&gs'hornyness'
+		     end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ГОРОЖАНИН
+if mob[i]=69:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' задумался'
+     else
+		 if randseeyou<40:
+			$status[i]=' смотрит в сторону'
+		 else
+		     if you_slut[i]=0:
+				 if horny[i]>=50:
+					 aggressor=i&$status[i]=' агрессивно идет к вам'
+				 else
+					 $status[i]=' смотрит на вас'&gs'hornyness'
+				 end
+		     else
+				 aggressor=i&$status[i]=' агрессивно идет к вам'&gs'hornyness'
+		     end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ГОРОЖАНКА
+if mob[i]=70:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' задумалась'
+     else
+		 if randseeyou<90:
+		     if cum_face[you]>0:
+				 if you_slut[i]=0:you_slut[i]=1
+				 $status[i]=' брезгливо смотрит на вас и говорит - фу'
+		     else
+				$status[i]=' смотрит на вас'
+		     end
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ЭЛЬФЫ
+if mob[i]=71 or mob[i]=72:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' наслаждается природой'
+     else
+		 if randseeyou<90:
+		     if cum_face[you]>0:
+				 if you_slut[i]=0:you_slut[i]=1
+				 $status[i]=' брезгливо смотрит на вас и говорит - фу'
+		     else
+				$status[i]=' смотрит на вас'
+		     end
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ХИЛЬДИ ХМУР и ГРИМ ХМУР
+if mob[i]=73:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' читает гримуар'
+     else
+		 if randseeyou<50:
+			$status[i]=' пронзительно смотрит на вас'
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ГОБЛИН
+if mob[i]=74:
+	randseeyou=rand(1,100)
+     if mob_sleep[i]>=time:
+		$status[i]=' спит'
+     else
+		 if randseeyou<30:
+			$status[i]=' злобно клекочит'
+		 else
+			 aggressor=i&$status[i]=' идет к вам'
+		 end
+     end
+end

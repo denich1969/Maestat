@@ -1,0 +1,110 @@
+﻿H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартира №1'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=4
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
+np['<<$temploc>>']=2
+mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком'
+np['<<$temploc>>']=3
+can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
+np['<<$temploc>>']=5
+can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+gs'rivfamilygen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
+np['<<$temploc>>']=6
+tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартира №2'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=4
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
+np['<<$temploc>>']=2
+mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком'
+np['<<$temploc>>']=3
+can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
+np['<<$temploc>>']=5
+can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+gs'savaof_gen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
+np['<<$temploc>>']=6
+tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартира №3'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=4
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
+np['<<$temploc>>']=2
+mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком'
+np['<<$temploc>>']=3
+can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
+np['<<$temploc>>']=5
+can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+gs'rivfamilygen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
+np['<<$temploc>>']=6
+tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартира №4'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=4
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
+np['<<$temploc>>']=2
+mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком'
+np['<<$temploc>>']=3
+can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
+np['<<$temploc>>']=5
+can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+gs'rivfamilygen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
+np['<<$temploc>>']=6
+tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартира №5'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=4
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
+np['<<$temploc>>']=2
+mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком'
+np['<<$temploc>>']=3
+can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
+np['<<$temploc>>']=5
+can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+gs'rivfamilygen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
+np['<<$temploc>>']=6
+tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1

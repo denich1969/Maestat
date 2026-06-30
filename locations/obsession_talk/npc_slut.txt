@@ -1,0 +1,58 @@
+﻿!if picture[npc]<4:picture[npc]=rand(4,11)
+!if picture[npc]>11:picture[npc]=rand(4,11)
+!$d_view = 'pic/mob/<<picture[npc]>>.jpg'&'<center><img src="<<$d_view>>" ></center>'
+!if vag[npc]>0:''
+!if dick[npc]>1:'Шимейл'
+youslutmaker=0&if bdsmnum=npc:youslutmaker=1&'Низведенная в шлюхи госпожа'
+if witchnum=npc:
+	youslutmaker=1&'Опущенная и лишенная силы ведьма'
+     if loweredwitchQW=0:
+     	 act'Научи меня магии':
+			 loweredwitchQW=1&magik[you]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Шлюха рассказывает вам основы и вы получаете магичность.'&act'<b>Уйти</b>':gt 'preloc'
+	     end
+     end
+end
+if mob_sleep[npc]>time:
+	'Шлюха свернулась клубочком и спит'
+else
+	 if you_slut[npc]=0:
+		'Шлюха со страхом смотрит на вас - привет'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+	     act'Поговорить':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+	         if exhotelwhore[you]=0:
+				 temptxt=rand(0,3)
+				 if temptxt=0:'Шлюха плачет - Я не понимаю как я сюда попала, меня тут постоянно насилуют и я хочу обратно.'
+				 if temptxt=1:'Шлюха плачет - Я хотела спрятаться в отеле на юго западном берегу моря, но меня выкинули оттуда.'
+				 if temptxt=2:'Шлюха плачет - Когда кто то насилует меня или я рожаю, я чувствую как моя душа уходит от меня.'
+				 if temptxt=3:'Шлюха плачет - Вот бы попасть в отель, но меня туда не пускают.'
+	         else
+				'Шлюха грустно рассказывает что раньше она была проституткой в отеле, но ей попользовались и вышвырнули.'
+	         end
+			act'<b>Уйти</b>':gt 'preloc'
+	     end
+	     act'Спросить о ее прошлом':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+	         if youslutmaker=1:
+				'Шлюха плачет - Это ты сделал из меня шлюху.'
+	         else
+				 if pastjustgirl[npc]>0:
+					 if pastjustgirl[npc]=1:'Шлюха хмурится - когда я попала на остров, то я была обыкновенная девушка, а потом меня изнасиловал тентакль'
+					 if pastjustgirl[npc]=2:'Шлюха хмурится - когда я попала на остров, то я была обыкновенная девушка, а потом меня изнасиловали аборигены'
+					 if pastjustgirl[npc]=5:'Шлюха хмурится - я попала на остров, а тут такой кошмар творится, пришлось торговать собой что бы выжить. Я была проституткой в отеле на берегу, а потом меня вышвырнули оттуда слуги.'
+				 else
+					'Шлюха пожимает плечами - Я не помню своего прошлого, такое ощущение что я всегда была шлюхой.'
+				 end
+	         end
+			act'<b>Уйти</b>':gt 'preloc'
+	     end
+	     if lastpis[npc]>0:
+	     	 act'Я помню тебя приличной девушкой':
+				!$d_view='pic/face/<<hcol[npc]>>/<<lastpis[npc]>>.jpg'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 cls&'Вы вспомнили как эта падшая шлюха выглядела раньше, она смутилась и покраснела'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+	     end
+	 end
+	 if you_slut[npc]>0:
+		'Шлюха презрительно смотрит на вас'&if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+	 end
+ end

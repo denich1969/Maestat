@@ -1,0 +1,113 @@
+﻿if meetQW=2:
+	if pol[you]=1 and boyfriend[you]=miha and you=girlfrend[miha]:
+		act'Поцеловать':
+			meetQW=3&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> поцеловал вас и пригласил погулять.'
+			act'Идти гулять':
+				time+=60*5&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы пошли с Мишей на прогулку. '
+				'Общаясь и разговаривая вы дошли до парка, поели там мороженного и перекусили в кафешке, после чего пошли обратно. Миша проводил вас до дома и обнял вас у подъезда'
+				act'Попрощаться':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt 'world'&!gt'street_ap'
+				if sex_times['<<you>>,<<npc>>']>0:
+					'Мишка поцеловал вас - <<$name[you]>>, хочешь сегодня немного пожестче?'
+					act'Да, мне нравятся доминантные мужчины':
+						agro[npc]=60&lust[npc]=60&base_lust[you]+=1
+						X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$loc[npc]='apart2'
+						X[npc]=Xhome[you]&Y[npc]=Yhome[you]&Z[npc]=Zhome[you]&H[npc]=Hhome[you]&R[npc]=Rhome[you]&gt'sex'
+					end
+					act'Нет, давай помягче':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt'sex'&!gt'sex'&!$loc[you]='apart2'
+				end
+				if sex_times['<<you>>,<<npc>>']=0:
+					act'Пригласить и заняться сексом':
+						X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$loc[npc]='apart2'
+						X[npc]=Xhome[you]&Y[npc]=Yhome[you]&Z[npc]=Zhome[you]&H[npc]=Hhome[you]&R[npc]=Rhome[you]&gt'sex'
+					end
+				end
+			end
+		end
+	end
+	if pol[you]=0:
+		act'Поприветствовать':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> пожал вашу руку - Привет <<$name[you]>>, слушай, у меня к тебе дело. '
+			'Я тебе говорил, что у меня машина сломалась, дружище, выручи, мне по разборкам надо покататься, коробку найти.'
+			act'Без вопросов':
+				time+=60*8&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'Вы с другом на вашей машине поехали на одну разборку и Мишка долго обсуждал и смотрел коробку передач на свою машину, но в итоге решил заглянуть еще в одно место. '
+				'Вы поехали туда, но там вообще был какой то хлам и в итоге вы поехали в первое место и Мишка купил коробку, которую вы в двоем засунули в багажник и привезли к гаражу Мишки.'
+				'В гараже стоял его старый бумер. Там вы переоделись и помогли своему другу поставить коробку передач. '
+				'У вас все получилось и Мишка выехал из гаража на своем бмв. После чего вы попрощались с другом и поехали домой.'
+				act'Идти домой':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt 'world'&!gt'street_ap'
+			end
+		end
+	end
+end
+if (friends['<<npc>>,<<you>>']>10 or (boyfriend[you]=miha and you=girlfrend[miha])) and meetQW=1:
+	if pol[you]=0:
+		act'Поприветствовать':
+			meetQW=2
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> пожал вашу руку - Привет <<$name[you]>>, ну что, сходим в наш бар неподалеку, выпьем пивка для рывка.'
+			act'Идти с Михой в бар':
+				alko[you]+=8&time+=60*3&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'Вы пошли с Михой в бар и там начали с пивка и стали вести разговоры за жизнь. Постепенно довольно сильно набрались и вам приспичило в туалет.'
+				$loc[you]='1,4,200,1,0'&$loc[miha]='1,4,200,1,0'&gt $loc[you]
+				act'Идти в туалет':
+					seeblondQW=1&cls&gs'stat'&!'<center><img src="pic/npc/5.jpg" ></center>'
+					X[you]=1&Y[you]=4&Z[you]=200&H[you]=1&R[you]=1&X[lillith]=1&Y[lillith]=4&Z[lillith]=200&H[lillith]=1&R[lillith]=1&gt 'world'
+					'Сделав свои делишки в туалете вы вышли и столкнулись нос к носу с красивой женщиной. Она уверенно смотрела вам в глаза и легкое напряжение повисает в воздухе.'
+					act'Вернуться за стол':
+						agro[you]-=10
+						time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						X[you]=1&Y[you]=4&Z[you]=200&H[you]=1&R[you]=0&X[micha]=1&Y[micha]=4&Z[micha]=200&H[micha]=1&R[micha]=0&X[lillith]=1&Y[lillith]=4&Z[lillith]=200&H[lillith]=1&R[lillith]=0&gt 'world'
+						'Вы вернулись за стол, но Миха уже собрался отчаливать и вы попрощавшись пошли домой.'
+						act'Идти домой':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt 'world'&!gt'street_ap'
+					end
+					act'Клеиться к блондинке':
+						seeblondQW=2&agro[you]+=10&base_lust[you]+=1&time+=15&cls&gs'stat'&'<center><img src="pic/npc/5.jpg" ></center>'
+						'Нацепив развязную улыбочку вы подмигнули девушке - Привет красавица.'&*pl'Девушка усмехнулась - Привет сладенький.'&know['<<lillith>>,<<you>>']+=1&know['<<you>>,<<lillith>>']+=1
+						'Вы немного пофлиртовали и неожиданно девушка, представившись Лилией Черновой, дала вам свой номер телефона.'&contact[lillith]=you&my_contact[]=lillith
+						act'Вернуться за стол':
+							time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+							X[you]=1&Y[you]=4&Z[you]=200&H[you]=1&R[you]=0&X[micha]=1&Y[micha]=4&Z[micha]=200&H[micha]=1&R[micha]=0&X[lillith]=1&Y[lillith]=4&Z[lillith]=200&H[lillith]=1&R[lillith]=0&gt 'world'
+							'Вы вернулись за стол, но Миха уже собрался отчаливать и вы попрощавшись пошли домой.'
+							act'Идти домой':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt 'world'&!gt'street_ap'
+						end
+						act'Приставать':
+							girl[you]+=1&sex_times['<<lillith>>,<<you>>']+=1&sex_times['<<you>>,<<lillith>>']+=1
+							cuni[you]+=1&horny[you]=100&agro[you]-=40&will[you]-=10&base_lust[you]+=5
+							time+=15&cls&gs'stat'&'<center><img src="pic/ev/lillith/cuni.jpg" ></center>'&'Вы приобняли Лилию и она засмеявшись взяла вас за руку и затащила в туалет. '
+							'Девушка села на тумбу возле раковины и раздвинула ноги - Отлижи мне, герой любовничек.'
+							'Не имея сил к сопротивлению и охваченный страстью вы встали на колени перед Лилией и прикоснулись губами к ее благоухающему бутону. '
+							'Лилия в нетерпении взяла вас за волосы и сильнее прижала к своей вагине. Вы поглощенные страстью начали вылизыть у нее. '
+							'Девушка вскоре задрожала и кончила грубо прижав вас к своей текущей водопадом киски.'
+							act'Вынуть член':
+								horny[you]=0&time+=15&cls&gs'stat'&'<center><img src="pic/ev/lillith/hand.jpg" ></center>'
+								'Вы достали член из штанов и Лилия хитро ухмыльнувшись взяла его в ручки. Вам неожиданно стало так приятно, что вы не выдержали и задрожав кончили'
+								act'Вернуться за стол':
+									X[you]=1&Y[you]=4&Z[you]=200&H[you]=1&R[you]=0&X[micha]=1&Y[micha]=4&Z[micha]=200&H[micha]=1&R[micha]=0&X[lillith]=1&Y[lillith]=4&Z[lillith]=200&H[lillith]=1&R[lillith]=0&gt 'world'
+									time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы вернулись за стол, но Миха уже собрался отчаливать и вы попрощавшись пошли домой.'
+									act'Идти домой':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt 'world'&!gt'street_ap'
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	if pol[you]=1 and boyfriend[you]=miha and you=girlfrend[miha]:
+		act'Поцеловать':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> поцеловал вас и пригласил в кафе.'
+			act'Идти в кафе':
+				alko[you]+=8&time+=60*3&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'Вы пошли с Мишей в кафе, где он заказал вина, шалыков, салатиков и вы стали приятно проводить время.'
+				'Вы несколько раз потанцевали с Мишей на небольшой танц площадке и официантка принесла счет, Мишка как истинный джентльмен расплатился и выйдя из кафе, предложил проводить вас до дома.'
+				act'Попрощаться':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt 'world'&!gt'street_ap'
+				act'Пригласить и заняться сексом':
+					meetQW=2&base_lust[you]+=1
+					X[miha]=Xhome[you]&Y[miha]=Yhome[you]&Z[miha]=Zhome[you]&H[miha]=Hhome[you]&R[miha]=Rhome[you]
+					X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt'sex'&!gt'sex'&!$loc[you]='apart2'
+				end
+			end
+		end
+	end
+end

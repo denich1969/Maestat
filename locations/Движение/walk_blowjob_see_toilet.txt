@@ -1,0 +1,50 @@
+﻿X[w]=4&Y[w]=0&Z[w]=3&H[w]=1&R[w]=1&X[s]=4&Y[s]=0&Z[s]=3&H[s]=1&R[s]=1
+sexperaday[s]=daystart&sexperaday[w]=daystart
+if soul[s]>0:soul[w]+=1&soul[s]-=iif(stamp_t[s]>0,rand(0,1),2)&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+agro[w]+=1&lust[s]+=1&if mob[s]=0:agro[s]-=1
+if moon_curse[s]>=1:lust[s]+=2
+money[s]+=10000&under_sub[w]=s&under_sub[s]=w&mob_busy[w]=time+15&mob_busy[s]=time+15
+action_tipe[w]=110&action_tipe[s]=110&aktive_tipe[w]=1&aktive_tipe[s]=0
+gs'add_sex_stat',w,s
+bj[s]+=1&abj[w]+=1&if throat[s]<10:throat[s]=10
+drinkpee[s]+=1&piss_mass['<<w>>,<<s>>']+=1
+if dick[w]>throat[s]:throat[s]+=1
+if CONFIG['DISABLE_PEE']=0:
+	pee[w]+=1&drinkpee[s]+=1&piss_mass['<<w>>,<<s>>']+=1	 
+	$global_npc_log[w]+='<br>'
+	if whore[s]>0:
+		$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+	else
+		$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> сосала мой хуй в туалете и глотала мою мочу'
+	end
+	$global_npc_log[s]+='<br>'
+	if whore[s]>0:
+		$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
+	else
+		$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> дал мне в рот в туалете а потом обоссал'
+	end
+	 if statist[s]=1 and whore[s]=0:panic[s]+=1
+	 if thenoob[s]=1 and whore[s]=0:panic[s]+=1
+	 if moon_curse[s]>=1:
+		panic[s]+=1&if soul[s]<=0:dead[s]=2
+	 end
+else
+	$global_npc_log[w]+='<br>'
+	if whore[s]>0:
+		$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+	else
+		$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> сосала мой хуй в туалете и глотала мою кончу'
+	end
+	$global_npc_log[s]+='<br>'
+	if whore[s]>0:
+		$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
+	else
+		$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> дал мне в рот в туалете а потом накончал полный рот'
+	end
+	 if statist[s]=1 and whore[s]=0:panic[s]+=1
+	 if thenoob[s]=1 and whore[s]=0:panic[s]+=1
+	 if moon_curse[s]>=1:
+		panic[s]+=1& if soul[s]<=0:dead[s]=2
+	 end	
+end
+horny[w]=0&horny[s]=0

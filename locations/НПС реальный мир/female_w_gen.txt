@@ -1,0 +1,27 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+lvl[i]=1&soul[i]=100
+spec_face_pic[i]=5&face_pic[i]=1
+$name[i]='Нина'&$surname[i]='Алферова'&$title[i]='Соседка'&$nick[i]='Девушка'&know['<<i>>,<<you>>']+=1&know['<<you>>,<<i>>']+=1
+face[i]=70&gla[i]=1&glacol[i]=1&nose[i]=3&lips[i]=1&scull[i]=1&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=39&tits[i]=18&nip[i]=45
+rost[i]=170&fat[i]=1400&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=30&hcol[i]=1
+age[i]=21&vital[i]=40&will[i]=50&reflex[i]=40
+pol[i]=1&gs'body'&total_generated_female+=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+bisex[i]=iif(rand(1,100)>=70,1,0)&agro[i]=rand(1,90)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(1,30) &!характер
+bisexwomantotal+=iif(bisex[i]>0,1,0)&lust[i]=iif(bisex[i]>0,rand(40,100),0)&lust[i]+=iif(extrovert[i]=2,10,0)&lust[i]+=iif(ratio[i]=0,10,0)&womenbrain[i]=rand(70,100)&forbidsex[i]=0&!нет запрета
+if bisex[i]=0:
+     if age[i]<27:
+		templust=rand(1,100)&lust[i]=iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50)))
+	 else
+		templust=rand(1,100)&lust[i]=iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70)))
+     end
+end
+if lust[i]>=75 and agro[i]>=75:misstress[i]=1&total_misstress+=1
+if lust[i]>=75 and agro[i]>=50 and agro[i]<75:femwhore[i]=1&total_femwhore+=1
+if lust[i]>=75 and agro[i]<50:subslut[i]=1&total_subslut+=1
+t_slot[i]=15&l_slot[i]=26&b_slot[i]=13
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+real_world[]=i&!walkprog[i]=26

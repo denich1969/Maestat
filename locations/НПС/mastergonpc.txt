@@ -1,0 +1,1 @@
+﻿npc=ARGS[0]&X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&gt'npc'

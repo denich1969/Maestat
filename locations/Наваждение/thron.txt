@@ -1,0 +1,62 @@
+﻿gs'stat'
+'Трон принцессы'
+*pl 'На троне вырезана гравюра: символизирующее мощь солнце, окружённое платьем принцессы, скипетром и диадемой.'
+gs'Item'
+gs 'npconloc'
+act'Уйти':gt 'preloc'
+act'Сесть на трон':
+	time+=5&cls&gs'stat'
+	 if h_slot[you]=2 and t_slot[you]!24 and dressonce!daystart and item[57]>0 and item_loc_t['24,<<$loc[you]>>']=0:
+		 dressonce=daystart
+		 if you!princess: item_loc_t['133,<<$loc[you]>>']=1&'Рядом с троном упало платье принцессы'
+		 !item_loc_t['24,<<$loc[you]>>']=1
+	 end
+     if throntime<time:
+		 if h_slot[you]=2 and t_slot[you]=24 and scipetronce!daystart and m_slot[you]!55 and item_loc['55,<<$loc[you]>>']=0:
+			 scipetronce=daystart
+			 item_loc['55,<<$loc[you]>>']+=1
+			 'На троне материализовался скипетр'
+		     if dick[you]>1:
+		     magik[you]+=1
+			 dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1
+			 'Между ног вас обожгло вспышкой боли и пощупав вы поняли, что ваш член исчез и на его месте у вас вагина.'
+			 end
+		 else
+			 throntime=time+300
+			 health[you]=healthmax[you]
+			 energy[you]=energymax[you]
+			 mana[you]=manamax[you]
+			 'Вы посидели на троне и восстановили здоровье и энергию'
+		 end
+     else
+         if h_slot[you]=2 and t_slot[you]=133 and scipetronce!daystart and m_slot[you]!55 and item_loc['55,<<$loc[you]>>']=0:
+			 scipetronce=daystart
+			 item_loc['55,<<$loc[you]>>']+=1
+			 'На троне материализовался скипетр'
+		     if dick[you]>1:
+				 magik[you]+=1
+				 dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1
+				 'Между ног вас обожгло вспышкой боли и пощупав вы поняли, что ваш член исчез и на его месте у вас вагина.'
+			 end
+		 else
+			'Вы сели на трон, но ничего не происходит'
+         end
+     end
+	act'...':gt'preloc'
+end
+if h_slot[you]=2 and t_slot[you]=24 and m_slot[you]=55 and item[29]>0:
+     act'Получить душу из рунного камня':throneonce+=1&item[29]-=1&soul[you]+=100&gt 'preloc'
+end
+if throneonce=0:
+	'В трон инкрустирован рунный камень'
+     act'Вытащить рунные камни':throneonce+=1&item_loc['29,<<$loc[you]>>']+=1&gt 'preloc'
+end
+if startnewspawn=0 and princess=you:
+	'На троне виднеется какая то черная точка притягивающая взгляд'
+     act'Потереть черноту':startnewspawn=1&gt 'preloc'
+end
+if spawnline=1:'Черной плесени не много, но она явственно видна'
+if spawnline=2:'Плесень распространяется и занимает довольно много места'
+if spawnline=3:'Черной плесени много и трон практически зарос в этой плесени'
+if spawnline=4:'Черная плесень покрывает собой почти все'
+if spawnline>=4:'Трон буквально покрыт черной плесенью'

@@ -1,0 +1,25 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&!forest_slave=i
+lvl[i]=1&soul[i]=70&!work[i]=26&subwork[i]=100
+master[i]=0&delusion[i]=0&magik[i]=0&mage[i]=0&!beliver[i]=100
+spec_face_pic[i]=5&face_pic[i]=86&face_npc[i]=1&face_pic[i]=16&!фото
+face_npc[i]=1&face_pic[i]=7
+$title[i]=''&$history[i]=''
+gs'female_gen'&$name[i]='Рабыня'&$surname[i]='Рабыня'
+face[i]=80&gla[i]=3&glacol[i]=4&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=60&anus[i]=60&ass[i]=30&throat[i]=40&tits[i]=12
+rost[i]=168&mus[i]=500&fat[i]=1000&skin[i]=1&preskin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=35&curl[i]=0&hcol[i]=3
+age[i]=20&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1&gs'body_auto_unce',i&!костыль, чтоб не копаться в каждом персонаже
+if body_updateV1[i]<1:gs'body_auto',i,'old_npc_once'
+womenbrain[i]=rand(70,100)&bisex[i]=1&agro[i]=-100&selfrespect[i]=0&positiv[i]=0&extrovert[i]=0&ratio[i]=0&brave[i]=0&lust[i]=100&!характер
+corrupt[i]=100&cumslut[i]=100&analslut[i]=100
+all_in_anal[i]=100&all_in_oral[i]=100&all_in_vag[i]=100
+can_bj[i]=1&can_anal[i]=1
+w_slot[i]=0&!l_hand_t[i]=3&nose_p[i]=1
+h_slot[i]=0&ct_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=15&l_slot[i]=0&b_slot[i]=6
+ut_slot[i]=10&ul_slot[i]=2&ub_slot[i]=5
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2&!$loc[i]='fv_tavern'
+se_lighthouse[]=i&!walkprog[i]=67&!npcii[i]=1

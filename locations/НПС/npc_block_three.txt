@@ -1,0 +1,93 @@
+﻿ if know['<<npc>>,<<you>>']=0:
+	 act'Познакомиться':
+		 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 '<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+ else
+	if Z[npc]>0 and Z[npc]<200 and isenemy['<<npc>>,<<you>>']<=0:gs'npc_talk'
+	 cansex[npc]=0&if master[you]>0 and master[you]=beliver[npc] and cansex[npc]=0:cansex[npc]=1
+	 if sexpartner['<<npc>>,<<you>>']>0 and sexpartner['<<you>>,<<npc>>']>0 and cansex[npc]=0:cansex[npc]=1
+	 if (boyfriend_num[npc]=you and girlfriend_num[you]=npc) or (husband[npc]=you and husband[you]=npc):cansex[npc]=1
+	 if whore[npc]>0:cansex[npc]=0
+	 if master[npc]>0 and pol[npc]>0:cansex[npc]=0
+	 if port_whore[npc]>=1:cansex[npc]=0
+	 if misstress[npc]=1:cansex[npc]=0
+	 if borisbogart=npc:cansex[npc]=0
+	 if frank_visconti=npc:cansex[npc]=0
+	 if tommysolomon=npc:cansex[npc]=0
+	 if harrysolomon=npc:cansex[npc]=0
+	 if dicksolomon=npc:cansex[npc]=0
+	 if blackwood=npc and work[you]=25:cansex[npc]=0
+	 if gilman=npc and work[you]=25:cansex[npc]=0
+	 if myagent[npc]=you:cansex[npc]=1
+	 if blackmail[npc]>0:cansex[npc]=1
+	 !if husband[you]=npc:cansex[npc]=1
+	 if giver[npc]>0:cansex[npc]=1
+	 if isenemy['<<npc>>,<<you>>']>0:cansex[npc]=0
+	 if my_puppil[npc]>=1:cansex[npc]=1
+	 if lebeda_seed[npc]>0 and rune_spore[you]>0:'Споры грибов делают свое дело и <<$name[npc]>> хочет вас'&cansex[npc]=1
+	 if lebeda_seed[npc]>0 and lebeda_seed[you]>0:'Вы чувствуете странное притяжение и замечаете что <<$name[npc]>> хочет вас'&cansex[npc]=1
+     if lunafriend>0 and moongodes=npc:cansex[npc]=1
+     if lunafriend>0 and beliver[npc]=1:cansex[npc]=1
+     if mrblood=npc or mrflesh=npc:cansex[npc]=0
+	 if cansex[npc]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+		 if follower[npc]=0:
+			 if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0):
+				 if gender[npc]>0:
+					 if total_npc_on_loc>1 and whore[npc]=0 and demon_dick_queen[npc]!you:
+						 act'Я хочу занятся с тобой сексом':
+							 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> оглядывается - Давай найдем другое место, тут слишком людно.'&act'...':gt'preloc'
+						 end
+					 else
+						 act'Я хочу занятся с тобой сексом':friends[npc]+=1&gs'drop_follower'&gs'sexpower'&gt'justsex'&!corr[npc]-=10
+					 end
+				 end
+			 end
+			 if dick[npc]>1:
+				 if total_npc_on_loc>1:
+					 if corr[you]>=90:
+						 if empty_ball[npc]<time:
+							 if agro[npc]>=70 or (skin[npc]>3 and skin[npc]<7) or demon_dick_queen[npc]=you:
+								 act'Трахни меня при всех':gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+							 else
+								 act'Трахни меня при всех':
+									 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Я знаю что ты потаскушка, но я стесняюсь.'&act'...':gt'preloc'
+								 end
+							 end
+						 else
+							 act'Трахни меня при всех':
+								 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Детка, дай мне отдохнуть.'&act'...':gt'preloc'
+							 end
+						 end
+					 end
+				 else
+					 if empty_ball[npc]<time:
+						 act'Возьми меня':gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+					 else
+						 act'Возьми меня':
+							 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Детка, дай мне отдохнуть.'&act'...':gt'preloc'
+						 end
+					 end
+				 end
+			else
+				if dick[you]=1:act'Возьми меня':gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=2&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+			end
+			gs'take_follower'&!позвать с собой персонажа
+		 end
+	 end
+	 if my_puppil[npc]>=1 and free_spirit>0 and Hhome[npc]>0 and Hhome[you]>0:
+		 act'Перенестись в это тело':gt'free_spirit'
+		 if myagent[npc]=0 and can_verbovka[you]=1:
+			 act'<b>На документ, теперь ты мой агент</b>':
+				 agency_ud[npc]=1&myagent[npc]=you&if contact[npc]=0:contact[npc]=you&my_contact[]=npc
+				 cls&gt 'preloc'
+			 end
+		 end
+	 end
+	 if item[89]>0 and free_spirit>0 and statist[npc]=1 and Hhome[npc]>0 and master[npc]=0 and beliver[npc]=0 and delusion[npc]=0 and my_puppil[npc]=0 and beliver[you]=1:
+		'Лунный камень светится'&act'Ткнуть лунным камнем':my_puppil[npc]=1&item[89]-=1&puppil[]=npc&total_puppil+=1&gt'free_spirit'
+	 end
+	 if item[89]>0 and free_spirit=0 and statist[npc]=1 and Hhome[npc]>0 and master[npc]=0 and beliver[npc]=0 and delusion[npc]=0:
+		'Лунный камень светится'&act'Ткнуть лунным камнем':my_puppil[you]=1&my_puppil[npc]=1&item[89]-=1&puppil[]=npc&total_puppil+=1&gt'free_spirit_first'
+	 end
+ end

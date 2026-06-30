@@ -1,0 +1,27 @@
+﻿X[w]=1&Y[w]=2&Z[w]=4&H[w]=Hmass&R[w]=3
+X[s]=1&Y[s]=2&Z[s]=4&H[s]=Hmass&R[s]=3
+total_npc_sex+=1
+znts=Z[w]
+npc_sex[znts]+=1
+massageday[s]=daystart
+if know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1
+Znow=Z[w]
+if magworld[Znow]>0:soul[s]+=10
+agro[s]+=1
+healthmax[s]=healthmax[s]+10&health[s]=healthmax[s]
+energy[s]=energymax[s]
+minuron[s]+=rand(2,5)&maxuron[s]=rand(5,10)
+reflex[s]+=1
+under_sub[w]=s&under_sub[s]=w
+mob_busy[w]=time+15&mob_busy[s]=time+15
+action_tipe[w]=1&action_tipe[s]=1
+aktive_tipe[s]=1&aktive_tipe[w]=0
+gs'add_sex_stat',w,s
+hj[w]+=1&ahj[s]+=1
+if throat[w]<10:throat[w]=10
+if dick[s]>throat[w]:throat[w]+=1
+$global_npc_log[s]+='<br>'
+$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> делала мне массаж с дрочкой.'
+$global_npc_log[w]+='<br>'
+$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> получил от меня массаж'
+horny[w]=0&horny[s]=0

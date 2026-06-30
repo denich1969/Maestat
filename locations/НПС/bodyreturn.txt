@@ -1,0 +1,5 @@
+﻿SHOWSTAT 1&SHOWOBJS 1
+npc=you&you=myrealbody
+X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]
+X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+gt 'preloc'

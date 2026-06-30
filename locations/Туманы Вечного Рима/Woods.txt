@@ -1,0 +1,86 @@
+﻿!Действие в лесу - "Попробовать <u>в</u>ыследить дикарку" (Начало охоты)     !Сюда(и в Woods_Use_Aphrodisiac) переносим всю логику до визуального контакта с дикаркой
+energy+=1 - starving&!Энергия и время увеличиваются вне зависимости от успеха охоты
+'<b><center>Лес</center></b>'&!GS "!Time"
+ACT 'Углубиться в лес': 
+	IF RAND(1, 6) = 1: 
+		'Вы на окраине Леса.'&*nl'Если идти в туманы, то выйти можно будет только добравшись до другого мира.'&*nl'Прежде чем отправляться, стоит проверить достаточно ли припасов!'&gt $curloc
+	else 		
+		hunt = IIF (OBJ "Ищейка",10,RAND (1,10))&!Считаем шанс вообще не наткнуться на дикарку&!GS "!Girlmaker"&!Генерация дикарки
+		IF hunt < 5:'Вы бродили по лесам несколько часов, но поиски оказались напрасными.'&GT 'Woods'
+		spot = RAND (1,10) + ум&!ШАНС ДИКАРКИ ЗАРАНЕЕ ЗАМЕТИТЬ ГЕРОЯ
+		IF spot > sneak:'Впереди вам почудилось какое-то движение. Если это и была дикарка, то она явно заметила вас раньше чем вы ее.'&GT "Woods"
+		'Впереди вам почудилось какое-то движение. Похоже это дикарка и она вас еще не заметила!'&lure = 0&GT "Hunt"
+	end
+END 
+close all&!ДАЛЕЕ ОСНОВНАЯ ЛОКАЦИЯ ЛЕСОВ ОХОТЫ
+SHOWOBJS -1&SHOWSTAT -1&SHOWACTS -1
+IF time = 1:BCOLOR = RGB(210, 255, 255)&FCOLOR = RGB(1, 1, 1)
+IF time = 2:BCOLOR = RGB(255, 245, 130)&FCOLOR = RGB(1, 1, 1)
+IF time = 3:BCOLOR = RGB(255, 160, 60)&FCOLOR = RGB(1, 1, 1)
+IF time = 4:BCOLOR = RGB(10, 10, 40)&FCOLOR = RGB(255, 255, 255)
+IF deep = 0:$deep = "Опушка леса"&!ЗАМЕР ГЛУБИНЫ ЛЕСА ВОКРУГ
+IF deep = 1:$deep = "Густой лес"
+IF deep = 2:$deep = "Лесная глушь"
+IF deep = 3:$deep = "Бурелом"
+IF deep <3 and time < 4 and NO OBJ "Добыча":
+	ACT "Углубиться в лес, в поисках лучшей добычи":
+		deep+=1&!ЭТО ИЗМЕНЕНИЕ ГЛУБИНЫ ЛЕСА
+		GS "!Time"&owlbear = RAND(1,10)+deep*2&IF owlbear>10 and NO OBJ "Перо совомедведя":GT "Owlbear"
+		GT "Woods"
+	END
+END
+IF NO OBJ "Добыча" and time < 4:
+	ACT "Попробовать выследить дикарку":
+		energy+=1 - starving&hunt = IIF (OBJ "Ищейка",10,RAND (1,10))
+		IF hunt < 5:msg "Вы бродили по лесам несколько часов, но поиски оказались напрасными."&GS "!Time"&GT "Woods"
+		IF hunt > 4:*CLR&GS "!Time"&GT "Hunt"
+	END
+END
+IF deep >0 and time < 4:
+	ACT "Идти в сторону опушки":
+		deep-=1&GS "!Time"&owlbear = RAND(1,10)+deep*2
+		IF owlbear > 10 and NO OBJ "Перо совомедведя" and NO OBJ "Голова совомедведя":GT "Owlbear"
+		escape = RAND (1,10)+ловкость
+		IF OBJ "Добыча" and girl = 1 and NO OBJ "Оковы" and NO $class = "dominatrix" and escape > 10:
+			DELOBJ "Добыча"
+			msg "Дикарке как-то удалось ослабить веревку, которой вы ее связали. Улучив момент когда вы отвернулись, она шустро бросается в сторону и скрывается в лесу."
+			GT "Hunt_chase"
+		END
+		GT "Woods"
+	END
+END
+IF OBJ "Ловушки" and deep = 0 and time < 4:ACT "Установить ловушки":DELOBJ "Ловушки"&trap = 1&GS "!Time"&GT "Woods"
+IF trap = 1 and deep = 0 and time = 1 and NO OBJ "Добыча":
+	ACT "Уже утро - пора проверить ловушки":
+		trap = RAND (2,3)
+		IF trap = 3:
+			GS "!Girlmaker"&msg "В одну из ваших ловушек попалась неосторожная дикарка! Вы связываете ее и при помощи специального ключа отпираете ловушку. Но фаллос-ловушка все равно не выходит из влагалища добычи. Тогда вы немного надрезаете промежность и только после этого вынимаете из кровоточащего влагалища дикарки фаллос-ловушку"
+			$BACKIMAGE = "content/Girls/Bound/Falos<<rand (1,2)>>.jpg"&целка = 1&$целка = "На бедрах заметны следы крови. Ловушка лишила ее девственности."&ADDOBJ "Добыча"
+			trap = 1&GS "!Time"&GT "Woods"
+		END
+		trap = 1&msg "Никто не попался в ваши ловушки, <<$name>>"&GS "!Time"&GT "Woods"
+	END
+END
+IF NO OBJ "Добыча" and OBJ "Афродизиак":
+	ACT "Приманить дикарку афродизиаком":  
+		lure = 1&decoy-=1&IF decoy < 1:DELOBJ "Афродизиак"&msg "Вы открываете пузырек и ставите его посреди поляны, а сами прячетесь в кустах. Ждать приходится долго, но охотники терпеливый народ. Наконец из леса появляется обнаженная девушка. Она словно зачарованная идет прямо к оставленному вами пузырьку."&GS "!Time"&GT "Hunt"
+	END
+END
+IF deep = 0:ACT "Идти в туманы":GT "Enter_fog2"
+"<center><H1><FONT color = 'white'><<$deep>></H1></center>"&!ПОКАЗЫВАЕТ РАЗНУЮ КАРТИНКУ И НАЗВАНИЕ В ЗАВИСИМОСТИ ОТ ГЛУБИНЫ ЛЕСА + ФОНОВЫЕ ЗВУКИ
+IF deep = 0 and time < 4:
+	 $BACKIMAGE = "content/forest/forest_light<<rand(1,5)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/deep0.mp3",Громкость_эффектов
+END
+IF deep = 1 and time < 4:
+	$BACKIMAGE = "<<$content>>/Rome/forest_med<<rand(1,6)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/deep0<<rand(1,2)>>.mp3",Громкость_эффектов
+END
+IF deep = 2 and time < 4:
+	$BACKIMAGE = "content/forest/forest_hvy<<rand(1,11)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//deep2<<rand(1,2)>>.mp3",Громкость_эффектов
+END
+IF deep = 3 and time < 4:
+	$BACKIMAGE = "content/forest/forest_deep<<rand(1,7)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//deep3.mp3",Громкость_эффектов
+END
+IF time > 3:
+	$BACKIMAGE = "content/forest/forest_night<<rand(1,14)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//night<<rand(1,4)>>.mp3",Громкость_эффектов
+END
+GS "!Counter"&IF energy > 7:GT "Gamover_tired"

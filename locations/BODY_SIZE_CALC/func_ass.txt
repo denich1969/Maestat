@@ -1,0 +1,12 @@
+﻿!args[10] = 100*2*bedra[args[0]]/(3*talia[args[0]])-100
+if args[1]=0:args[1]=hips[args[0]]
+!оптимальный диаметр бедер
+args[12] = rost[args[0]]*90/1800
+!процент отклонения от оптимального 
+args[11] = 10*100*args[1]/args[12]-1000
+!'func_ass result '+args[10]
+!'func_ass bedra '+bedra[args[0]]
+args[10]=args[11]-args[11]/10*10
+if args[10]>=5:args[11]=args[11]/10+1
+if args[10]<5:args[11]=args[11]/10
+result = args[11]

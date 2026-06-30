@@ -1,0 +1,306 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Унитаз'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if X[you]=4 and Y[you]=3 and Z[you]=3 and H[you]=1 and R[you]=1 and rand(1,3)=2:
+	'Перед вами унитаз'&*nl'Вы услышали позади какой-то шум, после которого входная дверь словно приоткрылась. Впрочем на магической мануфактуре постоянно какая-то хрень твориться.'
+	if pisswasser[you]>0:
+		act 'Все равно пописать':
+			 pisswasser[you]=0&time+=5&cls&gs'stat'
+			 if dick[you]>1:
+				'Вы достаете член и писаете в унитаз.'&'<center><video src="pic/event/spy-urinal.webm" ></video></center>'
+				if horny[you]>49:
+					'Одновременно с тем как вы мочитесь, вы ощущаете легкое прикосновение к своему члену, что довольно приятно и возбуждающе.'
+					act'Вздрочнуть':
+						 jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=10&cls
+						 if dick[you]>5:
+							if tit[you]>5:
+								 '<center><video src="pic/sex/solo/wank<<rand(12,23)>>.webm" ></video></center>'
+							else
+								if skin[you]>4:
+									'<center><video src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'
+						         else
+									'<center><video src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'
+								 end
+							end
+							'Вы достали свой стоячий член и начали его дрочить, пока наконец не кончили.'
+						 else
+							'<center><video src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
+							 'Вы теребите пальчиками свой крошечный членик и практически моментально ваш бесполезный отросток кончает маленькой капелькой семени.'
+						 end
+						 'Одновременно с оргазмом, вы ощутили, что внутри вас что-то потеплело, словно кто-то приложил грелку к вашим яйцам. Это было приятно...'
+						 misticMMT+=1&act'Уйти':gt 'preloc'
+					end
+				end
+			 else
+				'<center><video src="pic/event/fpiss<<rand(1,11)>>.webm" ></video></center>'&'Вы садитесь на унитаз и писаете.'
+				if horny[you]>49:
+					'Одновременно с тем как вы мочитесь, вы ощущаете легкое прикосновение к своему клитору, что довольно приятно и даже возбуждающе-волнующе...'
+					act'Поласкать себя':
+						 jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=10&cls&gs'stat'&'<center><video src="pic/sex/solo/shlik<<rand(0,6)>>.webm" ></video></center>'
+						 'Вы раздвигаете ножки и начинаете теперить свою мокренькую пизденку, иногда похлопывая лапошкой по своей пизде у вас начинают трястись ноги и закатываться глаза'
+			             cumfrase=rand(1,4)
+			             if cumfrase=1:'<b>Ах-ах, Ах-ах, Ах-ах.</b>'
+		             	 if cumfrase=2:'<b>Даааа, сука.</b>'
+			             if cumfrase=3:'<b>О-о-о-о ааааааа, дааа блять.</b>'
+			             if cumfrase=4:'<b>Ммхмхмммх, каааайф - простанываешь ты.</b>'
+						 'Нащупав горошину клитора, вы начали ее теребить и через некоторое время вас охватил оргазм.'
+						 'Одновременно с оргазмом, вы ощутили, что внутри вас что-то потеплело, словно кто-то приложил грелку к вашему лобку или даже к матке. Это было приятно...'
+						 misticMMT+=1&act'Уйти':gt 'preloc'
+					end
+				end
+			 end
+			 act'Уйти':gt 'preloc'
+		end
+	end
+	act'Уйти и не рисковать':gt 'preloc'
+else
+	if pisswasser[you]>0:
+		 act'Пописать':
+			 pisswasser[you]=0&time+=5&cls&gs'stat'
+				 if dick[you]>1:
+					'<center><video src="pic/event/spy-urinal.webm" ></video></center>'&'Вы достаете член и писаете в унитаз.'
+				 else
+					'<center><video src="pic/event/fpiss<<rand(1,11)>>.webm" ></video></center>'&'Вы садитесь на унитаз и писаете.'
+				 end
+			 if rand(1,3)=3 and dick[you]>=1 and vag[you]<=0 and ball[you]>=1 and horny[you]>=50 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and insmouth_loc_num>0:
+				 if dick[you]>0 and dick[you]<5 and rand(1,2)=2 and vag[you]<1:
+					act'Засунуть членик в эту дыру':
+						 energy[you]-=25&bj[you]+=1&time+=20&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/8.webm" ></video></center>'&'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+						'Вы засовываете свой членик в дыру и прилипаете всем телом к стене, прямо напротив вашего лица открывается небольшая воронка и из нее ваш собственный пенис попадает вам в рот.'
+						'Облизнув головуку, пару раз, вы входите во вкус, заглатывая членик полностью в свой рот, испытывая огромное удовольствие от этого процесса.'
+						 act'Сосать дальше':
+							cum_face[you]+=1&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(1,3)
+							cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+							'Вы отсасывали себе еще минут 5 и ярко кончили себе в рот, сходу проглатывая сперму, ощущая при этом, как нечто внутри вас вздрогнуло и повернулось в сторону женственности. '
+							'После этого магическая сила, не дающая вам отлипнуть от стены, исчезла.'&act'Встать':gt 'preloc'
+						 end
+						 if womenbrain[you]<80 or insmout_gangwhore=1:
+							 act'Сосать жестко':
+								 cum_face[you]+=3&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(5,10)
+								 if dick[you]<5:pert = 1
+								 if dick[you]>=5:pert = 2
+								 cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)&
+								'Вы с силой начинаете отсасывать свой член стараясь его втянуть в себя как можно сильнее, ощущая дикое возбуждение и удовольствие от нечеловеческого отсоса. '
+								'На какой-то миг вам начинает казаться, что член словно стал больше и уже плотно входит в ваш жадный рот. '
+								'Возбуждение уже окончательно туманит ваш разум и вы продолжаете сосать член как необузданная нимфоманка, не замечая ничего вокруг...'
+								 act'Закончить дело до конца':
+									if rand(1,3)<=pert:
+										cum_face[you]+=3&dick[you]+=5&ball[you]+=2&bj[you]+=1&feminize[you]-=rand(5,10)&dom[you]+=3&cls&$func('get_images', 'glory_blow_deep', you)&!and insmout_gangwhore!1:
+										'Оргазм сверкает в вашем рассудке как молния, а из заметно увеличившегося член выплескивается просто тройная доза спермы, заливающая вам рот и лицо...'
+										act'Прийти в себя и выйти':gt 'preloc'
+									else
+										insmout_gangwhore=2&cum_face[you]+=1&dick[you]=0&ball[you]=0&feminize[you]-=rand(5,10)&face[you]-=rand(10,30)
+										cls&$func('get_images', 'glory_blow_deep', you)&'Схватившись рукой за начавший кончать член, вы яростно выдаиваете из него сперму, проглатывая ее и размазывая ее по своим губам.'
+										' Однако стоило вам осознать происходящее, как понимаете, что в ваших руках обычный дилдак, а сами вы не прикованны к стене.'
+										'Опустив глаза вниз, вы понимаете, что у вас члена больше просто нет, он у вас в руках...'&m_slot[you]=31&act'Выйти':gt 'preloc'
+									end
+								 end
+							 end
+						 end
+					 end
+				 else
+					if dick[you]>3 and rand(1,2)=2 and vag[you]<1 and insmouth_loc_num>0:
+						 act'Засунуть член в дыру':
+							if rand(1,5)=3:
+								bj[you]+=1&energy[you]-=30
+								time+=15&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/5.webm" ></video></center>'&'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+								'Вы засовываете член в дыру и внезапно прилипаете к дыре. А из магического символа напротив вашего лица вылезает член и попадает вам в рот. '
+								'Вы тут же понимаете, что у вас во рту ваш собственный член. И вы никак не можете освободиться. '
+								'Постепенно вы начинаете сосать свой член и входите во вкус, заглатывая все глубже и глубже.'
+								 act'Кончать':
+									 cum_face[you]+=1&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(1,3)
+									 cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+									'Вы кончили себе в рот и проглотили сперму, ощущая при этом, как нечто внутри вас вздрогнуло и повернулось в сторону женственности. '
+									'После этого магическая сила, не дающая вам отлипнуть от стены, исчезла.'&act'Встать':gt 'preloc'
+								 end
+							else
+								 abj[you]+=1&horny[you]=0&feminize[you]-=1&lastsex=time&time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&act'Уйти':dinama+=1&gt 'preloc'
+								 'Вы засовываете член в дыру, и чувствуете, как горячий рот незнакомой шлюхи обхватывает ваш член и начинает сосать будто пылесосом. Вскоре вы разряжаетесь в рот шлюхе.'
+							end
+						 end
+					end
+				 end
+			 else
+				if dick[you]>0 and dick[you]<8 and rand(1,2)=2 and vag[you]<1:
+				 act'Засунуть членик в эту дыру':
+						 energy[you]-=25&bj[you]+=1&oral_fixation[you]+=1&time+=20&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/8.webm" ></video></center>'
+						'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+						 'Вы засовываете свой членик в дыру и прилипаете всем телом к стене, прямо напротив вашего лица открывается небольшая воронка и из нее ваш собственный пенис попадает вам в рот.'
+						'Облизнув головуку, пару раз, вы входите во вкус, заглатывая членик полностью в свой рот, испытывая огромное удовольствие от этого процесса.'
+						 act'Сосать размеренно дальше':
+							 cum_face[you]+=1&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(1,3)
+							 cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+							'Вы отсасывали себе еще минут 5 и ярко кончили себе в рот, сходу проглатывая сперму, ощущая при этом, как нечто внутри вас вздрогнуло и повернулось в сторону женственности. '
+							'После этого магическая сила, не дающая вам отлипнуть от стены, исчезла.'&act'Встать':gt 'preloc'
+						 end
+						 if womenbrain[you]>50:
+							 act'Сосать жестко':
+								 cum_face[you]+=3&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(2,10)&cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)
+								'Вы с силой начинаете отсасывать свой член стараясь его втянуть в себя как можно сильнее, ощущая дикое возбуждение и удовольствие от нечеловеческого отсоса. '
+								'На какой-то миг вам начинает казаться, что член словно стал больше и уже плотно входит в ваш жадный рот. '
+								'Возбуждение уже окончательно туманит ваш разум и вы продолжаете сосать член как необузданная нимфоманка, не замечая ничего вокруг...'
+								 act'Довести дело до конца':
+									if rand(1,20)>1 and fishsmell[you]=0:
+										cum_face[you]+=3&dick[you]+=rand(5,7)&ball[you]+=2&bj[you]+=1&mus[you]+=50&feminize[you]-=rand(5,15)&dom[you]+=3&cls&$func('get_images', 'glory_blow_deep', you)
+										'Оргазм сверкает в вашем рассудке как молния, а из заметно увеличившегося член выплескивается просто тройная доза спермы, заливающая вам рот и лицо...'
+										act'Прийти в себя и выйти':gt 'preloc'
+									else
+										cum_face[you]+=1&dick[you]=0&ball[you]=0&mus[you]-=rand(200,500)&fat[you]-=rand(300,800)&feminize[you]-=rand(5,15)&face[you]-=rand(10,40)
+										cls&$func('get_images', 'glory_blow_deep', you)&'Схватившись рукой за начавший кончать член, вы яростно выдаиваете из него сперму, проглатывая ее и размазывая ее по своим губам.'
+										'Однако стоило вам осознать происходящее, как понимаете, что в ваших руках обычный дилдак, а сами вы не прикованны к стене.'
+										'Опустив глаза вниз, вы понимаете, что у вас члена больше просто нет, он у вас в руках...'&'<center><img src="pic/event/dildohand.jpg" ></center>'&m_slot[you]=31&act'Выйти':gt 'preloc'
+									end
+								 end
+							 end
+						 end
+					 end
+				 else
+					if dick[you]>5 and vag[you]<1 and insmouth_loc_num>0:
+						 act'Засунуть член в дыру':
+							if rand(1,5)=3:
+								energy[you]-=30&bj[you]+=1
+								time+=15&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/5.webm" ></video></center>'&'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+								'Вы засовываете член в дыру и внезапно прилипаете к дыре. А из магического символа напротив вашего лица вылезает член и попадает вам в рот. '
+								'Вы тут же понимаете, что у вас во рту ваш собственный член. И вы никак не можете освободиться. '
+								'Постепенно вы начинаете сосать свой член и входите во вкус, заглатывая все глубже и глубже.'
+								 act'Кончать':
+									 cum_face[you]+=1&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(1,3)
+									 cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'<center><video src="pic/sex/gloryhole/Autoglor2.webm" ></video></center>'
+									'Вы кончили себе в рот и проглотили сперму, ощущая при этом, как нечто внутри вас вздрогнуло и повернулось в сторону женственности. '
+									'После этого магическая сила, не дающая вам отлипнуть от стены, исчезла.'&act'Встать':gt 'preloc'
+								 end
+							else
+								 abj[you]+=1&horny[you]=0&feminize[you]-=1&lastsex=time&time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&act'Уйти':dinama+=1&gt 'world'
+								 'Вы засовываете член в дыру, и чувствуете, как горячий рот незнакомой шлюхи обхватывает ваш член и начинает сосать будто пылесосом. Вскоре вы разряжаетесь в рот шлюхе.'
+							end
+						 end
+					 end
+				 end
+			 end
+			 volya=1
+			 if X[you]=3 and Y[you]=1 and Z[you]=1 and H[you]=1:
+				 if hour>=17 and hour<=18 or insmouth_loc_num>0:
+					$func('get_images', 'glory_dick')&'Пока вы делаете свои дела, через дырку в стене вдруг просовывается смердящий рыбой член, обернутый в ассигнацию достоинством в шиллинг.'&!рыбзавод
+					if pol[you]=0 or face[you]<90 or dick[you]>3:
+						'Член блестит от того, что его смазали какой-то розоватой субстанцией с удивительно приятным манящим ароматом, который даже перебивает омерзительный запах рыбы.'
+						if dick[you]=0:
+							horny[you]+=rand(25,35)&'Несмотря на неприглядность этого мокрого отростка, ваша киска на него реагирует. '
+							'Невольно возникает мысль о том, что было бы интересно, как он будет скользить внутри вашего тела, или какой же он вкусный...'
+						elseif womenbrain[you]>50:
+							horny[you]+=rand(25,35)&'Несмотря на неприглядность этого отростка, что-то щёлкает в вашем мозгу. '
+							'Невольно возникает мысль о том, что было бы интересно, как он будет скользить внутри вашей попки, или какой же он вкусный...'
+						end
+					end
+					if face[you]>=50 or horny[you]>=50:'Вы не понимаете почему, но вид этого влажного члена вызывает у вас острое возбуждение... Вам хочется попробовать эту залупу на вкус.'
+					if face[you]>80 and horny[you]>50 and womenbrain[you]>50:
+						if vag[you]>0 and dick[you]=0:'Словно загипнотизированная шлюха, очарованная таинственным ароматом, вы смотрите на этот агрегат и между ног чувствуете прилив жара. Как же вам хочется попробовать этот член...'
+						if vag[you]=0 and dick[you]>0:'Словно загипнотизированная шлюшка, очарованная таинственным ароматом, вы смотрите на этот агрегат и чувствуете как ваш собственный <<func("get_stat_desc", "get_dick_word", you)>> начинает набухать, выдавая ваше возбуждение... Как же вам хочется попробовать этот член...'
+						if horny[you]>70 and womenbrain[you]>100:volya=0&'Ваше возбуждение застилает вам разум: вы понимате, что у вас просто нет сил, противостоять этой странной тяге... Лизнуть алую залупу... Обсосать эту слизь со ствола... Аромат сводит вас с ума... Вы хотите высосать все соки из этого прекрасного жезла...'
+					end
+					$namelocvol=$iif(volya=0,'Вцепиться губами в мокрый член','Взять в рот этот член')
+					act $namelocvol:
+						bj[you]+=1&dagongene+=rand(1,5)&oral_fixation[you]+=1&money[you]+=100&if face[you]>50:horny[you]+=rand(20,35)
+						fish_glory[you]+=1&time+=10&cls&gs'stat'&$func('get_images', 'glory_blow', you)
+						'Вы встаете на колени и облизнув дурманящий член, торчащий через дырку в стене и начинаете яростно его обсасывать и облизывать.'
+						if pol[you]=0 or (volya=0):
+							feminize[you]+=rand(1,4)&oral_fixation[you]+=1
+							'Вы сосете член, на котором намазано что-то сладковатое, от чего у вас слегка горят губы, и чувствуете, что член начинает пульсировать, готовясь кончить.'
+						else
+							'Довольно долго вы совершаете монотонные движения головой, обхватив губами соленый и пахнущий рыбой член, и все-таки член начинает пульсировать, готовясь кончить.'
+						end
+						act'Глотать':
+								 cum_face[you]+=1&glory[you]+=1&dom[you]-=1&oral_fixation[you]+=1
+								 cls&gs'soulcraft'&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете, глотая сперму.'
+								 if lips[you]<1 and glory[you]>10:lips[you]=1&msg('Вы ощущаете, как часть спермы словно впитывается в ваши губы и они немного увеличиваются')
+								 if corr[you]>50 and glory[you]>25 and lips[you]<2:lips[you]=2&msg('Вы ощущаете, как сперма разливается по вашим губам и делает их более нежными и припухлыми')
+								 if corr[you]>75 and glory[you]>50 and dom[you]<30 and lips[you]<3:
+									lips[you]=3&if oral_fixation[you]<50:oral_fixation[you]=50
+									msg('Вы ощущаете, что ваш рот настолько прикипел к вашему отсосу очередного члена, что уже буквально не может нормально закрываться, оставаясь в форме буквы "О" и еще более опухшими губами, имитирующими перевозбужденное отверстие')
+								 end
+								 act'Встать':gt 'preloc'
+							 end
+						 end
+						if horny[you]>60 and (vag[you]>30 or anus[you]>30):
+							act 'Насадиться на этот член':
+								lastsex=time
+								if vag[you]>30 and rand(0,2)>0:
+									cls&$func('get_images', 'glory_pussy_in', you)&'Вы встаете в полный рост и пристраиваете свою задницу к дырке, одновременно направляя член в мокрую дырочку...'
+									act 'Насаживаться':
+										cls&$func('get_images', 'glory_pussy', you)&'Вы встаете в полный рост и пристраиваете свою задницу к дырке, одновременно направляя член себе в вагину...'
+										act 'Закончить':
+											cls
+											if rand(1,2)=2:
+												'Вы чувствуете, что ваш партнер уже готов кончить и успеваете соскочить с члена и схватить его ртом, чтобы принять вязкое семя в свой рот.'
+												$func('get_images', 'glory_pussy_out', you)
+												 cum_face[you]+=1&glory[you]+=1&gs'soulcraft'&womenbrain[you]+=1&vag[you]+=1&dagongene+=rand(1,5)&oral_fixation[you]+=1&dom[you]-=1&time+=15&gs'stat'
+											else
+												'Вы чувствуете, что ваш партнер уже готов кончить, но возбуждение не позволяет вам слезть с этого ствола, и вы просто дожидаетесь, когда сперма выльется в ваше лоно...'
+												$func('get_images', 'glory_pussy_cum', you)
+												if horny[you]>75:horny[you]=0&'Одновременно с выплеском спермы в ваше тело, вы стонете и кончаете прямо на члене незнакомца.'
+												 womenbrain[you]+=1&glory[you]+=1&gs'soulcraft'&vag[you]+=2&dom[you]-=1&insemrand=rand(0,10)
+												 if inseminate[you]=0 and insemrand=10:father_you_child=you&gs'preggo'
+												 time+=15&gs'stat'
+											end
+											act'Встать':gt 'preloc'
+										end
+									end
+								else
+									cls&$func('get_images', 'glory_ass_in', you)&	'Вы встаете в полный рост и пристраиваете свою задницу к дырке, одновременно направляя член себе в попку...'
+									act 'Насаживаться':
+										gs'soulcraft'&dom[you]-=1&dagongene+=rand(1,5)&anus[you]+=rand(1,3)&ass[you]+=1&cls&$func('get_images', 'glory_ass', you)&'Начав ритмично двигать тазом, вы всаживаете член незнакомца в свою задницу, совершенно позабыв о том, что вы сейчас ничем не лучше уличных шлюх, отдающих себя в убогом туалете непонятно кому.'
+										act 'Закончить':
+											feminize[you]+=rand(2,4)&womenbrain[you]+=1
+											time+=15&cls&gs'stat'&$func('get_images', 'anal_cream_dog', you)&'Ваш партнер молча кончил в ваш зад и исчез, не говоря ни слова, оставив вас со своей спермой в кишке...'
+											if horny[you]>75:horny[you]=0&'Одновременно с выплеском спермы в ваше тело, вы стонете и кончаете прямо на члене незнакомца.'&act'Встать':gt 'preloc'
+										end
+									end
+								end
+							end
+						end
+						 if volya=1:act'Уйти':gt 'preloc'
+				 else
+					if rand(1,5)=4:
+						$d_view_ghole='<center><video src="pic/event/viewglory<<rand(1,2)>>.webm" ></video></center>'&!{view("pic/event/viewglory<<rand(1,2)>>.webm")}
+						'В стене туалетной кабинки видна дырка, за которой <a href="exec:dynamic $d_view_ghole">что-то происходит и слышны возбуждающие звуки</a>'
+						horny[you]+=35
+						if dick[you]<7 and vag[you]<1 and corr[you]>40 and anus[you]>25:
+							act'Прислониться промежностью к дырке':
+								if rand(1,5)=4:
+									cls&'<center><img src="pic/event/gloryAssNone.jpg"></center>'&wait 300
+									'Прислонив свою пустую промежность к дыре, за которой был кто-то похожий на девицу, вы простояли минут 10 пока вдруг не ощутили как нечто резко вторглось в ваш зад!'&wait 300
+									dom[you]-=1&anus[you]+=rand(1,3)&ass[you]+=1
+									cls&$func('get_images', 'glory_ass', you)&'Начав ритмично двигать тазом, вы всаживаете член незнакомца в свою задницу, совершенно позабыв о том, что вы сейчас ничем не лучше уличных шлюх, отдающих себя в убогом туалете непонятно кому.'
+									act 'Закончить':
+										feminize[you]+=rand(1,2)&womenbrain[you]+=1
+										time+=10&cls&gs'stat'&$func('get_images', 'anal_cream_dog', you)&'Ваш партнер молча кончил в ваш зад и исчез, не говоря ни слова, оставив вас со своей спермой в кишке...'
+										if horny[you]>75:horny[you]=0&'Одновременно с выплеском спермы в ваше тело, вы стонете и кончаете прямо на члене незнакомца.'&act'Встать':gt 'preloc'
+									end
+								else
+									if rand(1,3)>2:
+										time+=15&cls&'<center><img src="pic/event/gloryAssNone.jpg"></center>'&'Вы словно озабоченная самка простояли 15 минут стоя жопой к дыре в туалете, но так ничего и не дождались...'
+										act'Уйти':gt 'preloc'
+									else
+										anus[you]+=5&horny[you]=0&feminize[you]+=rand(10,30)&cls&'<center><img src="pic/event/shprizinanus.jpg"></center>'
+										'Прислонив свою пустую промежность к дыре, за которой был кто-то похожий на девицу, вы простояли минут 10 пока вдруг не ощутили как нечто резко вторглось в ваш зад!'
+										'Резко подавшись вперед, вы отскочили от дырки, но растягиваемая ваш анус штука никуда не попала. '
+										'Как оказалось вам в зад воткнули какой-то толстый шприц, наполненный неизвестным содержимым...'&act'Выкинуть шприц и уйти':gt 'preloc'
+									end
+								end
+							end
+						end
+					else
+						'В стене туалетной кабинки видна дырка, за которой ничего не видно.'
+					end
+				 end
+				 if volya=1:act'Уйти':gt 'preloc'
+			 end
+			 if volya=1:act'Уйти':gt 'preloc'
+		 end
+	end
+end
+if health[you]*2<healthmax[you] and energy[you]*2<energymax[you]:
+     act'Рыдать и звать маму':
+		 crybaby[you]+=1&health[you]+=40&face[you]+=3&dom[you]-=rand(1,3)&energy[you]=energymax[you]
+		 time+=rand(5,10)&gs'gofight'&gs'stat'&cls&'<center><video src="pic/misc/ridaet.webm" ></video></center>'&'Вы рыдаете, сидя на унитазе и зовете маму, ощущая собственную ранимость и душевную боль.'
+		 act'Уйти':gt 'preloc'
+     end
+end

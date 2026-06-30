@@ -1,0 +1,20 @@
+﻿gs'stat'
+dead[npc]=2
+if afterBogartQW=4:afterBogartQW=5
+murderer[you]+=1
+magik[you]+=1
+global_antey_dead_day=daystart
+'Антей погиб не оставив после себя ни следа'
+     if dead[borisbogart]>0:
+		 if earth_gem[addboss]=0 and afterBogartQW=5 and dead[addboss]=0:
+			 earth_gem[addboss]=1
+			 'На пальце Джофри появилось кольцо аватара Жилмассива'
+		 end
+		 if uberSolderQW[you]>0:
+			 uberSolderQW[you]=9
+			 earth_gem[you]=1
+			 'На вашем пальце появилось кольцо, вы стали аватаром Жилмассива.'
+		 end
+	 end
+
+act'Уйти':gt'preloc'

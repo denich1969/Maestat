@@ -1,0 +1,206 @@
+﻿nosave=0&'Кровать на которой удобно отдыхать и можно <b>сохраняться</b>'
+if (hour>=22 or hour<6) and ((Z[you]>0 and Z[you]<101) or Z[you]>=700):
+     if can_sleep['<<$loc[you]>>']=1:
+		
+    ! else
+		'Спать в одежде неудобно'
+		 act'Раздеться  и лечь спать':
+			 if t_slot[you]>0:
+				clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+			 end
+			 if l_slot[you]>0:
+				clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+			 end
+			 if b_slot[you]>0:
+				clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+			 end
+			 gt'sleep_walk'
+			 !act'Спать':gt'sleep_walk'
+			!gt $curloc
+		 end
+     end
+     act'Спать в одежде':gt'sleep_clo'
+end
+if can_sleep['<<$loc[you]>>']=1 and Z[you]>=200 and Z[you]<300 and (hour>=22 or hour<6):act'Приготовиться ко сну':gs 'bed'
+if magik[you]<7 and  Z[you]>0 and Z[you]<101:
+	if mana[you]>0:
+		'Можно помедитировать, чтобы открыть новый канал.'
+		act'Медитация':
+			time+=60&cls&gs'stat'&!'<center><img src="<<$d_view>>" ></center>'
+			if rand(manamax[you])>mana[you]:
+				'Вы собрали образ в сознании но он получился не стабильный и вам не хватило маны завершить его'
+			else
+				magik_exp[you]+=1&"Вы погружаетесь в медитацию и смогли получить частичку опыта до следующего уровня"
+			end
+			mana[you]=0&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+end
+if energy[you]<energyMax[you]:
+	act'Полежать на кровати':
+		energy[you]=energyMax[you]
+		time+=30&cls&gs'walker'&gs'stat'&'Вы легли отдохнуть и пол часа расслабленно валялись.'
+		if exp[you]>=expneed[you] and muggle[you]=0:gt'newlevel'
+		if TargetLebeda=2:
+			 if face[you]<75:face[you]+=rand(7,10)
+			 if ass[you]<36:ass[you]+=rand(1,5)
+			 if tits[you]<20:tits[you]+=rand(1,5)
+			 if hlong[you]<70:hlong[you]+=rand(1,5)
+			 if face[you]>=75 and ass[you]>=36 and tits[you]>=20 and hlong[you]>=70 and dick[you]>3:dick[you]-=rand(2,4)&nip[you]+=rand(1,3)
+		end
+		act'Встать':gt 'world'
+	end
+end
+if $npc_loc='' and total_npc_on_loc=0:
+	if horny[you]>=50 and energy[you]>=5 and dick[you]>1 and ball[you]>1:
+		act'Дрочить член':
+			 jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'
+			 if dick[you]>5:
+				if tit[you]>5:
+					 '<center><video src="pic/sex/solo/wank<<rand(12,23)>>.webm" ></video></center>'
+				else
+					if skin[you]>4:
+						 '<center><video src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'
+					else
+					     '<center><video src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'
+					end
+				end
+					'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
+			 else
+				 '<center><video src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
+				 'Вы теребите пальчиками свой крошечный членик длинной <<dick[you]>> сантиметров и практически моментально ваш бесполезный отросток кончает маленькой капелькой семени.'
+			 end
+			 if insmouth_loc_num>0 or (X[you]=3 and Y[you]=0 and Z[you]=1 and H[you]=2 and R[you]=0):
+				'Пока вы самоудовлетворяетесь, вас не оставляет чувство чьего-то взгляда, а когда вы кончили, то вам показалось, что кто-то еще вдали и посмеялся... Странно это...'
+				dick[you]-=rand(0,1)&nip[you]+=1&if face[you]<50:face[you]+=1
+			 end
+			 gs'stat'&act'Встать':gt 'world'
+		end
+	end
+	if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
+		act'Тереть клитор':
+			 if dick[you]>1:dick[you]-=rand(0,1)&face[you]+=rand(0,1)
+			 jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/shlik<<rand(6)>>.webm" ></video></center>'
+			 'Вы раздвигаете ножки и начинаете теперить свою мокренькую пизденку, иногда похлопывая лапошкой по своей пизде у вас начинают трястись ноги и закатываться глаза'
+			 cumfrase=rand(1,4)
+			 if cumfrase=1:'<b>Ах-ах, Ах-ах, Ах-ах.</b>'
+			 if cumfrase=2:'<b>Даааа, сука.</b>'
+			 if cumfrase=3:'<b>О-о-о-о ааааааа, дааа блять.</b>'
+			 if cumfrase=4:'<b>Ммхмхмммх, каааайф - простанываешь ты.</b>'
+			 'Нащупав горошину клитора, вы начали ее теребить и через некоторое время вас охватил оргазм.'
+			 if insmouth_loc_num>0 or (X[you]=3 and Y[you]=0 and Z[you]=1 and H[you]=2 and R[you]=0):
+				'Пока вы самоудовлетворяетесь, вас не оставляет чувство чьего-то взгляда, а когда вы кончили, то вам показалось, что кто-то еще вдали и посмеялся... Странно это...'
+				nip[you]+=1&if face[you]>50:face[you]-=1
+			 end
+			 act'Встать':gt 'world'
+		end
+		if item[22]>0:
+			 act'Банан в киску':
+				 jerk[you]+=1&energy[you]+=5&horny[you]=0&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/banana<<rand(1,6)>>.webm" ></video></center>'
+				 if vag[you]=1:
+					'Вы взяли банан и уперлись себе в лепестки влагалища, дальше ввести его вам не дает плева. Нажатие. Небольшая вспышка боли и капелька крови на желтой кожуре, вот вы и больше не девочка.'
+				 else
+					'Вы ввели себе во влагалище спелый банан и начали себя им трахать.'
+					mastrdildoban=rand(1,4)
+			         if mastrdildoban=1:'Как настоящая сучка в течке ты активно суёшь спелый банан в свою пизденку, с высунутым языком ты громко стонешь, получая неимоверное удовольствие.'
+			         if mastrdildoban=2:'Банан растягивает твою сочную киску, ты представляешь себе как тебя трахает огромный мужик. Твои стоны усиливаются и ты еще с большим усердием суешь себе в пизду фрукт, как последняя шалава.'
+			         if mastrdildoban=3:'От сильнейшего унижения и одновремено от максимального кайфа твои коленки сильно затряслись и загружилась голова.'
+			         if mastrdildoban=4:'Ты суёшь себе в пизденку бабан, издавая характерные хвуки хлюпанья, как последняя блядина. Чтобы сейчас сказали о тебе твои родители?.'
+			         'Постепенно ловя кайф, вскоре вы начали кончать'
+				 end
+				 vag[you]+=1&act'Встать':gt 'world'
+			 end
+		end
+		if item[31]>0:
+			act'Дилдо в киску':
+				 jerk[you]+=1&energy[you]+=5&horny[you]=0&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/dildo_cunt<<rand(0,18)>>.webm" ></video></center>'
+				if func('vagslut',you,you,1)=1:
+					 if vag[you]=1:
+						'Вы взяли дилдо и уперлись себе в лепестки влагалища, дальше ввести его вам не дает плева. Нажатие. Небольшая вспышка боли и капелька крови на дилдо, вот вы и больше не девочка.'
+					 else
+						'Вы ввели себе во влагалище дилдо и начали себя им трахать.'
+						 mastrdildovag=rand(1,4)
+						 if mastrdildovag=1:'Как настоящая сучка в течке ты активно суёшь резиночвый член в свою пизденку, с высунутым языком ты громко стонешь, получая неимоверное удовольствие.'
+						 if mastrdildovag=2:'Большой резиновый член растягивает твою сочную киску, ты представляешь себе как тебя трахает огромный мужик. Твои стоны усиливаются и ты еще с большим усердием суешь себе в пизду член, как последняя шалава.'
+						 if mastrdildovag=3:'От сильнейшего унижения и одновремено от максимального кайфа твои коленки сильно затряслись и загружилась голова.'
+						 if mastrdildovag=4:'Ты суёшь себе в пизденку большой резиновый хуй, издавая характерные хвуки хлюпанья, как последняя блядина. Чтобы сейчас сказали о тебе твои родители?.'
+						 'Постепенно ловя кайф, вскоре вы начали кончать.'
+					 end
+				end
+				if vag[you]=1:
+					'Вы взяли дилдо и уперлись себе в лепестки влагалища, дальше ввести его вам не дает плева. Нажатие. Небольшая вспышка боли и капелька крови на дилдо, вот вы и больше не девочка.'
+				else
+					'Вы ввели себе во влагалище дилдо и начали себя им трахать.'
+					 mastrdildovag=rand(1,4)
+					 if mastrdildovag=1:'Как настоящая сучка в течке ты активно суёшь резиночвый член в свою пизденку, с высунутым языком ты громко стонешь, получая неимоверное удовольствие.'
+					 if mastrdildovag=2:'Большой резиновый член растягивает твою сочную киску, ты представляешь себе как тебя трахает огромный мужик. Твои стоны усиливаются и ты еще с большим усердием суешь себе в пизду член, как последняя шалава.'
+					 if mastrdildovag=3:'От сильнейшего унижения и одновремено от максимального кайфа твои коленки сильно затряслись и загружилась голова.'
+					 if mastrdildovag=4:'Ты суёшь себе в пизденку большой резиновый хуй, издавая характерные хвуки хлюпанья, как последняя блядина. Чтобы сейчас сказали о тебе твои родители?.'
+					 'Постепенно ловя кайф вскоре вы начали кончать.'
+				end
+				 vag[you]+=1&act'Встать':gt 'world'
+			end
+		end
+	end
+	if horny[you]>=50 and energy[you]>=5:
+		if item[31]>0:
+		    if hotass[you]=0:
+				act'Дилдо в попу':
+					 if anus[you]>30:horny[you]+=10
+					 jerk[you]+=1&energy[you]+=5&time+=15&cls&gs'stat'&! '<center><video src="pic/sex/solo/dildo_anal.webm" ></video></center>'
+					 if vag[you]>0 and dick[you]=0:
+						'<center><video src="pic/sex/solo/dildo_anal_f_<<rand(0,11)>>.webm" ></video></center>'
+					 else
+						'<center><video src="pic/sex/solo/dildo_anal_s_<<rand(0,24)>>.webm" ></video></center>'
+					 end
+					 'Смазав анус вы начали медленно вводить в него дилдо'
+					 if anus[you]<10:hotass[you]+=10&'Попа у вас очень тесная и кое как пропихнув в попку дилдо, вы не можете им двигать, потому вы его вынимаете.'
+					 if anus[you]>=10 and anus[you]<20:hotass[you]+=5&'Вы с трудом засовываете в свою попу дилдо и очень медленно двигаете боясь порвать себе что нибудь'
+					 if anus[you]>=20 and anus[you]<30:hotass[you]+=3&'Вы аккуратно ввели себе в анус дилдо и начали медленно себя им трахать.'
+					 if anus[you]>=30 and anus[you]<40:hotass[you]+=2&'Вы легко ввели в свою рабочую жопу дилдак и начали себя им трахать.'
+					 if anus[you]>=40:hotass[you]+=1&'Дилдак буквально залетел в вашу раздолбанную жопу и вы начали себя им трахать'
+					 mastrdildoanal=rand(1,4)
+			         if mastrdildoanal=1:'Как настоящая сучка в течке ты активно суёшь резиночвый член в свою жопу, с высунутым языком ты громко стонешь, получая неимоверное удовольствие.'
+			         if mastrdildoanal=2:'Большой резиновый член растягивает твое сочное очко, ты представляешь себе как тебя трахает огромный мужик. Твои стоны усиливаются и ты еще с большим усердием суешь себе в жопу член, как последняя шалава.'
+			         if mastrdildoanal=3:'От сильнейшего унижения и одновремено от максимального кайфа твои коленки сильно затряслись и загружилась голова.'
+			         if mastrdildoanal=4:'Ты суёшь себе в попку большой резиновый хуй, издавая характерные хвуки хлюпанья, как последняя блядина. Чтобы сейчас сказали о тебе твои родители?.'
+					 if anus[you]<10:anus[you]+=10
+					 if anus[you]>=10 and anus[you]<20:anus[you]+=5
+					 if anus[you]>=20 and anus[you]<30:anus[you]+=3
+					 if anus[you]>=30 and anus[you]<40:anus[you]+=2
+					 if anus[you]>=40:anus[you]+=1
+					 if horny[you]>100:
+						cls
+						horny[you]=0
+						if vag[you]>0 and dick[you]=0:'<center><video src="pic/sex/solo/analorg<<rand(0,1)>>.webm"></video></center>'
+						if vag[you]=0 and dick[you]>0:'<center><video src="pic/sex/solo/analorg_s_<<rand(0,12)>>.webm" ></video></center>'
+						if vag[you]>0 and dick[you]=0:'Неожиданная волна тепла и трепета захлестывает вас и вы судорожно схватившись за клитор, содрогаетесь в оргазме не переставая мастурбировать...'
+						if vag[you]=0 and dick[you]>0:'Неожиданная волна тепла и трепета захлестывает вас, и из вашего <<func("get_stat_desc", "get_dick_word", you, 1)>> вылетают струи спермы...'
+						cumfrase=rand(1,4)
+						 if cumfrase=1:'<b>Ах-ах, Ах-ах, Ах-ах.</b>'
+			             if cumfrase=2:'<b>Даааа, сука.</b>'
+			             if cumfrase=3:'<b>О-о-о-о ааааааа, дааа блять.</b>'
+			             if cumfrase=4:'<b>Ммхмхмммх, каааайф - простанываешь ты.</b>'
+						act'Встать':gt 'world'
+					 end
+					 act'Встать':gt 'world'
+				 end
+			end
+			if hotthroat[you]=0:
+				act'Заглатывать дилдо':
+					hotthroat[you]+=5&jerk[you]+=1&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/dildo_blow<<rand(0,17)>>.webm" ></video></center>'
+					'Стараясь сдерживать рвотный рефлекс вы заглатываете дилдак так глубоко, как можете.'&*pl"<b>Глк-глк, глк-глк, глк-глк, глк-глк, глк-глк,</b>"
+					dildothroat=rand(1,4)
+			        if dildothroat=1:'Ты пытаешь полностью заглатить этот дилдо, на глазах выступают слезы, а сама начинаешь задыхаться от перекрывания воздуха членом в твоей глотке.'
+			        if dildothroat=2:'Как настоящая хуесоска ты с интузиазмом насаживаешься своим горлом на резиновый член.'
+			        if dildothroat=3:'От сильнейшего унижения и одновремено от максимального кайфа ты начинашь терять сознание, теребя свою мокренькую пизденку.'
+			        if dildothroat=4:'Стоя на коленях ты насасываешь большой резиновый член, издавая характерные хвуки хлюпанья, как последняя блядина. Чтобы сейчас сказали о тебе твои родители?'
+				    if throat[you]<10:throat[you]=10
+					throat[you]+=1
+					gs'oralslut',you,you
+					act'Встать':gt 'world'
+				end
+			end
+		end
+	end
+end

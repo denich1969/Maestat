@@ -1,0 +1,27 @@
+﻿gs'stat'&'<center><img src="pic/loc/118.jpg" ></center>'
+if last_corn['<<$loc[you]>>']=0 and day_corn['<<$loc[you]>>']!daystart:last_corn['<<$loc[you]>>']=rand(0,1)&day_corn['<<$loc[you]>>']=daystart
+if last_corn['<<$loc[you]>>']>0:
+	'На кукурузном стебле виден зрелый початок'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		act'Взять початок':item_loc['66,<<$loc[you]>>']+=1&time+=5&last_corn['<<$loc[you]>>']=0&'вы быстро срываете початок, на который случайно наткнулись, не получая никакого опыта'
+		act'Собирать кукурузу':
+			time+=30&cls&gs'walker'&gs'stat'&last_corn['<<$loc[you]>>']=0&item_loc['66,<<$loc[you]>>']+=max(10,5*lvltravnik[you])&day_corn['<<$loc[you]>>']=daystart
+			"В течение получаса вы собирали кукурузу и собрали <<item_loc['66,<<$loc[you]>>']>> порций"&cornnum=item_loc['66,<<$loc[you]>>']+item['66']
+			 'Всего у вас <<cornnum>> початков кукурузы'
+			 if fat[you]>10:fat[you]-=1
+			 if fat[you]>100:fat[you]-=1
+			 if fat[you]>500:fat[you]-=2
+			 if fat[you]>1000:fat[you]-=2
+			 if fat[you]>1500:fat[you]-=3
+			 if fat[you]>2000:fat[you]-=3
+			 if fat[you]>2500:fat[you]-=4
+			 if fat[you]>3000:fat[you]-=4
+			exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'
+			if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
+			sweat[you]+=2&gt $curloc
+		end
+	 end
+else
+	'На кукурузных стеблях не видно зрелых початков'
+end
+gs'Item'&*pl''&gs 'npconloc'&killvar 'cornnum'&act'Завершить':gt 'world'

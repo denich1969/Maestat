@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&borisbogart=i
+lvl[i]=1&soul[i]=1000&work[i]=0
+master[i]=0&delusion[i]=0&magik[i]=28&beliver[i]=0&earth_gem[i]=1
+spec_face_pic[i]=5&face_pic[i]=46
+$name[i]='Борис'&$surname[i]='Богарт'&$nick[i]='Тучный мужчина с лысиной'&$title[i]=''&$history[i]='Когда я начинал, на месте Жилмассива был только лес. Я создал этот район. Создал школу, чтобы воспитывать подрастающее поколение. И я никогда не зависел от богов, всегда все далал сам, добивался своими силами и своим умом.'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=16&dickd[i]=35&ball[i]=50&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=186&fat[i]=4600&mus[i]=2000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=0&hcol[i]=1
+age[i]=55&vital[i]=150&will[i]=50&reflex[i]=110
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=0&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=10&!характер
+h_slot[i]=0&w_slot[i]=111&m_slot[i]=113
+t_slot[i]=72&l_slot[i]=7&b_slot[i]=5
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+e_world[]=i&walkprog[i]=45
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

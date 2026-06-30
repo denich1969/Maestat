@@ -1,0 +1,16 @@
+﻿if Z[you]=740 and once=0:
+	gs '750_world_gen'
+	once=1
+	X[you]=5&Y[you]=5&Z[you]=750&H[you]=0&R[you]=0
+end
+if Z[you]=750 and once=0:
+	gs 'castle_gen'
+	gs 'gen_4_south2'
+	gs 'gen_4_south'
+	gs 'gen_4_nord'
+	once=1
+	X[you]=20&Y[you]=10&Z[you]=740&H[you]=0&R[you]=0
+end
+once=0
+gt'world'
+gt'preloc'

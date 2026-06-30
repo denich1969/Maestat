@@ -1,0 +1,4 @@
+﻿gs'init_bj_replic'
+gs'init_anal_replic'
+gs'init_vag_replic'
+gs'init_kargan_replic'

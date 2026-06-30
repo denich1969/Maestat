@@ -1,0 +1,16 @@
+﻿
+
+
+if clonV>0:
+clonV-=1
+if clonV<0:clonV=0
+'Вы хватаете клона и клон рассеивается'
+else
+borba_skill[you]+=1
+stunV=rand(1,3)
+'Вы делаете захват, бросок и <<$name[npc]>> летит кубарем на землю'
+end
+
+
+gs'stat'
+act'Далее':gt'fight'

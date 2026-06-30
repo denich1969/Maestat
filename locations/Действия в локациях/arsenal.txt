@@ -1,0 +1,118 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Арсенал разного оружия'&gs'Item'&*pl ''&gs 'npconloc'&act'Отойти':gt 'preloc'
+'100ш - пистолет макарова'&*nl '120ш - пистолет Беретта, Глок, Смит-Вессон и Люгер, все эти пистолеты под патрон 9х19мм парабеллум'&*nl'1 патрон 10 шиллингов'
+*nl'Дубинка 50 шиллингов'&*nl'Топор - 80 шиллингов'&*nl'Меч - 100 шиллингов'&*nl'Рапира - 100 шиллингов'&*nl'Сабля - 100 шиллингов'&*nl'Катана - 150 шиллингов'&*nl'Молот - 150 шиллингов'
+if beliver[you]=4:
+     if sfera_amulet[you]<2000:
+		 act'Просить амулет защиты':
+			 sfera_amulet[you]=2000&cls&gs'stat'&'Бог войны дал вам самый сильный амулет'&act'<b>Уйти</b>':gt $curloc
+		 end
+     end
+     act'Просить катану бога войны':
+		 item[114]+=1&burden[you]+=item_burden[114]&cls&gs'stat'&'Бог войны дал вам катану'&act'<b>Уйти</b>':gt $curloc
+	 end
+     act'Просить огнестрел':
+		 item[110]+=1&burden[you]+=item_burden[110]&cls&gs'stat'&'Бог войны дал вам дезерт игл'&act'<b>Уйти</b>':gt $curloc
+	 end
+     act'Просить патроны на дезерт игл':
+		 item[109]+=50&burden[you]+=item_burden[109]*50&cls&gs'stat'&'Бог войны дал вам дезерт игл'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if sfera_amulet[you]=0:
+	'Бог войны продает амулеты автоматически накладывающие защиту при начале боя'&!500 1000
+     if money[you]>=50000:
+		 act'Купить амулет защиты 500ш':
+			 money[you]-=50000&sfera_amulet[you]=500&cls&gs'stat'&'Вы заплатили деньги и купили амулет'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+end
+if sfera_amulet[you]=500:'Бог войны может усилить ваш амулет защиты'
+if money[you]>=10000:
+	 act'Купить пистолет макарова 100ш':
+		 money[you]-=10000&item[9]+=1&burden[you]+=item_burden[9]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=1000:
+	 act'Купить 1 патрон 9х18мм 10ш':
+		 money[you]-=1000&item[10]+=1&burden[you]+=item_burden[10]&cls&gs'stat'&'Вы заплатили деньги и купили патрон'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=10000:
+	 act'Купить 10 патронов 9х18мм 100ш':
+		 money[you]-=10000&item[10]+=10&burden[you]+=item_burden[10]&cls&gs'stat'&'Вы заплатили деньги и купили патрон'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=12000:
+	 act'Купить пистолет Беретта 120ш':
+		 money[you]-=12000&item[104]+=1&burden[you]+=item_burden[104]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=12000:
+	 act'Купить пистолет Люгер 120ш':
+		 money[you]-=12000&item[106]+=1&burden[you]+=item_burden[106]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=12000:
+	 act'Купить пистолет Смит-Вессон 120ш':
+		 money[you]-=12000&item[107]+=1&burden[you]+=item_burden[107]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=12000:
+	 act'Купить пистолет Глок 120ш':
+		 money[you]-=12000&item[108]+=1&burden[you]+=item_burden[108]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=1000:
+	 act'Купить 1 патрон 9х19мм парабеллум 10ш':
+		 money[you]-=1000&item[105]+=1&burden[you]+=item_burden[105]&cls&gs'stat'&'Вы заплатили деньги и купили патрон'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=10000:
+	 act'Купить 10 патронов 9х19мм парабеллум 100ш':
+		 money[you]-=10000&item[105]+=10&burden[you]+=item_burden[105]&cls&gs'stat'&'Вы заплатили деньги и купили патрон'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=5000:
+	 act'Купить 1 патрон 44 калибра 50ш':
+		 money[you]-=5000&item[109]+=1&burden[you]+=item_burden[109]&cls&gs'stat'&'Вы заплатили деньги и купили патрон'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=50000:
+	 act'Купить 10 патронов 44 калибра 500ш':
+		 money[you]-=50000&item[109]+=10&burden[you]+=item_burden[109]&cls&gs'stat'&'Вы заплатили деньги и купили патрон'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=5000:
+	 act'Купить дубинку 50ш':
+		 money[you]-=5000&item[27]+=1&burden[you]+=item_burden[27]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=8000:
+	 act'Купить топор 80ш':
+		 money[you]-=8000&item[40]+=1&burden[you]+=item_burden[40]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=10000:
+	 act'Купить меч 100ш':
+		 money[you]-=10000&item[41]+=1&burden[you]+=item_burden[41]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=10000:
+	 act'Купить рапиру 100ш':
+		 money[you]-=10000&item[42]+=1&burden[you]+=item_burden[42]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=10000:
+		 act'Купить саблю 100ш':
+		 money[you]-=10000&item[43]+=1&burden[you]+=item_burden[43]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=15000:
+	 act'Купить катану 150ш':
+		 money[you]-=15000&item[44]+=1&burden[you]+=item_burden[44]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=15000:
+	 act'Купить молот 150ш':
+		 money[you]-=15000&item[45]+=1&burden[you]+=item_burden[45]&cls&gs'stat'&'Вы заплатили деньги и купили оружие'&act'<b>Уйти</b>':gt $curloc
+	 end
+end

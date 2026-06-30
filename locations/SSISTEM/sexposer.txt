@@ -1,0 +1,102 @@
+﻿if pose[you]=1 and cantdo=0:cantdo=1&$status[i]=' ставит вас на колени'&pose[you]=2&!'<b>Вы стоите</b>'
+if pose[you]=2 and cantdo=0:
+	!'<b>Вы на коленях</b>'
+	randtipe=rand(0,10)&if cocksucking>0:randtipe=0
+	if randtipe>=7 and you_blow=0 and rtimer=0:
+		rtimer=1&cantdo=1
+		if randtipe=7:$status[i]=' кладет вас на спину'&pose[you]=3
+		if randtipe>7:$status[i]=' ставит вас раком'&pose[you]=4
+	end
+	if cantdo=0:
+		if open_mouth[you]=1:
+			open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+		else
+			if open_lhand[you]=1:
+				open_lhand[you]=0&$status[i]=' сует вам в левую руку свой <<dick[i]>> сантиметровый член'
+			else
+				if open_rhand[you]=1:
+					open_rhand[you]=0&$status[i]=' сует вам в правую руку свой <<dick[i]>> сантиметровый член'
+				else
+					$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+				end
+			end
+		end
+	end
+end
+if pose[you]=3 and cantdo=0:
+	!'<b>Вы лежите на спине</b>'
+    if cocksucking>0:$status[i]=' ставит вас на колени'&pose[you]=2&cantdo=1
+    if rtimer=0 and cantdo=0:
+		if rand(1,10)>=8 or vag[you]=0:
+			if vag_fucker=0:
+				rtimer=1&cantdo=1&if rand(1) = 0:$status[i]=' ставит вас на колени'&pose[you]=2
+			else
+				$status[i]=' ставит вас раком'&pose[you]=4
+			end
+		end
+	end
+	if cantdo=0:
+		if open_vag[you]=1:
+			open_vag[you]=0&vag_fucker=i&$status[i]=' сует вам в киску свой <<dick[i]>> сантиметровый член'
+		else
+			if open_mouth[you]=1:
+				open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+			else
+				$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+			end
+		end
+	end
+end
+if pose[you]=4 and cantdo=0:
+	!'<b>Вы стоите на четвереньках</b>'
+    if cocksucking>0:$status[i]=' ставит вас на колени'&pose[you]=2&cantdo=1
+	if cantdo=0:
+		if npc_want_dp=1:doggyrand=2
+		if vag_fucker=0 and anal_fucker=0 and npc_want_dp=0:
+			doggyrand=rand(0,1)&if vag[you]=0:tiperand=1
+		end 
+		if doggyrand=0 and cantdo=0 and npc_want_dp=0:
+			if open_vag[you]=1:
+				open_vag[you]=0&vag_fucker=i&$status[i]=' сует вам в киску свой <<dick[i]>> сантиметровый член'
+			 else
+				if open_mouth[you]=1:
+					open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+				 else
+					if vag[you]>0:npc_want_dp=1
+					$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+				end
+			end
+		end
+		if doggyrand=1 and cantdo=0 and npc_want_dp=0:
+			if open_anus[you]=1:
+				open_anus[you]=0&anal_fucker=i&$status[i]=' сует вам в попку свой <<dick[i]>> сантиметровый член'
+			else
+				if open_mouth[you]=1:
+					open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+				else
+					$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'&if vag[you]>0:npc_want_dp=1
+				 end
+			end
+		end
+		if doggyrand=2 and cantdo=0:pose[you]=5&cantdo=1&vag_fucker=i&$status[vag_fucker]=' ложится на спину и сажает вас на себя сверху'
+	end
+end
+if pose[you]=5 and cantdo=0:
+	if horny[vag_fucker]>=100:cantdo=1&$status[vag_fucker]=' ставит вас на колени'&vag_fucker=0&anal_fucker=0&you_blow=0&pose[you]=2
+    if cocksucking>0:$status[i]=' ставит вас на колени'&pose[you]=2&cantdo=1
+	if cantdo=0:
+		if open_vag[you]=1:
+			open_vag[you]=0&vag_fucker=i&$status[i]=' сует вам в киску свой <<dick[i]>> сантиметровый член'
+		else
+			if open_anus[you]=1:
+				open_anus[you]=0&anal_fucker=i&$status[i]=' сует вам в попку свой <<dick[i]>> сантиметровый член'
+			else
+				if open_mouth[you]=1:
+					open_mouth[you]=0&you_blow=i&$status[i]=' сует вам в рот свой <<dick[i]>> сантиметровый член'
+				else
+					$status[i]=' дрочит свой <<dick[i]>> сантиметровый член глядя на вас'
+				end
+			end
+		end
+	end
+end

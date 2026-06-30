@@ -1,0 +1,37 @@
+﻿sub=1
+:marktotalsubwolker
+!if sub!you and dead[sub]=0 and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub and mob_busy[sub]=0 and follower[you]!sub:''
+sub+=1
+if sub<=npcmax:jump'marktotalsubwolker'
+if mob[w]=24:
+     sub=1
+     :markgoblin
+         if sub!you and dead[sub]=0 and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub:
+             if vag[sub]>0 and birdtimer[sub]<time and total_goblin<30:timesgoblinbird[sub]+=1&birdtimer[sub]=time+250&X=Z[w]&Y=Y[w]&Z=Z[w]&gs'goblin'&!ГОБЛИН
+         end
+     sub+=1&if sub<=npcmax:jump'markgoblin'
+end
+if mob[w]=23:
+     sub=1&!ХМУРЫ
+     :markgloom
+         if sub!you and dead[sub]=0 and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub:
+            if dick[w]>0 and vag[sub]>0 and birdtimer[sub]<time and total_goblin<30:timesgoblinbird[sub]+=1&birdtimer[sub]=time+250&X=Z[w]&Y=Y[w]&Z=Z[w]&gs'goblin'
+             if corr[sub]=0:corr[sub]=100
+         end
+     sub+=1&if sub<=npcmax:jump'markgloom'
+end
+if mob[w]=42:
+     sub=1&!ШАМАН
+     :markbubenhw
+         if sub!you and dead[sub]=1 and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub:dead[sub]=0&buben_miracle+=1&healthmax[w]+=10&health[w]=healthmax[w]
+     sub+=1&if sub<=npcmax:jump'markbubenhw'
+end
+if mob[w]=58:
+     sub=1&!ДОМИНАТРИКС
+     :markdominatrix
+         if sub!you and dead[sub]=0 and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub:
+             if Z[w]=2 and mob[sub]=40:cage['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=2&cage_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=sub&dead[sub]=3&!девушка!подвал
+             if Z[w]=1 and mob[sub]=55:cage['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=2&cage_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=sub&dead[sub]=3&'Странно, но сюда попадают только девушки'&!клиент!отель
+         end
+     sub+=1&if sub<=npcmax:jump'markdominatrix'
+end

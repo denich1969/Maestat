@@ -1,0 +1,10 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Школьная парта. Уроки начинаются с 8 утра по будням.'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if school_class['<<$loc[you]>>']=1:
+     if week<6 and hour>=8 and hour<=10 and atestat[you]=0 and schooler[you]=1:
+         if X[you]=X[techer] and Y[you]=Y[techer] and Z[you]=Z[techer] and H[you]=H[techer] and R[you]=R[techer]:
+			'Учитель в классе'&act'Учиться':gt'school_learning'
+         else
+			'Учителя нет в классе'
+         end
+     end
+end

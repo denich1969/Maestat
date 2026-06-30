@@ -1,0 +1,9 @@
+﻿if ball[args[0]]=0:sexpower[args[0]]=0
+if ball[args[0]]>0:
+	if ball[args[0]]<=30:sexpower[args[0]]=1
+	if ball[args[0]]>30:sexpower[args[0]]=(ball[args[0]]-10)/10
+	if ball[args[0]]>90:sexpower[args[0]]=8
+	if master[args[0]]>0:sexpower[args[0]]+=4
+end
+maxsexpower[args[0]]=sexpower[args[0]] 
+midsexpower[args[0]]=maxsexpower[args[0]]/2

@@ -1,0 +1,61 @@
+﻿$doing[i]=''
+if $name[i]='':
+	 if husband[i]=you:
+		dotemp=rand(1,11)
+		 cuckold[i]+=1&if cuckold_once[i]=0:cuckold_once[i]=1
+		 if dotemp=1:$doing[i]='говорит - Боже мой! Моя жена!'
+		 if dotemp=2:$doing[i]='говорит - Моя жена шлюха!'
+		 if dotemp=3:$doing[i]='говорит - Как мне теперь жить, если моя жена шлюха?'
+		 if dotemp=4:$doing[i]='говорит - Изменница!'
+		 if dotemp=5:$doing[i]='говорит - За что ты со мной так?'
+		 if dotemp=6:$doing[i]='говорит - На моих глазах ебут мою жену!'
+		 if dotemp=7:$doing[i]='говорит - А со мной ты шлюха ни разу так не делала!'
+		 if dotemp=8:$doing[i]='говорит - <<$name[npc]>> ну ты и шлюха!'
+		 if dotemp=9:$doing[i]='говорит - Какое бесстыдство, ебать мою жену у меня на глазах!'
+		 if dotemp=10:$doing[i]='говорит - Дорогая, может объяснишь мне, почему тебя ебут?'
+		 if dotemp=11:$doing[i]='говорит - О нет, я же люблю тебя!'
+	 elseif boyfriend_num[you]=i:
+		 boyfriend_num[you]=0&girlfriend_num[npc]=npc&ex_boyfriend[i]=you&$doing[i]='говорит - Ах ты шлюха! Все! Я тебя бросаю!'
+	 else
+		 if mob[i]=0:
+			 dotemp=rand(1,10)&!очевидцы люди
+			 if dotemp=1:$doing[i]='пялится на вас'
+			 if dotemp=2:$doing[i]='говорит - Хотя бы уединились!'
+			 if dotemp=3:$doing[i]='возмущается - Трахаются как собаки, где попало!'
+			 if dotemp=4:$doing[i]='хихикает'
+			 if dotemp=5:$doing[i]='смотрит на вас с вожделением'
+			 if dotemp=6:$doing[i]='ехидно комментирует увиденное'
+			 if dotemp=7:$doing[i]='потирает свою промежность'
+			 if dotemp=8:$doing[i]='облизывает губы'
+			 if dotemp=9:$doing[i]='с восхищениеем - Вообще народ без тормозов... Ну как животные!'
+			 if dotemp=10:$doing[i]='пожимает плечами - не первый раз я это вижу, и, наверное, не последний.'
+		 end
+		 if mob[i]=3:
+			dotemp=rand(1,10)&!инсмутцы
+			 if dotemp=1:$doing[i]='пялится на вас'
+			 if dotemp=2:$doing[i]='булькает - Шлюха!'
+			 if dotemp=3:$doing[i]='теребит член'
+			 if dotemp=4:$doing[i]='хихикает'
+			if dotemp=5:$doing[i]='говорит - Хех ничего себе'
+			 if dotemp=6:$doing[i]='восхищается'
+			 if dotemp=7:$doing[i]='говорит - Вот бы мне тоже перепало'
+			 if dotemp=8:$doing[i]='кричит - Выеби эту шлюху!'
+			 if dotemp=9:$doing[i]='бормочет - Эх, у меня такого не будет'
+			 if dotemp=10:$doing[i]='кричит - Смотрите, ничего себе!'
+		 end
+		 if mob[i]=4:
+			 if pol[you]>0:horny[i]=50&solo=0&gt'sex'
+			 dotemp=rand(1,10)& !гасты
+			 if dotemp=1:$doing[i]='вскрикивает - Йоу, горячая телка!'
+			 if dotemp=2:$doing[i]='хихикает - Шлюха!'
+			if dotemp=3:$doing[i]='вскрикивает - Эй, шалава, сосни мой черный член'
+			 if dotemp=4:$doing[i]='кричит - Смотрите какая помойная шлюха!'
+			 if dotemp=5:$doing[i]='говорит - Пустите меня оттрахать эту тупую пизду'
+			 if dotemp=6:$doing[i]='проходит мимо, посмееваясь'
+			 if dotemp=7:$doing[i]='говорит - Какая хорошая сучка!'
+			 if dotemp=8:$doing[i]='подрачивает член'
+			 if dotemp=9:$doing[i]='вскрикивает - Йоу, дырка, приходи ко мне, отведаешь настоящего члена!'
+			 if dotemp=10:$doing[i]='кричит - Сломай эту тупую шалаву!'
+		 end
+	 end
+end

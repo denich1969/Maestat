@@ -1,0 +1,7 @@
+﻿clo=ARGS[0]
+
+ul_wardrobe[clo]=1
+ul_slot[you]=0
+
+
+gt'wardrobe'

@@ -1,0 +1,46 @@
+﻿gs'stat'&'Душа <<soul[you]>>'
+if magik[you]>0:'Магичность <<magik[you]>>'
+'Живучесть <<vital[you]>>'
+'Мускулатура <<mus[you]>>'
+if will[you]>0:'Воля <<will[you]>>'
+if fight_skill[you]>0:'Боевые навыки <<fight_skill[you]>>'
+if shoot_skill[you]>0:'Огнестрельное оружие <<shoot_skill[you]>>'
+'Рефлексы <<reflex[you]>>'
+if soulpower[you]>0:'<<soulpower[you]>> сила духа, урон, выносливость и грузоподъемность'&*nl
+if corrupt[you]>0:'<<corrupt[you]>> оскверненность'
+'Очков для распределения <<lvlpoint[you]>>'
+if perk_burdenmax[you]<5 and lvlpoint[you]>=3:
+	'"Сильная спина" <<perk_burdenmax[you]+1>> - Увеличивает грузоподемность на 1000 <a href="exec:perk_burdenmax[you]+=1&lvlpoint[you]-=3&gt ''perk_lvl'',you">Взять способность (-3 поинта)</a>'
+end
+if func('util_func', 'get_friends_amount')>(perk_flirt[you]+1)*15 and lvlpoint[you]>1 and perk_flirt[you]<3:
+	'Мастер флирта <<perk_flirt[you]+1>> (вы харизматичны, умеете расположить к себе людей и флиртовать): <a href="exec:perk_flirt[you]+=1&lvlpoint[you]-=2&gt ''perk_lvl'',you">Взять способность (-2 поинта)</a>'	
+end
+if statistics_shoot[you]>(perk_shoot[you]+1)*25 and lvlpoint[you]>=3 and perk_shoot[you]<10:
+	'Стрелок <<perk_shoot[you]+1>> - Увеличивает урон на 20% <a href="exec:perk_shoot[you]+=1&lvlpoint[you]-=3&gt ''perk_lvl'',you">Взять способность (-3 поинта)</a>'	
+end
+if demon_dick[you]>0:
+	if abj[you]>(perk_dombj[you]+1)*(perk_dombj[you]+1)*3 and soul[you]>=10*(perk_dombj[you]+1)*(perk_dombj[you]+1) and perk_dombj[you]<3:
+		'"Мастер вафлёрш" <<perk_dombj[you]+1>> - Вы знаете как заставить любую шлюшку возбудиться от минета <a href="exec:perk_dombj[you]+=1&soul[you]-=10*perk_dombj[you]*perk_dombj[you]&gt ''perk_lvl'',you">Взять способность (<<10*(perk_dombj[you]+1)*(perk_dombj[you]+1)>> души)</a>'	
+	end
+	if aanal[you]>(perk_domanal[you]+1)*(perk_domanal[you]+1)*3 and soul[you]>=10*(perk_domanal[you]+1)*(perk_domanal[you]+1) and perk_domanal[you]<3:
+		'"Мастер анала" <<perk_domanal[you]+1>> - Вы знаете как обращаться с чужими жопами <a href="exec:perk_domanal[you]+=1&soul[you]-=10*perk_domanal[you]*perk_domanal[you]&gt ''perk_lvl'',you">Взять способность (<<10*(perk_domanal[you]+1)*(perk_domanal[you]+1)>> души)</a>'	
+	end
+	if avagsex[you]>(perk_domvag[you]+1)*(perk_domvag[you]+1)*3 and soul[you]>=10*(perk_domvag[you]+1)*(perk_domvag[you]+1) and perk_domvag[you]<3:
+		'"Мастер шлюх" <<perk_domvag[you]+1>> - Вы знаете как обращаться с кисками <a href="exec:perk_domvag[you]+=1&soul[you]-=10*perk_domvag[you]*perk_domvag[you]&gt ''perk_lvl'',you">Взять способность (<<10*(perk_domvag[you]+1)*(perk_domvag[you]+1)>> души)</a>'	
+	end	
+	!"	if demon_dick_ball[you]<10 and lvlpoint[you]>=3:
+		'"Сексуальная выносливость" +1 (<<demon_dick_ball[you]*10>> энергии души) <a href="exec:perk_burdenmax[you]+=1&lvlpoint[you]-=3&gt ''perk_lvl'',you">Взять способность (-3 поимнта)</a>'
+	end	"
+end
+args[10]=statistics_vag_activ[you]+statistics_anal_activ[you]+statistics_bj_activ[you]
+args[11]=perk_domvag[you]+perk_dombj[you]+perk_domanal[you]
+if perk_dombj[you]>=3 and perk_domvag[you]>=3 and perk_dombj[you]>=3 and lvlpoint[you]>=5 and args[10]>args[11]*100:
+	'"Повелитель шлюх" <<perk_domvag[you]+1>> - Вы знаете как заставить кончить любую девушку, куда бы вы ей не присунули <a href="exec:perk_dombj[you]+=1&perk_domvag[you]+=1&perk_domanal[you]+=1&lvlpoint[you]-=5&gt ''perk_lvl'',you">Взять способность (-5 поинта)</a>'	
+end
+if statistics_cumnpc[you]>=1000 and perk_dombj[you]>5 and perk_reset_orgazm[you]=0 and lvlpoint[you]>=5:
+	'"Властелин похоти" - Девушки, что вы имеете становяться мультиоргазмичными <a href="exec:perk_reset_orgazm[you]+=1&lvlpoint[you]-=5&gt ''perk_lvl'',you">Взять способность (-5 поинта)</a>'	
+end
+if dick[you]=0 and perk_fantom_dick[you]=0 and perk_reset_orgazm[you]=0 and lvlpoint[you]>=5 and statistics_cumnpc[you]>=500 and demon_dick[you]=0:
+	'"Фантомный член" - Теперь можно побыть не только пассивом <a href="exec:perk_fantom_dick[you]+=1&lvlpoint[you]-=5&gt ''perk_lvl'',you">Взять способность (-5 поинта)</a>'	
+end
+act'Назад':gt'newlevel'

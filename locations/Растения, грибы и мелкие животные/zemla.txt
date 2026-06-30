@@ -1,0 +1,19 @@
+﻿gs'stat'&'<center><img src="pic/loc/ras/zemla.jpg" ></center>'&'Кустик земляники.'
+if last_zemla['<<$loc[you]>>']=0 and day_zemla['<<$loc[you]>>']!daystart:last_zemla['<<$loc[you]>>']=rand(0,1)&day_zemla['<<$loc[you]>>']=daystart
+if last_zemla['<<$loc[you]>>']>0:
+	'На кусте растут ягоды'&if rand(1,10)>=5:'Между ягод вы замечаете какого-то сине-красного паучка'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		act'Собирать':time+=5&cls&gs'walker'&gs'stat'&last_zemla['<<$loc[you]>>']=0&tem_loc['52,<<$loc[you]>>']+=1&day_zemla['<<$loc[you]>>']=daystart&gt $curloc
+	end
+	if random=5:
+		act'Согнать паука':
+			time+=5&cls&'<center><img src="pic/sex/event/spider.jpg" ></center>'&'Паук укусил вас и скрылся. Место укуса теперь немного чешется.'
+			mutation[you]+=rand(5,25)
+			act'Собирать ягоды дальше':time+=5&cls&gs'walker'&gs'stat'&last_malin['<<$loc[you]>>']=0&item_loc['53,<<$loc[you]>>']+=1&day_malin['<<$loc[you]>>']=daystart&gt $curloc
+		end
+	end	 
+else
+	'На кустах ничего нет'
+end
+gs'Item'&*nl ''&gs 'npconloc'
+act'Отойти':gt 'world'

@@ -1,0 +1,28 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/misc/penta.jpg" ></center>'&'Пентаграмма с мистическими символами и пятнами крови вокруг нарисованной головы козла'
+!'act'Поискать Марту Марш':
+	cls&gs'stat'&neednpc=martamarsh&'<<$name[neednpc]>> <<$surname[neednpc]>> <<$locnameR[''<<X[neednpc]>>,<<Y[neednpc]>>,<<Z[neednpc]>>,<<H[neednpc]>>,<<R[neednpc]>>'']>>'&act'Уйти':gt 'preloc'
+end'
+if canbewitch[you]=1:
+     if magik[you]>0:
+         if restoremag!daystart:
+			 act'Восстановить магические силы':
+				 restoremag=daystart&mana[you]=manamax[you]
+				 cls&gs'stat'&'<center><img src="pic/misc/penta.jpg" ></center>'&'Вспомнив колдовские уроки вы встали в центр пентаграммы и восстановили магические силы'&act'Уйти':gt 'preloc'
+			 end
+         end
+     end
+end
+if total_puppil>0 and free_spirit>0:
+	koef=0&$spisokbody=''
+	:markkoef
+		imb=puppil[koef]
+		 if $name[imb]>0 and imb>0 and my_puppil[imb]>=1 and Hhome[imb]>0 and Hhome[you]>0 and dead[imb]=0:
+			$spisokbody+='<br>'
+			$spisokbody+=$iif(myrealbody>0 and myrealbody!you,'<<$name[imb]>> <<$surname[imb]>>','<a href="exec:gt ''free_spirit1'',<<imb>>"><<$name[imb]>> <<$surname[imb]>> </a>')
+		 end
+	koef+=1&if puppil[koef]>0:jump'markkoef'
+	'Тела, в которые вы можете воплотиться:'
+	'<<$spisokbody>>'
+end
+act'Уйти':gt 'preloc'&!gs'Item'&gs 'npconloc'

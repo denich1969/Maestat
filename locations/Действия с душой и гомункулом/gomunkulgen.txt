@@ -1,0 +1,25 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&gomunkul=i
+lvl[i]=lvl[you]&soul[i]=soul[you]&work[i]=0&subwork[i]=0
+master[i]=0&delusion[i]=1&magik[i]=magik[you]&beliver[i]=1&!Не имеет отношения к богине луны, иллюзия
+spec_face_pic[i]=spec_face_pic[you]&face_tipe[i]=face_tipe[you]&face_pic[i]=face_pic[you]
+pol[i]=pol[you]
+$title[i]=''&$nick[i]='Ваш близнец'
+if pol[i]=0:
+	$history[i]='Я рожден из части твоей души. Как это получилось и зачем я и сам не знаю. Я был тобой, а в момент загадывания желания у колодца мы как будто разделились. Теперь я это не ты, я твой близнец с твоим прошлым, но теперь живущий самостоятельно.'
+else
+	$history[i]='Я рождена из части твоей души. Как это получилось и зачем я и сама не знаю. Я была тобой, а в момент загадывания желания у колодца мы как будто разделились. Теперь я это не ты, я твой близнец с твоим прошлым, но теперь живущая самостоятельно.'
+end
+$name[i]=$name[you]&$surname[i]=$surname[you]
+face[i]=face[you]&gla[i]=gla[you]&glacol[i]=glacol[you]&nose[i]=nose[you]
+dick[i]=dick[you]&dickd[i]=dickd[you]&ball[i]=ball[you]&vag[i]=vag[you]&ass[i]=ass[you]&nip[i]=nip[you]&tit[i]=tit[you]
+rost[i]=rost[you]&fat[i]=fat[you]&mus[i]=mus[you]&skin[i]=skin[you]
+face_hair[i]=face_hair[you]&tit_hair_can[i]=tit_hair_can[you]&tit_hair[i]=tit_hair[you]&leg_hair_can[i]=leg_hair_can[you]&leg_hair[i]=leg_hair[you]&hlong[i]=hlong[you]&hcol[i]=hcol[you]
+age[i]=age[you]&vital[i]=vital[you]&will[i]=will[you]&reflex[i]=reflex[you]
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+gs'body'
+womenbrain[i]=womenbrain[you]&bisex[i]=bisex[you]&agro[i]=dom[you]&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&lust[i]=lust[you]&!характер
+h_slot[i]=h_slot[you]
+t_slot[i]=t_slot[you]&l_slot[i]=l_slot[you]&b_slot[i]=b_slot[you]
+ut_slot[i]=ut_slot[you]&ul_slot[i]=ul_slot[you]&ub_slot[i]=ub_slot[you]
+n_world[]=i&ne_world[]=i&e_world[]=i&se_world[]=i&s_world[]=i&walkprog[i]=31
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=0&R[i]=0&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

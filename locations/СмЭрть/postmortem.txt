@@ -1,0 +1,7 @@
+﻿if dead[borisbogart]=2 and afterBogartQW=0:afterBogartQW=1
+if allniggadead=0 and dead[tbigg]=2 and dead[mgreen]=2 and dead[dlong]=2:allniggadead=1
+if dead[captain]=2:dead[captain]=0
+if sinner[1]>0 and locbossfirsttalk[obedmarsh]<sinner[1] and dead[obedmarsh]=0 and water_gem[obedmarsh]>0:locbossfirsttalk[obedmarsh]=sinner[1]&gt'obedmarsh_ftalk'
+if sinner[3]>0 and locbossfirsttalk[borisbogart]<sinner[3] and dead[borisbogart]=0 and earth_gem[borisbogart]>0:locbossfirsttalk[borisbogart]=sinner[3]&gt'borisbogart_ftalk'
+if sinner[4]>0 and locbossfirsttalk[lebeda]<sinner[4] and dead[lebeda]=0 and wind_gem[lebeda]>0:locbossfirsttalk[lebeda]=sinner[4]&gt'lebeda_ftalk'
+if sinner[5]>0 and locbossfirsttalk[soulmaster]<sinner[5] and dead[soulmaster]=0 and wind_gem[soulmaster]>0:locbossfirsttalk[soulmaster]=sinner[5]&gt'soulmaster_ftalk'

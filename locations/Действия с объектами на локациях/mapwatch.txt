@@ -1,0 +1,247 @@
+﻿bcolor=rgb(161,183,201)
+fcolor=rgb(0,0,0)
+act'Убрать':gt 'preloc'
+IF $ARGS[0] = 'map_draw_loc':
+	$J_locXYZ='<<jx>>,<<jy>>,<<jz>>'
+	$J_locname='<<$lname[''<<$J_locXYZ>>,0,0'']>>'
+	if $MyCord=$J_locXYZ:
+		$j_name='<b><font color="#FF00FF">ВЫ ТУТ</font></b>'
+		!First row
+		!if jy=jym:
+		!$MyMap_text+='<td width="<<100/(jxm+1)>>%" align=center vAlign=middle bgcolor="white">'
+		!else
+		$MyMap_text+='<td align=center vAlign=middle bgcolor="white">'
+		!end
+		$MyMap_text+='<b><<$J_locname>></b><br><<$j_name>></td>'
+	else
+		if j_PortalYou=0:
+			$j_cord=$J_locname
+		elseif j_PortalYou=1:
+			$j_cord='<a href="exec: portal_zar[<<you>>]-=1 & X[<<you>>]=<<jx>> & Y[<<you>>]=<<jy>> & Z[<<you>>]=<<jz>> & H[<<you>>]=0 & R[<<you>>]=0 & gt ''preloc''"><<$J_locname>></a>'
+		else	
+			$j_cord='<a href="exec:X[<<you>>]=<<jx>> & Y[<<you>>]=<<jy>> & Z[<<you>>]=<<jz>> & H[<<you>>]=0 & R[<<you>>]=0 & gt ''preloc''"><<$J_locname>></a>'&!Мгла
+		end
+		$buildingsList=''
+		if maxPositionH['<<$J_locXYZ>>']>0:
+			ji = 1
+			:mm_areaHouseHLoop
+			$J_CurBulding=$locnameH['<<$J_locXYZ>>,<<ji>>']
+			!Убираем здания с любым номером, будет неловко если появиться клуб "7-е небо" или "13 посохов в дорогу"
+			if $STRFIND($J_CurBulding,'\d')='': $buildingsList +="<br><<$J_CurBulding>>"&!\d - "любая цифра"
+			ji += 1
+			if ji <= maxPositionH['<<$J_locXYZ>>']: jump 'mm_areaHouseHLoop'
+		end
+		$JFon=''&!$JFon='bgcolor="#d6d6d6" '
+		if $J_locname='Река' or $J_locname='Дельта реки' :
+			$JFon='bgcolor="#6688aa" '&!7de1fa
+		elseif $J_locname='Озеро' :
+			$JFon='bgcolor="#e1f0ff" '&!e1f0ff
+		elseif $J_locname='Хвойный лес' or $J_locname='Парк' or $J_locname='Лесоповал' or $J_locname='Сквер' or $J_locname='Великий дуб' or $J_locname='Лабиринт Батори' :
+			$JFon='bgcolor="#a0e1a0" '&!6491c8
+		end
+		if FirstRow=1:FirstRow=0&!Вывод колонки
+		$MyMap_text+='<td '+$JFon+'align=center vAlign=middle>'&!$MyMap_text+='<td '+$JFon+'align=left vAlign=top>'
+		$MyMap_text+=$j_cord
+		if under['<<$J_locXYZ>>,0,0']>=1:$MyMap_text+='<br><b><font size="2" color="green">Станция метро</font></b>'&!метро
+		$MyMap_text+='<font size="1">'+$buildingsList+'</font></td>'
+	end
+	!Вывод колонки
+END
+IF $ARGS[0] = 'map_draw_rayon_row':
+	jx=0
+	:jm_x
+		gs $curloc, 'map_draw_loc'
+	jx+=1&if jx<=jxm:jump'jm_x'
+END
+IF $ARGS[0] = '':
+	*CLR
+	act'Убрать':gt 'preloc'
+	jz=1&!стартовый мир/район
+	!количество районов в строке, минимум 1
+	!j_rayon_in_row=1
+	!j_rayon_in_row=2
+	!максимальная координата
+	jxm=4&jym=4&jzm=5
+	!|  1  | 2 |
+	!| MAR | 3 |
+	!|  5  | 4 |
+	$MyMap_text=''&! начинаем рисовать
+	If mlev[you]>=5 and mana[you]>=500 and badworld[Z[you]]=0:
+		j_PortalYou=2
+		$MyMap_text+='Сила Мглы показывает путь'
+	else
+		If portal[you]=1 and portal_zar[you]>0 and badworld[Z[you]]=0:
+			j_PortalYou=1
+			$MyMap_text+='Обнаружен телепортер, осталось зарядов: <<portal_zar[you]>>.'
+		else
+			j_PortalYou=0
+			$MyMap_text+='Перемещение по карте станет гораздо удобней с нашим портативным телепортером. Ишите нас в Назадовском тупике (4,0,5).'
+		end
+	end
+	$MyCord='<<x[you]>>,<<y[you]>>,<<z[you]>>'&!я тут
+	$MyMap_text+='<table width="100%" border="1" cellspacing="0" bordercolor="#e1f0ff" bgcolor="#d6d6d6">'&!$MyMap_text+='<tr align=center><td colspan="11"><font size="2">карта города</font></td></tr>'
+	$MyMap_text+='<font size="2">'&!Размер шрифта по умолчанию
+	$J_ColStyle=' width="9%"'
+	!к00рдинаты X
+	$MyMap_text+='<tr align=center>'
+	$MyMap_text+='<td width="1%"></td>'
+	$MyMap_text+='<td width="9%"><font size="2"> 0 </font></td>'
+	$MyMap_text+='<td width="9%"> 1 </td>'
+	$MyMap_text+='<td width="9%"> 2 </td>'
+	$MyMap_text+='<td width="9%"> 3 </td>'
+	$MyMap_text+='<td width="9%"> 4 </td>'
+	$MyMap_text+='<td width="9%"> 0 </td>'
+	$MyMap_text+='<td width="9%"> 1 </td>'
+	$MyMap_text+='<td width="9%"> 2 </td>'
+	$MyMap_text+='<td width="9%"> 3 </td>'
+	$MyMap_text+='<td width="9%"> 4 </td>'
+	$MyMap_text+='</tr>'
+	!---------------------
+	:jm_z
+	CurZ=jz
+	!----------------
+	jy=jym
+	FirstRow=1
+	:jm_y
+	!----------------
+	jz=CurZ
+	!===============================
+	!Новая строка
+	!$MyMap_text+='<tr align=left vAlign=top bgcolor="#d6d6d6">'
+	$MyMap_text+='<tr bgcolor="#d6d6d6">'
+	!===============================
+	!координаты Y
+	$MyMap_text+='<td  width="1%" bgcolor="#d6d6d6"><<jy>></td>'
+	!---
+	if jz=3:
+		if FirstRow=1:$MyMap_text+='<td colspan="5" rowspan="5" bgcolor="#6688aa" align="center" vAlign="middle"><font size="16" color="blue"><b>МОРЕ</b></font></td>'
+		!FirstRow=0
+		gs $curloc, 'map_draw_rayon_row'
+	elseif jz=4:
+		jz+=1
+		gs $curloc, 'map_draw_rayon_row'
+		jz=CurZ
+		gs $curloc, 'map_draw_rayon_row'
+		jz+=1
+	else
+		gs $curloc, 'map_draw_rayon_row'
+		jz+=1
+		gs $curloc, 'map_draw_rayon_row'
+	end
+	!===============================
+	$MyMap_text+='</tr>'
+	!===============================
+	!---по Y сверху вниз
+	jy-=1
+	if jy>=0:jump'jm_y'
+	!----------------
+	!--------------------------
+	jz+=1
+	if jz<=jzm:jump'jm_z'
+	!==========================
+	$MyMap_text+='</font>'
+	!---------------------
+	$MyMap_text+='</table>'
+	!----------------------
+	'<<$MyMap_text>>'
+	KILLVAR 'jx'
+	KILLVAR 'jy'
+	KILLVAR 'jz'
+	KILLVAR 'CurZ'
+	KILLVAR 'jxm'
+	KILLVAR 'jym'
+	KILLVAR 'jzm'
+	KILLVAR '$J_locXYZ'
+	KILLVAR '$J_locname'
+	KILLVAR '$MyCord'
+	KILLVAR '$j_name'
+	KILLVAR 'j_PortalYou'
+	KILLVAR 'FirstRow'
+	KILLVAR '$J_ColStyle'
+	KILLVAR '$JFon'
+	KILLVAR '$J_CurBulding'
+	KILLVAR '$buildingsList'
+END
+!'
+jz=1
+jxm=5
+!максимальная Y
+jym=4
+jzm=6
+$MyMap_text='<html><head></head><body>'
+If mlev[you]>=5 and mana[you]>=500 and badworld[Z[you]]=0:
+	j_PortalYou=2
+	$MyMap_text=$MyMap_text+'Сила Мглы показывает путь'
+else
+	If portal[you]=1 and portal_zar[you]>0 and badworld[Z[you]]=0:
+    j_PortalYou=1
+    $MyMap_text=$MyMap_text+'Обнаружен телепортер, осталось зарядов: <<portal_zar[you]>>.'
+	else	
+    j_PortalYou=0
+    $MyMap_text=$MyMap_text+'Перемещение по карте станет гораздо удобней с нашим портативным телепортером. Ишите нас в Назадовском тупике (4,0,5).'
+	end
+end
+$MyMap_text=$MyMap_text+'<table width="100%" border = 1>'
+:jm_z
+$MyMap_Z=''
+if jz=1:$MyMap_Z='Рыбацкая деревня'
+elseif jz=2:$MyMap_Z='Блэкберри'
+elseif jz=3:$MyMap_Z='Жилмассив'
+elseif jz=4:$MyMap_Z='Аптаун'
+elseif jz=5:$MyMap_Z='Даунтаун'
+end
+$MyMap_text=$MyMap_text+'<tr><th colspan="<<jym+1>>"><br><br>'+$MyMap_Z+' (<<jz>>)</th></tr>'
+jy=jym
+FirstRow=1
+:jm_y
+!===============================
+!Новая строка
+$MyMap_text=$MyMap_text+'<tr align=left vAlign=top>'
+!===============================
+jx=0
+:jm_x
+!
+$J_locXYZ='<<jx>>,<<jy>>,<<jz>>'
+$J_loc='<<jx>>,<<jy>>,<<jz>>,0,0'
+if j_PortalYou=0:
+	$j_cord='<<$lname[''<<jx>>,<<jy>>,<<jz>>,0,0'']>>'
+elseif j_PortalYou=1:
+	$j_cord='<a href="exec: portal_zar[<<you>>]-=1 & X[<<you>>]=<<jx>> & Y[<<you>>]=<<jy>> & Z[<<you>>]=<<jz>> & H[<<you>>]=0 & R[<<you>>]=0 & gt ''preloc''"><<$lname[''<<jx>>,<<jy>>,<<jz>>,0,0'']>></a>'
+else
+	!Мгла
+	$j_cord='<a href="exec:X[<<you>>]=<<jx>> & Y[<<you>>]=<<jy>> & Z[<<you>>]=<<jz>> & H[<<you>>]=0 & R[<<you>>]=0 & gt ''preloc''"><<$lname[''<<jx>>,<<jy>>,<<jz>>,0,0'']>></a>'
+end
+$J_locXYZ='<<jx>>,<<jy>>,<<jz>>'
+$buildingsList=''
+if maxPositionH['<<$J_locXYZ>>']>0:
+ji = 1
+:mm_areaHouseHLoop
+	$buildingsList += "<br> - <<$locnameH['<<$J_locXYZ>>,<<ji>>']>>"        
+	ji += 1	
+if ji <= maxPositionH['<<$J_locXYZ>>']: jump 'mm_areaHouseHLoop'
+end
+!===============================
+!Вывод колонки
+IF FirstRow=1:
+	FirstRow=0
+	$MyMap_text=$MyMap_text+'<td width="'+(100/(jym+1))+'%" align=left vAlign=top>'
+ELSE
+	$MyMap_text=$MyMap_text+'<td align=left vAlign=top>'
+END
+$MyMap_text=$MyMap_text+'<b>'+$j_cord+'</b>'+$buildingsList+'</td>'
+!Вывод колонки
+!===============================
+jx+=1
+if jx<jxm:jump'jm_x'
+!===============================
+$MyMap_text=$MyMap_text+'</tr>'
+!===============================
+jy-=1
+if jy>=0:jump'jm_y'
+jz+=1
+if jz<jzm:jump'jm_z'
+$MyMap_text=$MyMap_text+'</table><br><div><hr/>'
+$MyMap_text=$MyMap_text+'</div></body></html>'
+'<<$MyMap_text>>'
+!===========================================================
+'

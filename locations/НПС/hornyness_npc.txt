@@ -1,0 +1,5 @@
+﻿if dick[i]>1 and sexiness[you]>0 and pol[you]!pol[i]:
+	if selfrespect[i]=0:horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)&! при условии различия полов
+	if selfrespect[i]=1:horny[i]+=(sexiness[you]/8)+(forhorn[you]+pol[you]*3)
+	if selfrespect[i]=2:horny[i]+=(sexiness[you]/4)+(forhorn[you]+pol[you]*5)
+end

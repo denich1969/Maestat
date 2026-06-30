@@ -1,0 +1,52 @@
+﻿horny[you]+=50&gs'stat'
+if dom=tiler and massage['<<$loc[you]>>']>0:
+	'<center><video src="pic/sex/massage/sex<<rand(0,3)>>.webm" ></video></center>'&'<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> массирует её и трахает.'
+elseif femas=sub and massage['<<$loc[you]>>']>0:
+	'<center><video src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'&
+	'<<$name[sub]>> <<$surname[sub]>> дрочит член и <<$name[dom]>> <<$surname[dom]>> наслаждается умелыми руками массажистки.'
+else
+	 face[sub]+=1
+	if toilet['<<$loc[you]>>']>0:
+		 if rand(1)=0:
+			$func('get_images', 'toilet_blow', sub, dom)
+			 '<<$name[sub]>> <<$surname[sub]>> отсасывает член, <<$name[dom]>> <<$surname[dom]>> с удовольствием подается навстречу вгоняя ей свой член в рот.'&you_see_bj[sub]+=1
+		 else
+			$func('get_images', 'toilet_fuck', sub, dom)&'<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> долбит ее'&you_see_sex[sub]+=1&corr[sub]+=rand(2,8)
+		 end
+	else
+		if rand(1)=0:
+			 if H[you]=0:
+				$func('get_images', 'public_blow', sub, dom)&
+				'<<$name[sub]>> <<$surname[sub]>> отсасывает член, <<$name[dom]>> <<$surname[dom]>> с удовольствием подается навстречу вгоняя ей свой член в рот.'
+				you_see_bj[sub]+=1&corr[sub]+=rand(2,8)
+			 else
+				if dick[sub]>1:
+			         $func('get_images', 'anal_fuck_dog', sub, dom)&'<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> дрючит её в зад'&you_see_anal[sub]+=1&corr[sub]+=rand(2,8)
+			    else
+				    $func('get_images', 'vag_fuck_dog', sub, dom)&'<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> долбит её в пизду'&you_see_sex[sub]+=1&corr[sub]+=rand(2,8)
+				end
+			 end
+		else
+			 if H[you]=0:
+				$func('get_images', 'public_fuck', sub, dom)&you_see_sex[sub]+=1&corr[sub]+=rand(2,8)
+			 else
+				if dick[sub]>1:
+			        $func('get_images', 'anal_fuck_dog', sub, dom)&you_see_anal[sub]+=1&corr[sub]+=rand(2,8)
+			    else
+				    $func('get_images', 'vag_fuck_dog', sub, dom)&you_see_sex[sub]+=1&corr[sub]+=rand(2,8)
+				end
+			 end
+			 '<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> долбит её'
+		end
+	end
+end
+you_see_fucker[dom]+=1&act'Дрочить':gs 'gohardsex_see'
+act'Уйти':gt'preloc'
+if boyfriend_num[you]=dom:
+	'Ваш парень дрючит какую то тупую овцу!'
+     act'СКАНДАЛ!!!':
+		 mob_busy[dom]=0&mob_busy[sub]=0&agro[dom]-=10&cls&gs'stat'&'<<$name[dom]>> перепугался когда его застали на горячем и начал просить прощения обещая вам подарить кусочек души'
+         act'Бросить изменника!':dom[you]+=10&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[dom]=you&gt 'preloc'
+         act'Простить':soul[you]+=10&gt 'preloc'
+     end
+end

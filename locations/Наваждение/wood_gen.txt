@@ -1,0 +1,46 @@
+﻿X=0&Y=0&Z=760&!obsession_world[Z]=1
+$n_board[Z]='Горы'&$w_board[Z]='Болота'&$e_board[Z]='Городская стена'&$s_board[Z]='Горы'
+magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworldsix
+H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if Y=0:
+     $locname['<<$temploc>>']='Предгорье'&$lname['<<$temploc>>']='Предгорье'&$locopis['<<$temploc>>']='Зеленый яркий лес растущий у подножия горного хребта'
+	 np['<<$temploc>>']=rand(573,580)
+	 if X=5:pereval['<<$temploc>>']=1
+elseif X=7 and Y=7:
+	 $locname['<<$temploc>>']='Мрачный особняк'&$lname['<<$temploc>>']='Мрачный особняк'&$locopis['<<$temploc>>']='Загадочный и мрачный особняк в лесу выглядищий заброшенным и жутким'
+	 np['<<$temploc>>']=587
+	 mansion['<<$temploc>>']=1&gs'witchglum'&gs'wizardglum'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'&gs'goblin'
+else
+	locrand=rand(1,10)
+     if locrand<=6:
+		 $locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Зеленый яркий лес'
+		 np['<<$temploc>>']=rand(573,580)
+		 if rand(0,5)=0:gs'elvenman'
+		 if rand(0,2)=0:gs'elvenwoman'
+		 zemla['<<$temploc>>']=rand(1)&malin['<<$temploc>>']=rand(1)&chern['<<$temploc>>']=rand(1)&kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1
+	 end
+	 if locrand=7:
+		 $locname['<<$temploc>>']='Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Лесное озеро'
+		 np['<<$temploc>>']=582
+		 can_drink['<<$temploc>>']=2&lake['<<$temploc>>']=1&if rand(2)=0:gs'mobgen'
+	 end
+	 if locrand=8:
+		 $locname['<<$temploc>>']='Поляна'&$lname['<<$temploc>>']='Поляна'&$locopis['<<$temploc>>']='Заросшая густой и пышной травой полянка окруженная со всех сторон деревьями'
+		 np['<<$temploc>>']=583
+	 end
+	 if locrand=9:
+		 $locname['<<$temploc>>']='Овраг'&$lname['<<$temploc>>']='Овраг'&$locopis['<<$temploc>>']='Глубокий овраг по дну которого протекает тонкий ручеек'
+		 np['<<$temploc>>']=584
+		 can_drink['<<$temploc>>']=2&kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1
+	 end
+	 if locrand=10:
+		 $locname['<<$temploc>>']='Бурелом'&$lname['<<$temploc>>']='Бурелом'&$locopis['<<$temploc>>']='Множество поваленных и давно уже сгнивших стволов деревьев'
+		 np['<<$temploc>>']=585
+		 item_loc['46,<<$temploc>>']+=rand(1,10)&kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1
+	 end
+end
+if rand(1,10)<=3:item_loc['46,<<$temploc>>']+=1
+if X=10 and Y=5:towngate['<<$temploc>>']=1
+X+=1&if X<=10:jump'markgenworldsix'
+X=0&Y+=1&if Y<=10:jump'markgenworldsix'

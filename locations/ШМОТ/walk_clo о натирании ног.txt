@@ -1,0 +1,6 @@
+﻿if b_slot[you]>0 and ub_slot[you]=0 and health[you]>10:health[you]-=1&energy[you]-=5&'Вы натираете ноги'&!натирает ноги без носков или чулок
+if b_slot[you]=0 and ub_slot[you]>0:
+	ub_slot=ub_slot[you]
+	msg'Без обуви вы изорвали <<$item_ub_name[ubslot]>> в клочья'
+	ub_slot[you]=0&!рвет носки или чулки без обуви
+end

@@ -1,0 +1,7 @@
+﻿t_slot[you]=last_top[you]&item_loc_t['<<last_top[you]>>,<<$loc[you]>>']-=1
+l_slot[you]=last_low[you]&item_loc_l['<<last_low[you]>>,<<$loc[you]>>']-=1 
+b_slot[you]=last_boot[you]&item_loc_b['<<last_boot[you]>>,<<$loc[you]>>']-=1
+if ut_slot[you]=0 and item_loc_ut['<<last_utop[you]>>,<<$loc[you]>>']>0:item_loc_ut['<<last_utop[you]>>,<<$loc[you]>>']-=1&ut_slot[you]=last_utop[you]
+if ul_slot[you]=0 and item_loc_ul['<<last_ulow[you]>>,<<$loc[you]>>']>0:item_loc_ul['<<last_ulow[you]>>,<<$loc[you]>>']-=1&ul_slot[you]=last_ulow[you]
+if ub_slot[you]=0 and item_loc_ub['<<last_uboot[you]>>,<<$loc[you]>>']>0:item_loc_ub['<<last_uboot[you]>>,<<$loc[you]>>']-=1&ub_slot[you]=last_uboot[you]
+gt'preloc'

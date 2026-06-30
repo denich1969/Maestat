@@ -1,0 +1,1 @@
+﻿gs'stat'&if hiredbull>0:'На кресле развалился <a href="exec:time+=1&gt ''hiredbull''">наемный бык трахаль</a>'

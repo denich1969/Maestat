@@ -1,0 +1,38 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Спортивный инвентарь'&gs'Item'&*pl ''&gs 'npconloc'&act'Отойти':gt 'preloc'
+if can_do_sport[you]=1:
+	 if energy[you]>=50:
+		 act'Штанга':
+			 energy[you]-=50&sportiv[you]+=1&mus[you]+=rand(5,10)
+			 if pol[you]>0:
+				 if ass[you]<30:ass[you]+=1
+				 if ass[you]>=30 and ass[you]<40:
+					tempass[you]+=1
+					 if tempass[you]>=10:tempass[you]=0&ass[you]+=1
+				 end
+			 else
+				if ass[you]>30:ass[you]-=1
+			 end
+			 time+=30&cls&gs'stat'
+			if pol[you]>0:
+				 '<center><video src="pic/misc/squat<<rand(0,4)>>.webm" ></video></center>'&'Взяв штангу вы начали выполнять упражнения развивая силу.'
+			else
+				 '<center><video src="pic/misc/squatmen.webm" ></video></center>'&'Взяв штангу вы начали выполнять упражнения развивая силу.'
+			end
+			act'...':gt $curloc
+		end
+	end
+	if energy[you]>=50:
+		act'Упражнения на пресс':
+			 energy[you]-=50&sportiv[you]+=1&if fat[you]>10:fat[you]-=5&!mus[you]+=1
+			 time+=30&cls&gs'stat'
+			 if pol[you]>0:
+				 '<center><video src="pic/misc/situps.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+			else
+				 '<center><video src="pic/misc/situpsmen.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+			end
+			 act'...':gt $curloc
+		end
+	end
+else
+	'Ваша одежда не подходит для спорта'
+end

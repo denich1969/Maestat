@@ -1,0 +1,209 @@
+﻿if cum_face[you]>0:horny[npc]=50
+if horny[npc]>=50 and sexiness[you]>0:
+	 nohelp=0&'<<$nick[npc]>> похотливо осматривает вас - Белая чикуля, классная жопа, хочешь шоколадный батончик?'
+	 if boyfriend_num[you]>0:
+		 i=boyfriend_num[you]&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&'Ваш парень <<$name[i]>> толкает нахала в грудь - Э, слыш, а ты не прихуел ли часом.'
+	 end
+	if nohelp=1:
+		 '<<$nick[npc]>> отступает - Лучше валите отсюда, а то я братву позову!'&act'<b>Уйти</b>':gt 'preloc'
+	 else
+		 if whore[you]>0 and whoreboss[you]>0:
+		     act'Я работаю':
+				 lowered_status['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&if $pogonalo[npc]!'':$nick[npc]=$pogonalo[npc]
+				 cls&gs'stat'&'Вы объясняете гансте, что вы шлюха и вы работаете, а если ему что то не нравится, то он может обратится к вашему сутенеру.'&act'<b>Уйти</b>':gt 'preloc'
+				 if sexiness[you]>rand(10,90):
+					 if last_sex[npc]<time: 
+						'Ганста заинтересовался и предложил вам <<max(sexiness[you]/2,1)>> шиллингов'
+						 act'Дать прямо тут':
+							 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4
+							 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1&gt'sex'
+						 end
+						 act'Могу отсосать':
+							 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/4
+							 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1
+							 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Готовься заглатывать черный член, шлюха! Но заплачу я поменьше.'
+							 gs'block_quick', 'give_bj'
+						 end
+					 end
+			     end
+			 end
+		 end
+		 if work[you]=25:
+		     act'Я работаю стриптизершей на мистера Блэквуда':
+				 lowered_status['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&if $pogonalo[npc]!'':$nick[npc]=$pogonalo[npc]
+				 cls&gs'stat'&'Вы объясняете гангстеру, что вы стриптизерша работающая в клубе Аптаун.'&act'<b>Уйти</b>':gt 'preloc'
+				 if sexiness[you]>rand(10,90):
+					 if last_sex[npc]<time: 
+						'Ганста усмехнулся - стриптизерша та же самая шлюха, могу дать <<max(sexiness[you]/2,1)>> шиллингов если обслужишь меня'
+						 act'Дать прямо тут':
+							 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4
+							 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1&gt'sex'
+						 end
+						 act'Могу отсосать':
+							 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/4
+							 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1
+							 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Готовься заглатывать черный член, шлюха! Но заплачу я поменьше.'
+							 gs'block_quick', 'give_bj'
+						 end
+					 end
+			     end
+			 end
+		 end
+		 act'Пошли к тебе':
+			 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+			 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+			 solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+		 end
+		if superslut[you]!1: 
+			act'Общаться по понятиям':
+				 cls&ramsskill[you]+=1&gruzilo=rand(5,50)&!if boyfriend_num[you]>0:gruzilo=0
+				 !if husband[you]>0:gruzilo=0
+				 if cum_face[you]>0:gruzilo=10000
+				 if shame_tattoo[you]>0:gruzilo=10000
+				 if lowered_status['<<npc>>,<<you>>']>0:gruzilo=10000
+				 if gruzilo<ramsskill[you]:
+					 mob_sleep[npc]=time+15&gs'stat'&'Вы трете с ганстой по понятиям и бандиту не удается вас грузануть'&act'<b>Уйти</b>':gt 'preloc'
+					!if gruzilo=0:'У вас есть мужчина, как у порядочной девушки и подписать вас вод шлюху ему не удается'
+					 if rand(1,10)>=7:
+						 'Парень щелкает пару раз себя пальцем по носу - Детка давай помиримся и закинимся пыльцой фей.'
+						 act'А давай':
+							 cls&gs'drug'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+							 '<<$nick[npc]>> достал два пакетика, один занюхал сам а из второго понюхали вы и мир преобразившись заиграл красками.'
+							 act'Кайфовать':
+								 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+								 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+								 solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+							 end
+						 end
+					 end
+				 else
+					 gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					 if cum_face[you]>0:
+						 lowered_status['<<npc>>,<<you>>']+=5&'<<$nick[npc]>> указал на сперму на вашем лице с усмешкой - Эй вафля ,ты бы свой вафлоприемник мыла, прежде чем рамсить'
+					 elseif shame_tattoo[you]>0:
+						 lowered_status['<<npc>>,<<you>>']+=5&'<<$nick[npc]>> фыркает - ты помеченная шлюха, что ты мне втираешь, ты по жизни шалава и твое место на коленях'
+					elseif blacked[you]>=10:
+				         blacked[you]+=1&lowered_status['<<npc>>,<<you>>']+=1
+						 '<<$nick[npc]>> улыбаясь - мне уже братишки рассказали, что ты, как и все белые сучки, любишь полировать большой черный член своими сочными губками, так что вставай на колени зайка.'
+					 elseif lowered_status['<<npc>>,<<you>>']>10:
+						 lowered_status['<<npc>>,<<you>>']+=1&'<<$nick[npc]>> негодует - ты уже подписанная шлюха, хули ты тут ещё рамсишь?'
+					 elseif progon[you]>0:
+						 lowered_status['<<npc>>,<<you>>']+=5&'<<$nick[npc]>> негодует - слышь, шлюха, про тебя по улицам прогон был, что ты шлюха опущенная.'
+					 else
+						 lowered_status['<<npc>>,<<you>>']+=1&'У вас ничего не получается и вскоре <<$nick[npc]>> подписывает вас под шлюху и приказывает вам встать на колени.'
+					 end
+					 act'<b>Драться</b>':gt 'prefight'
+					 act'На колени':blacked[you]+=1&lowered_status['<<npc>>,<<you>>']+=10&solo=npc& horny[npc]=50&pose[you]=2&gt'sex'&!progon[you]+=1
+				end
+			end
+		end
+	 end
+else
+     if pol[you]=0:
+         if agro[npc]>=20:
+			 '<<$nick[npc]>> нагло пялится на вас - Эй снежок, за проход в моем районе нужно уплатить шиллинг.'
+			 if money[you]>=100:
+				 act'Дать шиллинг':money[you]-=100&mob_sleep[npc]=time+15&gt 'preloc'
+				 act'Общаться по понятиям':
+					 cls&ramsskill[you]+=1&gruzilo=rand(5,50)
+				     if gruzilo<ramsskill[you]:
+						 mob_sleep[npc]=time+15&gs'stat'&'Вы трете с пацанчиком по понятиям и бандиту не удается вас грузануть'&act'<b>Уйти</b>':gt 'preloc'
+				     else
+						 gs'stat'&'У вас ничего не получается и вскоре бандит подписывает вас под лоха, быка и черта.'&act'<b>Драться</b>':gt 'prefight'
+				         act'Отдать все деньги':loh[you]+=1&money[you]=0&mob_sleep[npc]=time+15&gt 'preloc'
+				     end
+				 end
+			 else
+				 act'У меня нет денег':
+					 mob_sleep[npc]=time+15&cls&gs'stat'&'После унизительного допроса и выворачивания карманов, бандит вас отпускает'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 else
+			'<<$nick[npc]>> смотрит на вас высокомерно и делает распальцовку'
+		     if know['<<npc>>,<<you>>']=0:
+				 act'Познакомиться':
+					 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 else
+				 act'Расскажи о себе':
+					 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> - я ганста на районе'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+	         end
+         end
+     else
+		 horny[npc]+=sexiness[you]/4&'<<$nick[npc]>> ухмыляется - Класная жопа, снежинка.'&act'<b>Уйти</b>':gt 'preloc'
+		 if know['<<npc>>,<<you>>']=0:
+			 act'Познакомиться':
+				 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 else
+			 act'Расскажи о себе':
+				 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> - я ганста на районе'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+		 act'Кокетливо улыбнуться':
+			 horny[npc]+=sexiness[you]/2&! statistics_flirt[you]+=1
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент'&womenbrain[you]+=1&act'<b>Уйти</b>':gt 'preloc'
+		     if rand(1,10)>=7:
+				'Парень щелкает пару раз себя пальцем по носу - Детка, хочешь пыльцы фей?'
+				 act'А давай':
+					 cls&gs'drug'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> достал два пакетика, один занюхал сам а из второго понюхали вы и мир преобразившись заиграл красками.'
+				 	 act'Кайфовать':
+						 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+						 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+						 solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+					 end
+				 end
+		     end
+		 end
+     end
+end
+if dancefloor['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
+     if pol[you]>0:
+		 act'Тверк':
+			 horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><video src="pic/misc/twerk<<rand(0,17)>>.webm" ></video></center>'
+			 'Вы устроили зажигательный тверк и <<$name[npc]>> оказался впечатлен - Йо сучка! Какая ты горячая!'&womenbrain[you]+=2&act'<b>Уйти</b>':gt 'preloc'
+		     if rand(1,10)>=7:
+				'Парень щелкает пару раз себя пальцем по носу - Детка, хочешь пыльцы фей?'
+				 act'А давай':
+					 cls&gs'drug'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> достал два пакетика, один занюхал сам а из второго понюхали вы и мир преобразившись заиграл красками.'
+				 	 act'Кайфовать':
+						 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+						 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+						 solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+					 end
+				 end
+		     end
+		 end
+     end
+end
+if $nick[npc]='Пушер':
+	 act'Продаешь чего?':
+		 horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		'<<$nick[npc]>> - Эй! Что за расизм? Если черный парень то сразу барыга? Ха-ха, я просто угораю, есть пыльца фей. 1 доза 150 шиллингов'&act'<b>Уйти</b>':gt 'preloc'
+ 	     if money[you]>=15000:
+			 act'Купить':
+				 money[you]-=15000&item[85]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы отдаете деньги и <<$nick[npc]>> оглядываясь дает вам пыльцу феи'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+			 if pol[you]>0:
+				act'А дешевле никак?':
+					 cls&'<center><img src="<<$d_view>>" ></center>'
+					 '<<$nick[npc]>> - Ну, от чего же нет? Для такой красивой снежинки, я готов уствить пыльцу и вовсе бесплатно, если поделишься со мной. Ну как? Покайфуем?'
+					 act'Кайфовать':
+						 gs'drug'&gs'stat'
+						 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+						 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+						 solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+					 end
+				end
+				act'<b>Уйти</b>':gt 'preloc'
+			 else
+				act'<b>Уйти</b>':gt 'preloc'
+			 end
+	     end
+	 end
+end

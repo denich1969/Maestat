@@ -1,0 +1,198 @@
+﻿if bocmanpimpwalk = 0 and $loc[you]=$loc[bocman] and whoreboss[you]=bocman and you=mother and ut_slot[you]=4: 
+	cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'
+	'- Боцман, чирик говоришь? - удивился гопник, обшаривая свой карман в поисках мелочи - Беру!'
+	'- Э, лярва, сама потом дойдёшь до Корчмы и оденешься, я за тобой по городу бегать не собираюсь, - властным тоном произнёс Боцман.'
+	act'<b>Гулять с гопником</b>':
+		 time+=60&cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'
+		money[you]+=5&money[bocman]+=5&submission[you]+=1&act'<b>Уйти</b>':gt 'world'
+	end 
+end
+if bocmanpimpwalk = 1 and $loc[you]=$loc[bocman] and whoreboss[you]=bocman and you=mother: 
+	cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'
+	'- Э, Боцман, прив, - подошёл к вашему боссу гопник. - Слушок прошёл, что ты акции неслыханной щедрости устраиваешь…'
+	'- Ты про эту? - указал он на меня. - Устраиваю акции, отдам на проёб за чирик.'
+	'- Ебать, она дешёвка, - гыкнул гопник, обшаривая свой карман в поисках мелочи - Беру!'
+	'- Э, лярва, как обычно сама дойдёшь до Корчмы и оденешься, я за тобой по городу бегать не собираюсь, - властным тоном произнёс Боцман.'
+	act'<b>Гулять с гопником</b>':time+=60&cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'&money[you]+=5&money[bocman]+=5&submission[you]+=1&act'<b>Уйти</b>':gt 'world'
+end
+if cum_face[you]>0:horny[npc]=50
+if fight_prog[npc]=25:'<<$nick[npc]>> крутит в руках обрезок трубы'
+if fight_prog[npc]=26:'<<$nick[npc]>> поигрывает финкой'
+if fight_prog[npc]=27:'<<$nick[npc]>> держит руку в кармане'
+if fight_prog[npc]=28:'<<$nick[npc]>> держит руку в кармане'
+if sfera_amulet[npc]>0:'<<$nick[npc]>> крутит в руках четки с магическими рунами'
+if (lostfight['<<npc>>,<<you>>']>lostfight['<<you>>,<<npc>>']) and (lostfight['<<npc>>,<<you>>']>5):
+	'<<$nick[npc]>> кивает вам с несмелой улыбкой. - Да я это... Выразить свое уважение подошел. Здоровья там пожелать. Извините, не хотел отвлекать. Уже ухожу.'
+	mob_sleep[npc]=time+60&horny[npc]=0&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&act'<b>Уйти</b>':gt 'preloc'
+else
+	if (lostfight['<<npc>>,<<you>>']>lostfight['<<you>>,<<npc>>']) and (lostfight['<<npc>>,<<you>>']>rand(0,3)):
+		'<<$nick[npc]>> узнает вас и притормаживает на подходе. - А, это ты... Ну, тогда я без претензий. Вечер в хату, часик в радость и все такое... Бывай.'
+		mob_sleep[npc]=time+30&horny[npc]=0&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+		act'Проучить идиота снова':gt 'prefight'
+		act'<b>Отпустить его с миром</b>':gt 'preloc'
+    else
+		if horny[npc]>=50 and sexiness[you]>0 and face[you]>=50:
+			'<<$nick[npc]>> похотливо осматривает вас - Эй, шлюшка, жопу мыла?'
+			 nohelp=0
+			 if boyfriend_num[you]>0:
+				 i=boyfriend_num[you]
+				 if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:
+					 nohelp=1&'Ваш парень <<$name[i]>> толкает гопника в грудь - Э, слыш, а ты не прихуел ли часом.'&act'Взять своего парня под руку':npc=i&gt'npc'
+				 end
+			 end
+			 if nohelp=0:
+				act'Пошли к тебе':gt'go_to_npc_home_gm'
+				if whore[you]>0 and whoreboss[you]>0:
+					 act'Я работаю':
+						 lowered_status['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&if $pogonalo[npc]!'':$nick[npc]=$pogonalo[npc]
+						 cls&gs'stat'&'Вы объясняете пацанчику ,что вы шлюха и вы работаете, а если ему что то не нравится, то он может обратится к вашему сутенеру.'&act'<b>Уйти</b>':gt 'preloc'
+						 needsexiness=rand(10,90)
+						if sexiness[you]>needsexiness:
+							if last_sex[npc]<time:
+								'Пацанчик заинтересовался и предложил вам <<max(sexiness[you]/2,1)>> шиллингов'
+								 act'Дать прямо тут':
+									 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100
+									 if whoreboss[you]>0:sutenerpay[you]+=500
+									 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1&gt'sex'
+								 end
+								 act'Могу отсосать':
+									 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100
+									 if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/4
+									 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1
+									 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'&gs'block_quick', 'give_bj'
+								 end
+							end
+						end
+					end
+				end
+				if work[you]=25:
+					 act'Я работаю стриптизершей на мистера Блэквуда':
+						 lowered_status['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&if $pogonalo[npc]!'':$nick[npc]=$pogonalo[npc]
+						 cls&gs'stat'&'Вы объясняете пацанчику, что вы стриптизерша работающая в клубе Аптаун.'&act'<b>Уйти</b>':gt 'preloc'
+						 needsexiness=rand(10,90)
+						 if sexiness[you]>needsexiness:
+							 if last_sex[npc]<time:
+								 'Пацанчик усмехнулся - стриптизерша та же самая шлюха, могу дать <<max(sexiness[you]/2,1)>> шиллингов если обслужишь меня'
+								 act'Дать прямо тут':
+									 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/2*100
+									if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/2*100/4
+									 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1&gt'sex'
+								 end
+								 act'Могу отсосать':
+									 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100
+									 if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/4
+									 solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1
+									 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'&gs'block_quick', 'give_bj'
+								 end
+							end
+						end
+					end
+				end
+				if superslut[you]!1:
+					act'Общаться по понятиям':
+						know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&if $pogonalo[npc]!'':$nick[npc]=$pogonalo[npc]
+						ramsskill[you]+=1&gruzilo=rand(5,50)&cls
+						if boyfriend_num[you]>0:gruzilo=0
+						if husband[you]>0 and pol[husband[you]]=0:gruzilo=0
+						if cum_face[you]>0:gruzilo=10000
+						if shame_tattoo[you]>0:gruzilo=10000
+						if lowered_status['<<npc>>,<<you>>']>0:gruzilo=10000
+						if $pogonalo[npc]!'' and know['<<npc>>,<<you>>']=1:'В процессе общения вы узнаете что у гопника погремуха <<$nick[npc]>> и зовут его <<$name[npc]>> <<$surname[npc]>>'
+						if $pogonalo[npc]='' and know['<<npc>>,<<you>>']=1:'В процессе общения вы узнаете что зовут его <<$name[npc]>> <<$surname[npc]>>'
+						if gruzilo<ramsskill[you]:
+							 mob_sleep[npc]=time+15
+							 gs'stat'&'Вы трете с пацанчиком по понятиям и гопнику не удается вас грузануть'
+							 if gruzilo=0:'У вас есть мужчина, как у порядочной девушки и подписать вас вод шлюху ему не удается'
+							 act'<b>Уйти</b>':gt 'preloc'
+							 if sfera_amulet[npc]>0:
+								 act'Откуда у тебя эти четки?':
+									 cls&gs'stat'&'<<$nick[npc]>> продолжая крутить четки - Прикольные! Я одного лоха грузанул и снял с него четки, они защиту накладывают.'&act'<b>Уйти</b>':gt 'preloc'
+								 end
+							 end
+						 else
+							 gs'stat'
+							 if cum_face[you]>0:
+								 lowered_status['<<npc>>,<<you>>']+=5&'Пацанчик указал на сперму на вашем лице с усмешкой - Эй вафля, ты бы свой вафлоприемник мыла, прежде чем рамсить'
+							 elseif shame_tattoo[you]>0:
+								 lowered_status['<<npc>>,<<you>>']+=5&'Пацанчик фыркает - ты помеченная шлюха, что ты мне втираешь, ты по жизни шалава и твое место на коленях'
+							 elseif lowered_status['<<npc>>,<<you>>']>10:
+								 lowered_status['<<npc>>,<<you>>']+=1&'Пацанчик негодует - ты уже подписанная шлюха, хуйли ты тут еще рамсишь?'
+							 elseif progon[you]>0:
+								lowered_status['<<npc>>,<<you>>']+=5
+								'Пацанчик негодует - слыш, шлюха, про тебя по улицам прогон был, что ты опущенная. Тебя подписали и на ротан навалили, хуйли ты из себя целку строишь?'
+							 else
+								 lowered_status['<<npc>>,<<you>>']+=1&'У вас ничего не получается и вскоре пацанчик подписывает вас под шлюху и приказывает вам встать на колени.'
+							 end
+							if dom[you]>60 and dick[you]>10:
+								act'Огрызнуться: А ты что, оказывается пидор, раз на мужика позарился?':
+									cls&'<<$nick[npc]>> на миг замирает, думает и с отвращением плюет в вашу сторону.'&*pl'- На хуй иди, еще репутацию с такой хуетой терять не хватало! Пшел вон, пидорас!'
+									corr[you]-=1&horny[you]-=25&horny[npc]=0&mob_sleep[npc]=time+60&act'<b>Уйти</b>':gt 'preloc'
+								end
+							 end
+							 act'<b>Драться</b>':gt 'prefight'
+							 act'Ладно, ладно, только не бей':progon[you]+=1&lowered_status['<<npc>>,<<you>>']+=10&gt'fem_sex_start'
+						 end
+					 end
+				 end
+			 else
+				 '<<$nick[npc]>> отступает - Да ты че, я же просто пошутил, больно мне надо!'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		else
+			 if avatar[you]>0:
+				 horny[npc]=0&mob_sleep[npc]=time+15&'<<$nick[npc]>> сплевывает на землю шелуху от семок - Наше вам с кисточкой.'&act'<b>Уйти</b>':gt 'preloc'
+			 else
+				 if pol[you]=0:
+					 if agro[npc]>=0:
+						 '<<$nick[npc]>> сплевывает на землю шелуху от семок - Слыш Васян, подкинь братве на пиво.'
+						 if (money[you]>=100 and Z[you]<11) or (rubl[you]>=10000 and Z[you]=200):
+							 if Z[you]<10:act'Дать шиллинг':money[you]-=100&mob_sleep[npc]=time+15&gt 'preloc'
+							 if Z[you]=200:act'Дать сто рублей':rubl[you]-=10000&mob_sleep[npc]=time+15&gt 'preloc'
+							 act'Общаться по понятиям':
+								 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&if $pogonalo[npc]!'':$nick[npc]=$pogonalo[npc]
+								 ramsskill[you]+=1&gruzilo=rand(5,50)&cls
+								 if $pogonalo[npc]!'' and know['<<npc>>,<<you>>']=1:'В процессе общения вы узнаете что у гопника погремуха <<$nick[npc]>> и зовут его <<$name[npc]>> <<$surname[npc]>>'
+								 if $pogonalo[npc]='' and know['<<npc>>,<<you>>']=1:'В процессе общения вы узнаете что зовут его <<$name[npc]>> <<$surname[npc]>>'
+								 if gruzilo<ramsskill[you]:
+									 mob_sleep[npc]=time+15
+									 gs'stat'&'Вы трете с пацанчиком по понятиям и гопнику не удается вас грузануть'&act'<b>Уйти</b>':gt 'preloc'
+									 if sfera_amulet[npc]>0:
+										 act'Откуда у тебя эти четки?':
+											 cls&gs'stat'&'<<$nick[npc]>> продолжая крутить четки - Прикольные! Я одного лоха грузанул и снял с него четки, они защиту накладывают.'&act'<b>Уйти</b>':gt 'preloc'
+										 end
+									 end
+								 else
+									 gs'stat'&'У вас ничего не получается и вскоре пацанчик подписывает вас под лоха, быка и черта.'
+									 act'<b>Драться</b>':gt 'prefight'
+									  if Z[you]<10:act'Отдать все деньги':loh[you]+=1&money[you]=0&mob_sleep[npc]=time+15&gt 'preloc'
+									   if Z[you]=200:act'Отдать все деньги':loh[you]+=1&rubl[you]=0&mob_sleep[npc]=time+15&gt 'preloc'
+								 end
+							 end
+						 else
+							 act'У меня нет денег':
+								 mob_sleep[npc]=time+15&cls&gs'stat'&'После унизительного допроса и выворачивания карманов, гопник вас отпускает'&act'<b>Уйти</b>':gt 'preloc'
+							 end
+						 end
+					 end
+				 else
+					 horny[npc]+=sexiness[you]/4&'<<$nick[npc]>> сплевывает на землю шелуху от семок - Классная жопа, чикуля.'&act'Спасибо!':womenbrain[you]+=1&gt 'preloc'
+					 act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 end
+		if agency_ud[you]>0:
+			 act'Показать удостоверение агентства':
+				 horny[npc]=0&mob_sleep[npc]=time+15&cls&'Вы достаете корочки агентства добрых дел и гопник сразу же меняется в лице.'
+				 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&if $pogonalo[npc]!'':$nick[npc]=$pogonalo[npc]
+				 ramsskill[you]+=1
+				 if $pogonalo[npc]!'' and know['<<npc>>,<<you>>']=1:'В процессе общения вы узнаете что у гопника погремуха <<$nick[npc]>> и зовут его <<$name[npc]>> <<$surname[npc]>>'
+				 if $pogonalo[npc]='' and know['<<npc>>,<<you>>']=1:'В процессе общения вы узнаете что зовут его <<$name[npc]>> <<$surname[npc]>>'
+				 act'<b>Уйти</b>':gt 'preloc'
+				 if sfera_amulet[npc]>0:
+					 act'Откуда у тебя эти четки?':
+						 cls&gs'stat'&'<<$nick[npc]>> продолжая крутить четки - Прикольные! Я одного лоха грузанул и снял с него четки, они защиту накладывают.'&act'<b>Уйти</b>':gt 'preloc'
+					 end
+				 end
+			 end
+		  end
+    end
+end

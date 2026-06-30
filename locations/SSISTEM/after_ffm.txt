@@ -1,0 +1,34 @@
+﻿horny[you]=0
+tipe_orgasm=0
+if soulMG[you]>0:soul[you]+=1
+soul[npc]-=2
+soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+anal_gape[first]=0
+if lebeda_seed[you]>0:lebeda_seed[first]+=1&lebeda_seed[second]+=1
+if lebeda_seed[first]>0:lebeda_seed[you]+=1&lebeda_seed[second]+=1
+if lebeda_seed[second]>0:lebeda_seed[you]+=1&lebeda_seed[first]+=1
+gs'add_sex_stat',first,you&anal_gape[second]=0&gs'add_sex_stat',second,you
+gs'add_sex_stat',first,second&lesb[first]+=1&lesb[second]+=1
+if temp_blow>0:bj_mass['<<you>>,<<first>>']+=1&bj[first]+=1&abj[you]+=1&!p_bj['<<npc>>,<<you>>']+=1
+temp_blow=0
+if temp_vag>0:vag_mass['<<you>>,<<first>>']+=1&vagsex[first]+=1&avagsex[you]+=1&!p_vag['<<npc>>,<<you>>']+=1
+temp_vag=0
+if temp_anal>0:anal_mass['<<you>>,<<first>>']+=1&anal[first]+=1&aanal[you]+=1&!p_anal['<<npc>>,<<you>>']+=1
+temp_anal=0
+if temp_blow_s>0:bj_mass['<<you>>,<<second>>']+=1&bj[second]+=1&abj[you]+=1&!p_bj['<<npc>>,<<you>>']+=1
+temp_blow_s=0
+if temp_vag_s>0:vag_mass['<<you>>,<<second>>']+=1&vagsex[second]+=1&avagsex[you]+=1&!p_vag['<<npc>>,<<you>>']+=1
+temp_vag_s=0
+if temp_anal_s>0:anal_mass['<<you>>,<<second>>']+=1&anal[second]+=1&aanal[you]+=1&!p_anal['<<npc>>,<<you>>']+=1
+temp_anal_s=0&temp_dirt_cock[you]=0
+$global_npc_log[first]+='<br>'
+$global_npc_log[first]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я, <<$name[you]>> <<$surname[you]>> и <<$name[second]>> <<$surname[second]>> занимались сексом в троем.'
+$global_npc_log[second]+='<br>'
+$global_npc_log[second]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я, <<$name[you]>> <<$surname[you]>> и <<$name[first]>> <<$surname[first]>> занимались сексом в троем.'
+$global_npc_log[you]+='<br>'
+$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я, <<$name[first]>> <<$surname[first]>> и <<$name[second]>> <<$surname[second]>> занимались сексом в троем.'
+in_fight=0&in_sex=0
+if demon_dick[you]>0:gs'get_soul_loc',you,demon_dick[you],you
+if demon_dick[first]>0:gs'get_soul_loc',first,demon_dick[first],you
+if demon_dick[second]>0:gs'get_soul_loc',second,demon_dick[second],you
+gs'sex_func','deleteScene',in_sex[you]&gs'drop_follower'&gt'preloc'

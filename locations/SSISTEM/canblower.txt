@@ -1,0 +1,12 @@
+﻿candoblow[npc]=0
+if temp_dirt_cock[you]=0:
+	if bj[npc]>0:candoblow[npc]=1
+	if lust[npc]>=70:candoblow[npc]=1
+	if agro[npc]<=20:candoblow[npc]=1
+	if dick[npc]>1:candoblow[npc]=1
+	if oral_fixation[npc]>0:candoblow[npc]=1
+else
+	if lust[npc]>=80:candoblow[npc]=1
+	if agro[npc]<=10:candoblow[npc]=1
+	if oral_fixation[npc]>0:candoblow[npc]=1
+end

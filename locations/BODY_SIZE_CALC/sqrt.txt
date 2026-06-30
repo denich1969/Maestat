@@ -1,0 +1,27 @@
+﻿if args[1]=0:args[1] = 1&!проверить число
+if args[2]=0:args[2] = 1024&!32^2
+if args[3]=0:args[3] = 0
+:sqrtAvt
+if args[1]*args[1]=args[0]:result = args[1]&exit&!args[0]+' | '+args[1]+' | '+args[2]+ ' | '+ args[3]+ ' | '+$args[4]
+if args[2]*args[2]=args[0]:result = args[2]&exit
+if args[0]>args[1]*args[1]:
+	if args[0]>args[2]*args[2]:
+		args[10] = (args[2]+args[2])
+		if args[3]!0 and args[10]>args[3]:args[10]=args[3]&!result = func('sqrt',args[0],args[2],args[10],args[3],'up')
+		args[1]=args[2]
+		args[2]=args[10]
+		$args[4]='up'
+		jump'sqrtAvt'
+	else
+		if args[2]-args[1]>1:
+			args[10] = (args[2]+args[1])/2
+			if args[3]=0:args[3]=args[2]
+			if args[3]!0 and args[3]>args[2]:args[3]=args[2]&!result = func('sqrt',args[0],args[1],args[10],args[3],'down')
+			args[2]=args[10]
+			$args[4]='down'
+			jump'sqrtAvt'				
+		else
+			result = args[1]&exit
+		end	
+	end
+end

@@ -1,0 +1,47 @@
+﻿$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
+stopwalk[w]=0
+if canfly[w]=0:$texwalk='идет'
+if canfly[w]=1:$texwalk='летит'
+if mob_busy[w]>0 and mob_busy[w]<time:horny[w]=0&mob_busy[w]=0&mob_sleep[w]=time+15&action_tipe[w]=0&aktive_tipe[w]=0
+if stander[w]=0 and follower[w]=0:
+    if walkprog[w]=0:
+		!те у кого нет програмы движения
+		if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]>0:
+			 if mob_busy[w]=1:mob_sleep[w]=time+60
+			 mob_busy[w]=0
+		end
+		if mob[w]=0 and mob_sleep[w]<time and mob_busy[w]=0:
+			 randtipe=rand(0,2)&!!!!!!!!!!!!!!!!NPC
+			 if cum_face[w]>0:randtipe=3
+			!if randtipe=0:''&!нет движения
+			 if randtipe>0:gs'walk_rand_loc'&!if Z[you]=Z[w]:gs'subwalker'
+		end
+		if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0:
+			 randtipe=rand(0,2)& !!!!!!!!!!!!!!!!!!!!!!!!!!!МОБЫ
+			 !if randtipe=0:''&!нет движения
+			 if randtipe=1:
+				 randnapr=rand(0,1)&!по Х
+				 if randnapr=0 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> <<$texwalk>> на восток'
+					 X[w]+=1
+				 end
+				 if randnapr=1 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> <<$texwalk>> на запад'
+					 X[w]-=1
+				 end
+			 end
+			 if randtipe=2:
+				 randnapr=rand(0,1)&!по У
+				 if randnapr=0 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+					if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> <<$texwalk>> на север'
+					 Y[w]+=1
+				 end
+				 if randnapr=1 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> <<$texwalk>> на юг'
+					 Y[w]-=1
+				end
+			end
+			!if Z[you]=Z[w]:gs'subwalker'
+		end
+	end
+end

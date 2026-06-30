@@ -1,0 +1,17 @@
+﻿horny[npc]=0&target_soul=2
+if lebeda_seed[you]>0:lebeda_seed[npc]+=1
+if lebeda_seed[npc]>0:lebeda_seed[you]+=1
+if cocksucking>0:cocksucking=0
+my_last_fucker[you]=npc&last_fuck_time[you]=time&gs'add_sex_stat', you, npc
+if temp_blow_fss>0:bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
+temp_blow_fss=0
+if temp_vag_fss>0:vag_mass['<<npc>>,<<you>>']+=1&vagsex[you]+=1&avagsex[npc]+=1
+temp_vag_fss=0
+if temp_anal_fss>0:anal_mass['<<npc>>,<<you>>']+=1&anal[you]+=1&aanal[npc]+=1
+temp_anal_fss=0&temp_dirt_cock[npc]=0
+$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> была моей нижней.'
+$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>> отдоминировал меня.'
+in_fight=0&in_sex=0
+if demon_dick[you]>0:gs'get_soul_loc',you,demon_dick[you],you
+if demon_dick[npc]>0:gs'get_soul_loc',npc,demon_dick[npc],you
+gs'sex_func','deleteScene',in_sex[you]&gs'drop_follower'&gt'preloc'

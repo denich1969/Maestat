@@ -1,0 +1,6 @@
+﻿!0 - кто       !1 - кому
+if $replic_programm[args[0]]!'' and arrsize('replic_suck_'+$replic_programm[args[0]]+"_"+$args[2])>0: 	
+	gs'replic_suck_'+$replic_programm[args[0]],args[0],args[1],$args[2]
+else
+	gs'replic_suck_default',args[0],args[1],$args[2]
+end

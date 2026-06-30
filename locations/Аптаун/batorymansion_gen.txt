@@ -1,0 +1,55 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&!ownerloc['<<$templocH>>']=you
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дворец Батори'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=9
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+$locopis['<<$temploc>>']='Просторный холл с удобными диванами и ажурными журнальными столиками'
+np['<<$temploc>>']=171
+mirror['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Тронный зал'
+$locname['<<$temploc>>']='Тронный зал'&$lname['<<$temploc>>']='Тронный зал'&$lname_go['<<$temploc>>']='в тронный зал'
+$locopis['<<$temploc>>']='В зале легендарный маестат, престол абсолютной власти.'
+np['<<$temploc>>']=253
+mirror['<<$temploc>>']=1&maestat['<<$temploc>>']=1
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная хозяина'
+$locname['<<$temploc>>']='Спальная хозяина'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=172
+mirror['<<$temploc>>']=1
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная Батори'
+$locname['<<$temploc>>']='Спальная Батори'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=172
+mirror['<<$temploc>>']=1
+gs'elderbatory_gen'&gs'fembatory_gen'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Детская спальная'
+$locname['<<$temploc>>']='Детская спальная'&$lname['<<$temploc>>']='Детская спальная'&$lname_go['<<$temploc>>']='в детскую'
+$locopis['<<$temploc>>']='Уютная спальная с резной мебелью'
+np['<<$temploc>>']=173
+mirror['<<$temploc>>']=1
+gs'dotbatory_gen'
+husband[elderbatory]=fembatory&husband[fembatory]=elderbatory
+kid_first[elderbatory]=dotbatory&kid_first[fembatory]=dotbatory
+father[dotbatory]=elderbatory&mother[dotbatory]=fembatory
+R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг'
+$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$lname_go['<<$temploc>>']='в комнату для слуг'
+$locopis['<<$temploc>>']='Простенькая спальная с грубыми кроватями'
+np['<<$temploc>>']=175
+mirror['<<$temploc>>']=1
+gs'batorymaid_gen'&gs'batorymaid_gen'&gs'batorymaid_gen'
+gs'batorymanmaid_gen'&gs'batorymanmaid_gen'&gs'batorymanmaid_gen'
+R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
+$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Роскошный туалет особняка'
+np['<<$temploc>>']=67
+can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&shower['<<$temploc>>']=1
+R=7&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Библиотека'
+$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='Библиотека'&$lname_go['<<$temploc>>']='в библиотеку'
+$locopis['<<$temploc>>']='Библиотека набитая старинными книгами и рукописями связанными'
+library['<<$temploc>>']=50
+np['<<$temploc>>']=177
+R=8&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Рабочий кабинет'
+$locname['<<$temploc>>']='Рабочий кабинет'&$lname['<<$temploc>>']='Рабочий кабинет'&$lname_go['<<$temploc>>']='в рабочий кабинет'
+$locopis['<<$temploc>>']='Кабинет с громадным старинным столом и шкафчиками для важных бумаг у стен'
+np['<<$temploc>>']=177
+R=9&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
+$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'&$locopis['<<$temploc>>']='В центре комнаты длинный стол'
+np['<<$temploc>>']=176
+mirror['<<$temploc>>']=1

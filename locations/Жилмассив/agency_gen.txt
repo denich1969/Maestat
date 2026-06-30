@@ -1,0 +1,26 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&!Евангелие от Пилата!перевод Свитка Войнича!свидетельства Гренделя Рекса!Сестрички идеальной циркулярной пилы!Хрупкие сестрицы (насекомые)
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Агентство Добрых Дел'&maxPositionR['<<$templocH>>']=4&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Агентство Добрых Дел'&$lname['<<$temploc>>']='Агентство Добрых Дел'&$lname_go['<<$temploc>>']='в агентство'
+$locopis['<<$temploc>>']='Ресепшн агентства, чистые выкрашенные в светлые тона стены, современная мебель.'
+np['<<$temploc>>']=48
+mirror['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната начальника'
+$locname['<<$temploc>>']='Комната начальника'&$lname['<<$temploc>>']='Комната начальника'&$lname_go['<<$temploc>>']='в комнату начальника'
+$locopis['<<$temploc>>']='Комната начальника с большим столом, за которым проводятся переговоры, собираются планерки и обсуждаются дела.'
+np['<<$temploc>>']=49
+mirror['<<$temploc>>']=1
+gs'addboss_gen'&uptownworld[]=i
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната агентов'
+$locname['<<$temploc>>']='Комната агентов'&$lname['<<$temploc>>']='Комната агентов'&$lname_go['<<$temploc>>']='в комнату агентов'
+$locopis['<<$temploc>>']='Общая комната со множеством столов для агентов'
+np['<<$temploc>>']=50
+mirror['<<$temploc>>']=1
+gs'addkiller_gen'&uptownworld[]=i
+R=3&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+shower['<<$temploc>>']=1
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Архив'
+$locname['<<$temploc>>']='Архив'&$lname['<<$temploc>>']='Архив'&$lname_go['<<$temploc>>']='в архив'
+$locopis['<<$temploc>>']='Стелажи забытые документами, какими то коробками и кажется в архиве крайне трудно разобраться.'
+np['<<$temploc>>']=51
+mirror['<<$temploc>>']=1

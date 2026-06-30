@@ -1,0 +1,82 @@
+﻿cooking[w]=0&watchtv[w]=0&$loc_food[w]='3,1,3,1,1'
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]=''&!в отключке
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+     if hour>=22 or hour<=6:
+         if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			$think[w]=''&!спит дома
+         else
+			 $destination[w]='дом'&gs'destination'
+			 $think[w]='хочет домой'&gs'walk_dest'&!вне дома
+         end
+     else
+         if week<6:
+             if hour>=7 and hour<=16:
+				 if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=rand(0,2)
+				 if daylypaymant[w]!daystart:daylypaymant[w]=daystart&money[w]+=1000
+				 if wantutrodayloc[w]=0:$think[w]='думает о выпивке'&$destination[w]='процедурная'
+				 if wantutrodayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='лаборатория'
+				 if wantutrodayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='палата'
+		     end
+			 if hour>=17:
+				 if wantday[w]!daystart:wantday[w]=daystart&wantdayloc[w]=rand(0,2)
+				 if wantdayloc[w]=0:
+					$think[w]='думает о прогулке'
+				     if dayshower[w]!daystart:
+						dayshower[w]=daystart&walker_cooldown[w]=time+120&$destination[w]='квартира туалет'
+				     else
+						$destination[w]='квартира зал'
+				     end
+				 end
+				 if wantdayloc[w]=1:
+					$think[w]='думает о выпивке'&$destination[w]='квартира кухня'
+				     if here_food['<<$loc_food[w]>>']<5:here_food['<<$loc_food[w]>>']+=10&cooking[w]=1
+				 end
+				 if wantdayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='универсам'
+			 end
+         end
+         if week>=6:
+			 if hour>=7 and hour<=12:
+				 if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=rand(0,1)
+				 if wantutrodayloc[w]=0:$think[w]='думает о выпивке'&$destination[w]='квартира зал'&watchtv[w]=1
+				 if wantutrodayloc[w]=1:
+					$think[w]='думает о выпивке'&$destination[w]='квартира кухня'
+				 	if here_food['<<$loc_food[w]>>']<5:here_food['<<$loc_food[w]>>']+=10&cooking[w]=1
+				 end
+			 end
+			 if hour>=13 and hour<=16:
+				 if wantmidday[w]!daystart:wantmidday[w]=daystart&wantmiddayloc[w]=rand(0,2)
+				 if wantmiddayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='квартира зал'&watchtv[w]=1
+				 if wantmiddayloc[w]=1:
+					$think[w]='думает о выпивке'&$destination[w]='квартира кухня'
+				    if here_food['<<$loc_food[w]>>']<5:here_food['<<$loc_food[w]>>']+=10&cooking[w]=1
+				 end
+				 if wantmiddayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='универсам'
+			 end
+			 if hour>=17:
+				 if wantday[w]!daystart:wantday[w]=daystart&wantdayloc[w]=rand(0,1)
+				 if here_food['<<$loc_food[w]>>']>5:
+					 if wantdayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='квартира зал'&watchtv[w]=1
+					 if wantdayloc[w]=1:
+						$think[w]='думает о выпивке'&$destination[w]='квартира кухня'
+						 if here_food['<<$loc_food[w]>>']<5:here_food['<<$loc_food[w]>>']+=10&cooking[w]=1
+					 end
+				 else
+					here_food['<<$loc_food[w]>>']+=10&$think[w]='думает о выпивке'&$destination[w]='квартира кухня'&cooking[w]=1
+				 end
+			 end
+         end
+         if $destination[w]='прогулка':
+			$think[w]='думает о прогулке'&gs'walk_full_rand'
+         else
+			gs'destination'
+			 if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+				$think[w]='думает о рыбе'&!на точке назначения
+			 else
+				gs'walk_dest'& !вне точки назначения
+			 end
+         end
+     end
+end

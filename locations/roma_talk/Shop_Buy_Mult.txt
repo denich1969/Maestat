@@ -1,0 +1,22 @@
+﻿!Локация обрабатывает действия в магазине Менхантера 'Дорожные <u>П</u>рипасы' 'Купить тоник' 'Купить дымовые шашки' 'Купить афродизиак' 'Купить усыпляющий газ'
+$Prompt["<u>П</u>рипасы"] = "Каждая порция стоит один золотой. Сколько порций Вам нужно, <<$name>>?"
+$Prompt["<u>Т</u>оник"] = "Каждая порция тоника стоит 10 золотых. Сколько порций Вам нужно, <<$name>>?"
+$Prompt["Дымовые <u>ш</u>ашки"] = "Каждая шашка стоит 20 золотых. Сколько дымовых шашек Вам нужно, <<$name>>?"
+$Prompt["Афродизиак"] = "Каждый флакон афродизиака стоит 25 золотых. Сколько штук Вам нужно, <<$name>>?"
+$Prompt["Усыпляющий <u>г</u>аз"] = "Каждая граната с газом стоит 40 золотых. Сколько Вам нужно?"
+!Первым и единственным аргументом передается название товара
+$Goods = $args[0]
+IF $Goods = "<u>П</u>рипасы":
+	$Return_location = "Shop_catalog"
+ELSE
+	$Return_location = "Shop_misc"
+END
+number = input($Prompt[$Goods])
+IF number*Price_list[$Goods] > money:msg "К сожалению, у Вас не хватает денег."&cls&cla&$loc[you]=$loc[menhunter] 
+IF number > 0:
+	Goods_mult[$Goods] += number
+	GS 'Change_Object_Count', $Goods, Goods_mult[$Goods]
+	money -= number*Price_list[$Goods]
+	msg "Спасибо за покупку!"&cls&cla&$loc[you]=$loc[menhunter] 
+end
+act 'Закончить покупки':&cls&cla&$loc[you]=$loc[menhunter] 

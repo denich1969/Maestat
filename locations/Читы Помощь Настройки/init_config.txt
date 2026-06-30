@@ -1,0 +1,32 @@
+﻿if CONFIG['INIT_CONFIG'] ! 25062024:
+	!Цвета отражающие "пол"
+	!Муж
+	CONFIG['MALE_COLOR_R'] = 30
+	CONFIG['MALE_COLOR_G'] = 144
+	CONFIG['MALE_COLOR_B'] = 255
+	!Жен
+	CONFIG['FEM_COLOR_R'] = 255
+	CONFIG['FEM_COLOR_G'] = 105
+	CONFIG['FEM_COLOR_B'] = 180
+	! По-умолчанию механика спор действует как обычно.
+	CONFIG['DISABLE_spores'] = 0
+	CONFIG['ENABLE_spore_display'] = 0
+	!Размер иконок тулбара.
+	CONFIG['TOOLBAR_ICON_SIZE']=25
+	CONFIG['INIT_CONFIG']=25062024
+	!Отключаем по умолчанию HRы в доп-описании.
+	UI_ELEMENT_STATE[70]=1
+	UI_ELEMENT_STATE[71]=1
+	UI_ELEMENT_STATE[72]=1
+	UI_ELEMENT_STATE[73]=1
+	UI_ELEMENT_STATE[74]=1
+	UI_ELEMENT_STATE[75]=1
+	UI_ELEMENT_STATE[76]=1
+	UI_ELEMENT_STATE[77]=1
+	UI_ELEMENT_STATE[78]=1
+	gs'coat_base'&gs'tz_base'&gs'tg_base'
+	gs'hat_base'&gs'm_base'&gs'w_base'
+	gs'top_base'&gs'low_base'&gs'boot_base'
+	gs'ut_base'&gs'ul_base'&gs'ub_base'
+	gs'item_base'
+end

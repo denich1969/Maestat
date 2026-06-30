@@ -1,0 +1,6 @@
+﻿it = ARGS[0]
+clr
+item_t[it]-=1
+burden[you]-=item_t_burden[it]
+item_loc_t['<<it>>,<<$loc[you]>>']+=1
+gt 'preloc'

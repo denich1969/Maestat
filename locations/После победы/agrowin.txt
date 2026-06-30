@@ -1,0 +1,115 @@
+﻿$d_scerun={X[npc]=rand(0,4)&Y[npc]=rand(0,4)
+if H[npc]>0:H[npc]=0
+if R[npc]>0:R[npc]=0}
+if pol[npc]>0 and dick[you]>1:horny[you]+=50
+runner[npc]=0&gs'stat'&reward[you]+=rand(100,10000)&horny[npc]=0&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&scear['<<npc>>,<<you>>']+=1&gs'npcbase'
+'<b><<$nick[npc]>> стонет лежа не земле - Какого черта тебе нужно?</b>'
+if water_gem[npc]>0:water_gem[npc]=0&water_gem[you]=1&'<b>На вашем пальце оказывается перстень с переливающимся голубым камнем.</b>'
+if fire_gem[npc]>0:fire_gem[npc]=0&fire_gem[you]=1&'<b>На вашем пальце оказывается перстень с переливающимся алым камнем.</b>'
+if earth_gem[npc]>0:earth_gem[npc]=0&earth_gem[you]=1&'<b>На вашем пальце оказывается перстень с переливающимся коричневым камнем.</b>'
+if wind_gem[npc]>0:wind_gem[npc]=0&wind_gem[you]=1&'<b>На вашем пальце оказывается перстень с переливающимся прозрачным камнем.</b>'
+if soul_gem[npc]>0:soul_gem[npc]=0&soul_gem[you]=1&'<b>На вашем пальце оказывается перстень с переливающимся черным камнем.</b>'
+act'Уйти':dynamic $d_scerun&gt'preloc'
+if whoreboss[you]=npc:whoreboss[you]=0
+if bocman=npc and progon[you]>0:progon[you]=0
+if pol[npc]>0:
+     if dick[you]>1 and last_fuck_time[you]<time:
+         act'Изнасиловать в задницу':
+			 if lebeda_seed[you]>0:lebeda_seed[npc]+=1
+			 if lebeda_seed[npc]>0:lebeda_seed[you]+=1
+			 reward[you]+=rand(1000,100000)
+			 rapist['<<you>>,<<npc>>']+=1&agro[npc]-=5&last_fuck_time[you]=time+60&horny[you]=0&!you_rapist[npc]+=1
+			 if soulMG[you]>0:soul[you]+=1
+			 soul[npc]-=2
+			 soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+			 anal_gape[npc]=0
+			 cls&gs'add_sex_stat', you, npc
+			 anal_mass['<<you>>,<<npc>>']+=1&anal[npc]+=1&aanal[you]+=1&!p_anal['<<npc>>,<<you>>']+=1
+			 $global_npc_log[npc]+='<br>'
+			 $global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> избил меня и изнасиловал.'
+			 $global_npc_log[you]+='<br>'
+			 $global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> была избита мной и изнасилована в жопу.'
+			 gs'stat'
+			 if dick[npc]=0:'<center><video src="pic/sex/degraded/fucked<<rand(0,41)>>.webm" ></video></center>'
+			 if dick[npc]>0:'<center><video src="pic/sex/degraded/fuckeds<<rand(0,4)>>.webm" ></video></center>'
+			 'Вы прижали всем весом к земле свою несчастную жертву и уперлись ей стояком в нежную дырочку. Тугой анус не выдержал и впустил в себя ваш член. '
+			'После чего вы необращая внимания на слезы, мольбы и стоны начали трахать свою несчастную жертву в зад и наконец спустили ей в анус свою сперму.'
+			 anus[npc]+=5&act'Уйти':dynamic $d_scerun&gt'preloc'
+         end
+     end
+     if rapist['<<you>>,<<npc>>']>0:
+         if brave[npc]=0 or selfrespect[npc]=0 or whore[npc]>0 or agro[npc]<=10 or lust[npc]>=75:
+			'<<$name[npc]>> умоляет не насиловать ее и обещает сделать все что вы хотите'
+             if dick[you]>1 and last_fuck_time[you]>=time:
+                 act'Оттрахать':
+                     if oncebrockengirl[npc]=0 and brave[npc]<2:
+						 selfrespect[npc]=0&oncebrockengirl[npc]=1&if agro[npc]>10:agro[npc]=10&!сломалась
+                     end
+					 runner[npc]=1&gt'justsex'
+                 end
+             end
+             if slave[npc]=0 and saunakafeowner>=1 and item_h[7]>0:
+                 act'Сделать ее своей рабыней (стальной ошейник)':
+					 item_h[7]-=1&h_slot[npc]=7&slave[npc]=you&cls&gs'stat'&'Вы одеваете ошейник на девку и та соглашается стать вашей рабыней.'&act'Уйти':gt'preloc'
+                 end
+             end
+             if slave[npc]=0 and saunakafeowner>=1 and item_h[6]>0:
+                 act'Сделать ее своей рабыней (кожанный ошейник)':
+					 item_h[6]-=1&h_slot[npc]=6&slave[npc]=you&cls&gs'stat'&'Вы одеваете ошейник на девку и та соглашается стать вашей рабыней.'&act'Уйти':gt'preloc'
+                 end
+             end
+         end
+     end
+end
+if pol[npc]=0:
+	 if item[79]>0:
+	     act'Заставить выпить феминайзер':
+			 reward[you]+=rand(500,15000)&item[79]-=1&burden[you]-=item_burden[79]&feminize[npc]+=5&cls&gs'stat'&'Вы силком заливаете в рот феминайзер'&act'Уйти':dynamic $d_scerun&gt'preloc'
+	     end
+	 end
+	 if item[79]>1:
+	     act'Заставить выпить сразу два флакона феминайзера':
+			 reward[you]+=rand(500,15000)&item[79]-=2&burden[you]-=item_burden[79]&feminize[npc]+=30&cls&gs'stat'&'Вы силком заливаете в рот феминайзер'&act'Уйти':dynamic $d_scerun&gt'preloc'
+	     end
+	 end
+	 if item[79]>=10:
+	     act'Заставить выпить конскую дозу феминайзера (10 флаконов)':
+			 reward[you]+=rand(500,15000)&item[79]-=10&burden[you]-=item_burden[79]&feminize[npc]+=100
+			 cls&gs'stat'&'Вы силком заливаете своей жертве в рот феминайзер по очереди, пока не добиваетесь успеха'&act'Уйти':dynamic $d_scerun&gt'preloc'
+	     end
+	 end
+end
+if otbivbf[npc]=1:otbivbf[npc]=0&gf=girlfriend_num[npc]&girlfriend_num[npc]=0&boyfriend_num[gf]=0&ex_girlfriend['<<npc>>,<<gf>>']=1&'<<$name[npc]>> - хорошо, я все понял и брошу свою девушку'
+if m_slot[npc]>0:
+	mslo=m_slot[npc]
+	if item_w_holdtipe[mslo]=0:'<<$item_name[mslo]>> висит на поясе'
+	if item_w_holdtipe[mslo]=1:'<<$item_name[mslo]>>'
+	 act'Отнять холодное оружие':weaponmaster[npc]=5&reward[you]+=rand(500,15000)&item[mslo]+=1&burden[you]-=item_burden[mslo]&m_slot[npc]=0&cls&dynamic $d_scerun&gt'preloc'
+end
+if w_slot[npc]>0:
+	wslo=w_slot[npc]
+	if item_w_holdtipe[wslo]=0:'<<$item_name[wslo]>> висит на поясе'
+	if item_w_holdtipe[wslo]=1:'<<$item_name[wslo]>>'
+	act'Отнять огнестрельное оружие':weaponmaster[npc]=5&reward[you]+=rand(500,15000)&item[wslo]+=1&burden[you]-=item_burden[wslo]&w_slot[npc]=0&cls&dynamic $d_scerun&gt'preloc'
+end
+if t_slot[npc]>0:
+	toptemp=t_slot[npc]&act'Отнять верхнюю одежду':reward[you]+=rand(500,15000)&item_t[toptemp]+=1&burden[you]-=item_burden[toptemp]&t_slot[npc]=0&reclo[npc]=5&cls&dynamic $d_scerun&gt'preloc'
+end
+if l_slot[npc]>0:
+	lowtemp=l_slot[npc]&act'Отнять нижнюю одежду':reward[you]+=rand(500,15000)&item_l[lowtemp]+=1&burden[you]-=item_burden[lowtemp]&l_slot[npc]=0&reclo[npc]=5&cls&dynamic $d_scerun&gt'preloc'
+end
+if b_slot[npc]>0:
+	boottemp=b_slot[npc]&act'Отнять обувь':reward[you]+=rand(500,15000)&item_b[boottemp]+=1&burden[you]-=item_burden[boottemp]&b_slot[npc]=0&reclo[npc]=5&cls&dynamic $d_scerun&gt'preloc'
+end
+if statist[npc]=1:$textkill='Убить'
+if statist[npc]=0:$textkill='Убить (Это убийство может повлиять на вашу судьбу)'
+act'<<$textkill>>':
+	maniac[you]+=1&cls
+	item_loc_t['<<t_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_l['<<l_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_b['<<b_slot[npc]>>,<<$loc[you]>>']+=1
+	 if m_slot[npc]>0:item_loc['<<m_slot[npc]>>,<<$loc[you]>>']+=1
+	 if w_slot[npc]>0:item_loc['<<w_slot[npc]>>,<<$loc[you]>>']+=1
+	 wictim[npc]=you&reward[you]+=rand(50000,250000)&murderer[you]+=1&if magik[you]>0:magik[you]-=1
+     killbyyou[]=npc&Z=Z[you]&sinner[Z]+=1&!magik_exp[you]+=1
+     dead[npc]=2&if npc=lebeda:dead[lebeda]=10
+	 gt'preloc'
+end

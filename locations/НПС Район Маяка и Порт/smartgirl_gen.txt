@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&smartgirl=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=34
+$name[i]='Ира'&$surname[i]='Логинова'&$nick[i]='Серая мышка'&$title[i]=''&$history[i]='Я училась в аспирантуре и преподавала термодинамику в институте'&!Фелисити Джонс
+face[i]=70&gla[i]=0&glacol[i]=3&nose[i]=0&lips[i]=0&scull[i]=0&cheeks[i]=0&!Лицо (тип лица, тип глаз, цвет глаз, тип носа, тип губ, тип скул, тип щёк)
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=40&ass[i]=30&nip[i]=45&tits[i]=20&!Половые признаки (член, вагина, жопа, грудь)
+guy[i]+=1&	 vagsex[i]+=100&anal[i]+=100&anal_fixation[i]=20&!Сексуальный опыт
+rost[i]=168&fat[i]=2000&mus[i]=800&skin[i]=1&!Тело (рост, жир, мускулы, цвет кожи)
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=1&!Волосы (лицо, грудь, ноги, голова: длина, причёска, цвет)
+age[i]=26&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(70,100)&bisex[i]=1&agro[i]=10&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=2&lust[i]=10&thenoob[i]=1&!характер
+!r_leg_t[i]=1&l_hand_t[i]=3&nose_p[i]=1&stamp_t[i]=1&! Прикид
+t_slot[i]=63&l_slot[i]=31&b_slot[i]=9
+ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=6&! Прикид конец
+n_world[]=i&walkprog[i]=31&!Программа движения ранее было walkprog[i]=20
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'

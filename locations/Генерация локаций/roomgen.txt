@@ -1,0 +1,132 @@
+﻿!Образец вызова
+!gs 'roomgen',R-номер комнаты,'имя комнаты',уровень комнаты от 0 до 3 или 4,'содержимое'
+!gs 'roomgen',R-номер комнаты,'имя комнаты',уровень комнаты,'жильцы',номер предмета
+R=args[0]
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if $args[1]='Прихожая':
+	gs 'hallway_gen',args[2], '<<$args[3]>>',args[4]&!gs 'hallway_gen',уровень прихожей, 'одежда или обувь',номер предмета
+elseif $args[1]='Муравейник':
+	gs 'hallway_gen',args[2], '<<$args[3]>>',args[4]
+elseif $args[1]='Кухня':
+	gs 'kitchen_gen',args[2], '<<$args[3]>>',args[4]&!gs 'kitchen_gen',уровень кухни,' или кухонные принадлежности',номер предмета
+elseif $args[1]='Туалет':
+	gs 'toilet_gen',args[2], '<<$args[3]>>',args[4]&!gs 'toilet_gen',уровень туалета, 'ванные принадлежности',номер предмета
+elseif $args[1]='Спальная':
+	!gs 'bedroom_gen',уровень спальной, 'жильцы',номер предмета
+	gs 'bedroom_gen',args[2], '<<$args[3]>>',args[4]
+elseif $args[1]='Гостиная':
+	!gs 'hall_gen',уровень гостиной, 'предметы',номер предмета
+	gs 'hall_gen',args[2], '<<$args[3]>>',args[4]
+elseif $args[1]='Библиотека':
+	!gs 'library_gen',уровень библиотеки, 'предметы',номер предмета,характеристика библиотеки
+	!Особняк Шелларди library['<<$temploc>>']=50
+	!Лунная База library['<<$temploc>>']=100
+	gs 'library_gen',args[2], '<<$args[3]>>',args[4],args[5]
+	if Z=200 or Z=777 or Z=7777:
+		ite=1
+		gs'item_base'
+		:markgentestitem
+		item_loc['<<ite>>,<<$temploc>>']+=1
+		ite+=1
+		if $item_name[ite]!'':jump'markgentestitem'
+	end
+elseif $args[1]='Кладовая':
+
+elseif $args[1]='Людская':
+
+elseif $args[1]='Пыточная':
+
+elseif $args[1]='Оружейная':
+
+elseif $args[1]='Коридор':
+
+elseif $args[1]='Оружейная':
+
+elseif $args[1]='Столовая':
+
+elseif $args[1]='Лаборатория':
+
+elseif $args[1]='Будуар':
+
+elseif $args[1]='Театр':
+	!gs 'hallway_gen',уровень театра, 'одежда или обувь',номер предмета
+	!gs 'kitchen_gen',args[2], '<<$args[3]>>',args[4]
+	if args[2]=0:
+		$locopis['<<$temploc>>']=''
+	elseif  args[2]=1:
+		$locopis['<<$temploc>>']='Театральный холл с барной стойкой.'
+	elseif  args[2]=2:
+		$locopis['<<$temploc>>']='Театральный холл с гардеробом и диванами, на стенах зеркала'
+	elseif  args[2]=3:
+		$locopis['<<$temploc>>']='Просторный театральный холл с гардеробом, диванами, маленькой сценой для презентаций, на стенах зеркала и фотографии актёров'
+	elseif  args[2]=4:
+		$locopis['<<$temploc>>']='Шикарный театральный холл '
+	end
+elseif $args[1]='Театральный зал':
+	if args[2]=0:
+		$locopis['<<$temploc>>']=''
+	elseif  args[2]=1:
+		$locopis['<<$temploc>>']='Небольшой зал со сценой'
+	elseif  args[2]=2:
+		$locopis['<<$temploc>>']='Большой зал со сценой'
+	elseif  args[2]=3:
+		$locopis['<<$temploc>>']='Просторный зал со сценой и подмостками, на сцене декорации'
+	elseif  args[2]=4:
+		$locopis['<<$temploc>>']='Шикарный зал с вращающейся сценой и подмостками для оркестра, на сцене декорации'
+	end
+elseif $args[1]='Гримёрка':
+	if args[2]=0:
+		$locopis['<<$temploc>>']=''
+	elseif  args[2]=1:
+		$locopis['<<$temploc>>']='Небольшая гримёрка'
+	elseif  args[2]=2:
+		$locopis['<<$temploc>>']='Большая гримёрка с зеркалами и костюмами для сцены'
+	elseif  args[2]=3:
+		$locopis['<<$temploc>>']='Просторная гримёрная с комнатами для актёров и костюмерной с зеркальными стенами'
+	elseif  args[2]=4:
+		$locopis['<<$temploc>>']='Шикарная гримёрная с апартаментами для актёров, включающими индиидуальные костюмерные'
+	end
+elseif $args[1]='Бар':
+	if args[2]=0:
+		$locopis['<<$temploc>>']=''
+	elseif  args[2]=1:
+		$locopis['<<$temploc>>']='Грязный и провонявший сыростью и плесенью бар'
+	elseif  args[2]=2:
+		$locopis['<<$temploc>>']='Обычный бар'
+	elseif  args[2]=3:
+		$locopis['<<$temploc>>']='Бар для среднего класса'
+	elseif  args[2]=4:
+		$locopis['<<$temploc>>']='Шикарный бар для богемы'
+	end
+
+elseif $args[1]='Ресторан':
+
+elseif $args[1]='Кафе':
+
+elseif $args[1]='Храм':
+	if args[2]=0:
+		$locopis['<<$temploc>>']='Храм Дагона'
+	elseif  args[2]=1:
+		$locopis['<<$temploc>>']='Храм А'
+	elseif  args[2]=2:
+		$locopis['<<$temploc>>']='Храм В'
+	elseif  args[2]=3:
+		$locopis['<<$temploc>>']='Храм С'
+	elseif  args[2]=4:
+		$locopis['<<$temploc>>']='Храм Д'
+	end
+
+elseif $args[1]='Пещера':
+	 !описание
+	! $locopis['<<$temploc>>']='Мрачная пещера на стенах и полу которой начертаны магические символы, на полках стоят всякие склянки и под потолком висят пучки трав.'
+!elseif $args[1]='Аллея':
+
+!elseif $args[1]='Парк':
+
+!elseif $args[1]='Лес':
+
+!elseif $args[1]='Помойка':
+
+else
+
+end

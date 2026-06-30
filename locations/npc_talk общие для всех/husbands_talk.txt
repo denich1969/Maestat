@@ -1,0 +1,268 @@
+﻿if pol[npc]=0:'<<$name[npc]>> ваш муж'
+if pol[npc]>0:'<<$name[npc]>> ваша жена'
+if boyfriend_num[you]=npc and girlfriend_num[npc]=you:boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
+if boyfriend_num[npc]=you and girlfriend_num[you]=npc:boyfriend_num[npc]=0&girlfriend_num[you]=0&ex_boyfriend[you]=npc
+if cuckold_times[npc]>0 and pol[you]>0 and cuckold[npc]!you:gt'cuckold_talk'
+if cuckold[npc]=you:
+	if whore[you]=npc:
+		'<<$name[npc]>> знает, что вас ебут другие и поощрает это.'
+	else
+		'<<$name[npc]>> знает, что вы трахаетесь на стороне и позволяет вам это.'
+	end
+end
+if lollyyou=1:'<<$name[npc]>> и вы однажды посетили ведьму, чтобы она сделала из вас невинную тёлочку.'
+if money[npc]>0 and whoreboss[you]!npc:
+	$moneyresum=''
+	if pol[npc]=0:$moneyresum='У него '
+	if pol[npc]>0:$moneyresum='У неё '
+	$moneyresum+='<<money[npc]/100>> '+$func('plural',money[npc]/100,'шиллинг','шиллинга','шиллингов')+' и <<money[npc] mod 100>> '+$func('plural',money[npc] mod 100,'пенс','пенса','пенсов')
+	'<<$moneyresum>>'
+     if money[npc]>=100:
+		 act'Взять денег':
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Сколько шиллингов тебе нужно?'&givemoney=input("Введите сумму в шиллингах")&givemoney=givemoney*100
+			 if givemoney<=money[npc]:
+				 money[you]+=givemoney&money[npc]-=givemoney&'Вам дали денег'
+			 else
+				'Что-то пошло не так'
+			 end
+			act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if vag[you]>60 and anus[you]>40 and (sexpartner['<<npc>>,<<you>>']>60 or sexpartner['<<you>>,<<npc>>']>60) and lollyyou!1:
+	act'Тебя опять что-то беспокоит?':
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> сокрушенно кивает - Да, милая. Просто ты, как бы это сказать, опять поизносилась... Давай опять сделаем тебя невинной?'
+		 'Вы - а может дело не во мне, а в твоей палке между ног? Может в ней проблемы? Другие как-то живут десятилетия вместе и не обнуляют дырки женам!'
+		 '<<$name[npc]>> - и что ты предлагаешь? Мне член урезать? А ты так и останешься с раздолбанной промежностью? И как это поможет?'
+		 act'Давай ужмёмся вместе. Это будет честно.':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> задумывается и кивает - Так-то да, но давай тогда меня не сильно обнулять, а то у меня мужская гордость упадёт ниже плинтуса.'
+			 act'Хорошо, давай...':
+				msg("Вы отправились к какой-то ведьме из Аптауна и изложили ей свои хотелки. Она кивнула, взяла оплату и только в ладоши хлопнула, как все разом потемнело и вы неожиданно оказались там, где только начали этот разговор, только вот вы стали другими... Но не успели вы ничего понять, как ваш муж набросился на вас...")
+				lollyyou=1&rost[you]=160&mus[you]=500&fat[you]=500&skin[you]=2&preskin[you]=1&lips[you]=1&nose[you]=1&dom[you]=20&corr[you]=0&lust[you]=1
+				vag[you]=2&anus[you]=2&ass[you]=rand(21,30)&tits[you]=rand(10,20)&nip[you]>=40&leg_hair[you]=-100&cunthair[you]=-100&hlong[you]=20&curl[you]=1&hcol[you]=2
+				age[you]=18&age[npc]=18&face[you]=100&face[npc]=30&dick[npc]=14&dickd[npc]=35&ball[npc]=50&tits[npc]=0&ass[npc]=0&mus[npc]=1500&fat[npc]=500&
+				agro[npc]=60&dom[npc]=60&lust[npc]=60&corr[npc]=60&horny[npc]=50&solo=0&pose[you]=2&gs'stat'&gt'sex'
+			 end
+		 end
+		 act'Давай поменяемся местами. Ты будешь женой, а я мужем. И обнулим тебя. Как тебе?':
+			msg("Вы отправились к какой-то ведьме из Аптауна и изложили ей свои хотелки. 
+					Она кивнула, взяла оплату и только в ладоши хлопнула, как все разом потемнело и вы неожиданно оказались там, где только начали этот разговор, только вот вы стали другими...")
+			lollyyou=1&rost[you]=160&mus[you]=500&fat[you]=500&skin[you]=2&preskin[you]=1&lips[you]=1&nose[you]=1&dom[you]=20&lust[you]=1&corr[you]=0
+			ass[you]=rand(21,30)&anus[you]=2&vag[you]=2&tits[you]=rand(10,20)&nip[you]>=40&leg_hair[you]=-100&cunthair[you]=-100&hlong[you]=20&curl[you]=1&hcol[you]=2
+			age[you]=18&age[npc]=25&womenbrain[you]=100&womenbrain[npc]=0&face[you]=100&face[npc]=0&dick[npc]=28&dickd[npc]=65&ball[npc]=80&ass[npc]=0&anus[npc]=1&tits[npc]=0
+			t_slot[npc]=rand(8,10)&l_slot[npc]=rand(6,7)&b_slot[npc]=rand(4,5)&mus[npc]=2500&fat[npc]=500&agro[npc]=100&dom[npc]=100&lust[npc]=100&corr[npc]=100&horny[npc]=50
+			solo=0&pose[you]=2&ity=npc&npc=you&you=ity&husband[npc]=you&cansex[npc]=60&orgasm[npc]=60&womenbrain[you]=0&horny[npc]=100&gs'stat'&gt'sex'
+		 end
+		 act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if vag[you]>70 and anus[you]>50 and (sexpartner['<<npc>>,<<you>>']>30 or sexpartner['<<you>>,<<npc>>']>30) and losstalk!1 and cuckold[npc]!you:
+	act'Мне кажется, тебя что-то беспокоит...':
+		 losstalk=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> сокрушенно кивает - Да, милая. '
+		'Просто мы уже давно с тобой вместе и твои дырочки уже, честно говоря, превратились в рыхлые дыры, и не дают мне уже такого ощущения как раньше... '
+		'А мне хочется все же какой-то остроты и чувственности. Я вот и не знаю, что с этим делать...'
+		 act'Ну, а что бы ты хотел изменить?':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумчиво осматривает вас - Ну не знаю, как насчет пластики? Сделем тебя снова узенькой и очаровательной?'
+			 if dom[you]>dom[npc]:
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'Вы изменились в лице - То есть сейчас я настолько уродливая и разношенная, что ты решил мне это вот так прям и сказать?! Вообще уважения ко мне по нулям?'
+				'<<$name[npc]>> замахал руками - Нет, конечно! Просто, если ты спрашиваешь, что можно изменить, то я предлагаю изменить все радикально... Прости, если это тебя обидело.'
+				 act'Ты дебил! Хочешь все поменять, то давай меняться вместе. Ты тоже уже не тот огурчик, каким был.':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> нервно сглотнул и кивнул - ну, ладно. Давай тогда вместе пойдем. Будем вслепую меняться или каждый для другого что-то решает?'
+					 act'Давай каждый для другого. Все по честному.':
+						msg("Вы отправились к какой-то ведьме из Аптауна и изложили ей свои хотелки. Она кивнула, взяла оплату и только в ладоши хлопнула, как все разом потемнело и вы неожиданно оказались там, где только начали этот разговор, только вот вы стали другими... Но не успели вы ничего понять, как ваш муж набросился на вас...")
+						lollyyou=1&rost[you]=160&mus[you]=500&fat[you]=500&skin[you]=2&preskin[you]=1&nose[you]=1&lips[you]=1&dom[you]=20&corr[you]=0&lust[you]=1
+						vag[you]=2&anus[you]=2&ass[you]=rand(21,30)&tits[you]=rand(10,20)&nip[you]>=40&leg_hair[you]=-100&cunthair[you]=-100&hlong[you]=20&curl[you]=1&hcol[you]=2
+						age[you]=18&face[you]=100&age[npc]=25&face[npc]=0&dick[npc]=28&dickd[npc]=65&ball[npc]=80&ass[npc]=0&tits[npc]=0
+						t_slot[npc]=rand(8,10)&l_slot[npc]=rand(6,7)&b_slot[npc]=rand(4,5)&mus[npc]=2500&fat[npc]=500&dom[npc]=100&agro[npc]=100&lust[npc]=100&horny[npc]=50&corr[npc]=100
+						solo=0&pose[you]=2&gs'stat'&gt'sex'
+					 end
+					 !act'Ну, если меняться, то давай самым неожиданны образом и будем верить, что так оно будет лучше.':gt 'preloc'
+				 end
+				 act'Пиздец ты долбаеб... Иди на хуй со своими желаниями! И рожу свою поправь, чтобы я такого больше не видела!':gt 'preloc'
+			 else
+				act'Ну, хорошо, милый. Если это тебе хочется, то я не против':
+					msg("Вы отправились к какой-то ведьме из Аптауна и изложили ей свои хотелки. 
+							Она кивнула, взяла оплату и только в ладоши хлопнула, как все разом потемнело и вы неожиданно оказались там, где только начали этот разговор, только вот вы стали другими... 
+							Но не успели вы ничего понять, как ваш муж набросился на вас...")
+					rost[you]=160&mus[you]=500&fat[you]=550&skin[you]=2&preskin[you]=1&lips[you]=1&nose[you]=1&dom[you]=20&lust[you]=1
+					vag[you]=2&anus[you]=2&ass[you]=rand(21,30)&tits[you]=rand(10,20)&nip[you]>=40&leg_hair[you]=-100&cunthair[you]=-100&hlong[you]=20&curl[you]=1&hcol[you]=2
+					age[you]=18&face[you]=100&age[npc]=25&face[npc]=0&dicktipe[npc]=4&dick[npc]=32&dickd[npc]=65&ball[npc]=80&ass[npc]=0&tits[npc]=0
+					t_slot[npc]=rand(8,10)&l_slot[npc]=rand(6,7)&b_slot[npc]=rand(4,5)&mus[npc]=2500&fat[npc]=500&agro[npc]=100&dom[npc]=100&lust[npc]=100&horny[npc]=50&corr[npc]=100
+					solo=0&pose[you]=2&gs'stat'&gt'sex'
+				 end
+			 end
+		 end
+		 act'Ну, если меня уже не изменить, то давай изменим тебя...':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - И что ты предлагаешь?'
+			 act'Ты никогда не мечтал, чтобы у тебя жена была шлюхой? Но только твоей?':
+				cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> удивленно вскидывает брови - Ты с ума сошла? Ты хочешь посто блядствовать? Шалавой заделаться?'
+				'Вы - Почему сразу шалавой? Просто предлагаю тебе новую фантазию, что я твоя единственная самая любимая шлюшка. '
+				'Меня будут хотеть все, а ты будешь моим единственным и любимым мужем. Если нет, то нет, я все равно только твоя. Пусть и раздолбанная тобою, как ты сам сказал.'
+				'<<$name[npc]>> отводит глаза в сторону - Я не хотел тебя обидеть. Но давай попробуем так, как ты сказала. '
+				'Но только, если ты не против такого, тебя же будут не только хотеть, но и ебать во все щели.'
+				act'Ну это же для нашей семьи, так что я хочу все наладить.':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					 if agro[npc]>85:
+						'<<$name[npc]>> - Хорошо, тогда давай ты будешь моей любимой и единственной шлюхой! Поедем тогда в одно место, закрепим нашу договоренность'
+						act'Покорно кивнуть':
+							msg("Ваш муж повез вас к косметологу и заплатив ему попросил привести вас к нужному образцу, после чего вам сделали пирсин и пару уколов. Затем вы купили новую одежду и после того как вы были в нее наряжены, ваш муж наброслися на вас словно впервые раз в жизни увидел.")
+							pubis_t[you]=4&cuckold_times[npc]+=1&whoreboss[you]=npc&vag_pirs[you]=4&vag_tipe[you]=2&dom[you]-=50&corr[you]=100&oral_fixation[you]+=100
+							sutenerpayday[you]=daystart+14&whoreboss[you]=npc&lips[you]+=rand(1,2)&if nip[you]<=40:nip[you]+=rand(25,40)
+							stamp_t[you]=4&nip_p[you]=3&leg_hair[num]=-100&cunthair[you]=-100&!?????????????
+							 t_slot[you]=rand(25,36)&l_slot[you]=rand(45,51)&b_slot[you]=rand(14,22)&ut_slot[you]=0&ul_slot[you]=0
+							 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&solo=0&horny[npc]=50&pose[you]=2&cuckold[npc]=you
+							 money[npc]+=money[you]&money[you]=0&face[npc]=0&dicktipe[npc]=4&dick[npc]=30&dickd[npc]=65&ball[npc]=80&ass[npc]=0&tits[npc]=0
+							 t_slot[npc]=rand(8,10)&l_slot[npc]=rand(6,7)&b_slot[npc]=rand(4,5)&agro[npc]=100&dom[npc]=100&lust[npc]=100&corr[npc]=100&solo=0&gs'stat'&gt'sex'
+							act'<b>Уйти</b>':gt 'preloc'
+						end
+					 else
+						cuckold[npc]=you&cuckold_times[npc]+=1&oral_fixation[you]+=100&dom[npc]-=50&dom[you]+=50&lust[npc]=100&agro[npc]=5&corr[npc]=100
+						gs'stat'&'<<$name[npc]>> - Хорошо, любимая, если ты хочешь таких свободных отношений, то давай так и поступим.'&act'<b>Уйти</b>':gt 'preloc'
+					 end
+				end
+			 end
+		 end
+	end
+end
+act'Дать денег':
+	cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Огромное спасибо'&givemoney=input("Введите сумму в шиллингах")&givemoney=givemoney*100
+	if givemoney<=money[you]:
+	     money[npc]+=givemoney&money[you]-=givemoney&'Вы дали денег'
+	else
+	     'Что-то пошло не так'
+	end
+	act'<b>Уйти</b>':gt 'preloc'
+end
+if soul[npc]>80:
+	act'Попросить 10 души':
+		 soul[npc]-=10&soul[you]+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Ладно бери'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if soul[you]>10:
+	 act'Дать 10 души':
+		 soul[you]-=10&soul[npc]+=10&friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Огромное спасибо!'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if autodocQW=6 and npc=mother:
+	 act'<b>Спонсор</b>':
+		 cls&autodocQW=10&dominant_fucker=frank_visconti&submissive_slut=mother&gs'add_sex_stat',submissive_slut,dominant_fucker
+		! if sexpartner['<<submissive_slut>>,<<dominant_fucker>>']=0:girl[dominant_fucker]+=1&guy[submissive_slut]+=1
+		! sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=1&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=1
+		 bj[submissive_slut]+=1&abj[dominant_fucker]+=1&lust[submissive_slut]+=10
+		! sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+		 $global_npc_log[dominant_fucker]+='<br>'
+		 $global_npc_log[dominant_fucker]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[submissive_slut]>> <<$surname[submissive_slut]>> отсосала мой хуй'
+		 $global_npc_log[submissive_slut]+='<br>'
+		 $global_npc_log[submissive_slut]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[dominant_fucker]>> <<$surname[dominant_fucker]>> дал мне в рот.'
+		 gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказываете что Фрэнк Висконти согласился стать спонсором и ей нужно всего лишь сходить и подписать бумажки.'
+		 '<<$name[npc]>> уходит и приходит через часик с бумагами, отдает их вам, стараясь не глядеть вам в глаза'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if you=mother and npc=father and MinetDocha=1:
+	act'<b>Рассказать про минет дочери</b>':
+		 cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас с отвращением и озлобленностью - Вот сукин сын! Да я этого мудозвона ушатаю! Пидор конченный! Я разберусь.'
+		 MinetDocha=2&QSMinetDochaTime=daystart+3&act'<b>Отойти</b>':gt 'preloc'
+	end
+end
+if QSMinetDochaTime<=daystart and MinetDocha=2 and you=mother and npc=father:
+	act'<b>Ты разобрался с Богартом?</b>':
+		 cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> отводит от вас глаза и вы замечаете у него несколько ссадин на лице - Я сходил к нему, но этот мерзавец оказался Бессмертным... Он меня измотал и затем наложил на меня проклятье... В общем...'
+		 'Ваш муж взял вашу руку и положил себе между ног. Вы хотели уже сказать, что это совсме не время и не место для секса, но вдруг поняли, что у него между ног ничего нет.'
+		 '- Вот как-то так...'&dick[father]=0&dickd[father]=0&ball[father]=0&vag[father]=1
+		 horny[father]=100&pol[father]=1&feminize[father]=rand(20,35)&corr[father]=76&corr[you]+=rand(20,35)&MinetDocha=3&act'<b>Отойти</b>':gt 'preloc'
+	end
+end
+if item[79]>0 and dom[you]>dom[npc]:
+	act'Давай сделаем тебя женственнее':
+		cls&'<<$name[npc]>> смотрит на вас виновато и несмело соглашается с вашим предложением.'&'<center><img src="pic/event/somn.jpg" ></center>'			
+		if item[79]>0:
+			 act'Дать выпить феминайзер':
+				 cls&'<center><video src="pic/event/drinkpoison.webm"></video></center>'&'Вы смотрите как <<$name[npc]>> выпивает феминайзер и удовлетворенно киваете.'
+				 item[79]-=1&feminize[npc]+=5&gs 'effect_feminize',npc&gs'stat'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+		 if item[79]>1:
+			 act'Дать выпить сразу два флакона феминайзера':
+				 cls&'<center><video src="pic/event/drinkpoison.webm"></video></center>'&'Вы смотрите как <<$name[npc]>> выпивает конскую дозу феминайзера и удовлетворенно киваете.'
+				 item[79]-=2&feminize[npc]+=10&gs 'effect_feminize',npc&gs'stat'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+	 end
+ end
+if agro[npc]<50 and ball[npc]>2 and ball[npc]<50:
+	act'Слушай, а ты можешь быть более напористым?':
+		cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> качает плечами - ну, если ты хочешь, то буду... Но потом не надо жаловаться на это. Я это только ради тебя делаю.'
+		agro[npc]+=rand(40,70)&dom[npc]+=rand(40,70)&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if item[80]>0:
+	act'Давай сделаем тебя мужественнее':
+		cls&'<<$name[npc]>> смотрит на вас и несмело соглашается с вашим предложением.'&'<center><img src="pic/event/somn.jpg" ></center>'			
+		if item[80]>0:
+			 act'Дать выпить манайзер':
+				 cls&'<center><video src="pic/event/drinkpoison.webm"></video></center>'&'Вы смотрите как <<$name[npc]>> выпивает манайзера и удовлетворенно кивает.'
+				 item[80]-=1&manize[npc]+=5&gs 'effect_manize',npc&ball[npc]+=5&gs'stat'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+		 if item[80]>1:
+			 act'Дать выпить сразу два флакона манайзера':
+				 cls&'<center><video src="pic/event/drinkpoison.webm"></video></center>'&'Вы смотрите как <<$name[npc]>> выпивает конскую дозу манайзера и удовлетворенно кивает.'
+				 item[80]-=2&manize[npc]+=15&gs 'effect_manize',npc&ball[npc]+=15&gs'stat'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+	 end
+end
+if cuntmanQW=1 and npc=mother and you=father:
+     if wifeKnowCunt=0:
+		 act'<b>Признаться в наличии влагалища</b>':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас с недоумением - Да ладно! что за дурацкие шутки?'
+			 act'Доказать':
+				 wifeKnowCunt=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы взяли ладонь жены и положили ее себе между ног'
+				 '<<$name[npc]>> округлила глаза - Ого. Ты обратись к доктору Вишневскому. Автодок не умеет работать с половыми органами, но я уверена док что-нибудь придумает.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+     end 
+	if talkwithdotbj=3:
+		act'<b>Наша дочь шлюха!</b>':
+			 talkwithdotbj=4&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> вздыхает - У девочки просто переходный возраст. Любопытство. '
+			 'Не грузи её, она наверное и сама не рада, но это ведь Богарт. Если бы он захотел, мы всей семьей ему насасывали бы. Ты сам опизденел после драки с ним.'
+			 'Вы грозно сверкнули глазами, а женушка притворно потупилась - Ой! Ляпнула не подумав.'&'Глядя на жену вы подумали раздраженно, что эта сучка ржёт над вами.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+    end
+end
+act'Давай я тебя переодену':gt'npc_cloth'
+if (husband[you]=npc and candivorce=0 and inseminate[npc]=0 and whore[npc]=0 and cuckold[you]=0) or (whoreboss[you]!npc):
+	 act'<b>РАЗВОД</b>':
+		 losstalk=0&husband[you]=0&husband[npc]=0&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&cls&gs'stat'&'Вы предлагаете прекратить брак и разбежаться'
+	     if HhomeLast[npc]>0:
+			 Xhome[npc]=XhomeLast[npc]&Yhome[npc]=YhomeLast[npc]&Zhome[npc]=ZhomeLast[npc]&Hhome[npc]=HhomeLast[npc]&Rhome[npc]=RhomeLast[npc]
+			 '<<$name[npc]>> злится на вас - Я немедленно ухожу от тебя!'
+		 else
+			 key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=0&'<<$name[npc]>> злится на вас - Убирайся из моего дома!'
+		 end
+		act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if husband[you]=npc and inseminate[npc]>0:
+	act'<b>РАЗВОД</b>':msg("<b>Ваша жена беременна.</b> Забеременела от <<$name[fat]>> <<$surname[fat]>> <<daystart-pregnant_day[npc]>> дней назад.
+		Родить должна через <<9-(daystart-pregnant_day[npc])>> дней
+		Дождитесь рождения ребенка
+		<b>Вы не можете развестись</b>")
+end
+if husband[you]=npc and whore[npc]=1:
+	act'<b>РАЗВОД</b>':msg("<b>Ваша жена шлюха, трахается за деньги,</b>
+		У нее было <<guy[npc]>> парней,  <<girl[npc]>> девушек.
+		<<bj[npc]>> раз сосала член, ее трахали во влагалище <<vagsex[npc]>> раз,
+		ее трахали в попу <<anal[npc]>> раз, <<drinkpee[npc]>> раз пила мочу
+		<b>Вы не можете развестись</b>")
+end
+if husband[you]=npc and cuckold[npc]=you:
+	act'<b>РАЗВОД</b>':msg("<b>Вы куколд
+		Ваша жена трахается с другими мужиками
+		Развод вам не доступен</b>")
+end
+if shame_tattoo[you]>0 and cuckold[npc]=0:gt'husb_shame_skandal'&!скандал

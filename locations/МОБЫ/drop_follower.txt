@@ -1,0 +1,32 @@
+﻿if Z[firstfoll]!Zhome[firstfoll] and Zhome[firstfoll]>0:
+	X[firstfoll]=Xhome[firstfoll]
+	Y[firstfoll]=Yhome[firstfoll]
+	Z[firstfoll]=Zhome[firstfoll]
+	H[firstfoll]=Hhome[firstfoll]
+	R[firstfoll]=Rhome[firstfoll]
+end
+sex_follow[you]=0
+follower[firstfoll]=0
+firstfoll=0
+if Z[secfoll]!Zhome[secfoll] and Zhome[secfoll]>0:
+	X[secfoll]=Xhome[secfoll]
+	Y[secfoll]=Yhome[secfoll]
+	Z[secfoll]=Zhome[secfoll]
+	H[secfoll]=Hhome[secfoll]
+	R[secfoll]=Rhome[secfoll]
+end
+sex_follow[you]=0
+follower[secfoll]=0
+secfoll=0
+if Z[threfoll]!Zhome[threfoll] and Zhome[threfoll]>0:
+	X[threfoll]=Xhome[threfoll]
+	Y[threfoll]=Yhome[threfoll]
+	Z[threfoll]=Zhome[threfoll]
+	H[threfoll]=Hhome[threfoll]
+	R[threfoll]=Rhome[threfoll]
+end
+sex_follow[you]=0
+follower[threfoll]=0
+threfoll=0
+follower[you]=0
+gs 'stat'

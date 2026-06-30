@@ -1,0 +1,3 @@
+﻿if Z[you]=773 and once=0:once=1&X[you]=0&Y[you]=4&Z[you]=771&H[you]=0&R[you]=0
+if Z[you]=771 and once=0:once=1&X[you]=10&Y[you]=10&Z[you]=773&H[you]=0&R[you]=0
+once=0&gt'world'

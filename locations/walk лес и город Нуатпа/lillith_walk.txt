@@ -1,0 +1,20 @@
+﻿!rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+     if hour>=22 or hour<=6:
+		 !спит дома:
+	else
+		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w] and BossmainQW=7:
+			$doing[w]='сидит в клетке'&!$loc[i]='home_8'
+			if dick[you]>21 and agro[you]>90 and horny[you]>=50:
+				lillith_event['dom']=1
+			else	
+				if horny[you]<50:horny[you]+=10
+				lillith_event['dom']=0
+			end	
+		end
+	end
+end

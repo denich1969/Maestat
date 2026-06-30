@@ -1,0 +1,691 @@
+﻿'<center><img src="<<$d_view>>" ></center>'
+$d_uvorot={
+	 act'Увернутся':
+		 cls
+		 if popad=0:
+			 'Вы успешно уворачиваетесь от удара.'
+		 else
+			 if enemy_udar=1:
+				 uronV=rand(minuronV,maxuronV)
+				 if mag_uronV>0:uronV=mag_uronV&mag_uronV=0
+				 if dubleuron=1 and newFS=0:uronV=uronV+uronV
+				 if cumming_atk>0:cumming_atk=0&cum_face[you]+=1&cum_clo[you]+=1&horny[you]+=cum_face[you]*5&'<b>На вас попадает сперма.</b>'
+				 if defence_you>0:
+					 if defence_you<uronV:
+						 uronV=uronV-defence_you
+						 if sbivatel>0:uronV=uronV+10
+						 health[you]-=uronV
+						 'Вы пытаетесь увернуться, но у вас не получается и вам наносят <<uronV>> единиц урона.'
+						 if defence_you>0:'Защита поглощает часть урона и разбивается.'
+						 if sbivatel>0:restrikt=1&'Удар сбивает вас с ног.'
+						 if pautinaV=1:restrikt=2&'<<$pautinaV>> связывает вас.'
+						 if tentaV=1:restrikt=2&'Щупальца вас скрутили.'
+						 if drunk_bloodV>0:health[npc]+=uronV&'<<$name[npc]>> восстанавливает свое здоровье вашей кровью.'
+						 if temp_poison_poverV>0:poison_poverV=temp_poison_poverV&poison_longV=temp_poison_longV&'<<$name[npc]>> отравляет вас.'
+						 defence_you=0
+					 else
+						 health[you]-=1
+						 energy[you]-=5
+						 if dubleuron=1:health[you]-=4&energy[you]-=5
+						 defence_you-=uronV
+						 'Ваша защита поглотила урон но удар вас порядком встряхнул.'
+						 if energy[you]<=0:restrikt=1&health[you]-=10&pose[you]=3&'Вы падает от мощного удара на землю.'
+						 if sbivatel>0 and restrikt=0:restrikt=1&health[you]-=10&pose[you]=3&'Удар сбивает вас с ног.'
+					 end
+				 else
+					 if sbivatel>0:uronV=uronV+10
+					 health[you]-=uronV
+					 'Вы пытаетесь увернуться, но у вас не получается и вам наносят <<uronV>> единиц урона.'
+					 if sbivatel>0:restrikt=1&'Удар сбивает вас с ног.'
+					 if sbivatel=2:energy[you]-=uronV
+					 if pautinaV=1:restrikt=2&'<<$pautinaV>> связывает вас.'
+					 if temp_poison_poverV>0:poison_poverV=temp_poison_poverV&poison_longV=temp_poison_longV&'<<$name[npc]>> отравляет вас.'
+					 if drunk_bloodV>0:health[npc]+=uronV&'<<$name[npc]>> восстанавливает свое здоровье вашей кровью.'
+				 end
+			 end
+			 if enemy_udar=2:
+				 !атака огнем
+			 	 if status_tipe[you]=1:status_tipe[you]=0&status_time[you]=0&$status[you]=''&firedef+=100&fire_defence[you]+=100
+				 !if fireuronV>firedef:
+				 if fireuronV>fire_defence[you]:
+					 !temp=fireuronV-firedef
+					 temp=fireuronV-fire_defence[you]
+					 health[you]-=temp
+					 fire_defence[you]=0
+					 'Пламя нанесло вам <<temp>> единиц урона.'
+				 else
+					 !firedef-=fireuronV
+					 fire_defence[you]-=fireuronV
+					 'Ваша защита от огня поглотила весь урон.'
+				 end
+			 end
+			 if enemy_udar=3:
+				 !звук и страх
+				 if storm_shild>0:
+					 fearatkV-=storm_shild/4
+					 if fearatkV<=0:
+						 fearatkV=0
+						 popad=0
+						 'Ваш вихрь кружащийся вокруг вас полностью защищает вас от негативного воздействия'
+					 else
+						 'Ваш вихрь кружащийся вокруг вас уменьшает негативное воздействие'
+					 end
+				 end
+				 if fearatkV>0:
+					 if fearatkV>sfera_psih:
+						 sfera_psih=0
+						 health[you]-=fearatkV+(insight[you]*2)
+						 restrikt=1
+						 pose[you]=3
+						 'Вас охватывает дикий ужас и вы падаете не в состоянии стоять на ногах.'
+					 else
+						 sfera_psih-=fearatkV
+						 'Ваша защита разума спасает вас от леденящего ужаса.'
+					 end
+				 else
+					 'Негативное воздействие на вашу психику полностью провалилось'
+				 end
+			 end
+			 if enemy_udar=4:
+				 !похоть
+				 if fearatkV>=sfera_psih:
+					 sfera_psih=0
+					 horny[you]+=fearatkV
+					 'Вас пронзает горячей волной походи и ваш разум затуманивается.'
+				     rander=rand(1,10)
+				     if rander<=3:
+						 restrikt=1
+						 pose[you]=3
+						 'У вас подкашиваются ноги и вы падаете.'
+				     end
+				 else
+					 sfera_psih-=uronV
+					 'Ваша защита разума спасает вас от похоти.'
+				 end
+			 end
+			 if enemy_udar=5:
+				 !огнестрел
+				 if defence_you>0:
+				 	 if defence_you<uronV:
+						 uronV=uronV-defence_you
+						 if sbivatel>0:uronV=uronV+10
+						 health[you]-=uronV
+						 'Вы пытаетесь увернуться, но у вас не получается и вам наносят <<uronV>> единиц урона.'
+						 if defence_you>0:'Защита поглощает часть урона и разбивается.'
+						 defence_you=0
+					 else
+						 health[you]-=1
+						 energy[you]-=5
+						 if dubleuron=1:health[you]-=4&energy[you]-=5
+						 defence_you-=uronV
+						 'Ваша защита поглотила урон, но выстрел вас порядком встряхнул.'
+						 if energy[you]<=0:restrikt=1&health[you]-=10&pose[you]=3&'Вы падаете от выстрела на землю.'
+					 end
+				 else
+					 health[you]-=uronV
+					 'Вы пытаетесь увернуться, но у вас не получается и вам наносят <<uronV>> единиц урона.'
+					 sbitrand=rand(0,3)
+				     if sbitrand=3:restrikt=1&'Выстрел сбивает вас с ног.'
+				 end
+			 end
+			 if enemy_udar=6:health[you]-=mag_uronV& 'Вы пытаетесь увернуться, но гравитация не дает вам двигаться и наносит <<mag_uronV>> единиц урона.'&!гравитация
+			 if enemy_udar=7:
+				 !смерть
+				 health[you]-=mag_uronV
+				 'Вы пытаетесь увернуться, но эманации смерти достигают вас и наносят <<mag_uronV>> единиц урона.'
+				 if fearatkV>0:
+					 if fearatkV>sfera_psih:
+						 sfera_psih=0
+						 health[you]-=fearatkV+(insight[you]*2)
+						 restrikt=1
+						 pose[you]=3
+						 'Вас охватывает дикий ужас и вы падаете не в состоянии стоять на ногах.'
+					 else
+						 sfera_psih-=fearatkV
+						 'Ваша защита разума спасает вас от леденящего ужаса.'
+					 end
+				 else
+					 'Негативное воздействие на вашу психику полностью провалилось'
+				 end
+			 end
+			 if enemy_udar=8:
+				 !портал
+				 health[you]-=mag_uronV
+				 'Вы пытаетесь увернуться, но от портала не увернешься и портал наносит <<mag_uronV>> единиц урона.'
+			 end
+		 end
+		 gs'stat'
+		 act'Далее':gt'fight'
+	 end
+}
+$d_block={
+	 act'Блокировать':
+		 uronV=rand(minuronV,maxuronV)
+		 if mag_uronV>0:uronV=mag_uronV&mag_uronV=0
+		 if ironhand[you]>0:uronV=1
+		 energy[you]-=uronV
+		 cls&gs'stat'
+		 if enemy_udar=1:
+			 'Вы заблокировали удар и получили <<uronV>> единиц урона вашей энергии.'
+			 if ironhand[you]>0:'Ваши стальные руки блокируют удар так, что летят искры.'
+			 if energy[you]<=20:restrikt=1&health[you]-=rand(10,50)&pose[you]=3&'От удара и усталости вы теряете равновесие и падаете.'
+			 if pautinaV=1:restrikt=2&'Паутина связывает вас.'
+			 if tentaV=1:restrikt=2&'Щупальца вас скрутили.'
+			 if cumming_atk>0:cumming_atk=0&cum_face[you]+=1&cum_clo[you]+=1&horny[you]+=cum_face[you]*5&'<b>На вас попадает сперма.</b>'
+			 if drunk_bloodV>0:energy[you]-=uronV&'<<$name[npc]>> наносит дополнительный урон вашей выносливости.'
+			 if sbivatel=2:restrikt=1&energy[you]-=uronV&pose[you]=3&'Удар сбивает вас с ног.'
+			 randprohod=rand(1,10)
+			 if randprohod>=6 and ironhand[you]=0:
+			 	 if defence_you>0:
+					 if defence_you<uronV:
+						 uronV=uronV-defence_you
+						 if sbivatel>0:uronV=uronV+10
+						 health[you]-=uronV
+						 'Вы пытаетесь заблокировать удар, но у вас не получается и вам наносят <<uronV>> единиц урона.'
+						 if defence_you>0:'Защита поглощает часть урона и разбивается.'
+						 if sbivatel>0:restrikt=1&'Удар сбивает вас с ног.'
+						 if pautinaV=1:restrikt=2&'<<$pautinaV>> связывает вас.'
+						 if tentaV=1:restrikt=2&'Щупальца вас скрутили.'
+						 if drunk_bloodV>0:health[npc]+=uronV&'<<$name[npc]>> восстанавливает свое здоровье вашей кровью.'
+						 if temp_poison_poverV>0:poison_poverV=temp_poison_poverV&poison_longV=temp_poison_longV&'<<$name[npc]>> отравляет вас.'
+						 defence_you=0
+					 else
+						 health[you]-=1
+						 energy[you]-=5
+						 if dubleuron=1:health[you]-=4&energy[you]-=5
+						 defence_you-=uronV
+						 'Ваша защита поглотила урон, но удар вас порядком встряхнул.'
+						 if energy[you]<=0:restrikt=1&health[you]-=10&pose[you]=3&'Вы падает от мощного удара на землю.'
+						 if sbivatel>0 and restrikt=0:restrikt=1&health[you]-=10&pose[you]=3&'Удар сбивает вас с ног.'
+					 end
+				 else
+					 if sbivatel>0:uronV=uronV+10
+					 health[you]-=uronV
+					 'Вы пытаетесь заблокировать удар, но у вас не получается и вам наносят <<uronV>> единиц урона.'
+					 if sbivatel>0:restrikt=1&'Удар сбивает вас с ног.'
+					 if sbivatel=2:energy[you]-=uronV
+					 if pautinaV=1:restrikt=2&'<<$pautinaV>> связывает вас.'
+					 if temp_poison_poverV>0:
+						 poison_poverV=temp_poison_poverV
+						 poison_longV=temp_poison_longV
+						 '<<$name[npc]>> отравляет вас.'
+					 end
+					 if drunk_bloodV>0:
+						 health[npc]+=uronV
+						 '<<$name[npc]>> восстанавливает свое здоровье вашей кровью.'
+					 end
+				 end
+			 end
+		 end
+		 if enemy_udar=2:
+			!атака огнем
+		     if status_tipe[you]=1:status_tipe[you]=0&status_time[you]=0&$status[you]=''&firedef+=100&fire_defence[you]+=100
+			 if fireuronV>fire_defence[you]:
+				 temp=fireuronV-fire_defence[you]
+				 if ironhand[you]>0:temp=temp/10
+				 if temp<1:temp=1
+				 health[you]-=temp
+				 fire_defence[you]=0
+				 'Пламя нанесло вам <<temp>> единиц урона.'
+				 if ironhand[you]>0:'Ваши железные руки блокируют огонь и снижают урон'
+			 else
+				 fire_defence[you]-=fireuronV
+				 'Ваша защита от огня поглотила весь урон.'
+			 end
+		 end
+		 if enemy_udar=3:
+			!звук и страх
+			 if storm_shild>0:
+				fearatkV-=storm_shild/4
+				 if fearatkV<=0:
+					 fearatkV=0
+					 popad=0
+					 'Ваш вихрь кружащийся вокруг вас полностью защищает вас от негативного воздействия'
+				 else
+					 'Ваш вихрь кружащийся вокруг вас уменьшает негативное воздействие'
+				 end
+			 end
+			 if fearatkV>0:
+				 if fearatkV>sfera_psih:
+					 sfera_psih=0
+					 health[you]-=fearatkV+(insight[you]*2)
+					 restrikt=1
+					 pose[you]=3
+					 'Вас охватывает дикий ужас и вы падаете не в состоянии стоять на ногах.'
+				 else
+					 sfera_psih-=fearatkV
+					 'Ваша защита разума спасает вас от леденящего ужаса.'
+				 end
+			 else
+				'Негативное воздействие на вашу психику полностью провалилось'
+			 end
+		 end
+		 if enemy_udar=4:
+			!похоть
+			 if fearatkV>=sfera_psih:
+				 sfera_psih=0
+				 horny[you]+=fearatkV
+				 'Вас пронзает горячей волной походи и ваш разум затуманивается.'
+				 rander=rand(1,10)
+				 if rander<=3:
+					 restrikt=1
+					 pose[you]=3
+					 'У вас подкашиваются ноги и вы падаете.'
+				 end
+			 else
+				 sfera_psih-=uronV
+				 'Ваша защита разума спасает вас от похоти.'
+			 end
+		 end
+		 if enemy_udar=6:
+			!гравитация
+			 health[you]-=mag_uronV
+			 'Вы пытаетесь защититься, но гравитация не дает вам двигаться и наносит <<mag_uronV>> единиц урона.'
+		 end
+		 if enemy_udar=7:
+			!смерть
+			 health[you]-=mag_uronV
+			 'Вы пытаетесь защититься, но эманации смерти достигают вас и наносят <<mag_uronV>> единиц урона.'
+			 if fearatkV>0:
+				 if fearatkV>sfera_psih:
+					 sfera_psih=0
+					 health[you]-=fearatkV+(insight[you]*2)
+					 restrikt=1
+					 pose[you]=3
+					 'Вас охватывает дикий ужас и вы падаете не в состоянии стоять на ногах.'
+				 else
+					 sfera_psih-=fearatkV
+					 'Ваша защита разума спасает вас от леденящего ужаса.'
+				 end
+			 else
+				 'Негативное воздействие на вашу психику полностью провалилось'
+			 end
+		 end
+		 if enemy_udar=8:
+			 !портал
+			 health[you]-=mag_uronV*2
+			 'Вы пытаетесь защититься, но от портала не закроешься и портал наносит <<mag_uronV*2>> единиц урона.'
+		 end
+		 act'Далее':gt'fight'
+	 end
+}
+round+=1
+if uskor>0:uskor-=1
+if uskorV>0:uskorV-=1
+invisible=0
+can_blocking=0
+enemy_udar=0
+sbivatel=0
+dubleuron=1
+drunk_bloodV=0
+tentaV=0
+cumming_atk=0
+fearatkV=0
+shootV=0
+if in_Tsukuyomi[npc]>health[npc] and in_Tsukuyomi[npc]>0:in_Tsukuyomi[npc]=0&'Противник выходит из транса и отрывает свой взгляд от вашего'
+if merlin=npc and odri_can_kill=1:
+	'<b>Одри Гигеркрафт</b> вся воздушная и сияющая появляется перед Мерлином и тянет к нему руки - любимый мой! Иди я обниму тебя!'
+	defenceV=0
+	sfera_fizV=0
+	clonV=0
+	stunV=5
+	falselife[npc]=0
+	'Мерлин смотрит на ведьму влюбленными глазами и с него спадает вся защита - Любимая моя! Ты вернулась ко мне?'
+end
+if negrec=npc and blackedGangQW=100:
+     if mana[you]<manamax[you]:mana[you]+=100
+     if health[you]<healthmax[you]:health[you]+=100
+     if sfera_fiz>0:sfera_fiz+=500
+     if defenceV>0:
+		 defenceV-=defenceV/2
+		 clonV=0
+		 'Вы чувствуете незримое присутствие луны чей свет мягко окутывает вас и вашего противника'
+     else
+		 mana[npc]-=500
+		 'Вы чувствуете незримое присутствие луны чей свет мягко окутывает вас и вашего противника'
+     end
+end
+if elfmag=npc and operativQW=9 and dead[melifaro]=0:
+     if mana[npc]>0:
+		 '<b>Эмиль Бассани</b> колдует и перегружает каналы магии вашему противнку.'
+		 mana[npc]-=300
+		 if mana[npc]<0:mana[npc]=0
+     else
+		 '<b>Эмиль Бассани</b> колдует и швыряет магическое лезвие.'
+		 mag_uron_nb=rand(500,700)
+		 if defenceV>0:
+			 if defenceV<mag_uron_nb:
+				 mag_uron_nb=mag_uron_nb-defenceV
+				 defenceV=0
+				 if ironhand[npc]>0:
+					'<<$name[npc]>> отбивает рукой лезвие'
+				 else
+					 health[npc]-=mag_uron_nb
+					 '<<$name[npc]>> получает <<mag_uron_nb>> единиц урона'
+				 end
+			 else
+				 defenceV-=mag_uron_nb
+				 'Защита противника полностью поглощает урон и снижается теряя прочность'
+			 end
+		 else
+			 if ironhand[npc]>0:
+				'<<$name[npc]>> отбивает рукой лезвие'
+			 else
+				 health[npc]-=mag_uron_nb
+				 '<<$name[npc]>> получает <<mag_uron_nb>> единиц урона'
+		     end
+		 end
+     end
+end
+if addkiller_attk=1 and round<5:'<b>Чарли Фишер</b> пытается высвободиться из зажавшего его руку бревна.'
+if addkiller_attk=1 and round>=5:
+	'<b>Чарли Фишер</b> наносит удар перчаткой смерти.'
+     if clonV>0:
+		 clonV-=1
+		 '<b>Чарли Фишер</b> попадает в клона и тот рассеивается.'
+     else
+		 defenceV=0
+		 sfera_fizV=0
+		 health[npc]-=300
+		 'Под ударом защита тетушки Лебеды из прутьев и колючек, просто засохла и рассыпалась в прах.'
+		 'Эманации смерти наносят урон тетушке Лебеде.'
+	 end
+end
+if necromancerFight=1:
+     if defenceV>500 or sfera_fizV>500:
+		'<b>Некромант Боб</b> кастует туман смерти.'
+		 if clonV>0:
+			 clonV=0
+			 '<b>Некромант Боб</b> клоны, попавшие в туман, рассеиваются.'
+		 else
+			 defenceV-=3500
+			 if defenceV<0:defenceV=0
+			 sfera_fizV-=3500
+			 if sfera_fizV<0:sfera_fizV=0
+			 'Туман смерти наносит повреждения защите.'
+		 end
+	 else
+		 mag_uron_nb=1000
+		 '<b>Некромант Боб</b> кастует эманации смерти.'
+	     if clonV>0:
+			 clonV-=1
+			 '<b>Некромант Боб</b> попадает в клона и тот рассеивается.'
+	     else
+			 mag_uron_nb-=sfera_fizV
+			 mag_uron_nb-=defenceV
+			 sfera_fizV=0
+			 defenceV=0
+			 if mag_uron_nb<10:mag_uron_nb=10
+			 health[npc]-=mag_uron_nb
+			 'Эманации смерти наносят противнику урон <<mag_uron_nb>> единиц.'
+	     end
+	 end
+end
+if firstfoll>0 and cant_fight_run=0:
+	firsturonfoll=rand(minuron[firstfoll],maxuron[firstfoll])
+	'<b><<$nick[firstfoll]>></b> наносит удар'
+	percentV=reactV*20/100
+	defV=rand(reactV-percentV,reactV+percentV)
+	percent=reflex[firstfoll]*20/100
+	atk=rand(reflex[firstfoll]-percent,reflex[firstfoll]+percent)
+	atk=atk
+	if def_tipeV=0:
+		'<<$name[npc]>> пытается увернуться от вашего спутника.'
+		 if defV<=atk:
+			popad=1
+		 else
+			 popad=0
+			 stupidluck=rand(0,2)
+			 if stupidluck=2:popad=1
+		 end
+	end
+	if def_tipeV=1:popad=1&'<<$name[npc]>> даже не пытается защищаться от вашего спутника.'
+	if stunV>0:stunV-=1&popad=2
+	if blunt_resist=1:
+		'<<$name[npc]>> не обращает внимания на удар вашего спутника.'
+	else
+		 if popad>=1:
+			 uron=firsturonfoll
+			 if uron<1:uron=1
+			 if superslut[you]=1:uron=uron+(uron/10)
+			 if popad=2:uron=uron*2
+		     if clonV=0:
+				 if defenceV>0:
+					 if defenceV<uron:
+						 uron=uron-defenceV
+						 defenceV=0
+						 health[npc]-=uron
+						 '<<$name[npc]>> получает <<uron>> единиц урона от вашего спутника.'
+						 if defenceV>0:'Ваш спутник разбивает защиту противника.'
+						 if popad=2:'Критическое попадание вашего спутника.'
+					 else
+						 defenceV-=uron
+						 'Защита противника полностью поглощает урон от вашего спутника и снижается, теряя прочность.'
+					 end
+				 else
+					 health[npc]-=uron
+					 '<<$name[npc]>> получает <<uron>> единиц урона от вашего спутника.'
+				 end
+			 else
+				 clonV-=1
+				 'Ваш спутник попадает в клона и клон исчезает.'
+			 end
+		else
+			'<<$name[npc]>> избегает урона от вашего спутника.'
+		end
+	end
+end
+if secfoll>0 and cant_fight_run=0:
+	securonfoll=rand(minuron[secfoll],maxuron[secfoll])
+	'<b><<$nick[secfoll]>></b> наносит удар.'
+	percentV=reactV*20/100
+	defV=rand(reactV-percentV,reactV+percentV)
+	percent=reflex[secfoll]*20/100
+	atk=rand(reflex[secfoll]-percent,reflex[secfoll]+percent)
+	atk=atk
+	if def_tipeV=0:
+		'<<$name[npc]>> пытается увернутся от вашего спутника.'
+		 if defV<=atk:
+			popad=1
+		 else
+			 popad=0
+			 stupidluck=rand(0,2)
+			 if stupidluck=2:popad=1
+		 end
+	end
+	if def_tipeV=1:popad=1&'<<$name[npc]>> даже не пытается защищаться от вашего спутника.'
+	if stunV>0:stunV-=1&popad=2
+	if blunt_resist=1:
+		'<<$name[npc]>> не обращает внимания на удар вашего спутника.'
+	else
+		 if popad>=1:
+			 uron=securonfoll
+			 if uron<1:uron=1
+			 if superslut[you]=1:uron=uron+(uron/10)
+			 if popad=2:uron=uron*2
+		     if clonV=0:
+				 if defenceV>0:
+					 if defenceV<uron:
+						 uron=uron-defenceV
+						 defenceV=0
+						 health[npc]-=uron
+						 '<<$name[npc]>> получает <<uron>> единиц урона от вашего спутника.'
+						 if defenceV>0:'Ваш спутник разбивает защиту противника.'
+						 if popad=2:'Критическое попадание вашего спутника.'
+					 else
+						 defenceV-=uron
+						 'Защита противника полностью поглощает урон от вашего спутника и снижается, теряя прочность.'
+					 end
+				 else
+					 health[npc]-=uron
+					 '<<$name[npc]>> получает <<uron>> единиц урона от вашего спутника.'
+				 end
+			 else
+				 clonV-=1
+				 'Ваш спутник попадает в клона и клон исчезает.'
+			 end
+		else
+			'<<$name[npc]>> избегает урона от вашего спутника.'
+		end
+	end
+end
+if threfoll>0 and cant_fight_run=0:
+	threuronfoll=rand(minuron[threfoll],maxuron[threfoll])
+	'<b><<$nick[threfoll]>></b> наносит удар.'
+	percentV=reactV*20/100
+	defV=rand(reactV-percentV,reactV+percentV)
+	percent=reflex[threfoll]*20/100
+	atk=rand(reflex[threfoll]-percent,reflex[threfoll]+percent)
+	atk=atk
+	if def_tipeV=0:
+		'<<$name[npc]>> пытается увернуться от вашего спутника.'
+		 if defV<=atk:
+			popad=1
+		 else
+			 popad=0
+			 stupidluck=rand(0,2)
+			 if stupidluck=2:popad=1
+		 end
+	end
+	if def_tipeV=1:popad=1&'<<$name[npc]>> даже не пытается защищаться от вашего спутника.'
+	if stunV>0:stunV-=1&popad=2
+	if blunt_resist=1:
+		'<<$name[npc]>> не обращает внимания на удар вашего спутника.'
+	else
+		 if popad>=1:
+			 uron=threuronfoll
+			 if uron<1:uron=1
+			 if superslut[you]=1:uron=uron+(uron/10)
+			 if popad=2:uron=uron*2
+		     if clonV=0:
+				 if defenceV>0:
+					 if defenceV<uron:
+						 uron=uron-defenceV
+						 defenceV=0
+						 health[npc]-=uron
+						 '<<$name[npc]>> получает <<uron>> единиц урона от вашего спутника.'
+						 if defenceV>0:'Ваш спутник разбивает защиту противника.'
+						 if popad=2:'Критическое попадание вашего спутника.'
+					 else
+						 defenceV-=uron
+						 'Защита противника полностью поглощает урон от вашего спутника и снижается, теряя прочность.'
+					 end
+				 else
+					 health[npc]-=uron
+					 '<<$name[npc]>> получает <<uron>> единиц урона от вашего спутника.'
+				 end
+			 else
+				 clonV-=1
+				 'Ваш спутник попадает в клона и клон исчезает.'
+			 end
+		else
+			'<<$name[npc]>> избегает урона от вашего спутника.'
+		end
+	end
+end
+
+!'
+if scarecrow=firstfoll or scarecrow=secfoll or scarecrow=threfoll:
+     if defence_you>0 and energy[you]<energymax[you]:
+     energy[you]+=5
+     if energy[you]>energymax[you]:energy[you]=energymax[you]
+     '<b><<$nick[scarecrow]>></b> кричит вам приободряющие фразы.'
+     end
+	 if defence_you=0:
+	 defence_you+=30
+	 '<b><<$nick[scarecrow]>></b> бросается на вашу защиту.'
+	 end
+	 
+end
+'
+
+
+if stunV>0:
+	'<<$name[npc]>> оглушен.'
+end
+if stunV=0:
+     gs'fightprogramm'
+end
+
+if evilgrassV>0:
+	evilgrassV-=1
+	 if clon>0:
+		 'Злые растения хлещут колючками ваших клонов и те исчезают'
+		 clon=0
+	 end
+	 uronV=magik[npc]*rand(3,10)
+	 if sfera_fiz>0:
+		 if sfera_fiz<uronV:
+			 uronV=uronV-sfera_fiz
+			 sfera_fiz=0
+			 health[you]-=uronV
+			 'Злые растения хлещут колючкам по вашей сфере, та не выдерживает и лопается, а вы получаете <<uronV>> единиц урона'
+		 else
+			 sfera_fiz-=uronV
+			 'Злые растения хлещут колючкам по вашей сфере но та выдерживает атаку'
+		 end
+	 else
+		 health[you]-=uronV
+		 'Злые растения хлещут колючкам по вам и вы получаете <<uronV>> единиц урона'
+	 end
+end
+if enemy_udar>0:
+	if enemy_udar=10:gt'enemy_mistbullet'
+	if enemy_udar=20:gt'thunder_penetratorV'
+	if enemy_udar=30:gt'triple_thunder_penetratorV'
+	!if energy_inf=0:energyV-=5
+	hod=0
+	!reactV
+	!react[you]
+	percentV=reactV*20/100
+	atkV=rand(reactV-percentV,reactV+percentV)
+	if mag_atkV>0:
+		atkV=mag_atkV
+		mag_atkV=0
+	end
+	percent=react[you]*20/100
+	def=rand(react[you]-percent,react[you]+percent)
+     if atkV<=def:
+		 popad=0
+		 stupidluck=rand(0,2)
+		 if stupidluck=2:popad=1
+     else
+		 popad=1
+     end
+     if uskor>0:
+		 popad=0
+		 'Вы ускоренны и в вас так просто не попасть'
+     end
+	 if anticlonV>0 and clon>0:
+		 clon=0
+		 'Атака по широкой площади полностью уничтожает клонов.'
+	 end
+     if sfera_fiz>0:
+		 if uronV<maxuronV:uronV=maxuronV
+		 act'Далее':gt'sfera_protect'
+     end
+     if sfera_fiz<=0:
+         if popad>0:
+             if clon>0:
+				 clon-=1
+                 'Атака противника попадает в ваш клон и <b>клон исчезает</b>.'
+				 popad=0
+				 act'Далее':gt'fight'
+             else
+				dynamic $d_uvorot
+				 if energy[you]>0 and can_blocking=0:
+					dynamic $d_block
+				 end
+			 end
+		 end
+		 if popad=0:
+			 hod=0
+			 'Противник промахивается.'
+			 act'Далее':gt'fight'
+		 end
+	 end
+else
+	hod=0
+	act'Далее':gt'fight'
+end
+

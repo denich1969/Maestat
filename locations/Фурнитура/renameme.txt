@@ -1,0 +1,36 @@
+﻿gs'stat'
+'Ваше имя <<$name[you]>>'
+'Ваша фамилия <<$surname[you]>>'
+
+act'Сменить имя':
+cls
+gs'stat'
+$tempname=input("Сменить имя")
+     if $tempname!'':
+     $name_past[you]=$name[you]
+     $name[you]=$tempname
+	 'Ваше имя <<$name[you]>>'
+	 'Ваша фамилия <<$surname[you]>>'
+		 act'Сменить фамилию':
+		 cls
+		 gs'stat'
+		$tempname=input("Сменить фамилию")
+			 if $tempname!'':
+			 $surname_past[you]=$surname[you]
+			 $surname[you]=$tempname
+			 'Ваше имя <<$name[you]>>'
+			 'Ваша фамилия <<$surname[you]>>'
+			 act'Уйти':gt'preloc'
+			 else
+			 gt'preloc'
+			 end
+		end
+	 
+	 act'Уйти':gt'preloc'
+     else
+     gt'preloc'
+     end
+end
+
+act'Уйти':gt'preloc'
+

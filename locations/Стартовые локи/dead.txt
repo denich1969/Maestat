@@ -1,0 +1,74 @@
+﻿SHOWSTAT 0&SHOWOBJS 0&showinput 0
+times_dead[you]+=1
+if master[you]=1 or immortal[you]>=1:
+	if l_ring[you]=46:l_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
+	if r_ring[you]=46:r_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
+	health[you]=healthmax[you]&X[you]=3&Y[you]=3&Z[you]=7777&H[you]=1&R[you]=1&gt 'preloc'
+end
+if princess=you:
+	'<center><img src="pic/misc/princess.jpg" ></center>'&'Вас захватили и заключили в герметичном сосуде, к вашему рту присоединили шланг, ведущий к писсуарам в отеле, и сделали из вас навечно рабыню.'
+	'Лишь в последний момент вы отправили магическое послание в никуда, надеясь, что найдётся герой, который вас найдет и спасёт'
+	SHOWACTS 1&act 'найти героя':realdaystart=1&daystart=0&you=1&num=you&npcmaxnum=1&gt'self_random'
+end
+if soul[you]<1:'Ваша душа была окончательно поглощена этим миром, вы лишильсь последней части души, которая растворились в мире, став частью других'
+if myrealbody>0 and myrealbody!you:
+	dead[you]=2&gt'bodyreturn'
+else
+	'<center><b><font size=big>ПОТРАЧЕНО</a></font></b></center>'&Zed=Z[you]
+	if oxigen[Zed]=0 and master[you]=0:'Вы задохнулись'&!нет кислорода
+	if temper[Zed]=0 and master[you]=0:'Смертельный холод сковал вас'
+	if temper[Zed]=5 and master[you]=0:'Вы сгорели'&!критические температуры
+	if deadtipe=1:
+		'Что поставить на весы
+		В час когда замрут часы?
+		В час когда застан врасплох
+		Сделав свой последний вдох
+		То мгновение прекрасно
+		Миг когда свеча угасла
+		Миг смирения без слов
+		Где я был не готов
+		...
+		Уйти вдаль'
+	end
+	if deadtipe=2:
+		'Вы видите яркий свет маяка рвущий мрак непроглядной тьмы.'&!'Из реального мира на маяк'
+		act'Идти на свет':
+			light-=100&SHOWSTAT 1&SHOWOBJS 1
+			health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]
+			hunger[you]=0&thirst[you]=0&in_fight=0&in_sex=0&X[you]=0&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt'home_9'
+		end
+	end
+	if seeevent=99:
+		'Морские твари разорвали ваше тело, чтобы насытиться и преподать всем урок, что если вы отказываете в услуге, то будьте готовы нести за это ответственность...'
+		'Вы же будете лишь воспоминанием, которое этот урок не восприняло как следует.'
+	end
+	if deadtipe=2:'Ваше тело оказалось пожрано, а душа застряла в тумане и стала частью тумана'
+	if mutation[you]>=100:'Вы мутировали и превратились в чудовище. Ваш разум оказался разрушен и вы превратились в зверя.'
+end
+if badend=1:
+	SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0&'<b>Рабыня демонов<b/>'&'<center><img src="pic/ev/badend/slave.jpg" ></center>'
+	'Вас отправили в коровник, сковали цепями и сутками бесы ебали вас и доили. Вы рожали новых бесов, и вас снова ебали и доили. Вся ваша жизнь теперь ебля и дойка и вас это полностью устраивает.'
+end
+if badend=2:SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0&'<b>Тьма<b/>'&'Свет маяка погас, и маяк вместе со всеми жителями растворился в пустоте междумирья.'
+if badend=3:SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0&'<b>Зверь<b/>'&'Кровавое безумье овладело вашим разумом когда вы окончательно превратились в зверя'
+if badend=4:SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0&'<b>Безумие<b/>'&'Слишком много озарения и ваш мозг не выдерживает, узрев все тайны мироздания вы сходите с ума.'
+if badend=5:SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0&'<b>Смерть<b/>'&'Свет не способен спасти вас сквозь туман междумирья. Это было последнее что вы с ужасом осознали умирая.'
+if badend=6:
+	SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0
+	'<b>Доля раба в Вечном Риме<b/>'&*pl'Вас обезоружили и продали в рабство. Вам не повезло и вас купил мясник. Прожили вы ровно до того момента, когда вас решили заколоть на мясо.'
+end
+if badend=7:SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0&'<b>Гибель в Вечном Риме<b/>'&$backimage = 'the_end_bg.jpg'&*pl'<div id="header_red">Вас убили</div>'
+ACT 'Начать заново': GT 'Start'
+ACT 'Продолжить игру тем же персонажем':
+	!meat = 0
+	!virgin_meat = 0
+	!girl = 0
+	!GS 'Change_Object_Count', "<u>Мясо", 0
+	!GS 'Change_Object_Count', "Девчатина", 0
+	!DELOBJ 'Добыча'
+	X[you]=3&Y[you]=3&Z[you]=404&H[you]=1&R[you]=0
+	if CONFIG['ENABLE_sound']=1:play '<<$contentS>>/Rome/heartbeat.mp3',Громкость_эффектов
+	msg 'Вы просыпаетесь в канаве у обочины. На теле ни царапинки. Вокруг раздается шум улочек Вечного Рима.'
+	gt'world'
+END
+ACT 'Закончить игру':CLOSE ALL&KILLALL&SHOWINPUT 0&SHOWOBJS 0&SHOWSTAT 0&SHOWACTS 0&$MAINDESC_BACKIMAGE = ''&$backimage = 'the_end_bg.jpg'

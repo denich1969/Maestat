@@ -1,0 +1,25 @@
+﻿blockneed=1&gs'drop_follower'
+:anothersleeproot
+	time+=60&gs'stat'&gs'walker'
+if hour>=22 or hour<7:jump'anothersleeproot'
+makeup[you]=0&gs'stat'&sleep[you]=0
+ if ballmax[you]>0:ball[you]=ballmax[you]
+ if hunger[you]<2:hunger[you]=2
+ if thirst[you]<2:thirst[you]=2
+ if pisswasser[you]>80:pisswasser[you]=80
+ gs'stat'&blockneed=0&'Вы легли спать и быстро уснули.'
+if opasnoste=1:
+	'Среди ночи вас разбудила тень с гулом пронесшаяся по комнате и задевшая вас от чего боль пронзила ваше тело. Вы бились в конвульсиях практически до утра, призраки мучали вас.'
+else
+	if superslut[you]!1:energy[you]=energyMax[you]
+	if superslut[you]!1:health[you]+=50
+	'Вам снятся дурные сны которые невозможно пересказать и осмыслить'
+end 
+if exp[you]>=expneed[you] and muggle[you]=0:gt'newlevel'
+if inseminate[you]>0 and pregnant_day[you]+9<daystart+romadaystart:gt'rodi'
+if inseminate[you]>0 and pregnant_day[you]+270<sumdaystart:gt'rodi'
+if anal_egg_timer[you]<=0 and anal_egg[you]>0:gt'anal_egg_rodi'
+if magik_egganal_timer[you]<=0 and magik_egganal[you]>0:gt'magik_egganal_rodi'
+if vagina_egg[you]>0 and vagina_egg_timer[you]<=0:gt'vagina_egg_rodi'
+if magik_eggvag_timer[you]<=0 and magik_eggvag[you]>0:gt'magik_eggvag_rodi'
+act'Встать':gt 'world'

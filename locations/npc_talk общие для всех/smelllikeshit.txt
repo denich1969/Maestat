@@ -1,0 +1,7 @@
+﻿shame_for_you['<<npc>>,<<you>>']+=1
+
+gs'stat'
+'<center><img src="<<$d_view>>" ></center>'
+'Брезгливо вас осматривает и говорит - Приведи себя в порядок.'
+
+act'<b>Уйти</b>':gt 'preloc'

@@ -1,0 +1,15 @@
+﻿$Object_Name = $args[0]&!Локация меняет количество предметов в инвенторе, предполагаемый вызов: GS 'Change_Object_Count', $Object_Name, New_Count
+New_Count = args[1]
+Object_Index = 0&!В эту переменную поместим индекс объекта, чье имя начинается с $Object_Name и, если такого объекта нет, в ней останется 0
+Current_Index = 1
+:LOOPmark
+	IF $MID(GETOBJ(Current_Index), 1, LEN($Object_Name)) = $Object_Name: Object_Index = Current_Index
+Current_Index += 1&if Current_Index > COUNTOBJ:jump'LOOPmark'
+if Object_Index > 0: KILLOBJ Object_Index&!Удаляем старый вариант объекта, если был
+if New_Count > 0:
+	if Object_Index > 0:
+		ADDOBJ "<<$Object_Name>> (<<New_Count>>)", '', Object_Index&!Добавляем новый вариант объекта, если надо
+	else
+		ADDOBJ "<<$Object_Name>> (<<New_Count>>)"&!если был старый вариант - новый добавляем в ту же позицию 
+	end
+end

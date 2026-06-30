@@ -1,0 +1,11 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i
+lvl[i]=5&soul[i]=1000&mob[i]=26&mobexp[i]=100
+tipemobpic[i]=1&picture[i]=155&total_illitid+=1
+$nick[i]='Иллитид'&gs'drow_woman_name'&$name[i]=$genname&gs'surname'&$surname[i]=''
+pol[i]=1
+dick[i]=30&dickd[i]=50&ball[i]=70&vag[i]=0
+healthmax[i]=1000&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(20,40)&maxuron[i]=rand(50,80)
+reflex[i]=150
+womenbrain[i]=rand(70,90)&agro[i]=2&corr[i]=1000
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+obsession_world[]=i&

@@ -1,0 +1,5 @@
+﻿gs'stat'&'<center><img src="pic/mob/16.jpg" ></center>'&'Рабыня сидящая в клетке горестно плачет'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+act'Освободить':
+	cage['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1&soul[you]+=5
+	num=cage_num['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']&cage_num['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=0&dead[num]=0&gt 'preloc'
+end

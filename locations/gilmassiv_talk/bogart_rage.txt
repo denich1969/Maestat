@@ -1,0 +1,5 @@
+﻿gs'stat'&!uberSolderQW[you]=8
+in_fight=1&npc=borisbogart&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+gs'stat'&'<center><img src="pic/face/5/46.jpg" ></center>'&'Рядом с вами появился из портала Богарт и грозно спросил '
+'- Думаешь это умно бросать мне вызов? Ну хорошо, я принимаю вызов и заставлю тебя страдать, если у тебя не хватило ума бежать без оглядки из жилмассива.'
+act'Драться':cant_fight_run=1&gs'progcurse'&gt 'prefight'

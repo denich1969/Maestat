@@ -1,0 +1,46 @@
+﻿$worldloc[you]=$curloc
+mana[you]=manamax[you]
+gs'stat'&'<center><b>Монолит</b></center>'
+'Древний и загадочный монолит, он питается вашей душой. Но он дает великие силы. Он контролирует отдельный мир работающий как выжималка душ, и дает возможность поглощать людские души.'
+act'В бездну':gt'void'
+'Каждые сутки монолит поглощает <<monosoul>> едениц души у вас.'
+'<<godlevel+highmaglevel+firstmaglevel+twomaglevel+thremaglevel+foremaglevel+fivemaglevel+sixmaglevel+minimaglevel>> существ владеющих магией'
+'<<godlevel>> божественных сущностей'
+'<<highmaglevel>> магов вне категорий'
+'<<firstmaglevel>> магов 1й категории'
+'<<twomaglevel>> магов 2й категории'
+'<<thremaglevel>> магов 3й категории'
+'<<foremaglevel>> магов 4й категории'
+'<<fivemaglevel>> магов 5й категории'
+'<<sixmaglevel>> магов 6й категории'
+'<<minimaglevel>> магов 7й категории'
+act'<b>Перемещение</b>':
+	 cls&gs'stat'&'Вам доступны тайные пути среди зеркальных коридоров монолита'
+	act'<b>Домой</b>':
+		 X[you]=3&Y[you]=3&Z[you]=0&H[you]=1&R[you]=0&gt 'world'
+	end
+	if master[you]=1:
+		 act'<b>Луна</b>':X[you]=3&Y[you]=3&Z[you]=7777&H[you]=1&R[you]=1&gt 'world'
+	end
+	if rememberme>0 and mana[you]>=100:
+		 act'<b>Отель у моря</b>':mana[you]-=100&X[you]=0&Y[you]=0&Z[you]=100&H[you]=0&R[you]=0&gt 'world'
+		 act'<b>Маяк</b>':mana[you]-=100&X[you]=0&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt 'world'
+		 act'<b>Клуб Реликт</b>':mana[you]-=100&X[you]=2&Y[you]=1&Z[you]=2&H[you]=0&R[you]=0&gt 'world'
+		 act'<b>Улица Грез</b>':mana[you]-=100&X[you]=3&Y[you]=1&Z[you]=3&H[you]=0&R[you]=0&gt 'world'
+		 act'<b>Аптаун</b>':mana[you]-=100&X[you]=2&Y[you]=2&Z[you]=4&H[you]=0&R[you]=0&gt 'world'
+		 act'<b>Церковь святого Иуды</b>':mana[you]-=100&X[you]=2&Y[you]=2&Z[you]=5&H[you]=0&R[you]=0&gt 'world'
+		 act'<b>Корневище</b>':mana[you]-=100&X[you]=15&Y[you]=15&Z[you]=10&H[you]=0&R[you]=0&gt 'world'
+	end
+end
+act'Создать гомункула':kre=0&gt 'create_npc'
+act'Портрет':gt'moonqwportret'
+act'Изучить руны':
+	 cls&gs'stat'
+	 runemaster_spell[you]=1&'Все руны используются на алатырь камне более известном как круг друидов'
+	 rune_alef[you]+=1&'Руна Алеф, эта руна позволяет раз в сутки подключать один новый канал магии через Алатырь камень'
+	 rune_dar[you]+=1&'Руна Дар позволяет использовать дар подглядывания за чужими яркими воспоминаниями'
+	 rune_fade[you]+=1&'Руна Фэд дает возможность возродится в бою после смерти'
+	 rune_spore[you]+=1&'Грибная руна дает власть над грибами'
+	 rune_Dea[you]+=1&'Руна клейма позволяет ставить клеймо униженным'
+	 act'...':gt $curloc
+end

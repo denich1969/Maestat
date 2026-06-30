@@ -1,0 +1,44 @@
+﻿payment=0&walkwer_time=2
+:markschoollern
+	nopee=1&if thirst[you]>5:thirst[you]=5
+	time+=60&gs'stat'
+	if walkwer_time>0:gs'walker'
+	if walkwer_time>0:walkwer_time-=1
+if hour<17:jump'markschoollern'
+gs'stat'&nopee=0
+if knowlanguage[you]=0:
+	 sch_lang[you]+=1
+	 $txt='Вы садитесь за парту и у вас начинается урок магического алфавита. Вы медленно и обстоятельно изучаете очередную букву из алфавита, ее стили написания, сакральное значение, звучание.'
+     if sch_lang[you]>=10:knowlanguage[you]=1&$txt='Вы полностью освоили магический алфавит и можете теперь читать гримуары и свитки.'
+else
+    if soulMG[you]=0:
+		 sch_soul[you]+=1
+		 $txt='Вы садитесь за парту и у вас начинается урок работы с душой. Вам объясняют нюансы договоров продажи души. Объясняют способы отъема чужой души и способы отдачи. Так же читают лекцию по общей теории душ.'
+         if sch_soul[you]>=10:soulMG[you]=1&$txt='Вы полностью освоили работу с душой.'
+    else
+        if canbewitch[you]=0:
+			 sch_witch[you]+=1
+			 $txt='Вы садитесь за парту и у вас начинается урок ведьмовской алхимии, вам рассказывают, как при помощи малой души существ делать разнообразные зелья.'
+            if sch_witch[you]>=10:canbewitch[you]=1&$txt='Вы полностью освоили курс ведьмовской алхимии.'
+        else
+            if dead[addboss]=0:
+				gt'ekzamenQW'
+            else
+				 canexit=1&atestat[you]=1&'Вам вручают документ о завершении школы.'
+            end
+        end
+    end
+end
+canexit=1&*pl ''&'<<$txt>>'
+if dilaminaCuntLiker>0 and vag[you]>0 and rand(1,100)+dilaminaCuntLikerNeed>=75:canexit=0&act'...':gt'lesbian_play'
+if school_event=3 and dead[borisbogart]=0:canexit=0&school_event=4&act'...':gt'schoolev4'
+if school_event=2 and dead[borisbogart]=0:canexit=0&school_event=3&act'...':gt'schoolev3'
+if school_event=1 and dead[borisbogart]=0:canexit=0&school_event=2&act'...':gt'schoolev2'
+if school_event=0:school_event=1&gt'schoolev1'
+if canexit=1:
+	act'Уйти':
+		if dilaminaCuntLiker>0:dilaminaCuntLikerNeed+=10&horny[techer]=50
+		gt 'preloc'
+	end
+     if dilaminaCuntLiker>0:act'Отлизать Диламине после уроков':gt'dilaminacunt'
+end

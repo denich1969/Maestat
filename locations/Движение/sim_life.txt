@@ -1,0 +1,50 @@
+﻿global_radar=0
+tormoza=0
+tormoza_radar=0
+if inix_w=0:inix_w=1
+if inix_w=Z[you]:inix_w+=1
+if inix_w>5:inix_w=1
+if inix_w=1:npcmax=arrsize('n_world')
+if inix_w=2:npcmax=arrsize('ne_world')
+if inix_w=3:npcmax=arrsize('e_world')
+if inix_w=4:npcmax=arrsize('se_world')
+if inix_w=5:npcmax=arrsize('s_world')
+ar=0
+:marksimlife
+if inix_w=1:w=n_world[ar]
+if inix_w=2:w=ne_world[ar]
+if inix_w=3:w=e_world[ar]
+if inix_w=4:w=se_world[ar]
+if inix_w=5:w=s_world[ar]
+if w!you and dead[w]=0 and $name[w]!'' and immobilaze[w]=0 and Z[w]=inix_w:gs'wal_class'
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=inix_w and H[w]=0 and $name[w]!'' and walkprog[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0:gs'wal_zero'
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=inix_w and H[w]>0 and walkprog[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0:
+	$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
+	randtipe=rand(0,2)&!!!!!!!!!!!!!!!ВНУТРИ ПОМЕЩЕНИЯ
+	if cum_face[w]>0:randtipe=3
+	if randtipe=1 and R[w]>0:R[w]=0
+	if randtipe=2 and R[w]=0:
+		if maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']>0:
+			maxpos=maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']
+			randgo_r=rand(1,maxpos)
+			R[w]=randgo_r
+		end
+	end
+	if randtipe=3:
+		cum_face[w]=0
+		$walklog+='<br>'
+		if know['<<w>>,<<you>>']=0:$walklog+='<<$nick[w]>> вытирает сперму'
+		if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> вытирает сперму'
+	end
+end
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=inix_w and mob_busy[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0:gs'wal_main'
+if mob_busy[w]>0 and mob_busy[w]<time and w!you and dead[w]=0 and Z[w]=inix_w and cantwalk[w]=0 and follower[w]=0 and immobilaze[w]=0:
+	horny[w]=0
+	mob_busy[w]=0&mob_sleep[w]=time+15
+	under_sub[w]=0
+	action_tipe[w]=0
+end
+ar+=1
+if ar<=npcmax:jump'marksimlife'
+inix_w+=1
+if inix_w>5:inix_w=1

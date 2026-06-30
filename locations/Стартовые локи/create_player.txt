@@ -1,0 +1,414 @@
+﻿if kre=0:
+	CLOSE ALL
+	$music_theme = 'startmaestat'
+	'<center><a href="exec:CONFIG[''IN_START_SCREEN''] = 1 & gt''settings''"><h2>&#11166[ НАСТРОЙКИ ]&#11164</h2></a></center>'
+	'<center>Это позволит отключить некоторый недопустимый для вас материал и включить читы для знакомства с игрой, однако помните, что читы могут сломать игру</center>'
+	bud=6
+	bcolor=rgb(255,255,255)&!LCOLOR = rgb(106,90,205)&LColor = RGB(255,255,255)
+	year=2022&month=9&day=3&week=1&hour=7&daystart=1
+	SHOWACTS 1
+	you=1&num=you&npcmaxnum=1&lvl[you]=1&$worldloc[you]='world'
+	godoutofendless[you]=0&!атрибуты для режима бога если будет мешать скажите
+	barwork=0&superslut[you]=0&portvenerafix=0&!! новые атрибуты - регистрация
+	$name[you]=''&$surname[you]=''
+	soul[you]=100&souldar[you]=3&!if rand(3)=1:souldar[you]=3
+	vital[you]=50&will[you]=50&reflex[you]=50&horny[you]=50
+	selfrespect[you]=1&positiv[you]=1&extrovert[you]=1&ratio[you]=1&brave[you]=1&lust[you]=0&dom[you]=50
+	base_lust[you]=10&!Из охотника
+	mus[you]=musNorm&fat[you]=fatNorm&fastFat[you]=250&bodyswap=0&!Тело
+	stomach_v[you]=stomachMax/4&stomach_f[you]=stomachMax*3/4&!Из охотника
+	cunthair[you]=10
+	demon_dick[you]=0&!Изначально нет особенностей суккуба
+	''
+	!'<center><video src="pic/sex/lesb/fingers_lick.webm" ></video></center>'
+	!'<center><video src="pic/sex/bdsm/purification.webm" ></video></center>'
+	 '<center><a class="plain" ><H2><div><u>Вам необходимо выбрать вариант старта игры.</u></div></H2></a></center>'
+	!'	Вам необходимо выбрать вариант старта игры.'
+	*nl
+	'	Звук по умолчанию отключён, но его можно включить в настройках (пока, в основном, в разработке)'
+	*nl
+    !{act'Попаданец':
+		cls&CONFIG['IN_START_SCREEN']=0&'Выберите пол героя'&!тут, по-хорошему, можно настроить боевые навыки персонажа
+        act'Мужской пол':pol=0&kre=1&gt $curloc
+        act'Женский пол':pol=1&kre=1&gt $curloc
+    end
+    act'Старт семья':i=you&gt'family_start'
+    act'Старт семья':i=you&CONFIG['IN_START_SCREEN']=0&gt'family_start'
+    act'Подружки':i=you&CONFIG['IN_START_SCREEN']=0&gt'actress'
+    act'Подружки':i=you&CONFIG['IN_START_SCREEN']=0&gt'actress'
+    act'Старт принцессы':i=you&CONFIG['IN_START_SCREEN']=0&gt'princess_start'
+    act'Старт за Аватар богини луны':i=you&CONFIG['IN_START_SCREEN']=0&gt'god_start'
+    act'Случайно':i=you&CONFIG['IN_START_SCREEN']=0&gt'self_random'}
+     act'Калькулятор тела (Для разрабов)':
+		pol[1]=1&fem[1]=1000&rost[1]=1800&mus[1]=20000&fat[1]=5000&ass[1]=assMax&tits[1]=titsMax&gt'calc_body_test'
+		args[20]=0
+		:label
+			gs'body_size',1
+			args[20]+=1&if args[20]<3:jump'label'
+		gt'calc_body_test'
+	end
+     !act'Играть за девушку':i=you&gt'pre_female'
+     !act'Играть за мужчину':i=you&gt'pre_male_g'
+     !act'Режим бога М':i=you&gt'pre_goddes'
+     !act'Режим бога Ж':i=you&gt'pre_goddes_f'
+    !if mkre=0:
+    !mkre=1
+	'<center><a class="plain" href="exec:gt''create_player'',{1}"><H2><div><u>Попаданец</u></div></H2></a></center>'
+    '	В качестве первой игры рекомендуется выбирать старт за попаданца и для ролеплея создавать там не убер солдата, а свое подобие.' 
+     '<center><a class="plain" href="exec:gt''create_player'',{2}"><H2><div><u>Старт семья</u></div></H2></a></center>'
+    '	Старт за семью уже для тех кто хотя бы умеет ориентироваться в пространстве и понимает базовые игровые механики, а не тычется как слепой котенок при помощи факов по сюжету.'
+      '<center><a class="plain" href="exec:gt''create_player'',{3}"><H2><div><u>Подружки</u></div></H2></a></center>'
+    '	Старт за одну из подружек позволяет сделать выбор: остаться ли в порту и играть, как за попаданца, или переместиться в город, играя за стриптирёршу.'
+       '<center><a class="plain" href="exec:gt''create_player'',{4}"><H2><div><u>Принцесса</u></div></H2></a></center>'
+     '	Старт за принцессу только для тех кто хочет побродить по замку и землям Наваждения. РЕАЛИЗОВАНО ЧАСТИЧНО. желающие могут продолжить'
+      '<center><a class="plain" href="exec:gt''create_player'',{5}"><H2><div><u>Старт в Вечном Риме</u></div></H2></a></center>'
+     '	Старт в Вечном Риме только для тех кто хочет посмотреть на ход разработки. РЕАЛИЗОВАНО ЧАСТИЧНО (планируется перенести контент из нескольких игр). желающие могут продолжить'
+      '<center><a class="plain" href="exec:gt''create_player'',{6}"><H2><div><u>Старт в Реальном мире</u></div></H2></a></center>'
+     '	Старт в Реальном мире только для тех кто хочет протестировать результат. Предполагаются различные варианты попадания в магический мир (Предупреждение: в сквере орудует опасный маньяк, а бродить по ночным улицам крайне опасно из-за гонщиков). РЕАЛИЗОВАНО ЧАСТИЧНО. желающие могут переносить из других игр любой контент по реальному миру (мужика вроде Харитонова из Альбедо, бабу из деффки и т.д.).'
+    !end
+    if $args[0]=1:
+		cla&cls&'Выберите пол героя'&!тут, по-хорошему, можно настроить боевые навыки персонажа
+		CONFIG['IN_START_SCREEN'] = 0&daystart=1
+        act'Мужской пол':pol=0&kre=1&gt $curloc
+        act'Женский пол':pol=1&kre=1&gt $curloc
+    end
+    if $args[0]=2 and $args[0]>1:
+		cla&i=you&CONFIG['IN_START_SCREEN']=0
+		CLOSE ALL&music_on = 0&$music_theme = 'start'
+		gt'family_start'&daystart=1
+    end
+    if $args[0]=3 and $args[0]>2:
+		cla&i=you&CONFIG['IN_START_SCREEN']=0
+		CLOSE ALL&music_on = 0&$music_theme = 'start'
+		gt'actress'&daystart=1
+    end
+    if $args[0]=4 and $args[0]>3:
+		cla&i=you&CONFIG['IN_START_SCREEN']=0
+		!gs'jungle_gen'&gs'wood_gen'&gs'dark_mansion_gen'&!наваждение: джунгли, лес, тёмный особняк
+		!gs'gen_4_south'&gs'gen_4_nord'&gs'gen_4_south2'
+		CLOSE ALL&music_on = 0&$music_theme = 'start'
+		princessdaystart=1&daystart=0
+		gt'princess_start'&!gs'castle_gen'
+    end
+    if $args[0]=5 and $args[0]>4:
+		cls&cla&i=you&CONFIG['IN_START_SCREEN']=0
+		'<center><img src="<<$content>>/Avatar.jpg"></center>'
+		'<center>Выражаем <b>Благодарность</b> автору идеи Old Huntsmam (Старому Охотнику) и всем создателям игр на эту тему</center>'
+		'<center>Здесь необходимо выбрать основную профессию (класс) персонажа</center>'
+		act'Госпожа':pol=1&romadaystart=1&daystart=0&CLOSE ALL&music_on = 0&$music_theme = 'start'&gt'roma_start','домина'&!Вечный Рим
+        act'Варвар':pol=0&romadaystart=1&daystart=0&CLOSE ALL&music_on = 0&$music_theme = 'start'&gt'roma_start','варвар'&!Вечный Рим
+		act 'Ловчий': pol=0&romadaystart=1&daystart=0&CLOSE ALL&music_on = 0&$music_theme = 'start'&gt'roma_start','охотник'&!Вечный Рим
+		act 'Ассасин':pol=0&romadaystart=1&daystart=0&CLOSE ALL&music_on = 0&$music_theme = 'start'&gt'roma_start','убийца'&!Вечный Рим
+		act 'Маг':pol=0&romadaystart=1&daystart=0&CLOSE ALL&music_on = 0&$music_theme = 'start'&gt'roma_start','маг'&!Вечный Рим
+		!act 'Ведьма':pol=1&romadaystart=1&daystart=0&CLOSE ALL&music_on = 0&$music_theme = 'start'&gt'roma_start','ведьма'&!Вечный Рим
+    end
+     if $args[0]=6 and $args[0]>5:
+		cla&i=you&hero=i&human[]=i&CONFIG['IN_START_SCREEN']=0
+		CLOSE ALL&music_on = 0&$music_theme = 'start'
+		realdaystart=1&daystart=0
+		gt'self_random'&!gs'200_world_gen'
+    end
+end
+if kre=1:
+	 if pol=0:
+		 'Мужской пол'&!act'Пресет М':gt'preset'
+		 face[you]=rand(0,30)&pol[you]=0
+		 dick[you]=15&dickd[you]=35&ball[you]=30&vag[you]=0&ass[you]=2&nip[you]=8&tit[you]=0&!Половые признаки
+		 face_hair[you]=10&tit_hair_can[you]=10&tit_hair[you]=77&leg_hair_can[you]=10&leg_hair[you]=10&hlong[you]=10&!Волосы
+		 $nick[you]='Ваше изначальное тело'
+		 womenbrain[you]=0&dom[you]=75&!Характер 
+	 end
+	 if pol=1:
+		 'Женский пол'&!act'Пресет Ж':gt'presetfem'
+		 face[you]=rand(70,100)&pol[you]=1
+		 dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&ass[you]=rand(15,24)&nip[you]=rand(20,30)&tit[you]=rand(10,18)&!Половые признаки
+		 face_hair[you]=0&tit_hair_can[you]=0&tit_hair[you]=0&leg_hair_can[you]=5&leg_hair[you]=0&hlong[you]=30&!Волосы
+		 $nick[you]='Ваше изначальное тело'
+		 dom[you]=45&womenbrain[you]=100
+	 end
+	!{ if pol=2:
+		'Молодой Суккуб'&face_pic[you]=101
+		womenbrain[you]=100
+		face[you]=100&gla[you]=3&glacol[you]=4&nose[you]=1&lips[you]=1&cheeks[you]=1
+		dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&ass[you]=30&nip[you]=25&tits[you]=22&demon_dick[you]=1
+		face_hair[you]=0&tit_hair_can[you]=0&tit_hair[you]=0&leg_hair_can[you]=5&leg_hair[you]=0&hlong[you]=30&hcol[you]=3
+		mus[you]=400&fat[you]=300&skin[you]=3
+		$nick[you]='Ваше изначальное тело'
+	end}
+	'Выберите имя и фамилию'
+    act'Написать имя':
+		 cls
+		 $name[you]=input("Введите имя")
+         if $name[you]='' or $name[you]=' ':
+             if pol=0:gs'ru_man_name'&$name[you]=$genname
+             if pol=1:gs'ru_woman_name'&$name[you]=$genname
+         end
+         $surname[you]=input("Введите фамилию")&if $surname[you]='' or $surname[you]=' ':gs'ru_surname'&$surname[you]=$iif(pol=0,$gensurname,$gensurname_f)
+		'<<$name[you]>> <<$surname[you]>>'
+		 act'Не верно':gt $curloc
+		 act'Верно':
+			kre=2
+			if pol=0:rost[you]=rand(160,190)
+			if pol=1:rost[you]=rand(155,170)
+			gt $curloc
+        end
+     end
+end
+if kre=2:
+	 '<<$name[you]>> <<$surname[you]>>'
+	 if pol=0:'Мужской пол'&'<center><img src="pic/misc/rostman.jpg"></center>'
+	 if pol=1:'Женский пол'&'<center><img src="pic/misc/rostwoman.jpg"></center>'
+	 'Рост <<rost[you]>> см'
+	 if rost[you]<205:act'Увеличить на 1см':rost[you]+=1&gt $curloc
+	 if rost[you]<200:act'Увеличить на 5см':rost[you]+=5&gt $curloc
+	 if rost[you]>160:act'Уменьшить на 1см':rost[you]-=1&gt $curloc
+	 if rost[you]>165:act'Уменьшить на 5см':rost[you]-=5&gt $curloc
+	 act'Подтвердить рост':kre=3&gt $curloc
+end
+if kre=3:
+	 '<<$name[you]>> <<$surname[you]>>'
+	 if pol=0:'Мужской пол'&$mw = 'man'
+	 if pol=1:'Женский пол'&$mw = 'woman'
+ 	 'Рост <<rost[you]>> см'&mus[you]=400&fat[you]=300&'<center><img src="pic/misc/old<<$mw>>.jpg"></center>'
+     act'Ввод возраста':
+		 cls&age[you]=input("Введите возраст")
+         if age[you]<18:age[you]=18
+         if age[you]>60:age[you]=60
+		 if age[you]='': age[you]=20
+		 kre=4&gt $curloc
+     end
+end
+if kre=4:
+	gs'body'
+	'<<$name[you]>> <<$surname[you]>>'
+	'<<$opis[you]>>'&*nl
+	'<<mus[you]>>'
+	'<<fat[you]>>'
+     if dick[you]>1:
+         if mus[you]<4000:'<a href="exec:mus[you]+=100&gt $curloc">Увеличить мышцы</a>'
+         if fat[you]<6000:'<a href="exec:fat[you]+=100&gt $curloc">Увеличить жир</a>'
+     else
+         if mus[you]<2000:'<a href="exec:mus[you]+=100&gt $curloc">Увеличить мышцы</a>'
+         if fat[you]<6000:'<a href="exec:fat[you]+=100&gt $curloc">Увеличить жир</a>'
+     end
+    if mus[you]>500:'<a href="exec:mus[you]-=100&gt $curloc">Уменьшить мышцы</a>'
+    if fat[you]>500:'<a href="exec:fat[you]-=100&gt $curloc">Уменьшить жир</a>'&*nl
+	 if scull[you]>0:'<a href="exec:scull[you]=0&gt $curloc">Обыкновенные скулы</a>'
+	 if cheeks[you]>0:'<a href="exec:cheeks[you]=0&gt $curloc">Обыкновенные щеки</a>'
+	 if scull[you]=0:'<a href="exec:scull[you]=1&gt $curloc">Широкие скулы</a>'
+	 if cheeks[you]=0:'<a href="exec:cheeks[you]=1&gt $curloc">Пухлые щеки</a>'&*nl
+     if skin[you]!0:'<a href="exec:skin[you]=0&gt $curloc">Белая кожа</a>'
+     if skin[you]!1:'<a href="exec:skin[you]=1&gt $curloc">Светлая кожа</a>'
+     if skin[you]!2:'<a href="exec:skin[you]=2&gt $curloc">Загорелая кожа</a>'
+     if skin[you]!3:'<a href="exec:skin[you]=3&gt $curloc">Смуглая кожа</a>'&*nl
+     !if skin[you]!4:'<a href="exec:skin[you]=4&gt $curloc">Шоколадная кожа</a>'
+     !if skin[you]!5:'<a href="exec:skin[you]=5&gt $curloc">Тёмная кожа</a>'
+     !if skin[you]!6:'<a href="exec:skin[you]=6&gt $curloc">Чёрная кожа</a>'
+     if hcol[you]!0:'<a href="exec:hcol[you]=0&gt $curloc">Черные волосы</a>'
+     if hcol[you]!1:'<a href="exec:hcol[you]=1&gt $curloc">Русые волосы</a>'
+     if hcol[you]!2:'<a href="exec:hcol[you]=2&gt $curloc">Рыжие волосы</a>'
+     if hcol[you]!3:'<a href="exec:hcol[you]=3&gt $curloc">Светлые волосы</a>'&*nl
+     !if hcol[you]!4:'<a href="exec:hcol[you]=4&gt $curloc">Синие волосы</a>'
+     !if hcol[you]!5:'<a href="exec:hcol[you]=5&gt $curloc">Красные волосы</a>'
+     !if hcol[you]!6:'<a href="exec:hcol[you]=6&gt $curloc">Белые волосы</a>'&*nl
+     if glacol[you]!0:'<a href="exec:glacol[you]=0&gt $curloc">Черные глаза</a>'
+     if glacol[you]!1:'<a href="exec:glacol[you]=1&gt $curloc">Карие глаза</a>'
+     if glacol[you]!2:'<a href="exec:glacol[you]=2&gt $curloc">Серые глаза</a>'
+     if glacol[you]!3:'<a href="exec:glacol[you]=3&gt $curloc">Зеленые глаза</a>'
+     if glacol[you]!4:'<a href="exec:glacol[you]=4&gt $curloc">Голубые глаза</a>'&*nl
+     if gla[you]!0:'<a href="exec:gla[you]=0&gt $curloc">Стандартный размер глаз</a>'
+     if gla[you]=0:'<a href="exec:gla[you]=1&gt $curloc">Маленькие глаза</a>'
+     if gla[you]=0:'<a href="exec:gla[you]=2&gt $curloc">Раскосые глаза</a>'
+     if gla[you]=0:'<a href="exec:gla[you]=3&gt $curloc">Большие глаза</a>'&*nl
+     if nose[you]!0:'<a href="exec:nose[you]=0&gt $curloc">Обыкновенный нос</a>'
+     if nose[you]!1:'<a href="exec:nose[you]=1&gt $curloc">Маленький вздернутый носик</a>'
+     if nose[you]!2:'<a href="exec:nose[you]=2&gt $curloc">Утонченный, аристократический нос</a>'
+     if nose[you]!3:'<a href="exec:nose[you]=3&gt $curloc">Широкий нос</a>'
+     if nose[you]!4:'<a href="exec:nose[you]=4&gt $curloc">Горбатый нос</a>'&*nl
+     if lips[you]!0:'<a href="exec:lips[you]=0&gt $curloc">Обыкновенные губы</a>'
+     if lips[you]!1:'<a href="exec:lips[you]=1&gt $curloc">Пухленькие губы</a>'
+     if lips[you]!2:'<a href="exec:lips[you]=2&gt $curloc">Толстые губы</a>'
+     if lips[you]!3:'<a href="exec:lips[you]=3&gt $curloc,''cheat''">Огромные губы, похожие на букву О</a>'
+     horny[you]=50
+     if dick[you]>1:
+         if dick[you]<25:act'Увеличить член':dick[you]+=1&gt $curloc
+         if dick[you]>8:act'Уменьшить член':dick[you]-=1&gt $curloc
+         if dickd[you]<45:act'Член толще':dickd[you]+=1&gt $curloc
+         if dickd[you]>30:act'Член тоньше':dickd[you]-=1&gt $curloc
+     else
+         if ass[you]<30:act'Увеличить попу':ass[you]+=1&gt $curloc
+         if ass[you]>20:act'Уменьшить попу':ass[you]-=1&gt $curloc
+         if tits[you]<22:act'Увеличить грудь':tits[you]+=1&gt $curloc
+         if tits[you]>=13:act'Уменьшить грудь':tits[you]-=1&gt $curloc
+     end
+     act'<b>Дальше</b>':horny[you]=0&kre=10&gt $curloc
+end
+if kre=10:
+	gs'init_d_view', you, 'd_view_mirr'&'<center><img src="<<$d_view_mirr>>" ></center>'
+    act'Установить фотку':face_pic[you]=input("Введите номер фотографии. Фотографию можно посмотреть в файлах игры.")&gt $curloc
+	if Gendersvapblock=0:
+		act'Включить гормональную смену пола (сейчас отключено)':Gendersvapblock=1&gt $curloc 
+	else
+		act'Отключить гормональную мену пола (сейчас включено)':Gendersvapblock=0&gt $curloc 	
+	end
+    act'<b>Начать</b>':kre=11&gt $curloc
+end
+if kre=11:
+	*nl&*nl&*nl&*nl&'Есть ли у вас таланты к магии?'
+     act'<b>Да, у меня определенно есть магические таланты</b>':kre=5&gt $curloc
+     act'<b>Я маггл, и это хардкор!</b>':souldar[you]=0&muggle[you]=1&kre=5&gt $curloc
+     act'<b>Хочу полегче, что бы уметь драться и сохраняться везде</b>':
+		 fight_skill[you]=100&shoot_skill[you]=100
+		 reflex[you]+=20
+		 !saverules=1
+		 kre=5&gt $curloc
+     end
+     if pol[you]=1: 
+		act'<b>Да, я Суккуба</b>':
+			face_pic[you]=101
+			face[you]=100&gla[you]=3&glacol[you]=4&nose[you]=1&cheeks[you]=1&!Лицо
+			if lips[you]<1:lips[you]=1
+			oral_fixation[you]=25&anal_fixation[you]=25&!Сексуальный опыт
+			ass[you]=20&nip[you]=25&tits[you]=13&!Половые признаки
+			anus[you]=25&vag[you]=30&throat[you]=20&!Отверстия
+			cunthair[you]=0&hcol[you]=3&!Волосы
+			mus[you]=400&fat[you]=300&skin[you]=3&!Тело
+			demon_dick[you]=1&!'особенности Суккубы'
+			 t_slot[you]=33&l_slot[you]=51&b_slot[you]=25
+			 ut_slot[you]=10&ul_slot[you]=20&ub_slot[you]=7
+			kre=5&gt $curloc
+		end 
+     end
+     if pol[you]=0: 
+		act'<b>Да, я Инкуб</b>':kre=5&demon_dick[you]=1&gt $curloc
+     end
+     'Кто вы и что вы делаете?'
+     act'<b>Обыкновенный человек, как и большинство. Вот, иду через сквер, а что, нельзя?</b>':kre=5&gt $curloc
+     act'<b>Ну, я хулиган, не люблю быть как все. Вот, иду через сквер, а чего бы и нет?</b>':
+		 fight_skill[you]=60&reflex[you]=45&soulpower[you]=10&ramsskill[you]=100
+		 if pol[you]=0:
+			 t_slot[you]=84&l_slot[you]=58&b_slot[you]=33
+			 ut_slot[you]=0&ul_slot[you]=5&ub_slot[you]=0	 
+		 else
+			 t_slot[you]=85&l_slot[you]=59&b_slot[you]=33
+			 ut_slot[you]=1&ul_slot[you]=rand(1,4)&ub_slot[you]=0
+		 end
+		 kre=5&gt $curloc
+     end
+     act'<b>Кадровый военный, иду с очередного рабочего дня в увольнительную.</b>':
+		 fight_skill[you]=90&reflex[you]=65&soulpower[you]=20
+		 if pol[you]=0:
+			 if mus[you]<2000: mus[you]=2000
+			 if fat[you]>1800: fat[you]=1800
+			 t_slot[you]=4&l_slot[you]=55&b_slot[you]=33
+			 ut_slot[you]=0&ul_slot[you]=5&ub_slot[you]=0
+		 else
+			 if mus[you]<1800: mus[you]=1800
+			 if fat[you]>1400: fat[you]=1400
+			 t_slot[you]=30&l_slot[you]=24&b_slot[you]=33
+			 ut_slot[you]=2&ul_slot[you]=2&ub_slot[you]=0
+		 end
+		 kre=5&gt $curloc
+     end
+     $inzr = 'Да я просто местный извращенец, гуляю по парку, смотрю на людей, фантазирую...'
+     if pol[you]=1:$inzr = 'Да я просто местная блядь, гуляю по парку, смотрю на людей, фантазирую...'
+     act'<b><<$inzr>></b>':
+		 reflex[you]=20&lust[you]=50&corr[you]=50&horny[you]=100
+		 if pol[you]=0:
+			 t_slot[you]=70&l_slot[you]=rand(1,3)&b_slot[you]=33
+			 ut_slot[you]=0&ul_slot[you]=6&ub_slot[you]=rand(0,9)
+			 face[you]=60&ball[you]+=3&anus[you]=rand(5,15)&throat[you]=rand(10,20)&womenbrain[you]+=rand(20,35)
+		 else
+			 t_slot[you]=rand(31,33)&l_slot[you]=rand(44,51)&b_slot[you]=rand(18,20)
+			 ut_slot[you]=rand(8,10)&ul_slot[you]=rand(18,20)&ub_slot[you]=7
+			 cunthair[you]=0
+			 anus[you]=rand(15,25)&throat[you]=rand(10,20)
+			 vag[you]=rand(10,30)
+			 if lips[you]<1:lips[you]=1
+		 end
+		 kre=5&gt $curloc
+     end
+    act'<b>Я варвар</b>':
+		gs'item_base'
+     	if pol[you]=0:
+			 t_slot[you]=11&l_slot[you]=8&b_slot[you]=6
+			 ut_slot[you]=0&ul_slot[you]=5&ub_slot[you]=0
+		else
+			 t_slot[you]=11&l_slot[you]=8&b_slot[you]=6
+			 ut_slot[you]=rand(1,3)&ul_slot[you]=rand(1,4)&ub_slot[you]=rand(1,5)
+		end
+		 m_slot[you]=27&$item_m_name[27]=$item_text[27]&uron_weapon_m[you]=uron_m_item[27]&eatitem=9
+		 w_slot[you]=eatitem&$item_w_name[eatitem]=$item_text[eatitem]&uron_weapon_w[you]=uron_w_item[eatitem]&
+		 w_patron_max[you]=item_w_patron_max[eatitem]&w_patrontipe[you]=item_w_patrontipe[eatitem]&weapon_tipe=1&w_patron_load[you]=w_patron_max[you]&item[10]=8*2
+		 kre=5&gt $curloc
+     end
+    'Вы точно хотите режим бога?'&*nl'Сделано для разработчиков и тех, у кого мало времени.'&*nl'Чтобы хоть куда-то добраться, надо хоть раз пройти игру или тыкаться в надежде ткнуть куда надо.'
+     act'<b>Я аватар богини луны</b>':
+		lvl[i]=100
+		master[you]=1&magik[you]=24&fight_skill[you]=50000&soulpower[you]=50000&shoot_skill[you]=50000&!Навыки
+		soul[you]=100000&souldar[you]=1
+		vital[you]=50000&will[you]=50000&reflex[you]=50000&!Состояние
+		healthmax[you]=50000&health[you]=healthmax[you]&manamax[you]=50000&mana[you]=manamax[you]&energymax[you]=50000&energy[you]=energymax[you]
+		l_ring[you]=147&amulet[you]=135&m_slot[you]=25&! Прикид
+		t_slot[i]=4&l_slot[i]=5&b_slot[i]=3&
+		ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&! Прикид конец
+		dom[i]=100&!Характер
+		money[you]=20000000&saverules=1&!Активы и недвижимость!X[you]=3&Y[you]=3&Z[you]=0&H[you]=1&R[you]=0! 
+		 kre=5&gt $curloc
+     end
+     !'act'<b>Полицейский, да я предпочитаю легкий режим</b>':
+		gs'item_base'
+     	if pol[you]=0:
+			 t_slot[you]=11&l_slot[you]=8&b_slot[you]=6
+			 ut_slot[you]=0&ul_slot[you]=5&ub_slot[you]=0
+		else
+			 t_slot[you]=11&l_slot[you]=8&b_slot[you]=6
+			 ut_slot[you]=rand(1,3)&ul_slot[you]=rand(1,4)&ub_slot[you]=rand(1,5)
+		end
+		 m_slot[you]=27&$item_m_name[27]=$item_text[27]&uron_weapon_m[you]=uron_m_item[27]&eatitem=9
+		 w_slot[you]=eatitem&$item_w_name[eatitem]=$item_text[eatitem]&uron_weapon_w[you]=uron_w_item[eatitem]
+		 w_patron_max[you]=item_w_patron_max[eatitem]&w_patrontipe[you]=item_w_patrontipe[eatitem]&weapon_tipe=1&w_patron_load[you]=w_patron_max[you]&item[10]=8*2
+		kre=5&gt $curloc
+     end'
+    'Опции игры'
+    if saverules=0:'В игре только автоматические сохранения и сохранения возле кроватей.'&act'Разрешить везде сохраняться':saverules=1&gt $curloc
+	if saverules=1:'В игре разрешено сохраняться везде, это провоцирует сэйводроч и это плохо.'&act'Ввести автоматические сохранения':saverules=0&gt $curloc
+    if peeblock=1:'Фетиш золотого дождя заблокирован'&act'Разрешить золотой дождь':peeblock=0&gt $curloc
+	if peeblock=0:'Фетиш золотого дождя разрешен'&act'Запретить золотой дождь':peeblock=1&gt $curloc
+	if canagromob=0:'Агрессивные мобы генерируются на старте игры.'&act'Выключить агрессивных мобов':canagromob=1&gt $curloc
+	if canagromob=1:'Агрессивные мобы выключены из генерации. Игра будет просто симулятором ходьбы'&act'Включить агрессивных мобов':&canagromob=0&gt $curloc
+	!if canspawnmob=1:'Спавн мобов отключен и сложность игры из за этого будет минимальна.'&act'Включить спавн мобов':canspawnmob=0&gt $curloc
+	if wantblackcockON=0:act'Разрешить неграм из bbc делать шлюх':wantblackcockON=1&gt $curloc
+	if wantblackcockON=1:act'Запретить неграм из bbc делать шлюх':wantblackcockON=0&gt $curloc
+	if add_soul_pick=0:act'Разбросать души по маестату':add_soul_pick=1&gt $curloc
+end
+if kre=5:
+	gs'body'
+	'<<$name[you]>> <<$surname[you]>>'
+	'<<$opis[you]>>'&!gs'body'
+	health[you]=healthmax[you]&mana[you]=manamax[you]&mana[you]=0&energy[you]=energymax[you]
+	SHOWSTAT 1&SHOWOBJS 1
+	addobj'Персонаж'&addobj'Характеристики'&addobj'Статистика'&addobj'Инвентарь'&addobj'Журнал'&addobj'Обновить'&addobj'Аварийка'&!addobj'Настройки'
+	horny[you]=0
+	npcmaxnum=1
+	gs'100_paradise_gen'&gs'7777_moon_gen'&!Реальный мир, пляж, луна
+	gs'1_nord_gen'&gs'2_nord_east_gen'&gs'3_river_gen'&gs'4_suid_west_gen'&gs'5_suid_gen'&!Город
+	if add_soul_pick=1:gs'add_soul'&killvar('add_soul_pick')
+    if master[you]>99:X[you]=3&Y[you]=3&Z[you]=200&H[you]=1&R[you]=0&gs'200_world_gen'&gt'world'
+	if master[you]=0:
+		 if face_pic[you]=0:face_pic[you]=7
+	     if t_slot[you]=0:
+			 if pol[you]=0:
+				 t_slot[you]=rand(1,10)&l_slot[you]=rand(1,7)& b_slot[you]=rand(1,6)
+				 ut_slot[you]=0&ul_slot[you]=5&ub_slot[you]=0
+			 else
+				 t_slot[you]=15&l_slot[you]=26&b_slot[you]=13
+				 ut_slot[you]=1&ul_slot[you]=1&ub_slot[you]=0
+			 end
+	     end
+		 item[26]=1
+		 CLOSE ALL&music_on = 0&$music_theme = 'start'&!close "sound/FPG_-_Plemya.mp3"\
+		 gt'prestory'
+	 end
+end
+if kre=0:act'<b>[<font color="green">&#11166;</font> НАСТРОЙКИ <font color="green">&#11164;</font>]</b>':CONFIG['IN_START_SCREEN'] = 1 & gt'settings' 

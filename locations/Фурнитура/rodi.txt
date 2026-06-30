@@ -1,0 +1,42 @@
+﻿if inseminate[you]>0:
+	milking[you]+=240&saggy[you]+=1&gs'stat'&'<center><video src="pic/event/rodi.webm" ></video></center>'
+	'У вас начались схватки и вскоре отошли воды, из вашей вагины потекла жидкость, и вы стали стонать от сильной боли.'
+	if lebeda_head[you]=1:gt'lebeda_res'
+	ass[you]+=1&vag[you]+=15&!vag[you]+=5
+	feminize[you]+=iif(face[you]<=50,rand(15,25),rand(5,10))
+	tits[you]+=3&ass[you]+=rand(1,2)&!ass[you]+=rand(1,3)
+	if dick[you]>5:dick[you]-=1
+	if dickd[you]>25:dickd[you]-=1
+	face[you]+=rand(1,5)
+	if fat[you]>1000:fat[you]-=5&!if fat[you]>1000:fat[you]-=5
+	if fat[you]>1500:fat[you]-=10&!if fat[you]>1500:fat[you]-=5
+	if fat[you]>2000:fat[you]-=15&!if fat[you]>2000:fat[you]-=5
+	if fat[you]>2500:fat[you]-=25&!if fat[you]>2500:fat[you]-=5
+!"	X=X[you]&Y=Y[you]&Z=Z[you]
+	i=inseminate[you]
+	if mob[i]>0:
+		 if skin[i]<4:
+			 face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+			 ass[i]=2&vag[i]=0&tit[i]=0&nip[i]=8&hlong[i]=10&hcol[i]=rand(0,3)&rost[i]=rand(165,195)&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)
+		 else
+			 face_pic[i]=rand(70001,70029)&face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+			 ass[i]=2&vag[i]=0&tit[i]=0&nip[i]=8&hlong[i]=10&hcol[i]=0&rost[i]=rand(165,195)&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)&skin[i]=rand(4,6)
+		 end
+	end"
+	gs'child_gen',you&$nick[i]='Ваш ребенок'&'Вскоре из вашей вагины показалась голова ребенка, затем еще потужась вы родили крепенького малыша.'
+	 if soul[you]<100:gs'soulcraft',100&dead[i]=2&'Законы этого мира неумолимы и душа ребенка должна образоваться из вашей души, а вашей души не хватает даже вам. Ребенок умирает прямо на ваших руках.'
+	inseminate[you]=0&pregnant_day[you]=0&contact[i]=you&my_contact[]=i
+	act'Рассмотреть ребенка':
+		cls
+		if pol[i]>0:'Это девочка'&gs'ru_woman_name'&$name[i]=$genname
+		if pol[i]=0:'Это мальчик'&gs'ru_man_name'&$name[i]=$genname
+		if skin[i]>3 and skin[i]<7:'У вашего малыша черная кожа'
+		act'Дать имя':
+			cls&$name[i]=input("Дайте имя малышу")&!$nick[i]='<<$name[i]>> <<$surname[i]>>'&$fullname[i]='<<$name[i]>> <<$surname[i]>>'
+			if $name[i]='':$name[i]='Женя'
+			if pol[i]>0:'Это девочка по имени <<$name[i]>>'
+			if pol[i]=0:'Это мальчик по имени <<$name[i]>>'
+			npc=i&act'Принять имя':gt 'npc'&!child[you]+=1
+		end
+	end
+end

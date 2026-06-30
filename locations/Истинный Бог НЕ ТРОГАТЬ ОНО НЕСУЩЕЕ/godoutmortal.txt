@@ -1,0 +1,2 @@
+﻿!Фиксируем последние координаты в отдельным массиве, чтобы не было пересечения с аналогичными переменным в других локациях          !идём дальше
+lastpos=1&lastcoorX[lastpos]=X[you]&lastcoorY[lastpos]=Y[you]&lastcoorZ[lastpos]=Z[you]&lastcoorH[lastpos]=H[you]&lastcoorR[lastpos]=R[you]&gt 'godoutofendlesspower'

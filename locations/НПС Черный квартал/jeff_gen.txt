@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&jeff=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&magik[i]=5
+spec_face_pic[i]=5&face_pic[i]=38&!присвоение фотки
+$title[i]=''&$history[i]='Я бармен, в свое время мне очень крепко помог с этим баром мистер Брокк и я благодарен ему за это.'
+$name[i]='Джефф'&$surname[i]='Тауэрс'&$nick[i]+='Огромный негр бармен'
+face[i]=rand(0,40)&hcol[i]=0&gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+dick[i]=rand(18,30)&dickd[i]=rand(40,55)&ball[i]=rand(70,100)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
+rost[i]=196&fat[i]=3000&mus[i]=3000&skin[i]=rand(4,6)
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=0
+age[i]=iif(preage>0,preage,28)&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(50,70)
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=2&lust[i]=100&!характер
+	 girl[i]+=100&avagsex[i]+=100&aanal[i]+=100&abj[i]+=100
+pre_class=2&class[i]=pre_class
+t_slot[i]=3&l_slot[i]=1&b_slot[i]=2
+ul_slot[i]=5
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+ne_world[]=i&walkprog[i]=37

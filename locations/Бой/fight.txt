@@ -1,0 +1,390 @@
+﻿if portal_defV>0:portal_defV-=1
+if portal_def>0:portal_def-=1
+if cooldown_frbr>0:cooldown_frbr-=1
+if necromancer=npc and stunV>0:stunV=0
+if godhand_defV>0:
+	defenceV=100500&	sfera_psihV=1000&	firedefV=50000&	godhand_defV-=1
+     if godhand_defV<=0:godhand_defV=0&defenceV=0&sfera_psihV=0&firedefV=0
+end
+if godhand_def>0:
+	sfera_fiz=100500&sfera_psih=1000&	firedef=50000&	godhand_def-=1
+     if godhand_def<=0:godhand_def=0&sfera_fiz=0&sfera_psih=0&firedef=0
+end
+if infinitmana[npc]>0:mana[npc]=manamax[npc]
+if immortal[npc]=1:health[npc]=healthmax[npc]
+if cooldown_prth>0:cooldown_prth-=1
+if cooldown_trth>0:cooldown_trth-=1
+if autoloss=1:autoloss=0&health[you]=0
+if regenerator=1:
+     if health[you]<healthmax[you] and health[you]>0:
+     needhealth=healthmax[you]-health[you]
+         if needhealth<=mana[you]:
+			 mana[you]-=needhealth&health[you]=healthmax[you]&'Вы регенерируете'
+         else
+			 regenerator=0&'Обкаст регенерации спадает с вас'
+         end
+     end
+end
+if regeneratorV=1:
+     if health[npc]<healthmax[npc] and health[npc]>0:
+     needhealthV=healthmax[npc]-health[npc]
+         if needhealthV<=mana[npc]:
+			 mana[npc]-=needhealthV&health[npc]=healthmax[npc]&'Противник регенерирует'
+         else
+			 regeneratorV=0&'Обкаст регенерации спадает с противника'
+         end
+     end
+end
+if regenerator_manaV>0:mana[npc]+=regenerator_manaV&'Противник восстанавливает <<regenerator_manaV>> едениц маны'
+if nostunnerV>0:stunV=0
+anticlonV=0&anticlon=0&proboyV=0&proboy=0&gs'stat'
+if waterdeep[npc]>0:'Вода из тысяч маленьких порталов собирается в сферу вокруг вас и противника'
+if itsrainingday['<<$loc[you]>>']>=time and H[you]=0:status_tipe[you]=1&status_time[you]=time+120&'Идет дождь'
+if round>=10 and antey=npc and afterBogartQW>=4:gt'deathofantey'
+if health[npc]<=0 and falselife[npc]>0:gt'falselife'
+if health[you]<=0 and falselife[you]>0:gt'falselife_gg'
+if health[npc]<=0 and lebedalife[npc]>0:gt'falselife_green'
+if blackrunepower[you]>=1 and health[you]<=0:gt'brp_loss'
+if health[npc]<=0:gt'win'
+if health[you]<=0:gt'loss'
+if horny[you]>=100:gt'loss'
+if demon_slave[you]>=1 and subbdsmwant[you]=0:health[you]+=3*(1+fullpierce[you])&energy[you]+=3*(1+fullpierce[you])&mana[you]+=5*(1+fullpierce[you])&'Клеймо рабыни демонов восстанавливает ваши силы'
+if restrikt=1 and pose[you]=1:pose[you]=3
+if h_slot[you]=4000 and defence_you<=0:h_slot[you]=0&health[you]=healthmax[you]&energy[you]=energymax[you]&mana[you]=manamax[you]&'<b>Маска лисы разбивается от удара</b>'
+if mana[npc]<0:mana[npc]=0
+     if mob[npc]=0:
+		 if $title[npc]='' and $surname[npc]='':'<b><<$name[npc]>></b>'
+		 if $title[npc]!'' and $surname[npc]='':'<b><<$title[npc]>> <<$name[npc]>></b>'
+		 if $title[npc]='' and $surname[npc]!'':'<b><<$name[npc]>> <<$surname[npc]>></b>'
+		 if $title[npc]!'' and $surname[npc]!'':'<b><<$title[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
+     end
+	if mob[npc]>0:'<b><<$nick[npc]>></b>'&!if mob[npc]=0:'<b><<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
+	gs'gen_d_view'&!вывод картинки второстепенных НПС и мобов
+	 if npc=brokk:$d_view='pic/misc/exo.jpg'
+	 '<center><img src="<<$d_view>>" ></center>'&*nl
+	'Жизнь <<health[npc]>>/<<healthmax[npc]>>'&if health[npc]>0:$func ('scale.table',health[npc],healthmax[npc])
+	'Энергия <<energy[npc]>>/<<energymax[npc]>>'&$func ('scale.energy',energy[npc],energymax[npc])
+	if manamax[npc]>0:'Мана <<mana[npc]>>/<<manamax[npc]>>'&$func ('scale.mana',mana[npc],manamax[npc])
+	if defenceV>0:'У противника <<defenceV>> единиц защиты'
+	if sfera_psihV>0:'У противника <<sfera_psihV>> единиц психической защиты'
+	if firedefV>0:'У противника <<firedefV>> единиц огненной защиты'
+	if storm_shildV>0:'Вокруг противника кружится вихрь <<storm_shildV>> едениц'
+	if godhand_defV>0:'<b><<$name[npc]>> находится внутри полупрозрачной ладони сжатой в кулак </b>'
+	if newFS=1:
+	if UronV<=0:
+		'Сила удара противника неизвестна в начале боя'
+	else
+		'Сила удара противника от <<minuronV>> до <<maxuronV>>'
+	end
+else
+	if minuronV<=0:minuronV=10
+	if minuronV>=maxuronV:maxuronV=minuronV*2
+	'Сила удара противника от <<minuronV>> до <<maxuronV>>'
+end
+if stunV>0:'Противник оглушен'&*nl&*nl
+'<<$name[you]>> <<$surname[you]>>'
+'Жизнь <<health[you]>>/<<healthmax[you]>>'&$func ('scale.table',health[you],healthmax[you])
+'Энергия <<energy[you]>>/<<energymax[you]>>'&$func ('scale.energy',energy[you],energymax[you])
+if manamax[you]>0:'Мана <<mana[you]>>/<<manamax[you]>>'&$func ('scale.mana',mana[you],manamax[you])
+if horny[you]>0:'<<horny[you]>> ваша похоть'
+if sfera_fiz>0:'Сфера обеспечивает вам <<sfera_fiz>> единиц защиты'
+if defence_you>0:'У вас <<defence_you>> единиц физической защиты'
+if sfera_psih>0:'У вас <<sfera_psih>> единиц психической защиты'
+!if firedef>0:'У вас <<firedef>> единиц защиты от огня'
+if fire_defence[you]>0:'У вас <<fire_defence[you]>> единиц защиты от огня'
+if sfera_antigrav>0:'У вас <<sfera_antigrav>> единиц антигравитационной защиты'
+if storm_shild>0:'Вокруг вас кружится вихрь <<storm_shild>> едениц'
+if falselife[you]>0:'Заклинание ложной жизни может спасти вас от смерти <<falselife[you]>> раз'
+if godhand_def>0:'<b>Вас защищает божественная длань</b>'
+if clon>0:'У вас <<clon>> клон отвлекающий противника'
+if firstfoll>0:'<b><<$nick[firstfoll]>> <<$name[firstfoll]>> <<$surname[firstfoll]>></b> следует за вами'&firsturonfoll=rand(minuron[firstfoll],maxuron[firstfoll])
+if secfoll>0:'<b><<$nick[secfoll]>> <<$name[secfoll]>> <<$surname[secfoll]>></b> следует за вами'&securonfoll=rand(minuron[secfoll],maxuron[secfoll])
+if threfoll>0:'<b><<$nick[threfoll]>> <<$name[threfoll]>> <<$surname[threfoll]>></b> следует за вами'&threuronfoll=rand(minuron[threfoll],maxuron[threfoll])
+if follower[you]!0 and (Z[you]=770 or Z[you]=404):foll=follower[you]&'<b><<$nick[foll]>> <<$name[foll]>> <<$surname[foll]>></b> следует за вами'&uronfoll=rand(minuron[foll],maxuron[foll])
+if w_slot[you]>0:
+	wslot=w_slot[you]&'Оружие дальнего боя. <<$item_w_name[wslot]>> Урон <<uron_weapon_w[you]>>'
+     if weapon_tipe=1:
+		'Патроны <<w_patron_load[you]>>/<<w_patron_max[you]>>'
+		 if w_patron_load[you]<w_patron_max[you]:
+			 needpatron=w_patron_max[you]-w_patron_load[you]&patrontipe=w_patrontipe[you]
+			 if item[patrontipe]>0:
+				'У вас <<item[patrontipe]>> патронов в запасе'
+			 else
+				'У вас нет патронов для вашего оружия'
+			 end
+		 end
+     end
+end
+if m_slot[you]>0:mslot=m_slot[you]&'Оружие ближнего боя. <<$item_m_name[mslot]>> Урон <<uron_weapon_m[you]>>'
+if pose[you]=1:'Вы на ногах'
+if pose[you]>1:'Вы лежите на земле'
+if uskor>0:'Еще <<uskor>> раунд у вас не человеческая скорость'
+if hod=0:
+	 if godoutofendless[you]=1:act'Воплотиться в истинного бога':gt 'godfight'&!Создаём действие под божество, в будущем через аналогичное действие можно будет реализовать кастомные скиллы
+     if energy[you]>=5 and pose[you]=1:
+	     if restrikt=0:
+			 act'Ударить':
+				 hod=1&energy[you]-=5&energy[you]-=iif(nip_p[you]=1,1,iif(nip_p[you]=2,5,iif(nip_p[you]=3,10,0)))
+				 if vag_pirs[you]=1:energy[you]-=1
+				 if vag_pirs[you]=2:energy[you]-=5
+				 if vag_pirs[you]=3:energy[you]-=10
+				 if vag_pirs[you]=4:energy[you]-=7
+				 if m_slot[you]=99:energy[you]+=20
+				 gt 'punch'
+			 end
+			 if energy[you]>=20 and sword_skill[you]>0:
+			 	 act'Мощный удар':
+					 hod=1&energy[you]-=20&energy[you]-=iif(nip_p[you]=1,1,iif(nip_p[you]=2,5,iif(nip_p[you]=3,10,0)))
+					 if vag_pirs[you]=1:energy[you]-=1
+					 if vag_pirs[you]=2:energy[you]-=5
+					 if vag_pirs[you]=3:energy[you]-=10
+					 if vag_pirs[you]=4:energy[you]-=7
+					 if m_slot[you]=99:energy[you]+=20
+					 gt 'strongpunch'
+				 end
+			 end
+			 if borba_skill[you]>0 and defenceV=0 and brosoktime[you]!time and portal_defV=0:
+			 	 act'Выполнить бросок':
+					 hod=1&brosoktime[you]=time&energy[you]-=iif(nip_p[you]=1,1,iif(nip_p[you]=2,5,iif(nip_p[you]=3,10,0)))
+					 if vag_pirs[you]=1:energy[you]-=1
+					 if vag_pirs[you]=2:energy[you]-=5
+					 if vag_pirs[you]=3:energy[you]-=10
+					 if vag_pirs[you]=4:energy[you]-=7
+					 if m_slot[you]=99:energy[you]+=20
+					 gt 'brosok'
+				 end
+			 end
+			 if w_slot[you]>0:
+				www=w_slot[you]
+				 if weapon_tipe=1:
+					 if w_patron_load[you]>0:act'Выстрелить':hod=1&gt'schoot'
+					 if w_patron_load[you]=0:act'Перезарядить':hod=1&gs'reload_fight'&gt $curloc
+				 end
+			 end
+			 if Ring_Ancient_God[you]>0:act'Применить Древнее Кольцо':hod=1&gt'Ring_Ancient_God'
+			 if shoker[you]>0:
+			     if shokertime[you]=time:
+					'Кольцо шокер перезаряжается'
+			     else
+					 act'Применить кольцо шокер':hod=1&shokertime[you]=time&gt'shoker'
+			     end
+			 end
+			 if m_slot[you]=25:
+			     if H[you]=0 and hour>=7 and hour<=19 and light_sfera_time<time:
+					 act'Свет защити меня!':cls&light_sfera_time=time+60&hod=1&sfera_fiz=100&gt $curloc
+					 act'Свет даруй мне силы!':light_sfera_time=time+60&hod=1&health[you]=healthmax[you]&energy[you]=energyMax[you]&gt $curloc
+			     end
+			 end
+			 if Tsukuyomi[you]>0 and  magik[you]>1:act'Чтение луны (1 канал магии)':cls&hod=1&magik[you]-=1&in_Tsukuyomi[npc]=health[npc]&gt $curloc
+			 if mlev[you]>=2 and mana[you]>=25:act'Пресс 25 маны':cls&hod=1&gs'stat'&gt'press'
+			 if mlev[you]>=3:
+			     if mana[you]>=50 and sfera_round<=round:
+					 act'Сфера защиты 50 маны':cls&sfera_round=round+2&mana[you]-=50&hod=1&sfera_fiz=mlev[you]*100&sfera_psih=mlev[you]*20&fire_defence[you]=mlev[you]*20&gt $curloc
+			     end
+			     if mana[you]>=50 and sfera_round>round:'Вы пока не можете поставить сферу, умение откатывается'
+			 end
+			 if mlev[you]>=4:
+			 	 if soul[you]>100 and mlev[you]=4:act'Сжечь 100 ед души и получить 100 маны':cls&mana[you]+=100&soul[you]-=100&hod=1&gt $curloc
+			     if soul[you]>100 and mlev[you]=5:act'Сжечь 50 ед души и получить 100 маны':cls&mana[you]+=100&soul[you]-=50&hod=1&gt $curloc&!3
+			     if soul[you]>100 and mlev[you]=6:act'Сжечь 10 ед души и получить 100 маны':cls&mana[you]+=100&soul[you]-=10&hod=1&gt $curloc&!2
+			     if soul[you]>100 and mlev[you]=7:act'Сжечь 1 ед души и получить 100 маны':cls&mana[you]+=100&gs'soulcraft'&hod=1&gt $curloc&!1
+			     if soul[you]>100 and mlev[you]=8:act'Сжечь 1 ед души и получить 300 маны':cls&mana[you]+=300&gs'soulcraft'&hod=1&gt $curloc&!вне категорий
+			     if soul[you]>100 and mlev[you]>=9:act'Сжечь 1 ед души и получить 500 маны':cls&mana[you]+=500&gs'soulcraft'&hod=1&gt $curloc&!боженька
+			     if mana[you]>=100:
+			         if clon=0:act'Три клона 100 маны':hod=1&mana[you]-=100&clon+=3&gt $curloc
+					 act'Лезвия силы 100 маны':cls&hod=1&mana[you]-=100&gs'stat'&gt'windbullet'
+					 act'Передышка 100 маны':hod=1&mana[you]-=100&energy[you]+=50&gt $curloc
+					 act'Лечение 100 маны':hod=1&mana[you]-=100&health[you]+=50&gt $curloc
+			     end
+			 end
+			 if mlev[you]>=5:
+			     if mana[you]>=500 and cant_fight_run=0:act'Сбежать во мглу 500 маны':hod=1&mana[you]-=500&busy[you]=0&run[you]+=1&gt 'mgla'&!3
+			     if mana[you]>=200:
+					 act'Удар мглы 200 маны':hod=1&mana[you]-=200&cls&gs'stat'&gt'mistbullet'
+					 act'Хрустальный щит 200 маны':cls&mana[you]-=200&hod=1&sfera_fiz=mlev[you]*500&sfera_fiz+=iif(rock_spell[you]>0,magik[you]*20,0)&gt $curloc
+					 if regenerator=0:act'Регенератор':cls&hod=1&regenerator=1&gt $curloc
+			     end
+			 end
+			 if mlev[you]>=6:
+			     if mana[you]>=400:
+					 act'Защита разума 400 маны':cls&mana[you]-=400&hod=1&sfera_psih=mlev[you]*100&gt $curloc&!2
+					 !act'Защита от огня 400 маны':cls&mana[you]-=400&hod=1&fire_defence[you]=mlev[you]*100&gt $curloc
+					 act'Защита от гравитации 400 маны':cls&mana[you]-=400&hod=1&sfera_antigrav=mlev[you]*100&gt $curloc
+					 if uskor<=0:act'Ускорение 400 маны':cls&mana[you]-=400&hod=1&uskor+=iif(mlev[you]>=8,10,iif(mlev[you]>=7,5,iif(mlev[you]>=6,3,0)))&gt $curloc
+				 end
+				 if mana[you]>=100:
+					 act'Мглистый туман 100 маны':
+						 mana[you]-=100&hod=1&cls&gs'stat'
+					     if clonV=0:
+							'Мглистый туман накрывает все вокруг'
+					     else
+							clonV=0&'Мглистый туман накрывает все вокруг и клоны противника лопаются как мыльные пузыри'
+					     end
+					     if mgla_resist[npc]=0:
+							 if defenceV>0:
+								 if mlev[you]>=8:
+									defenceV=defenceV/10&'Мглистый туман разъедает защиту противника и ослабляет ее в десять раз'
+								 elseif mlev[you]=7:
+									defenceV=defenceV/4&'Мглистый туман разъедает защиту противника и ослабляет ее в четыре раза'
+								 else
+									defenceV=defenceV/2&'Мглистый туман разъедает защиту противника и ослабляет ее в двое'
+								 end
+							 end
+					     else
+							'Ваш туман не имеет никакого эффекта'
+					     end
+						act'...':gt $curloc
+					 end
+			     end
+			 end
+			 if mlev[you]>=7:
+			     if mana[you]>=800 and round>2 and cooldown_prth<=0:act'Удар пробивающей молнией 800 маны':cls&hod=1&mana[you]-=800&cooldown_prth=3&gs'stat'&gt'thunder_penetrator'&!1
+			     if mana[you]>=500 and storm_spell[you]>0:act'Раскрутить вокруг себя вихрь 500 маны':cls&hod=1&mana[you]-=500&hod=1&storm_shild+=magik[you]*10&gt $curloc
+			     if mana[you]>=100 and rock_spell[you]>0:act'Каменный молот 100 маны':hod=1&gt 'rockpunch'
+			     if mana[you]>=500 and water_spell[you]>0:act'Вызвать дождь 500 маны':cls&hod=1&mana[you]-=500&hod=1&itsrainingday['<<$loc[you]>>']=time+120&gt $curloc
+			     if soul[you]>100 and soul_spell[you]>0:
+			         if falselife[you]>0 and falselife_day[you]!daystart:act'Ложная жизнь 100 души':cls&falselife_day[you]=daystart&soul[you]-=100&hod=1&falselife[you]+=1&gt $curloc
+			     end
+			     if mana[you]>=100 and round>3 and cooldown_frbr<=0 and firebane_spell[you]>0:act'Плеть огня 100 маны':hod=1&mana[you]-=100&cooldown_frbr=3&cls&gs'stat'&gt'firestolb'
+			     if mana[you]>=100 and sfera_round<=round and sfera_fiz>0:
+					 act'Усилить сферу 100 маны':
+						 cls&sfera_round=round+2&mana[you]-=100&hod=1&sfera_fiz+=mlev[you]*100&if rock_spell[you]>0:sfera_fiz+=magik[you]*20
+						 sfera_psih+=mlev[you]*20&fire_defence[you]+=mlev[you]*20&gt $curloc
+					 end
+			     end
+			 end
+			 if mlev[you]>=8:
+			     if mana[you]>=1000 and round>3 and cooldown_trth<=0:act'Удар мульти молнией 1000 маны':hod=1&mana[you]-=1000&cooldown_trth=3&cls&gs'stat'&gt'triple_thunder_penetrator'&!HL
+			     if hlmanaday[you]!daystart:act'Восстановить ману (1 раз в день)':cls&hlmanaday[you]=daystart&mana[you]=manamax[you]&hod=1&gt $curloc
+			 end
+			 if mlev[you]>=9:
+			     if mana[you]>=2000:
+				!?!gof
+			     end
+			     act'Божественная затрещина':hod=1&gt 'godpunch'
+			 end
+			 if spore[you]>0:
+				'У вас <<spore[you]>> грибных спор в организме'
+			     act'Использовать спору, чтобы вылечиться':
+					 hod=1&spore[you]-=1&mutation[you]+=1&health[you]+=250&energy[you]+=250&cls&gs'stat'&'Вы подлечились использовав спору, но увеличили свою мутацию.'&act'...':gt $curloc
+				 end
+				 act'Грибной удар':hod=1&energy[you]-=10&spore[you]-=1&mutation[you]+=1&mushroom_udar=1&gt 'strongpunch'
+			 end
+			 if oncelovemarduk[npc]=0 and mardukpower_day[you]!daystart and mardukpower>0:
+				 act'<i>Сила Мардука</i>':
+					 cls&oncelovemarduk[npc]=1&mardukpower_day[you]=daystart
+				     if sfera_psihV=0:
+						hod=1&health[npc]=0&gt $curloc
+				     else
+						 hod=1&'Сила мардука отлетела от защиты'&act'...':gt $curloc
+				     end
+				 end
+			 end
+			 if soul[you]>rage_spell[you]*2 and rage_spell[you]>0 and ragetimes[you]<time:
+				 act'<i>Гнев</i> <<rage_spell[you]*2>> едениц души':
+					 ragetimes[you]=time+60&soul[you]-=rage_spell[you]*2&rage_spell[you]+=1
+					 mana[you]=manamax[you]&sfera_fiz+=mlev[you]*100&sfera_psih+=mlev[you]*20&fire_defence[you]+=mlev[you]*20&uskor+=3
+					 health[you]=healthmax[you]&energy[you]=energyMax[you]&regenerator=1&hod=1
+					 cls&gs'stat'&'Вас охватывает гнев берсерка от которого вы восстанавливаете силы и становитесь еще сильнее, но чудовищный гнев выжигает вашу душу'&act'...':gt $curloc
+				 end
+			 end
+			 if spell_fireball[you]>0 and mana[you]>=10:act'Кинуть фаерболл 10 маны':hod=1&cls&gs'stat'&gt'fire'
+			 if powerwawe_spell[you]>0 and mana[you]>=10:act'Ударить силовой волной 10 маны':hod=1&cls&gs'stat'&gt'powerwawe'
+		 end
+	 end
+	if item[30]>0 and mob[npc]=1:act'Кинуть шип':item[30]-=1&burden[you]-=item_burden[30]&mob_sleep[npc]=time+120&busy[you]=0&gt 'preloc'
+	 if restrikt=1 or pose[you]>1:
+		'Вы сбиты с ног'&act'Встать':hod=1&restrikt=0&pose[you]=1&gt $curloc
+	 end
+	 if restrikt=2:
+		'<b><<$restrikt_text>></b>'&!связан
+		 act'Сопротивлятся':
+			 energy[you]-=5&hod=1&restriktsopr=rand(0,2)&if restriktsopr=0:restrikt=0
+			 pose[you]=1&gt $curloc
+		 end
+	 end
+	 if restrikt=0:
+	     if energy[you]*2<energymax[you]:act'Отдышатся':hod=1&energy[you]+=10&gt $curloc
+		 if item[92]>0:
+			'<<item[92]>> шт заряженных роз'
+		 	 act'Сжать розу':
+				 hod=1&eatitem=92&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[82]+=1&burden[you]+=item_burden[82]
+				 health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&sfera_fiz+=1000&gt $curloc
+			 end
+		 end
+		 if item[93]>0:
+			'<<item[93]>> шт. лекарств'
+		 	 act'Выпить полное лекарство':hod=1&eatitem=93&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]=healthmax[you]&gt $curloc
+		 end
+		 if item[51]>0:
+			'<<item[51]>> шт малого лечения'
+		 	 act'Выпить малое лечение':hod=1&eatitem=51&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]+=50&gt $curloc
+		 end
+		 if item[50]>0:
+			'<<item[50]>> шт зелий восстановления выносливости'
+		 	 act'Выпить полное восстановление выносливости':hod=1&eatitem=50&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]=energymax[you]&gt $curloc
+		 end
+		 if item[49]>0:
+			'<<item[49]>> шт зелий малого восстановления выносливости'
+		 	 act'Выпить малое восстановление выносливости':hod=1&eatitem=49&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]+=50&gt $curloc
+		 end
+		 if item[68]>0:
+			'<<item[68]>> шт кристалов маны'
+		 	 act'Сломать кристал маны':hod=1&eatitem=68&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&mana[you]+=100&gt $curloc
+		 end
+		 if item[36]>0:
+			'<<item[36]>> шт зелий защиты разума'
+		 	 act'Выпить защиту разума':hod=1&eatitem=36&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&sfera_psih=100&gt $curloc
+		 end
+	 end
+      if item[146]>0:
+		 '<<item[146]>> шт магических яиц'
+		 act'Сьесть Магическое яйцо':
+			 hod=1&eatitem=146&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+             magik[you]+=1&mana[you]=manamax[you]&energy[you]=energymax[you]&health[you]=healthmax[you]&sfera_fiz+=10000&sfera_psih+=1000&sfera_antigrav+=1000&gt $curloc
+		end
+	end
+	 act'Выжидать':hod=1&energy[you]+=5&gt $curloc
+	 if energy[you]>=50 and pose[you]=1 and cant_fight_run=0:
+		 act'Убежать':
+			 hod=1&rander=rand(1,10)&if stunV>0:rander=0
+		     if rander<8:
+				 energy[you]-=50&busy[you]=0&run[you]+=1&gt 'preloc'
+		     else
+				 energy[you]-=50&gt $curloc
+		     end
+		 end
+	 end
+	 act'Сдаться':
+		if mob[npc]=5:money[you]+=100&whore[you]+=1
+		 hod=1&energy[you]+=5&pose[you]=2&gt 'loss'
+	 end
+	if m_slot[you]=55 and h_slot[you]=2 and t_slot[you]=24:
+		!скипетр, диадема, платье
+		if mana[you]>=100:
+			if sfera_fiz<200:act'Наложить скипетром защитную сферу 100 маны':mana[you]-=100&hod=1&sfera_fiz=200&cls&gt $curloc
+			act'Поток энергии скипетра 100 маны':
+				mana[you]-=100&hod=1&cls&gs'stat'&'Из скипетра вылетает поток чистой энергии и врезается в противника'
+				 uron=iif(uron<10,10,iif(uron>350,350,mana[you]))
+				if defenceV>0:
+					if defenceV<uron:
+						uron=uron-defenceV&defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&if defenceV>0:'Вы разбиваете защиту противника'
+					else
+						defenceV-=uron&'Защита противника полностью поглощает урон и снижается теряя прочность'
+					end
+				else
+					health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'
+				end
+				act'...':gt $curloc
+			end		 
+			act'Восстановить выносливость 100 маны':hod=1&mana[you]-=100&energy[you]+=50&gt $curloc
+			act'Лечение 100 маны':hod=1&mana[you]-=100&health[you]+=50&gt $curloc
+		end
+	end
+else
+     if in_Tsukuyomi[npc]=health[npc] and in_Tsukuyomi[npc]>0:
+		'Ваш противник прикован взглядом к вашим глазам и застыл не двигаясь. Он сейчас видит кошмары мучающие его.'&act'...':hod=0&gt $curloc
+     else
+		gt'enemy_hod'
+     end
+end

@@ -1,0 +1,14 @@
+﻿gs'stat'
+stunV=0
+lebedalife[npc]-=1
+health[npc]=healthmax[npc]
+energy[npc]=energymax[npc]
+mana[npc]=manamax[npc]
+clonV+=10
+defenceV=5000
+sfera_psihV=1000
+stunV=0
+'<center><img src="pic/sex/poser/lebeda.jpg" ></center>'
+'<b>Тетушка Лебеда превращается в бревно, и тут же на бревне расцветают бутоны, из которых выпадает Лебеда, затем еще и еще</b>'
+
+act'...':gt'fight'

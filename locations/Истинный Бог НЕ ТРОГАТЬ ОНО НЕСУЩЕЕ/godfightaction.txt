@@ -1,0 +1,27 @@
+﻿god_protection=0
+if action_god[godform]=1:
+	 'Вы наносите удар Чёрным клинком'&blunt_resist=0&atk=(mus[you]/10)*(soul[you]/10)
+	 '<<$name[npc]>> пытается увернуться, но тьма освобождённая из клинка создаёт гравитационную ловушку и не даёт и шанса на уклонение'&*nl'Тьма клинка разрывает в клочья клонов'
+	 if clonV>0:clonV=0&'Тьма вырвашайся изклинка разрывает на части клонов'
+	 health[npc]-=atk&'<<$name[npc]>> получает <<atk>> единиц урона'&stunV=rand(0,22)
+	 if stunV>0:'Сила клинка впечатывает <<$name[npc]>> в стену бытия заставляя окружающие пространство содрогнуться'
+	 'Защита противника обращается в ничто'&defenceV=0
+	 if god_protection=0:god_protection=1&sfera_round=round+100&sfera_psih+=mlev[you]*5000&sfera_fiz+=mlev[you]*5000&intrueform[you]=1&act'Далее':action_god[godform]=0&gt'fight'
+end
+if action_god[godform]=2:
+	 health[npc]-=200000000&'Вы обрушиваете противника в потусторонее пространство где на него обрушивается мощь способная подвергнуть энтропии саму вселенную. <<$name[npc]>> получает 200м урона'
+	 if god_protection=0:god_protection=1&sfera_round=round+100&sfera_psih+=mlev[you]*5000&sfera_fiz+=mlev[you]*5000&intrueform[you]=1&act'Далее':action_god[godform]=0&gt'fight'
+end
+if action_god[godform]=3:
+	 'Лишь на многновение открыв канал в момент конца всего <<$name[npc]>> оказывается опустошён и теперь не более чем кукла для вашего битья. Наслаждайтесь.'
+	 energy[npc]-=10000000&mana[npc]-=1000000&act'Далее':action_god[godform]=0&gt'fight'
+end
+if action_god[godform]=4:
+	'Вы перемещаете противника в потусторонее пространство где на него обрушивается мощь способная подвергнуть энтропии саму вселенную и всё сущее. '
+	'-Бессмертия не существует- Произнесли вы в призрении к врагу и вернув остатки его сущности обратно, вы вольны решить его дальнейшую судьбу. <<$name[npc]>> лежит у ваших ног.'
+	 if god_protection=0:god_protection=1&sfera_round=round+100&sfera_psih+=mlev[you]*5000&sfera_fiz+=mlev[you]*5000&intrueform[you]=1&act'Далее':action_god[godform]=0&gt'win'
+end
+if action_god[godform]=5:
+	 'Вы не используете свои способности, ослабив своё присутсвие в этом мире, при этом усилив защиту'
+	 god_protection=1&sfera_round=round+100&sfera_psih+=mlev[you]*5000&sfera_fiz+=mlev[you]*5000&act'Далее':action_god[godform]=0&gt'fight'
+end

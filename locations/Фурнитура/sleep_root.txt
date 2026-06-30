@@ -1,0 +1,67 @@
+﻿nosave=0&opasnoste=0&'Кровать на которой можно спать и рядом с кроватью жаровня в которой нужно жечь грибы, чтобы отогнать тени корневища, пока вы спите.'
+if jarovna['<<$loc[you]>>']>0 and jarovna['<<$loc[you]>>']>=time:
+	'В жаровне дымится гриб отгоняя тени от вашего ложа'
+else
+	opasnoste=1&'В жаровне ничего нет и спать без защиты опасно.'
+end
+if hour>=22 or hour<6:
+     act'Спать':
+		if times_sleep_root[you]>0 and owlgenonce=0:owlgenonce=1&gs'owl_gen'
+		times_sleep_root[you]+=1
+		if opasnoste=1:mutation[you]+=rand(1,5)&health[you]=10
+		opasnoste=0&gt'sleep_walk_root'
+     end
+     if item[97]>0:
+         if jarovna['<<$loc[you]>>']<time:
+			 act'Раскурить гриб':
+				item[97]-=1&jarovna['<<$loc[you]>>']=time+60*6&time+=5&cls&gs'stat'&'Вы легли отдохнуть и пол часа расслабленно валялись.'&act'Встать':gt 'world'
+			end
+         end 
+     end
+end
+if energy[you]<energyMax[you]:
+	act'Полежать на кровати':
+		 energy[you]=energyMax[you]&time+=30&cls&gs'walker'&gs'stat'&'Вы легли отдохнуть и пол часа расслабленно валялись.'&act'Встать':gt 'world'
+		 if exp[you]>=expneed[you] and muggle[you]=0:gt'newlevel'
+	end
+end
+if $npc_loc='' and total_npc_on_loc=0:
+	 if horny[you]>=50 and energy[you]>=5 and dick[you]>1 and ball[you]>1:
+		 act'Дрочить член':
+			 jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'
+			if dick[you]>5:
+			    if skin[you]>4:
+					'<center><video src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'&'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
+				else
+				    '<center><video src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'&'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
+				end
+			else
+				 '<center><video src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
+				 'Вы теребите пальчиками свой крошечный членик длинной <<dick[you]>> сантиметров и практически моментально ваш бесполезный отросток кончает маленькой капелькой семени.'
+			end
+			if insmouth_loc_num>0:
+				'Пока вы самоудовлетворяетесь, вас не оставляет чувство чьего-то взгляда, а когда вы кончили, то вам показалось, что кто-то еще вдали и посмеялся... Странно это...'
+				if dick[you]>3:dick[you]-=rand(0,1)
+				nip[you]+=1&if face[you]<50:face[you]+=1
+			end 
+			 gs'stat'&act'Встать':gt 'world'
+		 end
+	 end
+	 if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
+		 act'Тереть клитор':
+			 jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/shlik<<rand(0,6)>>.webm" ></video></center>'
+			 'Вы раздвигаете ножки и начинаете теперить свою мокренькую пизденку, иногда похлопывая лапошкой по своей пизде у вас начинают трястись ноги и закатываться глаза'
+			 cumfrase=rand(1,4)
+			 if cumfrase=1:'<b>Ах-ах, Ах-ах, Ах-ах.</b>'
+			 if cumfrase=2:'<b>Даааа, сука.</b>'
+			 if cumfrase=3:'<b>О-о-о-о ааааааа, дааа блять.</b>'
+			 if cumfrase=4:'<b>Ммхмхмммх, каааайф - простанываешь ты.</b>'
+			 'Нащупав горошину клитора, вы начали ее теребить и через некоторое время вас охватил оргазм.'
+			 if insmouth_loc_num>0:
+				'Пока вы самоудовлетворяетесь, вас не оставляет чувство чьего-то взгляда, а когда вы кончили, то вам показалось, что кто-то еще вдали и посмеялся... Странно это...'
+				nip[you]+=1&if face[you]>50:face[you]-=1
+			 end
+			 act'Встать':gt 'world'
+		 end
+	 end
+end	 

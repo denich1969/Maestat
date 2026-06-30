@@ -1,0 +1,160 @@
+﻿!$FUNC('TechLoc','face_pic',npc)&!Возвращает картинку НПС
+IF $ARGS[0] = 'face_pic':
+	gs 'assign_portrait', ARGS[1]
+	$result=''
+	if mob[ARGS[1]]=0:
+		if face_pic[ARGS[1]]>0 or spec_face_pic[ARGS[1]]>0:
+			if spec_face_pic[ARGS[1]]>0 or (hcol[ARGS[1]]=0 and face[ARGS[1]]>=50):
+			if spec_face_pic[ARGS[1]]>=7:
+				$result='pic/face/<<spec_face_pic[ARGS[1]]>>/<<hairlong[ARGS[1]]>>_<<hcol[ARGS[1]]>>.jpg'
+			elseif spec_face_pic[ARGS[1]]=6:
+				$result='pic/face/6/t<<face_tipe[ARGS[1]]>>/<<pic_hcol[ARGS[1]]>>/<<face_pic[ARGS[1]]>>.jpg'
+			else
+				$result='pic/face/<<spec_face_pic[ARGS[1]]>>/<<face_pic[ARGS[1]]>>.jpg'
+			end
+		else
+			if face[ARGS[1]]>=50 and skin[ARGS[1]]<4:$result='pic/face/<<hcol[ARGS[1]]>>/<<face_pic[ARGS[1]]>>.jpg'
+			if face[ARGS[1]]>=50 and skin[ARGS[1]]>=4 and (face_pic[ARGS[1]]=0 or face_pic[i]>20):
+				face_pic[ARGS[1]]=rand(1,20)
+				$result='pic/face/4/<<face_pic[ARGS[1]]>>.jpg'
+			else
+				$result='pic/face/4/<<face_pic[ARGS[1]]>>.jpg'
+			end
+			if face[ARGS[1]]<50 and skin[ARGS[1]]>=4 and face_pic[ARGS[1]]<70001 and face_pic[ARGS[1]]>70029:face_pic[ARGS[1]]=rand(70001,70029)
+			if face[ARGS[1]]<50:$result='pic/faceman/<<face_pic[ARGS[1]]>>.jpg'
+			end
+		end
+	else
+		if tipemobpic[ARGS[1]]=0:$result=$IIF(visualpol[ARGS[1]]=0,'pic/faceman/<<face_pic[ARGS[1]]>>.jpg', 'pic/face/<<hcol[ARGS[1]]>>/<<face_pic[ARGS[1]]>>.jpg')
+		if tipemobpic[ARGS[1]]=1:$result='pic/mob/<<picture[ARGS[1]]>>.jpg'
+	end
+	if force_male_portrait[ARGS[1]]>0:$result='pic/faceman/<<face_pic[ARGS[1]]>>.jpg'
+	if force_fem_portrait[ARGS[1]]>0:$result='pic/face/<<spec_face_pic[ARGS[1]]>>/<<face_pic[ARGS[1]]>>.jpg"'
+	if $result='': $result='pic/clo/hat/1.jpg'
+END
+!Возвращает статус НПС
+!$FUNC('TechLoc','npc_status',npc)
+IF $ARGS[0]='npc_status': 
+	$result=''
+	if isenemy['<<ARGS[1]>>,<<you>>']>0:
+		$result='<b><i>враг</i></b>'
+	else    
+		if husband[you]=ARGS[1]:
+			$result=$iif(pol[ARGS[1]]=0,'<b>муж</b>','<b>жена</b>')&!husband 
+		else
+			if sexpartner['<<ARGS[1]>>,<<you>>']>0:
+				$result=$iif(pol[ARGS[1]]=0,'<b>любовник</b>','<b>любовница</b>')&!sexpartner
+			else
+				if friends['<<ARGS[1]>>,<<you>>']>=90:
+					$result=$iif(pol[ARGS[1]]=0,'<i>лучший друг</i>','<i>лучшая подруга</i>')
+				elseif friends['<<ARGS[1]>>,<<you>>']>=50 and friends['<<ARGS[1]>>,<<you>>']<90:
+					$result=$iif(pol[ARGS[1]]=0,'<i>друг</i>','<i>подруга</i>')&!friends
+				elseif friends['<<ARGS[1]>>,<<you>>']>=10 and friends['<<ARGS[1]>>,<<you>>']<50:
+					$result=$iif(pol[ARGS[1]]=0,'<i>приятель</i>','<i>приятельница</i>')
+				elseif friends['<<ARGS[1]>>,<<you>>']>0 and friends['<<ARGS[1]>>,<<you>>']<10:
+					$result=$iif(pol[ARGS[1]]=0,'<i>знакомый</i>','<i>знакомая</i>')
+				end
+			end
+		end 
+	end 
+	if myagent[ARGS[1]]=you:$result+=' <b>агент</b>'
+	!if sister[ARGS[1]]=you:$result+=' <b>сестра</b>'
+	!if brather[ARGS[1]]=you:$result+=' <b>брат</b>'
+	if my_puppil[ARGS[1]]>=1 and free_spirit>0:$result+=' <b>годное тело для вселения</b>'
+END 
+!npc_status
+!==================================================================================================================
+!=================== ПЕРЕМЕЩЕНИЕ ==================================================================================
+!-----------------------------------------------------------------------------------------------------------------
+!Перемещает ГГ по координатам порталом X,Y,Z илимглой X,Y,Z,H,R
+!проверяет доступность перехода или выводит сообщение о невозможности. Таким образом игрок сразу узнает о возможности и как ее получить
+!gt ''TechLoc'',''GoCord'',4,4,3,0,0
+!gt 'TechLoc','GoCord',4,4,3,0,0
+!gt 'TechLoc','GoCord',4,4,3
+IF $ARGS[0] = 'GoCord':
+	If mlev[you]>=5 and mana[you]>=500:
+		gs $curloc, 'SetCordNPC', you, ARGS[1],ARGS[2],ARGS[3],ARGS[4],ARGS[5]
+	elseif portal[you]=1:
+		if portal_zar[you]>0:
+			portal_zar[you]-=1
+			gs $curloc, 'SetCordNPC', you, ARGS[1],ARGS[2],ARGS[3]
+		else
+			msg 'Закончились заряды.  Пополнить заряды можно в офисе по адресу Назадовский тупик (4,0,5).'
+			!+IIF(portal_zar[you]=0,'Один раз Вы можете переместиться в наш офис в кредит' else '')
+		end
+	else
+		msg 'Перемещение по карте станет гораздо удобней с нашим портативным телепортером. Ишите нас в Назадовском тупике (4,0,5).'
+	end
+	gt 'preloc'
+END
+!Устанавливает ГГ координаты X,Y,Z,H,R
+!gs ''TechLoc'',''SetCord'',4,4,3,0,0
+!gs 'TechLoc','SetCord',4,4,3,0,0
+!gs 'TechLoc','SetCord',4,4,3
+if $ARGS[0] = 'SetCord':X[you]=ARGS[1]&Y[you]=ARGS[2]&Z[you]=ARGS[3]&H[you]=ARGS[4]&R[you]=ARGS[5]
+!gs 'TechLoc','SetCordNPC',npc,4,4,3,1,1
+if $ARGS[0] = 'SetCordNPC': X[ARGS[1]]=ARGS[2]&Y[ARGS[1]]=ARGS[3]&Z[ARGS[1]]=ARGS[4]&H[ARGS[1]]=ARGS[5]&R[ARGS[1]]=ARGS[6]&!Устанавливает НПС по координатам X,Y,Z,H,R
+!Перемещает ГГ к NPC 
+!gt ''TechLoc'',''GoToNPC'',<<npc>>
+!gt 'TechLoc','GoToNPC',npc
+if $ARGS[0] = 'GoToNPC':
+    cantwalk[ARGS[1]]=3&cantwalk_num=ARGS[1]
+	X[you]=X[ARGS[1]]&Y[you]=Y[ARGS[1]]&Z[you]=Z[ARGS[1]]&H[you]=H[ARGS[1]]&R[you]=R[ARGS[1]]&gt 'preloc'
+end
+!Возвращает строку с координатми НПС, дома НПС, работы НПС
+!ARGS[1]  - НПС 
+!$ARGS[2] - postfix, ''-координаты, home-домашний w - рабочий
+!$FUNC('TechLoc','Get_NPC_cord',npc,'home/w')
+if $ARGS[0] = 'Get_NPC_cord':
+	$result+='<<X>><<$ARGS[2]>>[<<ARGS[1]>>]>>,<<Y>><<$ARGS[2]>>[<<ARGS[1]>>]>>,<<Z>><<$ARGS[2]>>[<<ARGS[1]>>]>>,<<H>><<$ARGS[2]>>[<<ARGS[1]>>]>>,<<R>><<$ARGS[2]>>[<<ARGS[1]>>]>>'
+end
+!Возвращает ссылку с описанием для продажи товара в магазине. Если не достаточно денег, то только текст. 
+!Параметры: <код предмета>, <количество>, <стоимость (сумма)> 
+!Пример текста на выходе:
+!$FUNC('TechLoc','GetLinkBuyItem',itemId,Количество,СуммаДенег)
+!	есть деньги "<a href="exec:gs ''TechLoc'',''BuyItem'',79,3,5999">Феминайзер - 3шт.- 59.99ш.</a>"
+!	нет денег "Феминайзер - 3шт.- 59.99ш."
+IF $ARGS[0]='GetLinkBuyItem':
+	$result=''
+	if money[you]>=ARGS[3]: 
+		!$result+=$iif (ARGS[3]>0,'купить','взять' )& !при необходимости можно передавать префикс параметром
+		$result+=' <a href="exec:gs ''TechLoc'',''BuyItem'',<<ARGS[1]>>,<<ARGS[2]>>,<<ARGS[3]>>">'
+	end
+	$result+='<<$item_name[ARGS[1]]>>'
+	if $item_name[ARGS[1]]!$item_text[ARGS[1]]:$result+=' (<<$item_text[ARGS[1]]>>)'
+	if ARGS[2]>1:$result+=' - <<ARGS[2]>>шт.'
+	if ARGS[3]>0:
+		$result+=' - '
+		if ARGS[3]/100>0: $result+='<<ARGS[3]/100>>,'
+		if (ARGS[3] mod 100)=0:
+			$result+='00'
+		elseif (ARGS[3] mod 100)<9:
+			$result+='0<<ARGS[3] mod 100>>'
+		else
+			$result+='<<ARGS[3] mod 100>>'
+		end
+		$result+='ш.'	
+	end
+	if money[you]>=ARGS[3]: $result+='</a>'
+END
+!Для покупки предмета (item). Добавляет предмет в инвентарь, деньги проверяет и списывает, пересчитывает вес инвентаря
+!Пример: gs ''TechLoc'',''GetItem'',100,2,2*500
+!Параметры: <код предмета>, <количество>, <стоимость (сумма)> 
+!Примечание: (огнестрел идет с патронами на 5 зарядок)
+IF $ARGS[0]='BuyItem':
+	if money[you]>=ARGS[3]:
+		money[you]-=args[3]
+		if args[2]=0:
+			item[args[1]]+=1
+		else	
+			item[args[1]]+=args[2] 
+		end
+		burden[you]+=item_burden[args[1]]
+		args[4]=item_w_patrontipe[ARGS[1]]&!патроны
+		args[5]=item_w_patron_max[ARGS[1]]*5&!количество патронов
+		item[args[4]]+=args[5]&burden[you]+=item_burden[args[4]]*args[5]
+	else
+		msg('Не достаточно денег!')
+	end
+	gs 'stat'
+END

@@ -1,0 +1,314 @@
+﻿X=0&Y=0&Z=3&H=0&R=0&Xmax[Z]=4&Ymax[Z]=4&!29 нпс!демон лжи!дракон  !механическая мануфактура   !ресторан плакучая ива   !лиговский проспект   !рублевка
+$n_board[Z]='Район Блэкберри'&$w_board[Z]='Море'&$e_board[Z]='Туман'&$s_board[Z]='Район Аптаун'
+magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworldThree
+H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if Y=0 and X>0 and X<4:d_border_way['<<$temploc>>']=4
+if Y=Ymax[Z] and X>0 and X<4:d_border_way['<<$temploc>>']=2
+if X=0 and Y=2:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Дельта реки'&$lname['<<$temploc>>']='Дельта реки'
+	$locopis['<<$temploc>>']='Речушка в этом месте впадает в море, местность в основном заболоченна и заросла травой. Так же тут открывается не плохой вид на бухту в которой находится город. С права виден порт со множеством кораблей, большинство из которых откровенно доживают свой век и больше никогда не выйдут в море. А с лева видны роскошные небоскребы даунтауна.'
+	np['<<$temploc>>']=105
+	can_swim['<<$temploc>>']=1&can_drink['<<$temploc>>']=2&marsh['<<$temploc>>']=1
+	frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+	koluchka['<<$temploc>>']=1&list['<<$temploc>>']=1
+elseif Y=2:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+     if $locname['<<$temploc>>']='':
+		 $locname['<<$temploc>>']='Река'&$lname['<<$temploc>>']='Река'
+		 $locopis['<<$temploc>>']='Речушка текущая из тумана и впадающяя в море. Небольшой пешеходный мостик из бетонных плит переброшен через мелководную речушку заросшую осокой и рогозом.'
+		 if X=1 and Y=2:np['<<$temploc>>']=28
+		 if X=2 and Y=2:np['<<$temploc>>']=28
+		 if X=3 and Y=2:np['<<$temploc>>']=54
+		 if X=4 and Y=2:np['<<$temploc>>']=22
+		 can_swim['<<$temploc>>']=1&can_drink['<<$temploc>>']=2&
+		 frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+		 koluchka['<<$temploc>>']=0&list['<<$temploc>>']=1
+	 end
+elseif X=0:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 if $locname['<<$temploc>>']='':
+		 $locname['<<$temploc>>']='Морское побережье'&$lname['<<$temploc>>']='Морское побережье'
+		 $locopis['<<$temploc>>']='Морские волны мерно омывают камни скалистого берега бухты.'
+		 np['<<$temploc>>']=50
+		 can_swim['<<$temploc>>']=1
+	 end
+elseif X=1 and Y=4:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Лиговский проспект (Запад)'&$lname['<<$temploc>>']='Лиговский проспект'
+	 $locopis['<<$temploc>>']='Мрачные темные дома возвышаются по обочинам дороги. Во дворах этих домов настоящий лабиринт переходов, арок, колодце подобных двориков и темных углов в которых мусорные кучи источаяют зловоние и смрад. А порой и в этих кучах отравляя воздух гниют закопанные трупы бедолаг решивших прогуляться по дворам.'
+	 np['<<$temploc>>']=104
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	 gs'homegen',5
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Корчма Каторга'&lock['<<$templocH>>']=0&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Корчма Каторга'&$lname['<<$temploc>>']='Корчма Каторга'&$lname_go['<<$temploc>>']='в корчму'
+ 	 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и плесенью бар.'
+	 np['<<$temploc>>']=85
+	 mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=2&can_drink['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+elseif X=2 and Y=4:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Лиговский проспект (Центр)'&$lname['<<$temploc>>']='Лиговский проспект'
+	$locopis['<<$temploc>>']='Мрачные темные дома возвышаются по обочинам дороги. В переулки между этих домов луче не соваться если дорога жизнь. Народ тут бесшабашный и шальной, могут и из-за угла ножиком пырнуть.'
+	 np['<<$temploc>>']=104
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	 gs'homegen',5
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бильярдная'&lock['<<$templocH>>']=0&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Бильярдная'&$lname['<<$temploc>>']='Бильярдная'&$lname_go['<<$temploc>>']='в бильярдную'
+ 	 $locopis['<<$temploc>>']='Прокуренная с тусклым светом и потертыми столами с зеленым сукном бильярдная.'
+	 np['<<$temploc>>']=210
+	 mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=2&can_drink['<<$temploc>>']=1
+	 $temploc='<<$temploc>>'
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+elseif X=3 and Y=4:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Лиговский проспект (Восток)'&$lname['<<$temploc>>']='Лиговский проспект'
+	 $locopis['<<$temploc>>']='Мрачные темные дома возвышаются по обочинам дороги. Морской воздух наполняет сыростью извилистые дворики и переулки каменных лабиринтов Лиговки.'
+	 np['<<$temploc>>']=104
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	 gs'homegen',4
+elseif X=4 and Y=4:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Агентство Добрых Дел'&$lname['<<$temploc>>']='Агентство Добрых Дел'
+	 $locopis['<<$temploc>>']='Типовое безликое здание казенного вида находится возле самой границы тумана от которого веет могильным холодом.'
+	 np['<<$temploc>>']=25
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Агентство Добрых Дел'&maxPositionR['<<$templocH>>']=5
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Агентство Добрых Дел'&$lname['<<$temploc>>']='Агентство Добрых Дел'&$lname_go['<<$temploc>>']='в агентство'&$locopis['<<$temploc>>']='Казенный офис'
+	 np['<<$temploc>>']=211
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кабинет Директора'
+	 $locname['<<$temploc>>']='Кабинет Директора'&$lname['<<$temploc>>']='Кабинет Директора'&$lname_go['<<$temploc>>']='в Кабинет Директора'
+	 $locopis['<<$temploc>>']='Большой кабинет директора в котором можно даже спать на большом кожаном диване'
+	 np['<<$temploc>>']=212
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=0
+	 R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офисы'
+	 $locname['<<$temploc>>']='Офисы'&$lname['<<$temploc>>']='Офисы'&$lname_go['<<$temploc>>']='в офисы'
+	 $locopis['<<$temploc>>']='Просторный кабинет с письменными столами предназначенными для рядовых сотрудников организации'
+	 np['<<$temploc>>']=30
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&agency['<<$temploc>>']=1
+	 R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Архив'
+	 $locname['<<$temploc>>']='Архив'&$lname['<<$temploc>>']='Архив'&$lname_go['<<$temploc>>']='в архив'
+	 $locopis['<<$temploc>>']='Большое помещение полное папок с данными и коробок с неизвестным содержимым.'
+	 np['<<$temploc>>']=213
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1
+	 R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спортзал'
+	 $locname['<<$temploc>>']='Спортзал'&$lname['<<$temploc>>']='Спортзал'&$lname_go['<<$temploc>>']='в спортзал'
+	 $locopis['<<$temploc>>']='Зал для занятий физкультурой'
+	 np['<<$temploc>>']=150
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&sportzal['<<$temploc>>']=1&pentagramm['<<$temploc>>']=1
+elseif X=1 and Y=3:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Электростанция'&$lname['<<$temploc>>']='Электростанция'
+	 $locopis['<<$temploc>>']='Старинное здание электростанции снабжающей электричеством весь город.'
+	 np['<<$temploc>>']=27
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Проходная на электростанцию'&maxPositionR['<<$templocH>>']=2
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Электростанция'&$lname['<<$temploc>>']='Электростанция'&$lname_go['<<$temploc>>']='на электростанцию'
+	 $locopis['<<$temploc>>']='Цеха с разным оборудованием для выработки электроэнергии'
+	 np['<<$temploc>>']=214
+	 elfactory['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офисы'
+	 $locname['<<$temploc>>']='Офисы'&$lname['<<$temploc>>']='Офисы'&$lname_go['<<$temploc>>']='в офисы'&$locopis['<<$temploc>>']='Просторный кабинет с письменными столами'
+	 np['<<$temploc>>']=30
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&elfactory_office['<<$temploc>>']=1
+elseif X=2 and Y=3:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Больница'&$lname['<<$temploc>>']='Больница'
+	 $locopis['<<$temploc>>']='Светлое здание современной больницы занимает чуть ли не целый квартал.'
+	 np['<<$temploc>>']=21
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Больница'&maxPositionR['<<$templocH>>']=6
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Больница'&$lname['<<$temploc>>']='Больница'&$lname_go['<<$temploc>>']='в больницу'&$locopis['<<$temploc>>']='Приемное отделение'
+	 np['<<$temploc>>']=215
+	 hospital['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Ординаторская'
+	 $locname['<<$temploc>>']='Ординаторская'&$lname['<<$temploc>>']='Ординаторская'&$lname_go['<<$temploc>>']='в ординаторскую'
+	 $locopis['<<$temploc>>']='Служебная комната для врачей'
+	 np['<<$temploc>>']=216
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&ordinator['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Процедурная'
+	 $locname['<<$temploc>>']='Процедурная'&$lname['<<$temploc>>']='Процедурная'&$lname_go['<<$temploc>>']='в процедурную'
+	 $locopis['<<$temploc>>']='Комната в которой медсестры делают различные процедуры'
+	 np['<<$temploc>>']=217
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&procedure['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Лаборатория'
+	 $locname['<<$temploc>>']='Лаборатория'&$lname['<<$temploc>>']='Лаборатория'&$lname_go['<<$temploc>>']='в лабораторию'
+	 $locopis['<<$temploc>>']='В лаборатории самое совершенное медицинское оборудование способное творить чудеса'
+	 np['<<$temploc>>']=218
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&medlab['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Операционная'
+	 $locname['<<$temploc>>']='Операционная'&$lname['<<$temploc>>']='Операционная'&$lname_go['<<$temploc>>']='в операционную'
+	 $locopis['<<$temploc>>']='В операционной установлен авто-док, установка с искусственным интеллектом способная проводить операции любой сложности'
+	 np['<<$temploc>>']=219
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&autodoc['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Палата'
+	 $locname['<<$temploc>>']='Палата'&$lname['<<$temploc>>']='Палата'&$lname_go['<<$temploc>>']='в палату'
+	 $locopis['<<$temploc>>']='В палате содержутся лежачие больные которых не так много при таком уровне медицины.'
+	 np['<<$temploc>>']=220
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=0&blocksex['<<$temploc>>']=1
+elseif X=3 and Y=3:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Школа'&$lname['<<$temploc>>']='Школа'
+	 $locopis['<<$temploc>>']='Большое здание школы огорожено забором покосившимся в нескольких местах.'
+	 np['<<$temploc>>']=26
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Школа имени Бориса Богарта'&maxPositionR['<<$templocH>>']=6
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Школа'&$lname['<<$temploc>>']='Школа'&$lname_go['<<$temploc>>']='в школу'
+	 $locopis['<<$temploc>>']='Школьный коридор с однотипными дверями классов и стенгазетой на которой восхваляется Богарт, величайший маг города, основатель Жилмассива.'
+	 np['<<$temploc>>']=204
+	 school_gazeta['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Класс №1'
+	 $locname['<<$temploc>>']='Класс №1'&$lname['<<$temploc>>']='Класс №1'&$lname_go['<<$temploc>>']='в Класс №1'&$locopis['<<$temploc>>']='Учебный класс'
+	 np['<<$temploc>>']=205
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=0&school_class['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Класс №2'
+	 $locname['<<$temploc>>']='Класс №2'&$lname['<<$temploc>>']='Класс №2'&$lname_go['<<$temploc>>']='в Класс №1'&$locopis['<<$temploc>>']='Учебный класс'
+	 np['<<$temploc>>']=205
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=0&school_class['<<$temploc>>']=2&blocksex['<<$temploc>>']=1
+	 R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Класс №3'
+	 $locname['<<$temploc>>']='Класс №3'&$lname['<<$temploc>>']='Класс №3'&$lname_go['<<$temploc>>']='в Класс №3'&$locopis['<<$temploc>>']='Учебный класс'
+	 np['<<$temploc>>']=205
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=0&school_class['<<$temploc>>']=3&blocksex['<<$temploc>>']=1
+	 R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Физкультурный зал'
+	 $locname['<<$temploc>>']='Физкультурный зал'&$lname['<<$temploc>>']='Физкультурный зал'&$lname_go['<<$temploc>>']='в Физкультурный зал'&$locopis['<<$temploc>>']='Зал для занятий физкультурой'
+	 np['<<$temploc>>']=150
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=0&school_class['<<$temploc>>']=4&sportzal['<<$temploc>>']=1
+	 R=5&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Учительская'
+	 $locname['<<$temploc>>']='Учительская'&$lname['<<$temploc>>']='Учительская'&$lname_go['<<$temploc>>']='в учительскую'&$locopis['<<$temploc>>']='Комната для учитилей'
+	 np['<<$temploc>>']=206
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=0&school_class['<<$temploc>>']=5
+elseif X=4 and Y=3:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Механическая мануфактура'&$lname['<<$temploc>>']='Механическая мануфактура'
+	 $locopis['<<$temploc>>']='Большой завод на котором производят разные механические устройства окружен панельным забором и частье его строений утопает в непроглядном тумане.'
+	 np['<<$temploc>>']=107
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Проходная на механическую мануфактуру'&maxPositionR['<<$templocH>>']=2
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Механическая мануфактура'&$lname['<<$temploc>>']='Механическая мануфактура'&$lname_go['<<$temploc>>']='в цех мануфактуры'
+	 $locopis['<<$temploc>>']='Цеха с разнообразными станками'
+	 np['<<$temploc>>']=207
+	 factory['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офисы'
+	 $locname['<<$temploc>>']='Офисы'&$lname['<<$temploc>>']='Офисы'&$lname_go['<<$temploc>>']='в офисы'
+	 $locopis['<<$temploc>>']='Просторный кабинет с письменными столами'
+	 np['<<$temploc>>']=30
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&meh_factory_office['<<$temploc>>']=1
+elseif X=1 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Морская'&$lname['<<$temploc>>']='Улица Морская'
+	$locopis['<<$temploc>>']='Пыльный пустырь с панельной 9ти этажкой, ветер идущий с моря как будто разгоняется зажимаемый стенами домов и на пустыре всегда пыль стоит столбом так, что идти не приятно.'
+	 np['<<$temploc>>']=10
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	 gs'building_gen'
+elseif X=2 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Сквер'&$lname['<<$temploc>>']='Сквер'
+	 $locopis['<<$temploc>>']='Небольшой зеленый скверик с лавочками и мусорками. Среди этой благоустроенной зелени местная шпана любит распивать спиртное и устраиват ьсвои шабаши, после которых порой утаскивают трупы на портовое кладбище и раненных в больницу.'
+	 np['<<$temploc>>']=11
+elseif X=3 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Грёз'&$lname['<<$temploc>>']='Улица Грёз'
+	 $locopis['<<$temploc>>']='Ряды однотипных панельных девятиэтажек, во дворе редкие машины которые стоят мертвым грузом и имеют только колекционную стоимость'
+	 np['<<$temploc>>']=12
+	 gs'mybuilding'
+elseif X=4 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Туманов'&$lname['<<$temploc>>']='Улица Туманов'
+	 $locopis['<<$temploc>>']='Панельные высотки с железными гаражами во дворе и клубящейся стеной тумана за этими гаражами которая противоестественно не реагирует на ветер. Севернее, за панельными высотками протекает река которая добавляет сырости в и так промозглый двор где даже трава выглядит склизкой и по осеннему пожухлой.'
+	 np['<<$temploc>>']=13
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	 gs'building_gen2'
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Спорт клуб'&maxPositionR['<<$templocH>>']=3
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $temploc='<<$temploc>>'&$locname['<<$temploc>>']='Спорт клуб'&$lname['<<$temploc>>']='Спорт клуб'&$locopis['<<$temploc>>']='Спортивный клуб расположен в пристрое к дому'
+	 np['<<$temploc>>']=208
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Раздевалка'
+	 $locname['<<$temploc>>']='Раздевалка'&$lname['<<$temploc>>']='Раздевалка'&$lname_go['<<$temploc>>']='в раздевалку'&$locopis['<<$temploc>>']='Железные шкафчики у стен и длинные лавки'
+	 np['<<$temploc>>']=163
+	 mirror['<<$temploc>>']=1&canrest['<<$temploc>>']=1
+	 R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спортзал'
+	 $locname['<<$temploc>>']='Спортзал'&$lname['<<$temploc>>']='Спортзал'&$lname_go['<<$temploc>>']='в спортзал'&$locopis['<<$temploc>>']='Зал для занятий спортом'
+	 np['<<$temploc>>']=209
+	 can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&sportzal['<<$temploc>>']=2
+elseif X=3 and Y=0:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Площадь перед магазином'&$lname['<<$temploc>>']='Магазин'
+	 $locopis['<<$temploc>>']='Небольшая, но ухоженная площадка перед магазином с бетонными клумбами в которых чьей то заботливой рукой высажены простые луговые цветочки. С противоположной стороны магазина виднеется парк Аптауна заросший колючками.'
+	 np['<<$temploc>>']=19
+     under['<<$temploc>>']=1
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Вход в Универсальный магазин'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в магазин'&$locopis['<<$temploc>>']='Торговые залы магазина'
+	 np['<<$temploc>>']=20
+	 supermarket['<<$temploc>>']=2&clothestore['<<$temploc>>']=1&lowstore['<<$temploc>>']=1&bootstore['<<$temploc>>']=1&junkstore['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+elseif X=4 and Y=0:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Поселок Орловский'&$lname['<<$temploc>>']='Поселок Орловский'
+	 $locopis['<<$temploc>>']='Элитные, поражающие своей роскошью особняки огороженные высокими заборами. Всю эту роскошь портит только стена тумана и сырость стоящая в воздухе.'
+	 np['<<$temploc>>']=106
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Ресторан Плакучая ива'&maxPositionR['<<$templocH>>']=2
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Ресторан'&$lname['<<$temploc>>']='Ресторан'&$lname_go['<<$temploc>>']='в ресторан'
+	 $locopis['<<$temploc>>']='Уютный ресторан со столиками покрытыми белыми скатертями. В этом ресторанчике не просто великолепная кухня, а настоящий шедевр ,в который к тому же вложена душа.'
+	 np['<<$temploc>>']=152
+	 restoran['<<$temploc>>']=1&blocksex['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+	 $locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+	 $locopis['<<$temploc>>']='Ресторанная кухня'
+	 np['<<$temploc>>']=164
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=0
+	 gs'rublevka_gen'
+elseif X=1 and Y=0:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Южная'&$lname['<<$temploc>>']='Улица Южная'&$locopis['<<$temploc>>']='Ряды однотипных панельных девятиэтажек. Тут все на столько шаблонно и однотипно, что могло бы встретится во многих городах восточной европы и СНГ. Типичные дворики с деревцами, лавочками и качелями для детворы.'
+	 np['<<$temploc>>']=14
+	 gs'building_gen3'
+	H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Общежитие'&lock['<<$templocH>>']=0&privat['<<$templocH>>']=0&maxPositionR['<<$templocH>>']=3
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Общежитие'
+	$locname['<<$temploc>>']='Вестибюль'&$lname['<<$temploc>>']='Вестибюль'&$lname_go['<<$temploc>>']='в вестибюль'&$locopis['<<$temploc>>']='Обшарпаный коридор'
+	np['<<$temploc>>']=221
+	mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'&$locopis['<<$temploc>>']='Общая общажная кухня'
+	np['<<$temploc>>']=222
+	can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'
+	$locopis['<<$temploc>>']='Большой санузел с душевыми кабинами и туалетом представляющим из себя дырки в полу.'
+	np['<<$temploc>>']=223
+	can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&shower['<<$temploc>>']=1
+	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №1'
+	$locname['<<$temploc>>']='Спальная №1'&$lname['<<$temploc>>']='Спальная №1'&$lname_go['<<$temploc>>']='в спальную'
+	$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224
+	can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0
+	gs'black_runners_gang_gen'
+	R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №2'
+	$locname['<<$temploc>>']='Спальная №2'&$lname['<<$temploc>>']='Спальная №2'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224
+	can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0
+	gs'dorm_male_gen'
+	R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №3'
+	$locname['<<$temploc>>']='Спальная №3'&$lname['<<$temploc>>']='Спальная №3'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224
+	can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0
+	gs'dorm_female_gen'
+	R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №4'
+	$locname['<<$temploc>>']='Спальная №4'&$lname['<<$temploc>>']='Спальная №4'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224
+	can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0
+	gs'dorm_solomon_gen'
+elseif X=2 and Y=0:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Площадь Первых'&$lname['<<$temploc>>']='Площадь Первых'&$locopis['<<$temploc>>']='Улочка из подремонтированных деревянных домиков заканчивается не большой площадью с высоткой телебашни. Тут довольно не плохой бульвар берущий свое начало от телецентра и идущий в район Аптаун на улицу Молчаливых героев.'
+	 np['<<$temploc>>']=158
+	 gs'fist_place'
+else
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Дубняк'&$lname['<<$temploc>>']='Дубняк'&$locopis['<<$temploc>>']='Лес из могучих дубов'
+	 np['<<$temploc>>']=56
+end
+X+=1&if X<=Xmax[Z]:jump'markgenworldThree'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldThree'

@@ -1,0 +1,33 @@
+﻿gs'stat'&num=npc
+if mob[npc]=0:
+	gs'body'&gs'npcbase'
+else
+     '<b><center><<$nick[npc]>></center></b>'&'<b><center><<$name[npc]>> <<$surname[npc]>></center></b>'
+	gs'gen_d_view'&'<center><img src="<<$d_view>>" ></center>'&!вывод картинки второстепенных НПС и мобов
+     if item[37]>0 and soul[you]>=10:
+         act'<b>Камлать в бубен</b>':
+             if mob[npc]=8 or mob[npc]=3:
+				msg("Ничего не происходит")
+             else
+				 soul[you]-=10&dead[npc]=0&health[npc]=healthmax[npc]&msg("Происходит чудо, труп оживает! А вы теряете 10 души")
+             end
+			gt 'preloc'
+         end
+     end
+    act'<b>Зарыть мертвеца</b> (очень утомительно и шумно)':energy[you]=0&dead[npc]=3&gs'gofight'&gt 'preloc'
+    if mob[npc]=14:'Клубок переплетенных щупалец не подает признаков жизни'
+     if mob[npc]=2:'Мертвый абориген'
+     if mob[npc]=33:'Мертвая ведьма'
+     if mob[npc]=34:'Мертвая шлюха'
+     if mob[npc]=35:'Мертвый клиент'
+     if mob[npc]=36:'Мертвая проститутка'
+     if mob[npc]=37:'Мертвая слуга'
+     if mob[npc]=38 or mob[npc]=58:'Мертвая госпожа'
+     if mob[npc]=40:'Мертвая девушка'
+     !if child[npc]=you:'Ваше дитя'
+	 if win[npc]>0:'<<win[npc]>> раз побеждал вас'
+	 if fuckblow[npc]>0:'<<fuckblow[npc]>> раз вы сосали у него'
+	 if fuckyou[npc]>0:'<<fuckyou[npc]>> раз трахал вас в пизду'
+     if fuckyouass[npc]>0:'<<fuckyouass[npc]>> раз трахал вас в жопу'
+end
+act'<b>Уйти</b>':gt 'preloc'

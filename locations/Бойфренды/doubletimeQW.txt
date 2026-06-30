@@ -1,0 +1,9 @@
+﻿time+=5&gs'stat'&'<center><img src="pic/face/5/67.jpg" ></center>'&'В комнату внезапно входит ваш парень и смотрит на вас с презрением - Ну ты и шлюха!'
+act'Я все могу объяснить!':
+	 X[spyson]=X[you]&Y[spyson]=Y[you]&Z[spyson]=Z[you]&H[spyson]=H[you]&R[spyson]=R[you]
+     horny[arhivson]=50&horny[spyson]=50
+     boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[spyson]=you
+     pose[you]=2&solo=0
+	cls&gs'stat'&'<center><img src="pic/face/5/64.jpg" ></center>'&'<<$name[arhivson]>> смеется - Объясни мою кончу на своей морде, шлюха! Братан, короче, давай просто вдвоем выебем эту шлюху.'
+	'Парни хватают вас и ставят на колени'&	act'...':gt'sex'
+end

@@ -1,0 +1,23 @@
+﻿if friends[npc]>0 and follower[npc]=0 and canfollow>0:gs'take_follower'
+if mardukpower>0:
+	 if oncelovemarduk[npc]=0 and mardukpower_day[you]!daystart:
+		 act'<i>Сила Мардука</i>':
+			cls
+		     if master[npc]=0:
+				 oncelovemarduk[npc]=1
+				 mardukpower_day[npc]=daystart
+				 mardukpower_day[you]=daystart
+				 friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+				 gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 'Вы применяете силу Мардука и <<$name[npc]>> смотрит на вас широкооткрытыми влюбленными глазами. Хотя вы и понимаете, это не на всегда, пройдут сутки и вы станите безразличны человеку ,который сейчас любит вас всей душой.'
+		     else
+				 gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас свысока - Не в этот раз, смертное существо!'
+		     end
+			act'...':gt 'preloc'
+		 end
+	 end
+	 if oncelovemarduk[npc]=1 and mardukpower_day[npc]!daystart:
+		 oncelovemarduk[npc]=2
+		 friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0
+	 end
+ end

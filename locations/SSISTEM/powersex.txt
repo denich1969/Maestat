@@ -1,0 +1,15 @@
+﻿if powerwawe_spell[you]>0 and mana[you]>=10:
+	act'Ударить силовой волной':
+		you_dirty_slut[npc]=0&cls&gs'stat'
+		if magik[npc]=0:
+			agro[npc]-=10&'Вы сосредотачиваете свою силу и <<$name[npc]>> отлетает от вас из-за удара силовой волны - Эй! Ты дура что ли?'
+		else
+			if magik[npc]>=magik[you]:
+				agro[npc]-=1&'Вы ударяете силовой волной но <<$name[npc]>> ударяет на встречу и волны гасятся'
+			else
+				agro[npc]-=5&'<<$name[npc]>> пытается защититься от вашей силовой волны, но вы сильнее и <<$name[npc]>> отлетает от вас - Эй! Ты дура что ли?'
+			end
+		end
+		act'Уйти':gt 'after_fss'
+	end
+end

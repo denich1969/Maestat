@@ -1,0 +1,6 @@
+﻿if mana[you]>=500:
+	mana[you]-=500&X[you]=ARGS[0]&Y[you]=ARGS[1]&Z[you]=Zs
+else
+	msg("У вас не хватает силы")
+end
+gt'world'

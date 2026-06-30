@@ -1,0 +1,16 @@
+﻿clo=ARGS[0]
+if w_patron_load[you]>0:
+	patron=w_patrontipe[you]
+	item[patron]+=w_patron_load[you]
+	burden[you]+=item_burden[patron]*w_patron_load[you]
+end
+item[clo]+=1
+burden[you]+=item_burden[clo]
+w_slot[you]=0
+weapon_tipe=0
+uron_weapon_w[you]=0
+$item_w_name[clo]=''
+w_patron_load[you]=0
+w_patron_max[you]=0
+w_patrontipe[you]=0
+gt 'preloc'

@@ -1,0 +1,15 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Ваш рабочий стол'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if week<6:
+     if hour>=7 and hour<=16 and agency_ud[you]>0:
+         act'Работать':
+			 nopee=1&money[you]+=iif(globalQW<4,300,1000)&time+=rand(45,90)&cls&gs'stat'&gs'walker'&nopee=0
+             if pol[you]>0 and in_skirt[you]>0:'<center><img src="pic/misc/pov_office_skirt.jpg" ></center>'
+			 if globalQW<4:'Кучу времени вы гробите на занудные бумажки. Составляете никому не нужный отчет полный цифр. Но за это вам платят 3 шиллинга.'
+			 if globalQW>=4:'Кучу времени вы гробите на занудные бумажки. Составляете никому не нужный отчет полный цифр. Но за это вам платят 10 шиллингов.'
+             if operativQW=1:time+=60*4&operativQW=2&'Вы разобрали документы которые вам поручил разобрать Эмиль Бассани.'
+			act'Отойти':gt 'preloc'
+         end
+     end
+else
+	'Сейчас выходной день'
+end

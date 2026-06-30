@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&whizard=i
+lvl[i]=1&soul[i]=100&work[i]=0
+master[i]=0&delusion[i]=0&magik[i]=2&mage[i]=2&beliver[i]=0
+spell_heal[i]=25&spell_endur[i]=25&spell_svetlak[i]=10&spell_sfera[i]=10&spell_ljod[i]=1&spell_sfera[i]=1
+spec_face_pic[i]=5&face_pic[i]=157&!face_npc[i]=1&face_pic[i]=7!фото
+gs'female_gen'&$name[i]='Оливия'&$surname[i]='Варн'&$title[i]=''&$history[i]=''
+face[i]=80&gla[i]=3&glacol[i]=4&lips[i]=1&nose[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=40&anus[i]=0&ass[i]=30&nip[i]=40&tits[i]=12
+rost[i]=168&mus[i]=500&fat[i]=1000&skin[i]=1&preskin[i]=1
+hlong[i]=35&curl[i]=0&hcol[i]=3
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=20&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=1000&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=40&!характер
+can_bj[i]=1&can_anal[i]=0
+h_slot[i]=8&w_slot[i]=2
+c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=12&l_slot[i]=0&b_slot[i]=10
+ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=3
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2&!$loc[i]='2,2,404,2,3'
+se_lighthouse[]=i&walkprog[i]=304&!npcii[i]=1&!программа движения

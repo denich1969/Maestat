@@ -1,0 +1,69 @@
+﻿total_npc_sex+=1
+znts=Z[w]
+npc_sex[znts]+=1
+sexperaday[s]=daystart&sexperaday[w]=daystart
+if know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1
+if lebeda_seed[w]>0:lebeda_seed[s]+=1
+if lebeda_seed[s]>0:lebeda_seed[w]+=1
+Znow=Z[w]
+if magworld[Znow]>0:
+     if lebeda=w:
+		 if soul[s]>0:soul[w]+=1&soul[s]-=2&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+	 else
+		 if stamp_t[w]>0:
+			 if stampblockday[w]=daystart:
+				slutday[w]+=1
+			 else
+				 stampblockday[w]=daystart
+				 soul[w]-=2&soul[s]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+			 end
+		 else
+			 soul[w]-=2&soul[s]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+		 end
+	 end
+end
+if demon_dick[s]>0:
+	if w!soulmaster:
+		args[20]=0&args[20]+=rand(demon_dick[s],15)/5
+		soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=args[20]
+		if soul[w]>0:soul[w]-=args[20]
+	end	
+	gs'get_soul_loc',s,demon_dick[s],w
+end
+agro[s]+=1&if mob[w]=0:agro[w]-=1
+lust[w]+=1&if moon_curse[w]>=1:lust[w]+=2
+healthmax[s]=healthmax[s]+10&health[s]=healthmax[s]
+energy[s]=energymax[s]
+minuron[s]+=rand(2,5)&maxuron[s]=rand(5,10)
+reflex[s]+=1
+under_sub[w]=s&under_sub[s]=w
+mob_busy[w]=time+15&mob_busy[s]=time+15
+action_tipe[w]=1&action_tipe[s]=1
+aktive_tipe[s]=1&aktive_tipe[w]=0
+gs'add_sex_stat',w,s
+if vag[w]>0:
+	vag[w]+=1&vagsex[w]+=1&avagsex[s]+=1
+else
+	anus[w]+=1&anal[w]+=1&aanal[s]+=1
+end
+if skin[s]>3 and skin[s]<7 and block_blackrule=0 and magworld[Znow]>0 and vag[w]>=70 and anus[w]>=60 and throat[w]>=10:
+	if r_leg_t[w]=0:r_leg_t[w]=1
+	wantblackcock[w]=1
+end
+bj[w]+=1&abj[s]+=1
+if throat[w]<10:throat[w]=10
+if dick[s]>throat[w]:throat[w]+=1
+$global_npc_log[s]+='<br>'
+if whore[w]>0:
+     $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> дала мне за деньги.'
+else
+     $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> занимались сексом...'
+end
+$global_npc_log[w]+='<br>'
+if whore[w]>0:
+     money[w]+=5000
+     $global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> трахал меня за деньги.'
+else
+     $global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[s]>> <<$surname[s]>> занимались сексом...'
+end
+horny[w]=0&horny[s]=0

@@ -1,0 +1,1 @@
+﻿clo=ARGS[0]&gt'buyclossb'

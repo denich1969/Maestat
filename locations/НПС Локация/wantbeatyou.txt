@@ -1,0 +1,46 @@
+﻿! args[0] - агрессивный НПС
+! args[1] - номер НПС, за кого он впрягается или 0, но если не 0, то
+! $args[2] - отношения к НПС, за которого впрягаются.	                ! Копия кода из npcbase. Хорошо бы это выделить в отдельную процедуру.
+if know['<<npc>>,<<you>>']=0:'<b><center><<$nick[npc]>></center></b>'
+if know['<<npc>>,<<you>>']>0 and $surname[npc]!'':'<b><center><<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>></center></b>'
+if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]='':'<b><center><<$name[npc]>></center></b>'
+if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]!'':'<b><center><<$title[npc]>> <<$name[npc]>></center></b>'
+if face_pic[npc]>0 or spec_face_pic[npc]>0:gs 'init_d_view', npc, 'd_view' & '<center><img src="<<$d_view>>"></center>'
+*pl
+if args[1] ! 0:
+	if $args[2] = 'mother':
+		$args['relat_0'] = 'моя мать'&$args['relat_1'] = 'мою мать'
+	elseif $args[2] = 'father':
+		$args['relat_0'] = 'мой отец'&$args['relat_1'] = 'моего отца'
+	elseif $args[2] = 'child' and pol[args[1]] = 0:
+		$args['relat_0'] = 'мой сын'&$args['relat_1'] = 'моего сына'
+	elseif $args[2] = 'child' and pol[args[1]] ! 0:
+		$args['relat_0'] = 'моя дочь'&$args['relat_1'] = 'мою дочь'
+	elseif $args[2] = 'husband' and pol[args[1]] = 0:
+		$args['relat_0'] = 'мой муж'&$args['relat_1'] = 'моего мужа'
+	elseif $args[2] = 'husband' and pol[args[1]] ! 0:
+		$args['relat_0'] = 'моя жена'&$args['relat_1'] = 'мою жену'
+	elseif $args[2] = 'girlfriend':
+		$args['relat_0'] = 'моя девушка'&$args['relat_1'] = 'мою девушку'
+	elseif $args[2] = 'brother' and pol[args[1]] = 0:
+		$args['relat_0'] = 'мой родной брат'&$args['relat_1'] = 'моего брата'
+	elseif $args[2] = 'brother' and pol[args[1]] ! 0:
+		$args['relat_0'] = 'моя родная сестра'&$args['relat_1'] = 'мою сестру'
+	elseif $args[2] = 'stepbrother' and pol[args[1]] = 0:
+		$args['relat_0'] = 'мой сводный брат'&$args['relat_1'] = 'моего брата'
+	elseif $args[2] = 'stepbrother' and pol[args[1]] ! 0:
+		$args['relat_0'] = 'моя сводная сестра'&$args['relat_1'] = 'мою сестру'		
+	elseif $args[2] = 'bestfriend' and pol[args[1]] = 0:
+		$args['relat_0'] = 'мой лучший друг'&$args['relat_1'] = 'моего лучшего друга'
+	elseif $args[2] = 'bestfriend' and pol[args[1]] ! 0:
+		$args['relat_0'] = 'моя лучшая подруга'&$args['relat_1'] = 'мою лучшую подругу'
+	end
+	*p '- Ты, сволочь, <<$name[args[1]]>> <<$surname[args[1]]>> ' + $args['relat_0']
+	*p '. Это тебе за ' + $args['relat_1']
+	*p '...'
+	*pl
+end
+act 'Далее':
+	wantbeat['<<npc>>,<<you>>']=-npc&gs 'killarr', 'wantbeat', '<<npc>>,<<you>>'&$wantbeat_desc['<<npc>>,<<you>>'] = ''
+	gs'progcurse'&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&gt 'prefight'
+end

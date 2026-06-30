@@ -1,0 +1,7 @@
+﻿H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Магазин'&lock['<<$templocH>>']=0&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в магазин'
+$locopis['<<$temploc>>']='Грязноватый и не ухоженный магазин'
+np['<<$temploc>>']=233
+mirror['<<$temploc>>']=1&blackmarket['<<$temploc>>']=1
+R=1&gs 'toilet_gen',1&shower['<<$temploc>>']=0&!gs 'toilet_gen',уровень туалета

@@ -1,0 +1,33 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&God=i&you=i&pol[i]=rand(0,1)
+lvl[i]=100&soul[i]=100000&soulpower[i]=50000&money[you]=20000000&!Активы и недвижимость
+master[you]=100&magik[you]=24&fight_skill[i]=50000&shoot_skill[i]=50000&!Навыки
+if pol[you]=0:
+	face_tipe[i]=4&face[i]=30&gla[i]=0&glacol[i]=1&nose[i]=0&scull[i]=0&cheeks[i]=0&souldar[i]=3&beard[i]=0
+	dick[i]=15&dickd[i]=35&ball[i]=30&vag[i]=0&ass[i]=2&nip[i]=10&tits[i]=0
+	rost[i]=170&fat[i]=800&mus[i]=600&skin[i]=1
+	face_hair[i]=0&tit_hair_can[i]=1&tit_hair[i]=10&leg_hair_can[i]=1&leg_hair[i]=10&hlong[i]=10&hcol[i]=0
+	healthmax[i]=92&health[i]=healthmax[i]&manamax[i]=7300&mana[i]=manamax[i]&energymax[i]=86&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	age[i]=18&vital[i]=50000&will[i]=50000&reflex[i]=50000&pol[i]=0&gs'body'&total_generated_male+=1
+	womenbrain[you]=0&lust[i]=10&agro[i]=10&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=2&brave[i]=2&thenoob[i]=2&!Характер
+	t_slot[i]=4&l_slot[i]=5&b_slot[i]=3&!  одежда
+	ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+else
+	face[i]=70&gla[i]=3&glacol[i]=2&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=0&souldar[i]=3
+	dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&ass[i]=30&nip[i]=45&tits[i]=18&throat[i]=0
+	rost[i]=170&fat[i]=1200&mus[i]=800&skin[i]=1
+	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&cunthair[i]=10&hlong[i]=30&hcol[i]=3
+	healthmax[i]=92&health[i]=healthmax[i]&manamax[i]=7300&mana[i]=manamax[i]&energymax[i]=86&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	age[i]=18&vital[i]=50000&will[i]=50000&reflex[i]=50000&pol[i]=1&gs'body'&total_generated_female+=1
+	womenbrain[i]=100&lust[i]=10&agro[i]=10&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=2&brave[i]=2&horny[you]=0&thenoob[i]=2&!Характер 
+	t_slot[i]=133&l_slot[i]=0&b_slot[i]=20&!Майка, Рубашка, Блузка, плптье и т п, Юбка, Брюки, штаны, бриджи, шорты, Обувь
+	ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=31&!бельё:Лиф, Трусы, Колготки=&чулки или носки!Прикид конец
+end
+l_ring[you]=147&amulet[you]=135&m_slot[you]=25&! кольца, амулеты, оружие
+dom[i]=100&!Характер 
+SHOWSTAT 1&SHOWOBJS 1
+addobj'Персонаж'&addobj'Характеристики'&addobj'Статистика'&addobj'Инвентарь'&addobj'Журнал'&addobj'Обновить'
+gs'200_world_gen'&gs'100_paradise_gen'&gs'7777_moon_gen'&gs'404_roma_gen'&gs'770_moon_gen'&
+gs'1_nord_gen'&gs'2_nord_east_gen'&gs'3_river_gen'&gs'4_suid_west_gen'&gs'5_suid_gen'
+!se_world[]=i&walkprog[i]=29&!Программа поведения
+!$worldloc[you]='world'
+X[you]=3&Y[you]=3&Z[you]=0&H[you]=1&R[you]=0&gt'world'

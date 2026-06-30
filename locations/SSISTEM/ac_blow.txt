@@ -1,0 +1,103 @@
+﻿cls&gs'can_varian_sex',you,npc&!temp_dirt_cock[you]
+if candoblow[npc]>0:
+	if dontwannablow[npc]>0:dontwannablow[npc]=0
+	temp_blow+=1&sexpower[you]-=1
+	if h_slot[npc]>0:
+		if h_slot[npc]=1 or h_slot[npc]=10:
+		    if skin[you]>4:
+			     '<center><video src="pic/sex/bdsm/mask_blowb.webm" ></video></center>'
+			else
+			     '<center><video src="pic/sex/bdsm/mask_blow<<rand(0,8)>>.webm" ></video></center>'
+			end
+		elseif h_slot[npc]=6 or h_slot[npc]=7:
+             if skin[you]>4:
+                 '<center><video src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
+             else
+			     '<center><video src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
+			 end
+        else
+             $func('get_images', 'blowjob', npc, you)
+        end
+	else
+		$func('get_images', 'blowjob', npc, you)
+	end
+	$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+	if bj[npc]<10:
+		if lust[npc]<20:'<<$name[npc]>> вяло и неохотно сосет ваш <<dick[you]>> сантиметровый член, постоянно задевает член зубами, теряет ритм и постоянно вытаскивает волосы изо рта'
+		if lust[npc]>=20 and lust[npc]<60:'<<$name[npc]>> старательно сосет ваш <<dick[you]>> сантиметровый член, у нее получается плохо, но девушка старается'
+		if lust[npc]>=60:'<<$name[npc]>> увлеченно полирует ваш <<dick[you]>> сантиметровый член, энтузиазма у девушки полно, но опыта не хватает и порой возникает чувство, что она сейчас вам его отгрызет'
+	end
+	if bj[npc]>=10:
+		if lust[npc]<20:'<<$name[npc]>> умело сосет ваш <<dick[you]>> сантиметровый член своими <<$text>>. Сосать она умеет, но делает это механистично и явно ее это не слишком заводит'
+		if lust[npc]>=20 and lust[npc]<60:'<<$name[npc]>> старательно сосет ваш <<dick[you]>> сантиметровый член своими <<$text>>. У нее получается отличный минет, сказываются опыт в сосании членов и похвальная старательность'
+		if lust[npc]>=60:'<<$name[npc]>> увлеченно полирует ваш <<dick[you]>> сантиметровый член своими <<$text>>, девушку переполняет энтузиазм и она неистово вам минетит заглатывая ваш хуй так глубоко ,как у нее получается.'
+	end
+	if temp_dirt_cock[you]>0:
+		temp_dirt_cock[you]=0&if agro[npc]>10:agro[npc]-=1
+		if piss_fixation[npc]>0 and orgasm[npc]<time:horny[npc]+=piss_fixation[npc]
+		'<<$name[npc]>> чистит своим ртом ваш член, который вы достали из ее задницы'
+	end
+	if agro[npc]>=100:'<<$name[npc]>> подсовывает свою руку вам между ног и ее пальчик начинает массировать вам анус'
+	if lust[npc]>=60 and agro[you]>=50 and orgasm[npc]<time:horny[npc]+=rand(1,10)&'Не отрываясь от отсоса вашего хуя <<$name[npc]>> опускает руку между своих ножек и начинает ласкать себя'
+	gs'fuck_oral',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+	if dom[you]>=90:
+		act'Бить членом по лицу':
+			cls&$func('get_images', 'dickslap', npc, you)
+			if agro[npc]<=20:'<<$name[npc]>> спокойно переносит шлепки члена по лицу'
+			if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> подставляет лицо и морщится когда вы шлепаете ей членом по лицу'
+			if agro[npc]>=50:'<<$name[npc]>> делает недовольное лицо когда вы шлепаете ей хуем по лицу'
+			gs'fuck_oral_slap',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
+		end
+		act'Плюнуть в лицо':
+			cls
+			if skin[you]>4:
+				'<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'
+		    else
+				'<center><video src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'
+			end
+			if agro[npc]<=20:
+				'<<$name[npc]>> спокойно закрывает глаза когда вы смачно харкаете ей в лицо'&if slave[npc]=you:submission[npc]+=1
+			end
+			if agro[npc]>20 and agro[npc]<50:
+				'<<$name[npc]>> подставляет лицо для плевка и улыбается'&if slave[npc]=you:submission[npc]+=1
+			end
+			if agro[npc]>=50:'<<$name[npc]>> дергается когда вы харкаете ей в лицо и возмущенно вытирает лицо - Ты что творишь?'
+			gs'fuck_oral_spit',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
+		end
+		act'Ебать в рот':
+			cls&gs'stat'&$func('get_images', 'facefuck', npc, you)
+			if dick[you]>throat[npc]:
+				horny[npc]=0&"Ваш <<dick[you]>>см хуй упирается девушке в горло, явно не приспособленное для таких размеров"
+			else	
+				"Ваш <<dick[you]>>см проскальзывает в глотку шлюшки без особых проблем"
+				if agro[npc]<=20:'<<$name[npc]>> заглатывает ваш член в рот до самого основания'&'<<$name[npc]>> терпит когда вы долбите ее в рот и из ее глаз текут слезы'
+				if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> старается заглотить член, но это ей дается сложно, девушка давится и из ее глаз текут слезы'
+				if agro[npc]>=50:'<<$name[npc]>> морщится и пытается остановить вас, когда вы вгоняете ей член в горло'
+			end
+			sexpower[you]-=1&gs'fuck_oral_throat',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
+		end
+	end
+end 
+if candoblow[npc]=0:
+	if temp_dirt_cock[you]=0:
+		dontwannablow[npc]+=1&'<<$name[npc]>> отодвигает лицо в сторону - Я не хочу!' 
+	else
+		'<<$name[npc]>> отодвигает лицо в сторону - Фу! Я не буду сосать член после задницы!' 
+	end
+	if dom[you]>=90 and agro[npc]<50:
+		act'Молча дать по морде':
+			agro[npc]-=1&horny[npc]=0&oral_fixation[npc]+=1&!gs'stat'&'<center><video src="pic/sex/anal/slap0.webm" ></video></center>'
+			'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину.'&gt $curloc
+		end
+	end
+end
+if agro[npc]>=100:
+	if candoblow[npc]>0:
+		act'Убрать ее руку от своего ануса':gt 'activ_sex' 
+		act'...':gt'ac_blow_pr'
+	else
+		act'...':gt 'activ_sex'
+	end
+else
+	act'...':gt 'activ_sex'
+end 

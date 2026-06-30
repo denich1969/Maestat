@@ -1,0 +1,31 @@
+﻿i=0
+$item_tg_name[i]='Жилет усиленный металлическими бляхами'
+clo_tg_item[i]=1
+$item_tg_use[i]='Надеть'
+item_tg_burden[i]=5&!вес
+$item_tg_text[i]=''
+long_tg[i]=0
+sexy_tg[i]=0
+aristokrat_tg[i]=2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=1
+$item_tg_name[i]='Черный классический жилет'
+clo_tg_item[i]=1
+$item_tg_use[i]='Надеть'
+item_tg_burden[i]=200&!вес
+$item_tg_text[i]=''
+long_tg[i]=0
+sexy_tg[i]=0
+aristokrat_tg[i]=2
+view_tg[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=2
+$item_tg_name[i]='Черный узорчатый жилет'
+clo_tg_item[i]=1
+$item_tg_use[i]='Надеть'
+item_tg_burden[i]=200&!вес
+$item_tg_text[i]=''
+long_tg[i]=0
+sexy_tg[i]=0
+aristokrat_tg[i]=2
+view_tg[i]=2

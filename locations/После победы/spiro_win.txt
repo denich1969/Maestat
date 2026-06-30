@@ -1,0 +1,9 @@
+﻿gs'stat'
+     if uberSolderQW[you]=6:
+     uberSolderQW[you]=7
+     magik[you]+=1
+     gt'afterfight_moon'
+     end
+'Напавший на вас маг повержен и молит о пощаде - Я просто работаю, выставка принадлежит Люксу Эосфору, аватару даунтауна.'
+
+act'Уйти':gt'preloc'

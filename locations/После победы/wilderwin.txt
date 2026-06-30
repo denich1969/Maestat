@@ -1,0 +1,10 @@
+﻿'<<$nick[npc]>> падает на землю'
+act'Отпустить':
+     corr[npc]-=10&horny[npc]=0&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,30)&Y[npc]=rand(0,30)
+	 if H[npc]>0:H[npc]=0
+	 if R[npc]>0:R[npc]=0
+	 cls&gs'stat'&'<<$nick[npc]>> в панике убегает'&act'...':gt'preloc'
+end
+act'Убить':
+	X=rand(1,29)&Y=rand(1,29)&Z=100&H=0&R=0&cls&gs'mutant_gen'&gs'stat'&dead[npc]=9&'<<$nick[npc]>> умирает в конвульсиях'&act'...':gt'preloc'
+end

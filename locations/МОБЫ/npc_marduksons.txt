@@ -1,0 +1,60 @@
+﻿if mardukenemy[you]>0:
+	'<<$nick[npc]>> - Ах ты тварь! Я заставлю тебя страдать!'
+else
+    if pol[you]>0:
+		 if sexiness[you]>50:
+			'<<$nick[npc]>> - потряси задницей, шлюшка!'
+			act'Кокетливо улыбнуться':
+				horny[npc]+=sexiness[you]/2&!statistics_flirt[you]+=1
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент.'&womenbrain[you]+=1&act'<b>Уйти</b>':gt 'preloc'
+				if know['<<npc>>,<<you>>']=0:
+					act'Познакомиться':
+						know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+					end
+				end
+			end
+			act'Тверк':
+				horny[npc]+=sexiness[you]/2&womenbrain[you]+=2&act'<b>Уйти</b>':gt 'preloc'
+				cls&gs'stat'&'<center><video src="pic/misc/twerk<<rand(0,17)>>.webm" ></video></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Какая ты игривая сучка, мне это нравится.'
+				if know['<<npc>>,<<you>>']=0:
+					act'Познакомиться':
+						know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+						if last_sex[npc]<time:
+							'<<$name[npc]>> <<$surname[npc]>> ухмыляется - хочешь незабываемых впечатлений и <<max(sexiness[you]/2,1)>> шиллингов?'
+							act'А давай':
+								money[you]+=sexiness[you]/2*100&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> дал вам деньги и повел в отель.'
+								act'Идти':
+									whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)
+									X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+									X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+									solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+								end
+							end
+						end
+					end
+				else
+					'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Какая ты игривая сучка, мне это нравиться.'&act'<b>Уйти</b>':gt 'preloc'
+					if last_sex[npc]<time:
+						'<<$name[npc]>> <<$surname[npc]>> ухмыляется - хочешь незабываемых впечатлений и <<max(sexiness[you]/2,1)>> шиллингов?'
+						act'А давай':
+							money[you]+=sexiness[you]/2*100&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> дал вам деньги и повел в отель.'
+							act'Идти':
+								whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)
+								X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+								X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+							end
+						end
+					end
+				end
+			end
+		else
+			'<<$nick[npc]>> - стремная сучка!'
+		end
+	else
+		'<<$nick[npc]>> - отвали!'
+    end
+	act'<b>Уйти</b>':gt 'preloc'
+end

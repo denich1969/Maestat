@@ -1,0 +1,56 @@
+﻿if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]=''&!в отключке
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+     if hour>=22 or hour<=6:
+         if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			$think[w]=''&!спит дома
+         else
+			 $destination[w]='дом'&gs'destination'
+			 $think[w]='хочет домой'&gs'walk_dest'&!вне дома
+         end
+     else
+         if week<6:
+             if hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]=$iif(hour<9,'учительская','класс а')
+			 if hour>=17:
+				 if wantday[w]!daystart:wantday[w]=daystart&wantdayloc[w]=rand(0,1)
+				 if wantdayloc[w]=0:
+					$think[w]='думает о прогулке'&$destination[w]='ресторан'
+				 	if daylypaymant[w]!daystart:daylypaymant[w]=daystart&money[w]+=1000
+				 end
+				 if wantdayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='спорт'
+			 end
+         end
+         if week>=6:
+			 if hour>=7 and hour<=12:
+				 if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=rand(0,1)
+				 if wantutrodayloc[w]=0:$think[w]='думает о выпивке'&$destination[w]='квартира зал'
+				 if wantutrodayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='квартира кухня'
+			 end
+			 if hour>=13 and hour<=16:
+				 if wantmidday[w]!daystart:wantmidday[w]=daystart&wantmiddayloc[w]=rand(0,2)
+				 if wantmiddayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='квартира зал'
+				 if wantmiddayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='квартира кухня'
+				 if wantmiddayloc[w]=2:$think[w]='думает о прогулке'&$destination[w]='спорт'
+			 end
+			 if hour>=17:
+				 if wantday[w]!daystart:wantday[w]=daystart&wantdayloc[w]=rand(0,3)
+				 if wantdayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='квартира зал'
+				 if wantdayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='квартира кухня'
+				 if wantdayloc[w]=2:$think[w]='думает о выпивке'&$destination[w]='спорт'
+				 if wantdayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='ресторан'
+			 end
+         end
+         if $destination[w]='прогулка':
+			$think[w]='думает о прогулке'&gs'walk_full_rand'
+         else
+			gs'destination'
+			 if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+				$think[w]='думает о рыбе'&!на точке назначения
+			 else
+				gs'walk_dest'&!вне точки назначения
+			 end
+         end
+     end
+end

@@ -1,0 +1,75 @@
+﻿ '<b>Вам устроили двойное проникновение</b>'
+act'Стонать':
+	womenbrain[you]+=1&cls&gs'gofight'&!if mob[vag_fucker]=3 and mob[anal_fucker]=3:insmout_gang[you]+=1
+	if mob[anal_fucker]=3:insmout_gang[you]+=1
+	if magworld[Znow]>0:gs'soulcraft',5
+	target_soul=4&nnn=anal_fucker&rtimer=0
+	if vag_fucker>0:horny[vag_fucker]+=50
+	if anal_fucker>0:horny[anal_fucker]+=50
+	if you_blow>0:horny[you_blow]+=30
+	anus[you]+=1&anal[you]+=1&fuckyouass[anal_fucker]+=1
+	vag[you]+=1&vagsex[you]+=1&fuckyou[vag_fucker]+=1
+	if you_blow>0:you_slut[you_blow]+=1
+	you_slut[vag_fucker]+=1&you_slut[anal_fucker]+=1&temp_gang+=1&gs'soulcraft'
+	target_soul=4&nnn=anal_fucker&corr[you]+=1
+	vag_mass['<<vag_fucker>>,<<you>>']+=1&anal_mass['<<anal_fucker>>,<<you>>']+=1	
+	if lebeda_seed[you]>0:lebeda_seed[anal_fucker]+=1&lebeda_seed[vag_fucker]+=1
+	if lebeda_seed[anal_fucker]>0:lebeda_seed[you]+=1&lebeda_seed[vag_fucker]+=1
+	if lebeda_seed[vag_fucker]>0:lebeda_seed[you]+=1&lebeda_seed[anal_fucker]+=1
+	gs'stat'
+	if you_blow>0:
+		if vag[you_blow]>0:
+			'<center><img src="pic/sex/lesb/dp<<rand(0, 0)>>.jpg" ></center>'&'Вас дерут в два смычка и <<$name[you_blow]>> подставляет вам свою задницу которую вам приходится вылизывать.'
+			gs'fuck_anal_lick',you,you_blow&gs'fuck_anal',anal_fucker,you&gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'
+		else
+			fuckblow[you_blow]+=1&bj[you]+=1&bj_mass['<<you_blow>>,<<you>>']+=1&$func('get_images', 'gangbang', you, anal_fucker)&'Вас трахают во все дыры и вы сосете член'
+			if camera['<<$loc[you]>>']>=1:$porno[film]+='Вас трахают во все дыры. Два члена ходят внутри вас отгороженные друг от друга только тонкой стеночкой и вы сосете член. '
+			gs'fuck_oral',you_blow,you&gs'fuck_anal',anal_fucker,you&gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'
+			if camera['<<$loc[you]>>']>=1 and pubis_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
+				pubis_t[you]=1&'Вам зажгло лобок и на нем проступила татуировка шлюхи.'&if magworld[Znow]>0:soul[you]-=10
+			end
+			if skin[you_blow]>3 and skin[you_blow]<7:
+			     if camera['<<$loc[you]>>']=0 and r_leg_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
+				     r_leg_t[you]=1&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&'У вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
+				     if magworld[Znow]>0:soul[you]-=10
+				 end
+		    else
+		         if camera['<<$loc[you]>>']=0 and pubis_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
+				     pubis_t[you]=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&'Вы чувствуете жар на лобоке, где проступила татуировка шлюхи.'
+				     if magworld[Znow]>0:soul[you]-=10
+				 end
+			end
+			if hcol[you]=3 and face_pic[you]=83:
+			else
+				if mob[vag_fucker]=15 and camera['<<$loc[you]>>']>=1 and pol[you]>0 and magworld[Znow]>0:
+					face[you]=100&lips[you]=3&hcol[you]=3&face_pic[you]=83
+					'<<$nick[you_blow]>> <<$name[you_blow]>> усмехнулся - Такая шлюха как ты должна быть бимбо блондинкой с большим сосалищем, нужно тебя покрасить.'
+					'Вам что-то вылили на голову и ваши волосы окрасились в светлый цвет и преобразилось лицо.'
+				end
+			end
+		end
+	else
+		$func('get_images', 'splitroast_dp', you, vag_fucker)
+		'Вас трахают в две дыры. Вы стонете от нестерпимой смеси боли и удовольствия, когда два члена ходят внутри вашего тела разделенные лишь тонкой перегородочкой между киской и анусом.'
+		if camera['<<$loc[you]>>']>=1:$porno[film]+='Вас трахают в две дыры. Вы стонете от нестерпимой смеси боли и удовольствия, когда два члена ходят внутри вашего тела разделенные лишь тонкой перегородочкой между киской и анусом.'
+		gs'fuck_anal',anal_fucker,you&gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'
+	end	
+	if l_ass_t[you]=1:
+		if magworld[Znow]>0:
+			if stamp_t[you]>0:
+				if stampblockday[you]=daystart:
+					slutday[you]+=1
+				else
+					stampblockday[you]=daystart&gs'soulcraft',15&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+				end
+			else
+				gs'soulcraft',15&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+			end
+		end
+		'Вам болезненно шлепают по адскому клейму.'
+	end
+	act'...':
+		npc_want_dp=0&if vag[you]>0:open_vag[you]=1
+		open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&cantdo=0&gt 'sex'
+	end
+end

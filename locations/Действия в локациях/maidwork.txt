@@ -1,0 +1,13 @@
+﻿$nameloc[you]=$curloc&gs'stat'
+if maidwork['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1:
+	'Особняк Шеларди'
+    if maidwork['<<you>>']=1:
+         if maidworkday[you]!daystart:
+             act'Работать':
+				maidworkday[you]=daystart&nopee=1&money[you]+=500&time+=rand(120,180)&cls&gs'stat'&nopee=0
+				'Вы наводите чистоту в особняке, вытираете пыль и моете полы. За это вы получаете жалование 5ть шиллингов.'&act'Отойти':gt 'preloc'
+			end
+        end
+    end
+end
+gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'

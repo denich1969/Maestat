@@ -1,0 +1,21 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&sallivandot=i
+lvl[i]=1&soul[i]=100&work[i]=1&subwork[i]=1
+master[i]=0&delusion[i]=0&muggle[i]=0&magik[i]=8&beliver[i]=0&statist[i]=1&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=141&!номер типа фотки и фотки
+$title[i]=''&$history[i]='Я родилась совсем недавно, но мои родители засунули меня в автодок, который вырастил меня в виртуальном мире.'
+$name[i]='Лиза'&$surname[i]='Салливан'&$nick[i]='Формастая блонда'
+face[i]=70&gla[i]=3&glacol[i]=1&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&&anus[i]=0&ass[i]=35&nip[i]=45&tits[i]=18
+rost[i]=175&fat[i]=1600&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=3
+age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=60&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=2&lust[i]=30&!характер
+!l_hand_t[i]=3
+t_slot[i]=100&l_slot[i]=0&b_slot[i]=20
+ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=0
+kid_first[sallivan]=sallivandot&kid_first[lagerta]=sallivandot
+father[sallivandot]=sallivan&mother[sallivandot]=lagerta
+n_world[]=i&walkprog[i]=31
+Xhome[i]=3&Yhome[i]=2&Zhome[i]=1&Hhome[i]=5&Rhome[i]=0&X[i]=3&Y[i]=2&Z[i]=1&H[i]=5&R[i]=0&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

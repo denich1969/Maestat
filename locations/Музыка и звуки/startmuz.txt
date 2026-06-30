@@ -1,0 +1,18 @@
+﻿$music_theme=$args[0]
+!you can do music_theme contron here, for example:
+if $music_theme='noble': $music_theme='city'
+if $music_theme='demon': $music_theme='cave'
+if $music_theme='slave': $music_theme='road'
+if music_on=1:music_on=0
+if CONFIG['ENABLE_sound_menu']=1:
+	if music_on=0:
+		 inited = 1
+		 music_on=1
+		 volume = 20
+		 $music_theme = 'start'
+		 gs 'init_music'
+	end
+	! volume = 10
+	! $music_theme = 'start'
+	!gs 'init_music'
+end

@@ -1,0 +1,119 @@
+﻿X=0&Y=0&Z=770&H=0&R=0&Xmax[Z]=10&Ymax[Z]=10&!obsession_world[Z]=770
+$n_board[Z]='Горы'&$w_board[Z]='Море'&$e_board[Z]='Море'&$s_board[Z]='Море'
+magworld[Z]=100&oxigen[Z]=1&temper[Z]=3&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworld
+H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!'if altargen=0:
+	:markaltargen
+	X=rand(1,9)&Y=rand(1,9)
+     if X=5 and Y=5:
+		jump'markaltargen'
+     else
+		 altargen=1&altar['<<$temploc>>']=1
+     end
+end'
+if X=0 or X=Xmax[Z] or Y=0 or Y=Ymax[Z]:
+     if Y=10:
+		maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
+		H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Предгорье'&maxPositionR['<<$templocH>>']=0
+		R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Предгорье'&$lname['<<$temploc>>']='Предгорье'&$locopis['<<$temploc>>']='Стена джунглей заканчивается перед горами на которых видны лишь луга'
+		 np['<<$temploc>>']=581
+     else
+		 if X=0 and Y=0:
+		 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
+			H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Отель'&maxPositionR['<<$templocH>>']=0
+			R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+			 $locname['<<$temploc>>']='Отель на берегу моря'&$lname['<<$temploc>>']='Отель'&$locopis['<<$temploc>>']='Красивый отель на берегу моря'
+			 np['<<$temploc>>']=32
+			 door['<<$temploc>>']=1&!Xdoor['<<$temploc>>']=4&Ydoor['<<$temploc>>']=5&Zdoor['<<$temploc>>']=771
+			!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+			!H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Отель Странное место'&maxPositionR['<<$templocH>>']=8
+			!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+			!$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&	$lname_go['<<$temploc>>']='в холл'
+			!$locopis['<<$temploc>>']='Стандартный холл с ковровой дорожкой, светильничками на стенах и одинаковыми дверями ведущими в комнаты.'
+			!np['<<$temploc>>']=547
+			!mirror['<<$temploc>>']=1
+		 else
+		 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Пляж'&maxPositionR['<<$templocH>>']=0
+			R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+			 $locname['<<$temploc>>']='Пляж'&$lname['<<$temploc>>']='Пляж'&$locopis['<<$temploc>>']='Чистый песок омываемый морской водой'
+			 np['<<$temploc>>']=31
+			 can_swim['<<$temploc>>']=1
+			 if rand(1,10)<=3:item_loc['47,<<$temploc>>']=1
+			 if rand(1,10)<=3:item_loc['48,<<$temploc>>']=1
+			 if rand(1,10)<=3:item_loc['1,<<$temploc>>']=1
+			 if rand(1,10)<=3:item_loc['2,<<$temploc>>']=1
+		 end
+	 end
+	 H=0&R=0
+else
+     if X=5 and Y=5:
+     	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
+		H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бунгало'&maxPositionR['<<$templocH>>']=0
+		R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Бунгало'&$lname['<<$temploc>>']='Бунгало'&$locopis['<<$temploc>>']='Просторное бунгало'
+		 np['<<$temploc>>']=502
+		 $wall_name['<<$temploc>>']='Бунгало'
+		 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&!w_wall['<<X>>,<<Y>>,<<Z>>']=1
+		 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'
+		 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Бунгало'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Бунгало'
+		 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Бунгало'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Бунгало'
+		 !'n_wall['<<X>>,<<Y-1>>,<<Z>>']=1&s_wall['<<X>>,<<Y+1>>,<<Z>>']=1&e_wall['<<X-1>>,<<Y>>,<<Z>>']=1&w_wall['<<X+1>>,<<Y>>,<<Z>>']=1 '
+		 wardrobe['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!мебель
+		 can_sleep['<<$temploc>>']=1
+		 item_loc['24,<<$temploc>>']=1&item_loc['2,<<$temploc>>']=3&!бутылки
+		 !item_loc_hat['3,<<X>>,<<Y>>,<<Z>>']=1&item_loc_coat['3,<<X>>,<<Y>>,<<Z>>']=1
+		 !item_loc_t['1,<<X>>,<<Y>>,<<Z>>']=1&item_loc_l['1,<<X>>,<<Y>>,<<Z>>']=1&item_loc_b['1,<<X>>,<<Y>>,<<Z>>']=1
+		 !item_loc_ul['1,<<X>>,<<Y>>,<<Z>>']=1
+		 gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'
+		 H=0&R=0
+	 elseif X=4 and Y=6:
+		maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бунгало'&maxPositionR['<<$templocH>>']=0
+		R=0&gs 'toilet_gen',4&$locopis['<<$temploc>>']='Дощатый туалет среди деревьев'&!gs 'toilet_gen',уровень туалета
+		np['<<$temploc>>']=534
+		can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=0
+     else
+		 if rand(1,100)<=85:
+			 if rand(1,100)<=80:
+				maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Джунгли'&maxPositionR['<<$templocH>>']=0
+				R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+				 $locname['<<$temploc>>']='Джунгли'&$lname['<<$temploc>>']='Джунгли'&$locopis['<<$temploc>>']='Густой лес заросший пальмами и высокой травой'
+				 np['<<$temploc>>']=rand(504,506)
+				 if rand(1,100)>=60:banana['<<$temploc>>']=1&last_banana['<<$temploc>>']=rand(0,1)&day_banana['<<$temploc>>']=1
+				 if rand(1,100)>=75:koluchka['<<$temploc>>']=1
+				 if rand(1,100)>=60:orange['<<$temploc>>']=1&last_orange['<<$temploc>>']=rand(1)&day_orange['<<$temploc>>']=1
+				 if rand(1,100)>=90:hut['<<$temploc>>']=1&gs'aborigen_gen'
+			 else
+				maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Джунгли'&maxPositionR['<<$templocH>>']=0
+				R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+				$locname['<<$temploc>>']='Заболоченные джунгли'&$lname['<<$temploc>>']='Джунгли'&
+				$locopis['<<$temploc>>']='Густой лес заросший пальмами и высокой травой, почва сильно пропитана водой и ноги вязнут в грязи. Между этих островков грязи болото затянутое зеленой ряской'
+				 np['<<$temploc>>']=rand(507,508)
+				 marsh['<<$temploc>>']=1&list['<<$temploc>>']=rand(1)&if rand(1,100)>=95:gs'mobgen'
+			 end
+		 else
+			maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Озеро'&maxPositionR['<<$templocH>>']=0
+			R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+			 $locname['<<$temploc>>']='Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Чистое озерцо с прозрачной водой'
+			 np['<<$temploc>>']=503
+			 can_drink['<<$temploc>>']=2&lake['<<$temploc>>']=1&list['<<$temploc>>']=rand(1)&if rand(1,100)>=90:gs'mobgen'
+		 end
+		 if X=7 and Y=5:altar['<<$temploc>>']=1&gs'WitchJungle'
+		 if X=4 and Y=7:portal['<<$temploc>>']=7777
+		 if X=7 and Y=7:swordstoun['<<$temploc>>']=1
+		 if X=4 and Y=4:cladka['<<$temploc>>']=2
+		 if X=0 and Y=3:cladka['<<$temploc>>']=2
+		 if X=10 and Y=3:cladka['<<$temploc>>']=2
+		 if X=0 and Y=0:
+			 !gs'slut'&slutegg[i]=rand(5,50)&gs'slut'&slutegg[i]=rand(5,50)&gs'slut'&slutegg[i]=rand(5,50)
+			 gs'mobgen'& $name[i]='Морской'&mobexp[i]=20&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)
+			 gs'justgirl'&gs'justgirl'&gs'justgirl'
+		 end
+	 end
+	 H=0&R=0
+end
+if X=5 and Y=Ymax[Z]:$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&pereval['<<$temploc>>']=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
+if rand(1,10)<=3:item_loc['46,<<$temploc>>']=1
+X+=1&if X<=Xmax[Z]:jump'markgenworld'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworld'

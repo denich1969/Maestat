@@ -1,0 +1,19 @@
+﻿!rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'&!в отключке
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+	if hour>=22 or hour<=6:
+		 !спит дома:
+	else
+		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			$doing[w]='сидит в клетке'
+		else
+			walkrand=rand(0,2)
+			if walkrand=0:$doing[w]='стоит столбом'&!$loc[w]='t_holl'
+			if walkrand=1:$doing[w]='убирается'&!$loc[w]='t_holl'
+			if walkrand=2:$doing[w]='расставляет столовые приборы'&!$loc[w]='t_stol'
+		end
+	end
+end

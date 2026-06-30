@@ -1,0 +1,42 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+if street_whore[npc]=1 and no (boyfriend_num[npc]=you and girlfriend_num[you]=npc):
+	'<<$name[npc]>> устало говорит - Я работаю.'
+else
+	 if black_repa[you]>0:
+	     if misstress[npc]=1:
+			'<<$name[npc]>> смотрит на вас презрительно - Отвали!'
+		 else
+			 if lust[npc]>=50:
+				 horny[you]+=10&'<<$name[npc]>> хихикает и стреляет глазками'
+				 if item[63]>0:
+					act'Предложить пиво':
+						 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&item[63]-=1&burden[you]-=item_burden[63]
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выпивает предложенное вами пиво.'&act'<b>Уйти</b>':gt 'preloc'
+						 if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
+					end
+				 end
+				 gs'aktiv_flirt'
+			 else
+				 horny[you]+=10&'<<$name[npc]>> скромно улыбается выслушивая ваши комплименты'&gs'aktiv_flirt'
+			 end
+		 end
+	 else
+		 if misstress[npc]=1:
+			'<<$name[npc]>> смотрит на вас презрительно - Отвали!'
+		 else
+			 if lust[npc]>=75:
+				 horny[you]+=10&'<<$name[npc]>> хихикает и стреляет глазками'
+				 if item[63]>0:
+					 act'Предложить пиво':
+						 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&item[63]-=1&burden[you]-=item_burden[63]
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выпивает предложенное вами пиво.'&act'<b>Уйти</b>':gt 'preloc'
+						 if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
+					 end
+				 end
+				 gs'aktiv_flirt'
+			 end
+			 if lust[npc]>=25 and lust[npc]<75:horny[you]+=10&'<<$name[npc]>> снисходительно слушает ваши комплименты'&gs'aktiv_flirt'
+			 if lust[npc]<25:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'
+		 end
+	 end
+end

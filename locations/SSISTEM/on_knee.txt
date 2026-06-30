@@ -1,0 +1,162 @@
+﻿if you_blow>0:
+	if dick[you_blow]>1:
+		$textblow='Сосать член'&$func('get_images', 'poser_kneel_pov', you, you_blow)&'У вас перед лицом стоячий <<dick[you_blow]>> сантиметровый ' + $func("get_stat_desc", "GET_DICK_WORD", you_blow)
+	end
+	if vag[you_blow]>0:$textblow='Лизать пизду'&$func('get_images', 'poser_kneel_pov', you, you_blow)&'У вас перед лицом мокрая киска'
+	act'<<$textblow>>':
+		rtimer=0&horny[you_blow]+=10&open_mouth[you]=1&fuckblow[you_blow]+=1&cls&gs'stat'
+		if vag[you_blow]>0:
+			gt'on_knee_lesb'
+		else
+			bj[you]+=1&bj_mass['<<you_blow>>,<<you>>']+=1
+			if lebeda_seed[you]>0:lebeda_seed[you_blow]+=1
+			if lebeda_seed[you_blow]>0:lebeda_seed[you]+=1
+			if open_lhand[you]=0:
+				you_slut[you_blow]+=1&temp_gang+=1&corr[you]+=1&gs'gofight'
+				if open_rhand[you]=0:
+					if vag[lhand]>0 or vag[rhand]>0:
+						$func('get_images', 'blowjob_helper', you, you_blow)&'<<$name[lhand]>> встает на колени рядом с вами и начинает сосать член вместе с вами.'&!третья телка
+						if dick[lhand]>0:
+							gs'fuck_oral',you_blow,lhand&gs'fuck_oral',you_blow,rhand&gs'fuck_oral',you_blow,you&!втроем на 1 ствол
+						else
+							gs'fuck_oral',you_blow,lhand&gs'fuck_oral',you_blow,lhand,in_sex[you]&!вдвоем на 2 члена
+						end
+					else 
+						$func('get_images', 'multi_blow', you, you_blow)&bj_mass['<<lhand>>,<<you>>']+=1&bj_mass['<<rhand>>,<<you>>']+=1&target_soul=4&!gs'souleater'
+						if magworld[Znow]>0: gs'soulcraft'
+						'Вы сосете три члена по очереди и дрочите их руками'&!soul[you]-=1
+						if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы сосете три члена одновременно. '	
+						args[10]=rand(0,2)
+						if args[10]=0:gs'fuck_oral',you_blow,you
+						if args[10]=1:gs'fuck_oral',lhand,you
+						if args[10]=2:gs'fuck_oral',rhand,you
+					end
+				else
+					if vag[lhand]>0:
+						$func('get_images', 'blowjob_helper', you, you_blow)&'<<$name[lhand]>> встает на колени рядом с вами и начинает сосать член вместе с вами.'&!вдвоем на 1 член
+						gs'fuck_oral',you_blow,rhand
+						gs'fuck_oral',you_blow,you
+					else 
+						$func('get_images', 'blowbang', you, you_blow)&bj_mass['<<lhand>>,<<you>>']+=1&'Вы отсасываете два члена по очереди беря их в рот и надрачивая ладошками'
+						if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы сосете два члена одновременно. '
+						args[10]=rand(0,1)
+						if args[10]=0:gs'fuck_oral',you_blow,you
+						if args[10]=1:gs'fuck_handjob',lhand,you
+					end
+				end
+			else
+				if skin[you_blow]>3 and skin[you_blow]<7:
+					$func('get_images', 'blowjob', you, you_blow)&if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы сосете большой черный член. '
+				else
+					$func('get_images', 'blowjob', you, you_blow)&if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы сосете <<dick[you_blow]>> сантиметровый член. '
+				end
+				'Вы берете в рот <<dick[you_blow]>> сантиметровый член и сосете его плотно обхватывая губами.'&gs'fuck_oral',you_blow,you		
+			end
+		end	
+		if horny[you_blow]<100:
+			gs'fuck_final',in_sex[you]&gs'stat'
+			itog=iif(agro[you_blow]=0,0,iif(agro[you_blow]=1,rand(0,2),rand(1,4)))
+			if (peeblock=1 or CONFIG['DISABLE_PEE']=1) and itog=4:itog=3
+			if itog=3 and CONFIG['DISABLE_SPIT']=1:itog=2	
+			if itog=0:
+				act'...':
+					if vag[you]>0:open_vag[you]=1
+					open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&lhand=0&rhand=0&gt 'sex'
+				end
+			end
+			if itog=1:
+				act'...':
+					corr[you]+=1&cls&$func('get_images', 'dickslap', you, you_blow)&'<<$nick[you_blow]>> шлепает вам членом по лицу'
+					if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам шлепают членом по лицу. '
+					gs'fuck_oral_slap',you_blow,you&gs'fuck_final',in_sex[you]&gs'stat'
+					act'...':
+						if vag[you]>0:open_vag[you]=1
+						open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&lhand=0&rhand=0&gt 'sex'
+					end
+				end
+			end
+			if itog=2:
+				act'...':
+					corr[you]+=2&target_soul=4&if magworld[Znow]>0:gs'soulcraft'
+					cls&gs'stat'&$func('get_images', 'facefuck', you, you_blow)&'<<$nick[you_blow]>> хватает вас за волосы и начинает ебать вас в рот'
+					if camera['<<$loc[you]>>']>=1:$porno[film]+='Вас ебут в рот удерживая за волосы. '
+					gs'fuck_oral_throat',you_blow,you&gs'fuck_final',in_sex[you]&gs'stat'
+					act'...':
+						if vag[you]>0:open_vag[you]=1
+						open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&lhand=0&rhand=0&gt 'sex'
+					end
+				end
+			end
+			if itog=3:
+				act'...':
+					corr[you]+=3&target_soul=4&if magworld[Znow]>0:gs'soulcraft'
+					cls&gs'stat'
+					if skin[npc]>3 and skin[npc]<7:
+						blacked[you]+=1&'<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наклоняется над вами и плюет вам в лицо'
+				    else
+						'<center><video src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наклоняется над вами и плюет вам в лицо'
+					end
+					if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам харкают в лицо во время минета. '
+					gs'fuck_oral_spit',you_blow,you&gs'fuck_final',in_sex[you]&gs'stat'
+					if r_ass_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:r_ass_t[you]=1&'У вас зажгло кожу на правой ягодице и там материализовалась татуировка'
+					act'...':
+						if vag[you]>0:open_vag[you]=1
+						open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&lhand=0&rhand=0&gt 'sex'
+					end
+				end
+			end
+			if itog=4:
+				act'...':
+					pissonloc['<<$loc[you]>>']=time+250&target_soul=4&!corr[you]+=5
+					if magworld[Znow]>0:gs'soulcraft'
+					cls&gs'stat'
+					if toilet['<<$loc[you]>>']>=1:
+						corr[you]+=5&'<center><video src="pic/sex/bj/pee/toiletseat.webm" ></video></center>'
+						'<<$nick[you_blow]>> снимает сидушку с унитаза и одевает сидушку вам на шею. Затем подносит свой член к лицу и начинает ссать вам на лицо и в рот.'
+					else
+						if skin[npc]>3 and skin[npc]<7:
+							blacked[you]+=1&'<center><video src="pic/sex/bj/pee/piss<<rand(0,6)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наставляет вам на лицо свой член и начинает ссать на вас.'
+						else
+							'<center><video src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наставляет вам на лицо свой член и начинает ссать на вас.'
+						end
+					end
+					gs'fuck_piss',you_blow,you&gs'fuck_final',in_sex[you]&gs'stat'
+					if camera['<<$loc[you]>>']>=1:$porno[film]+=' Вам ссут на лицо и в рот. '
+					if l_hand_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
+						l_hand_t[you]=1&target_soul=4&if magworld[Znow]>0:gs'soulcraft'
+						'У вас зажгло левую руку и на ней материализовалась татуировка'
+					end
+					act'...':
+						if vag[you]>0:open_vag[you]=1
+						open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&lhand=0&rhand=0&gt 'sex'
+					end
+				end
+			end
+		else
+			act'Сосать член':
+				horny[you_blow]=0&mob_sleep[you_blow]=time+60&target_soul=4&nnn=you_blow&cum_face[you]+=1
+				$global_npc_log[you_blow]+='<br>'
+				$global_npc_log[you_blow]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> была пущена нами по кругу.'
+				cls&gs'stat'
+				if open_lhand[you]=0:
+					$func('get_images', 'mass_cum_on_face', you, you_blow)
+				else
+					$func('get_images', 'mass_cum_in_mouth', you, you_blow)&'Вы отсасываете член'
+				end
+				'Вам кончили на лицо'
+				gs'fuck_cum_face',you_blow,you
+				gs'fuck_final',in_sex[you]
+				gs'stat'
+				if face[you]>60:horny[you]+=rand(20,40)
+				if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам кончили на лицо. '
+				act'...':
+					empty_ball[you_blow]=time+(60*koefball[you_blow])
+					open_lhand[you]=1&open_rhand[you]=1&if vag[you]>0:open_vag[you]=1
+					open_anus[you]=1&open_mouth[you]=1&oral_fixation[you]+=1
+					vag_fucker=0&anal_fucker=0&you_blow=0&lhand=0&rhand=0&gt 'sex'
+				end
+			end
+		end
+	end
+end
+if you_blow=0 and (vag_fucker>0 or anal_fucker>0):pose[you]=4&gt'on_hands'

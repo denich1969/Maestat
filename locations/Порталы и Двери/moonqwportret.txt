@@ -1,0 +1,150 @@
+﻿horny[you]+=50&health[you]=healthmax[you]&energy[you]=energymax[you]
+gs'stat'&'<center><img src="pic/misc/portret.jpg" ></center>'&'<a href="exec:gt ''GeoMap'',''GeoMap''"><b>На стене портрет девушки</b></a>'&'На стене портрет девушки'&*pl ''&!gs'Item'&gs 'npconloc'&!Grimes
+act'Отойти':gt 'preloc'
+if disgus[you]>0:
+    if MainQW[you]=0:act'Попасть в город':gt'prestory'
+    if MainQW[you]>0:act'<b>Улица Грез</b>':mana[you]-=100&X[you]=3&Y[you]=1&Z[you]=3&H[you]=0&R[you]=0&gt 'preloc'
+end
+if rememberme>0:
+	act'<b>Рассмотреть</b>':
+		 i=you
+		 $name[i]='Луна'&$surname[i]='Багряная'
+		 spec_face_pic[you]=5&face_pic[you]=1
+		 face[i]=80&gla[i]=0&glacol[i]=1&nose[i]=3&scull[i]=1&cheeks[i]=0
+		 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=30&nip[i]=45&tits[i]=16
+		 rost[i]=170&fat[i]=1200&mus[i]=800&skin[i]=1
+		 face_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&hlong[i]=30&hcol[i]=5&beard[i]=0
+		 if visioner[i]=0:visioner[i]=1
+		 if free_spirit=0:free_spirit=1
+		 if mardukpower=0:mardukpower=1
+		 if fight_skill[you]<100:fight_skill[you]=100
+		 if shoot_skill[you]>100:shoot_skill[you]=100
+		 soulpower[you]=50
+		 age[i]=21&vital[i]=100&reflex[i]=100
+		 cls&gs'stat'&'Вы смотрите на картину и чувствуете как ваше тело преобразовывается'
+		 act'Отойти':gt 'preloc'
+		act'Всмотреться глубже':
+			 i=you
+			 $name[i]='Луна'&$surname[i]='Неземная'
+			 spec_face_pic[you]=5&face_pic[you]=2
+			 face[i]=80&gla[i]=0&glacol[i]=5&nose[i]=3&scull[i]=1&cheeks[i]=0
+			 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=35&nip[i]=45&tits[i]=18
+			 rost[i]=170&fat[i]=1600&mus[i]=1000&skin[i]=1
+			 face_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&hlong[i]=30&hcol[i]=6&beard[i]=0
+		     age[i]=21&vital[i]=150&reflex[i]=150
+		     soulpower[you]=100
+		     portal[you]=1
+             portal_zar[you]=100
+             water_spell[you]=1
+             firebane_spell[you]=1
+             rock_spell[you]=1
+             storm_spell[you]=1
+             soul_spell[you]=1
+             runemaster_spell[you]=100
+			 cls&gs'stat'&'Вы смотрите на картину и чувствуете как ваше тело преобразовывается'
+			 act'Отойти':gt 'preloc'
+		end
+	end
+	act'<b>Восстановить свой облик</b>':
+		i=you&rem=0
+		$name[i]=$name[rem]&$surname[i]=$surname[rem]
+		spec_face_pic[i]=spec_face_pic[rem]&face_pic[i]=face_pic[rem]
+		face[i]=face[rem]&gla[i]=gla[rem]&glacol[i]=glacol[rem]&nose[i]=nose[rem]&scull[i]=scull[rem]&cheeks[i]=cheeks[rem]&beard[i]=beard[rem]
+		dick[i]=dick[rem]&dickd[i]=dickd[rem]&ball[i]=ball[rem]&vag[i]=vag[rem]&ass[i]=ass[rem]&nip[i]=nip[rem]&tits[i]=tits[rem]
+		rost[i]=rost[rem]&fat[i]=fat[rem]&mus[i]=mus[rem]&skin[i]=skin[rem]
+		face_hair[i]=face_hair[rem]&leg_hair_can[i]=leg_hair_can[rem]&leg_hair[i]=leg_hair[rem]&tit_hair_can[i]=tit_hair_can[rem]&tit_hair[i]=tit_hair[rem]&hlong[i]=hlong[rem]&hcol[i]=hcol[rem]
+		l_hand_t[i]=l_hand_t[rem]&r_hand_t[i]=r_hand_t[rem]
+		back_t[i]=back_t[rem]&stamp_t[i]=stamp_t[rem]&tits_t[i]=tits_t[rem]&belly_t[i]=belly_t[rem]&pubis_t[i]=pubis_t[rem]
+		l_ass_t[i]=l_ass_t[rem]&r_ass_t[i]=r_ass_t[rem]&l_leg_t[i]=l_leg_t[rem]&r_leg_t[i]=r_leg_t[rem]
+		age[i]=age[rem]&vital[i]=vital[rem]&reflex[i]=reflex[rem]
+		cls&gt'preloc'
+	end
+end
+if master[you]>0:
+    if disgus[you]=0:act'Притворится смертным впервые':disgus[you]=master[you]&master[you]=0&hu_magik[you]=0&magik[you]=0&cls&gt'preloc'
+	act'<b>Запомнить свой облик</b>':
+		knowlanguage[you]+=1
+		rememberme=1
+		i=0
+		$name[i]=$name[you]&$surname[i]=$surname[you]
+		spec_face_pic[i]=spec_face_pic[you]&face_pic[i]=face_pic[you]
+		face[i]=face[you]&gla[i]=gla[you]&glacol[i]=glacol[you]&nose[i]=nose[you]&scull[i]=scull[you]&cheeks[i]=cheeks[you]&beard[i]=beard[you]
+		dick[i]=dick[you]&dickd[i]=dickd[you]&ball[i]=ball[you]&vag[i]=vag[you]&ass[i]=ass[you]&nip[i]=nip[you]&tits[i]=tits[you]
+		rost[i]=rost[you]&fat[i]=fat[you]&mus[i]=mus[you]&skin[i]=skin[you]
+		face_hair[i]=face_hair[you]&leg_hair_can[i]=leg_hair_can[you]&leg_hair[i]=leg_hair[you]&tit_hair_can[i]=tit_hair_can[you]&tit_hair[i]=tit_hair[you]&hlong[i]=hlong[you]&hcol[i]=hcol[you]
+		l_hand_t[i]=l_hand_t[you]&r_hand_t[i]=r_hand_t[you]
+		back_t[i]=back_t[you]&stamp_t[i]=stamp_t[you]&tits_t[i]=tits_t[you]&belly_t[i]=belly_t[you]&pubis_t[i]=pubis_t[you]
+		l_ass_t[i]=l_ass_t[you]&r_ass_t[i]=r_ass_t[you]&l_leg_t[i]=l_leg_t[you]&r_leg_t[i]=r_leg_t[you]
+		age[i]=age[you]&vital[i]=vital[you]&reflex[i]=reflex[you]
+		cls&gt'preloc'
+	end
+	if rememberme>0:
+		 num=you
+		 gs'stat'&gs'body'&*pl ''&'<<$opis[you]>>'&*pl ''&'Мышцы <<mus[you]>>'&*pl ''&'Жир <<fat[you]>>'&*pl ''
+		if scull[you]>0:'<a href="exec:scull[you]=0&gt $curloc">Обыкновенные скулы</a>'
+		if cheeks[you]>0:'<a href="exec:cheeks[you]=0&gt $curloc">Обыкновенные щеки</a>'
+		if scull[you]=0:'<a href="exec:scull[you]=1&gt $curloc">Широкие скулы</a>'
+		if cheeks[you]=0:'<a href="exec:cheeks[you]=1&gt $curloc">Пухлые щеки</a>'
+		''
+		if skin[you]!0:'<a href="exec:skin[you]=0&gt $curloc">Белая кожа</a>'
+		if skin[you]!1:'<a href="exec:skin[you]=1&gt $curloc">Светлая кожа</a>'
+		if skin[you]!2:'<a href="exec:skin[you]=2&gt $curloc">Загорелая кожа</a>'
+		if skin[you]!3:'<a href="exec:skin[you]=3&gt $curloc">Смуглая кожа</a>'
+		''
+		if hcol[you]!0:'<a href="exec:hcol[you]=0&gt $curloc">Черные волосы</a>'
+		if hcol[you]!1:'<a href="exec:hcol[you]=1&gt $curloc">Русые волосы</a>'
+		if hcol[you]!2:'<a href="exec:hcol[you]=2&gt $curloc">Рыжие волосы</a>'
+		if hcol[you]!3:'<a href="exec:hcol[you]=3&gt $curloc">Светлые волосы</a>'
+		''
+		if glacol[you]!0:'<a href="exec:glacol[you]=0&gt $curloc">Черные глаза</a>'
+		if glacol[you]!1:'<a href="exec:glacol[you]=1&gt $curloc">Карие глаза</a>'
+		if glacol[you]!2:'<a href="exec:glacol[you]=2&gt $curloc">Серые глаза</a>'
+		if glacol[you]!3:'<a href="exec:glacol[you]=3&gt $curloc">Зеленые глаза</a>'
+		if glacol[you]!4:'<a href="exec:glacol[you]=4&gt $curloc">Голубые глаза</a>'
+		''
+		if gla[you]!0:'<a href="exec:gla[you]=0&gt $curloc">Стандартный размер глаз</a>'
+		if gla[you]=0:'<a href="exec:gla[you]=1&gt $curloc">Маленькие глаза</a>'
+		if gla[you]=0:'<a href="exec:gla[you]=2&gt $curloc">Раскосые глаза</a>'
+		if gla[you]=0:'<a href="exec:gla[you]=3&gt $curloc">Большие глаза</a>'
+		''
+		if nose[you]!0:'<a href="exec:nose[you]=0&gt $curloc">Обыкновенный нос</a>'
+		if nose[you]!1:'<a href="exec:nose[you]=1&gt $curloc">Маленький вздернутый носик</a>'
+		if nose[you]!2:'<a href="exec:nose[you]=2&gt $curloc">Утонченный, аристократический нос</a>'
+		if nose[you]!3:'<a href="exec:nose[you]=3&gt $curloc">Широкий нос</a>'
+		if nose[you]!4:'<a href="exec:nose[you]=4&gt $curloc">Горбатый нос</a>'
+		''
+		if lips[you]!0:'<a href="exec:lips[you]=0&gt $curloc">Обыкновенные губы</a>'
+		if lips[you]!1:'<a href="exec:lips[you]=1&gt $curloc">Пухленькие губы</a>'
+		if lips[you]!2:'<a href="exec:lips[you]=2&gt $curloc">Толстые губы</a>'
+		act'Установить феминности и маскулинность':
+			 temp=input("Установить значение феминности, сейчас <<face[you]>> от 0, до 100")
+			if temp>=0 and temp<=100:face[you]=temp
+			cls&gt $curloc
+		end
+		act'Установить мускулатуру':
+			 temp=input("Установить мускулатуру, сейчас <<mus[you]>> от 500, до 3000")
+			if temp>=500 or temp<=3000:mus[you]=temp
+			cls&gt $curloc
+		end
+		act'Установить жир':
+			temp=input("Установить мускулатуру, сейчас <<fat[you]>> от 100, до 5000")
+			if temp>=100 or temp<=5000:fat[you]=temp
+			cls&gt $curloc
+		end
+		if dick[you]>1:
+			if dick[you]<25:act'Увеличить член <<dick[you]>>см':dick[you]+=1&gt $curloc
+			if dick[you]>8:act'Уменьшить член <<dick[you]>>см':dick[you]-=1&gt $curloc
+			if dickd[you]<45:act'Член толще <<dickd[you]>>мм':dickd[you]+=1&gt $curloc
+			if dickd[you]>30:act'Член тоньше <<dickd[you]>>мм':dickd[you]-=1&gt $curloc
+			act'Хочу вагину вместо члена':dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&gt $curloc
+		else
+			if ass[you]<30:act'Увеличить попу':ass[you]+=1&gt $curloc
+			if ass[you]>20:act'Уменьшить попу':ass[you]-=1&gt $curloc
+			if tits[you]<22:act'Увеличить грудь':tits[you]+=1&gt $curloc
+			if tits[you]>=13:act'Уменьшить грудь':tits[you]-=1&gt $curloc
+			act'Хочу член вместо вагины':dick[you]=15&dickd[you]=30&ball[you]=50&vag[you]=0&gt $curloc
+		end
+		act'Взять 100 шиллингов':cls&money[you]+=10000&gt $curloc
+		act'Восстановить ману':cls&mana[you]=manamax[you]&gt $curloc
+	end
+end

@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&tabernman=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=1&magik[i]=8&!Не имеет отношения к богине луны, иллюзия
+spec_face_pic[i]=5&face_pic[i]=9
+$title[i]=''&$history[i]='Я владею таверной, у нас тут отличная еда и выпивка, а так же никаких рыбомордых уродов от которых воняет тухлой селедкой.'
+$name[i]='Джо'&$surname[i]='Бауэр'&$nick[i]='Трактирщик'
+face[i]=20&gla[i]=0&glacol[i]=2&nose[i]=0&dick[i]=20&dickd[i]=45&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0&
+rost[i]=182&fat[i]=1000&mus[i]=1200&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&beard[i]=0&hlong[i]=10&hcol[i]=1
+age[i]=50&vital[i]=50&will[i]=10&reflex[i]=rand(50,70)
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=30&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=2&brave[i]=0&lust[i]=50&!характер
+!l_hand_t[i]=2&r_hand_t[i]=1
+t_slot[i]=7&l_slot[i]=5&b_slot[i]=6
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+n_world[]=i&walkprog[i]=4
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

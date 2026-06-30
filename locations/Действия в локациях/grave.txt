@@ -1,0 +1,19 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/misc/grave.jpg" ></center>'&'Могильные памятники с истертыми именами.'&gs'Item'&*pl ''&gs 'npconloc'&*pl ''&act'Отойти':gt 'preloc'
+if kelengrave>0:'Могила Келен Лавандер, оперативница Агентства добрых дел, погибла при исполнении.'
+if slutgirlgrave>0:'Могила Снежанны Блюментайл, дешевая шлюха была затрахана до смерти, эту шлюху выебали <<guy[slutgirl]-11>> мужиков в порту.'
+grave=1&npcmax=arrsize('$name')&$gravetxt=''
+:markgraveloc
+	if dead[grave]=2 and $name[grave]!'':
+		total_grave_soul+=soul[grave]&soul[grave]=0
+		$gravetxt+='<br>'&$gravetxt+='На могиле имя <<$name[grave]>> <<$surname[grave]>>'
+		if wictim[grave]=you:$gravetxt+=' (Ваша жертва)'
+	end
+grave+=1&if grave<=npcmax:jump'markgraveloc'
+'<<$gravetxt>>'
+if item[37]>0 and gravekamlday!daystart:
+     act'Камлать в бубен':
+		 gravekamlday=daystart&cls&gs'stat'&'Вы камлаете в бубен высасывая остатки души из мертвых тел лежащих на кладбище'
+		 'На кладбище вы чувствуете <<total_grave_soul>> едениц души'&*nl'После камлания вы забираете себе <<total_grave_soul/10>> едениц души'
+		 total_grave_soul=total_grave_soul-total_grave_soul/10&soul[you]+=total_grave_soul/10&act'...':gt'preloc'
+     end
+end

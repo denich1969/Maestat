@@ -1,0 +1,27 @@
+﻿if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]=''&!в отключке
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+     if hour>=18 or hour<=5:
+         if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			$think[w]=''&!спит дома
+         else
+			 $destination[w]='дом'&gs'destination'
+			 $think[w]='хочет домой'&gs'walk_dest'&!вне дома
+         end
+     else
+         if hour<14:$think[w]='хочет рыбачить'&$destination[w]='пирс'
+         if hour>=14:$destination[w]='трактир'&$think[w]='хочет гулять'
+         if $destination[w]='прогулка':
+			$think[w]='думает о прогулке'&gs'walk_full_rand'
+         else
+			gs'destination'
+			 if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+				$think[w]='думает о рыбалке'&!на точке назначения
+			 else
+				gs'walk_dest'&!вне точки назначения
+			 end
+         end
+     end
+end

@@ -1,0 +1,136 @@
+﻿if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+	$think[w]='Думает о том что уже на месте'&!на точке назначения
+elseif Zdest[w]!Z[w] and Zdest[w]>0:
+    X[w]=Xdest[w]&Y[w]=Ydest[w]&Z[w]=Zdest[w]&H[w]=Hdest[w]&R[w]=Rdest[w]
+	$think[w]='Думает о том что не может придти туда ,куда хочет'&!невозможно достигнуть, телепортим на место
+else
+     if H[w]>0:
+		!внутри помещения
+         if Xdest[w]=X[w] and Ydest[w]=Y[w]:
+			!найдена локация
+             if Hdest[w]=H[w]:
+                 if Rdest[w]=R[w]:
+					!Найдена точка. Остановка программы.
+                 else
+                     if R[w]=0:
+						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+						 $text_go=$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,<<Rdest[w]>>']&!входим в комнату
+						 $walklog+='<br>'
+						 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+						 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+						 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+						 end
+						R[w]=Rdest[w]
+				     else
+						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+						 $text_go=$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,0']
+						 $walklog+='<br>'
+						 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+						 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+						 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+						 end
+						R[w]=0
+				     end
+                 end
+             else
+             	 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+             	 $text_go=$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,0']&!входим в дом
+                 $walklog+='<br>'
+             	 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+		 	     if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+			     if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+				 end
+				H[w]=Hdest[w]
+             end
+         else
+             if R[w]>0:
+             	 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $text_go=$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,0']
+				 $walklog+='<br>'
+				 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+				 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+				 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+				 end
+				R[w]=0
+             else
+				 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $text_go='на улицу'
+				 $walklog+='<br>'
+				 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+				 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+				 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+				 end
+				H[w]=0
+             end
+         end
+     else
+		!вне помещения
+         if Xdest[w]=X[w] and Ydest[w]=Y[w]:
+			!найдена локация
+             if Hdest[w]=H[w]:
+                 if Rdest[w]=R[w]:
+					!Найдена точка. Остановка программы.
+                 else
+                     if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+					 $text_go=$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,<<Rdest[w]>>']&!входим в комнату
+					 $walklog+='<br>'
+					 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+					 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+					 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+					 end
+					R[w]=Rdest[w]
+                 end
+             else
+             	 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+             	 $text_go=$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,0']&!входим в дом
+                 $walklog+='<br>'
+             	 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+		 	     if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+			     if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+				 end
+				H[w]=Hdest[w]
+             end
+         else
+             if Xdest[w]=X[w] and Ydest[w]!Y[w]:tipewalk=0&!движение на нужную локацию
+             if Xdest[w]!X[w] and Ydest[w]=Y[w]:tipewalk=1
+             if Xdest[w]!X[w] and Ydest[w]!Y[w]:tipewalk=rand(0,1)
+             $texwalk='идет'
+             if tipewalk=0:
+				!поиск по Y
+                 if Ydest[w]>Y[w]:
+                 	 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+					 $walklog+='<br>'
+					 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на север'
+					 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на север'
+					 end
+					Y[w]+=1
+                 else
+                     if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+						 $walklog+='<br>'
+						 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на юг'
+						 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на юг'
+					 end
+					Y[w]-=1
+                 end
+             end
+             if tipewalk=1:
+				!поиск по X
+                 if Xdest[w]>X[w]:
+                 	 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+					 $walklog+='<br>'
+					 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на восток'
+					 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на восток'
+					 end
+					X[w]+=1
+                 else
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+					 $walklog+='<br>'
+					 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на запад'
+					 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на запад'
+					 end
+					X[w]-=1
+                 end
+             end
+         end
+     end
+end

@@ -1,0 +1,181 @@
+﻿Z=773&Xmax[Z]=22&Ymax[Z]=15
+$n_board[Z]='Стена'&$w_board[Z]='Стена'&$e_board[Z]='Стена'&$s_board[Z]='Стена'&room=30
+magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:marksecondhotel
+H=0&R=0
+if X=10 and Y=10:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+     $locname['<<$temploc>>']='Лестница'&$lname['<<$temploc>>']='Лестница'&$locopis['<<$temploc>>']='лестница ведущая на второй этаж'
+	 np['<<$temploc>>']=535
+     stairway['<<$temploc>>']=1
+else
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+     $locname['<<$temploc>>']='Коридор 2го этажа'&$lname['<<$temploc>>']='Коридор 2го этажа'&$locopis['<<$temploc>>']='Гостинничный коридор'
+	 np['<<$temploc>>']=509
+	 camera['<<$temploc>>']=1
+end
+Y-=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+	room+=1
+     $locname['<<$temploc>>']='Комната №<<room>>'&$lname['<<$temploc>>']='Комната №<<room>>'&$locopis['<<$temploc>>']='Гостинничный номер'
+	 np['<<$temploc>>']=510
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&camera['<<$temploc>>']=1
+	 if rand(2)=0:&gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Y+=2&&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+	room+=1
+     $locname['<<$temploc>>']='Комната №<<room>>'&$lname['<<$temploc>>']='Комната №<<room>>'&$locopis['<<$temploc>>']='Гостинничный номер'
+	 np['<<$temploc>>']=510
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&camera['<<$temploc>>']=1
+	 if rand(2)=0:&gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
+X+=1&Y=10&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+if X<=20:jump 'marksecondhotel'
+     $locname['<<$temploc>>']='Коридор 2го этажа'&$lname['<<$temploc>>']='Коридор 2го этажа'&$locopis['<<$temploc>>']='Гостинничный коридор'
+	 np['<<$temploc>>']=509
+	 camera['<<$temploc>>']=1
+X+=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'
+	 np['<<$temploc>>']=1
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&camera['<<$temploc>>']=1&toilet['<<$temploc>>']=1
+	 item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!НА СЕВЕР
+X=21&Y=11&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Коридор 2го этажа'&$lname['<<$temploc>>']='Коридор 2го этажа'&$locopis['<<$temploc>>']='Гостинничный коридор'
+	 np['<<$temploc>>']=509
+	camera['<<$temploc>>']=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   12
+X=21&Y=12&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Коридор 2го этажа'&$lname['<<$temploc>>']='Коридор 2го этажа'&$locopis['<<$temploc>>']='Гостинничный коридор'
+	 np['<<$temploc>>']=509
+	 camera['<<$temploc>>']=1
+X=22&Y=12&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Комната охраны'&$lname['<<$temploc>>']='Комната охраны'&$locopis['<<$temploc>>']='Комната охраны с мониторами'
+	 np['<<$temploc>>']=537
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+gs'ohrana'&$nick[i]='Начальник охраны'&topohr=i
+healthmax[i]=800&gs'ohrana'&gs'ohrana'&gs'ohrana'&gs'ohrana'
+X=20&Y=12&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Серверная'&$lname['<<$temploc>>']='Серверная'&$locopis['<<$temploc>>']='Комната с большими серверами на которых хранятся данные с камер'
+	 np['<<$temploc>>']=538
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $w_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   13
+X=21&Y=13&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Коридор 2го этажа'&$lname['<<$temploc>>']='Коридор 2го этажа'&$locopis['<<$temploc>>']='Гостинничный коридор'
+	 np['<<$temploc>>']=509
+	 camera['<<$temploc>>']=1
+X=20&Y=13&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Гримерка'&$lname['<<$temploc>>']='Гримерка'&$locopis['<<$temploc>>']='Комната для макияжа перед съемками фильмов'
+	 np['<<$temploc>>']=539
+	 mirror['<<$temploc>>']=1
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $w_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+X=22&Y=13&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Костюмерная'&$lname['<<$temploc>>']='Костюмерная'&$locopis['<<$temploc>>']='Комната для хранения одежды'
+	 np['<<$temploc>>']=540
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	     tt=rand(12,19)&item_loc_t['<<tt>>,<<$temploc>>']+=1
+	 	 tt=rand(12,19)&item_loc_t['<<tt>>,<<$temploc>>']+=1
+	 	 tt=rand(12,19)&item_loc_t['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(21,33)&item_loc_l['<<tt>>,<<$temploc>>']+=1
+		 tt=rand(8,9)&item_loc_b['<<tt>>,<<$temploc>>']=1
+		 tt=rand(1,3)&item_loc_ut['<<tt>>,<<$temploc>>']=1
+		 tt=rand(1,4)&item_loc_ul['<<tt>>,<<$temploc>>']=1
+		 tt=rand(1,5)&item_loc_ub['<<tt>>,<<$temploc>>']=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   14
+X=21&Y=14&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Коридор 2го этажа'&$lname['<<$temploc>>']='Коридор 2го этажа'&$locopis['<<$temploc>>']='Гостинничный коридор'
+	 np['<<$temploc>>']=509
+	 camera['<<$temploc>>']=1
+X=20&Y=14&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Фетиш туалет где в качестве писсуаров используются девушки'
+	 np['<<$temploc>>']=541
+	 mirror['<<$temploc>>']=1
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $w_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&camera['<<$temploc>>']=1&toilet['<<$temploc>>']=1
+	 item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
+X=22&Y=14&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Душевая'&$lname['<<$temploc>>']='Душевая'&$locopis['<<$temploc>>']='Общая душевая'
+	 np['<<$temploc>>']=542
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+	 camera['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&shower['<<$temploc>>']=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   15
+X=21&Y=15&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Коридор 2го этажа'&$lname['<<$temploc>>']='Коридор 2го этажа'&$locopis['<<$temploc>>']='Гостинничный коридор'
+	 np['<<$temploc>>']=509
+	 camera['<<$temploc>>']=1&kiosk['<<$temploc>>']=1
+X=22&Y=15&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+     $locname['<<$temploc>>']='Кинозал'&$lname['<<$temploc>>']='Кинозал'&$locopis['<<$temploc>>']='Кинозал порно кинотеатра'
+	 np['<<$temploc>>']=543
+	 $wall_name['<<$temploc>>']='Комната'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
+	 $e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+	 camera['<<$temploc>>']=1&tvh['<<$temploc>>']=1

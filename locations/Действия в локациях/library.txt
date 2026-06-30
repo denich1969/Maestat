@@ -1,0 +1,1 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/misc/books.jpg" ></center>'&'Книжные полки наполненные толстыми фолиантами.'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'

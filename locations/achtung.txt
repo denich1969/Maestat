@@ -1,0 +1,115 @@
+﻿CONFIG["IN_START_SCREEN"]=1
+if JS_ENABLED=1:
+'<div class="loader"><div class="init-loading"><div class="arc"></div><div class="arc"></div><div class="arc"></div></div></div><div class="start-menu-wrapper"><section class="fog"><div class="fog-container"><div class="title-wrapper"><div class="glowInLogo disable">МАЕСТАТ</div></div><div class="parallax-bg"></div><div class="fog-img fog-img-first"></div><div class="fog-img fog-img-second"></div><div class="verse-wrapper">
+<div class="verse">
+	Этот город завернут как в саван в туман,
+	И царит в нем безумье, порок и обман.
+	Город мрачных трущоб, весь изглоданный злом,
+	По ночам его мгла накрывает крылом,
+	Только толпы теней, только моря свинец —
+	Этот город страшней, чем оживший мертвец.
+	От сгоревших в огне поднимается дым,
+	И нигде, и нигде нету места живым,
+	И течет в его жилах словно ржавчина кровь,
+	Этот город безукоризненно мертв.
+</div>
+<div class="verse">
+	С распростертыми объятиями к вам я стою один.
+	И не герой я, и не каменный, но сам себе господин.
+	Что правильно, и что неправильно, с трудом могу сказать.
+	Какую сторону? Рая? Ада ли? Каждому придётся выбирать
+</div>
+<div class="verse">
+	Болото никогда волнения не знает,
+	Зеленой тиною покрывшись, спит оно,
+	И даже ураган его не раскачает,
+	И смрад таит в себе его гнилое дно.
+	Ни перлов радужных, ни рыбок, в оживленьи
+	Резвящихся, в его не встретишь глубине...
+	Застой там и покой... и демон разложенья
+	Свой трон воздвигнул там во тьме и тишине!..
+	Лишь в ночи темные, когда луна не светит
+	И звезды ясные за тучки уплывут,
+	Над тиной сонною взор иногда заметит
+	Блуждающих огней мерцанье там и тут.
+	То робко те огни за кочками таятся,
+	То промелькнут, и вновь их исчезает след...
+	И чудится, что здесь они светить боятся,
+	Что не у места здесь их бледно-мутный свет...
+</div>
+<div class="verse">
+	Одиноких сердец огоньки 
+	в бесконечной ночи слабо теплятся.
+	В ледяной пустоте среди звёзд 
+	остывающий мир тихо вертится.
+	В духоте тесных склепов-квартир 
+	преют тела в грязных трениках.
+	Слышен лай замурованных в быт 
+	охуевших в пизду неврастеников.
+	Богохульство, блевотина, мат, 
+	сиськи, пиво и семки лущёные,
+	Так в угаре сливаются в Ад 
+	души тёмные водкой крещёные.
+</div>
+</div></div></section><div class="buttons-wrapper"><hr class="l100" /><a class="title-button new-game plain" href="exec:gt''create_player''">Новая игра</a><hr class="l50" /><a class="title-button run-cfg"href="exec:gt''settings''">Настройки</a><hr class="l50" /><a class="title-button about-game"href="exec:gt''Version''">Об игре</a><hr class="l100" /><a class="title-button about-game"href="exec:gt''maps_start''">Картография</a><hr class="l100" /></div><div class="about-wrapper"><div class="about"></div></div></div>'
+'<script>const loader=document.querySelector(".loader");loader&&setTimeout((()=>{loader.style.opacity="0",setTimeout((()=>{loader.style.display="none"}),500)}),1e3);const parallax=document.querySelector(".parallax-bg");let isMoving=!1,lastMoveX=0,lastMoveY=0;const handleMouseMove=e=>{const{clientX:t,clientY:o}=e,{innerWidth:n,innerHeight:i}=window;lastMoveX=.5*(t/n*20-10),lastMoveY=.5*(o/i*20-10),isMoving||(requestAnimationFrame(updateParallax),isMoving=!0)},updateParallax=()=>{parallax.style.setProperty("--moveX",`${lastMoveX}px`),parallax.style.setProperty("--moveY",`${lastMoveY}px`),isMoving=!1};function stopParallax(){document.removeEventListener("mousemove",handleMouseMove)}function showTitle(){const e=document.querySelectorAll(".glowInLogo"),t=document.querySelector("div.glowInLogo");document.querySelector("div.glowInLogo").classList.remove("disable"),setTimeout((()=>{const e=document.createElement("div");e.classList.add("add-text","disable"),e.textContent="Это очень голодное место для заблудших душ...",t.append(e)}),2e3),setTimeout((()=>{document.querySelector(".add-text.disable").classList.remove("disable"),t.prepend(document.createElement("hr")),t.append(document.createElement("hr"))}),3400),e.forEach((e=>{let t=e.textContent.split("");e.textContent="",t.forEach(((t,o)=>{let n=document.createElement("span");n.textContent=t,n.style.animationDelay=.25*o+"s",e.append(n)}))}))}function addListenersToMenu(){const e=document.querySelector(".title-button.new-game"),t=document.querySelector(".title-button.run-cfg"),o=document.querySelector(".title-button.about-game");e.addEventListener("click",(()=>{window.location.href="game.html"})),t.addEventListener("click",(()=>{window.location.href="\"exec:gt''achtung''\"",window.location.href="$SOMEVAR+="+qsp})),o.addEventListener("click",(()=>{window.location.href="about.html"}))}function displayVerses(){const e=document.querySelectorAll(".verse"),t=window.innerWidth,o=window.innerHeight,n=[];function i(e){const n=e.getBoundingClientRect(),i=.3*t-n.width,l=o-n.height,a=.7*t,s=t-n.width;let d,r;return d=Math.random()<.5?Math.random()*i:a+Math.random()*(s-a),r=Math.random()*(l-10)+5,{x:d,y:r}}function l(e){return n.some((t=>{return n=t,!((o=e).right<n.left||o.left>n.right||o.bottom<n.top||o.top>n.bottom);var o,n}))}function a(e){!function(e){let o,a,s=0;e.classList.remove("left-side","right-side");do{o=i(e),e.style.left=`${o.x}px`,e.style.top=`${o.y}px`,a=e.getBoundingClientRect(),s++}while(s<100&&l(a));s<100&&(n.push(a),e.classList.add("expanded"));const d=e.getBoundingClientRect();d.left<.3*t?e.classList.add("left-side"):d.left>.7*t&&e.classList.add("right-side")}(e),setTimeout((()=>{e.classList.add("fading-out"),setTimeout((()=>{e.classList.remove("expanded","fading-out","left-side","right-side");const t=n.findIndex((t=>t.left===e.getBoundingClientRect().left&&t.top===e.getBoundingClientRect().top));-1!==t&&n.splice(t,1),a(e)}),5e3)}),25e3*Math.random()+5e3)}e.forEach((e=>{e.classList.remove("expanded"),a(e)}))}document.addEventListener("mousemove",handleMouseMove),setTimeout((()=>showTitle()),1500),setTimeout((()=>displayVerses()),7e3);</script>'
+else
+	!'<center><font size=big>http://uptown.forum.cool</a></font></center>'
+	'<center><font size=big>http://uptown.forum.cool</a> совместно с пользвателем <b>tabun</b> при поддержке <b>Victor MJ</b> и других <a href="exec:gt''Version''">Посмотреть историю разработки игры </a></font></center>'
+	'<center><b>представляет игру</a></b></center>'
+	'<center><img src="pic/misc/image.png" ></center>'
+	!'<center><b><font size=big>МАЕСТАТ</a></font></b></center>'
+	!'<center><b><font size=big>Престол</a></font></b></center>'
+	'<center>Версия 1.6.4 модифицированная</center>'
+	!'<center><img src="pic/misc/start.jpg" ></center>'
+	!'<center><a href="exec:gt''create_player''"><img src="pic/misc/start.jpg"></a></center>'
+	'<center>Внимание! При старте игры происходит генерация и игра некоторое время будет создавать мир, возможен лаг на старте игры.</center>'
+	!'<center><a href="exec:gt''achtung''"><img src="pic/misc/start.jpg"></a></center>'
+	!'<center><b>это очень голодное место для заблудших душ</a></b></center>'
+	$loc=$curloc
+	$areapage='<table width="100%"><div><tr>'
+	$areapage+='<td width="30%"><center><b>
+	Этот город завернут как в саван в туман,
+	И царит в нем безумье, порок и обман.
+	Город мрачных трущоб, весь изглоданный злом,
+	По ночам его мгла накрывает крылом,
+	Только толпы теней, только моря свинец —
+	Этот город страшней, чем оживший мертвец.
+	От сгоревших в огне поднимается дым,
+	И нигде, и нигде нету места живым,
+	И течет в его жилах словно ржавчина кровь,
+	Этот город безукоризненно мертв.</b></center></td>'
+	$areapage+='<td width="30%">
+	<center><a href="exec:gt''create_player''"><img src="pic/misc/start.jpg"></a></center>
+	<center><b>это очень голодное место для заблудших душ</a></b></center></td>'
+	!$areapage+='</tr><tr>'
+	$areapage+='<td width="40%"><center><b>
+	С распростертыми объятиями к вам я стою один.
+	И не герой я, и не каменный, но сам себе господин.
+	Что правильно, и что неправильно, с трудом могу сказать.
+	Какую сторону? Рая? Ада ли? Каждому придётся выбирать</b>'
+	$areapage+='Одиноких сердец огоньки 
+	в бесконечной ночи слабо теплятся.
+	В ледяной пустоте среди звёзд 
+	остывающий мир тихо вертится.
+	В духоте тесных склепов-квартир 
+	преют тела в грязных трениках.
+	Слышен лай замурованных в быт 
+	охуевших в пизду неврастеников.
+	Богохульство, блевотина, мат, 
+	сиськи, пиво и семки лущёные,
+	Так в угаре сливаются в Ад 
+	души тёмные водкой крещёные.
+	</center></td>'
+	$areapage+='</tr></div><table>'&$areapage
+	act'Начать игру':
+		bud=6&year=2025&month=9&day=3&week=6&hour=7&daystart=1
+		insmout_gangwhore=0&!ГГ не является шлюхой истмутцев
+		sexhunger=0&!Сексуальный голод отсутствует
+		dagongene=0&! Истмундский ген Дагона отсутствует
+		MinetDocha=0&!минет Богарту не сделан
+		sistermest=0&!воздействие сетры на брата отсутствует
+		light=0&!Свет маяка в Наваждении горит
+		you=1&num=you&npcmaxnum=1&cls&gt'create_player'
+	end
+end

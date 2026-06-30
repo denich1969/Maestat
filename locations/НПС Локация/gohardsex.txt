@@ -1,0 +1,30 @@
+﻿sss=ARGS[0]&ddd=ARGS[1]&horny[you]+=50&feminize[sss]+=1&gs'stat'
+if toilet['<<$loc[you]>>']>0:
+	$func('get_images', 'toilet_blow', sss, ddd)
+	 '<<$name[sss]>> <<$surname[sss]>> насасывает большой член, а <<$name[ddd]>> <<$surname[ddd]>> нажимает на затылок '
+	 you_see_sex[sss]+=1&corr[sss]+=rand(2,8)&act'Посмотреть':gt 'gohardsex_see'
+else
+	if H[you]=0:
+	     $func('get_images', 'public_fuck', sss, ddd)
+	 else
+        if skin[ddd]>3 and skin[ddd]<7:
+             if dick[sss]>1:
+	             '<center><video src="pic/sex/degraded/badfit_s<<rand(0,20)>>.webm" ></video></center>'
+	         else
+	             '<center><video src="pic/sex/degraded/blackbull<<rand(0,30)>>.webm" ></video></center>'
+	         end
+	    else
+	         if dick[sss]>1:
+	             '<center><video src="pic/sex/degraded/fuckeds<<rand(0,4)>>.webm" ></video></center>'
+	         else
+	             '<center><video src="pic/sex/degraded/fucked<<rand(0,41)>>.webm" ></video></center>'
+	         end
+	    end
+	     '<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> долбит ее'
+	    if vag[sss]=1:vag[sss]+=5&'Вы видите струйку крови, когда <<$name[sss]>> лишается девственности.'
+	    if vag[sss]>1:vag[sss]+=rand(1,dick[ddd]/3)
+	     you_see_sex[sss]+=1&corr[sss]+=rand(2,8)
+	 end
+end
+act'Посмотреть':gs 'sex_see'
+act'<b>Уйти</b>':gt 'preloc'

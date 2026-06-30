@@ -1,0 +1,24 @@
+﻿npcmaxnum+=1&i=npcmaxnum
+mob[i]=12&mobexp[i]=100&!номер моба для разговора
+beliver[i]=12
+tipemobpic[i]=1&picture[i]=68&!номер типа фотки и номер фотки
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+gs'man_name'&$name[i]=''&gs'surname'&$surname[i]=''&mistnumber+=1&$basestatus[i]=' рычит'&!Имена
+tipe=rand(5)
+if tipe=0:$nick[i]='Туманная тварь'
+if tipe=1:$nick[i]='Отродье'
+if tipe=2:$nick[i]='Исчадье'
+if tipe=3:$nick[i]='Полуночник'
+if tipe=4:$nick[i]='Тварь из-за барьера'
+if tipe=5:$nick[i]='Туманник'
+$name[i]=$nick[i]&$nick[i]=$nick[i]
+dick[i]=rand(12,28)&dickd[i]=rand(40,55)&ball[i]=rand(40,100)&!Половые признаки (член, вагина, жопа, грудь)
+healthmax[i]=10*rand(5,15)&healthmax[i]+=10*mistnumber+mistcurse[you]*10&health[i]=healthmax[i]
+energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]
+minuron[i]=rand(20,50)&minuron[i]+=mistnumber*5+mistcurse[you]*10&maxuron[i]=rand(100,200)&maxuron[i]+=mistnumber*5+mistcurse[you]*10
+reflex[i]=rand(50,100)&reflex[i]+=mistnumber+mistcurse[you]
+agro[i]=rand(0,2)&corr[i]=rand(10,100)
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+walkprog[i]=0&fight_prog[i]=16&!программа движения!программа боя
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс

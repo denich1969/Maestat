@@ -1,0 +1,360 @@
+﻿$doing[i]=''
+if teatr_zal['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:$doing[i]=$iif(work[i]=54,' <b>играет на сцене</b>',' смотрит на представление')
+if school_class['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
+    if hour<=10 and techer=i and X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:$doing[i]=' - рассаживайтесь по партам и начинаем урок'
+end
+if cooking[i]>0 and kitchen['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1:$doing[i]+=' готовит у плиты'
+if watchtv[i]=1 and tv['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1:$doing[i]+=' смотрит телевизор'
+if adultcinema=1 and tv['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1 and dick[i]>1:$doing[i]+=' дрочит свой член глядя на экран'
+if mother=i:
+     if week<6 and hour<10 and hour>=7 and atestat[you]=0 and H[you]>0:
+		randtalker=rand(0,1)
+         if husband[i]!you:
+			 if randtalker=0:$doing[i]=' - Тебе не пора в школу?'
+			 if randtalker=1:
+				 if pol[you]=0:$doing[i]=' - Забыл где школа? На север от дома, через речку перейти и ты там.'
+				 if pol[you]>0:$doing[i]=' - Забыла где школа? На север от дома, через речку перейти и ты там.'
+			 end
+         end
+     end
+end
+if father=i and H[you]>0 and homemarker['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1:
+     if hour>=7 and hour<10:
+		randtalker=rand(0,10)
+         if randtalker=0:$doing[i]=' - где мои носки?'
+         if randtalker=1:$doing[i]=' - не занимайте туалет!'
+     end
+     if hour>=10:
+		randtalker=rand(0,10)
+         if randtalker=0:$doing[i]=' - где пульт от телевизора?'
+         if randtalker=1:$doing[i]=' - что у нас на обед?'
+     end
+end
+if father=i and sister=you and meh_factory_office['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
+     randtalker=rand(0,10)
+	 if work[you]=4:
+	 else
+	     if cum_face[you]>0:
+			temprand=rand(0,10)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' приглядывается к вашему лицу'
+			 if temprand=3:$doing[i]=' показывает на лицо - у тебя в чем то щека испачкана'
+	     else
+			 randtalker=rand(0,5)
+			 if randtalker=0:$doing[i]=' - что ты тут делаешь?'
+			 if randtalker=1:$doing[i]=' - зачем ты тут?'
+	     end
+	 end
+end
+if sister=i and restoran['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
+$doing[i]=' разносит еду и напитки по столам'
+end
+if cowgirl=i:
+     if oncetalk[i]=2:oncetalk[i]=3&$doing[i]=' хнычет - Я так устала. Хочу вернуться обратно домой и прогуляться по свежей лужайке.'
+     if oncetalk[i]=1:oncetalk[i]=2&$doing[i]=' чешет голову - Нужно найти чем я тут могу быть полезна, у меня очень много талантов.'
+     if oncetalk[i]=0:oncetalk[i]=1&$doing[i]=' немного подпрыгивает - Они действительно такие большие или просто так кажется?'
+end
+if sportgirl=i:
+     if oncetalk[i]=2:oncetalk[i]=3&$doing[i]=' ухмыляется - Черт подери. Я же мечтала поехать на море. Ха. Мечты сбываются.'
+     if oncetalk[i]=1:oncetalk[i]=2&$doing[i]=' чешет голову - Нужно найти работу, раз уж мы попали к черту на рога.'
+     if oncetalk[i]=0:oncetalk[i]=1&$doing[i]=' смотрит на хибары в порту - Думаю, в ночлежке можно ночевать. Хотя, это очевидно.'
+end
+if smartgirl=i:
+     if oncetalk[i]=2:oncetalk[i]=3&$doing[i]=' морщит лоб - Перевозчик Харон, вокруг непонятный туман. Чужие созвездия. Мы что, в загробном мире?'
+     if oncetalk[i]=1:oncetalk[i]=2&$doing[i]=' осматривается - На горизонте густая стена тумана. Это физически не возможно, не может туман стоять стеной и не рассеиваться.'
+     if oncetalk[i]=0:oncetalk[i]=1&$doing[i]=' смотрит в небо - Мы не на земле! Это абсолютно не знакомые созвездия и Луна выглядит по-другому!'
+end
+if slutgirl=i:
+     if oncetalk[i]=5:oncetalk[i]=6&$doing[i]=' надула губы - Почему тут так воняет селедкой?'
+     if oncetalk[i]=4:oncetalk[i]=5&$doing[i]=' надула губы - Что тут за уроды бродят?'
+     if oncetalk[i]=3:oncetalk[i]=4&$doing[i]=' надула губы - Что за херня? Это что, квест? Меня снимает скрытая камера?'
+     if oncetalk[i]=2:oncetalk[i]=3&$doing[i]=' удивленно смотрит в телефон - Ну что за дыра? Связи нет!'
+     if oncetalk[i]=1:oncetalk[i]=2&$doing[i]=' возмущенно выхватывает телефон - Так, блядь! Я звоню своему парню, он сейчас подскочит и разберется!'
+     if oncetalk[i]=0:oncetalk[i]=1&$doing[i]=' брезгливо осматривается - Что это за пропахшая селедкой дыра? Эй, моряк, ты куда нас привез? Вези обратно!'
+end
+if fishsmell[you]>0 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+		 if pol[i]=0:
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' морщит нос - Фу!'
+			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
+			 if temprand=2:$doing[i]=' морщит нос - От тебя жутко несет рыбой!'
+		 else
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' морщит нос - Фу!'
+			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
+			 if temprand=2:$doing[i]=' морщит нос - От тебя жутко несет рыбой!'
+		 end
+	end
+end
+if peecover[you]>0 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+		 if pol[i]=0:
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' морщит нос - От тебя несет как от туалета!'
+			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
+			 if temprand=2:$doing[i]=' морщит нос - От тебя пахнет мочой!'
+		 else
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' морщит нос - От тебя несет как от туалета!'
+			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
+			 if temprand=2:$doing[i]=' морщит нос - От тебя пахнет мочой!'
+		 end
+	end
+end
+if cum_face[you]>0 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+	     if sister=you and i=father:
+			temprand=rand(0,10)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'&!НА ВАШЕМ ЛИЦЕ СПЕРМА
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' приглядывается к вашему лицу'
+			 if temprand=3:$doing[i]=' показывает на лицо - у тебя в чем то щека испачкана'
+	     else
+			 if pol[i]=0:
+				temprand=rand(0,20)
+				 if temprand=0:$doing[i]=' провожает вас взглядом'
+				 if temprand=1:$doing[i]=' смотрит на вас'
+				 if temprand=2:$doing[i]=' пожирает вас глазами'
+				 if temprand=3:$doing[i]=' присвистывает'
+				 if temprand=4:$doing[i]=' усмехается'
+				 if temprand=5:$doing[i]=' сглатывает слюну'
+				 if temprand=6:$doing[i]=' откашливается'
+				 if temprand=7:$doing[i]=' пялится на вас'
+				 if temprand=8:$doing[i]=' ухмыляется'
+				 if temprand=9:$doing[i]=' хихикает - У тебя что-то на губе!'
+				 if temprand=10:$doing[i]=' ухмыляется - Неудачно высморкалась?'
+				 if temprand=11:$doing[i]=' присвистывает - А тебе идет!'
+			 else
+				temprand=rand(0,20)
+				 if temprand=0:$doing[i]=' провожает вас взглядом'
+				 if temprand=1:$doing[i]=' смотрит на вас'
+				 if temprand=2:$doing[i]=' морщится'
+				 if temprand=3:$doing[i]=' удивленно вскидывает брови'
+				 if temprand=4:$doing[i]=' усмехается'
+				 if temprand=5:$doing[i]=' неодобрительно качает головой'
+				 if temprand=6:$doing[i]=' возмущенно - Приведи себя в порядок!'
+				 if temprand=7:$doing[i]=' возмущенно - Что за непотребный вид?'
+				 if temprand=8:$doing[i]=' возмущенно - В таком виде ты найдешь себе проблем!'
+				 if temprand=9:$doing[i]=' морщась - У тебя что-то на лице!'
+				 if temprand=10:$doing[i]=' морщась - В чем у тебя лицо?'
+				 if temprand=11:$doing[i]=' морщась - Я надеюсь, это не то, о чем я подумала!'
+			 end
+		 end
+	end
+end
+if cum_clo[you]>0 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+		 if pol[i]=0:
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'&!У ВАС СПЕРМА НА ОДЕЖДЕ
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' пожирает вас глазами'
+			 if temprand=3:$doing[i]=' присвистывает'
+			 if temprand=4:$doing[i]=' усмехается'
+			 if temprand=5:$doing[i]=' сглатывает слюну'
+			 if temprand=6:$doing[i]=' откашливается'
+			 if temprand=7:$doing[i]=' пялится на вас'
+			 if temprand=8:$doing[i]=' ухмыляется'
+			 if temprand=9:$doing[i]=' хихикает - Почисти одежду!'
+			 if temprand=10:$doing[i]=' ухмыляется - Ьы себе на одежду что-то пролила.'
+			 if temprand=11:$doing[i]=' присвистывает - А ты умеешь развлекаться!'
+		 else
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' морщится'
+			 if temprand=3:$doing[i]=' удивленно вскидывает брови'
+			 if temprand=4:$doing[i]=' усмехается'
+			 if temprand=5:$doing[i]=' неодобрительно качает головой'
+			 if temprand=6:$doing[i]=' возмущенно - Приведи себя в порядок!'
+			 if temprand=7:$doing[i]=' возмущенно - Что за непотребный вид?'
+			 if temprand=8:$doing[i]=' возмущенно - В таком виде ты найдешь себе проблем!'
+			 if temprand=9:$doing[i]=' морщась - У тебя одежда в чем-то!'
+			 if temprand=10:$doing[i]=' морщась - У тебя на одежде какие-то белые капли!'
+			 if temprand=11:$doing[i]=' морщась - Я надеюсь, это не то, о чем я подумала!'
+		 end
+	end
+end
+if visible_lift[you]=1 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+		 if pol[i]=0:
+			 if lust[i]>=50:
+				temprand=rand(0,20)
+				 if temprand=0:$doing[i]=' провожает вас взглядом'&!У ВАС ВИДНО ЛИФЧИК
+				 if temprand=1:$doing[i]=' смотрит на вас'
+				 if temprand=2:$doing[i]=' пожирает вас глазами'
+				 if temprand=3:$doing[i]=' присвистывает'
+				 if temprand=4:$doing[i]=' усмехается'
+				 if temprand=5:$doing[i]=' сглатывает слюну'
+				 if temprand=6:$doing[i]=' откашливается'
+				 if temprand=7:$doing[i]=' пялится на вас'
+				 if temprand=8:$doing[i]=' ухмыляется'
+				 if temprand=9:$doing[i]=' разглядывает ваши ноги'
+				 if temprand=10:$doing[i]=' разглядывает вашу задницу'
+				 if temprand=11:$doing[i]=' разглядывает вашу грудь'
+			 end
+		 else
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' морщится'
+			 if temprand=3:$doing[i]=' удивленно вскидывает брови'
+			 if temprand=4:$doing[i]=' усмехается'
+			 if temprand=5:$doing[i]=' неодобрительно качает головой'
+		 end
+	end
+end
+if visible_panties[you]=1 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+		 if pol[i]=0:
+			 if lust[i]>=50:
+				temprand=rand(0,20)
+				 if temprand=0:$doing[i]=' провожает вас взглядом'&!У ВАС ВИДНО ТРУСИКИ
+				 if temprand=1:$doing[i]=' смотрит на вас'
+				 if temprand=2:$doing[i]=' пожирает вас глазами'
+				 if temprand=3:$doing[i]=' присвистывает'
+				 if temprand=4:$doing[i]=' усмехается'
+				 if temprand=5:$doing[i]=' сглатывает слюну'
+				 if temprand=6:$doing[i]=' откашливается'
+				 if temprand=7:$doing[i]=' пялится на вас'
+				 if temprand=8:$doing[i]=' ухмыляется'
+				 if temprand=9:$doing[i]=' разглядывает ваши ноги'
+				 if temprand=10:$doing[i]=' разглядывает вашу задницу'
+				 if temprand=11:$doing[i]=' разглядывает вашу грудь'
+			 end
+		 else
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' морщится'
+			 if temprand=3:$doing[i]=' удивленно вскидывает брови'
+			 if temprand=4:$doing[i]=' усмехается'
+			 if temprand=5:$doing[i]=' неодобрительно качает головой'
+		 end
+	end
+end
+if t_nude[you]>1 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+		 if pol[i]=0:
+			 if pol[you]>0:
+				temprand=rand(0,20)
+				 if temprand=0:$doing[i]=' провожает вас взглядом'&!У ВАС ОБНАЖЕННАЯ ГРУДЬ
+				 if temprand=1:$doing[i]=' смотрит на вас'
+				 if temprand=2:$doing[i]=' пожирает вас глазами'
+				 if temprand=3:$doing[i]=' присвистывает'
+				 if temprand=4:$doing[i]=' усмехается'
+				 if temprand=5:$doing[i]=' сглатывает слюну'
+				 if temprand=6:$doing[i]=' откашливается'
+				 if temprand=7:$doing[i]=' пялится на вас'
+				 if temprand=8:$doing[i]=' ухмыляется'
+				 if temprand=9:$doing[i]=' разглядывает ваши ноги'
+				 if temprand=10:$doing[i]=' разглядывает вашу задницу'
+				 if temprand=11:$doing[i]=' разглядывает вашу грудь'
+			 end
+		 else
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' морщится'
+			 if temprand=3:$doing[i]=' удивленно вскидывает брови'
+			 if temprand=4:$doing[i]=' усмехается'
+			 if temprand=5:$doing[i]=' неодобрительно качает головой'
+			 if temprand=6:$doing[i]=' возмущенно - Оденься!'
+			 if temprand=7:$doing[i]=' возмущенно - Что за непотребный вид?'
+			 if temprand=8:$doing[i]=' возмущенно - В таком виде ты найдешь себе проблем!'
+		 end
+	end
+end
+if l_nude[you]>1 and $name[i]!'':
+	if $doing[i]='' and mob[i]=0:
+		 if pol[i]=0:
+			 if lust[i]>=50:
+				temprand=rand(0,20)
+				 if temprand=0:$doing[i]=' провожает вас взглядом'&!У ВАС ГОЛАЯ ПОПА
+				 if temprand=1:$doing[i]=' смотрит на вас'
+				 if temprand=2:$doing[i]=' пожирает вас глазами'
+				 if temprand=3:$doing[i]=' присвистывает'
+				 if temprand=4:$doing[i]=' усмехается'
+				 if temprand=5:$doing[i]=' сглатывает слюну'
+				 if temprand=6:$doing[i]=' откашливается'
+				 if temprand=7:$doing[i]=' пялится на вас'
+				 if temprand=8:$doing[i]=' ухмыляется'
+				 if temprand=9:$doing[i]=' разглядывает ваши ноги'
+				 if temprand=10:$doing[i]=' разглядывает вашу задницу'
+				 if temprand=11:$doing[i]=' присвистывает - Отличная жопа!'
+			 end
+		 else
+			temprand=rand(0,20)
+			 if temprand=0:$doing[i]=' провожает вас взглядом'
+			 if temprand=1:$doing[i]=' смотрит на вас'
+			 if temprand=2:$doing[i]=' морщится'
+			 if temprand=3:$doing[i]=' удивленно вскидывает брови'
+			 if temprand=4:$doing[i]=' усмехается'
+			 if temprand=5:$doing[i]=' неодобрительно качает головой'
+			 if temprand=6:$doing[i]=' возмущенно - Оденься!'
+			 if temprand=7:$doing[i]=' возмущенно - Что за непотребный вид?'
+			 if temprand=8:$doing[i]=' возмущенно - В таком виде ты найдешь себе проблем!'
+		 end
+	end
+end
+if $doing[i]='' and mob[i]=0 and $name[i]!'':
+	if demon_dick[you]>0 and attraction[you]>=50:horny[i]+=demon_dick[you]
+     if pol[i]=0:
+         if sexiness[you]>=30:
+             if lust[i]>=50:
+				 temprand=rand(0,11)
+				 if horny[i]<50:
+					horny[i]+=(attraction[you]-30)/10&if horny[i]>50:horny[i]=50
+				 end
+                 if temprand=0:$doing[i]=' провожает вас взглядом'
+                 if temprand=1:$doing[i]=' смотрит на вас'
+                 if temprand=2:$doing[i]=' пожирает вас глазами'
+                 if temprand=3:$doing[i]=' присвистывает'
+                 if temprand=4:$doing[i]=' усмехается'
+                 if temprand=5:$doing[i]=' сглатывает слюну'
+                 if temprand=6:$doing[i]=' откашливается'
+                 if temprand=7:$doing[i]=' пялится на вас'
+                 if temprand=8:$doing[i]=' ухмыляется'
+                 if temprand=9:$doing[i]=' разглядывает ваши ноги'
+                 if temprand=10:$doing[i]=' разглядывает вашу задницу'
+                 if temprand=11:$doing[i]=' разглядывает вашу грудь'
+             end
+         end
+     else
+
+     end
+end
+if party[i]>0 and Xhome[tbigg]=X[i] and Yhome[tbigg]=Y[i] and Zhome[tbigg]=Z[i] and Hhome[tbigg]=H[i] and Rhome[tbigg]=R[i]:
+	temp=rand(0,9)
+	if temp=0:$doing[i]+=', смеется'
+	if temp=1:$doing[i]+=', пьет пиво'
+	if temp=2:$doing[i]+=', болтает'
+	if temp=3:$doing[i]+=', пританцовывает'
+	if temp=4:$doing[i]+=', рассказывает что-то'
+	if temp=5:$doing[i]+=', дурачится'
+	if temp=6:$doing[i]+=', веселится'
+	if temp=7:$doing[i]+=', пьет из стакана'
+	if temp=8:$doing[i]+=', бухает'
+	if temp=9:$doing[i]+=', лыбится'
+end
+if want_talk[i]=1:
+	temp=rand(0,2)
+	if temp=0:$doing[i]=', рисуется'
+	if temp=1:$doing[i]=', понтуется'
+	if temp=2:$doing[i]=', зажигает'
+end
+if mob[i]=3 and aggressor=i and loss[i]>0 and $name[i]!'' and R[i]=0:
+     if pol[you]=0:
+		temprand=rand(0,11)
+		 if temprand=0:$doing[i]+=', присмотревшись к вам внимателенее, булькает - Это тот псих, что отделал меня!'
+		 if temprand=1:$doing[i]+=' присмотревшись к вам внимателенее, булькает - Опять этот ублюдок!'
+		 if temprand=2:$doing[i]+=' присмотревшись к вам внимателенее, булькает - Отвали от меня!'
+	 else
+		temprand=rand(0,11)
+		 if temprand=0:$doing[i]+=' присмотревшись к вам внимателенее, булькает - Опять эта дура!'
+		 if temprand=1:$doing[i]+=' присмотревшись к вам внимателенее, булькает - Ничего, шлюха, тебя еще приручат!'
+		 if temprand=2:$doing[i]+=' присмотревшись к вам внимателенее, булькает - Я тебе еще отомщу, шлюха!'
+	 end
+end

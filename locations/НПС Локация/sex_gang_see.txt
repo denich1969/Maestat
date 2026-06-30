@@ -1,0 +1,39 @@
+﻿if (dick[you]>0 or vag[you]>0) and  womenbrain[you]>30:
+if skin[ddd]>3 and skin[ddd]<7:
+	'<center><video src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
+	'<<$name[sss]>> <<$surname[sss]>> стонет когда ее ебут во все дыры'&*nl
+	if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и дрочите свой член'
+	if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и трете свою киску'
+	'<<$gangbangers_loc>>'
+end
+act'Дрочить':
+	 horny[you]+=10&cls&gs'stat'&'<center><video src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
+	 '<<$name[sss]>> <<$surname[sss]>> громко стонет'&*nl
+	 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и дрочите свой член'
+	 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и трете свою киску'
+	 '<<$gangbangers_loc>>'
+	 if horny[you]<100:
+		 act'<b>Уйти</b>':gt 'preloc'
+	else
+		 act'Кончить':
+			 horny[you]=0&cls&gs'stat'&'<center><video src="pic/sex/vag/mcum<<rand(0,4)>>.webm" ></video></center>'
+			 'Вы видите как из киски девушки вытекает сперма и вас трясет от возбуждения'&*nl
+			 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Ваш член начинает пульсировать... Вы кончаете...'
+			 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+end
+elseif pol[you]=0 and dick[you]>0 and  womenbrain[you]<=30:
+	horny[you]+=10&'Вы смотрите как толпа ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. '&	'Вот шлюха! Нахуй надо посылать такую блядь. Хуй стоит. Кого бы выебать? '
+elseif  pol[you]=1 and vag[you]>0 and  womenbrain[you]<=30:
+	horny[you]+=10&'Вы смотрите как толпа ебёт девушку Это <<$name[sss]>> <<$surname[sss]>>. '&	'Надо срочно найти ёбаря. '
+elseif  pol[you]=0 and dick[you]=0 and  womenbrain[you]>30:
+	horny[you]+=10&' Толпа ебёт девушку Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется подрочить, но члена нет. '
+elseif  pol[you]=0 and dick[you]=0 and vag[you]>0 and  womenbrain[you]<=30:
+	horny[you]+=10&' Толпа ебёт девушку Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется подрочить, но члена нет. Я не баба, блядь, чтобы пизду теребить! '
+elseif  pol[you]>0 and vag[you]=0 and  womenbrain[you]<=30:
+	horny[you]+=10&' Толпа ебёт девушку Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется ебаться, но пизды нет. '
+elseif  pol[you]>0 and vag[you]=0 and dick[you]>0 and  womenbrain[you]>30:
+	horny[you]+=10&' Толпа ебёт девушку Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется приключений на свою задницу.  '
+end

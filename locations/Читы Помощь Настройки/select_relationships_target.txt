@@ -1,0 +1,45 @@
+﻿'<<func("generate_links", CHEAT_MENU[''GET_TARGED_INDEX_MODE''], 11)>>'&!Хэдер
+!* -------------------------------- ИЗБРАННОЕ ------------------------------- *!
+if CHEAT_MENU['GET_TARGED_INDEX_MODE'] = 0:
+!if $NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = '':$NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = func("generate_npc_list", "my_favs", CHEAT_MENU["GET_TARGED_INDEX_MODE"])
+!'<<$NPC_LIST_TEMP[CHEAT_MENU["GET_TARGED_INDEX_MODE"]]>>'
+'<<func("generate_npc_list", "my_favs", CHEAT_MENU["GET_TARGED_INDEX_MODE"])>>'
+end
+!* -------------------------------- КОНТАКТЫ -------------------------------- *!
+if CHEAT_MENU['GET_TARGED_INDEX_MODE'] = 1:
+!if $NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = '':$NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = func("generate_npc_list", "my_contact", CHEAT_MENU["GET_TARGED_INDEX_MODE"])
+!'<<$NPC_LIST_TEMP[CHEAT_MENU["GET_TARGED_INDEX_MODE"]]>>'
+'<<func("generate_npc_list", "my_contact", CHEAT_MENU["GET_TARGED_INDEX_MODE"])>>'
+end
+!* ---------------------------------- ВРАГИ --------------------------------- *!
+if CHEAT_MENU['GET_TARGED_INDEX_MODE'] = 2:
+!if $NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = '':$NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = func("generate_npc_list", "myenemy", CHEAT_MENU["GET_TARGED_INDEX_MODE"])
+!'<<$NPC_LIST_TEMP[CHEAT_MENU["GET_TARGED_INDEX_MODE"]]>>'
+'<<func("generate_npc_list", "myenemy", CHEAT_MENU["GET_TARGED_INDEX_MODE"])>>'
+end
+!* --------------------------------- ДРУЗЬЯ --------------------------------- *!
+if CHEAT_MENU['GET_TARGED_INDEX_MODE'] = 3:
+!if $NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = '':$NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = func("generate_npc_list", "friends", CHEAT_MENU["GET_TARGED_INDEX_MODE"],50,1000)
+!'<<$NPC_LIST_TEMP[CHEAT_MENU["GET_TARGED_INDEX_MODE"]]>>'
+'<<func("generate_npc_list", "friends", CHEAT_MENU["GET_TARGED_INDEX_MODE"],50,1000)>>'
+end
+!* -------------------------------- ЗНАКОМЫЕ -------------------------------- *!
+if CHEAT_MENU['GET_TARGED_INDEX_MODE'] = 4:
+!if $NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = '':$NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = func("generate_npc_list", "know", CHEAT_MENU["GET_TARGED_INDEX_MODE"],1,1000)
+!'<<$NPC_LIST_TEMP[CHEAT_MENU["GET_TARGED_INDEX_MODE"]]>>'
+'<<func("generate_npc_list", "know", CHEAT_MENU["GET_TARGED_INDEX_MODE"],1,1000)>>'
+end
+!* ------------------------------- УНИКАЛЬНЫЕ ------------------------------- *!
+if CHEAT_MENU['GET_TARGED_INDEX_MODE'] = 5:
+!if $NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = '':$NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = func("generate_npc_list", "UNIQUE_NPC", CHEAT_MENU["GET_TARGED_INDEX_MODE"])
+!'<<$NPC_LIST_TEMP[CHEAT_MENU["GET_TARGED_INDEX_MODE"]]>>'
+'<<func("generate_npc_list", "UNIQUE_NPC", CHEAT_MENU["GET_TARGED_INDEX_MODE"])>>'
+end
+!* ----------------------------------- ВСЕ ---------------------------------- *!
+if CHEAT_MENU['GET_TARGED_INDEX_MODE'] = 6:
+!if $NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = '':$NPC_LIST_TEMP[CHEAT_MENU['GET_TARGED_INDEX_MODE']] = func("generate_npc_list", "know", CHEAT_MENU["GET_TARGED_INDEX_MODE"])
+!'<<$NPC_LIST_TEMP[CHEAT_MENU["GET_TARGED_INDEX_MODE"]]>>'
+'<<func("generate_npc_list", "ALL_NPC", CHEAT_MENU["GET_TARGED_INDEX_MODE"])>>'
+end
+'<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><td colspan="4" align="center"><h3><font color="#202020"> </font></h3></td></tr>'&!Футтер
+act'<b><font color="green">&#11164;&#11164;&#11164;</font> Назад</b>':gt 'cheat_menu', npc_index

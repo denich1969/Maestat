@@ -1,0 +1,133 @@
+﻿!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Отец
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&father=i
+lvl[i]=10&soul[i]=5000&work[i]=4&subwork[i]=1&money[i]=5000&soulMG[i]=1&uberSolderQW[i]=1&zilmassiv_home[i]=1&portal[i]=1&portal_zar[i]=10
+master[i]=0&delusion[i]=0&magik[i]=10&knowlanguage[i]=1&rage_spell[i]=1&!Не имеет отношения к богине луны и наваждению
+soulpower[i]=100&fight_skill[i]=100&shoot_skill[i]=100&canbewitch[i]=1&!Способность к чарам
+face_pic[i]=1
+$name[i]='Дэн'&$surname[i]='Гросс'&$nick[i]='Высокий и крепкий мужчина'
+$history[i]='Лет двадцать назад я попал в город, как и все проснулся на корабле Харон, который вел сквозь туманы капитан Олбрайт. В порту разбил несколько рыбьих морд, познакомился с вашей мамой. Переехали в жилмассив, получили по программе Богарта квартиру как молодая семья, работаю на механической мануфактуре, которая обеспечивает светом весь город.'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0&scull[i]=0&cheeks[i]=0&souldar[i]=0
+dick[i]=19&dickd[i]=40&ball[i]=50&vag[i]=0&ass[i]=2&nip[i]=10&tits[i]=0
+rost[i]=192&fat[i]=2800&mus[i]=2200&skin[i]=2
+face_hair[i]=0&tit_hair_can[i]=1&tit_hair[i]=10&leg_hair_can[i]=1&leg_hair[i]=10&hlong[i]=10&hcol[i]=1&beard[i]=5
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=43&vital[i]=200&will[i]=50&reflex[i]=150&pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[you]=0&lust[i]=10&agro[i]=10&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&!Характер
+w_slot[i]=0&m_slot[i]=44&!Прикид
+t_slot[i]=4&l_slot[i]=5&b_slot[i]=3
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!Прикид конец
+walkprog[i]=46
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!МАТЬ
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&mother=i
+lvl[i]=1&soul[i]=100&money[i]=5000&work[i]=6&zilmassiv_home[i]=1
+master[i]=0&delusion[i]=0&muggle[i]=1&!Не имеет отношения к богине луны и наваждению
+face_pic[i]=2
+$title[i]=''&$history[i]='До попадания в город я закончила медучилище, но поняла, что делать уколы и ставить капельницы мне не очень нравится. Закончила технический вуз с отличием, училась в аспирантуре, преподавала. Потом даже не помню в какой момент, просто проснулась на корабле Харон. В порту какой-то ужас творился, слава богу мы с вашим папой познакомились. Ну а теперь судьба сделала пируэт, и я работаю медсестрой в больнице.'
+$name[i]='Нина'&$surname[i]='Гросс'&$nick[i]='Женщина'
+face[i]=70&gla[i]=1&glacol[i]=1&nose[i]=3&lips[i]=1&scull[i]=1&cheeks[i]=0&souldar[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=40&anus[i]=0&throat[i]=0&ass[i]=42&nip[i]=45&tits[i]=20
+rost[i]=170&fat[i]=2500&mus[i]=1000&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&cunthair[i]=10&hlong[i]=30&hcol[i]=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=38&vital[i]=40&will[i]=50&reflex[i]=40
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[you]=100&lust[i]=10&agro[i]=10&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&dom[i]=70&!Характер
+!stamp_t[i]=1&! Прикид
+!r_leg_t[i]=1
+t_slot[i]=15&l_slot[i]=26&b_slot[i]=13
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0&! Прикид конец
+walkprog[i]=47
+here_food['3,1,3,1,1']=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!БРАТ
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&brother=i
+lvl[i]=1&soul[i]=100&money[i]=2000&klass_A+=1&klass[i]=1&zilmassiv_home[i]=1
+master[i]=0&delusion[i]=0&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=6&face_tipe[i]=4&face_pic[i]=4
+$name[i]='Алекс'&$surname[i]='Гросс'&$nick[i]='Молодой и тощий парень'
+$history[i]='Что? Ты дура что ли? Мы в одной комнате с тобой всю жизнь прожили, что мне рассказывать о себе?'
+face[i]=30&gla[i]=0&glacol[i]=1&nose[i]=0&scull[i]=0&cheeks[i]=0&souldar[i]=2&beard[i]=0
+dick[i]=15&dickd[i]=35&ball[i]=30&vag[i]=0&ass[i]=2&nip[i]=10&tits[i]=0
+rost[i]=170&fat[i]=800&mus[i]=600&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=1&tit_hair[i]=10&leg_hair_can[i]=1&leg_hair[i]=10&hlong[i]=10&hcol[i]=0
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=18&vital[i]=50&will[i]=50&reflex[i]=50
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[you]=30&lust[i]=10&agro[i]=10&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&!Характер
+!m_slot[i]=25&amulet[i]=135&l_ring[i]=147&! Прикид
+t_slot[i]=2&l_slot[i]=1&b_slot[i]=2
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&! Прикид конец
+walkprog[i]=49
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!СЕСТРА
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&sister=i
+lvl[i]=1&soul[i]=100&money[i]=2000&klass_A+=1&klass[i]=1&zilmassiv_home[i]=1
+master[i]=0&delusion[i]=0&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=7&face_pic[i]=4&!face_tipe[i]=16
+$title[i]=''&$history[i]='Отстань от меня, дурак. Мы с тобой всю жизнь в одной комнате прожили, и мне еще что-то о себе рассказывать?'
+$name[i]='Света'&$surname[i]='Гросс'&$nick[i]='Девушка'
+face[i]=70&gla[i]=3&glacol[i]=2&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=0&souldar[i]=1
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=0&ass[i]=28&nip[i]=45&tits[i]=16
+rost[i]=170&fat[i]=1000&mus[i]=600&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&cunthair[i]=10&hlong[i]=30&hcol[i]=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[you]=100&lust[i]=10&agro[i]=10&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&!Характер
+!r_leg_t[i]=1&stamp_t[i]=1&! Прикид
+t_slot[i]=30&l_slot[i]=16&b_slot[i]=13
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0&&! Прикид конец
+walkprog[i]=48
+know['<<father>>,<<mother>>']+=1&know['<<mother>>,<<father>>']+=1&!Отношения
+know['<<father>>,<<brother>>']+=1&know['<<brother>>,<<father>>']+=1
+know['<<father>>,<<sister>>']+=1&know['<<sister>>,<<father>>']+=1
+know['<<mother>>,<<brother>>']+=1&know['<<brother>>,<<mother>>']+=1
+know['<<mother>>,<<sister>>']+=1&know['<<sister>>,<<mother>>']+=1
+know['<<sister>>,<<brother>>']+=1&know['<<brother>>,<<sister>>']+=1
+know['<<brother>>,<<sister>>']+=1&know['<<sister>>,<<brother>>']+=1
+husband[father]=mother&husband[mother]=father
+kid_first[father]=brother&kid_first[mother]=brother
+kid_second[father]=sister&kid_second[mother]=sister
+father[brother]=father&mother[brother]=mother
+father[sister]=father&mother[sister]=mother
+brother[sister]=brother&brother[brother]=sister
+addobj'Персонаж'&addobj'Характеристики'&addobj'Статистика'&addobj'Инвентарь'&addobj'Журнал'&addobj'Обновить'
+gs'100_paradise_gen'&gs'7777_moon_gen'&!gs'200_world_gen'&!gs'404_roma_gen'
+gs'1_nord_gen'&gs'2_nord_east_gen'&gs'3_river_gen'&gs'4_suid_west_gen'&gs'5_suid_gen'
+X[father]=Xstart&Y[father]=Ystart&Z[father]=Zstart&H[father]=Hstart&R[father]=Rstart
+family_pod['<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>,0']=1
+Xhome[father]=Xstart&Yhome[father]=Ystart&Zhome[father]=Zstart&Hhome[father]=Hstart&Rhome[father]=Rstart
+key['<<father>>,<<Xhome[father]>>,<<Yhome[father]>>,<<Zhome[father]>>,<<Hhome[father]>>']=1
+Xw[father]=4&Yw[father]=4&Zw[father]=3
+e_world[]=father
+X[mother]=Xstart&Y[mother]=Ystart&Z[mother]=Zstart&H[mother]=Hstart&R[mother]=Rstart
+Xhome[mother]=Xstart&Yhome[mother]=Ystart&Zhome[mother]=Zstart&Hhome[mother]=Hstart&Rhome[mother]=Rstart
+key['<<mother>>,<<Xhome[mother]>>,<<Yhome[mother]>>,<<Zhome[mother]>>,<<Hhome[mother]>>']=1
+Xw[mother]=2&Yw[mother]=3&Zw[mother]=3
+e_world[]=mother
+X[brother]=Xstart&Y[brother]=Ystart&Z[brother]=Zstart&H[brother]=Hstart&R[brother]=Rstart
+Xhome[brother]=Xstart&Yhome[brother]=Ystart&Zhome[brother]=Zstart&Hhome[brother]=Hstart&Rhome[brother]=Rstart
+key['<<brother>>,<<Xhome[brother]>>,<<Yhome[brother]>>,<<Zhome[brother]>>,<<Hhome[brother]>>']=1
+work[brother]=100
+Xw[brother]=3&Yw[brother]=3&Zw[brother]=3
+e_world[]=brother
+X[sister]=Xstart&Y[sister]=Ystart&Z[sister]=Zstart&H[sister]=Hstart&R[sister]=Rstart
+Xhome[sister]=Xstart&Yhome[sister]=Ystart&Zhome[sister]=Zstart&Hhome[sister]=Hstart&Rhome[sister]=Rstart
+key['<<sister>>,<<Xhome[sister]>>,<<Yhome[sister]>>,<<Zhome[sister]>>,<<Hhome[sister]>>']=1
+work[sister]=100
+Xw[sister]=3&Yw[sister]=3&Zw[sister]=3
+e_world[]=sister
+	 girl[father]+=1&guy[mother]+=1
+	 sexpartner['<<mother>>,<<father>>']+=100&sexpartner['<<father>>,<<mother>>']+=100
+	 vagsex[mother]+=100&avagsex[father]+=100
+	 sexpartner_num_m['<<mother>>,<<guy[mother]>>']=father&sexpartner_num_f['<<father>>,<<girl[father]>>']=mother
+	 ramsskill[mother]=80&ramsskill[sister]=40
+money+=5000&rentmoney=300&!Что это????????????
+know_about_gods=1
+gt'familystory'

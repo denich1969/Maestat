@@ -1,0 +1,32 @@
+﻿if know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1
+horny[w]+=5+(sexiness[s]/2)&horny[s]+=(lust[s]/10) 
+action_tipe[w]=4&action_tipe[s]=5&!нет драки
+under_sub[w]=s&under_sub[s]=w
+mob_busy[w]=time+15&mob_busy[s]=time+15
+if lust[s]<100:lust[s]+=1
+if agro[s]<100:agro[s]+=1
+if agro[w]>dom[w]:dominance1=agro[w]
+if agro[w]<=dom[w]:dominance1=dom[w]
+if agro[s]>dom[s]:dominance2=agro[s]
+if agro[s]<=dom[s]:dominance2=dom[s]
+if (noslut[w]=2 and skin[s]>3 and skin[s]<7) or (dominance1<=dominance2):
+	 
+else
+	if extrovert[w]=1:
+		!if extrovert[s]=0:''
+		if extrovert[s]=1:friends['<<w>>,<<s>>']+=1&friends['<<s>>,<<w>>']+=1
+		if extrovert[s]=2:friends['<<w>>,<<s>>']+=5&friends['<<s>>,<<w>>']+=5
+	end
+	if extrovert[w]=2:
+		if extrovert[s]=0:friends['<<w>>,<<s>>']+=1&friends['<<s>>,<<w>>']+=1
+		if extrovert[s]=1:friends['<<w>>,<<s>>']+=5&friends['<<s>>,<<w>>']+=5
+		if extrovert[s]=2:friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+	end
+	if TOL[s]>=7:friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+	if TOL[s]>=4 and TOL[s]<=6:friends['<<w>>,<<s>>']+=5&friends['<<s>>,<<w>>']+=5&if agro[w]>=70:lust[s]+=1
+	if TOL[s]<=3:friends['<<w>>,<<s>>']+=1&friends['<<s>>,<<w>>']+=1&if agro[w]>=70:lust[s]+=5
+end
+if whore[w]>0 and whoreboss[w]>0 and sexperaday[s]!daystart and dick[s]>0:gs'whore_sex'&!Накидываем запрет для шлюх
+     !'if skin[s]>3 and skin[s]<7 and wantblackcock[w]>=1 and hour>=19:ss=w&ww=s&s=ss&w=ww&gs'locationhard_sex'
+     if whore[s]>0:ss=w&ww=s&s=ss&w=ww&gs'location_sex'  '
+if dominance1>dominance2 and agro[s]<50 and dom[s]<50 and horny[s]>50 and lust[s]>50:gs'location_sex'&!баба трахает мужика

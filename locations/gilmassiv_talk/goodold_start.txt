@@ -1,0 +1,10 @@
+﻿gs'stat'&'<center><img src="pic/misc/run.jpg" ></center>'&'Где то рядом с вами раздается стрельба. '
+'Из-за угла выбегает человек с книгой в руках, пробегая мимо вас он буквально впихивает вам в руки эту книжку и скрывается за углом. '&item[140]+=1
+'Все произошло так внезапно, что вы даже не разглядели лица бегущего мужчины.'
+gang[fembatory]+=1&guy[fembatory]+=10&bj[fembatory]+=10&throat[fembatory]=100&oral_fixation[fembatory]+=100
+oral_fixation[djgirl]+=100&girl[brokk]+=1&guy[djgirl]+=1&sexpartner['<<djgirl>>,<<brokk>>']+=5&sexpartner['<<brokk>>,<<djgirl>>']+=5&!djgirl
+bj[djgirl]+=5&abj[brokk]+=5&sexpartner_num_m['<<djgirl>>,<<guy[djgirl]>>']=brokk&sexpartner_num_f['<<brokk>>,<<girl[brokk]>>']=djgirl
+girl[mabuta]+=1&guy[djgirl]+=1&sexpartner['<<djgirl>>,<<mabuta>>']+=5&sexpartner['<<mabuta>>,<<djgirl>>']+=5
+bj[djgirl]+=5&abj[mabuta]+=5&sexpartner_num_m['<<djgirl>>,<<guy[djgirl]>>']=mabuta&sexpartner_num_f['<<mabuta>>,<<girl[mabuta]>>']=djgirl
+glory[teleportwife]+=100&bj[teleportwife]+=100&throat[teleportwife]=100&oral_fixation[teleportwife]+=100&!teleportwife
+act'...':gt'preloc'

@@ -1,0 +1,34 @@
+﻿npcmaxnum+=1&i=npcmaxnum
+mob[i]=17&mobexp[i]=50&!номер моба для разговора
+tipemobpic[i]=1&picture[i]=rand(85,88)&!номер типа фотки!номер фотки
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+tipe=rand(0,5)
+if tipe=0:$name[i]='Дикарь'
+if tipe=1:$name[i]='Одичавший'
+if tipe=2:$name[i]='Безумец'
+if tipe=3:$name[i]='Обезумевший'
+if tipe=4:$name[i]='Дикарь'
+if tipe=5:$name[i]='Дикарь'
+$nick[i]=$name[i]
+tipevn=rand(0,10)
+if tipevn=0:$lookvnesh[i]='рваный спортивный костюм'
+if tipevn=1:$lookvnesh[i]='заляпанный грязью спортивный костюм'
+if tipevn=2:$lookvnesh[i]='окровавленный спортивный костюм'
+if tipevn=3:$lookvnesh[i]='грязные футболку и джинсы'
+if tipevn=4:$lookvnesh[i]='рваную футболку и джинсы'
+if tipevn=5:$lookvnesh[i]='грязные майку и бриджи'
+if tipevn=6:$lookvnesh[i]='рваную майку и бриджи'
+if tipevn=7:$lookvnesh[i]='рваную рубашку с брюками'
+if tipevn=8:$lookvnesh[i]='грязную рубашку с брюками'
+if tipevn=9:$lookvnesh[i]='грязный и рваный костюм тройку'
+if tipevn=10:$lookvnesh[i]='драный пуховик'
+if tipevn=11:$lookvnesh[i]=''
+$nick[i]=$nick[i]&$basestatus[i]=' рычит'
+dick[i]=rand(15,30)&dickd[i]=rand(35,55)&ball[i]=rand(60,70)
+healthmax[i]=10*rand(20,50)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(10,30)&maxuron[i]=rand(45,80)&!Урон в бою
+reflex[i]=rand(60,100)
+agro[i]=2&corr[i]=1000
+root_world[]=i&walkprog[i]=0&fight_prog[i]=1&!программа движения!программа боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

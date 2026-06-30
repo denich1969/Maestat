@@ -1,0 +1,335 @@
+﻿busy[you]=0&in_fight=0&in_sex=0
+win[npc]+=1&loss[you]+=1
+Zgen=Z[you]&dom[you]-=3&cant_fight_run=0&solo=0&lostfight['<<you>>,<<npc>>']+=1
+sfera_fiz=0&defence_you=0&sfera_psih=0&fire_defence[you]=0&sfera_antigrav=0&clon=0
+gs'soulcraft'
+if nip_p[you]=1:gs'soulcraft'
+if nip_p[you]=2:gs'soulcraft',5
+if nip_p[you]=3:gs'soulcraft',10
+if vag_pirs[you]=1:gs'soulcraft'
+if vag_pirs[you]=2:gs'soulcraft',5
+if vag_pirs[you]=3:gs'soulcraft',10
+if vag_pirs[you]=4:gs'soulcraft',2	
+$fightlog[npc]+='<br>'
+$fightlog[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[npc]>>-<<loss[npc]>> vs <<$name[you]>> <<$surname[you]>>. <<win[you]>>-<<loss[you]>>'
+$fightlog[you]+='<br>'
+$fightlog[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[you]>>-<<loss[you]>> vs <<$name[npc]>> <<$surname[npc]>>. <<win[npc]>>-<<loss[npc]>>'
+soul[npc]+=1
+soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+if pose[you]=1:pose[you]=3
+if h_slot[you]=4:h_slot[you]=0
+fightwinwer=npc&!win[npc]+=1
+if horny[npc]<50:horny[npc]=50
+gs'drop_follower'
+if firstfoll>0:follower[firstfoll]=0&firstfoll=0
+if secfoll>0:follower[secfoll]=0&secfoll=0
+if threfoll>0:follower[threfoll]=0&threfoll=0
+'<center><b>Поражение</b></center>'&!'Вы потеряли часть своей души'
+gs'gen_d_view'&'<center><img src="<<$d_view>>" ></center>'&!вывод картинки второстепенных НПС и мобов
+if horny[you]>=100:'Чудовищно не нормальная похоть затуманивает ваш разум и вы не можете продолжать драться'
+if fight_for_forbid = 1:
+	 fight_for_forbid = 0&!параметры для проверки лежат в локации forbidsexsystem!22112024
+	 if you_gender_check="male":
+		 "Пошёл ты, буду трахаться с кем захочу, мразь.- <<$name[npc]>> плюёт на вас и уходит по своим делам."&forbidsex[npc] = 0&dom[you]-=30
+	 elseif you_gender_check="female":
+		 "Пошла ты, буду трахаться с кем захочу, мразь.- <<$name[npc]>> плюёт на вас и уходит по своим делам."&forbidsex[npc] = 0&dom[you]-=30
+	 end
+end
+if r_hand_t[you]=0 and magworld[Znow]>0 and loss[you]>=10 and DeaActTat=0:r_hand_t[you]=1&'У вас зажгло кожу на правой руке и там материализовалась татуировка плачущей девушки клоуна'
+if w_slot[you]>0:w_slot[you]=0&uron_weapon_w[you]=0&w_patron_max[you]=0&w_patrontipe[you]=0
+if m_slot[you]>0 and m_slot[you]!25:m_slot[you]=0&uron_weapon_m[you]=0
+portal_interferences=0
+if mob[npc]=0:
+	 if sherif=npc:
+		 deadtipe=1&'Шериф склоняется над вами - Ну вот никогда никто не понимает доброго слова, приходится принимать меры.'
+		 'Шериф присаживается рядом с вами и зарядив револьвер упирает его вам в лоб'&act'....':gt'dead'
+	elseif mgreen=npc:
+		'Вы упали на колени. Митч подходит и ставит ногу на вашу голову - Эх, снова пришлось забрать силой то, что мне принадлежит. Ну ничего ты еще научишься.'
+		if r_leg_t[you]=0:'У вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
+		if r_leg_t[you]=0:r_leg_t[you]=1
+		if whoreboss[you]!npc:whoreboss[you]=mgreen
+		whore[you]+=1&act'....':gt'sex'
+	 elseif soulmaster=npc:
+		'Открывается портал в ад и вашу душу вырывают из тела и бросают в адское пламя способное сжечь даже души'&act'....':gt'dead'
+	 elseif popescu=npc:
+		 'Вампирша вонзает свои клыки вам в горло'&act'....':gt'dead'
+	 elseif antey=npc:
+	 	 if uberSolderQW[you]>0:
+			 uberSolderQW[you]=100&punishedQW=10&muggle[you]=1&l_leg_t[you]=2&earth_gem[antey]=1
+			 'Антей любуется кольцом на своем пальце - Теперь я аватар. А ты станешь тупой шлюхой!'
+			 'У вас резко болит бедро и на нем проступает татуировка и вы теряете связь с магическими каналами.'
+			 'После этого Антей телепортирует вас в сауну'&horny[npc]=50&X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2
+			 X[dukevalorama]=X[npc]&Y[dukevalorama]=Y[npc]&Z[dukevalorama]=Z[npc]&H[dukevalorama]=H[npc]&R[dukevalorama]=R[npc]
+			 X[frank_visconti]=X[npc]&Y[frank_visconti]=Y[npc]&Z[frank_visconti]=Z[npc]&H[frank_visconti]=H[npc]&R[frank_visconti]=R[npc]
+			 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&act'Нет!':gt'sex'
+		 else
+			 'Земля поглощает вас и последнее что вы видите Антея - Это будет твоя могила.'&act'....':gt'dead'
+		 end
+	 elseif necromancer=npc:
+		 'Некромант убивает вас'&act'....':gt'dead'
+	 elseif lebeda=npc:
+		 addkiller_attk=0&'Лебеда запихивает свой кулак вам в задницу и тот прорастает колючками разрывая вас изнутри'&act'....':gt'dead'
+	 elseif addboss=npc:
+		 'Вы падаете перед Джофри'&act'....':gt'traitor_lose'
+	 elseif npc=runemaster:
+		 'Вы падаете перед Рунным магом'&act'....':gt'traitorrune_lose'
+	 elseif npc=spiro:
+		 'Напавший на вас маг добивает вас'&act'....':gt'dead'
+	 elseif npc=techer:
+		 'Диламина усмехнулась - Ничтожество'&act'...':gt'preloc'
+	 elseif npc=cromar:
+		 'Напавший на вас маг добивает вас'&act'....':gt'dead'
+	 elseif npc=takemura:
+		 'Напавший на вас маг добивает вас'&act'....':gt'dead'
+	 elseif npc=brokk:
+		 'Брок смотрит на вас своими большими мудрыми глазами - Какая жалость, такая растрата таланта.'&act'....':gt'dead'
+	 elseif npc=merlin:
+		 'Мерлин готовится вас добить - Ты же понимаешь, что я не могу позволить тебе жить?'&act'....':gt'dead'
+	 elseif negrec=npc and blackedGangQW=100:
+		 'Черный маг подходит к вам занося руку для последнего удара - Теперь обо мне все забудут.'&act'....':gt'dead'
+	 elseif npc=twardovski:
+		 'Твардовский поправляет галстук - Отправляйся к дьяволу.'&act'....':gt'dead'
+	 elseif npc=obedmarsh:
+		 horny[npc]=50&X[npc]=2&Y[npc]=2&Z[npc]=1&H[npc]=1&R[npc]=0
+		 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+		 beliver[you]=2&'Обед Марш возносит руки в молитве - Лорд Дагон дарует мне силу и ты станешь шлюхой для Инсмутцев.'&act'Нет!':gt'dagon_portal'
+	 elseif npc=dukevalorama:
+		 horny[npc]=50&X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2
+		 X[borisbogart]=X[npc]&Y[borisbogart]=Y[npc]&Z[borisbogart]=Z[npc]&H[borisbogart]=H[npc]&R[borisbogart]=R[npc]
+		 X[antey]=X[npc]&Y[antey]=Y[npc]&Z[antey]=Z[npc]&H[antey]=H[npc]&R[antey]=R[npc]
+		 X[frank_visconti]=X[npc]&Y[frank_visconti]=Y[npc]&Z[frank_visconti]=Z[npc]&H[frank_visconti]=H[npc]&R[frank_visconti]=R[npc]
+		 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+		 if uberSolderQW[you]>0:
+			 uberSolderQW[you]=100&punishedQW=1&muggle[you]=1&l_leg_t[you]=2
+			 'Дюк телепортирует вас в сауну, где вас уже ждут Богарт и его сын Антей. Богарт недовольно прохаживается рядом с вами '
+			'- Значит ты не умеешь вовремя останавливаться? Вопросы задаешь разные, на моих друзей лезешь драться. Ну тогда я лишу тебя магии. '
+			'От касания Богарта на вашей ноге проступила татуировка и вы утратили связь с магическими каналами.'
+		 end
+		act'Нет!':gt'sex'
+	 elseif npc=borisbogart:
+	     if dick[you]>1:
+			 cuntmanQW=1&dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&'Вы падаете на пол перед Богартом, и тот ухмыляется '
+			'- Дурачок, я бессмертный, куда тебе со мной тягаться. Но за такую наглость тебя нужно наказать. Богарт что то колдует и вас пронзает острая боль между ног.'
+	     else
+			'Вы падаете на пол перед Богартом, и тот ухмыляется - куда тебе со мной тягаться.'
+	         if uberSolderQW[you]>0:
+				 horny[npc]=50&X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2
+				 X[dukevalorama]=X[npc]&Y[dukevalorama]=Y[npc]&Z[dukevalorama]=Z[npc]&H[dukevalorama]=H[npc]&R[dukevalorama]=R[npc]
+				 X[antey]=X[npc]&Y[antey]=Y[npc]&Z[antey]=Z[npc]&H[antey]=H[npc]&R[antey]=R[npc]	 
+				 X[frank_visconti]=X[npc]&Y[frank_visconti]=Y[npc]&Z[frank_visconti]=Z[npc]&H[frank_visconti]=H[npc]&R[frank_visconti]=R[npc]
+				 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+				 if uberSolderQW[you]>0:
+					 uberSolderQW[you]=100&punishedQW=1&muggle[you]=1&l_leg_t[you]=2&'Борис телепортирует вас в сауну, где вас уже ждут его дружки. Богарт недовольно прохаживается рядом с вами '
+					'- Значит ты не умеешь вовремя останавливаться? Ну тогда я лишу тебя магии. От касания Богарта на вашей ноге проступила татуировка и вы утратили связь с магическими каналами.'
+				 end
+				act'Нет!':gt'sex'
+	         end
+	     end
+		act'Нееет!!!':gt'preloc'
+	 else
+		act'Нееет!!!':gt'preloc'
+	 end
+end
+if mob[npc]=1:
+	loh[you]+=1&healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&evil[you]+=1
+     if sexiness[you]>0:
+		 horny[npc]=50&gt'sex'
+     else
+		 mob_sleep[npc]=time+15&money[you]=0&horny[npc]=0&'<<$nick[npc]>> шмонает ваши карманы'&womenbrain[you]+=1&act'Стонать':gt'preloc'
+     end
+end
+if mob[npc]=2:healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&horny[npc]=50&gt'sex'
+if mob[npc]=3:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&horny[npc]=50&!инсмут
+    ins_reit[you]-=5&if ins_reit[you]<0:ins_reit[you]=0
+    if pol[you]=0 or dick[you]>3:
+		 feminize[you]+=rand(1,3)&horny[npc]=70&horny[you]+=35	
+		 if rand(0,4)=2 and oneiv!1:
+			cls&'<center><img src="pic/event/yelowelic.jpg" ></center>'&'<<$nick[npc]>> Жадно скалится, глядя в ваше лицо, затем достает из кармана какую-то склянку с ярко желтой жидкостью и выпивает ее сам, '
+			'а затем впвается в ваши губы и практически накачивает вас этой дрянью в перемешку со своей слюной...'&oneiv=1
+			act'Проглатывать эту муть, без права выбора':
+				womenbrain[you]+=rand(3,6)&dom[you]-=rand(15,25)&corr[you]+=rand(10,20)&horny[you]+=99&lust[you]+=10
+				dagongene+=rand(5,15)&ass[you]+=10&tits[you]+=10&nip[you]+=20
+				tit_hair_can[you]=0&tit_hair[you]=0&leg_hair_can[you]=0&leg_hair[you]=0
+				mus[you]=mus[you]-(mus[you]/5)&fat[you]=fat[you]-(fat[you]/5)&time+=15&gt'sex'
+			end			
+		 else
+			 if tornton_dolg[you]>0: 
+				money[you]=0&'<<$nick[npc]>> ловко достает какую-то склянку и заливает вам в рот сладковатую жидкость с дурманящим ароматом, после чего выворачивает ваши карманы и забирает все деньги.'
+				' Затем урод начинает стягивать с себя штаны и хватает вас...'
+			 else
+				'<<$nick[npc]>> ловко достает какую-то склянку и заливает вам в рот сладковатую жидкость с дурманящим ароматом. Затем урод начинает стягивать с себя штаны и хватает вас...'			
+			 end
+			 if face[you]>40 and brakod!1:
+				brakod=1&'Как только вас схватили и осмотрели, с вас сорвали и остальные вещи, и с силой натянули какие-то чужие шмотки, чтобы видимо было веселее было.'
+				ul_slot[you]=0&l_slot[you]=rand(87,89)&t_slot[you]=rand(31,34)&b_slot[you]=rand(17,22)
+			 end
+			 womenbrain[you]+=rand(1,3)&dagongene+=rand(2,5)&act'Стонать':gt'sex'
+		 end		 		 
+     else
+		 '<<$nick[npc]>> возбужденно стягивает с себя штаны'&act'...':gt'sex'
+     end
+     !{if pol[you]=0:
+		 feminize[you]+=rand(3,10)&mob_sleep[npc]=time+15&money[you]=0&horny[npc]=0
+		 '<<$nick[npc]>> шмонает ваши карманы, затем достает какую то склянку и заливает вам в рот сладковатую жидкость'&act'Стонать':gt'preloc'
+     else
+		'<<$nick[npc]>> возбужденно стягивает с себя штаны'&act'...':gt'sex'
+     end}
+end
+if mob[npc]=4:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&horny[npc]=50&gt'sex'&!гангстер
+end
+if mob[npc]=5:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	evil[you]+=1&horny[npc]=50&gt'sex'&!демон
+end
+if mob[npc]=6:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!жертва
+	evil[you]+=1&horny[npc]=50&gt'sex'
+end
+if mob[npc]=7:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!госпожа
+	evil[you]+=1&horny[npc]=50&gt'sex'
+end
+if mob[npc]=8:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!дети мардука
+	evil[you]+=1&horny[npc]=50&gt'sex'
+end
+if mob[npc]=9:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!дагон
+	evil[you]+=1&horny[npc]=50&gt'sex'
+end
+if mob[npc]=11:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!боевой маг
+	evil[you]+=1&horny[npc]=50&gt'sex'
+end
+if mob[npc]=12:
+	dead[npc]=2&!туманный
+	mistreit[you]-=5&if mistreit[you]<0:mistreit[you]=0
+    if $nick[npc]='Хрупкая сестрица':
+		mistreit[you]=0&'<<$nick[npc]>> подминает вас под себя'&act'Нееет!!!':gt'fragile_sisters_rape'
+    else
+		'<<$nick[npc]>> подминает вас под себя'&act'....':gt'mistrape'
+    end
+end
+if mob[npc]=13:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!полицейский
+	horny[npc]=50&X=2&Y=0&Z=3&H=3&R=3
+    if X[you]=X and Y[you]=Y and Z[you]=Z and H[you]=H and R[you]=R:
+		gt'sex'
+     else
+		'<<$nick[npc]>> тащит вас в околоток'&X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R&act'...':gt'sex'
+     end
+end
+if mob[npc]=14:
+	mob_sleep[npc]=time+60&!тентакль
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!тентакль прибавляет в мощности
+	'Чудовищный комок щупалец опутывает ваше тело сжимая в объятиях'&act'Нееет!!!':tentakl=0&gt'tentrape'
+end
+if mob[npc]=15:mutation[you]+=rand(5,25)&gt'wolfrape'&!пес
+if mob[npc]=16:mutation[you]+=50&'<<$nick[npc]>> дико ревет и свет меркнет, вы чувствуете как ваше тело искажет этим черным маревом.'&act'Стонать':gt'preloc'&!леший
+if mob[npc]=17:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!дикарь
+	mutation[you]+=rand(5,25)&horny[npc]=50&'Абориген приближается к вам дергая себя за член'&gt'sex'
+end
+if mob[npc]=21 or mob[npc]=22:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Наваждение Лесной Эльф
+	if mob[npc]=21:'Эльф ухмыляясь приближается к вам'
+	if mob[npc]=22:'Эльфийка ухмыляясь приближается к вам'
+	act'...':gt'sex'
+end
+if mob[npc]=23:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]
+	minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&!ХМУРЫ
+	reflex[npc]+=1
+	'<<$nick[npc]>> ухмыляясь читает гримуар и приближается к вам'&act'...':gt'glumwin'
+end
+if mob[npc]=24:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!гоблин
+	'<<$nick[npc]>> ухмыляясь приближается к вам'&act'...':gt'sex'
+end
+if mob[npc]=25:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Суккуба
+	'<<$nick[npc]>> читает какое то богохульное заклинание'&act'...':gt'succubuswin'
+end
+if mob[npc]=26:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Иллитид
+	'<<$nick[npc]>> грозно шевелит щупальцами и шипит'&act'...':gt'succubuswin'
+end
+if mob[npc]=27:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Демон
+	magik[you]=0&soul[you]-=100&vital[you]=20&'<<$nick[npc]>> колдует над вами и злобно хохочет'&act'...':gt'demonwin'
+end
+if mob[npc]=28 or mob[npc]=30:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	'<<$nick[npc]>> строго грозит пальчиком - И больше не вздумай на меня нападать!'&act'...':gt'preloc'
+end
+if mob[npc]=29:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Маг
+	'<<$nick[npc]>> хмурится - И больше не докучай мне!'&act'...':gt'preloc'
+end
+if mob[npc]=33:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Ведьма Наваждение  джунгли!mob_sleep[npc]=time+60
+	feminize[you]+=10&'Ведьма злобно хохочет и накладывает на вас заклинание'&act'...':gt'witchrape'
+end
+if mob[npc]=34 or mob[npc]=36:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&act'...':gt'slutrape'&!mob_sleep[npc]=time+60
+	if mob[npc]=34:'Шлюха возбужденно трет свои груди - Я должна кончить'&!Наваждение  Отель
+	if mob[npc]=36:'Проститутка возбужденно трет свои груди - Я должна кончить'
+end
+if mob[npc]=35:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	'Клиент приближается к вам доставая свой член'&act'...':gt'sex'
+end
+if mob[npc]=37:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	afterloss=1&Xloss=0&Yloss=0&Zloss=0&'Слуга приближается к вам доставая свой член'&act'...':gt'sex'
+end
+if mob[npc]=38:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!mob_sleep[npc]=time+60
+	if m_slot[you]=35:m_slot[you]=0&uron_weapon_m[you]=0
+	feminize[you]+=10&'Госпожа ухмыляется - Тебе нужно преподать урок покорности'&act'...':gt'bdsmrape'
+end
+if mob[npc]=39:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	feminize[you]+=10&'Демон приближается к вам доставая свой член'&act'...':gt'sex'
+end
+if mob[npc]=40:
+	mob_sleep[npc]=time+60&healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	'Девушка возмущенно кричит - Убирайся отсюда пока можешь, и не смей лезть ко мне.'&act'...':gt'preloc'
+end
+if mob[npc]=42:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!mob_sleep[npc]=time+60
+	dick[npc]+=1&'Шаман камлает в бубен и вы с ужасом наблюдаете как его огромный черный член становится еще больше'&act'...':gt'sex'
+end
+if mob[npc]=43:
+	healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!mob_sleep[npc]=time+60
+	'У Пса встаёт член'&act'...':gt'sex'
+end
+if mob[npc]=44:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]
+	minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)
+	reflex[npc]+=1&	'Хозяин подземелья приближается к вам доставая свой член'&act'...':gt'sex'
+end
+if mob[npc]=45:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	'Порноактер надрачивая член приближается к вам'&act'...':gt'sex'
+end
+if mob[npc]=46:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+	X[you]=rand(1,5)&Y[you]=rand(1,5)&Z[you]=772&'Охранник хватает вас за шкирку и тащит в подвал'&act'...':gt'preloc'
+end
+if mob[npc]=47:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Наваждение Замок Принцессы и город
+	'Служанка ухмыляясь приближается к вам'&act'...':gt'sex'
+end
+if mob[npc]=48:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&win[npc]+=1&guardwantsex=0
+    if Z[you]=740:guardwantsex=0&X[you]=5&Y[you]=5&Z[you]=750&'Стражник вывел вас из замка и вышвырнул'&act'...':gt'preloc'
+	if Z[you]!740:guardwantsex=1&'Стражник надрачивая член приближается к вам'&act'...':gt'sex'
+end
+if mob[npc]=49 or mob[npc]=50:
+	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&act'...':gt'sex'
+	if mob[npc]=49:'Горожанин надрачивая член приближается к вам'
+	if mob[npc]=50:'Горожанка ухмыляясь приближается к вам'
+end

@@ -1,0 +1,28 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/loc/ras/cvety<<rand(1,4)>>.jpg" ></center>'&'Горицвет собирают в период его максимального цветения, обычно в июне-июле.'
+if goricvetknow[you]>0 and narkosekret[you]=1 and month > 6 and month < 8:
+	'На поляне растут цветы'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		act'Сорвать пучок с цветами':item_loc['184,<<$loc[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act 'Собирать горицвет':
+			 time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['184,<<$loc[you]>>']+=max(rand(2),lvltravnik[you])
+			 "В течение получаса вы собирали горицвет и собрали <<item_loc['184,<<$loc[you]>>']>> порций"&goricvetnum=item_loc['184,<<$loc[you]>>']+item['184']
+			 'Всего у вас <<goricvetnum>> порций горицвета'
+			 if fat[you]>10:fat[you]-=1
+			 if fat[you]>100:fat[you]-=1
+			 if fat[you]>500:fat[you]-=2
+			 if fat[you]>1000:fat[you]-=2
+			 if fat[you]>1500:fat[you]-=3
+			 if fat[you]>2000:fat[you]-=3
+			 if fat[you]>2500:fat[you]-=4
+			 if fat[you]>3000:fat[you]-=4
+			 exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'
+			 if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
+			 sweat[you]+=2
+			gt $curloc
+		 end
+	 end
+else
+	'Не сезон. На кустах ничего нет'
+end
+gs'Item'&*nl ''&gs 'npconloc'&killvar 'goricvetnum'&act'Завершить':gt 'world'

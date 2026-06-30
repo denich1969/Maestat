@@ -1,0 +1,8 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Столик перед сценой где танцуют девушки'&gs'Item'&*pl ''&gs 'npconloc'&*pl ''&act'Уйти':gt 'preloc'
+'Еда - 50 шиллингов'
+if money[you]>=5000:
+	act'Поесть 50 шиллингов':
+		 money[you]-=5000&health[you]=healthmax[you]&energy[you]=energyMax[you]&soul[you]+=1&fat[you]+=10&horny[you]+=50&time+=15&cls&gs'eat'&gs'drink'&gs'stat'
+		 'Вы сделали заказ за столиком и вскоре вам его принесли. Еда очень вкусная, необычная и в нее вложена душа и на сцене зажигательный танец возбуждает вас'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end

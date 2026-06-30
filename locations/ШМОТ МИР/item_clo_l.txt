@@ -1,0 +1,14 @@
+﻿clo=ARGS[0]&canwearlow=1
+if t_slot[you]>0:
+	topclo=t_slot[you]
+    if long_t[topclo]>0 and pol_t[topclo]>0:canwearlow=0
+end
+if ban_l[you]=0 and canwearlow=1:
+	if l_slot[you]=0:
+		item_l[clo]-=1&burden[you]-=item_l_burden[clo]&l_slot[you]=clo
+	else
+		clothednow=l_slot[you]&item_l[clothednow]+=1&burden[you]+=item_l_burden[clothednow]
+		item_l[clo]-=1&burden[you]-=item_l_burden[clo]&l_slot[you]=clo
+	end
+end
+gt'preloc'

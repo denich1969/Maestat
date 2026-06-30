@@ -1,0 +1,315 @@
+﻿if massagegirl[you]>0:
+     if pol[npc]=0 and pol[you]>0 and massage['<<$loc[you]>>']>0 and massageday[npc]!daystart and tiler!npc and femas!npc:
+		 act'<b>МАССАЖ</b>':
+			money[you]+=2000&temp_ahj+=1&massageday[npc]=daystart&time+=60&cls&gs'stat'&'<center><video src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
+			'Вам отдали деньги и вы проводили клиента в комнату и там положили его раздетог она кушетку и анчали массажировать вливая в него энергию. '
+			'А в конце вы взяв в ладошку его торчащий колом член передернули ему и удалили остатки спермы полотенцем.'&act'Уйти':gt'after_fss'
+		 end
+     end
+end
+if tiler=npc:
+     if pol[you]>0:
+		'<<$name[npc]>> - Массаж стоит 500 шиллингов, это не просто массаж это еще и энергетическая чистка'
+         if money[you]>=50000:
+			 act'Я хочу массаж':
+				 money[you]-=50000&soul[you]+=10&soulpower[you]+=1&if magik[you]>0:magik_exp[you]+=1
+				 time+=60&cls&gs'stat'&'<center><video src="pic/sex/massage/regular.webm" ></video></center>'
+				 'Вы отдали деньги и <<$name[npc]>> отвел вас в массажный кабинет. Массажист начал массирвоать ваше тело, при этом явно закачивая в вас энергию, у вас стала прирастать душа.'
+				 act'Уйти':gt'preloc'
+				 if corr[you]>=50 and vag[you]>0:
+					 act'Я хочу более глубокий массаж':
+						 if magik[you]>0:magik_exp[you]+=1
+						 cls&gs'stat'&'<center><video src="pic/sex/massage/sex<<rand(0,3)>>.webm" ></video></center>'&'<<$name[npc]>> вынул член и стал пристраиваться к вам'
+						 temp_vag_fss+=1&gs'stat'&'Стоя раком, вы выгибаете спину пока вас трахают в киску.'
+						 if vag[you]=1:
+							horny[you]=0&'Вспышка резкой боли, когда вас лишают девственности и вы видите, что на члене немного крови.'
+						 else
+						     horny[you]+=lust[you]/10&horny[you]+=200&'Твердая мужская плоть двигается внутри вашего тела и от этого внизу живота порхают бабочки.'
+						 end
+						gs'fast_sex','fuck_vag',npc,you
+						 act'Стонать':
+							 cls&gs'stat'&$func('get_images', 'vag_cum_on_ass', you, npc)
+							 '<<$name[npc]>> вытаскивает из вас член и начинает кончать вам на попу и спину, покрывая их спермой. Затем он вытирает вас полотенцем и втирает масла.'&act'Уйти':gt 'after_fss'
+						 end
+					 end
+				 end
+			 end
+         end
+		 if corr[you]>=25 and massagegirl[you]=0:
+			 act'Работать массажисткой':
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> говорит вам как минимум массажистка должна владеть хотя бы тремя каналами магии, чтобы суметь перекачивать энергию в клиента, '
+			'ну и как бонус массажистка всегда заканчивает массаж отдрачивая клиенту. Клиент платит пять сотен за массаж. 450 из них идут на покупку души, если ты не хочешь в них свою вливать. '
+			'Еще 30 мне за организацию, и 20 тебе в зарплату.'&act'Я подумаю':gt'preloc'
+			     if magik[you]>=3 and corr[you]>=50:
+					 act'Я согласна':
+						 massagegirl[you]+=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						 '<<$name[npc]>> показывает вам техники перекачки энергией и объясняет что просто нужн оподходить к мужчинам в салоне и предлагать массаж.'&act'Одеться':gt'preloc'
+					 end
+			     end
+			 end
+		 end
+     else
+		'<<$name[npc]>> - Моя компаньонка Мария делает массаж мужчинам'
+     end
+end
+if femas=npc:
+     if pol[you]>0:
+		'<<$name[npc]>> - Я не делаю массаж женщинам, обратитесь к Тайлеру'
+     else
+		'<<$name[npc]>> - Массаж стоит 500 шиллингов, это не просто массаж это еще и энергетическая чистка '
+         if money[you]>=50000:
+			 act'Я хочу массаж':
+				money[you]-=50000&soul[you]+=10&soulpower[you]+=1&if magik[you]>0:magik_exp[you]+=1
+				temp_hj+=1&time+=60&cls&gs'stat'&'<center><video src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
+				'Вы отдали деньги и <<$name[npc]>> отвела вас в массажный кабинет. Массажистка начала массирвоать ваше тело, при этом явно закачивая в вас энергию, у вас стала прирастать душа. '
+				'Она взяла ваш член и начала его дрочить. Вскоре вы кончили и она протерла еще раз вас полотенцем.'&act'Уйти':gt'after_activ_sex'
+			 end
+         end
+     end
+end
+if verhoven=npc:
+     if pol[you]>0 and sexiness[you]>70 and dead[stavrogin]=0 and dead[pornstar]=0:
+         if fluffer[you]=0 and X[you]=1 and Y[you]=0 and Z[you]=4 and H[you]=6 and R[you]=4:
+			 '<<$name[npc]>> - А ты горячая штучка. Не хочешь поработать на меня? Легкие деньги.'
+			 act'Что за работа?':
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ухмыляется - Работа флаффером. '
+				'Это такая девочка которая во время съемок порно поддерживает члены актеров в работоспособном сотоянии. Час работы 50 шиллингов. И так как нет оргазма, то и душу ты не потеряешь. '
+				'Хотя не буду отрицать, это довольно утомительная работа и не самая оплачиваемая в порно бизнесе.'&act'Не интересует!':gt $curloc
+			     if corr[you]>=75 and energy[you]>30:
+					 act'Я согласна':
+						money[you]+=5000&fluffer[you]+=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ухмыляется доставая член - Ну тогда приступим'
+					    act'На колени':gt'fluffer'
+					 end
+				 end
+			 end
+         end
+         if fluffer[you]>0 and X[you]=1 and Y[you]=0 and Z[you]=4 and H[you]=6 and R[you]=4:
+			 if corr[you]>=75 and energy[you]>30:
+				 act'<b>Работать флаффером</b>':
+					money[you]+=5000&fluffer[you]+=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ухмыляется доставая член - Ну тогда приступим'&act'На колени':gt'fluffer'
+				 end
+			 end
+         end
+     end
+end
+if stavrogin=npc:
+     if pol[you]>0 and sexiness[you]>70 and dead[stavrogin]=0 and dead[pornstar]=0:
+         if fluffer[you]>0 and X[you]=1 and Y[you]=0 and Z[you]=4 and H[you]=6 and R[you]=4:
+			 if corr[you]>=75 and energy[you]>30:
+				 act'<b>Работать флаффером</b>':
+					money[you]+=5000&fluffer[you]+=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ухмыляется доставая член - Давай детка, подними меня'
+					act'На колени':gt'fluffer'
+				 end
+			 end
+         end
+         if photoset[you]=0:
+			'<<$name[npc]>> - Я увлекаюсь фотографией и хотел бы провести с тобой фотосессию. 100 шиллингов.'
+			 act'Фотосессия':
+				time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Тебе естественно нужно быть в процессе съемок голой и показывать половые органы, ты же не против?'
+				act'Нет я против':gt'preloc'
+				if corr[you]>=25:
+					act'Я согласна':
+						 money[you]+=10000&photoset[you]+=1&time+=60&cls&gs'stat'&'<center><img src="pic/sex/poser/photoset.jpg" ></center>'
+						 '<<$name[npc]>> достал фотик и начал командовать какую позу вам принять и при этом фотографировать. Все это продолжалось час и в конце парень выдал вашу сотню за работу'
+						 act'Одеться':gt'preloc'
+					end
+				 end
+			 end
+		 end
+     end
+end
+if detective=npc:
+	 if shoot_skill[you]<100:
+		 act'Научи меня стрелять':
+			sportman_trening[you]+=1&shoot_skill[you]+=25&energy[you]-=50&if fat[you]>10:fat[you]-=5
+			sportiv[you]+=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> учит вас стрелять.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if prudencelover=npc:
+	 act'Ганста':
+		if know_prudencelover=0:know_prudencelover=1
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Да я раньше был ганста на районе, но выбился в люди. '&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 if know_prudencelover>=1:
+		 act'<b>Научи как рамсить</b>':
+			ramsskill[you]+=rand(10,25)&friends['<<npc>>,<<you>>']+=5&friends['<<you>>,<<npc>>']+=5
+			time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> объясняет вам значения слов и основные словесные обороты'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if prudence=npc:
+     if work[you]=25 and firsttalk[prudence]<2:firsttalk[prudence]+=1&'<b><<$name[npc]>> - Вижу ты очередная спасенная из порта девченка которая работает на моего мужа стриптизершей.</b>'&*nl&*nl&*nl
+end
+if blackwood=npc:
+     if firsttalk[blackwood]<2 and money_dolg[blackwood]>0:
+		 firsttalk[blackwood]+=1&'<b><<$name[npc]>> - Позволь мне кое что прояснить. Ты должна мне денег и если ты попытаешся кинуть меня и сменить работу, я просто закажу тебя коллегии охотников. '
+		'И ты труп. Так что, милая малышка, не доводи до крайности. Отработай свой долг и если не нравиться, можешь валить отсюда, куда хочешь.</b>'&*nl&*nl&*nl
+     end
+     if work[you]=25:
+		 act'<b>Расскажи про стриптиз</b>':
+			 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Зарплаты за стриптиз нет, но клиенты дают чаевые, и чем сексуальнее ты выглядишь, тем крупнее будут чаевые.'
+			'За каждый час работы возле шеста твой долг будет увеличиваться на 1 шиллинг. Так что постарайся заработать, а не просто баклуши бить и тратить мое время. '
+			'Танцевать имеет смысл когда рядом есть мужчины. Днем тут народа практически не бывает клиенты приходят к пяти вечера.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+		 act'Дай сотку в долг':
+			 money[you]+=10000&money_dolg[blackwood]+=15000&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> отсчитывая вам деньги - Ты только не забывай, что долги надо отдавать и с процентами. Отдашь 150.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+if gilman=npc:
+     if work[you]=25:
+		 act'<b>Расскажи про стриптиз</b>':
+			 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> - Я тут охраняю, что бы клиенты сильно не борзели. А то в городе народ дикий, всякое тут бывает. Но если девочка сама не против потрахаться с клиентом, то я не вмешиваюсь.'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+if stripme=you and work[you]=25 and supersex=npc:
+     if hour<16 and energy[you]>30 and dance[you]<500:
+		 act'<b>Научи меня танцевать</b>':
+			 energy[you]-=30&dance[you]+=rand(5,15)&fat[you]-=rand(1,10)&if Ass[you]>17: Ass[you]-=rand(1,2)
+			 mus[you]+=rand(1,10)&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&! if ass[you]<42:ass[you]+=1
+			 '<<$name[npc]>> показывает вам танцевальные движения и заставляет их повторять указывая на ваши ошибки. За час вы устаете, но изучаете кое что новое.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+if work[npc]=25:
+     if work[you]=25:
+		 act'<b>Расскажи про стриптиз</b>':
+			time+=5&cls&gs'stat'& '<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Одеваешся сексуально, наводишь макияж и ждеш толпы парней. А там танцуешь у шеста и получаешь чаевые.'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+if demon_slave[you]>1:
+     if mrblood=npc or mrflesh=npc:
+         act'Меня терзают странные желания':
+			X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+			X[mrblood]=X[npc]&Y[mrblood]=Y[npc]&Z[mrblood]=Z[npc]&H[mrblood]=H[npc]&R[mrblood]=R[npc]
+			X[mrflesh]=X[npc]&Y[mrflesh]=Y[npc]&Z[mrflesh]=Z[npc]&H[mrflesh]=H[npc]&R[mrflesh]=R[npc]
+			X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+			 horny[mrblood]=50&horny[mrflesh]=50
+			X=X[npc]&Y=Y[npc]&Z=Z[npc]&H=H[npc]&R=R[npc]
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Меня мучают потаенные желания.'&'<<$name[npc]>> хищно улыбается вам - Нижняя шлюха! Наконец то ты поняла свое место! '
+			'Ты наша рабыня и без регулярного наказания тебе будет плохо. Пирсинг может облегчить твои мучения. И каждая групповуха с нами, верховными демонами надолго облегчит твою тягу.'
+			 solo=0&pose[you]=2&demon_slave[you]=1&demon_gangbang[you]+=1&act'На колени':gt'sex'
+		 end
+     end
+end
+if goodoldtimesQW=21:
+     if mrblood=npc or mrflesh=npc:
+         if vag[you]=1:
+			 act'<b>Я получила послание</b>':
+				goodoldtimesQW=30
+				X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+				X[mrblood]=X[npc]&Y[mrblood]=Y[npc]&Z[mrblood]=Z[npc]&H[mrblood]=H[npc]&R[mrblood]=R[npc]
+				X[mrflesh]=X[npc]&Y[mrflesh]=Y[npc]&Z[mrflesh]=Z[npc]&H[mrflesh]=H[npc]&R[mrflesh]=R[npc]
+				X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+				 horny[mrblood]=50&horny[mrflesh]=50
+				X=X[npc]&Y=Y[npc]&Z=Z[npc]&H=H[npc]&R=R[npc]
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Я получила послание, что вам от меня нужно?'
+				 '<<$name[npc]>> хищно улыбается вам - Нам нужна ты. Твое тело, твоя душа. Твоя покорность. На колени тварь!'
+				 solo=0&pose[you]=2&l_leg_t[you]=4&'Кожа на левой ноге вспыхнула огнем и на ней проступила татуировка рабыни.'&demon_slave[you]=1
+				 'Демон в человечьем обличьи рычит - Теперь ты принадлежишь нам. Можешь бежать куда угодно. Но ты вернешся за наказанием. Ломать целки девкам, что может быть слаще?'
+				 soul[you]+=50&act'На колени':gt'sex'
+			 end
+         end
+         if vag[you]>1:
+			 act'<b>Я получила послание</b>':
+				X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+				X[mrblood]=X[npc]&Y[mrblood]=Y[npc]&Z[mrblood]=Z[npc]&H[mrblood]=H[npc]&R[mrblood]=R[npc]
+				X[mrflesh]=X[npc]&Y[mrflesh]=Y[npc]&Z[mrflesh]=Z[npc]&H[mrflesh]=H[npc]&R[mrflesh]=R[npc]
+				X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+				 horny[mrblood]=50&horny[mrflesh]=50
+				X=X[npc]&Y=Y[npc]&Z=Z[npc]&H=H[npc]&R=R[npc]
+				 gs'demon_gen'&horny[i]=50&gs'demon_gen'&horny[i]=50&goodoldtimesQW=30
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Я получила послание, что вам от меня нужно?'
+				 '<<$name[npc]>> хищно улыбается вам - Нам нужна ты. Твое тело, твоя душа. Твоя покорность. На колени тварь!'
+				 solo=0&pose[you]=2&l_leg_t[you]=4&'Кожа на левой ноге вспыхнула огнем и на ней проступила татуировка рабыни.'&demon_slave[you]=1
+				 'Демон в человечьем обличьи рычит - Теперь ты принадлежишь нам. Можешь бежать куда угодно. Но ты вернешся за наказанием. '
+				'И раз ты не сохранила невинность, то не жди пощады. Ты должна быть наказана.'&act'На колени':gt'sex'
+			 end
+		 end
+     end
+end
+if lebeda=npc:
+     if germionaQW=10:
+		 act'<b>Спросить совета как освободить Гермиону от слежки</b>':
+			 germionaQW=20&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 'Вы обрисовываете ситуацию, что вам нужно, что бы Гермиона избавилась от назойливого детектива так, что бы он продолжил докладывать ее мужу, что все в порядке.'
+			 '<<$name[npc]>> усмехнулась - А чем тебя не устраивает старый добрый шантаж? Нужен компромат на него.'
+			 'Вы нахмурились - А где я его возьму, да и судя по всему этот алкаш не делает ничего такого, что могло бы его скомпрометировать, он на удивление честный детектив.'
+			 '<<$name[npc]>> подмигивает вам - Ты мне понравился и я тебе помогу. На вот грибочки растертые в пыль. Просто насыпь их в ладонь и дунь ему в лицо.'
+			 'Взяв грибной порошок вы спросили - И что будет?'
+			 'Лебеда захихикала - Тебе то милок какая разница? После этого он вам больше не помешает.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+     if germionaQW>=30 and gribkilebedatalk=0:
+		 act'<b>Что это за грибы?</b>':
+			 gribkilebedatalk=1&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> усмехнулась - Грибочки мои фирменные. Я ему транслирую мысли, какие хочу и заставляю видеть что хочу.'
+			 'Вы изумленно посмотрели на Лебеду - у тебя есть такая сила? Ты можешь контролировать людей?'
+			 '<<$name[npc]>> отмахнулась - Контролировать я могу только одного, иначе весь город уже был бы под моим контролем. Детектив просто видит меня как Гермиону, и следит за мной.'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+if detective=npc:
+     if germionaQW=20:
+		 act'<b>Использовать грибы</b>':
+			 agro[npc]=100&lust[npc]=100&germionaQW=30&lebeda_seed[npc]+=1
+			 X[you]=X[germiona]&Y[you]=Y[germiona]&Z[you]=Z[germiona]&H[you]=H[germiona]&R[you]=R[germiona]
+			  time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Набрав в горсть грибного порошка вы резко дунули целясь детективу в лицо. И это сработало, детектив закашлялся вдохнув грибы'
+			 '<<$name[npc]>> откашливаясь - Какого хрена? Вот урод.'&*nl 'Внезапно детектив переменился в лице - Черт! Чуть не упустил!'
+			 'После этого детектив сорвался с места и не обращая внимания на Гермиону ломанулся за Лебедой.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+if germiona=npc:
+     if germionaQW=30:
+		 act'<b>Детектив все</b>':
+			 lust[npc]=100&germionaQW=40&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+			 giver[npc]=1&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 'Вы сказали Гермионе что вам удалось избавиться от назойливого детектива.'
+			 '<<$name[npc]>> удивленно покачала головой - Не ожидала что ты справишся. И какую же награду хочет мой рыцарь спасший меня из заточения?'&act'<b>Я подумаю</b>':gt 'preloc'
+		 end
+     end
+end
+if elderbatory=npc:
+	 if povar_work=1:
+		 act'<b>Груз для ресторана</b>':
+			 povar_work=2&burden[you]+=1000&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> приносит вам ящик - Поставь тут роспись и забирай.'
+			act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+	 if autodocQW=15:
+		 act'<b>Вино шато Мардук</b>':
+			 if needmoneyvinoqw=0:needmoneyvinoqw=100000
+			 time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> кивает головой - Это очень дорогое и редкое вино благословенное самим Мардуком. 1000 шиллингов бутылка.'
+			 act'<b>Уйти</b>':gt 'preloc'
+		     if money[you]>=100000:
+				 act'<b>Купить вино</b>':
+					 autodocQW=20&money[you]-=100000&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> приносит вам бутылку вина - Отличный выбор вина.'
+					 act'<b>Уйти</b>':gt 'preloc'
+				 end
+				 if pol[you]>0:
+					 act'Просить скидку':
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ухмыляется - Можем сходить в особый кинотеатр и развлечься там. И я дам тебе 50% скидку'
+						 act'<b>Уйти</b>':gt 'preloc'
+						 act'Согласиться':
+							 autodocQW=20&money[you]-=50000
+							 X[npc]=1&Y[npc]=0&Z[npc]=4&H[npc]=6&R[npc]=2
+							 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+							 solo=0&horny[npc]=50&mob_sleep[npc]=0&pose[you]=2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+							 '<<$name[npc]>> берет ваши деньги, отдает бутылку и ведет вас в кинотеатр для взрослых.'&act'Оргия':gt 'sex'
+						 end
+					 end
+				 end
+		     end
+		 end
+	 end
+end

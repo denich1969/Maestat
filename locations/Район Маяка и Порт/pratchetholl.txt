@@ -1,0 +1,14 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=2
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Пратчетов'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=2&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+$locopis['<<$temploc>>']='Богатый и огромный особняк со старинной мебелью'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=0
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Роскошная спальная с массивной кроватью закрытой балдахином.'
+np['<<$temploc>>']=0
+mirror['<<$temploc>>']=1
+gs'pratchet_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=2&gs 'toilet_gen',5&$locopis['<<$temploc>>']='Роскошный туалет особняка'&shower['<<$temploc>>']=0&!gs 'toilet_gen',уровень туалета

@@ -1,0 +1,23 @@
+﻿$nameloc[you]=$curloc&gs'stat'&gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'
+if Z[you]=200 or Z[you]=9999:
+	 if hunger[you]>1:
+		 act'Поесть пельменей':
+			 energy[you]=energyMax[you]&fat[you]+=1&if vag[you]>0:fat[you]+=4
+			 time+=15&cls&gs'walker'&gs'eat'&gs'stat'&'Вы положили себе пельменей из кастрюльки, и сколько бы вы не вылавливали оттуда пельмени, они никак не убывали, после чего сели за стол и съели.'
+			 act'...':gt $curloc
+		 end
+	 end
+	 if item[2]>0 and (burden[you]-item_burden[2]+item_burden[3])<=burdenmax[you]:
+		 act'Налить бутылку воды':item[2]-=1&burden[you]-=item_burden[2]&item[3]+=1&burden[you]+=item_burden[3]&time+=5&gt $curloc
+	end
+	if thirst[you]>=1:act'Попить чаю':time+=5&cls&gs'drink'&gs'stat'&'Вы налили горячего чая в кружку и сели за стол попивая его не большими глотками.'&gt $curloc
+	act'Поесть':
+		time+=15&cls&gs'eat'&gs'stat'&'Поковырявшись в холодильнике вы положили себе макарошек с сосиской и быстро разогрели, после чего сели за стол и съели.'&act'...':gt $curloc
+	end
+	act'Поесть чего-нибудь калорийного':
+		time+=15&cls&gs'stat'&'Поковырявшись в холодильнике вы положили себе макарошек с сосиской и быстро разогрели, после чего сели за стол и съели.'&gs'eat','extra'&act'...':gt $curloc
+	end		
+else
+	*pl 'Обеденный стол'
+	if h_slot[you]=24:act'Поесть':time+=5&cls&gs'eat'&gs'drink'&gs'stat'&'Вы сели за стол ломящийся от яств и наелись деликатесов запивая вкусными соками.'&gt $curloc
+end

@@ -1,0 +1,84 @@
+﻿$d_pegging_end={
+	horny[you]=0
+	gs'soulcraft'
+	 if magworld[Znow]>0:
+		 if stamp_t[you]>0:
+			 if stampblockday[you]=daystart:
+				slutday[you]+=1
+			 else
+				stampblockday[you]=daystart&gs'soulcraft'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+			 end
+		 else
+			gs'soulcraft'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+		 end
+	 end
+	gs'add_sex_stat', you, npc&gt'preloc'
+}
+gs'stat'&'<center><img src="pic/sex/pegging/worship.jpg" ></center>'&'<<$name[npc]>> выставляет ножку и приказывает ледяным тоном - На колени!'
+act'На колени':
+	cls&gs'stat'&'<center><video src="pic/sex/pegging/shoe.webm" ></video></center>'&'Встав на колени вы обнаруживаете перед своим лицом туфлю госпожи и следует холодный приказ - Лизать!'
+	'Подчинившись воле сильной женщины вы начинаете лизать туфлю.'&tipe=rand(0,2)
+	if tipe=0:
+		'<<$name[npc]>> приказывает вам - Встань раком!'
+	   	act'Раком':
+			 anus[you]+=3&cls&gs'stat'&'<center><video src="pic/sex/pegging/fingering0.webm" ></video></center>'
+			 'Вы встаете раком и госпожа смазав свои пальцы засовывает их вам в анус и начинает двигать их там, при этом подрачивая ваш член.'
+			 act'Раком':
+				anus[you]+=5&anal_mass['<<npc>>,<<you>>']+=1&anal[you]+=1&aanal[npc]+=1
+				 cls&gs'stat'&'<center><video src="pic/sex/pegging/peg<<rand(0,1)>>.webm" ></video></center>'
+				 '<<$name[npc]>> одевает страпон и медленно вводит его вам в анус. Затем госпожа начинает трахать вас в задницу страпоном все сильнее и сильнее разгоняясь.'
+				 'Госпожа вспотев и устав вынимает из вас страпон и вставляет вам дилдо, после чего начинает дрочить вам член'
+				 act'Стонать':
+					 anus[you]+=3&cls&gs'stat'&'<center><video src="pic/sex/pegging/dog_cum0.webm" ></video></center>'
+					 '<<$name[npc]>> быстро дрочит ваш член не забывая трахать вашу задницу при помощи дилдо. Внезапно вы кончаете и из вашего члена вылетает сперма под смех госпожи.'
+					 act'Встать':dynamic $d_pegging_end
+				 end
+			 end
+		end
+	end
+	if tipe=1:
+		'<<$name[npc]>> приказывает вам - Ляг на спину!'
+	   	act'На спину':
+			anus[you]+=3&cls&gs'stat'&'<center><video src="pic/sex/pegging/fingering1.webm" ></video></center>'
+			'Вы ложитесь на спину и госпожа смазав свои пальцы засовывает их вам в анус и начинает двигать их там, при этом подрачивая ваш член.'&tipe=rand(0,1)
+			if tipe=0:
+				 act'Стонать':
+					anus[you]+=3&bj_mass['<<you>>,<<npc>>']+=1&bj[npc]+=1&abj[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/fingering2.webm" ></video></center>'
+					'<<$name[npc]>> берет ваш член в рот и сосет его буквально заглатывая в себя, при этом ее ловкие пальчики продолжают буравить ваш анус и вы чувствуете что вот вот кончите.'
+					 act'Стонать':
+						cum_face[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/self_cum0.webm" ></video></center>'
+						'<<$name[npc]>> задирает ваш зад вверх так, что ваш член оказывается напротив вашего лица, и дрочит ваш член. Вы со стоном кончаете и ваша сперма заливает ваше лицо.'
+					     act'Встать':dynamic $d_pegging_end
+					 end
+				 end
+			end
+			if tipe=1:
+				 act'Стонать':
+					cuntlick[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/top_lick0.webm" ></video></center>'
+					'<<$name[npc]>> садится на ваше лицо и перед вашим ртом оказывается мокрая и благоухающая вагина госпожи которую вы тут же начинаете лизать. '
+					'<<$name[npc]>> через некоторое время сдавленно застонала и по ритмичной пульсации ее киски вы поняли что она кончила.'
+					 act'Стонать':
+						 cum_face[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/self_cum0.webm" ></video></center>'
+						 '<<$name[npc]>> задирает ваш зад вверх так, что ваш член оказывается напротив вашего лица, и дрочит ваш член. Вы со стоном кончаете и ваша сперма заливает ваше лицо.'
+					     act'Встать':dynamic $d_pegging_end
+					 end
+				 end
+			end
+		end
+	end
+	if tipe=2:
+		'<<$name[npc]>> раздвигает ноги и приказывает вам - Лизать!'
+	   	act'Лизать':
+			cuntlick[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/lick_n0.webm" ></video></center>'
+			'Вы опускаетесь между раздвинутых ног и начинаете лизать мокрую киску госпожи. '
+			'<<$name[npc]>> через некоторое время сдавленно застонала и по ритмичной пульсации ее киски вы поняли что она кончила.'
+			'Госпожа встает и подхоит к вашей попке, она вставляет вам дилдо и начинает дрочить вам член'
+			 act'Стонать':
+				 anus[you]+=3&cls&gs'stat'&'<center><video src="pic/sex/pegging/dog_cum0.webm" ></video></center>'
+				 '<<$name[npc]>> быстро дрочит ваш член не забывая трахать вашу задницу при помощи дилдо. Внезапно вы кончаете и из вашего члена вылетает сперма под смех госпожи.'
+				 womenbrain[you]+=1
+				 act'Встать':dynamic $d_pegging_end
+			 end
+		 end
+	end
+end

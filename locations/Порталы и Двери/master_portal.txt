@@ -1,0 +1,5 @@
+﻿if Z[you]=770 and once=0:once=1&X[you]=100&Y[you]=100&Z[you]=7777
+if Z[you]=7777 and once=0:once=1&X[you]=4&Y[you]=7&Z[you]=770
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+once=0
+gt'world'

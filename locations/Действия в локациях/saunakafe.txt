@@ -1,0 +1,41 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Столики кафе'
+if against_portal=2:
+	 act'Нанести руны на столы':
+		 against_portal=3&portalblock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1
+		 cls&gs'stat'&'Вы нанесли руны на столы в кафе, тем самым заблокировав порталы в здании.'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if (satansToyQW[you]>=100 or satansToyQWmoney>=100 or earth_gem[you]>0) and saunakafeowner=0:
+	if satansToyQW[you]>=100 or satansToyQWmoney>=100:'Кафе "Рим" после истории с Твердовским никому не принадлежит и вы можете забрать его себе.'
+	 act'Присвоить себе кафе':
+		 saunakafeowner=1&X=2&Y=0&Z=3&H=2&R=3&can_sleep['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']=1
+		 time+=1&cls&gs'stat'&'Вы присвоили себе кафе'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if saunakafeowner=1:
+	'Кафе принадлежит вам. Доход от кафе <<saunakafemoney/100>> шиллингов и <<saunakafemoney mod 100>> пенсов.'&!saunakafemoney
+	'На стойке находится <a href="exec:time+=1&gt ''telephone''">телефон</a>.'&!telephone
+     if saunakafemoney>0:
+		 act'Забрать доход':
+			 money[you]+=saunakafemoney&saunakafemoney=0&time+=1&cls&gs'stat'&'Вы забираете доход от кафе'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+*nl&gs'Item'&*nl&gs 'npconloc'&*nl'Пиво - 1 шиллинг.'&*nl'Еда - 80 пенсов.'
+if money[you]>=100:
+	act'Купить пиво - 1 шиллинг':
+		 money[you]-=100&item[63]+=1&burden[you]+=item_burden[63]&time+=1&cls&gs'stat'&'Вы заплатили деньги и купили пиво.'&act'<b>Уйти</b>':gt $curloc
+	end
+end
+if money[you]>=80:
+	act'Поесть - 80 пенсов':
+		 money[you]-=80&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и взяли тарелку еды.'&act'<b>Уйти</b>':gt $curloc
+	end
+end
+if money[you]>=300:
+	act'Съесть мороженое - 3 шиллинга':
+		 money[you]-=300&fat[you]+=50&if vag[you]>0 and ass[you]<42:ass[you]+=1
+		 time+=1&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и съели вкусную мороженку.'&act'<b>Уйти</b>':gt $curloc
+	end
+end
+act'Уйти':gt 'preloc'

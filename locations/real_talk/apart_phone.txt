@@ -1,0 +1,58 @@
+﻿if week=5 and BossmainQW=2 and (meetQW=0 or pol[you]=1):BossmainQW=3
+if contact[miha]=you and day!realdaystart and BossmainQW=4 and hour>=8 and week>=6:gt'lillithphon'
+if contact[miha]=you and (boyfriend['<<you>>,<<miha>>']>0 or boyfriend['<<miha>>,<<you>>']>0 or girlfriend['<<you>>,<<miha>>']>0 or girlfriend['<<miha>>,<<you>>']>0):
+	if week=5 and meetQW=0 and hour>=15 and hour<21:
+		if hour>=17:
+			'<b>Звонит телефон</b>'
+			act'<b>Взять трубку</b>':
+				cls&gs'stat'
+				if pol[you]=0:
+					'<center><img src="pic/npc/9.jpg" ></center>'&'Вам позвонил ваш друг Миша и предложил встретиться'
+				else
+					'<center><img src="pic/npc/9.jpg" ></center>'&'Вам позвонил ваш парень Миша и предложил сейчас встретиться'
+				end
+				act'Отказаться':$curloc
+				act'Согласится':
+					meetQW=1&cls&gs'stat'&'Вы договорились встретится сейчас'
+					act'Положить трубку и выйти':X[you]=3&Y[you]=3&Z[you]=200&H[you]=0&R[you]=0&X[micha]=3&Y[micha]=3&Z[micha]=200&H[micha]=0&R[micha]=0&gt 'world'
+				end
+			end
+		end
+	end
+	if week=6 and hour>=9 and meetQW=1 and BossmainQW=4 and meetQW=1:
+		'<b>Звонит телефон</b>'&!после встречи в гипермаркете
+		act'<b>Взять трубку</b>':
+			cls&gs'stat'
+			if pol[you]=0:
+				'<center><img src="pic/npc/9.jpg" ></center>'&'Вам позвонил ваш друг Миша и предложил встретится'
+			else
+				'<center><img src="pic/npc/9.jpg" ></center>'&'Вам позвонил ваш парень Миша и предложил сейчас встретится'
+			end
+			act'Отказаться':gt $curloc
+			act'Согласится':
+				meetQW=2&cls&gs'stat'&'Вы договорились встретится сейчас'
+				act'Положить трубку и выйти':X[you]=3&Y[you]=3&Z[you]=200&H[you]=0&R[you]=0&X[micha]=3&Y[micha]=3&Z[micha]=200&H[micha]=0&R[micha]=0&gt 'world'
+			end
+		end
+	end
+end
+if BossmainQW>=4 and meetQW=2 and contact[katja]=you and (boyfriend['<<you>>,<<katja>>']>0 or boyfriend['<<katja>>,<<you>>']>0 or girlfriend['<<you>>,<<katja>>']>0 or girlfriend['<<katja>>,<<you>>']>0):
+	if week=6 and hour>=17  and pol[you]=0:
+		act'<b>Пригласить Катю в кафе</b>':
+			meetQW=3&$doing[katja]='ковыряется в телефоне'&$loc[katja]='<<Xhome[you]>>,<<Yhome[you]>>,<<Zhome[you]>>,<<0>>,<<0>>'&gt 'world'&!$loc[katja]='street_ap'
+			cls&gs'stat'&'<center><img src="pic/npc/10.jpg" ></center>'&'Вы позвонили Кате и вы договорились с ней встретится во дворе.'
+			act'Положить трубку и выйти':X[you]=3&Y[you]=3&Z[you]=200&H[you]=0&R[you]=0&X[katja]=3&Y[katja]=3&Z[katja]=200&H[katja]=0&R[katja]=0&gt 'world'
+		end
+	end
+	if week=6 and hour>=20 and meetQW=1 and BossmainQW=4 and pol[you]>0 and katjanightclub=0:
+		'<b>Звонит телефон</b>'
+		act'<b>Взять трубку</b>':
+			katjanightclub=1&cls&gs'stat'&'<center><img src="pic/npc/10.jpg" ></center>'&'Вам позвонила ваша подруга Катя - <<$name[you]>>, пойдем в ночной клуб, потанцуем.'&act'Отказаться':$curloc
+			act'Согласится':
+				meetQW=3&$doing[katja]='ковыряется в телефоне'
+				cls&gs'stat'&'Вы договорились встретится сейчас'
+				act'Положить трубку и выйти':X[you]=3&Y[you]=3&Z[you]=200&H[you]=0&R[you]=0&X[katja]=3&Y[katja]=3&Z[katja]=200&H[katja]=0&R[katja]=0&gt 'world'
+			end
+		end
+	end
+end

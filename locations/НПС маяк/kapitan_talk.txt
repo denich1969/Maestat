@@ -1,0 +1,58 @@
+﻿if Xhome[npc]=X[npc] and $loc[npc]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>' and $loc[npc]='0,0,300,1,1':
+	act'Поговорить':
+		if femin[npc]<2:'<<$name[npc]>> - тут чудесное море.'
+		if femin[npc]>=2:'<<$name[npc]>> - маяк классное место. И способности охотника это круто, бессмертие, огромная по сравнению с обыкновенными людьми сила.'
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]&!на маяке
+	end
+	act'Пошить сапоги':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'Грубые сапоги':item_b[12]+=1&cls&gt $loc[you]
+		'<<$name[npc]>> - я кое-что смыслю в сапожничестве, не жди от меня чудес, но пошить грубые сапоги я могу, если тебе совсем ходить не в чем.'&act'...':gt $loc[you]
+	end
+	if femin[npc]=1 and talkaboutfem[npc]=0:
+		act'А ты изменился':
+			talkaboutfem[npc]=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - надоело быть стариком, зелья бесов дают омолаживающий эффект.'&act'...':gt $loc[you]
+		end
+	end
+	if femin[npc]>=2 and talkaboutfemsex[npc]=0:
+		act'Ты сменил пол?':
+			talkaboutfemsex[npc]=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - этого не было в планах, просто проиграл бесу и стал девкой.'&act'...':gt $loc[you]
+		end
+	end
+	if femin[npc]>0 and sex_times['<<npc>>,<<you>>']=0:
+		act'Флиртовать':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			if vag[npc]=0:
+				'<<$name[npc]>> - Ты в своем уме? Мне такое не интересно!'
+			else
+				'<<$name[npc]>> - Хмм, ну если ты мне отдашь укол, то тогда почему бы и нет?'
+				if item[17]>0:
+					act'Отдать укол':
+						item[17]-=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> убирает укол - В хозяйстве пригодится! Ну что, давай шпехатся.'&act'Заняться сексом':gt'sex'
+					end
+				end
+			end
+			act'...':gt $loc[you]
+		end
+	end
+end
+if Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=H[npc] and Rhome[npc]=R[npc] and $loc[npc]!'0,0,300,1,1':
+	act'Деревня':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&!в деревне
+		'<<$name[npc]>> грустно вздыхает - Деревня вымирает, вокруг кишат бесы, пули их не убивают, они умеют задурить мозги. Мы как будто в осаде. '
+		'Уже даже сообщение с городом Нуатпа пропало, лесная дорога просто исчезла. Наверняка это какие то демонские штучки.'&act'...':gt $loc[you]
+	end
+	if npc=mech and Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=H[npc] and Rhome[npc]=R[npc]:
+		act'Предложить стать охотником маяка':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> задумывается - Действительно. А что мне терять? Можно доживать свой век тут, или снова увидеть море и может быть даже изменить что нибудь. Я согласен.'
+			act'...':gt $loc[you]
+			if amulet[you]=22 and light>=1500:
+				act'Уйти вместе на маяк':
+					$loc[npc]='0,0,300,1,1'&in_home[npc]=1&$doing[npc]='осматривается'&hunter[npc]=1&m_slot[npc]=1&light-=1000
+					time+=5&cls&gs'stat'&gs'color'&'<center><img src="<<$d_view>>" ></center>'&'Вы берете моряка за руку и взяв амулет в другую руку переноситесь по лучу света на маяк.'
+					act'...':gt '0,0,300,1,1'
+				end
+			end
+		end
+	end
+end

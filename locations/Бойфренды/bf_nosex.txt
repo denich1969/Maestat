@@ -1,0 +1,21 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+if bf_meeting[npc]<4:
+    tipegift=rand(0,2)
+	if tipegift=0:randitem+=rand(86,88)&item[randitem]+=1&'<<$name[npc]>> достает из кармана колечко - Это подарок тебе!'
+	if tipegift=1:
+	    if item[26]=0:
+			randitem=26&item[randitem]+=1
+			'<<$name[npc]>> достает из кармана смартфон - В городе нет сети для такой штуки, но по нему можно смотреть видео и делать фотки'
+	    else
+			 kit+=20&'<<$name[npc]>> достает из кармана макияж - Это подарок тебе!'
+	    end
+	end
+	if tipegift=2:soul[you]+=10&soul[npc]-=10&'<<$name[npc]>> достает из кармана контракт на душу и прямо при вас оформляет часть души на вас. Вы получаете кусочек души.'
+	act'Поцеловать':
+		horny[npc]+=sexiness[you]/2&cls&gs'stat'&$func('get_images', 'poser_kiss', you, npc)&'<<$name[npc]>> целует вас и жадно щупает вашу попку'
+		act'Спасибо за подарок, но мне действительно пора':agro[npc]-=5&gt 'preloc'
+		act'Пошли к тебе':friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+    end
+else
+	boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&'<<$name[npc]>> злится на вас - Ну и пошла ты на хуй, дура!'&act'<b>Уйти</b>':gt 'preloc'
+end

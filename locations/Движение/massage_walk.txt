@@ -1,0 +1,36 @@
+﻿X[w]=1&Y[w]=2&Z[w]=4&H[w]=Hmass&R[w]=2
+X[s]=1&Y[s]=2&Z[s]=4&H[s]=Hmass&R[s]=2
+total_npc_sex+=1
+znts=Z[w]
+npc_sex[znts]+=1
+sexperaday[s]=daystart
+sexperaday[w]=daystart
+massageday[s]=daystart
+if know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1
+if lebeda_seed[w]>0:lebeda_seed[s]+=1
+if lebeda_seed[s]>0:lebeda_seed[w]+=1
+Znow=Z[w]
+if magworld[Znow]>0:soul[s]+=10
+agro[w]+=1
+if mob[s]=0:agro[s]-=1
+lust[s]+=1
+if moon_curse[s]>=1:lust[s]+=2
+healthmax[w]=healthmax[w]+10&health[w]=healthmax[w]
+energy[w]=energymax[w]
+minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)
+reflex[w]+=1
+under_sub[w]=s&under_sub[s]=w
+mob_busy[w]=time+15&mob_busy[s]=time+15
+action_tipe[w]=1&action_tipe[s]=1
+aktive_tipe[w]=1&aktive_tipe[s]=0
+gs'add_sex_stat',w,s
+if vag[s]>0:vag[s]+=5&vagsex[s]+=1&avagsex[w]+=1
+anus[s]+=5&anal[s]+=1&aanal[w]+=1
+bj[s]+=1&abj[w]+=1
+if throat[s]<10:throat[s]=10
+if dick[w]>throat[s]:throat[s]+=1
+$global_npc_log[w]+='<br>'
+$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> получила от меня особый массаж'
+$global_npc_log[s]+='<br>'
+$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> сделал мне массаж и потом у нас был самый офигенный секс'
+horny[w]=50&horny[s]=0

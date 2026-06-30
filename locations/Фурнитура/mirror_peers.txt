@@ -1,0 +1,195 @@
+﻿if tongue_p[you]=0:
+	 act'Штанга в язык':
+		 tongue_p[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_ton.webm" ></center>'&'Вам прокололи язык и вставили туда штангу'&act'...':gt $curloc
+	 end
+end
+if tongue_p[you]>0:
+	act'Удалить штангу из языка':
+		 tongue_p[you]=0&cls&gs'stat'&'<center><video src="pic/misc/pirs_ton.webm" ></center>'&'Вам удалили штангу из языка'&act'...':gt $curloc
+	end
+end
+if nose_p[you]=0:
+	act'Колечко в нос':
+		 nose_p[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_nose.webm" ></center>'&'Вам прокололи нос и вставили туда колечко'&act'...':gt $curloc
+	end
+end
+if nose_p[you]=1:
+	act'Большое кольцо в нос':
+		 nose_p[you]=2&cls&gs'stat'&'<center><video src="pic/misc/pirs_nose.webm" ></center>'&'Вам прокололи нос и вставили туда большое кольцо'&act'...':gt $curloc
+	end
+end
+if nose_p[you]>0:
+	act'Удалить колечко из носа':
+		 nose_p[you]=0&cls&gs'stat'&'<center><video src="pic/misc/pirs_nose.webm" ></center>'&'Вам удалили колечко из носа'&act'...':gt $curloc
+	end
+end
+if nip_p[you]<3:
+	if nip_p[you]!1:
+		 act'Штангу в соски':
+			nip_p[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_tits.webm" ></center>'&'Вам прокололи соски и вставили туда штангу'&act'...':gt $curloc
+		 end
+	end
+	if nip_p[you]!2:
+		 act'Кольца в соски':
+			nip_p[you]=2&cls&gs'stat'&'<center><video src="pic/misc/pirs_tits.webm" ></center>'&'Вам прокололи соски и вставили туда колечки'&act'...':gt $curloc
+		 end
+	end
+	if nip_p[you]!3:
+		 act'Огромные кольца в соски':
+			nip_p[you]=3&cls&gs'stat'&'<center><video src="pic/misc/pirs_tits.webm" ></center>'&'Вам прокололи соски и вставили туда огромные кольца'&act'...':gt $curloc
+		 end
+	end
+	if nip_p[you]>0:
+		act'Удалить кольца из сосков':
+			nip_p[you]=0&cls&gs'stat'&'<center><video src="pic/misc/pirs_tits.webm" ></center>'&'Вам удалили кольца из сосков'
+			act'...':gt $curloc
+		end
+	end
+	 if vag_pirs[you]<3 and vag[you]>0:
+		 if vag_pirs[you]!1:
+			 act'Штангу в клитор':
+				 vag_pirs[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></center>'& 'Вам прокололи клитор и вставили туда штангу'
+				 act'...':gt $curloc
+			 end
+		 end
+		 if vag_pirs[you]!2:
+			 act'Кольцо в клитор':
+				 vag_pirs[you]=2&cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></center>'&'Вам прокололи клитор и вставили туда колечки'
+				 act'...':gt $curloc
+			 end
+		 end
+	 	 if vag_pirs[you]!3:
+			 act'Огромное кольцо в клитор':
+				 vag_pirs[you]=3&cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></center>'&'Вам прокололи клитор и вставили туда огромное кольцо'
+				 act'...':gt $curloc
+			 end
+		 end
+	 	 if vag_pirs[you]>0:
+			 act'Удалить кольцо из клитора':
+				 vag_pirs[you]=0&cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></center>'&'Вам удалили кольцо из клитора'&act'...':gt $curloc
+			 end
+		 end
+	end
+	if l_hand_t[you]=0:
+		 act'Набить татуировку на левой руке':
+			 l_hand_t[you]=1&cls&gs'stat'&'Лазерный аппарат нажег татуировку на левой руке'&act'...':gt $curloc
+		 end
+	end
+	if l_hand_t[you]>0:
+		'Удалить татуировку на левой руке'
+		 act'Удалить татуировку на левой руке':
+			 l_hand_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if r_hand_t[you]=0:
+		 act'Набить татуировку на правой руке':
+			 r_hand_t[you]=input("1,2")&cls&gs'stat'&'Лазерный аппарат нажег татуировку на правой руке'&act'...':gt $curloc
+		 end
+	end
+	if r_hand_t[you]>0:
+		'Удалить татуировку на правой руке'
+		 act'Удалить татуировку на правой руке':
+			r_hand_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if back_t[you]=0:
+		 act'Набить татуировку на спине':
+			back_t[you]=input("1,10")&cls&gs'stat'&'Лазерный аппарат нажег татуировку на спине'&act'...':gt $curloc
+		 end
+	end
+	if back_t[you]>0:
+		'Удалить татуировку на спине'
+		 act'Удалить татуировку на спине':
+			back_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if stamp_t[you]=0:
+		 act'Набить татуировку на пояснице':
+			stamp_t[you]=input("1,4")&cls&gs'stat'& 'Лазерный аппарат нажег татуировку на пояснице'&act'...':gt $curloc
+		 end
+	end
+	if stamp_t[you]>0:
+		'Удалить татуировку на пояснице'
+		 act'Удалить татуировку на пояснице':
+			stamp_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if tits_t[you]=0:
+		 act'Набить татуировку на груди':
+			tits_t[you]=1&cls&gs'stat'&'Лазерный аппарат нажег татуировку на груди'&act'...':gt $curloc
+		 end
+	end
+	if tits_t[you]>0:
+		'Удалить татуировку на груди'
+		 act'Удалить татуировку на груди':
+			tits_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if belly_t[you]=0:
+		 act'Набить татуировку на животе':
+			belly_t[you]=1&cls&gs'stat'&'Лазерный аппарат нажег татуировку на животе'&act'...':gt $curloc
+		 end
+	end
+	if belly_t[you]>0:
+		'Удалить татуировку на животе'
+		 act'Удалить татуировку на животе':
+			belly_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if pubis_t[you]=0:
+		 act'Набить татуировку на лобке':
+			pubis_t[you]=input("1,4")&cls&gs'stat'&'Лазерный аппарат нажег татуировку на лобке'&act'...':gt $curloc
+		 end
+	end
+	if pubis_t[you]>0:
+		'Удалить татуировку на лобке'
+		 act'Удалить татуировку на лобке':
+			pubis_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if l_ass_t[you]=0:
+		 act'Набить татуировку на левой ягодице':
+			l_ass_t[you]=input("1,2")&cls&gs'stat'&'Лазерный аппарат нажег татуировку на левой ягодице'&act'...':gt $curloc
+		 end
+	end
+	if l_ass_t[you]>0:
+		'Удалить татуировку на левой ягодице'
+		 act'Удалить татуировку на левой ягодице':
+			l_ass_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'
+			act'...':gt $curloc
+		 end
+	end
+	if r_ass_t[you]=0:
+		 act'Набить татуировку на правой ягодице':
+			r_ass_t[you]=1&cls&gs'stat'&'Лазерный аппарат нажег татуировку на правой ягодице'&act'...':gt $curloc
+		 end
+	end
+	if r_ass_t[you]>0:
+		'Удалить татуировку на правой ягодице'
+		 act'Удалить татуировку на правой ягодице':
+			r_ass_t[you]=0&cls&gs'stat'& 'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if l_leg_t[you]=0:
+		 act'Набить татуировку на левой ноге':
+			l_leg_t[you]=input("1,4")&cls&gs'stat'&'Лазерный аппарат нажег татуировку на левой ноге'&act'...':gt $curloc
+		 end
+	end
+	if l_leg_t[you]>0:
+		'Удалить татуировку на левой ноге'
+		 act'Удалить татуировку на левой ноге':
+			l_leg_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+	if r_leg_t[you]=0:
+		 act'Набить татуировку на правой ноге':
+			r_leg_t[you]=input("1,3")&cls&gs'stat'&'Лазерный аппарат нажег татуировку на правой ноге'&act'...':gt $curloc
+		 end
+	end
+	if r_leg_t[you]>0:
+		'Удалить татуировку на правой ноге'
+		 act'Удалить татуировку на правой ноге':
+			r_leg_t[you]=0&cls&gs'stat'&'Лазерный аппарат сжег вам поверхностную часть кожи избавляя вас от татуировки'&act'...':gt $curloc
+		 end
+	end
+end

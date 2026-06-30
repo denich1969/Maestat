@@ -1,0 +1,35 @@
+﻿gs'stat'&'<<$name[npc]>> выставляет руки в вашу сторону и с кончиков пальцев срывается молния'
+hod=0&uronV=mlev[npc]*100&if uronV<1:uronV=1
+popad=0&percentV=reactV*20/100&atkV=rand(reactV-percentV,reactV+percentV)&atkV=atkV+60
+percent=react[you]*20/100&def=rand(react[you]-percent,react[you]+percent)
+if stun=0:'Вы на инстинктах пытаетесь увернуться от молнии'
+popad=iif(def<=atkV,1,iif(rand(0,2)=2,1,0))
+if uskor>0 and uskorV=0:popad=1
+if uskor=0 and uskorV>0:popad=0
+if stun=>0:'Вы оглушены и не можете увернуться'&stun-=1&popad=2
+if waterdeep[you]>0:popad=0&'<<$name[npc]>> пытается скастовать молнию но сфера воды мешает'
+if itsrainingday['<<$loc[you]>>']>=time:health[npc]-=uronV/100&'Из-за дождя часть энергии от молнии противника бьет самого противника и он получает урон <<uronV/100>>'
+if portal_def>0:
+	'Молния уходит в портал и никакого вреда не наносит'
+else
+	 if popad>=1:
+		if electro_resist[you]>0:elr=iif(100-electro_resist[you]>100,100,100-electro_resist[you])&uron=uron*elr/100& 'Ваша защита от электричества снижает мощность молний'
+	 	 if clon>0:'Молния попадает в клона и клон исчезает разряжая чать силы удара молнии'&clon-=1&uronV=uronV/2
+		 if uronV<1:uronV=1
+		 if popad=2:uronV=uronV*2
+		 if sfera_fiz>0:
+			 if sfera_fiz<uron*2:
+				sfera_fiz=0&health[you]-=uronV&'Сфера лопается от удара молнии и <<$name[npc]>> наносит <<uronV>> единиц урона'&
+				stun=iif(stun=0,rand(0,2),rand(1,2))&if stun>0:pose[you]=2&'Вы падаете от удара'
+				if popad=2:'Критическое попадание'
+			 else
+				sfera_fiz-=uron*2&'Ваша сфера поглощает удар молнии и ослабляется'&health[you]-=rand(10,20)&'Ваша защита переполнена энергией и часть ее пробивает вашу защиту и наносит вам урон'
+			 end
+		 else
+			'<<$name[npc]>> наносит вам <<uronV>> единиц урона'&health[you]-=uronV&stun=iif(stun=0,rand(0,2),rand(1,2))&if stun>0:pose[you]=2&'Вы падаете от удара'
+		 end
+	 else
+		'Вы уворачиваетесь от удара'
+	 end
+end
+gs'stat'&act'Далее':gt'fight'

@@ -1,0 +1,22 @@
+﻿!моб w  &  мужик s
+if dick[w]>1:
+	!моб самец
+	 if lust[s]>=75 and agro[s]>=75:
+	     if whiteknight[s]=mob[w]:gs'mobs_aktion'&!моб не нападает на альфачей
+	 else
+		 canaction=0&gunslinger=0&genderbender=0
+		 if mob[w]=1:canaction=1&!гопота
+		 if mob[w]=3:canaction=1&genderbender=1&!инсмутец
+		 if mob[w]=4:canaction=1&gunslinger=1&if w_slot[w]=0:w_slot[w]=9&!гангста
+		 if mob[w]=5:
+			canaction=1&!бандит демон
+		     if trueform[w]=1:genderbender=1
+		     if trueform[w]!1:genderbender=0
+		 end
+		 if mob[w]=8:canaction=1&!мардук
+		 if mob[w]=13:canaction=1&gunslinger=1&if w_slot[w]=0:w_slot[w]=9&!полицейский
+		 gs'mobs_aktion'
+	 end
+else
+	!моб самка & не доступно
+end

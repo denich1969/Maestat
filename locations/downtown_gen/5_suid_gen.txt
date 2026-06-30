@@ -1,0 +1,307 @@
+﻿X=0&Y=0&Z=5&H=0&R=0&Xmax[Z]=4&Ymax[Z]=4&!20 npc
+$n_board[Z]='Море'&$w_board[Z]='Море'&$e_board[Z]='Аптаун'&$s_board[Z]='Туман'
+magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworldFive
+H=0&R=0
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if X=Xmax[Z] and Y>0 and Y<4:d_border_way['<<$temploc>>']=4
+if X=0 or Y=Ymax[Z]:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Морская набережная'&$lname['<<$temploc>>']='Морская набережная'
+	$locopis['<<$temploc>>']='Морские волны мерно омывают каменную набережную с кованной оградой'
+	np['<<$temploc>>']=140
+	can_swim['<<$temploc>>']=1
+	!gs'streetgen',1,0,Y,'Морская набережная',140
+elseif X=2 and Y=2:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Церковь святого Иуды'&$lname['<<$temploc>>']='Церковь святого Иуды'
+	 $locopis['<<$temploc>>']='Единственная церковь устоявшая в городе и продолжающая принимать прихожан, хотя конечно время не щадит старинное здание и оно явно знавало лучшие дни'
+	 np['<<$temploc>>']=131
+	 under['<<$temploc>>']=1
+     H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Церковь'&!ownerloc['<<$templocH>>']=you
+     R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+     $locname['<<$temploc>>']='Церковь'&$lname['<<$temploc>>']='Церковь'&$lname_go['<<$temploc>>']='в церковь'
+     $locopis['<<$temploc>>']='Старинная церковь до сих пор принимающая прихожан.'
+     np['<<$temploc>>']=132
+elseif X=3 and Y=2:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Ушельцев (запад)'&$lname['<<$temploc>>']='Улица Ушельцев'
+	 $locopis['<<$temploc>>']='Старинные дома еще помнят город когда он был молодым, а улицы помнят как по ним бежали жители спасаясь от чего то чудовищного'
+	 np['<<$temploc>>']=133
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар Сияние'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Бар Сияние'&$lname['<<$temploc>>']='Бар Сияние'&$lname_go['<<$temploc>>']='в бар'
+ 	 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и плесенью бар.'
+	 np['<<$temploc>>']=85
+	 mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=2&can_drink['<<$temploc>>']=1
+	R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+elseif X=4 and Y=2:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Ушельцев (восток)'&$lname['<<$temploc>>']='Улица Ушельцев'
+	$locopis['<<$temploc>>']='Старинные дома еще помнят город когда он был молодым, а улицы помнят как по ним бежали жители спасаясь от чего то чудовищного'
+	np['<<$temploc>>']=134
+	!gs'streetgen',5,4,2,'Улица Ушельцев (восток)',134,'downhouse'
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+elseif X=4 and Y=3:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Могила героя'&$lname['<<$temploc>>']='Улица Могила героя'
+	$locopis['<<$temploc>>']='По преданию тут похоронили древнего героя который погиб в героической битве, но уже никто не помнит подробностей, как быстротечна мирская слава.'
+	np['<<$temploc>>']=135
+	herograve['<<$temploc>>']=1
+	!gs'streetgen',5,4,3,'Улица Могила героя',135,'downhouse'
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+elseif X=3 and Y=3:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Призрачного причастия'&$lname['<<$temploc>>']='Улица Призрачного причастия'
+	$locopis['<<$temploc>>']='Тут в старые времена находилась резиденция могучего ордена, который впрочем давным давно пал и позабыт всеми кроме любящих посудачить кумушек.'
+	np['<<$temploc>>']=136
+	oldorder['<<$temploc>>']=1
+	!gs'streetgen',5,3,3,'Улица Призрачного причастия',136,'downhouse'
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+elseif X=2 and Y=3:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Колокольная'&$lname['<<$temploc>>']='Улица Колокольная'
+	$locopis['<<$temploc>>']='Очередной памятник сражений протекавших тут в древние времена, от некогда возвышающейся тут церкви посвященной древнему богу, остался только колокол, воронку удалось заровнять и отстроить дома.'
+	np['<<$temploc>>']=137
+	! gs'streetgen',6,2,3,'Улица Колокольная',137,'downhouse'
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар Мельбурн'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Бар Мельбурн'&$lname['<<$temploc>>']='Бар Мельбурн'&$lname_go['<<$temploc>>']='в бар'
+ 	 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и плесенью бар.'
+	 np['<<$temploc>>']=85
+	 mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=2&can_drink['<<$temploc>>']=1
+	R=1&gs 'toilet_gen',0
+elseif X=1 and Y=3:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Проулок нечистого'&$lname['<<$temploc>>']='Проулок нечистого'
+	 $locopis['<<$temploc>>']='Кривые проулки между ветшающих домов пользуются дурной славой у жителей города.'
+	 np['<<$temploc>>']=138
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Общество Торговли Душами'&maxPositionR['<<$templocH>>']=2
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Общество Торговли Душами'&$lname['<<$temploc>>']='Общество Торговли Душами'&$lname_go['<<$temploc>>']='в Общество Торговли Душами'
+ 	 $locopis['<<$temploc>>']='В этом месте умеют работать с душой как с силой и умеют из этого получать выгоду'
+	 np['<<$temploc>>']=244
+	 mirror['<<$temploc>>']=0&souldeliver['<<$temploc>>']=1&can_drink['<<$temploc>>']=0
+	R=1&gs 'toilet_gen',0
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офис'
+	 $locname['<<$temploc>>']='Офис'&$lname['<<$temploc>>']='Офис'&$lname_go['<<$temploc>>']='в офис'
+	 $locopis['<<$temploc>>']='Офисные помещения ОТД в которых неуловимо пахнет серой'
+	 np['<<$temploc>>']=245
+	 souldeliver_office['<<$temploc>>']=1
+elseif X=1 and Y=2:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Проулок охотников'&$lname['<<$temploc>>']='Проулок охотников'
+	 $locopis['<<$temploc>>']='Лабиринт улочек и пахнущих мочевиной двориков'
+	 np['<<$temploc>>']=139
+	!gs'streetgen',6,X,Y,'Проулок охотников',139
+	gs 'housegen',1,'Квартира №1',4,'mortimer_gen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'spiro',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'takemura',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'finch',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'kinomeh',rand(1,10),1
+	H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коллегия охотников'&maxPositionR['<<$templocH>>']=2
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Коллегия охотников'&$lname['<<$temploc>>']='Коллегия охотников'&$lname_go['<<$temploc>>']='в коллегию'
+ 	 $locopis['<<$temploc>>']='Коллегия охотников старинная организация посвященная охоте на туманных тварей и иногда на людей'
+	 np['<<$temploc>>']=242
+	 mirror['<<$temploc>>']=1&hunterdesk['<<$temploc>>']=1&can_drink['<<$temploc>>']=0
+	R=1&gs 'toilet_gen',0
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офис'
+	 $locname['<<$temploc>>']='Офис'&$lname['<<$temploc>>']='Офис'&$lname_go['<<$temploc>>']='в офис'
+	 $locopis['<<$temploc>>']='Офисные помещения коллегии'
+	 np['<<$temploc>>']=30
+	 hunter_office['<<$temploc>>']=1
+elseif X=4 and Y=1:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=7
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='1й квартал'&$lname['<<$temploc>>']='1й квартал'&$locopis['<<$temploc>>']='Широкая улица с небоскребами'
+	 np['<<$temploc>>']=141
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+	H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Кинотеатр Панорама'&maxPositionR['<<$templocH>>']=2
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Кинотеатр Панорама'&$lname['<<$temploc>>']='Кинотеатр Панорама'&$lname_go['<<$temploc>>']='в кинотеатр'
+ 	 $locopis['<<$temploc>>']='Самый обыкновенный кинотеатр где показывают фильмы разных времен и народов.'
+	 np['<<$temploc>>']=240
+	 cinema['<<$temploc>>']=1
+	R=1&gs 'toilet_gen',4
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кабинка проектора'
+	 $locname['<<$temploc>>']='Кабинка проектора'&$lname['<<$temploc>>']='Кабинка проектора'&$lname_go['<<$temploc>>']='в кабинку'
+	 $locopis['<<$temploc>>']='Техническое помещение для показа фильмов'
+	 np['<<$temploc>>']=241
+	 H=7&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Вход в Универсальный магазин'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в магазин'&$locopis['<<$temploc>>']='Торговые залы магазина'
+	 np['<<$temploc>>']=20
+	 supermarket['<<$temploc>>']=2&clothestore['<<$temploc>>']=1&lowstore['<<$temploc>>']=1&bootstore['<<$temploc>>']=1&junkstore['<<$temploc>>']=1
+	 blocksex['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0
+elseif X=3 and Y=1:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='2й квартал'&$lname['<<$temploc>>']='2й квартал'&$locopis['<<$temploc>>']='Широкая улица с небоскребами'
+	 np['<<$temploc>>']=142
+	 !gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Пентхаус Ландриганов',4,'teleport',rand(1,10),1
+	gs 'housegen',2,'Пентхаус Эосфор',4,'soul',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'himic',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'cromar',rand(1,10),1
+	gs 'housegen',5,'Квартира №4',4,'kalhorn',rand(1,10),1
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Театр'&maxPositionR['<<$templocH>>']=3
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Театр'&$lname['<<$temploc>>']='Театр'&$lname_go['<<$temploc>>']='в театр'&$locopis['<<$temploc>>']='Театральный холл с барной стойкой.'
+	 np['<<$temploc>>']=0
+	 mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=3&can_drink['<<$temploc>>']=1&teatr['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',4&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гримерка'
+	 $locname['<<$temploc>>']='Гримерка'&$lname['<<$temploc>>']='Гримерка'&$lname_go['<<$temploc>>']='в гримерку'
+	 $locopis['<<$temploc>>']='Большая гримерка с зеркалами и костюмами для сцены'
+	 np['<<$temploc>>']=0
+	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+	 R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Театральный зал'
+	 $locname['<<$temploc>>']='Театральный зал'&$lname['<<$temploc>>']='Театральный зал'&$lname_go['<<$temploc>>']='в зал'&$locopis['<<$temploc>>']='Небольшой зал со сценой'
+	 np['<<$temploc>>']=0
+	 can_drink['<<$temploc>>']=0&teatr_zal['<<$temploc>>']=1
+elseif X=2 and Y=1:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Темная аллея'&$lname['<<$temploc>>']='Темная аллея'&$locopis['<<$temploc>>']='Проулки между высотными домами'
+	 np['<<$temploc>>']=143
+	 !gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+elseif X=1 and Y=1:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=7
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Проулок Художников'&$lname['<<$temploc>>']='Проулок Художников'
+	 $locopis['<<$temploc>>']='Переулок на который выходят пожарные лестницы высоток'
+	 np['<<$temploc>>']=144
+	 !gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар Гойа'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Бар Гойа'&$lname['<<$temploc>>']='Бар Гойа'&$lname_go['<<$temploc>>']='в бар'
+ 	 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и плесенью бар.'
+	 np['<<$temploc>>']=85
+	 mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=2&can_drink['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 H=7&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Выставка искусств'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Выставка искусств'&$lname['<<$temploc>>']='Выставка искусств'&$lname_go['<<$temploc>>']='на выставку'
+ 	 $locopis['<<$temploc>>']='В основном на выставке претенциозная бездарная мазня или древние шедевры мастерства. У входа надпись что куратор выставки Люси Ландриган, из телепорт индастриала и вся выставка под патронажем Люкса Эосфора.'
+	 np['<<$temploc>>']=159
+	 mirror['<<$temploc>>']=0&bartable['<<$temploc>>']=0&bogart_art['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+elseif X=4 and Y=0:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Назадовский тупик'&$lname['<<$temploc>>']='Назадовский тупик'
+	 $locopis['<<$temploc>>']='Узкая улица между мрачных кирпичных высоток'
+	 np['<<$temploc>>']=145
+	 !gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Телепорт Индастриал'&maxPositionR['<<$templocH>>']=2
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Телепорт Индастриал'&$lname['<<$temploc>>']='Телепорт Индастриал'&$lname_go['<<$temploc>>']='в Телепорт Индастриал'
+ 	 $locopis['<<$temploc>>']='Фабрика на которой создаются телепортационные устройства'
+	 np['<<$temploc>>']=247
+	 mirror['<<$temploc>>']=0&teleporttable['<<$temploc>>']=1&can_drink['<<$temploc>>']=0
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офис'
+	 $locname['<<$temploc>>']='Офис'&$lname['<<$temploc>>']='Офис'&$lname_go['<<$temploc>>']='в офис'&$locopis['<<$temploc>>']='Офисные помещения телепорт индастриал'
+	 np['<<$temploc>>']=246
+	 teleport_office['<<$temploc>>']=1
+elseif X=3 and Y=0:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Проезд Соломенной сторожки'&$lname['<<$temploc>>']='Проезд Соломенной сторожки'
+	 $locopis['<<$temploc>>']='Тесная улочка с аляповатыми граффити на стенах'
+	 np['<<$temploc>>']=146
+	 !gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+elseif X=2 and Y=0:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Черных птиц'&$lname['<<$temploc>>']='Улица Черных птиц'
+	 $locopis['<<$temploc>>']='Лабиринт переходов между высотных домов'
+	 np['<<$temploc>>']=147
+	 !gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+	 H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Алхимический ковен Бойера'&maxPositionR['<<$templocH>>']=2
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Химическая лаборатория'&$lname['<<$temploc>>']='Химическая лаборатория'&$lname_go['<<$temploc>>']='в Химическую лабораторию'
+ 	 $locopis['<<$temploc>>']='Фабрика на которой создаются лекарства и просто химические реактивы применяя каак науку, так и магию.'
+	 np['<<$temploc>>']=248
+	 mirror['<<$temploc>>']=0&bartable['<<$temploc>>']=0&chemlab['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',0
+	 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офис'
+	 $locname['<<$temploc>>']='Офис'&$lname['<<$temploc>>']='Офис'&$lname_go['<<$temploc>>']='в офис'
+	 $locopis['<<$temploc>>']='Офисные помещения '
+	 np['<<$temploc>>']=249
+	 chemlab_office['<<$temploc>>']=1
+elseif X=1 and Y=0:
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Улица Провинциальная'&$lname['<<$temploc>>']='Улица Провинциальная'
+	 $locopis['<<$temploc>>']='Узкая улица с мусорными баками воняющими гнилью'
+	 np['<<$temploc>>']=148
+	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+	gs 'housegen',1,'Квартира №1',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',2,'Квартира №2',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',3,'Квартира №3',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',4,'Квартира №4',4,'downfamilygen',rand(1,10),1
+	gs 'housegen',5,'Квартира №5',4,'downfamilygen',rand(1,10),1
+else
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Цветочный луг'&$lname['<<$temploc>>']='Цветочный луг'
+	 $locopis['<<$temploc>>']='Луг с сочной травой и разноцветными цветами'
+	 np['<<$temploc>>']=57
+end
+X+=1&if X<=Xmax[Z]:jump'markgenworldFive'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldFive'

@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&!мардук, целитель,атакует злым ветром и сетью, добивает двойным тризубцем 
+mob[i]=8&mobexp[i]=10&!номер моба для разговора
+tipemobpic[i]=1&picture[i]=rand(42,51)&!номер типа фотки!номер фотки
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname&$nick[i]='Бандит из детей Мардука'&$nick[i]=$nick[i]&$basestatus[i]=' сквернословит'
+dick[i]=rand(15,30)&dickd[i]=rand(35,55)&ball[i]=rand(60,70)
+face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+dick[i]=rand(25,30)&dickd[i]=rand(45,55)&ball[i]=rand(60,70)
+rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(1600,1800)&skin[i]=1&!rost[i]=196&fat[i]=800&mus[i]=1600
+$nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)
+age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(40,50)&$nick[i]+=$iif(age[i]<25,' парень',' мужчина')&!minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
+healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&corr[i]=rand(10,500)
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+se_world[]=i&walkprog[i]=29&fight_prog[i]=8&!программа движения!программа боя
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс

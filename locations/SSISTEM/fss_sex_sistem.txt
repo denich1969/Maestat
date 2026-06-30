@@ -1,0 +1,263 @@
+﻿in_sex=1&gs'stat'&corrupto=corr[you]&if myrealbody>0 and you!myrealbody:corrupto=100
+if vag[you]=0:corrupto=100
+if sexpower[npc]>0:
+	'<<$name[npc]>> сможет продержаться еще <<sexpower[npc]>> раундов.'
+	if toilet['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']>=1:pose[you]=1&hardtimer=0&gt'fss_toilet_sistem'
+	if pose[you]=1:
+		'<center><img src="<<$d_view>>" ></center>'&'<b>Вы стоите</b>'
+		act'Целовать':	
+			cls&gs'stat'&$func('get_images', 'poser_kiss', you, npc)&'Вы страстно целуетесь.'&act'...':gt 'fss_sex_sistem'
+		end
+		if vag[you]>0 and corrupto>=20:
+			act'Сесть на член':
+				temp_vag_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_cow', you, npc)&'Вы садитесь верхом на <<dick[npc]>> сантиметровый член и начинаете прыгать на нем.'
+				if vag[you]=1:
+					horny[you]=0&'Вспышка резкой боли, когда вас лишают девственности и вы видите, что на члене немного крови.'
+				else
+					'Твердая мужская плоть двигается внутри вашего тела.'&!horny[you]+=lust[you]/10&horny[you]+=dickd[npc]
+				end
+				gs'fuck_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+			end
+		end
+		if corrupto>=50:
+			act'Сесть попой на член':
+				temp_anal_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'anal_fuck_cow', you, npc)
+				gs'anal_plug_remuve'&'Вы садитесь попой на <<dick[npc]>> сантиметровый член.'
+				if dickd[npc]>anus[you]:
+					'Вам больно, когда толстый член входит в ваш анус, ощущение как будто у вас там все горит огнем.'&!anus[you]+=3&hotass[you]+=1
+				else
+					'Вы уверенно начинаете скакать на члене, ощущая, как он входит внутрь вашего тела.'
+				end
+				gs'fuck_anal',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+			end
+		end
+	end
+	if pose[you]=2:
+		if skin[npc]>3 and skin[npc]<7:
+			'<center><video src="pic/sex/bbc/before_blow<<rand(0,29)>>.webm" ></video></center>'
+		else
+			gs 'dick_fig','npc'&!Изображения члена в зависимости от размеров
+		end
+		'<b>Вы на коленях</b>'
+		if you_dirty_slut[npc]>=10 or corrupto>=75:
+		     act'Вылизать очко':
+			     cls
+			     if skin[npc]>3 and skin[npc]<7:
+					blacked[you]+=1&'<center><video src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'&'Вы старательно вылизываете черное очко.'
+				 else
+					'<center><video src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'&'Вы старательно вылизываете очко.'
+				 end
+				 gs'fuck_anal_lick',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+		     end
+		end
+		if whoreboss[you]=0:
+			act'Дрочить':
+				sexpower[npc]-=1&if corrupto<5 and corrjerkday!daystart:corr[you]+=1&corrjerkday=daystart
+				cls&gs'stat'&$func('get_images', 'handjob', you, npc)&'Вы нежно дрочите член своей ручкой.'&act'...':gt 'fss_sex_sistem'
+			end
+		end
+		if corrupto>=5 or whoreboss[you]>0:
+			act'Сосать':
+				temp_blow_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'blowjob', you, npc)
+				$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+				'Вы сосете <<dick[npc]>> сантиметровый член. Твердый и теплый стержень погружается в ваш рот и выходит из него.'
+				gs'fuck_oral',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+				if corrupto>=50:
+					act'Заглатывать в горло':
+						sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'blow_deep', you, npc)
+						if dick[npc]>throat[you]:
+							spit_face[you]+=1&hotthroat[you]+=1&'Вы стараетесь сдерживать рвотные позывы и заглатывваете член как можно глубже в горло.'
+						else
+							'Вы легко заглатываете член в горло до самого основания и мохнатые яички стукаются о ваш подбородок.'
+							if runemaster=npc:friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10&'У Пабло глаза чуть не вылезают из орбит - Детка, ты просто чудо!'
+						end
+						gs'fuck_oral_throat',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+					end
+				end
+				if corrupto>=10:
+					act'Лизать':
+						sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'lick_head', you, npc)&'Вы ловко ласкаете член своим язычком.'
+						gs'fuck_oral_lick_dick',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+					end
+				end
+			end
+		end
+	end
+	if pose[you]=3:
+		$func('get_images', 'poser_mis_pov', you, npc)&'<b>Вы лежите на спине</b>'
+		if vag[you]>0:
+			act'Дать':
+				temp_vag_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', you, npc)
+				'Вы раздвигаете свои пухлые ляжки и вам внутрь вторгается <<dick[npc]>> сантиметровый член. Вы стонете, ощущая как твердая плоть движется внутри вас.'
+				if vag[you]=1:
+					horny[you]=0&'Вспышка резкой боли, когда вас лишают девственности и вы видите, что на члене немного крови.'
+				else
+					if vag[you]*2<dickd[npc]:
+						'Вам довольно неприятно и больно, когда член внедряется в ваше тело.'
+					else
+						'Твердая мужская плоть двигается внутри вашего тела и от этого внизу живота порхают бабочки.'&!horny[you]+=dickd[npc]!horny[you]+=lust[you]/10
+					end
+				end
+				gs'fuck_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+				if sexpower[npc]=0:
+					'<<$name[npc]>> стонет - Я сейчас кончу.'
+					if misticMMT<1:
+						if corrupto>=20:act'Принять в рот':gt 'fss_sex_sistem'
+						act'Кончи на меня':
+							cls&gs'stat'&$func('get_images', 'vag_cum_on_face', you, npc)
+							'<<$name[npc]>> вытаскивает из вас член и начинает кончать вам на тело, покрывая его спермой. Затем он встает и начинает одеваться.'
+							gs'fuck_cum_ass',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+						end
+					else
+						misticMMT-=1&'Вы чувствуете, что некое тепло внутри вашего лона стало буквально обжигать вас изнутри и вы осознали, что лишь сперма может унять это плямя...'
+					end	
+					act'Кончи внутрь':
+						cls&gs'stat'&$func('get_images', 'vag_cream_mis', you, npc)&'<<$name[npc]>> стонет и кончает вам внутрь, наполняя вас своим семенем. '
+						'Полежав немного на вас, <<$name[npc]>> вынимает из вас свой опадающий член и встает, а из вашей свежеоттраханной вагины капает сперма.'
+						gs'fuck_cum_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+						if demon_dick[you]>0 and pregnant_day[you]=0:
+							act'Принять семя':father_you_child=npc&gs'preggo'&gt 'after_fss'
+						else
+							insemrand=rand(0,10)&if inseminate[you]=0 and insemrand=10:father_you_child=npc&gs'preggo'
+						end
+						act'Уйти':gt 'after_fss'
+					end
+				else
+					act'...':gt 'fss_sex_sistem'
+				end
+			end
+		end
+		if corrupto>=50 or anus[you]>=20:
+			act'В попу':
+				temp_anal_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'anal_fuck_mis', you, npc)
+				gs'anal_plug_remuve'&'Вы лежите на спине, задрав ляжки и разведя их в сторону, а вам в задницу пихают <<dick[npc]>> сантиметровый член.'
+				if dickd[npc]>anus[you]:
+					anus[you]+=3&'Вам больно, когда толстый член ебёт вашу задницу, ощущение как будто у вас там все горит огнем.'
+				else
+					'Вы спокойно расслабляетесь, когда в вашей заднице ходит ходуном член.'
+				end
+				gs'fuck_anal',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+				if sexpower[npc]=0:
+					'<<$name[npc]>> стонет - Я сейчас кончу.'&act'Принять в рот':gt 'fss_sex_sistem'
+					act'Кончи на меня':
+						cls&gs'stat'&$func('get_images', 'vag_cum_on_face', you, npc)
+						'<<$name[npc]>> вытаскивает из вас член и начинает кончать вам на тело, покрывая его спермой. Затем он встает и начинает одеваться.'
+						gs'fuck_cum_ass',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+					end
+					act'Кончи внутрь':
+						cls&gs'stat'&$func('get_images', 'anal_cream', you, npc)&'<<$name[npc]>> стонет и кончает вам внутрь попы, наполняя вас своим семенем. '
+						'Полежав немного на вас, <<$name[npc]>> вынимает из вас свой опадающий член и встает, а из вашей раздолбанной задницы капает сперма.'
+						gs'fuck_cum_anus',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+					end
+				else
+					act'...':gt 'fss_sex_sistem'
+					if vag[you]>1 and dickd[npc]<=anus[you]:
+						act'Пихать пальцы себе в киску':
+							you_dirty_slut[npc]+=5&sexpower[npc]-=1&cls&gs'stat'
+							if skin[npc]>3 and skin[npc]<7:
+						        '<center><video src="pic/sex/foreplay/miss_a_fingerb<<rand(0,2)>>.webm" ></video></center>'
+						    else
+							    '<center><video src="pic/sex/foreplay/miss_a_finger<<rand(0,1)>>.webm" ></video></center>'
+							end
+							horny[you]+=lust[you]/10&'Пока вас дрючат в задницу, вы начинаете пихать себе в киску пальцы.'
+							gs'fuck_anal',npc,you&gs'fuck_vag_jerk',you,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+						end
+					end
+				end
+			end
+		end
+		if orgasm[you]<time:
+			if vag[you]>0 and corrupto>=10:
+				act'Полижи мне':
+					agro[npc]-=1&cls&gs'stat'&'<center><video src="pic/sex/femdom/cuniman0.webm" ></video></center>'&'Вы расслабляетесь и ловите кайф, пока парень вылизывает вашу шмоньку и клиторок.'&!куни
+					gs'fuck_oral_lick_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+				end
+			end
+		end
+	end
+	if pose[you]=4:
+		'<b>Вы стоите на четвереньках</b>'&$func('get_images', 'poser_dog', you, npc)
+		if vag[you]>0:
+			act'Дать':
+				temp_vag_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_dog', you, npc)&'Стоя раком, вы выгибаете спину, пока вас трахают в киску.'
+				if vag[you]=1:
+					horny[you]=0&'Вспышка резкой боли, когда вас лишают девственности и вы видите, что на члене немного крови.'
+				else
+					if vag[you]*2<dickd[npc]:
+						'Вам довольно неприятно и больно, когда член внедряется в ваше тело.'
+					else
+						'Твердая мужская плоть двигается внутри вашего тела и от этого внизу живота порхают бабочки.'
+					end
+				end
+				gs'fuck_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+				if sexpower[npc]=0:
+					'<<$name[npc]>> стонет - я сейчас кончу'
+					if misticMMT<1:
+						if corrupto>=20:act'Принять в рот':gt 'fss_sex_sistem'
+						act'Кончи на меня':
+							cls&gs'stat'&$func('get_images', 'cum_on_ass_dog', you, npc)
+							'<<$name[npc]>> вытаскивает из вас член и начинает кончать вам на попу и спину, покрывая их спермой. Затем он встает и начинает одеваться.'
+							gs'fuck_cum_ass',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+						end
+					else
+						misticMMT-=1&'Вы чувствуете, что некое тепло внутри вашего лона стало буквально обжигать вас изнутри и вы осознали, что лишь сперма может унять это плямя...'
+					end
+					act'Кончи внутрь':
+						cls&gs'stat'&$func('get_images', 'vag_cream_dog', you, npc)&'<<$name[npc]>> стонет и кончает вам внутрь, наполняя вас своим семенем. '
+						'Полежав немного на вас, <<$name[npc]>> вынимает из вас свой опадающий член и встает, а из вашей свежеоттраханной вагины капает сперма.'
+						gs'fuck_cum_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+						if demon_dick[you]>0 and pregnant_day[you]=0:
+							act'Принять семя':father_you_child=npc&gs'preggo'&gt 'after_fss'
+						else
+							insemrand=rand(0,10)&if inseminate[you]=0 and insemrand=10:father_you_child=npc&gs'preggo'
+						end
+						act'Уйти':gt 'after_fss'
+					end
+				else
+					act'...':gt 'fss_sex_sistem'
+				end	
+			end
+		end
+		if corrupto>=50 or anus[you]>=20:
+			act'В попу':
+				temp_anal_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'anal_fuck_dog', you, npc, 'fit')
+				gs'anal_plug_remuve'&'Вы стоите раком и выгибаете спину, пока вас трахают в задницу.'
+				if dickd[npc]>anus[you]:
+					anus[you]+=3&'Вам больно, когда толстый член ебёт вашу задницу, ощущение как будто у вас там все горит огнем.'
+				else
+					'Вы спокойно расслабляетесь, когда в вашей заднице ходит ходуном член.'
+				end
+				gs'fuck_anal',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
+				if sexpower[npc]=0:
+					'<<$name[npc]>> стонет - Я сейчас кончу.'&act'Принять в рот':gt 'fss_sex_sistem'
+					act'Кончи на меня':
+						cls&gs'stat'&$func('get_images', 'vag_cum_on_ass', you, npc)
+						'<<$name[npc]>> вытаскивает из вас член и начинает кончать вам на попу и спину, покрывая их спермой. Затем он встает и начинает одеваться.'
+						gs'fuck_cum_ass',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+					end
+					act'Кончи внутрь':
+						cls&gs'stat'&$func('get_images', 'anal_cream', you, npc)&'<<$name[npc]>> стонет и кончает вам внутрь попы, наполняя вас своим семенем. '
+						'Полежав немного на вас, <<$name[npc]>> вынимает из вас свой опадающий член и встает, а из вашей раздолбанной задницы капает сперма.'
+						gs'fuck_cum_anus',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+					end
+				else
+					act'...':gt 'fss_sex_sistem'
+					act'Раздвинуть булки':
+						you_dirty_slut[npc]+=5&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'spread_ass_dog', you, npc)&'Упершись грудью в кровать, вы раздвигаете булки.'
+						gs'fuck_anal_hard',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+					end
+				end
+			end
+		end
+	end
+		if pose[you]>1:act'<i>Встать на ноги</i>':pose[you]=1&pose[npc]=1&gt $curloc
+		if pose[you]!2 and corrupto>=10:act'<i>Встать на колени</i>':pose[you]=2&pose[npc]=1&gt $curloc
+		if pose[you]!3:act'<i>Лечь на спину</i>':pose[you]=3&pose[npc]=1&gt $curloc
+		if pose[you]!4 and corrupto>=5:act'<i>Встать раком</i>':pose[you]=4&pose[npc]=1&gt $curloc
+else
+	horny[npc]=0&cum_face[you]+=1&if skin[npc]>3 and skin[npc]<7:cum_face[you]+=rand(1,5)
+	koefball[npc]=11-(ball[npc]/10)&empty_ball[npc]=time+(60*koefball[npc])&if corrupto<20:corr[you]+=1
+	gs'stat'&$iif(corrupto<20,$func('get_images', 'unwanted_cum_on_face', you, npc),$func('get_images', 'cum_in_mouth', you, npc))&'<<$name[npc]>> кончает вам в рот и на лицо.'
+	gs'fuck_cum_face',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Уйти':gt 'after_fss'
+end
+gs'npconloc_fss'

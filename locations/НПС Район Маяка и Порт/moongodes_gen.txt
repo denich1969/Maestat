@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&moongodes=i
+lvl[i]=1&soul[i]=100
+master[i]=1
+spec_face_pic[i]=5&face_pic[i]=1
+$title[i]=''&$history[i]='Мое семейство ведет свое происхождение от богини Луны. Богиня луны дарует мистические знания и может посвятить в тайны.'
+$name[i]='Селена'&$surname[i]='Шеларди'&$nick[i]='Неземная девушка чарующая свой грацией'
+face[i]=80&gla[i]=0&glacol[i]=1&nose[i]=3&scull[i]=1&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=30&nip[i]=45&tits[i]=16&!Половые признаки (член, вагина, жопа, грудь)
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=30&curl[i]=0&hcol[i]=5
+rost[i]=170&fat[i]=800&mus[i]=600&skin[i]=1
+age[i]=21&vital[i]=700&will[i]=50&reflex[i]=150&defence[i]=500
+pol[i]=1&gs'body'&total_generated_female+=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+womenbrain[i]=100&bisex[i]=1&agro[i]=50&selfrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=1&brave[i]=1&lust[i]=50&!характер
+!belly_t[i]=1&tits_t[i]=1
+t_slot[i]=42&l_slot[i]=0&b_slot[i]=12
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0
+walkprog[i]=15
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

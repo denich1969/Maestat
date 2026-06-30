@@ -1,0 +1,50 @@
+﻿gs'stat'&'Машинка создающая порталы в пределах города. Не работает в помещениях.'&*pl'Текущее место <<$lname[''<<X[you]>>,<<Y[you]>>,<<Z[you]>>,0,0'']>>'&!'Координаты дома X=4 Y=3 Жилмассив.'
+act'Убрать':gt 'preloc'
+if badworld[myZ]>0 or Z[you]>200:
+	'Машинка не срабатывает'
+else
+	if portal_zar[you]=0:'У машинки нет зарядов'
+	if portal_zar[you]>0:
+		'<<portal_zar[you]>> зарядов'
+		if Z[you]>=200: act'<b>Интерактивная карта</b>':'Еще не сделана'
+		if Z[you]>0 and Z[you]<7: act'<b>Интерактивная карта</b>':gt'mapwatch'
+		act'<b>Стеклянный шар</b>':gt'glassboll'
+		 act'Рыбацкая деревня':
+			cls&gs'stat'
+			Xdest=input("Координата Х от 0 до 4")&if Xdest<0 or Xdest>4:gt $curloc
+			Ydest=input("Координата Y от 0 до 4")&if Ydest<0 or Ydest>4:gt $curloc
+			Zdest=1&'Место назначения <<$lname[''<<Xdest>>,<<Ydest>>,<<Zdest>>,0,0'']>>'&act'Отмена':gt $curloc
+			if Zdest>=1 and Zdest<=5:act'Портал':portal_zar[you]-=1&X[you]=Xdest&Y[you]=Ydest&Z[you]=Zdest&cls&gt 'preloc'
+		 end
+		 act'Блэкберри':
+			cls&gs'stat'
+			Xdest=input("Координата Х от 0 до 4")&if Xdest<0 or Xdest>4:gt $curloc
+			Ydest=input("Координата Y от 0 до 4")&if Ydest<0 or Ydest>4:gt $curloc
+			Zdest=2&'Место назначения <<$lname[''<<Xdest>>,<<Ydest>>,<<Zdest>>,0,0'']>>'&act'Отмена':gt $curloc
+		    if Zdest>=1 and Zdest<=5:act'Портал':portal_zar[you]-=1&X[you]=Xdest&Y[you]=Ydest&Z[you]=Zdest&cls&gt 'preloc'
+		 end
+		 act'Жилмассив':
+			cls&gs'stat'
+			Xdest=input("Координата Х от 0 до 4")&if Xdest<0 or Xdest>4:gt $curloc
+			Ydest=input("Координата Y от 0 до 4")&if Ydest<0 or Ydest>4:gt $curloc
+			Zdest=3&'Место назначения <<$lname[''<<Xdest>>,<<Ydest>>,<<Zdest>>,0,0'']>>'&act'Отмена':gt $curloc
+		    if Zdest>=1 and Zdest<=5:act'Портал':portal_zar[you]-=1&X[you]=Xdest&Y[you]=Ydest&Z[you]=Zdest&cls&gt 'preloc'
+		 end
+		 act'Аптаун':
+			cls&gs'stat'
+			Xdest=input("Координата Х от 0 до 4")&if Xdest<0 or Xdest>4:gt $curloc
+			Ydest=input("Координата Y от 0 до 4")&if Ydest<0 or Ydest>4:gt $curloc
+			Zdest=4&'Место назначения <<$lname[''<<Xdest>>,<<Ydest>>,<<Zdest>>,0,0'']>>'&act'Отмена':gt $curloc
+		    if Zdest>=1 and Zdest<=5:act'Портал':portal_zar[you]-=1&X[you]=Xdest&Y[you]=Ydest&Z[you]=Zdest&cls&gt 'preloc'
+		 end
+		 act'Даунтаун':
+			cls&gs'stat'
+			Xdest=input("Координата Х от 0 до 4")&if Xdest<0 or Xdest>4:gt $curloc
+			Ydest=input("Координата Y от 0 до 4")&if Ydest<0 or Ydest>4:gt $curloc
+			Zdest=5&'Место назначения <<$lname[''<<Xdest>>,<<Ydest>>,<<Zdest>>,0,0'']>>'&act'Отмена':gt $curloc
+		    if Zdest>=1 and Zdest<=5:act'Портал':portal_zar[you]-=1&X[you]=Xdest&Y[you]=Ydest&Z[you]=Zdest&cls&gt 'preloc'
+		 end
+		 if Zhome[you]>0:act'К дому':portal_zar[you]-=1&X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&cls&gt 'preloc'
+		 !if Zw[you]>0:act'На работу':portal_zar[you]-=1&X[you]=Xw[you]&Y[you]=Yw[you]&Z[you]=Zw[you]&cls&gt 'preloc'
+	end
+end

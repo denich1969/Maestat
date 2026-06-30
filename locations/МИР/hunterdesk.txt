@@ -1,0 +1,16 @@
+﻿$nameloc[you]=$curloc
+gs'stat'
+act'Уйти':gt 'preloc'
+'Доска с наградами за головы'
+if reward[you]>0:
+	'За вашу голову назначена награда <<reward[you]/100>> шиллнгов'
+     if money[you]>=reward[you]:
+         act'Заплатить штраф':
+			 cls
+			 money[you]-=reward[you]
+			 reward[you]=0
+			 gt 'preloc'
+         end
+     end
+end
+if master[you]=1:act'Тест атаки Кромарти':gt'kromarty_atk'

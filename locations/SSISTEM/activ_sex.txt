@@ -1,0 +1,593 @@
+﻿gs'npconloc_fss'&in_sex=1
+!if pose[you]=1 and cantdo=0:'<b>Вы стоите</b>'
+!if pose[you]=2 and cantdo=0:'<b>Вы на коленях</b>'
+!if pose[you]=3 and cantdo=0:'<b>Вы лежите на спине</b>'
+!if pose[you]=4 and cantdo=0:'<b>Вы стоите на четвереньках</b>'
+if sexpower[you]>0:
+	'Ваша сексуальная энергия <<sexpower[you]>>.'&*pl'Вы видите:'
+	if dick[npc]>0:
+		'<<dick[npc]>>-сантиметровый член <<$name[npc]>>;'
+	else
+		if vag[npc]=1 and vag[npc]=1:'Девственное влагалище <<$name[npc]>>;'
+		if vag[npc]>=2 and vag[npc]<15:'Узкое влагалище <<$name[npc]>>;'
+		if vag[npc]>=15 and vag[npc]<35:'Влагалище <<$name[npc]>>;'
+		if vag[npc]>=35 and vag[npc]<55:'Слегка приоткрытое влагалище <<$name[npc]>>;'
+		if vag[npc]>=55 and vag[npc]<75:'Мокрую вагину <<$name[npc]>>;'
+		if vag[npc]>=75 and vag[npc]<90:'Приоткрытую пизду <<$name[npc]>>;'
+		if vag[npc]>=90 and vag[npc]<110:'Рыхлую мягкую пизду <<$name[npc]>>;'
+		if vag[npc]>=110 and vag[npc]<160:'Широкую опутную пизду <<$name[npc]>>;'
+		if vag[npc]>=161:'Шлюшью зияющую пиздень <<$name[npc]>>;'
+	end
+	if anus[npc]>0:
+		if anus[npc]=1:'Девственный анус'
+		if anus[npc]>=2 and anus[npc]<10:'Анус в виде маленькой щелочки'
+		if anus[npc]>=10 and anus[npc]<20:'Анус в виде звездочки'
+		if anus[npc]>=20 and anus[npc]<30:'Рабочий анус в виде щелки'
+		if anus[npc]>=30 and anus[npc]<50:'Раздолбанный припухший анус в виде щели'
+		if anus[npc]>=50:'Не закрывающуюся разъебанную дыру в жопе'
+	end
+	'Возбуждение <<$name[npc]>> - <<horny[npc]>> из 200.'
+	if pose[you]=1:
+		if pose[npc]<=1:
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<b><<$name[npc]>> стоит перед вами</b>.'
+			if agro[npc]>=100:
+				if orgasm[npc]>=time:
+					'<<$name[npc]>> усмехается - Ты меня хорошо удовлетворил, можно и тебе теперь кончить.'
+				else
+					'<<$name[npc]>> усмехается - Детка, встань на колени и полижи мне!'
+				end
+			end 
+			if temp_npc_clothe=1:act'Раздеть':temp_npc_clothe=0&gt $curloc
+			act'Целовать':
+				cls&gs'stat'&$func('get_images', 'poser_kiss', you, npc)
+				$text=$iif (lips[npc]=1,'пухленькие губы',$iif (lips[npc]=2,'толстые губы',$iif (lips[npc]=3,'огромные губы, похожие на букву О','желанные губы')))&'Вы страстно целуете <<$text>>'
+				if lust[npc]<20:'<<$name[npc]>> неуклюже и холодно целует вас в ответ.'
+				if lust[npc]>=20 and lust[npc]<70:'<<$name[npc]>> охотно целует вас в ответ.'
+				if lust[npc]>=70:'<<$name[npc]>> страстно целует вас, ее губы буквально летают по вашим и ее горячий и острый язычок проникает вам в рот.'
+				act'...':gt $curloc
+			end
+			if temp_npc_clothe=0:
+				act'Лизать грудь':
+					horny[npc]+=5&cls&gs'stat'
+					if pol[you]=0:
+                         if skin[you]>4:
+                             '<center><video src="pic/sex/poser/tits_suckb<<rand(0,1)>>.webm" ></video></center>'
+                         else
+                             '<center><video src="pic/sex/poser/tits_suck<<rand(0,10)>>.webm" ></video></center>'
+                         end
+                    end
+					if pol[you]>0:'<center><video src="pic/sex/poser/tits_suck_lesb<<rand(0,18)>>.webm" ></video></center>'
+					$text='желанные губы'
+					if tit[npc]<=1:$text='крошечную остренькую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
+					if tit[npc]=2:$text='маленькую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
+					if tit[npc]=3:$text='округлую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
+					if tit[npc]=4:$text='объемную грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
+					if tit[npc]=5:$text='большую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
+					if tit[npc]>=6:$text='огромную грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
+					'Вы страстно целуете и вылизываете <<$text>>'
+					if lust[npc]<20:'<<$name[npc]>> спокойно принимает ваши ласки.'
+					if lust[npc]>=20 and lust[npc]<70:'<<$name[npc]>> закрывает глаза и прикусив губу тихо стонет от удовольствия.'
+					if lust[npc]>=70:
+						if agro[npc]<50:'<<$name[npc]>> постанывая, гладит ваши волосы.'
+						if agro[npc]>=50:'<<$name[npc]>> постанывая, хватает вас за волосы и старается управлять вашими ласками.'
+					end 
+					act'...':gt $curloc
+				end
+			end
+		end
+		if pose[npc]=2:
+			$func('get_images', 'poser_kneel', npc, you)&'<b><<$name[npc]>> стоит перед вами на коленях</b>'
+			if dick[you]>1 and ball[you]>0:
+				act'Дать в рот':
+					if agro[npc]>=90 and orgasm[npc]<time:
+						cls&'Куда это ты собрался своим члеником тыкать? Сначала я кончу, потом уже ты!'&act'Хорошо...':gt $curloc
+					else
+						gt'ac_blow'
+					end
+				end
+				act'Подрочи мне':
+				     cls&$func('get_images', 'handjob', npc, you)&if sexpower[you]>1:sexpower[you]-=1
+				     gs'stat'&'<<$name[npc]>> нежно дрочит ваш член.'&gs'fuck_handjob',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt $curloc
+			     end
+			end
+			if dom[you]>=90:
+				act'Засунуть пальцы в рот':
+					if sexpower[you]>1:sexpower[you]-=1
+					cls&gs'stat'
+					if skin[you]>4:
+						'<center><video src="pic/sex/degraded/throatfingeringbbc.webm" ></video></center>'
+					else
+						'<center><video src="pic/sex/degraded/throatfingering<<rand(0,8)>>.webm" ></video></center>'
+					end
+					if agro[npc]<=20:
+						'<<$name[npc]>> спокойно позволяет вам запихивать пальцы в рот.'&if slave[npc]=you:submission[npc]+=1
+					end
+					if agro[npc]>20 and agro[npc]<50:
+						'<<$name[npc]>> терпит, когда вы пихаете ей пальцы в горло.'&if slave[npc]=you:submission[npc]+=1
+					end
+					if agro[npc]>=50:'<<$name[npc]>> старается убрать вашу руку, когда вы пихаете ей пальцы в рот.'
+					gs'fuck_oral_fingers',you,npc&args[10]=func('fuck_final',in_sex[you])&act'Уйти':gt 'activ_sex'
+				end
+			end
+			if tit[npc]>=4 and dick[you]>1 and ball[you]>0:
+				act'Между грудей':
+					if sexpower[you]>1:sexpower[you]-=1
+					cls&gs'stat'&$func('get_images', 'titfuck', npc, you)
+					if agro[npc]<=20:'<<$name[npc]>> сжимает груди, позволяя вам трахать ее между грудей.'
+					if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> сжимает груди и двигает ими, чтобы вам было удобнее трахать ее между грудей.'
+					if agro[npc]>=50:'<<$name[npc]>> сжимает груди и подается вперед и назад, чуть ли не трахая ваш член своими грудями.'
+					act'Уйти':gt 'activ_sex'
+				end
+			end
+		end
+		if pose[npc]=3:
+			$func('get_images', 'poser_mis', npc, you, temp_npc_clothe)&'<b><<$name[npc]>> лежит на спине</b>'
+			if temp_npc_clothe=1:'Одежда помешает сексу.'
+			if temp_npc_clothe=0:
+				if dick[you]>1 and ball[you]>0:
+					if vag[npc]>0:
+						act'Оттрахать':
+							if agro[npc]>=90 and agro[npc]>agro[you] and orgasm[npc]<time:
+								cls&'Куда это ты собрался своим члеником тыкать? Сначала я кончу, потом уже ты!'&act'Хорошо...':gt $curloc
+							else
+								temp_vag+=1&sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
+								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет, когда вы ее трахаете.'
+								if vag[npc]=1:
+									'<<$name[npc]>> стонет, вы чувствуете, что рвете ей девственную плеву и ваш член обагряет кровь.'
+								else
+									'<<$name[npc]>> стонет, пока вы ее трахаете.'
+								end
+								gs'fuck_vag',you,npc&args[10]=func('fuck_final',in_sex[you])
+								if sexpower[you]>0:
+									act'...':gt $curloc
+								else
+									act'Кончить в пизду':
+										womenbrain[you]-=2&cls&$func('get_images', 'vag_cream_mis', npc, you)&'<<$name[npc]>> стонет, когда вы наполняете ее горячую пещерку своим семенем.'
+										if master[npc]>0 and fuckgiftday[npc]!daystart:fuckgiftday[npc]=daystart&magik[you]+=1&'Богиня одаривает вас каналом магии'
+										gs'chance_npc_preg'&gs'fuck_cum_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
+									end
+									if misticMMT<1:
+										act'Достать':
+											cls&$func('get_images', 'vag_cum_on_face', npc, you)
+											'Вы вытаскиваете член и кончаете, ваша сперма летит девушке в лицо и на тело, <<$name[npc]>> удивленно стонет, получая сперму на лицо.'
+											gs'fuck_cum_face',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
+										end
+									else
+										'Вы ощущаете жар в своих яйцах и непреодолимое желание оплодотворения этой горячей пизды!'&misticMMT-=1
+									end
+								end
+							end	
+						end
+					end 
+					act'Трахнуть в жопу':
+						if agro[npc]>=90 and orgasm[npc]<time:
+							cls&'Куда это ты собрался своим члеником тыкать? Сначала я кончу, потом уже ты!'&act'Хорошо...':gt $curloc
+						else
+							gt'ac_anal'
+						end
+					end
+				end
+				if vag[npc]>0:
+					act'Лизать шмоньку':
+						cls
+						if orgasm[npc]>=time:
+							gs'stat'&'<<$name[npc]>> отодвигает вас - Мне неприятно, хватит.'&act'Уйти':gt 'activ_sex'
+						else
+							if pol[you]=0:
+								'<center><video src="pic/sex/femdom/cuniman<<rand(0,1)>>.webm" ></video></center>'
+								if whore[npc]>0:'Вы лижете пизду шлюхе, в которой побывало немеренное колличество хуев... Словно сами их отсасываете...'&corr[you]+=1
+							else
+								'<center><video src="pic/sex/femdom/cunilesb<<rand(0,1)>>.webm" ></video></center>'
+							end
+							'Вы находите кнопочку клитора и начинаете ее лизать, попутно всасывая в свой рот лепестки губ ее влагалища.'
+							gs'fuck_oral_lick_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+							if args[10]>0:agro[npc]+=1&dom[npc]+=1&dom[you]-=1&agro[you]-=1
+							act'Уйти':gt 'activ_sex'
+						end
+					end
+				end
+			end
+		end
+		if pose[npc]=4:
+			$func('get_images', 'poser_dog', npc, you, temp_npc_clothe)&'<b><<$name[npc]>> стоит на четвереньках</b>'
+			if temp_npc_clothe=1:'Одежда помешает сексу.'
+			if temp_npc_clothe=0:
+				if dick[you]>1 and ball[you]>0:
+					if vag[npc]>0:
+						act'Трахнуть в пизду':
+							if agro[npc]>=90 and orgasm[npc]<time:
+								cls&'Куда это ты собрался своим члеником тыкать? Сначала я кончу, потом уже ты!'&act'Хорошо...':gt $curloc
+							else	
+								temp_vag+=1&sexpower[you]-=1&cls&$func('get_images', 'vag_fuck_dog', npc, you)
+								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет, когда вы ее трахаете.'
+								if vag[npc]=1:
+									'<<$name[npc]>> стонет, вы чувствуете, что рвете ей девственную плеву и ваш член обагряет кровь.'
+								else
+									'<<$name[npc]>> стонет, пока вы ее трахаете.'
+								end
+								gs'fuck_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+								if sexpower[you]>0:
+									act'...':gt $curloc
+								else
+									act'Кончить в пизду':
+										womenbrain[you]-=2&cls&gs'stat'&$func('get_images', 'vag_cream_dog', npc, you)&'<<$name[npc]>> стонет, когда вы наполняете ее горячую пещерку своим семенем.'
+										gs'chance_npc_preg'&gs'fuck_cum_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&act'Уйти':gt 'after_activ_sex'
+									end 
+									if misticMMT<1:
+										act'Кончить на задницу':
+											womenbrain[you]-=1&cls&$func('get_images', 'vag_cum_on_ass', npc, you)&'<<$name[npc]>> стонет, когда вы кончаете ей на задницу и спину.'
+											gs'fuck_cum_ass',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
+										end
+									else
+										'Вы ощущаете жар в своих яйцах и непреодолимое желание оплодотворения этой горячей пизды!'&misticMMT-=1
+									end
+								end
+							end 
+						end
+					end
+					act'Трахнуть в жопу':
+						if agro[npc]>=90 and orgasm[npc]<time:
+							cls&'Куда это ты собрался своим члеником тыкать? Сначала я кончу, потом уже ты!'&act'Хорошо...':gt $curloc
+						else
+							gt'ac_anal'
+						end
+					end
+					if dom[you]>=90:
+						act'Фистить':
+							if sexpower[you]>1:sexpower[you]-=1
+							cls&gs'can_varian_sex',you,npc&gs'stat'
+							if candoanal[npc]>0:
+								if slave[npc]=you:submission[npc]+=1
+								anus[npc]+=1&anal_gape[npc]=1&'<center><video src="pic/sex/fisting/<<rand(0,5)>>.webm" ></video></center>'
+								if agro[npc]<=20:'<<$name[npc]>> спокойно позволяет вам запихивать пальцы в свою задницу.'
+								if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> терпит, когда вы пихаете ей пальцы в зад.'
+								if agro[npc]>=50:'<<$name[npc]>> старается убрать вашу руку, когда вы пихаете ей пальцы в зад.'
+								gs'fuck_anal_fisting',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+							else
+								'<<$name[npc]>> возмущается и убирает задницу - Эй! А ну прикрати!'
+							end
+							act'Уйти':gt 'activ_sex'
+						end
+					end
+				end
+			end
+		end
+	end
+	if pose[you]=2:
+		if dick[npc]>1 and sexpower[npc]>0:
+			'<center><img src="pic/sex/shemale_cock<<rand(0,30)>>.jpg" ></center>'&!'<b>Вы на коленях</b>'
+			act'Сосать':
+				cls&temp_blow_fss+=1&sexpower[npc]-=1&if corr[you]<10:corr[you]+=1
+				if H[you]>0:
+					$func('get_images', 'blowjob', you, npc)
+				else
+					$func('get_images', 'public_blow', you, npc)
+				end
+				$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+				'Вы сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'&gs'fuck_oral',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+				if sexpower[npc]>1:
+					act'...':gt 'activ_sex'
+				else
+					act'...':
+						cls&$func('get_images', 'cum_in_mouth', you, npc)&'<<$name[npc]>> кончает вам в рот и на лицо.'
+						gs'fuck_cum_face',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'...':gt 'activ_sex'
+					end
+				end
+			end
+		end
+		if vag[npc]>0:
+			'<center><img src="pic/sex/cunt<<rand(0,29)>>.jpg"></center>'
+			act'Лизать шмоньку':
+				cls
+				if orgasm[npc]>=time:
+					gs'stat'&'<<$name[npc]>> отодвигает вас - Мне неприятно, хватит.'&act'Уйти':gt 'activ_sex'
+				else
+					if pol[you]=0:
+						'<center><video src="pic/sex/lickstandman/<<rand(0,4)>>.webm" ></video></center>'
+					else
+						'<center><video src="pic/sex/lickstandwoman/<<rand(0,1)>>.webm" ></video></center>'
+					end
+					'<<$name[npc]>> чуть раздвигает ноги и пододвигает вам к лицу свою киску. Вы находите кнопочку клитора и начинаете ее лизать, попутно всасывая в свой рот лепестки губ ее влагалища.'
+					gs'fuck_oral_lick_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+					if args[10]>0:
+						face[you]-=1&dom[you]-=5&agro[npc]+=1&!if horny[npc]>=200:horny[npc]=0&orgasm[npc]=time+60&if master[npc]>0:magik_exp[you]+=1
+						'<<$name[npc]>> изгибается в оргазме и громко стонет, хватая вас за голову руками и буквально втыкая ваше лицо себе в разгоряченную и влажную промежность.'
+					end
+					act'...':gt 'activ_sex'
+				end
+			end
+		end
+		if dick[npc]<=1 and agro[npc]>=50:
+			act'Страпон':
+				if sexpower[you]>1:sexpower[you]-=1
+				agro[npc]+=1&cls&gs'stat'
+				if pol[you]=0:
+					'<center><video src="pic/sex/pegging/0.<<rand(0,4)>>.webm" ></video></center>'
+				else
+					'<center><video src="pic/sex/pegging/1.0.webm" ></video></center>'
+				end
+				'Вы сосете страпон и <<$name[npc]>> смотрит на вас сверху.'&gs'fuck_oral',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
+			end
+		end
+	end
+	if pose[you]=3:
+		'<b>Вы лежите на спине</b>'&if gender[you]>1:$func('get_images', 'poser_mis', npc, you)
+		if vag[npc]>0:
+			if dick[you]>1 and ball[you]>0:act'Посадить на член':gt'ac_cowgirl'
+			act'Посадить на лицо':
+				cls
+				if orgasm[npc]>=time:
+					gs'stat'&'<<$name[npc]>> отодвигает вас - Мне неприятно, хватит.'&act'Уйти':gt 'activ_sex'
+				else
+					if pol[you]=0:
+						if skin[you]>4:
+					         '<center><video src="pic/sex/facesitman/b.webm" ></video></center>'
+					     else
+						     '<center><video src="pic/sex/facesitman/<<rand(0,25)>>.webm" ></video></center>'
+						 end
+					else
+						'<center><video src="pic/sex/facesitwoman/<<rand(0,16)>>.webm" ></video></center>'
+					end
+					'<<$name[npc]>> садится вам на лицо своей киской. Вы находите кнопочку клитора и начинаете ее лизать, попутно всасывая в свой рот лепестки губ ее влагалища.'
+					gs'fuck_oral_lick_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+					if args[10]>0:
+						dom[you]-=1&agro[npc]+=1&!if horny[npc]>=200:horny[npc]=0&orgasm[npc]=time+60
+						'<<$name[npc]>> изгибается в оргазме и громко стонет, елозя вам по лицу своей содрогающейся и мокрой киской.'&!if master[npc]>0:magik_exp[you]+=1
+					end
+					act'Уйти':gt 'activ_sex'
+				end
+			end
+			act'Посадить попой на лицо':
+				if orgasm[npc]>=time:
+					cls&gs'stat'&'<<$name[npc]>> отодвигает вас - Мне неприятно, хватит.'&act'Уйти':gt 'activ_sex'
+				else
+					gs'stat'
+					if pol[you]=0:
+						if skin[you]>4:
+					         '<center><video src="pic/sex/facesitman/b.webm" ></video></center>'
+					     else
+						     '<center><video src="pic/sex/facesitman/<<rand(0,25)>>.webm" ></video></center>'
+						 end
+					else
+						'<center><video src="pic/sex/facesitwoman/<<rand(0,16)>>.webm" ></video></center>'
+					end
+					'<<$name[npc]>> садится вам на лицо своей попкой. Вы проталкиваете язык в ее анус, облизывая стенки задницы .'
+					'<<$name[npc]>> прыгает на вашем языке как на члене, лаская пальчиками клитор'
+					gs'fuck_oral_lick_vag',you,npc&gs'fuck_vag_jerk',npc,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+					if horny[npc]>=200:
+						if master[npc]>0:magik_exp[you]+=1
+						dom[you]-=1&agro[npc]+=1&anus[npc]+=1&horny[npc]=0&orgasm[npc]=time+60&exp[you]+=perk_cumnpc[you]*10&if perk_reset_orgazm[you]>0:orgasm[npc]=0
+						'<<$name[npc]>> изгибается в оргазме и громко стонет, елозя вам по лицу своей пульсирующей попкой.'
+					end
+					act'Уйти':gt 'activ_sex'
+				end
+			end
+			if dick[you]>1 and ball[you]>0:act'Поза 69':gt'ac_sixnine'
+		end
+		if dick[you]>1 and ball[you]>0:
+			act'Посадить попой на член':gt'ac_anal'
+			act'Минет с массажом простаты':gt'ac_blow_pr'
+		end
+		if dick[npc]<=1 and agro[npc]>=50:
+			act'Пеггинг':
+				sexpower[you]-=1&agro[npc]+=1&cls&gs'stat'
+				if pol[you]=0:'<center><video src="pic/sex/pegging/5.<<rand(0,3)>>.webm" ></video></center>'
+				if pol[you]>0:'<center><video src="pic/sex/lesbanalmiss/<<rand(0,1)>>.webm" ></video></center>'
+				'<<$name[npc]>> упирается страпоном вам в попу и медленно вводит его внутрь.'
+				if 40>anus[you]:'Вам очень больно и вы стонете, упрашивая девушку помедленнее.'&!anus[you]+=3
+				if 40<=anus[you]:'Вы стонете, когда девушка дрючит вас страпоном в задницу.'
+				gs'fuck_anal',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+				if sexpower[you]>0:
+					act'Уйти':gt 'activ_sex'
+				else
+					act'Кончить':
+						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cum_face[you]+=1&cls&'<center><video src="pic/sex/pegging/self_cum0.webm" ></video></center>'
+						if manamax[you]>0:mana[you]+=soul[you]
+						gs'stat'&'<<$name[npc]>> задирает ваш зад вверх и додрачивает ваш член. Вся ваша сперма извергается вам на лицо.'&act'Уйти':gt 'after_activ_sex'
+					end
+				end
+			end
+		end
+		if dom[you]>=90:
+			act'Вылижи мне зад':
+				if sexpower[you]>1:sexpower[you]-=1
+				if slave[npc]=you:submission[npc]+=1
+				agro[npc]-=1&cls&gs'stat'
+				if pol[you]=0:
+					if skin[you]>4:
+						'<center><video src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'
+					else
+						'<center><video src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'
+					end
+				else
+					!'<center><video src="pic/sex/lesbanalmiss/<<rand(0,1)>>.webm" ></video></center>'
+				end
+				if lust[npc]<20:'<<$name[npc]>> неохотно лижет вам задницу.'
+				if lust[npc]>=20 and lust[npc]<60:'<<$name[npc]>> старательно лижет вам задницу.'
+				if lust[npc]>=60:'<<$name[npc]>> увлеченно и страстно вылизывает вам зад.'
+				gs'fuck_anal_lick',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
+			end
+		end
+	end
+	if pose[you]=4:
+		if gender[you]>1:$func('get_images', 'poser_dog', you, npc)
+		'<b>Вы стоите на четвереньках</b>'
+		if dick[npc]>1 and sexpower[npc]>0:
+			act'В попу':
+				temp_anal_fss+=1&sexpower[npc]-=1&cls&gs'stat'&$func('get_images', 'anal_fuck_dog', you, npc, 'fit')&gs'anal_plug_remuve'&'Вы стоите раком и выгибаете спину, пока вас трахают в задницу.'
+				if dickd[npc]>anus[you]:
+					'Вам больно, когда толстый член ебёт вашу задницу, ощущение как будто у вас там все горит огнем.'
+				else
+					'Вы спокойно расслабляетесь, когда в вашей заднице ходит ходуном член.'
+				end
+				agro[npc]+=1&hotass[you]+=1
+				if sexpower[npc]=0:
+					'<<$name[npc]>> стонет - Я сейчас кончу.'
+					act'В рот':
+						cls&gs'stat'&$func('get_images', 'cum_in_mouth', you, npc)&'<<$name[npc]>> кончает вам в рот и на лицо.'&if corr[you]<10:corr[you]+=1
+						gs'fuck_anal',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'...':gt 'activ_sex'
+					end
+					act'Кончи внутрь':
+						cls&gs'stat'&$func('get_images', 'anal_cream_dog', you, npc)&'<<$name[npc]>> стонет и кончает вам внутрь попы, наполняя вас своим семенем. '
+						'Полежав немного на вас, <<$name[npc]>> вынимает из вас свой опадающий член и встает, а из вашей раздолбанной задницы капает сперма.'
+						gs'fuck_cum_anus',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'...':gt 'activ_sex'
+					end
+				else
+					act'...':gt 'activ_sex'
+				end
+			end
+		end
+		if dick[npc]<=1 and agro[npc]>=50:
+			act'Пеггинг':
+				sexpower[you]-=1&agro[npc]+=1&cls&gs'stat'
+				if pol[you]=0:'<center><video src="pic/sex/pegging/7.<<rand(0,6)>>.webm" ></video></center>'
+				if pol[you]>0:'<center><video src="pic/sex/lesbanal/<<rand(0,3)>>.webm" ></video></center>'
+				'<<$name[npc]>> упирается страпоном вам в попу и медленно вводит его внутрь.'
+				if anus[you]<40:'Вам очень больно и вы стонете, упрашивая девушку помедленнее.'
+				if anus[you]>=40:'Вы стонете, когда девушка дрючит вас страпоном в задницу.'
+				gs'fuck_anal',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+				if sexpower[you]>0:
+					act'...':gt 'activ_sex'
+				else
+					act'Кончить':
+						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/dog_cum0.webm" ></video></center>'&'Вы кончаете, а <<$name[npc]>> смеется над вами.'
+						gs'fuck_cum_anus',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
+					end
+				end
+			end
+		end
+		if agro[npc]>=50:
+			act'Фингеринг':
+				sexpower[you]-=1&agro[npc]+=1&cls&gs'stat'
+				if pol[you]=0:
+					'<center><video src="pic/sex/pegging/finger<<rand(0,1)>>.webm" ></video></center>'
+				else
+					!'<center><video src="pic/sex/lesbanal/<<rand(0,3)>>.webm" ></video></center>'
+				end
+				'<<$name[npc]>> пихает вам в зад пальцы.'&!anus[you]+=rand(1,5)
+				gs'fuck_anal_fisting',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+				if sexpower[you]>0:
+					act'Уйти':gt 'activ_sex'
+				else
+					act'Кончить':
+						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/dog_cum0.webm" ></video></center>'&'Вы кончаете, а <<$name[npc]>> смеется над вами.'
+						if face[you]<80:feminize[you]-=1&gs'fuck_cum_anus',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
+					end
+				end
+			end
+		end
+	end
+	if pose[you]=1:
+		if pose[npc]>1:act'<i>Поднять на ноги</i>':pose[npc]=1&pose[you]=1&gt $curloc
+		if pose[npc]!2:act'<i>Поставить на колени</i>':pose[npc]=2&pose[you]=1&gt $curloc
+		if pose[npc]!3:act'<i>Положить на спину</i>':pose[npc]=3&pose[you]=1&gt $curloc
+		if pose[npc]!4:act'<i>Поставить раком</i>':pose[npc]=4&pose[you]=1&gt $curloc
+	end
+	if pose[you]>1:act'<i>Встать на ноги</i>':pose[you]=1&pose[npc]=1&gt $curloc
+	if pose[you]!2:act'<i>Встать на колени</i>':pose[you]=2&pose[npc]=1&gt $curloc
+	if pose[you]!3:act'<i>Лечь на спину</i>':pose[you]=3&pose[npc]=1&gt $curloc
+	if pose[you]!4:act'<i>Встать раком</i>':pose[you]=4&pose[npc]=1&gt $curloc
+else
+	'Вы чувствуете, что готовы кончить.'
+	$d_sexsistem_piss={
+	if pisswasser[you]>0 and dom[you]>=90 and CONFIG['DISABLE_PEE']=0:
+		act'Нассать в рот':
+			cls&gs'stat'&canbepisswhore[npc]=0&if drinkpee[npc]>0:canbepisswhore[npc]=1
+			if lust[npc]>=90:canbepisswhore[npc]=1
+			if agro[npc]<=10:canbepisswhore[npc]=1
+			if piss_fixation[npc]>0:canbepisswhore[npc]=1
+			if canbepisswhore[npc]>0:
+				corr[npc]+=20&if soulMG[you]>0:soul[you]+=1
+				piss_mass['<<you>>,<<npc>>']+=1&peecover[npc]=time+30&drinkpee[npc]+=1&pee[you]+=1&pisswasser[you]=0&pissonloc['<<$loc[you]>>']=time+250
+				if piss_fixation[npc]>0 and orgasm[npc]<time:horny[npc]+=piss_fixation[npc]
+				if horny[npc]>100:piss_fixation[npc]+=1
+				gs'stat'
+				if skin[you]>4 and skin[you]<7:
+					'<center><video src="pic/sex/bj/pee/piss<<rand(0,6)>>.webm" ></video></center>'
+				else
+					'<center><video src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'
+				end
+				if piss_fixation[npc]>(agro[npc]/10):
+					'<<$name[npc]>> послушно открывает ротик и вы ссыте ей в рот, а девушка с удовольствием проглатывает вашу мочу.'
+				else
+					'<<$name[npc]>> подставляет лицо, но мочу, попавшую в рот, выплевывает.'
+				end
+			else
+				'Отпрыгивает от вас - Ты что, офонарел?'
+			end
+			act'Уйти':gt 'after_activ_sex'
+		end
+	end
+	}
+	act'Кончить в рот':
+		womenbrain[you]-=1&horny[you]=0&cum_face[npc]=time+30
+		if oral_fixation[npc]>0 and orgasm[npc]<time:horny[npc]+=oral_fixation[npc]*2
+		if manamax[you]>0:mana[you]+=soul[you]
+		cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)
+		if oral_fixation[npc]>(agro[npc]/10):
+			'<<$name[npc]>> с готовностью открыла ротик, принимая сперму в рот.'&gs'fuck_cum_oral',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+			act'...':
+				cls&gs'stat'&'<center><video src="pic/sex/degraded/cumplay_swallow<<rand(0,12)>>.webm" ></video></center>'
+				'Она с удовольствием играет со спермой и все проглатывает, а затем чистит ваш член язычком.'&act'Уйти':gt 'after_activ_sex'
+				dynamic $d_sexsistem_piss
+			end
+		else
+			if agro[npc]<=20:'<<$name[npc]>> покорно принимает сперму на лицо и в рот.'
+			if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> подставляет лицо и морщится от попадающих на нее струек спермы.'
+			if agro[npc]>=50:
+				if lust[npc]<55:
+					'<<$name[npc]>> уворачивается от спермы, хотя та все равно попадает ей на лицо и ругается - Какого черта?'
+				else
+					'<<$name[npc]>> спокойно принимает сперму в рот и встает собираясь вас поцеловать.'
+					act'Целоваться':
+						agro[npc]+=1&dom[you]-=3&corr[you]+=5&face[you]+=2&oral_fixation[you]+=1&cls&gs'stat'
+						if face[you]<40:
+						     if skin[you]>4:
+                                 '<center><video src="pic/sex/femdom/man_swapb<<rand(0,1)>>.webm" ></video></center>'
+						     else
+						         '<center><video src="pic/sex/femdom/man_swap<<rand(0,18)>>.webm" ></video></center>'
+						     end
+							if face[you]>=40:'<center><video src="pic/sex/femdom/swap0.webm" ></video></center>'
+							'Она целует вас в губы и вы чувствуете вкус собственной спермы.'
+						end
+						act'Уйти':gt 'after_activ_sex'
+					end
+				end
+			end
+			gs'fuck_cum_face',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
+			dynamic $d_sexsistem_piss
+		end
+	end
+end
+$npc_loc=''&aggressor=0&i=1&npcmax=arrsize('$name')
+total_npc_on_loc=0&insmouth_loc_num=0&tent_want=0&slut_want=0
+:marknpclocpash
+if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] and i!you and dead[i]=0 and i!npc:
+	total_npc_on_loc+=1
+	if mob_busy[i]=0:
+		$doing[i]=''
+		if mob_sleep[i]>time:$doing[i]+=' пребывает в задумчивости.'
+		if mob_busy[i]>0:$doing[i]+=' пребывает в задумчивости.'
+		if master[you]>0:$doing[i]+=' <<$think[i]>> (<<horny[i]>> возбуждение) (<<corr[i]>> испорченность) Назначение <<$destination[i]>>'
+		gs'watch_sex'
+		if mob[i]=0:
+			$npc_loc+='<br>'&!if $title[i]!'':$npc_loc+='<<$title[i]>> '
+			if know['<<i>>,<<you>>']=0:$npc_loc+='<<$nick[i]>><<$status[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<<$name[i]>> <<$surname[i]>><<$status[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<<$nick[i]>> <<$name[i]>><<$status[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<<$title[i]>> <<$name[i]>><<$status[i]>>'
+			if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
+		end
+		if mob[i]>0:
+			if mob[i]=3:insmouth_loc_num=i
+			$npc_loc+='<br>'&!if $title[i]!'':$npc_loc+='<<$title[i]>> '
+			if know['<<i>>,<<you>>']=0:$npc_loc+='<<$fullname[i]>><<$status[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]!'' and $nick[i]='':$npc_loc+='<<$name[i]>> <<$surname[i]>><<$status[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]='' and $nick[i]='':$npc_loc+='<<$nick[i]>> <<$name[i]>><<$status[i]>>'
+			if know['<<i>>,<<you>>']>0 and $nick[i]!'':$npc_loc+='<<$nick[i]>><<$status[i]>>'
+			if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
+		end
+	end
+end
+i+=1&if i<=npcmax:jump'marknpclocpash'
+*pl'<<$npc_loc>>'

@@ -1,0 +1,22 @@
+﻿$func('generate_links', 'МАГАЗИН ОДЕЖДЫ' , 16, $STORES_MENU['MODE'], 'Шапки', 'рубашки', 'Штаны', 'трусы', 'ботинки')
+act'<b><font color="blue">Фильтр</font>: мужская одежда<font color="#1e90ff">&#9794;</font></b>':
+	if $LIMIT_STORE_BY!'pol_m':$LIMIT_STORE_BY='pol_m'&RE_CACHE_STORE=1&gt $curloc
+end
+act'<b><font color="blue">Фильтр</font>: женская одежда<font color="#ff69b4">&#9792;</font></b>':
+	if $LIMIT_STORE_BY!'pol_f':$LIMIT_STORE_BY='pol_f'&RE_CACHE_STORE=1&gt $curloc
+end
+act'<b><font color="blue">Фильтр</font>: спортивная одежда &#9917;</b>':
+	if $LIMIT_STORE_BY!'sport':$LIMIT_STORE_BY='sport'&RE_CACHE_STORE=1&gt $curloc
+end
+act'<b><font color="blue">Фильтр</font>: аристократичная одежда<font color="#ccad00">&#9812;</font></b>':
+	if $LIMIT_STORE_BY!'aristokrat':$LIMIT_STORE_BY='aristokrat'&RE_CACHE_STORE=1&gt $curloc
+end
+act'<b><font color="blue">Фильтр</font>: сексуальная одежда<font color="#cc00c9">&#10084;</font></b>':
+	if $LIMIT_STORE_BY!'sexy':$LIMIT_STORE_BY='sexy'&RE_CACHE_STORE=1&gt $curloc
+end
+act'<b><font color="blue">Фильтр</font>: <font color=red>сбросить</font></b>':
+	if $LIMIT_STORE_BY!'':$LIMIT_STORE_BY=''&RE_CACHE_STORE=1&gt $curloc
+end
+act'<b><font color="green">&#11164;&#11164;&#11164;</font> Назад</b>':
+  killvar'$STORE_CACHE'&killvar'$CACHE_STORE_BUTTONS'&killvar'$STORES_MENU'&killvar'$LIMIT_STORE_BY'&killvar'RE_CACHE_TAB'&killvar'RE_CACHE_STORE'&gt 'preloc'
+end

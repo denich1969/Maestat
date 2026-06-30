@@ -1,0 +1,54 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Столик в ресторане'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+*nl 'Еда - 50 шиллингов'
+if earth_gem[you]>0:
+	'Ресторан принадлежит вам. Доход от ресторана <<resoranmoney/100>> шиллингов и <<resoranmoney mod 100>> пенсов.'
+	'На стойке находится <a href="exec:time+=1&gt ''telephone''">телефон</a>.'&!telephone
+     if resoranmoney>0:
+		 act'Забрать доход':
+			 money[you]+=resoranmoney&resoranmoney=0&cls&gs'stat'&'Вы забираете доход от ресторана'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end	
+if restoran_work[you]>0:
+	 if hour>=10 and hour<=22:
+	     if energy[you]>=20:
+	         if sexiness[you]>75:
+				'Вы выглядите слишком распущенно для работы'
+	         else
+				 act'Работать час':
+					 barwork+=1&$text=$iif(pol[you]=0,'официантом','официанткой')
+					 if total_npc_on_loc>0:
+						 energy[you]-=20&money[you]+=50&time+=60&cls&gs'stat'&'Вы работаете <<$text>>, беря заказы у посетителей и разнося им готовые блюда. За час работы вы получаете 50 пенсов.'
+						 chai=total_npc_on_loc*rand(10,50)&money[you]+=chai&gs'stat'&'Клиенты платят вам <<chai/100>> шиллингов и <<chai mod 100>> пенсов чаевых'
+					 else
+						'Клиентов в ресторане нет и вы за бесплатно бьете баклуши'
+					 end
+					gs'walker'
+					 if sexiness[you]>20:
+						 if X[you]=X[borisbogart] and Y[you]=Y[borisbogart] and Z[you]=Z[borisbogart] and H[you]=H[borisbogart] and R[you]=R[borisbogart] and dead[borisbogart]=0:
+							 npc=borisbogart&randqwestbogart=rand(0,10)
+							 if sexiness[you]>=30:randqwestbogart=rand(5,10)
+							 if sexiness[you]>=40:randqwestbogart=rand(6,10)
+							 if sexiness[you]>=50:randqwestbogart=rand(7,10)
+							 if sexiness[you]>=60:randqwestbogart=rand(8,10)
+							 randqwestbogart+=bogart_slut_reit[you]&if empty_ball[npc]>=time:randqwestbogart=0
+						 end
+					end
+					 act'Передохнуть':
+						 if randqwestbogart>=8 and dead[borisbogart]=0:gt'restoran_bogart'
+						 gt $curloc
+					 end
+				end
+			end
+		else
+			'Вы слишком устали, чтобы работать.'
+		end
+	 end
+end
+if money[you]>=5000:
+	 act'Поесть 50 шиллингов':
+		 money[you]-=5000&health[you]=healthmax[you]&energy[you]=energyMax[you]&if manamax[you]>0:mana[you]+=soul[you]
+		 soul[you]+=1&fat[you]+=10&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'Вы сделали заказ за столиком и вскоре вам его принесли. Еда очень вкусная, необычная и в нее вложена душа'
+		 act'<b>Уйти</b>':gt 'preloc'
+	 end
+end

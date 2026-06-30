@@ -1,0 +1,181 @@
+﻿$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
+gs'wal_main_sub'
+     if gotogirlfriend_npc=0:
+		 party[w]=0
+		 walker_work_times[w]+=1
+		 !Район Маяка и рыбаков (fish)
+		 if walkprog[w]=1:gs'godoflight_walk'
+		 if walkprog[w]=2:gs'albina_walk'
+		 if walkprog[w]=3:gs'fisherman_walk'
+		 if walkprog[w]=4:gs'tabernman_walk'
+		 if walkprog[w]=5:gs'tabernwoman_walk'
+		 if walkprog[w]=6:gs'taberndot_walk'
+		 if walkprog[w]=7:gs'insmouth_walk'
+		 if walkprog[w]=8:gs'pastor_walk'
+		 if walkprog[w]=9:gs'necromancer_walk'
+		 if walkprog[w]=10:gs'pratchet_walk'
+		 if walkprog[w]=11:gs'seaman_walk'
+		 if walkprog[w]=12:gs'sheriff_walk'
+		 if walkprog[w]=13:gs'tornton_walk'
+		 if walkprog[w]=14:gs'martamarsh_walk'
+		 if walkprog[w]=15:gs'moongodes_walk'
+		 if walkprog[w]=16:gs'moonmaid_walk'
+		 if walkprog[w]=17:gs'manmoon_walk'
+		 if walkprog[w]=18:gs'captain_walk'
+		 if walkprog[w]=19:gs'sallivan_walk'
+		 if walkprog[w]=20:gs'lagerta_walk'
+		 if walkprog[w]=21:gs'billharding_walk'
+		 if walkprog[w]=22:gs'AldousHarding_walk'
+		 if walkprog[w]=23:gs'ogeron_walk'
+		 if walkprog[w]=24:gs'ganger_walk'
+		 
+		 if walkprog[w]=27:gs'blackblock_walk'
+		 if walkprog[w]=28:gs'streetwore_walk'
+
+		 if walkprog[w]=31:gs'haroner_walk'
+		 
+		 if walkprog[w]=33:gs'negrec_walk'
+		 if walkprog[w]=34:gs'sportgirl_walk'
+		 
+		 if walkprog[w]=65:gs'smartgirl_walk'
+		 !Район чёрных (black)
+		 if walkprog[w]=35:gs'brokk_walk'
+		 if walkprog[w]=36:gs'silviabrokk_walk'
+		 if walkprog[w]=37:gs'jeff_walk'
+		 if walkprog[w]=38:gs'olan_walk'
+		 if walkprog[w]=39:gs'mabuta_walk'
+		 if walkprog[w]=40:gs'ares_walk'
+		 if walkprog[w]=41:gs'pele_walk'
+		 if walkprog[w]=42:gs'dj_walk'
+		 if walkprog[w]=43:gs'djgirl_walk'
+		 if walkprog[w]=44:gs'runemaster_walk'
+		 
+		 if walkprog[w]=73:gs'elfwalk_walk'
+		 !Жилмассив
+		 if walkprog[w]=25:gs'gopnik_walk'
+		 if walkprog[w]=26:gs'riverside_walk'
+		 
+		 if walkprog[w]=32:gs'boss_walk'
+		 
+		 if walkprog[w]=45:gs'bogart_walk'
+		 if walkprog[w]=46:gs'father_walk'
+		 if walkprog[w]=47:gs'mother_walk'
+		 if walkprog[w]=48:gs'sister_walk'
+		 if walkprog[w]=49:gs'brother_walk'
+		 if walkprog[w]=50:gs'techer_walk'
+		 if walkprog[w]=51:gs'povar_walk'
+		 if walkprog[w]=52:gs'antei_walk'
+		 if walkprog[w]=53:gs'janevalorama_walk'
+		 if walkprog[w]=54:gs'dukevalorama_walk'
+		 if walkprog[w]=55:gs'frank_visconti_walk'
+		 if walkprog[w]=56:gs'bianka_visconti_walk'
+		 if walkprog[w]=57:gs'savaof_walk'
+		 if walkprog[w]=58:gs'bocman_walk'
+		 if walkprog[w]=59:gs'sladkov_walk'
+		 if walkprog[w]=60:gs'sladkova_walk'
+		 
+		 if walkprog[w]=62:gs'spyson_walk'
+		 if walkprog[w]=63:gs'arhivson_walk'
+		 if walkprog[w]=64:gs'gotokafe_walk'
+		 if walkprog[w]=80:gs'sladkovamasha_walk'
+						!Кафе Рим 
+		 if walkprog[w]=76:gs'romawhore_walk'
+		 !Аптаун (uptown)
+		 if walkprog[w]=29:gs'uptowner_walk'
+		 if walkprog[w]=61:gs'prudence_walk'
+		 if walkprog[w]=67:gs'germiona_walk'
+		 if walkprog[w]=68:gs'cavendish_walk'
+		 if walkprog[w]=69:gs'serena_walk'
+		 if walkprog[w]=70:gs'powerup_walk'
+		 if walkprog[w]=71:gs'detective_walk'
+		 if walkprog[w]=72:gs'porndirector_walk'
+		 
+		 if walkprog[w]=77:gs'uptownwhore_walk'
+		 if walkprog[w]=78:gs'uptown_lebeda_walk'
+		 if walkprog[w]=79:gs'tiler_walk'
+		 !Даунтаун (uptown)
+		 if walkprog[w]=30:gs'downtown_walk'
+		 if walkprog[w]=66:gs'walk_root'
+		 if walkprog[w]=74:gs'slave_walk'
+		 if walkprog[w]=75:gs'otprisk_walk'
+		 
+		 if walkprog[w]=90:gs'universal_walk'
+		 !тут надо править
+		 !Вечный рим
+		 if walkprog[w]=100:gs'nari_walk'
+		 if walkprog[w]=101:gs'Butcher_walk'
+		 if walkprog[w]=102:gs'menhunter_walk'
+		 if walkprog[w]=103:gs'Jofre_walk'
+		 if walkprog[w]=104:gs'Horse_walk'
+		 if walkprog[w]=105:gs'Elven_walk'
+		 if walkprog[w]=106:gs'Aptekar_walk'
+		 if walkprog[w]=107:gs'mistra_walk'
+		 if walkprog[w]=108:gs'Farid_walk'
+		 if walkprog[w]=109:gs'consul_walk'
+		 if walkprog[w]=300:gs'slavemaker_walk'
+		 if walkprog[w]=301:gs'innkeeper_walk'
+		 if walkprog[w]=302:gs'Guildman_walk'
+		 if walkprog[w]=303:gs'Surgeon_walk'
+		 if walkprog[w]=304:gs'Servilia_walk'
+		 if walkprog[w]=305:gs'Bo_walk'
+		 if walkprog[w]=306:gs'Stalina_walk'
+		 !маяк
+		 if walkprog[w]=110:gs'ceeper_walk'
+		 if walkprog[w]=111:gs'belinda_walk'
+		 if walkprog[w]=112:gs'kapitan_walk'
+		 !лес у города Нуатпа
+		 if walkprog[w]=151:gs'whizard_walk'
+		 if walkprog[w]=152:gs'mechanic_walk'
+		 if walkprog[w]=153:gs'whiteknight_walk'
+		 if walkprog[w]=154:gs'traktirman_walk'
+		 if walkprog[w]=155:gs'lillith_walk'
+		 if walkprog[w]=156:gs'lerch_walk'
+		 !Реальный мир
+		 if walkprog[w]=201:gs'miha_walk'
+		 if walkprog[w]=202:gs'katja_walk'
+		 if walkprog[w]=203:gs'elis_walk'
+		 if walkprog[w]=204:gs'demonboss_walk'
+		 if walkprog[w]=205:gs'kirill_walk'&gs'mark_walk'
+	 end
+	! if mob[w]=0 and dick[w]>1:horny[w]+=(lust[w]/10)
+	! if mob[w]>0 and dick[w]>1:horny[w]+=(corr[w]/10)
+	! if mob[w]=0 and dick[w]>1 and horny[w]>=150:horny[w]=0
+	! if mob[w]>0 and dick[w]>1 and horny[w]>=150:horny[w]=0
+	 !новый расчет возбуждения для бродящих
+	 if mob[w]=0 and lust[w]>50 and horny[w]<50:horny[w]+=(lust[w]/10)
+	 if mob[w]>0 and dick[w]>1:horny[w]+=((corr[w]/10)+(lust[w]/10)+(agro[w]/10)+(dom[w]/10))/2
+	 if mob[w]=0 and dick[w]>1 and horny[w]>100:horny[w]=100
+	 if mob[w]>0 and dick[w]>1 and horny[w]>100:horny[w]=100
+	 if soul[w]<=0:
+	     if statist[w]=1:
+			 X[w]=2&Y[w]=3&Z[w]=1&H[w]=0&R[w]=0
+			 dead[w]=2
+	     else
+			soul[w]=20
+	     end
+	 end
+	 if grief=w:tormoza-=25&!if grief=w:tormoza=0&! поменял сброс тормозов для именных НПС с 0 на -25, если вызовет ошибки - вернуть все взад
+	 if sparrow=w:tormoza-=25&!if sparrow=w:tormoza=0
+	 if tiler=w:tormoza-=25&!if tiler=w:tormoza=0
+	 if femas=w:tormoza-=25&!if femas=w:tormoza=0
+	 if slave[w]=you:tormoza-=25&!if slave[w]=you:tormoza=0
+	 if whoreboss[w]=you:tormoza-=25&!if whoreboss[w]=you:tormoza=0
+	 if tormoza<750 or (tormoza<1250 and rayon>0 and rayon<6 and (Z[w]=Z[you] or Z[w]=Z[you]+1 or Z[w]=Z[you]-1)):
+	 !if tormoza<1000:&!новый расчет приоритета выбора НПС
+		 if blocksex['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+		     canradar=0
+             if mob[w]>0 and dick[w]>1 and corr[w]>=50 and last_radar[w]<time and global_radar<10:canradar=1
+             if mob[w]=0 and last_radar[w]<time and (dick[w]>1 or lust[w]>=50):
+				if extrovert[w]=2:canradar=1
+                if extrovert[w]=1:canradar=rand(0,1)
+                !проверка для доминантных женщин
+                if dick[w]=0 and (TOL[w]=9 or agro[w]>50):canradar=1
+             end
+             if want_talk[w]=1:want_talk[w]=0&canradar=1
+             if slave[w]=you and last_radar[w]<time:canradar=1
+	         if whoreboss[w]>0 and last_radar[w]<time:canradar=1
+			 if tiler=w:canradar=1
+			 if femas=w:canradar=1
+			 if canradar>0:global_radar+=1&last_radar[w]=time+15&gs'radarNew'
+		 end
+	 end

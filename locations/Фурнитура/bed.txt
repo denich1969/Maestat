@@ -1,0 +1,102 @@
+﻿gs'drop_follower'&!act'<b>Уйти</b>':gt 'preloc'
+cls&gs'stat'&'<center><b>Кровать</b></center>'&*nl&'<center><img src="pic/misc/bed.jpg" ></center>'
+if t_slot[you]>0 or l_slot[you]>0 or b_slot[you]>0:
+	'Спать в одежде неудобно'
+	 act'Раздеться до нижнего белья':
+		 if t_slot[you]>0:
+			clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+		 end
+		 if l_slot[you]>0:
+			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+		 end
+		 if b_slot[you]>0:
+			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+		 end
+		 blockneed=1&gt $curloc
+	 end
+	 act'Раздеться догола':
+		 if h_slot[you]>0:
+			clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$loc[you]>>']+=1&h_slot[you]=0
+		 end
+		  !{if m_slot[you]>0:
+			clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$loc[you]>>']+=1&m_slot[you]=0
+		 end
+		  if w_slot[you]>0:
+			clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$loc[you]>>']+=1&w_slot[you]=0
+		 end}
+		 if c_slot[you]>0:
+			clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$loc[you]>>']+=1&c_slot[you]=0
+		 end
+		  if tz_slot[you]>0:
+			clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$loc[you]>>']+=1&tz_slot[you]=0
+		 end
+		  if tg_slot[you]>0:
+			clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$loc[you]>>']+=1&tg_slot[you]=0
+		 end
+		 if t_slot[you]>0:
+			clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+		 end
+		 if l_slot[you]>0:
+			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+		 end
+		 if b_slot[you]>0:
+			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+		 end
+		 if ut_slot[you]>0:
+			clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$loc[you]>>']+=1&ut_slot[you]=0
+		 end
+		 if ul_slot[you]>0:
+			clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+		 end
+		 if ub_slot[you]>0:
+			clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+		 end
+		blockneed=2&gt $curloc
+	end
+end
+act'Спать':
+	:anothersleep
+		time+=60&gs'stat'&gs'walker'
+	if hour>=22 or hour<7:jump'anothersleep'
+	if blockneed=1 and pol[you]>0:'<center><video src="pic/event\sleepclo.webm" ></center>'&wait 500
+	if blockneed=1 and pol[you]=0:'<center><img src="pic/event/sleepmclo.jpg" ></center>'&wait 500
+	if vag[you]>0 and blockneed=2:
+		if inseminate[you]>0:
+			'<center><img src="pic/event/pregg<<rand(1,4)>>.jpg" ></center>'
+		else
+			if vag_tipe[you]=0:
+				'<center><img src="pic/event/sleep<<rand(1,4)>>.jpg" ></center>'
+			else
+				'<center><img src="pic/event/sleeph<<rand(1,4)>>.jpg" ></center>'
+			end	
+		end
+	else
+		if pol[you]>0:
+			'<center><img src="pic/event/sleep_s<<rand(1,2)>>.jpg" ></center>'
+		else
+			'<center><img src="pic/event/sleepm<<rand(1,2)>>.jpg" ></center>'
+		end
+	end
+	shower=0&sleep[you]=0&makeup[you]=0&gs'stat'
+	sleep[you]=0&if blockneed=1 or blockneed=2:energy[you]+=50&health[you]+=10
+	if manamax[you]>0:mana[you]+=soul[you]/2
+	if ballmax[you]>0:ball[you]=ballmax[you]
+	if hunger[you]<2:hunger[you]=2
+	if thirst[you]<2:thirst[you]=2
+	if pisswasser[you]>80:pisswasser[you]=80
+	gs'stat'&'Вы легли спать и быстро уснули.'&if blockneed=0:'Спать в одежде не очень удобно, но вам лень раздеваться.'
+	if inseminate[you]>0:
+		womenbrain[you]+=10&if pregnant_day[you]+270<sumdaystart  and (Z[you]=200 or Z[you]>=500):gt'rodi'
+		if pregnant_day[you]+9<daystart and Z[you]<500: gt'rodi'
+	end
+	 sleeptime=iif(hour>=22,bud+(24-hour),bud-hour)
+	 time+=sleeptime*60&nim=60-minut&time+=nim
+	if blockneed=1:health[you]+=50&energy[you]=energyMax[you]&mana[you]=manamax[you]&if ballmax[you]>0:ball[you]=ballmax[you]
+	act'Встать':blockneed=0&gt 'world'
+end
+act'Спать в одежде':gt'sleep_clo'
+if makeup[you]>0:'надо бы смыть макияж'
+if bud=0:bud=6&'Будильник установлен на <<bud+1>> часов'&act'Установка будильника':cls&bud=input("Установите время на будильнике. Час цифрой")&bud-=1&gt $curloc
+if horny[you]>=50:act'Мастурбировать':gt'mastr'&!gt'dream'
+!act'Встать':gt 'world'
+!if realexp[you]>=expneed[you] and muggle[you]=1:delact'Встать'&act'Встать':gt'reallevel'

@@ -1,0 +1,64 @@
+﻿if magicwater!1 and magicwater!2 and magicwater!3 and magicwater!4: magicwater=1
+$nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/misc/stone.jpg" ></center>'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+'На поляне круг из камней на которых выведены какие то руны. Из под камней бьют тонкие ключики и бегут в траве на юг.'&!алатырь камень
+if magik[you]>0 and thirst[you]>0:
+	  act'Выпить воды из родничка':
+		 health[you]=healthmax[you]&mana[you]=manamax[you]&if alatstone[you]=0:alatstone[you]=1&magik[you]+=1
+		 cls&gs'drink'&gs'stat'&'Зачерпнув воды и отхлебнув ее, вы чувствуете как сквозь вас проходит энергия восстанавливающая вас'
+		if rodnik_rune=daystart:
+			 feminize[you]+=rand(2,5)
+			 if magicwater!4:
+				magicwater+=1&'В воде сладковатый привкус, от которого в теле становиться горячо'
+			else
+				cunthair[you]=-50&face_hair[you]=-50&tit_hair_can[you]=-50&tit_hair[you]=-50&leg_hair_can[you]=-50&leg_hair[you]=-50&hlong[you]-=50
+				magicwater=1&'Неожиданно вы ощутили странную горечь во рту, а все тело едва не затрясло от омерзения и со всего вашего тела стали опадать волосы. '
+				'Чтобы вы ни выпили сейчас, это точно была не родниковая вода...'
+			end
+		else
+			'Есть что то волшебное в этой воде, и вы понимаете, что не стоит часто пить отсюда.'
+		end
+		rodnik_rune=daystart&act'Уйти':gt 'preloc'
+	end
+end
+if runemaster_spell[you]>0:
+	'Из камней в небо уходят столбы света с призрачными рунами.'
+     if rune_alef[you]>0:
+         if runealefday[you]=daystart:
+			'Вы не можете использовать руну Алеф сегодня'
+         else
+			 act'Руна Алеф':
+				 runealefday[you]=daystart&if potolok[you]>0 and potolok[you]<magik[you]:magik[you]+=1
+				 cls&gs'stat'&'Начертив руну на камне вы ощутили как получили доступ еще к одной линии силы'&act'Уйти':gt 'preloc'
+			 end
+         end
+     end
+     if rune_dar[you]>0:
+         if visionerday[you]=daystart:
+			'Вы не можете использовать руну Дар сегодня'
+         else
+			 act'Руна Дар':
+				 visionerday[you]=daystart&visioner[you]+=1&cls&gs'stat'&'Начертив руну на камне вы ощутили как усилили дар'&act'Уйти':gt 'preloc'
+			 end
+         end
+     end
+     if rune_fade[you]>0:
+         if soul[you]>=1000:
+			 act'Руна Фэд':
+				 soul[you]-=1000&falselife[you]+=1&cls&gs'stat'&'Начертив руну на камне вы ощутили как смерть отошла от вас на шаг и вы можете ожить после смерти один раз, но заплатили за это тысячей душ'
+				 'У вас <<falselife[you]>> ложных жизней в запасе'&act'Уйти':gt 'preloc'
+			 end
+         end
+     end
+     if rune_Dea[you]>0:
+		 act'Руна Клейма':
+			 cls&gs'stat'&act'Уйти':gt 'preloc'
+			 if DeaActTat=0:'Руна клейма активна. Униженные получают клеймо'
+			 if DeaActTat=1:'Руна клейма отключена. Униженные не получают клеймо'
+		     if DeaActTat=1:
+				act'Включить руну':DeaActTat=0&gt 'preloc'
+		     else
+				act'Выключить руну':DeaActTat=1&gt 'preloc'
+		     end
+		 end
+     end
+end

@@ -1,0 +1,10 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/loc/ras/car.jpg" ></center>'&'Ваша разбитая машина'
+gs'Item'&*pl''&gs 'npconloc'
+act'Отойти':gt 'preloc'
+if searshed['<<$loc[you]>>']=0:
+     act'Посмотреть содержимое багажника':
+		item_loc['<<64>>,<<$loc[you]>>']+=1&item_loc['<<2>>,<<$loc[you]>>']+=2&item_loc['<<13>>,<<$loc[you]>>']+=1&item_loc['<<34>>,<<$loc[you]>>']+=1&item_loc['<<65>>,<<$loc[you]>>']+=1
+		searshed['<<$loc[you]>>']+=1&cls&gt'preloc'
+     end
+end

@@ -1,0 +1,13 @@
+﻿gs'stat'&horny[npc]=0&headhunterQW=100&gs'npcbase'
+'<<$nick[npc]>> хрипит от боли и сжав зубы говорит - Ты ждешь от меня мольбы о пощаде? Напрасно! Я сочиню свой дзисей.'
+'До чего же хорошо,
+Мысли очистив,
+Тело отбросив, как ветошь,
+Любоваться ясной луной,
+В безоблачном небе плывущей.'&*nl'Такемура вонзает себе в живот свой клинок и убивает себя'
+act'...':
+	cls&item_loc_t['<<t_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_l['<<l_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_b['<<b_slot[npc]>>,<<$loc[you]>>']+=1
+	 if m_slot[npc]>0:item_loc['<<m_slot[npc]>>,<<$loc[you]>>']+=1
+	 if w_slot[npc]>0:item_loc['<<w_slot[npc]>>,<<$loc[you]>>']+=1
+	 dead[npc]=2&reward[you]+=rand(250000,2500000)&gt'preloc'&!murderer[you]+=1&magik_exp[you]+=1
+end

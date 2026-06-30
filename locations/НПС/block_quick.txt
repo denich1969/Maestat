@@ -1,0 +1,47 @@
+﻿$d_goquick={
+	 act'Идти в туалет':
+		if Z[you]=1:X=1&Y=1&Z=1&H=1&R=2
+		if Z[you]=2:X=2&Y=1&Z=2&H=2&R=1
+		if Z[you]=3:X=3&Y=3&Z=3&H=1&R=5
+		if Z[you]=4:X=4&Y=0&Z=4&H=1&R=0
+		if Z[you]=5:X=1&Y=1&Z=5&H=6&R=1
+		X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R&cls&corr[you]+=5&gs'add_sex_stat', you, npc
+		horny[npc]=0&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
+		$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой хуй в туалете'
+		$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> натолкал мне в рот в туалете.'
+		bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1&time+=15&gs'stat'&$func('get_images', 'toilet_blow', you, npc)
+		'Вы вошли в туалет и убедившись что тут никого нет сели на корточки перед мужчиной и <<$name[npc]>> расстегнул ширинку и вытащил свой член. '
+		'Устроившись по удобнее, что бы не плюхнутся задом на пол туалета вы взялись за бедра парня и взяли его член в рот. '
+		'Привычными движениями вы начали сосать хуй стараясь при этом покрепче его сжимать губами и не издавать звуков. Хотя иногда громкие сосущие звуки непроизвольно вырывались из вашего рта.'
+		 act'Сосать':
+			empty_ball[npc]=time+(60*10)&cls&gs'stat'&$func('get_images', 'swallow', you, npc)&'<<$name[npc]>> кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
+			 act'Встать':gt'preloc'
+		 end
+	 end}
+if UCASE($ARGS[0])='GIVE_BJ':
+	act'Идти в туалет':
+		if Z[you]=1:X=1&Y=1&Z=1&H=1&R=2
+		if Z[you]=2:X=2&Y=1&Z=2&H=2&R=1
+		if Z[you]=3:X=3&Y=3&Z=3&H=1&R=5
+		if Z[you]=4:X=4&Y=0&Z=4&H=1&R=0
+		if Z[you]=5:X=1&Y=1&Z=5&H=6&R=1
+		X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R&cls&corr[you]+=5&gs'add_sex_stat', you, npc
+		horny[npc]=0&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
+		$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой хуй в туалете'
+		$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> натолкал мне в рот в туалете.'
+		bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1&time+=15&gs'stat'&$func('get_images', 'toilet_blow', you, npc)
+		'Вы вошли в туалет и убедившись что тут никого нет сели на корточки перед мужчиной и <<$name[npc]>> расстегнул ширинку и вытащил свой член. '
+		'Устроившись по удобнее, что бы не плюхнутся задом на пол туалета вы взялись за бедра парня и взяли его член в рот. '
+		'Привычными движениями вы начали сосать хуй стараясь при этом покрепче его сжимать губами и не издавать звуков. Хотя иногда громкие сосущие звуки непроизвольно вырывались из вашего рта.'
+		act'Сосать':
+			empty_ball[npc]=time+(60*10)&cls&gs'stat'&$func('get_images', 'swallow', you, npc)&'<<$name[npc]>> кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
+			act'Встать':gt'preloc'
+		end
+	end
+end
+if oral_fixation[you]>=100 and pol[you]>0 and dick[npc]>1 and Z[you]>=1 and Z[you]<=5 and UCASE($ARGS[0])!'GIVE_BJ':
+     act'Хочешь я отсосу у тебя?':
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Ты чудо, детка.'&dynamic $d_goquick
+		act'Хотя я передумала':gt'preloc'
+     end
+end

@@ -1,0 +1,58 @@
+﻿mainloc=1&!цвет экрана в зависимости от времени суток
+if hour = 0:
+	FColor = RGB(255,255,255)&BColor = RGB(0,0,0)
+elseif hour = 1:
+	FColor = RGB(255,255,255)&BColor = RGB(5,5,5)
+elseif hour = 2:
+	FColor = RGB(255,255,255)&BColor = RGB(10,10,10)
+elseif hour = 3:
+	FColor = RGB(255,255,255)&BColor = RGB(30,15,15)
+elseif hour = 4:
+	FColor = RGB(255,255,255)&BColor = RGB(60,20,20)
+elseif hour = 5:
+	FColor = RGB(255,255,255)&BColor = RGB(100,40,40)
+elseif hour = 6:
+	FColor = RGB(0,0,0)&BColor = RGB(200,100,100)
+elseif hour = 7:
+	FColor = RGB(0,0,0)&BColor = RGB(250,150,150)
+elseif hour = 8:
+	FColor = RGB(0,0,0)&BColor = RGB(250,200,200)
+elseif hour = 9:
+	FColor = RGB(0,0,0)&BColor = RGB(250,245,245)
+elseif hour = 10:
+	FColor = RGB(0,0,0)&BColor = RGB(255,250,250)
+elseif hour = 11:
+	FColor = RGB(0,0,0)&BColor = RGB(255,255,255)
+elseif hour = 12:
+	FColor = RGB(0,0,0)&BColor = RGB(255,255,255)
+elseif hour = 13:
+	FColor = RGB(0,0,0)&BColor = RGB(255,255,255)
+elseif hour = 14:
+	FColor = RGB(0,0,0)&BColor = RGB(255,250,250)
+elseif hour = 15:
+	FColor = RGB(0,0,0)&BColor = RGB(255,245,245)
+elseif hour = 16:
+	FColor = RGB(0,0,0)&BColor = RGB(250,240,240)
+elseif hour = 17:
+	FColor = RGB(0,0,0)&BColor = RGB(250,230,230)
+elseif hour = 18:
+	FColor = RGB(0,0,0)&BColor = RGB(250,220,220)
+elseif hour = 19:
+	FColor = RGB(0,0,0)&BColor = RGB(250,210,210)
+elseif hour = 20:
+	FColor = RGB(0,0,0)&BColor = RGB(250,200,200)
+elseif hour = 21:
+	FColor = RGB(0,0,0)&BColor = RGB(250,150,150)
+elseif hour = 22:
+	FColor = RGB(255,255,255)&BColor = RGB(25,25,25)
+elseif hour = 23:
+	FColor = RGB(255,255,255)&BColor = RGB(5,5,5)
+end
+!'
+if hour=8 and minut<=50 and seevonce!daystart:
+	seevonce=daystart&'<b>Среди темного неба на своем обычном месте пульсируя разгорается малиновый шар который разгорелся так, что смотреть на него стало больно. Начался новый день.</b>'
+end
+if hour=21 and minut<=50 and seezonce!daystart:
+	seezonce=daystart&'<b>Яркое солнце запульсировало и начало медленно гаснуть. Началась темная, непроглядная ночь с абсолютно черным, беззвездным небом.</b>'
+end
+'

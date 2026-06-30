@@ -1,0 +1,51 @@
+﻿$npc_loc=''&$deadnpc_loc=''&aggressor=0
+i=1&npcmax=arrsize('$name')&total_npc_on_loc=0&tent_want=0&slut_want=0
+:marknpclocall
+if i!you and dead[i]=0 and $name[i]!'':
+	num=i&gs'body'&$fullname[i]=$name[i]+' '+$surname[i]
+	if $nick[i]!'':$fullname[i]=$nick[i]
+	if $nick[i]!'':$fullname[i]=$nick[i]
+	if $nick[i]!'' and know['<<i>>,<<you>>']=0:$nick[i]=$nick[i]
+	if $nick[i]!'' and know['<<i>>,<<you>>']>0:$nick[i]=$fullname[i]																										
+	$status[i]=''&gs'subview'&total_npc_on_loc+=1
+	if mob_busy[i]=0:
+		 $doing[i]=''
+		 if mob_sleep[i]>time:$doing[i]+=' пребывает в задумчивости'
+		 if mob_busy[i]>0:$doing[i]+=' пребывает в задумчивости'
+		 if master[you]>0:$doing[i]+=' Циклов <<walkOBR[w]>>. <b><<i>></b>(<<X[i]>>-<<Y[i]>>-<<Z[i]>>-<<H[i]>>-<<R[i]>>) <<$think[i]>> (<<horny[i]>> возбуждение) (<<corr[i]>> испорченность) Назначение <<$destination[i]>>. Движ <<walkprog[i]>>. Работа <<work[i]>>'
+		 if i!you and dead[i]=0 and cantwalk[i]=0 and follower[i]=0 and Z[i]=Z[you] and master[you]>0:$doing[i]+=' (Обработка <<rvrsd[i]>>)'
+		 if i!you and dead[i]=0 and cantwalk[i]>0 and follower[i]=0 and Z[i]=Z[you] and master[you]>0:$doing[i]+=' (Не может ходить)'
+		 if i!you and dead[i]=0 and cantwalk[i]=0 and follower[i]>0 and Z[i]=Z[you] and master[you]>0:$doing[i]+=' (Следует)'
+		 if mob[i]=0:
+			 $npc_loc+='<br>'
+			 if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''mastergonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<a href="exec:gt ''mastergonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<a href="exec:gt ''mastergonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<a href="exec:gt ''mastergonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
+			 if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
+			 $npc_loc+=' (<<$lname[''<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'']>>)'
+			 end
+			 if mob[i]>0:
+			 $npc_loc+='<br>'
+			 if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$fullname[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]!'' and $nick[i]='':$npc_loc+='<a href="exec:gt ''mastergonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $nick[i]='':$npc_loc+='<a href="exec:gt ''mastergonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $nick[i]!'':$npc_loc+='<a href="exec:gt ''mastergonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
+			 if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
+			 $npc_loc+=' (<<$lname[''<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'']>>)'
+	     end
+	 else
+	     if dick[i]>1:$npc_loc+='<br>'&subb=under_sub[i]&$npc_loc+='<a href="exec:gt ''gonpcsex'',<<i>>,<<subb>>"><b><b><<$nick[i]>> трахает шлюху. <<$nick[subb]>> громко стонет</b></a>'
+	     if vag[i]>=1:
+			 $npc_loc+='<br>'&subb=under_sub[i]
+	         if dick[subb]>1:$npc_loc+='<a href="exec:gt ''gonpcfemdom'',<<i>>,<<subb>>"><b><b><<$nick[i]>> доминирует над мужчиной</b></a>'
+	         if vag[subb]>=1:$npc_loc+='<a href="exec:gt ''gonpclezdom'',<<i>>,<<subb>>"><b><b><<$nick[i]>> доминирует над женщиной</b></a>'
+	     end
+	 end
+end
+if i!you and dead[i]=1 and $name[i]!'':
+	$fullname[i]=$name[i]+' '+$surname[i]&if $nick[i]!'':$fullname[i]=$nick[i]
+     $deadnpc_loc+='<br>'&$deadnpc_loc+='<a href="exec:gt ''godeadnpc'',<<i>>"><<$fullname[i]>></a> (Мертвое тело)'
+end
+i+=1&if i<=npcmax:jump'marknpclocall'
+*nl ''&'<<$npc_loc>>'&*nl ''&'<<$deadnpc_loc>>'&act'<b>Уйти</b>':gt 'preloc'

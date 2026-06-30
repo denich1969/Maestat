@@ -1,0 +1,6 @@
+﻿rash=0
+if item[19]>0:rash=19
+if item[18]>0 and rash=0:rash=18
+if item[17]>0 and rash=0:rash=17
+item[rash]-=1&burden[you]-=item_burden[rash]
+rash+=1&if rash<=19:item[rash]+=1&burden[you]+=item_burden[rash]

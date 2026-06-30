@@ -1,0 +1,21 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Маяк'&maxPositionR['<<$templocH>>']=3&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+$locopis['<<$temploc>>']='Винтовая лестница ведущая через башню маяка на верхнюю площадку.'
+np['<<$temploc>>']=59
+mirror['<<$temploc>>']=0
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Жилая комната'
+$locname['<<$temploc>>']='Жилая комната'&$lname['<<$temploc>>']='Жилая комната'&$lname_go['<<$temploc>>']='в жилую комнату'
+$locopis['<<$temploc>>']='Тесная жилая комната в маяке.'
+np['<<$temploc>>']=58
+mirror['<<$temploc>>']=1
+gs'lighthousekeeper_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'lhceeperdot_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+R=2&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+$locopis['<<$temploc>>']='Обыкновенный туалет на маяке'
+np['<<$temploc>>']=60
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Фонарь маяка'
+$locname['<<$temploc>>']='Фонарь маяка'&$lname['<<$temploc>>']='Фонарь маяка'&$lname_go['<<$temploc>>']='на фонарную площадку маяка'
+$locopis['<<$temploc>>']='Огромная лампа освещающая путь'
+np['<<$temploc>>']=61

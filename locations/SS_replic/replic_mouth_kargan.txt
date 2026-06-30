@@ -1,0 +1,16 @@
+﻿if $args[2]='before':dynamic $replic_face_default_before[rand(arrsize('replic_face_default_before')-1)],args[0],args[1]
+if $args[2]='cum':
+	args[20]=arrsize('replic_mouth_default_cum')&!реплики по умолчанию
+	if GF_whore>3:args[20]+=arrsize('replic_mouth_kargan_cum')
+	if GF_whore>10:args[20]+=arrsize('replic_mouth_kargan_cum1')
+	args[21]=rand(args[20]-1)&if args[21]<arrsize('replic_mouth_default_cum'):dynamic $replic_mouth_default_cum[args[21]],args[0],args[1]&exit
+	args[21]-=arrsize('replic_mouth_default_cum')
+	if GF_whore>3:
+		if args[21]<arrsize('replic_mouth_kargan_cum'):dynamic $replic_mouth_kargan_cum[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_mouth_kargan_cum')
+	end	
+	if GF_whore>10:
+		if args[21]<arrsize('replic_mouth_kargan_cum1'):dynamic $replic_mouth_kargan_cum1[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_mouth_kargan_cum1')
+	end	
+end

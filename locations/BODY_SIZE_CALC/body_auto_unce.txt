@@ -1,0 +1,8 @@
+﻿gs'body_size',args[0]
+args[21]=1
+if mus[args[0]]!musNorm[args[0]]:
+	mus[args[0]]=musNorm[args[0]]
+end
+if fat[args[0]]!fatNorm[args[0]]:
+	fat[args[0]]=fatNorm[args[0]]
+end

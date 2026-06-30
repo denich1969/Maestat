@@ -1,0 +1,36 @@
+﻿gs'stat'&'<center><img src="pic/face/5/73.jpg" ></center>'&'Рэйчел Батори из старинного рода Батори, владеющая хлебозаводом.'
+act'Следующая страница':
+	horny[you]+=20&cls&'<center><img src="pic/event/book/00.jpg" ></center>'&'Рэйчел посещала клуб Преисподняя где сосала у всех желающих.'&act'Закрыть':gt'preloc'&!fembatory
+     act'Следующая страница':
+		horny[you]+=20&cls&'<center><img src="pic/event/book/01.jpg" ></center>'&'Рэйчел сделали маску для лица из спермы десятка мужчин.'&act'Закрыть':gt'preloc'&!fembatory
+		 act'Следующая страница':
+			cls&'<center><img src="pic/face/5/44.jpg" ></center>'&'Муза Мелроуз, жена известного на весь город диджея.'&act'Закрыть':gt'preloc'&!fembatory
+			 act'Следующая страница':
+				horny[you]+=20&cls&'<center><img src="pic/event/book/10.jpg" ></center>'&'Муза отсасывала Леону Брокку в туалете клуба, пока ее муж играл там музыку.'&act'Закрыть':gt'preloc'
+				 act'Следующая страница':
+					horny[you]+=20&cls&'<center><img src="pic/event/book/11.jpg" ></center>'&'Муза ублажала Мабуту пока муж играл в клубе.'&act'Закрыть':gt'preloc'
+					 act'Следующая страница':
+						cls&'<center><img src="pic/face/5/77.jpg" ></center>'&'Люси Ландриган, жена великого мастера телепортации и покровительница картинной галереи.'&act'Закрыть':gt'preloc'
+						act'Следующая страница':
+							 horny[you]+=20&cls&'<center><img src="pic/event/book/20.jpg" ></center>'&'Люси оральная шлюха чей рот в свободное время обслуживает все глорихолы города.'&act'Закрыть':gt'preloc'
+							 act'Следующая страница':
+							 horny[you]+=20&cls&'<center><img src="pic/event/book/21.jpg" ></center>'&'Недавно Люси поставила рекорд отсосав свой сотый член через дырку в туалете.'
+							 act'Закрыть':gt'preloc'
+							     if H[you]>0 and total_npc_on_loc=0 and vag[you]>0:
+							     'Вы чувствуете как у вас между ног намокло и приятный зуд внизу живота заставляет вас потрогать себя между ног'
+							         act'Потрогать':
+										 horny[you]=0&jerk[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/solo/book.webm" ></video></center>'
+										 'Вы трогаете себя внизу и внезапно для себя упираетесь книжкой себе в разбухшую письку и начинаете ее тереть.'
+							             if goodoldtimesQW=1:goodoldtimesQW=2&item[141]+=1&'Из книжки выпадает записка.'&corr[you]+=5
+										'Вы кончаете представляя при этом как большой и узловатый член входит между ваших губ.'&act'Закрыть':gt'preloc'
+							         end
+							     end
+							 end
+						 end
+					 end
+				 end
+			 end
+		 end
+	 end
+end
+act'Закрыть':gt'preloc'

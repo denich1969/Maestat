@@ -1,0 +1,8 @@
+﻿status_tipe[you]=1
+status_time[you]=time+120
+cum_face[you]=0
+spit_face[you]=0
+cum_clo[you]=0
+peecover[you]=0
+fishsmell[you]=0
+gt'preloc'

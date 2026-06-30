@@ -1,0 +1,4 @@
+﻿if need_tdil=0:need_tdil=rand(1,3)
+total_dilamina+=1&!tommysolomon
+if vag[you]>0 and total_dilamina>need_tdil and dilamina_lezdomQW[you]=0 and know['<<tommysolomon>>,<<you>>']>0 and sexpartner['<<tommysolomon>>,<<you>>']=0 and dead[tommysolomon]=0 and bogart_slut_reit[you]>0:npc=tommysolomon&num=tommysolomon&gt'dilamina_lezdom'
+gt'preloc'

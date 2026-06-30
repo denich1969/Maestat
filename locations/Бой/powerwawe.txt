@@ -1,0 +1,40 @@
+﻿gs'stat'&'Вы бьете силовой волной'&if powerwawe_spell[you]<100:powerwawe_spell[you]+=1
+mana[you]-=10&hod=1&uron=(powerwawe_spell[you]*magik[you])/2&if uron<1:uron=1
+if superslut[you]=1:uron=uron+(uron/10)
+popad=0&percentV=reactV*20/100&defV=rand(reactV-percentV,reactV+percentV)&if invisibleV>0:defV=defV+(invisibleV*3)
+percent=react[you]*20/100&atk=rand(react[you]-percent,react[you]+percent)&atk=atk+(fight_skill[you]/10)
+if def_tipeV=0:'<<$name[npc]>> пытается увернутся'&popad=iif(defV<=atk,1,iif(rand(0,2)=2,1,0))
+if def_tipeV=1:'<<$name[npc]>> даже не пытается защищаться'&popad=1
+if uskor>0:popad=1
+if stunV>0:stunV-=1&popad=2
+if portal_defV>0:
+	'Ваш удар попадает в портал и никакого вреда не наносит'
+else
+	if blunt_resist=1:
+		'<<$name[npc]>> не обращает внимания на ваш удар'
+	else
+		 if popad>=1:
+			 if clonV>0:
+				clonV-=1&'Вы попадаете в клона и клон рассеивается'
+			 else
+				 if uron<1:uron=1
+				 if superslut[you]=1:uron=uron+(uron/10)
+				 if popad=2:uron=uron*2
+				 if defenceV>0:
+					 if defenceV<uron:
+						uron-=defenceV&defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
+						if defenceV>0:'Вы разбиваете защиту противника'
+						if popad=2:'Критическое попадание'
+					 else
+						defenceV-=uron&'Защита противника полностью поглощает урон и снижается теряя прочность'
+					 end
+				 else
+					'<<$name[npc]>> получает <<uron>> единиц урона'&health[npc]-=uron&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
+				 end
+			 end
+		else
+			'<<$name[npc]>> избегает урона'
+		end
+	end
+end
+gs'stat'&act'Далее':gt'fight'

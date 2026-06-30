@@ -1,0 +1,57 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Барная стойка в "Шепоте"'&gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'
+if sallivan_work=1:
+	 if hour>=9 and hour<=21:
+	     if energy[you]>=20:
+			 act'Работать час':
+				 barwork+=1&time+=60&cls&gs'stat'
+				 $text=$iif(pol[you]=0 and face[you]<60,'помощником бармена'&'<center><img src="pic/misc/officiant.jpg" ></center>','помощницей бармена'&'<center><img src="pic/misc/officiantka.jpg" ></center>')
+				 if total_npc_on_loc>0:
+					 energy[you]-=(20+total_npc_on_loc*2)&money[you]+=sallivansalary
+					 'Вы работаете <<$text>>, принимая заказы у посетителей, и разнося им готовые блюда, вытирая столы и выполняя несложные поручения от Салливана. '
+					'За час работы вы получаете <<sallivansalary/100>> шиллингов и <<sallivansalary mod 100>> пенсов.'
+					 if pol[you]>0:chai=total_npc_on_loc*rand(5,35)
+					 if pol[you]=0:chai=total_npc_on_loc*rand(1,10)
+					 money[you]+=chai&ExpWorkSallivan+=1&gs'stat'&'Клиенты нехотя оставляют вам <<chai/100>> шиллингов и <<chai mod 100>> пенсов чаевых'
+				 else
+					energy[you]-=20&money[you]+=sallivansalary&'Клиентов в баре нет и вы работаете только на кухне и по уборке, получая <<sallivansalary/100>> шиллингов и <<sallivansalary mod 100>> пенсов.'
+				 end
+				 if sallivansex=1 and rand(0,9)>3:
+					'Когда вы заканчивали, то заметили, что Салливан кивнул вам в сторону подсобки и удалился в неё же.'
+					act'Идти к Салливану':
+						horny[you]=100&gs'soulcraft'&dom[you]-=1&womenbrain[you]+=1&time+=15&sexpartner['<<sallivan>>,<<you>>']+=1&sexpartner['<<you>>,<<sallivan>>']+=1
+						if vag[you]<1:
+							if rand(1,2)=1:
+								anus[you]+=1&cls&'<center><video src="pic/event/Sallivan/t1.webm" ></video></center>'
+								'Салливан встретил вас в коморке и по-хозяйски раздел и, уложив на стол, стал драть вас в зад, пока не заполнил его своей спермой. Вам кончить при этом не удалось...'
+							else
+								oral_fixation[you]+=1&bj[you]+=1&cls&'<center><video src="pic/event/Sallivan/t2.webm" ></video></center>'
+								'Салливан встретил вас в коморке и по-хозяйски раздел и заставил вас отсасывать ему, пока не наполнил спермой ваш рот. Вам же только оставалось проглотить результы его трудов и уйти.'
+							end
+						else
+							rndbar=rand(1,3)
+							if rndbar=1:	
+								cls&'<center><video src="pic/event/Sallivan/dog<<rand(1,3)>>.webm" ></video></center>'
+								'Салливан встретил вас в коморке и по-хозяйски поставил раком и начал размеренно трахать в свое удовольствие, пока не кончил в вашу расстраханную пизду. '
+								'Вас же эта участь не постигла.'&vag[you]+=1&insemrand=rand(0,10)&if inseminate[you]=0 and insemrand=10:father_you_child=sallivan&gs'preggo'						
+							end
+							if rndbar=2:
+								oral_fixation[you]+=1&bj[you]+=1
+								cls&'<center><video src="pic/event/Sallivan/face1.webm" ></video></center>'
+								'Салливан встретил вас в коморке, поставил на колени и сходу вогнал свой член вам в рот, пока не наполнил спермой ваш рот. '
+								'Вам же только оставалось проглоть результыт его трудов и уйти.'
+							end
+							if rndbar=3:
+								cls&'<center><video src="pic/event/Sallivan/an1.webm" ></video></center>'
+								'Салливан встретил вас в коморке, посадил на свой стол и оголив вашу задницу, стал трахать вас в очко, '
+								'не заботясь ни о вашем удовольствии, ни о нормах приличя, называя вас анальной шлюхой. '&anus[you]+=1
+							end
+						end
+						horny[sallivan]=0&gs'stat'&act'Уйти':gt $curloc
+					end					
+				 else
+					act'Передохнуть':gt $curloc
+				 end
+			 end
+		 end
+	 end
+end

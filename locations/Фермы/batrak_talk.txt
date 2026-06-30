@@ -1,0 +1,13 @@
+﻿if horny[npc]>=50:
+	'<<$nick[npc]>> похотливо осматривает вас - Эй, белая шлюха, я хочу трахнуть тебя.'
+	 act'Я тебе дам, только будь нежнее':friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+else
+	'<<$nick[npc]>> равнодушно смотрит на вас.'&act'<b>Уйти</b>':gt 'preloc'
+ 	if know['<<npc>>,<<you>>']=0:
+		act'Познакомиться':
+			 know['<<npc>>,<<you>>']+=1
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> говорит что он лесной волк и его зовут <<$name[npc]>> <<$surname[npc]>>.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+end
+

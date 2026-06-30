@@ -1,0 +1,19 @@
+﻿if lauraQW=0:
+	i=npcmaxnum+1&npcmaxnum+=1&num=i&human[]=i&laura=npcmaxnum
+	spec_face_pic[i]=5&face_pic[i]=163&!face_npc[i]=1&face_pic[i]=21
+	gs'female_gen'&$name[i]='Лаура'&$surname[i]='Гейс'&$nick[i]='Красноволосая девушка. '
+	face[i]=100&gla[i]=3&glacol[i]=4&lips[i]=2&nose[i]=1&scull[i]=0&cheeks[i]=0
+	rost[i]=1750&fat[i]=1000&mus[i]=800&skin[i]=0&preskin[i]=1
+	dick[lillith]=27&dickd[lillith]=52&ball[lillith]=100&vag[i]=1&anus[i]=0&ass[i]=38&tits[i]=25
+	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=35&curl[i]=0&hcol[i]=5
+	age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40
+	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	pol[i]=1&gs'body'&total_generated_female+=1&!gs'body_auto',i,'old_npc_once'
+	womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=100&!характер
+	h_slot[i]=0
+	c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
+	t_slot[i]=4&l_slot[i]=3&b_slot[i]=6
+	ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=2
+	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=0
+	se_lighthouse[]=i&!walkprog[i]=1&!npcii[i]=1
+end

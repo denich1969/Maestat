@@ -1,0 +1,25 @@
+﻿!позволяет запускать произвольный код через окно ввода, требует в стартовой локации $usercom = 'inputTEXT'
+dynamic $user_text
+
+!Список измененных локаций
+!stat
+!telephone_contact
+!grindnpc
+!
+!autodoc
+!----
+!prestory 153
+!npc  14
+!portal
+!Connection
+!body_stat
+!ac_anal
+!ac_blow
+!=========
+!GeoMap
+!TechLoc
+!CHEATS
+!=========
+!init
+!mapwatch
+!moonqwportret

@@ -1,0 +1,179 @@
+﻿act'Щупать':
+     if lust[npc]>=75:flirt_point[npc]+=2
+     if lust[npc]>=50:flirt_point[npc]+=1
+     if horny[npc]>=50:flirt_point[npc]+=3
+	 if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
+	 if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
+	 if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
+	 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+	 if (wife[you]=npc or husband[npc]=you) or (wife[npc]=you or husband[you]=npc)  or (girlfriend[you]=npc or boyfriend[npc]=you)  or (girlfriend[npc]=you or boyfriend[you]=npc):
+		horny[you]+=10
+		if pol[npc]=1:'<<$name[npc]>> хихикает, когда вы щупаете её выпуклости - Ой, ну что ты делаешь?'
+		if pol[npc]=0:'<<$name[npc]>> улыбается, когда вы гладите его между ног - ну, и что будем делать?'
+		if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
+		if horny[npc]>=50 and dick[you]=0:gs'take_follower'&!позвать с собой персонажа
+	else
+		 if selfrespect[npc]=2:
+			 need_fp=10
+			 if Z[npc]=1:need_fp=10-port_repa[you]
+			 if Z[npc]=2:need_fp=3-black_repa[you]
+			 if Z[npc]=3:need_fp=10-gilmassive_repa[you]
+			 if Z[npc]=4:need_fp=10-uptown_repa[you]
+			 if Z[npc]=5:need_fp=10-downtown_repa[you]
+			 if Z[npc]=200:need_fp=3-megapolis_repa[you]
+			 if mysubslut[npc]>=1:need_fp=1
+			 if need_fp<1:need_fp=1
+			 if flirt_point[npc]>=need_fp:
+				flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&horny[you]+=10
+				if pol[npc]=1:'<<$name[npc]>> хихикает когда вы щупаете ее выпуклости - Ой, ну что ты делаешь?'
+				if pol[npc]=0:'<<$name[npc]>> улыбается, когда вы гладите его между ног - ну, и что будем делать?'
+				 if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
+				 if horny[npc]>=50 and dick[you]=0:gs'take_follower'&!позвать с собой персонажа
+			 else
+				flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+			 end
+		 end
+		 if selfrespect[npc]=1:
+			 need_fp=6
+			 if Z[npc]=1:need_fp=6-port_repa[you]
+			 if Z[npc]=2:need_fp=3-black_repa[you]
+			 if Z[npc]=3:need_fp=10-gilmassive_repa[you]
+			 if Z[npc]=4:need_fp=6-uptown_repa[you]
+			 if Z[npc]=5:need_fp=6-downtown_repa[you]
+			 if Z[npc]=200:need_fp=10-megapolis_repa[you]
+			 if mysubslut[npc]>=1:need_fp=1
+			 if need_fp<1:need_fp=1
+			 if flirt_point[npc]>=need_fp:
+				flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&horny[you]+=10&'<<$name[npc]>> хихикает когда вы щупаете ее выпуклости - Ой, ну что ты делаешь?'
+				if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
+			 else
+				flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+			 end
+		 end
+		 if selfrespect[npc]=0:
+			 need_fp=3
+			 if Z[npc]=1:need_fp=3-port_repa[you]
+			 if Z[npc]=2:need_fp=3-black_repa[you]
+			 if Z[npc]=3:need_fp=10-gilmassive_repa[you]
+			 if Z[npc]=4:need_fp=3-uptown_repa[you]
+			 if Z[npc]=5:need_fp=3-downtown_repa[you]
+			 if Z[npc]=200:need_fp=10-megapolis_repa[you]
+			 if mysubslut[npc]>=1:need_fp=1
+			 if need_fp<1:need_fp=1
+			 if flirt_point[npc]>=need_fp:
+				 flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&horny[you]+=10&'<<$name[npc]>> хихикает когда вы щупаете ее выпуклости - Ой, ну что ты делаешь?'
+				 if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
+			 else
+				flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+			 end
+		 end
+	end
+	act'<b>Уйти</b>':gt 'preloc'
+end
+if mysubslut[npc]>=1 and pol[npc]>0 and slave[npc]!you:
+     if slave[npc]=0 and item_h[6]>0 and soul[you]>100 and agro[npc]<50:
+		 act'Уговорить стать рабыней (100 души и кожанный ошейник)':
+			 soul[you]-=100&soul[npc]+=100&item_h[6]-=1&h_slot[npc]=6&slave[npc]=you&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&!нпс покорная дырка
+			 '<<$name[npc]>> соглашается стать рабыней и одевает ошейник соглашаясь стать вашей рабыней'&act'Уйти':gt'preloc'
+		 end
+	 end
+     if slave[npc]=0 and item_h[7]>0 and soul[you]>100 and agro[npc]<50:
+		 act'Уговорить стать рабыней (100 души и металический ошейник)':
+			 soul[you]-=100&soul[npc]+=100&item_h[7]-=1&h_slot[npc]=7&slave[npc]=you&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> соглашается стать рабыней и одевает ошейник соглашаясь стать вашей рабыней'&act'Уйти':gt'preloc'
+		 end
+	 end
+     if statist[npc]=1 and husband[npc]!you:
+		 act'<b>Продать в шлюхи Торнтону</b>':
+			 mywhoreformoney[npc]=0&slave[npc]=tornton&X=3&Y=0&Z=1&H=3&R=0&time+=30&cls&gs'multi_world'
+			 Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R&X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
+			 if thenoob[npc]=1:
+				$history[npc]='Я попала в этот город, доверилась тебе, а ты продал меня Торнтону в бордель.'
+			 else
+				$history[npc]='Я думала что сумела приспособиться в этом городе, но доверилась тебе, а ты продал меня Торнтону в бордель.'
+			 end
+			 if stamp_t[npc]=0:stamp_t[npc]=rand(1,4)&t_slot[npc]=rand(31,36)&l_slot[npc]=rand(15,22)&b_slot[npc]=rand(8,11)
+			 whore[npc]+=1&port_whore[npc]=1&lust[npc]=100&agro[npc]=0&walkprog[npc]=31&money[you]+=25000&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 'Вы отвели девушку в бордель Торнтона и продали ее в шлюхи за 250 шиллингов.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if soulMG[you]>0 and soul[you]>=10:
+	 act'Подарить часть души':
+		 soul[you]-=5&soul[npc]+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы даете девушке частичку своей души'
+		 if selfrespect[npc]=2:
+			flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=5&friends['<<you>>,<<npc>>']+=5&'<<$name[npc]>> принимает ваш подарок как должное, но видно что она польщена.'
+		 else
+		     if selfrespect[npc]=1:
+				 flirt_point[npc]+=5&friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10
+             end
+		     if selfrespect[npc]=0:
+				 flirt_point[npc]+=10&friends['<<npc>>,<<you>>']+=25&friends['<<you>>,<<npc>>']+=25
+             end
+			'<<$name[npc]>> смотрит на вас широко открытыми глазами и благодарит.'
+		 end
+		act'<b>Уйти</b>':gt 'preloc'
+	 end
+end 
+if flirt_tipe_time[npc]<time:
+	 act'Хвалить':
+		 if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
+		 if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
+		 if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
+		 flirt_tipe_time[npc]=time+60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 if selfrespect[npc]=2:
+			flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&'<<$name[npc]>> задирает нос от похвалы.'
+		 else
+			flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> смущается от похвалы.'
+		 end
+		act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Давить':
+		 if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
+		 if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
+		 if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
+		 flirt_tipe_time[npc]=time+60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 if selfrespect[npc]=0:
+			flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&'<<$name[npc]>> выглядит испуганной.'
+		 else
+			flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> хмурится.'
+		 end
+		act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Шутить':
+		 if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
+		 if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
+		 if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
+		 flirt_tipe_time[npc]=time+60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 if positiv[npc]=2:
+			flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&'<<$name[npc]>> искренне смеется над вашими остротами.'
+		 else
+			flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> хихикает из вежливости слушая вас.'
+		 end
+		act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Романтика':
+		 if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
+		 if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
+		 if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
+		 flirt_tipe_time[npc]=time+60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 if ratio[npc]=0:
+			flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&'<<$name[npc]>> увлеченно хлопает глазками пока вы ей рассказываете романтичные бредни.'
+		 else
+			flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> усмехается слушая ваши романтичные бредни.'
+		 end
+		act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 act'Хвастать':
+		 if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
+		 if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
+		 if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
+		 flirt_tipe_time[npc]=time+60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 if brave[npc]=0:
+			flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&'<<$name[npc]>> внимательно слушает вас чуть ли не заглядывая вам в рот.'
+		 else
+			flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> слушает ваше хвастовство в пол уха.'
+		 end
+		act'<b>Уйти</b>':gt 'preloc'
+	 end
+end

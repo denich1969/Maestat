@@ -1,0 +1,278 @@
+﻿X=0&Y=0&Z=410&Xmax[Z]=10&Ymax[Z]=10
+$n_board[Z]='Болота'&$w_board[Z]='Горы'&$e_board[Z]='Трещина в земле за которой видны кукурузные поля'&$s_board[Z]='Горы'
+:markgenworldONE
+if X=0 or Y=0:
+     $locname['<<$temploc>>']='Предгорье'&$lname['<<$temploc>>']='Предгорье'&$locopis['<<$temploc>>']='Зеленый яркий лес растущий у подножия горного хребта'
+	 np['<<$temploc>>']=rand(573,580)
+elseif X=10 and Y<10 and Y!8:
+     $locname['<<$temploc>>']='Разлом'&$lname['<<$temploc>>']='Разлом'&$locopis['<<$temploc>>']='Глубокая и широкая трещина в земле какую не перепрыгнуть'
+	 np['<<$temploc>>']=108&!d_border_way['<<$temploc>>']=2
+elseif X=10 and Y=10:
+     $locname['<<$temploc>>']='Одинокая скала'&$lname['<<$temploc>>']='Одинокая скала'&$locopis['<<$temploc>>']='Одинокая скала с отвесными стенами'
+	 np['<<$temploc>>']=109
+elseif X=1 and Y=1:
+     $locname['<<$temploc>>']='Пещера'&$lname['<<$temploc>>']='Пещера'
+	 $locopis['<<$temploc>>']='Мрачная пещера на стенах и полу которой начертаны магические символы, на полках стоят всякие склянки и под потолком висят пучки трав.'
+	 np['<<$temploc>>']=2
+	 $wall_name['<<$temploc>>']='Пещера'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Замшелая скала с пещерой внутри'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Замшелая скала с пещерой внутри'
+	 $e_wall['<<X-1>>,<<Y>>,<<Z>>']='Замшелая скала с пещерой внутри'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Замшелая скала с пещерой внутри'
+	 mirror['<<$temploc>>']=1&wardrobe['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1&!мебель
+	 !бутылки
+	 !'	 item_loc['1,<<$temploc>>']=3&item_loc['2,<<$temploc>>']=7&item_loc['20,<<$temploc>>']=2&item_loc['28,<<$temploc>>']=10&item_loc['30,<<$temploc>>']=3
+	 item_loc['31,<<$temploc>>']=1&item_loc['37,<<$temploc>>']=1&item_loc['38,<<$temploc>>']=10&item_loc['39,<<$temploc>>']=10&item_loc['40,<<$temploc>>']=1
+	 item_loc['49,<<$temploc>>']=3&item_loc['50,<<$temploc>>']=1&item_loc['56,<<$temploc>>']=1&item_loc['57,<<$temploc>>']=10&item_loc['58,<<$temploc>>']=10
+	 item_loc['59,<<$temploc>>']=10&item_loc['60,<<$temploc>>']=10 '
+	 gs'witch'
+	 gs'filin'
+elseif X=2 and Y=1:
+     $locname['<<$temploc>>']='Ведьмино Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Лесное озеро'
+	 np['<<$temploc>>']=3
+	 road['<<$temploc>>']=1&lake['<<$temploc>>']=1&can_drink['<<$temploc>>']=2
+	 frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+	 omela['<<$temploc>>']=1&bella['<<$temploc>>']=1&cikuta['<<$temploc>>']=1&mandragora['<<$temploc>>']=1&list['<<$temploc>>']=1
+elseif X=8 and Y=10:
+     $locname['<<$temploc>>']='Болотце'&$lname['<<$temploc>>']='Болотце'&$locopis['<<$temploc>>']='Лесное озеро'
+	 np['<<$temploc>>']=101
+	 marsh['<<$temploc>>']=1&list['<<$temploc>>']=1&frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+elseif X=3 and Y=4:
+    $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'&
+	np['<<$temploc>>']=102
+	scarecrow['<<$temploc>>']=1
+elseif X=4 and Y=4:
+     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+	 np['<<$temploc>>']=102
+	 scarecrow['<<$temploc>>']=1
+elseif X=3 and Y=3:
+     $locname['<<$temploc>>']='Дорога через пшеничное поле'&$lname['<<$temploc>>']='Дорога через пшеничное поле'&$locopis['<<$temploc>>']='Вокруг поля засеянные пшеницей'
+	 np['<<$temploc>>']=104
+elseif X=4 and Y=3:
+     $locname['<<$temploc>>']='Дорога через пшеничное поле'&$lname['<<$temploc>>']='Дорога через пшеничное поле'&$locopis['<<$temploc>>']='Вокруг поля засеянные пшеницей'
+	 np['<<$temploc>>']=104
+elseif X=5 and Y=3:
+     $locname['<<$temploc>>']='Дорога перед фермой'&$lname['<<$temploc>>']='Дорога перед фермой'&$locopis['<<$temploc>>']='На краю дороги находится старое но ухоженное здание фермы'
+	 np['<<$temploc>>']=105
+elseif X=6 and Y=3:
+     $locname['<<$temploc>>']='Лесная дорога'&$lname['<<$temploc>>']='Лесная дорога'&$locopis['<<$temploc>>']='Колея идущая скозь лес'
+	 np['<<$temploc>>']=106
+	 road['<<$temploc>>']=2
+elseif X=6 and Y=4:
+     $locname['<<$temploc>>']='Лесная дорога'&$lname['<<$temploc>>']='Лесная дорога'&$locopis['<<$temploc>>']='Колея идущая скозь лес'
+	 np['<<$temploc>>']=106
+	 road['<<$temploc>>']=2
+elseif X=6 and Y=5:
+     $locname['<<$temploc>>']='Лесная дорога'&$lname['<<$temploc>>']='Лесная дорога'&$locopis['<<$temploc>>']='Колея идущая скозь лес'
+	 np['<<$temploc>>']=106
+	 road['<<$temploc>>']=2
+elseif X=6 and Y=6:
+     $locname['<<$temploc>>']='Лесная дорога'&$lname['<<$temploc>>']='Лесная дорога'&$locopis['<<$temploc>>']='Колея идущая скозь лес'
+	 np['<<$temploc>>']=106
+	 road['<<$temploc>>']=2
+elseif X=6 and Y=7:
+     $locname['<<$temploc>>']='Лесная дорога'&$lname['<<$temploc>>']='Лесная дорога'&$locopis['<<$temploc>>']='Колея идущая скозь лес'
+	 np['<<$temploc>>']=106
+	 road['<<$temploc>>']=2
+elseif X=6 and Y=8:
+     $locname['<<$temploc>>']='Мощеная дорога'&$lname['<<$temploc>>']='Мощеная дорога'&$locopis['<<$temploc>>']='Дорога вымощенная камнем'
+	 np['<<$temploc>>']=107
+	 road['<<$temploc>>']=3
+elseif X=7 and Y=8:
+     $locname['<<$temploc>>']='Мощеная дорога'&$lname['<<$temploc>>']='Мощеная дорога'&$locopis['<<$temploc>>']='Дорога вымощенная камнем'
+	 np['<<$temploc>>']=107
+	 road['<<$temploc>>']=3
+elseif X=8 and Y=8:
+     $locname['<<$temploc>>']='Мощеная дорога'&$lname['<<$temploc>>']='Мощеная дорога'&$locopis['<<$temploc>>']='Дорога вымощенная камнем'
+	 np['<<$temploc>>']=107
+	 road['<<$temploc>>']=3
+elseif X=9 and Y=8:
+     $locname['<<$temploc>>']='Мощеная дорога'&$lname['<<$temploc>>']='Мощеная дорога'&$locopis['<<$temploc>>']='Дорога вымощенная камнем'
+	 np['<<$temploc>>']=107
+	 road['<<$temploc>>']=3
+elseif X=10 and Y=8:
+     $locname['<<$temploc>>']='Мощеная дорога'&$lname['<<$temploc>>']='Мощеная дорога'&$locopis['<<$temploc>>']='Дорога вымощенная камнем'
+	 np['<<$temploc>>']=107
+	 road['<<$temploc>>']=3
+	 mostwood['<<$temploc>>']=1
+elseif X=5 and Y=4:
+     $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный фермерский домик'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Ферма'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1 
+	 $n_wall['<<$temploc>>']='Ферма'&$s_wall['<<$temploc>>']='Ферма'&$e_wall['<<$temploc>>']='Ферма'&$w_wall['<<$temploc>>']='Ферма'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_drink['<<$temploc>>']=1& !can_sleep['<<$temploc>>']=1
+	 gs'farmerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+elseif X=3 and Y=2:
+     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+	 np['<<$temploc>>']=102
+	 scarecrow['<<$temploc>>']=100
+	 gs'kagikarr'
+elseif X=4 and Y=2:
+     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+	 np['<<$temploc>>']=102
+	 scarecrow['<<$temploc>>']=1
+elseif X=3 and Y=4:
+     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+	 np['<<$temploc>>']=102
+	 scarecrow['<<$temploc>>']=1
+elseif X=5 and Y=2:
+     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+	 np['<<$temploc>>']=102
+	 scarecrow['<<$temploc>>']=1
+elseif X=5 and Y=8:
+     $locname['<<$temploc>>']='Деревня Когида'&$lname['<<$temploc>>']='Деревня Когида'&$locopis['<<$temploc>>']='Небольшая деревушка'
+	 np['<<$temploc>>']=110
+	 road['<<$temploc>>']=3
+elseif X=5 and Y=9:
+     $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный деревенский домик'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Дом'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
+	 gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+elseif X=5 and Y=7:
+     $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный деревенский домик'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Дом'
+	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
+	 gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+elseif X=4 and Y=8:
+     $locname['<<$temploc>>']='Деревня Когида'&$lname['<<$temploc>>']='Деревня Когида'&$locopis['<<$temploc>>']='Небольшая деревушка'
+	 np['<<$temploc>>']=110
+	 road['<<$temploc>>']=3
+elseif X=4 and Y=9:
+     $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный деревенский домик'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Дом'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
+	 gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+elseif X=4 and Y=7:
+    $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный деревенский домик'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Дом'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
+	 gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+elseif X=3 and Y=8:
+     $locname['<<$temploc>>']='Болотце'
+	 $lname['<<$temploc>>']='Болотце'
+	 $locopis['<<$temploc>>']='Лесное озеро'
+	 np['<<$temploc>>']=101
+	 marsh['<<$temploc>>']=1
+	 list['<<$temploc>>']=1
+	 frog['<<$temploc>>']=1
+	 Hirudinea['<<$temploc>>']=1
+elseif X=7 and Y=9:
+     $locname['<<$temploc>>']='Поместье Гвинов'&$lname['<<$temploc>>']='Поместье Гвинов'&$locopis['<<$temploc>>']='Вычурное поместье местного богача'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Дом'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Поместье'&$s_wall['<<$temploc>>']='Поместье'&$e_wall['<<$temploc>>']='Поместье'&$w_wall['<<$temploc>>']='Поместье'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
+	 gs'gvin'
+elseif X=6 and Y=9:
+     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+	 np['<<$temploc>>']=102
+	 scarecrow['<<$temploc>>']=1
+elseif X=8 and Y=9:
+     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+	 np['<<$temploc>>']=102
+	 scarecrow['<<$temploc>>']=1
+elseif X=1 and Y=3:
+     $locname['<<$temploc>>']='Дом плотника'&$lname['<<$temploc>>']='Дом плотника'&$locopis['<<$temploc>>']='Дом одинокого угрюмого плотника'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Дом'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+	 $n_wall['<<$temploc>>']='Поместье'&$s_wall['<<$temploc>>']='Поместье'&$e_wall['<<$temploc>>']='Поместье'&$w_wall['<<$temploc>>']='Поместье'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
+	 gs'urfin'&gs'topotun'
+elseif X=1 and Y=2:
+     $locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Мрачный и густой лес'
+	 np['<<$temploc>>']=111
+elseif X=8 and Y=5:
+     $locname['<<$temploc>>']='Дом дровосека'&$lname['<<$temploc>>']='Дом дровосека'&$locopis['<<$temploc>>']='Дом дровосека проклятого ведьмой'
+	 np['<<$temploc>>']=103
+	 $wall_name['<<$temploc>>']='Дом'
+	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	 $n_wall['<<$temploc>>']='Поместье'&$s_wall['<<$temploc>>']='Поместье'&$e_wall['<<$temploc>>']='Поместье'&$w_wall['<<$temploc>>']='Поместье'
+	 $n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
+	 mirror['<<$temploc>>']=1
+	 can_sleep['<<$temploc>>']=1&can_drink['<<$temploc>>']=1
+	 item_loc['65,<<$temploc>>']=10&item_loc['40,<<$temploc>>']=1
+elseif X=5 and Y=6:
+     $locname['<<$temploc>>']='Огород'&$lname['<<$temploc>>']='Огород'&$locopis['<<$temploc>>']='Обыкновенный деревенский огород'
+	 np['<<$temploc>>']=112
+	 scarecrow['<<$temploc>>']=1
+elseif X=4 and Y=6:
+     $locname['<<$temploc>>']='Огород'&$lname['<<$temploc>>']='Огород'&$locopis['<<$temploc>>']='Обыкновенный деревенский огород'
+	 np['<<$temploc>>']=112
+	 scarecrow['<<$temploc>>']=1
+elseif X=3 and Y=6:
+     $locname['<<$temploc>>']='Огород'&$lname['<<$temploc>>']='Огород'&$locopis['<<$temploc>>']='Обыкновенный деревенский огород'
+	 np['<<$temploc>>']=112
+	 scarecrow['<<$temploc>>']=1
+elseif X=3 and Y=7:
+     $locname['<<$temploc>>']='Огород'&$lname['<<$temploc>>']='Огород'&$locopis['<<$temploc>>']='Обыкновенный деревенский огород'
+	 np['<<$temploc>>']=112
+	 scarecrow['<<$temploc>>']=1
+else
+locrand=rand(1,10)
+     if locrand<=6:
+		 $locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Зеленый яркий лес'
+		 np['<<$temploc>>']=rand(73,80)
+		 zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)
+		 omela['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)
+		 if rand(1,100)>=75:koluchka['<<$temploc>>']=1
+	     if rand(1)=1:gs'wolfgen'
+	 end
+	 if locrand=7:
+		 $locname['<<$temploc>>']='Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Лесное озеро'
+		 np['<<$temploc>>']=82
+		 lake['<<$temploc>>']=1&can_drink['<<$temploc>>']=2&frog['<<$temploc>>']=rand(0,1)&Hirudinea['<<$temploc>>']=rand(0,1)&list['<<$temploc>>']=rand(0,1)
+	 end
+	 if locrand=8:
+		 $locname['<<$temploc>>']='Поляна'&$lname['<<$temploc>>']='Поляна'&$locopis['<<$temploc>>']='Заросшая густой и пышной травой полянка окруженная со всех сторон деревьями'
+		 np['<<$temploc>>']=83
+		 bella['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)
+	 end
+	 if locrand=9:
+		 $locname['<<$temploc>>']='Овраг'&$lname['<<$temploc>>']='Овраг'&$locopis['<<$temploc>>']='Глубокий овраг по дну которого протекает тонкий ручеек'
+		 np['<<$temploc>>']=84
+		 can_drink['<<$temploc>>']=2&if rand(1,100)>=75:koluchka['<<$temploc>>']=1
+	 end
+	 if locrand=10:
+		 $locname['<<$temploc>>']='Бурелом'&$lname['<<$temploc>>']='Бурелом'&$locopis['<<$temploc>>']='Множество поваленных и давно уже сгнивших стволов деревьев'
+		 np['<<$temploc>>']=85
+		 item_loc['46,<<$temploc>>']+=rand(1,10)&if rand(1,100)>=75:koluchka['<<$temploc>>']=1
+	 end
+end
+if X=7 and Y=5:road['<<$temploc>>']=1&gs'ironman'
+if rand(1,10)<=3:item_loc['46,<<$temploc>>']+=1
+X+=1&if X<=Xmax[Z]:jump'markgenworldONE'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldONE'
+X=2&Y=2&road['<<$temploc>>']=1
+X=2&Y=3&road['<<$temploc>>']=1
+X=3&Y=3&road['<<$temploc>>']=2&np['<<$temploc>>']=104
+X=4&Y=3&road['<<$temploc>>']=2&np['<<$temploc>>']=104
+X=5&Y=3&road['<<$temploc>>']=2&np['<<$temploc>>']=105

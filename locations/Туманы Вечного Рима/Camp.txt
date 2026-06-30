@@ -1,0 +1,44 @@
+﻿close all&!ДАЛЕЕ ЛАГЕРЬ В ЛЕСАХ
+IF time = 1:BCOLOR = RGB(210, 255, 255)&FCOLOR = RGB(1, 1, 1)
+IF time = 2:BCOLOR = RGB(255, 245, 130)&FCOLOR = RGB(1, 1, 1)
+IF time = 3:BCOLOR = RGB(255, 160, 60)&FCOLOR = RGB(1, 1, 1)
+IF time = 4:BCOLOR = RGB(10, 10, 40)&FCOLOR = RGB(255, 255, 255)
+$BACKIMAGE = 0&a = rand(1,2)
+if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//campfire<<a>>.mp3",Громкость_эффектов
+IF time <4:$BACKIMAGE = "content/Tent/camp_day<<rand(1,5)>>.jpg"
+IF time >3:$BACKIMAGE = "content/Tent/camp_night<<rand(1,11)>>.jpg"
+IF OBJ "Добыча":
+	ACT "Заняться добычей":
+		if $sex = "teen": z = rand(1,59) 
+		if $sex = "girl": z = rand(1,85) 
+		if $sex = "woman":z = rand(1,15)  
+		GT "Girl_action"
+	END
+END
+IF time > 3:
+	ACT "Спать":
+		IF NO OBJ "Одеяло":msg "Ночью вы изрядно замерзли и почти не выспались. Да, надо будет непременно купить одеяло!"
+		IF OBJ "Одеяло":energy = 0&msg "Завернувшись в теплое шерстяное одеяло вы проспали всю ночь сном праведника. Усталости как не бывало."
+		!Если спать в туманах то
+		!msg "Когда вы проснулись, вокруг все осталось прежним. В туманах трудно понять, сколько прошло времени, но по крайней мере вы выспались."
+		! *** изменена вероятность побега с учётом строптивости  (было >8)
+		escape = (RAND (1,10)+ловкость)*строптивость
+		IF OBJ "Добыча" and girl = 1 and NO OBJ "Оковы" and NO $class = "dominatrix" and escape > 60:
+			DELOBJ "Добыча"&girl = 0&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//oh.mp3",Громкость_эффектов
+			msg "Пока вы спали, дикарке удалось избавиться от веревок и убежать."   
+		END
+		GT "Camp"
+	END
+END
+IF time < 4:
+	ACT "Отдохнуть":
+		energy-=1&IF energy < 0:energy = 0
+		msg "Отдых постепенно восстанавливает ваши силы"&GS "!Time"&escape = RAND (1,10)+ловкость*строптивость
+		IF OBJ "Добыча" and girl = 1 and NO OBJ "Оковы" and NO $class = "dominatrix" and escape > 75:
+		    DELOBJ "Добыча"&msg "Дикарке как-то удалось ослабить веревку, которой вы ее связали. Улучив момент когда вы отвернулись, она шустро бросается в сторону и скрывается в лесу."&GT "Hunt_chase"
+		END
+		GT "Camp"
+	END
+END
+ACT "Свернуть лагерь":GT "Woods" 
+GS "!Counter"

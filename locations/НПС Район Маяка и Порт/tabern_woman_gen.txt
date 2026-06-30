@@ -1,0 +1,22 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&tabernwoman=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=1&magik[i]=5&beliver[i]=3&!Не имеет отношения к богине луны, иллюзия
+spec_face_pic[i]=5&face_pic[i]=10
+$title[i]='Брюнетка'&$history[i]='Хвала богу света, инсмутцы боятся приближаться к нашему заведению и мы можем поддерживать респектабельность.'
+$name[i]='Оливия'&$surname[i]='Бауэр'&$nick[i]='Трактирщица'
+face[i]=70&gla[i]=0&glacol[i]=1&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=40&ass[i]=32&nip[i]=45&tits[i]=16
+rost[i]=168&fat[i]=1800&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=0
+age[i]=40&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(70,100)&bisex[i]=1&agro[i]=20&selfrespect[i]=1&positiv[i]=1&extrovert[i]=2&ratio[i]=0&brave[i]=0&lust[i]=70&!характер
+	girl[tabernman]+=1&guy[i]+=1& vagsex[i]+=100&avagsex[tabernman]+=100&maso_fixation[i]=20
+	sexpartner['<<i>>,<<tabernman>>']+=100&sexpartner['<<tabernman>>,<<i>>']+=100
+	sexpartner_num_m['<<i>>,<<guy[i]>>']=tabernman&sexpartner_num_f['<<tabernman>>,<<girl[tabernman]>>']=i
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=44&l_slot[i]=0&b_slot[i]=20
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=6
+n_world[]=i&walkprog[i]=5
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

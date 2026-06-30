@@ -1,0 +1,28 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/loc/ras/cvety<<rand(1,4)>>.jpg" ></center>'&'Листья трав для чая собирают мая по октябрь.'
+if teaknow[you]>0 and sovasekret=1 and month>4 and month<11:
+	'На горном склоне растут травы для чая'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		act'Сорвать пучок трав для чая':item_loc['189,<<$loc[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act 'Собирать горный чай':
+			 time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['189,<<$loc[you]>>']+=max(rand(2),lvltravnik[you])
+			 "В течение получаса вы собирали чай на горных склонах и собрали <<item_loc['189,<<$loc[you]>>']>> порций"&teanum=item_loc['189,<<$loc[you]>>']+item['189']
+			 'Всего у вас <<teanum>> порций чая'
+			 if fat[you]>10:fat[you]-=1
+			 if fat[you]>100:fat[you]-=1
+			 if fat[you]>500:fat[you]-=2
+			 if fat[you]>1000:fat[you]-=2
+			 if fat[you]>1500:fat[you]-=3
+			 if fat[you]>2000:fat[you]-=3
+			 if fat[you]>2500:fat[you]-=4
+			 if fat[you]>3000:fat[you]-=4
+			 exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'
+			 if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
+			 sweat[you]+=2
+			gt $curloc
+		 end
+	 end
+else
+	'Не сезон. На горном склоне не видно чая'
+end
+gs'Item'&*nl ''&gs 'npconloc'&killvar 'teanum'&act'Завершить':gt 'world'

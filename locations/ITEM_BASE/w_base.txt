@@ -1,0 +1,110 @@
+﻿i=0
+$item_w_name[i]='Пистолет Затычкина'
+$item_w_name_oi[i]='пистолета'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+!вес
+item_w_burden[i]=5
+$item_w_text[i]='Пистолет под патрон 9х18мм, магазин на 8 патронов'
+uron_w_item[i]=350
+item_w_patron_max[i]=8
+!item_w_patron_load[i]=0
+!номер в итемах
+item_w_patrontipe[i]=27
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=1
+$item_w_name[i]='Пищаль охотника'
+$item_w_name_oi[i]='пищаля'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+!вес
+item_w_burden[i]=5
+$item_w_text[i]=''
+uron_w_item[i]=350
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=2
+$item_w_name[i]='Волшебная палочка'
+$item_w_name_oi[i]='палочкой'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+!вес
+item_w_burden[i]=5
+$item_w_text[i]=''
+uron_w_item[i]=10
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='палочка'
+item_w_patrontipe[i]=0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=3
+$item_w_name[i]='Однозарядная винтовка'
+$item_w_name_oi[i]='винтовки'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+!вес
+item_w_burden[i]=5
+$item_w_text[i]=''
+uron_w_item[i]=800
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=4
+$item_w_name[i]='Мушкетон'
+$item_w_name_oi[i]='мушкетона'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+!вес
+item_w_burden[i]=5
+$item_w_text[i]=''
+uron_w_item[i]=500
+item_w_patron_max[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=5
+$item_w_name[i]='Двухстволка'
+$item_w_name_oi[i]='двухстволки'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+!вес
+item_w_burden[i]=5
+$item_w_text[i]=''
+uron_w_item[i]=400
+item_w_patron_max[i]=2
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=6
+$item_w_name[i]='Винчестер'
+$item_w_name_oi[i]='винчестера'
+clo_w_item[i]=4
+$item_w_use[i]='Взять'
+!вес
+item_w_burden[i]=5
+$item_w_text[i]=''
+uron_w_item[i]=400
+item_w_patron_max[i]=12
+item_w_patron_max_reload[i]=1
+!item_w_patron_load[i]=0
+!номер в итемах
+$weapon_tipe[i]='огнестрел'
+item_w_patrontipe[i]=23

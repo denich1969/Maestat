@@ -1,0 +1,41 @@
+﻿sss=ARGS[0]&ddd=under_sub[sss]&horny[you]+=50&feminize[sss]+=1&gs'stat'&act'<b>Уйти</b>':gt 'preloc'&$gangbangers_loc=''&fuckergang=0
+i=1&npcmax=arrsize('$name')
+:marknpclocgb
+if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] and i!you and dead[i]=0:
+	 if action_tipe[i]>=700 and action_tipe[i]<770:
+		$gangbangers_loc+='<br>'
+	     if aktive_tipe[i]=0:$gangbangers_loc+='Давалка <<$name[i]>> <<$surname[i]>> принимает в себя мужские писюны'
+	     if aktive_tipe[i]=1:
+			 fuckergang+=1
+			 if fuckergang=1:$gangbangers_loc+='<<$name[i]>> <<$surname[i]>> пихает в рот'
+			 cum_face[sss]=time+60
+			 if fuckergang=2:$gangbangers_loc+='<<$name[i]>> <<$surname[i]>> трахает в жопу'
+			 if fuckergang=3 and vag[sss]>0:$gangbangers_loc+='<<$name[i]>> <<$surname[i]>> трахает в киску'
+			 creampie_cum[sss]=time+60
+			 insemrand=rand(1,10)
+			 if inseminate[sss]=0 and insemrand>=1 and spiral[sss]=0 and vag[sss]>0 and inseminateON[sss]=1:inseminate[sss]=fuckergang
+			 if inseminate[sss]>0 and pregnant_day[sss]=0:pregnant_day[sss]=daystart
+			 father_npc_child=fuckergang
+			 if fuckergang=3 and vag[sss]=0:$gangbangers_loc+='<<$name[i]>> <<$surname[i]>>'
+			 if fuckergang>=4:$gangbangers_loc+='<<$name[i]>> <<$surname[i]>>'
+         end
+	 end
+end
+i+=1&if i<=npcmax:jump'marknpclocgb'
+if skin[ddd]>3 and skin[ddd]<7:
+	w=sss&face[sss]+=1&feminize[sss]+=1&gs'effect_feminize',sss&'<center><video src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
+	'<<$name[sss]>> <<$surname[sss]>> стонет когда её ебут во все дыры'&you_see_sex[sss]+=1&corr[sss]+=rand(2,8)&act'Дрочить':gt 'sex_gang_see'
+     if blackedGangQW=0 and Z[you]=3:blackedGangQW=1&'Вы пялитесь на эту картину и задаетесь вопросом, происходящее вообще нормально? Почему власти не реагируют на это?'
+else
+	 if fuckergang=2:
+		 $func('get_images', 'splitroast_ds', sss, ddd)
+	 else
+		 $func('get_images', 'splitroast_dp', sss, ddd)
+	 end
+	w=sss&face[sss]+=1&feminize[sss]+=1&gs'effect_feminize',sss&'<<$name[sss]>> <<$surname[sss]>> стонет когда ее ебут во все дыры'
+	!if action_tipe[sss]=702:'Ее натягивают в три смычка'
+	!if action_tipe[sss]=703:'Ее натягивают в четыре смычка'
+	!if action_tipe[sss]>=704:'Ее натягивают в <<action_tipe[sss]-699>> смычков'
+	you_see_sex[sss]+=1&corr[sss]+=rand(2,8)
+end
+'<<$gangbangers_loc>>'&!'Участники групповухи'

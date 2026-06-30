@@ -1,0 +1,21 @@
+﻿lebeda_head[you]=0
+lebeda_day=0
+
+dead[lebeda]=0
+soul[you]-=100
+wind_gem[lebeda]=0
+npc=lebeda
+
+lebeda_birdQW=100
+
+X[npc]=X[you]
+Y[npc]=Y[you]
+Z[npc]=Z[you]
+
+'Вы родили ребенка, девочку. Внезапно вокруг девочки стали расти какие то ветки и лозы, и девочка стремительно росла, пока не превратилась во вполне взрослую тетушку Лебеду - Та довольно огляделась и подмигнула - Привет мамаша.'
+
+child[you]+=1
+inseminate[you]=0
+pregnant_day[you]=0
+
+act'Привет доча':gt 'preloc'

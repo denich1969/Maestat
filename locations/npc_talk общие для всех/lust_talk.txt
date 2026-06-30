@@ -1,0 +1,242 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+if (husband[npc]=you or husband[you]=npc) and dick[npc]>6:gt'husband_talk'
+if know_whore['<<npc>>,<<you>>']=0:
+	if know['<<npc>>,<<you>>']=0:
+		'<<$name[npc]>> улыбается - И как тебя зовут, красавица?'
+		 act'Познакомиться':
+			know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+		    if spyson=npc and vag[you]>0:friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'
+		    if antey=npc and pol[you]>0:
+				'<<$name[npc]>> высокомерно усмехается - Я сын самого Богарта и богини земли.'
+				 act'Ух ты, так ты полубог?':
+					horny[npc]+=sexiness[you]/2
+					friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> сунул руку в карман и достал горсть земли, и затем на ваших глазах эта земля трансформировалась в каменный цветок который он протянул к вам - Пошли, я тебе покажу особняк Богартов и не только.'
+					act'<b>Уйти</b>':gt 'preloc'
+					act'Пошли':friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+				 end
+		    end
+			act'<b>Уйти</b>':gt 'preloc'
+		end
+	 else
+	     if boyfriend_num[you]=0 and girlfriend_num[npc]=0 and friends['<<npc>>,<<you>>']>=10 and sexpartner['<<npc>>,<<you>>']=0 and do_ask_bf[npc]=0 and pol[npc]=0 and pol[you]>0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and ex_boyfriend[npc]!you and blok_bf[npc]=0 and watch_you_slut['<<npc>>,<<you>>']=0:
+			'<<$name[npc]>> улыбается вам - <<$name[you]>>, ты мне нравишся, давай встречаться.'
+	         act'Согласиться':
+				 if shame_tattoo[you]>0:knowshame[npc]=shame_tattoo[you]
+				 do_ask_bf[npc]=1
+				 boyfriend_num[you]=npc&girlfriend_num[npc]=you
+				 friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался'
+				 act'<b>Уйти</b>':gt 'preloc'
+			 end
+	         act'Отказаться':
+				 do_ask_bf[npc]=1
+				 friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно огорчился'
+				 act'<b>Уйти</b>':gt 'preloc'
+			 end
+	     else
+	         if sparrow=npc and sexpartner['<<npc>>,<<you>>']>0 and letherslut[you]=1 and Z[npc]=3:
+				'<<$name[npc]>> ухмыляется и передает вам трусики и лифчик из кожанных ремней - У меня для тебя есть еще сбруя, хочешь примерить?'
+	             act'<b>Переодеться в новую сбрую</b>':
+					letherslut[you]=2
+					 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+					 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+					 solo=npc
+					 horny[npc]=50
+					 pose[you]=2
+					 $loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+					 if t_slot[you]>0:
+						clo=t_slot[you]
+						if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
+					end
+					if l_slot[you]>0:
+						clo=l_slot[you]
+						if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+					end
+					if b_slot[you]>0:
+						clo=b_slot[you]
+						if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+					end
+					if ut_slot[you]>0:
+						clo=ut_slot[you]
+						if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$loc[you]>>']+=1
+					end
+					if ul_slot[you]>0:
+						clo=ul_slot[you]
+						if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+					end
+					if ub_slot[you]>0:
+						clo=ub_slot[you]
+						if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+					end
+					if h_slot[you]=0:h_slot[you]=9
+					ut_slot[you]=5&ul_slot[you]=18
+					cls&gs'stat'&'<center><img src="pic/sex/bdsm/before.jpg" ></center>'&'<<$name[npc]>> ведет вас к себе и вы одеваете сбрую из кожанных ремней.'
+					if h_slot[you]=10:'В довершение вы одевате кожанную маску с прорезью для рта и глаз.'
+					if h_slot[you]=9:'В довершение вы одевате сбрую на лицо с расширителем рта.'
+					gs'bonusforsex'
+					act'Обниматься':gt'sex'
+	             end
+	         end
+	         if sparrow=npc and sexpartner['<<npc>>,<<you>>']>0 and letherslut[you]=0:
+				'<<$name[npc]>> ухмыляется и передает вам трусики и лифчик из кожанных ремней - У меня для тебя подарок. Только чур, мы идем ко мне и ты прямо при мне переоденешся.'
+	             act'<b>Переодеться в сбрую</b>':
+					 letherslut[you]=1
+					 X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+					 X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+					 solo=npc
+					 horny[npc]=50
+					 pose[you]=2
+					 $loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+					 if t_slot[you]>0:
+						clo=t_slot[you]
+						 if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
+					 end
+					 if l_slot[you]>0:
+						clo=l_slot[you]
+						 if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+					 end
+					 if b_slot[you]>0:
+						clo=b_slot[you]
+						 if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+					 end
+					 if ut_slot[you]>0:
+						clo=ut_slot[you]
+						 if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$loc[you]>>']+=1
+					 end
+					 if ul_slot[you]>0:
+						clo=ul_slot[you]
+						 if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+					 end
+					 if ub_slot[you]>0:
+						clo=ub_slot[you]
+						 if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+					 end
+					if h_slot[you]=0:h_slot[you]=10
+					ut_slot[you]=4&ul_slot[you]=17
+					cls&gs'stat'&'<center><img src="pic/sex/bdsm/before.jpg" ></center>'&'<<$name[npc]>> ведет вас к себе и вы одеваете сбрую из кожанных ремней.'
+					if h_slot[you]=10:'В довершение вы одевате кожанную маску с прорезью для рта и глаз.'
+					gs'bonusforsex'
+					act'Обниматься':gt'sex'
+				end
+			end
+			if friends['<<npc>>,<<you>>']>=10 and pol[npc]=0 and pol[you]>0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and blok_bf[npc]=0:gs'bf_otn'	 
+			if sexiness[you]<=50:gs'lowsexiness'
+			if sexiness[you]>50 and sexiness[you]<=90:
+				if selfrespect[npc]<=1:
+					'<<$name[npc]>> ухмыляется - Горячая штучка!'
+					act'Кокетливо улыбнуться':
+						 horny[npc]+=sexiness[you]/2
+						 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&!statistics_flirt[you]+=1
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						 womenbrain[you]+=1
+						 if pol[npc]=0:'Вы улыбнулись в ответ на комплимент. <<$name[npc]>> оживился и, набравшись наглости, предложил - Давай сходим ко мне!'
+						 if pol[npc]>0:'Вы улыбнулись в ответ на комплимент. <<$name[npc]>> оживилась и, набравшись наглости, предложила - Давай сходим ко мне!'
+						 act'<b>Уйти</b>':gt 'preloc'
+						act'Пошли к тебе':
+							friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+							if Z[you]=3:
+								gt'go_to_npc_home_gm'
+							else
+								gt'go_to_npc_home'
+							end
+						end
+						if corr[you]>=75:
+							act'Дай <<sexiness[you]>> шиллингов и пошли к тебе':
+								money[you]+=sexiness[you]*100
+								know_whore['<<npc>>,<<you>>']+=1
+								if Z[you]=3:
+									gt'go_to_npc_home_gm'
+								else
+									gt'go_to_npc_home'
+								end
+							end
+						end
+						if corr[you]>=50:
+							act'Давай <<max(sexiness[you]/2,1)>> шиллингов и я отсосу':
+								know_whore['<<npc>>,<<you>>']+=1
+								money[you]+=sexiness[you]/2*100
+								pose[you]=2
+								cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> улыбаясь - Хорошо, шлюшка.'
+								gs'block_quick', 'give_bj'
+							end
+						end
+						gs'block_quick'
+					end
+				end
+				if selfrespect[npc]=2:
+					'<<$name[npc]>> ухмыляется - А ты горячая детка, давай сходим ко мне, я тебе кое-что покажу.'
+					act'Пошли к тебе':
+						friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+						if Z[you]=3:
+							gt'go_to_npc_home_gm'
+						else
+							gt'go_to_npc_home'
+						end
+					end
+					if corr[you]>=75:
+						act'Дай <<sexiness[you]>> шиллингов и пошли к тебе':
+							money[you]+=sexiness[you]*100
+							know_whore['<<npc>>,<<you>>']+=1
+							if Z[you]=3:
+								gt'go_to_npc_home_gm'
+							else
+								gt'go_to_npc_home'
+							end
+						end
+					end
+					if corr[you]>=50:
+						act'Давай <<max(sexiness[you]/2,1)>> шиллингов и я отсосу':
+							know_whore['<<npc>>,<<you>>']+=1
+							money[you]+=sexiness[you]/2*100
+							pose[you]=2
+							cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> улыбаясь - Хорошо, шлюшка.'
+							gs'block_quick', 'give_bj'
+						end
+					end
+					gs'block_quick'
+				end
+			end
+			if sexiness[you]>90:
+				'<<$name[npc]>> ухмыляется - Детка, хочешь <<sexiness[you]>> шиллингов? Если будешь со мной ласковой, то они твои. И не подумай что я тебя покупаю, просто чтобы содержать такую красоту, нужно много денег.'
+				act'Пошли к тебе':
+					money[you]+=sexiness[you]*100
+					know_whore['<<npc>>,<<you>>']+=1
+					if Z[you]=3:
+						gt'go_to_npc_home_gm'
+					else
+						gt'go_to_npc_home'
+					end
+				end
+				act'Могу отсосать':
+					know_whore['<<npc>>,<<you>>']+=1
+					money[you]+=sexiness[you]/2*100
+					pose[you]=2
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'
+					gs'block_quick', 'give_bj'
+				end
+			end
+		end
+	end
+else
+	'<<$name[npc]>> ухмыляется - Привет шлюшка, развлечемся? Даю <<max(sexiness[you]/2,1)>> шиллингов.'
+	 act'Пошли к тебе':
+		money[you]+=sexiness[you]/2*100
+		 know_whore['<<npc>>,<<you>>']+=1
+		 if Z[you]=3:
+			gt'go_to_npc_home_gm'
+		 else
+			gt'go_to_npc_home'
+		 end
+	 end
+	 act'Могу отсосать':
+		 know_whore['<<npc>>,<<you>>']+=1
+		 money[you]+=sexiness[you]/3*100
+		 pose[you]=2
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'
+		 gs'block_quick', 'give_bj'
+	 end
+end
+act'<b>Уйти</b>':gt 'preloc'

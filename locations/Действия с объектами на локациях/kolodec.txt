@@ -1,0 +1,17 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Темный и сырой провал колодца'&!if HardMode=1:
+act'Схитрить':gt'cheats'
+gs'Item'&*pl''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if onewish=0 and hour=2 and master[you]=0:
+	'Из глубины колодца слышен звенящий шепот - За половину твоей души ты можешь загадать одно желание.'
+     if age[you]>18:act'Обрести молодость':onewish=1&soul[you]=soul[you]/2&age[you]=18&gt 'preloc'
+	 act'Стать сильнее':onewish=2&soul[you]=soul[you]/2&mus[you]+=5000&fight_skill[you]+=100&rost[you]+=10&gt 'preloc'
+	 if muggle[you]=1:
+		 act'Обрести магические способности':
+			 onewish=3&soul[you]=soul[you]/2&muggle[you]=0&magik[you]+=1&rost[you]+=5&if souldar[you]=0:souldar[you]=1
+			 gt 'preloc'
+		 end
+	 end
+	 if uptown_home[you]=0:act'Хочу домой':onewish=4&soul[you]=soul[you]/2&uptown_home[you]=1&key['<<you>>,1,2,4,3']=1&X[you]=1&Y[you]=2&Z[you]=4&H[you]=1&R[you]=0&gt 'preloc'&!1/2/4/3
+end
+if pol[you]=1:act'Утопиться':'тут будет попадание в деревню из заброшенной игры Well of time, где ГГ оказавается голой у колодца'

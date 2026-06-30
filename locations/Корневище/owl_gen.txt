@@ -1,0 +1,15 @@
+﻿npcmaxnum+=1&i=npcmaxnum&owljora=i
+mob[i]=18&mobexp[i]=100&!номер моба для разговора
+nofight[i]=1&canfly[i]=1
+tipemobpic[i]=1&picture[i]=91&!номер типа фотки!номер фотки
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+$name[i]='Жора'&$nick[i]='Неясыть'&$nick[i]=$nick[i]&$basestatus[i]=''&!Имена
+dick[i]=0&dickd[i]=0&ball[i]=0&!Половые признаки
+healthmax[i]=10*rand(50,100)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(10,30)&maxuron[i]=rand(45,80)
+reflex[i]=rand(60,100)&!Здоровье !Энергия !Мана!Урон в бою
+womenbrain[i]=100&agro[i]=0&corr[i]=0
+Xhome[i]=X[you]&Yhome[i]=Y[you]&Zhome[i]=Z[you]&Hhome[i]=H[you]&Rhome[i]=R[you]&X[i]=X[you]&Y[i]=Y[you]&Z[i]=Z[you]&H[i]=H[you]&R[i]=R[you]
+$loc[i]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+root_world[]=i&walkprog[i]=66&fight_prog[i]=1&!программа движения!программа боя
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс

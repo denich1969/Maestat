@@ -1,0 +1,13 @@
+﻿npc=args[0]
+X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]
+X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+key['<<npc>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
+can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
+you=npc
+if m_slot[you]>0:clo=m_slot[you]&$item_m_name[clo]=$item_text[clo]&uron_weapon_m[you]=uron_m_item[clo]
+if w_slot[you]>0:
+	 eatitem=w_slot[you]&$item_w_name[eatitem]=$item_text[eatitem]&uron_weapon_w[you]=uron_w_item[eatitem]
+	 w_patron_max[you]=item_w_patron_max[eatitem]&w_patrontipe[you]=item_w_patrontipe[eatitem]&weapon_tipe=1
+end
+health[you]=healthmax[you]&energy[you]=energymax[you]
+pose[you]=0&pisswasser[you]=0&cum_face[you]=0&cum_clo[you]=0&peecover[you]=0&fishsmell[you]=0&alko[you]=0&gt 'preloc'

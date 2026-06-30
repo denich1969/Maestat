@@ -1,0 +1,11 @@
+﻿if last_Hirudinea['<<$loc[you]>>']=0 and day_Hirudinea['<<$loc[you]>>']!daystart:last_Hirudinea['<<$loc[you]>>']=rand(0,1)&day_Hirudinea['<<$loc[you]>>']=daystart
+if last_Hirudinea['<<$loc[you]>>']>0:
+	gs'stat'&'<center><img src="pic/loc/ras/Hirudinea.jpg" ></center>'&'В озере плавают пиявки'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		 act'Поймать':time+=5&cls&gs'walker'&gs'stat'&last_Hirudinea['<<$loc[you]>>']=0&item_loc['60,<<$loc[you]>>']+=1&day_Hirudinea['<<$loc[you]>>']=daystart&gt $curloc
+	 end
+else
+	'В озере не видно пиявок'
+end
+gs'Item'&*pl''&gs 'npconloc'
+act'Отойти':gt 'world'

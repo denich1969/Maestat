@@ -1,0 +1,49 @@
+﻿rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
+if mob_sleep[w]>=time and mob_busy[w]>0:
+	$think[w]='zzzzz в отключке'
+	if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
+else
+     if hour>=22 or hour<=6:
+         if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+			$think[w]='думает о всякой фигне'&!спит дома
+         else
+			 $destination[w]='дом'&gs'destination'
+			 $think[w]='хочет домой'&gs'walk_dest'&!вне дома
+         end
+     else
+         if bossQW=1:$think[w]='думает о смерти'&$destination[w]='кладбище'
+         if bossQW=2:$think[w]='думает о выпивке'&$destination[w]='трактир'
+         if bossQW=3:
+			 if hour<=10:$think[w]='думает о выпивке'&$destination[w]='трактир'
+			 if hour>10 and hour<=13:$think[w]='думает о работе'&$destination[w]='кладбище'
+			 if hour>13 and hour<=16:$think[w]='думает о работе'&$destination[w]='книжный'
+			 if hour>16:$think[w]='думает о выпивке'&$destination[w]='трактир'
+         end
+         if bossQW=4:
+              if Z[w]!3:
+				 Xhome[w]=Xboss&Yhome[w]=Yboss&Zhome[w]=Zboss&Hhome[w]=Hboss&Rhome[w]=Rboss
+				 X[w]=Xboss&Y[w]=Yboss&Z[w]=Zboss&H[w]=Hboss&R[w]=Rboss
+             else
+				 if hour<=12:$think[w]='думает о выпивке'&$destination[w]='адд директор'
+				 if hour>12 and hour<=18:$think[w]='думает о выпивке'&$destination[w]='учительская'
+				 if hour>18:$think[w]='думает о выпивке'&$destination[w]='ресторан'
+             end
+         end
+         if $destination[w]='прогулка':
+			 $think[w]='думает о прогулке'&gs'walk_full_rand'
+         else
+			gs'destination'
+		     if $destination[w]!'':
+				 if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+					$think[w]='думает о всякой ерунде'&!на точке назначения
+				    if bossQW=1:kelengrave+=1&bossQW=2&takeitem=82&item_loc['<<takeitem>>,<<$loc[w]>>']+=1
+				 else
+					gs'walk_dest'&!вне точки назначения
+				 end
+			 else
+				$think[w]='думает о том чем бы заняться'
+			 end
+         end
+     end
+end

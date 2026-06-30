@@ -1,0 +1,76 @@
+﻿sumdaystart=daystart+realdaystart+romadaystart+daystartobsession+princessdaystart&!зарплата
+if mob[paidnpc]=0:
+	if work[paidnpc]=1:denga[paidnpc]+=payday1&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=2:denga[paidnpc]+=payday2&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=3:denga[paidnpc]+=payday3&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=4:denga[paidnpc]+=payday3&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=5:denga[paidnpc]+=payday4&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=6:denga[paidnpc]+=payday5&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=7:denga[paidnpc]+=payday4&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=8:denga[paidnpc]+=payday3&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=9:denga[paidnpc]+=payday2&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=10:denga[paidnpc]+=payday2&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=11:denga[paidnpc]+=payday4&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=19:denga[paidnpc]+=payday4&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=20:denga[paidnpc]+=payday3&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=21:denga[paidnpc]+=payday2&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=22:denga[paidnpc]+=payday4&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=23:denga[paidnpc]+=payday2&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=24:denga[paidnpc]+=payday3&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=25:denga[paidnpc]+=payday6&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=30:denga[paidnpc]+=payday6&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=50:denga[paidnpc]+=payday6&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=51:denga[paidnpc]+=payday7&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=52:denga[paidnpc]+=payday7&daylypaymant[paidnpc]=sumdaystart
+	if work[paidnpc]=100:denga[paidnpc]+=100&daylypaymant[paidnpc]=daystart
+else
+	if money[paidnpc]<200*(ZHome[paidnpc]+1):denga[paidnpc]=rand(200,400)*(ZHome[paidnpc]+1)
+end
+if Z[you]<101:
+	money[paidnpc]+=denga[paidnpc]&denga[paidnpc]=0
+	money[paidnpc]-=100*(Zhome[paidnpc])&if money[paidnpc]<0:money[paidnpc]=0&!плотим нологи в шиллингах
+	if dick[paidnpc]>0:
+		if girlfriend_num[paidnpc]!0:loveint=girlfriend_num[paidnpc]
+		if husband[paidnpc]!0:loveint=husband[paidnpc]
+		if loveint!0 and pol[loveint]>0 and money[paidnpc]*2>money[loveint]:
+			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])
+			dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
+			poluchka=iif(dom1>=dom2,money[paidnpc]/10,money[paidnpc]/2)&!если девушка/жена доминантнее - забирает половину денег НПС, иначе - 10%
+			if paidnpc=you and husband[you]=loveint and poluchka>5000:poluchka=5000&!девушка не забирает у игрока больше 25 шиллингов, жена - больше 50
+			if paidnpc=you and girlfriend_num[you]=loveint and poluchka>2500:poluchka=2500
+			money[loveint]+=poluchka&money[paidnpc]-=poluchka&!снабжаем девушку/жену
+		end
+	end
+end
+if Z[you]=200:
+	rubl[paidnpc]+=denga[paidnpc]&denga[paidnpc]=0
+	rubl[paidnpc]-=100*(Zhome[paidnpc])&if rubl[paidnpc]<0:rubl[paidnpc]=0&!плотим нологи в рублях
+	if dick[paidnpc]>0:
+		if girlfriend_num[paidnpc]!0:loveint=girlfriend_num[paidnpc]
+		if husband[paidnpc]!0:loveint=husband[paidnpc]
+		if loveint!0 and pol[loveint]>0 and rubl[paidnpc]*2>money[loveint]:
+			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])
+			dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
+			poluchka=iif(dom1>=dom2,rubl[paidnpc]/10,rubl[paidnpc]/2)&!если девушка/жена доминантнее - забирает половину денег НПС, иначе - 10%
+			if paidnpc=you and husband[you]=loveint and poluchka>5000:poluchka=5000&!девушка не забирает у игрока больше 25 шиллингов, жена - больше 50
+			if paidnpc=you and girlfriend_num[you]=loveint and poluchka>2500:poluchka=2500
+			rubl[loveint]+=poluchka&rubl[paidnpc]-=poluchka&!снабжаем девушку/жену
+		end
+	end
+end
+if Z[you]>=700 and Z[you]<800:
+	gulden[paidnpc]+=denga[paidnpc]&denga[paidnpc]=0
+	gulden[paidnpc]-=100*(Zhome[paidnpc])&if gulden[paidnpc]<0:gulden[paidnpc]=0&!плотим нологи в шиллингах
+	if dick[paidnpc]>0:
+		if girlfriend_num[paidnpc]!0:loveint=girlfriend_num[paidnpc]
+		if husband[paidnpc]!0:loveint=husband[paidnpc]
+		if loveint!0 and pol[loveint]>0 and gulden[paidnpc]*2>gulden[loveint]:
+			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])
+			dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
+			poluchka=iif(dom1>=dom2,gulden[paidnpc]/10,gulden[paidnpc]/2)&!если девушка/жена доминантнее - забирает половину денег НПС, иначе - 10%
+			if paidnpc=you and husband[you]=loveint and poluchka>5000:poluchka=5000&!девушка не забирает у игрока больше 25 шиллингов, жена - больше 50
+			if paidnpc=you and girlfriend_num[you]=loveint and poluchka>2500:poluchka=2500
+			gulden[loveint]+=poluchka&gulden[paidnpc]-=poluchka&!снабжаем девушку/жену
+		end
+	end
+end

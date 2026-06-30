@@ -1,0 +1,17 @@
+﻿$MAINDESC_BACKIMAGE = "market.jpg"&!ЭТО РЫНОК РАБОВ
+'<div id="header">Рынок</div>'&CLR&close all
+if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/market.mp3",Громкость_эффектов
+IF farid = 0:
+	ACT 'Оглядеться':msg "Вы стоите посреди шумной рыночной площади. Впереди, на помосте, окруженном покупателями и зеваками, усатый караванщик демонстрирует живой товар. 
+			В толпе вы замечаете знакомого работорговца — Фарида"&farid = 1
+ELSE
+	ACT "Поговорить с Фаридом": GT "Slavemarket_talk"
+END
+IF OBJ "Добыча" and girl = 1:
+	ACT "Продать пойманную дикарку на аукционе":
+		price = внешность*целка*2*(ноги+ловкость+ум+возраст)+ RAND (1,50)
+		girl=0&DELOBJ "Добыча"&money+=price&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/money.mp3",Громкость_эффектов
+		msg "Вы выставили дикарку на торги и получили за нее <<price>> з.м."
+	end
+END
+ACT "Уйти": GT $curloc

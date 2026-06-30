@@ -1,0 +1,11 @@
+﻿gs'stat'&'Ваши силы иссякли.'&act'Принять судьбу':gt'loss'
+npcmax=arrsize('my_marked_brp')&! marked_brp[npc]=you&my_marked_brp[]=npc
+ar=0&$locbrp=''
+:mark_brp
+	w=my_marked_brp[ar]
+	if w!you and dead[w]=0 and $name[w]!'' and marked_brp[w]>0:
+		$locbrp+='<br>'
+		$locbrp+='<<$name[w]>> <<$surname[w]>>. <<magik[w]>> магических каналов. <a href="exec:gt ''gosacr'',<<w>>"><b>Принести в жертву</b></a>'
+	end
+ar+=1&if ar<=npcmax:jump'mark_brp'
+'<<$locbrp>>'

@@ -1,0 +1,34 @@
+﻿clo=ARGS[0]
+gs'stat'
+'<center><img src="pic/clo/utop/<<clo>>.jpg" ></center>'
+'Номер одежды <<clo>>'
+'<<$ut_name[clo]>>'
+!длина 0 короткая, до пояса 1мини 2середина бедра 3колено 4 ниже колена
+if pol_ut[clo]=0:
+'Мужская одежда'
+end
+
+'Сексуальность <<sexy_ut[clo]>>'
+
+
+
+act'Убрать обратно':gt'junkstore'
+
+!clopayment=1000
+if clo=10:
+	clopayment=2000
+else
+	clopayment=1000
+end
+if money[you]>=clopayment:
+     act'Купить <<clopayment/100>> шиллингов':
+     cls
+     money[you]-=clopayment
+     uthere['<<clo>>,<<$loc[you]>>']=0
+     burden[you]+=item_ut_burden[clo]
+     item_ut[clo]+=1
+     gs'stat'
+     'Вы оплачиваете товар и забираете его'
+     act'...':gt 'preloc'
+     end
+end

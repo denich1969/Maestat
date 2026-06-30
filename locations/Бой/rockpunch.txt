@@ -1,0 +1,64 @@
+﻿mslot=m_slot[you]&uron=rand(800,3500)&'Вашу руку покрывают камни и вы наносите сокрушающий удар'
+if mushroom_udar=1:
+	'Грибная ярость вспыхивает в вас усиливая ваши рефлексы и силу удара, и вы с невероятной силой наносите чудовищны1й удар'
+else
+	if mslot>0:
+		 'Вы наносите удар оружием'
+	else
+		 'Вы наносите удар кулаком'
+	end
+end
+popad=0&fight_skill[you]+=1&!reactV&!react[you]
+percentV=reactV*20/100&defV=rand(reactV-percentV,reactV+percentV)&if invisibleV>0:defV=defV+(invisibleV*3)
+percent=react[you]*20/100&atk=rand(react[you]-percent,react[you]+percent)&atk=atk+(fight_skill[you]/10)&if mushroom_udar=1:atk+=mutation[you]*2
+if def_tipeV=0:'<<$name[npc]>> пытается увернутся'&popad=iif(defV<=atk,1,iif(rand(0,2)=2,1,0))
+if def_tipeV=1:'<<$name[npc]>> даже не пытается защищаться'&popad=1
+if uskor>0:popad=1
+if stunV>0:stunV-=1&popad=2
+if vampire[npc]>0 and m_slot[you]=25:health[npc]-=rand(10,30)&'Кожа противника на которую попадает свет от вашего меча багровеет и пузыриться'
+if portal_defV>0:
+	'Ваш удар попадает в портал и никакого вреда не наносит'
+else
+	if blunt_resist=1 and tipe_melee_item[mslot]=0:
+		'<<$name[npc]>> не обращает внимания на ваш удар'
+	else
+		 if m_slot[you]=25:clonV=0&'Слепящий свет исходящий от меча разрывает в клочья клонов'
+		 if popad>=1:
+			 if clonV>0:
+				 'Вы попадаете в клона и клон рассеивается'&clonV-=rand(1,3)&if clonV<0:clonV=0
+			 else
+				 if mushroom_udar=1:uron=uron*4
+				 if uron<1:uron=1
+				 if superslut[you]=1:uron=uron+(uron/10)
+				 if popad=2:uron=uron*2
+				 if mslot=25 and mob[npc]=1:uron=uron*2
+				 if uronstraf[you]>0 and uronstraf[you]<10:'Грудь и попа немного мешают вам в бою'
+				 if uronstraf[you]>=10:'Сиськи с задницей мешают вам в бою'
+				 if defenceV>0:
+					 if defenceV<uron:
+						 uron-=defenceV&defenceV=0
+					     if ironhand[npc]>0:
+							'<<$name[npc]>> отбивает рукой ваш удар'
+						 elseif health[npc]>=uron:
+							health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&if defenceV>0:'Вы разбиваете защиту противника'
+							 if popad=2:'Критическое попадание'
+						 elseif defenceV>=uron:
+							defenceV-=uron&'Защита противника полностью поглощает урон и снижается теряя прочность'
+							 if m_slot[you]=25:health[npc]-=uron/10&'Неистовый свет от меча проходит через защиту и наносит <<uron/10>> едениц урона'
+						 end
+					 end
+				 else
+				      if ironhand[npc]>0:
+						'<<$name[npc]>> отбивает рукой ваш удар'
+					 else
+						health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'
+				     end
+				 end
+			 end
+		else
+		'<<$name[npc]>> избегает урона'
+		end
+	end
+end
+if mushroom_udar=1:mushroom_udar=0
+gs'stat'&act'Далее':gt'fight'

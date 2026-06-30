@@ -1,0 +1,13 @@
+﻿takeitem=ARGS[0]
+if t_slot[npc]>0 and long_t[t_slot[npc]]>0 and pol_t[t_slot[npc]]>0: gt 'npc_cloth'
+cls
+if l_slot[npc]=0:
+	item_l[takeitem]-=1
+	l_slot[npc]=takeitem
+else
+	npcitem=l_slot[npc]
+	item_l[npcitem]+=1
+	item_l[takeitem]-=1
+	l_slot[npc]=takeitem
+end
+gt 'npc_cloth'

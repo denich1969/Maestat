@@ -1,0 +1,120 @@
+﻿if watch_you_slut['<<npc>>,<<you>>']>0:
+	'<<$name[npc]>> смеется - Помню, как тебя тут недавно ебали, ты очень сексуально стонешь.'
+ else
+	 if selfrespect[npc]<=1:
+		 if positiv[npc]=2:
+			'<<$name[npc]>> улыбается вам - Я надеялся, что ты сама посмотришь в мою сторону, но больше ждать не могу.'&!клоун
+		 else
+			 if ratio[npc]=2:
+			 '<<$name[npc]>> улыбается вам - Ну, как у тебя дела?'&!ботан
+			 else
+				'<<$name[npc]>> улыбается вам - Этот город становится светлее, когда такая красота, как у тебя, освещает его.'&!романтик
+			 end
+		 end
+	 end
+	 if selfrespect[npc]=2:
+	 !понторез
+		 if positiv[npc]=2:
+			'<<$name[npc]>> улыбается вам - Земля круглая, а город квадратный, вот мы и встретились снова.'&!клоун
+		 else
+			 if ratio[npc]=2:
+				'<<$name[npc]>> улыбается вам - А я только что думал о тебе.'& !ботан
+			 else
+				'<<$name[npc]>> улыбается вам - Мне нравится этот город хотя бы тем, что сюда попадают такие красавицы, как ты.'& !романтик
+			 end
+		 end
+	 end
+end
+if dont_give[npc]<1:
+	if womenbrain[you]<=75 and (demon_dick[you]=0 or (demon_dick[you]>0 and pol[you]=0)):
+		if vag[you]>0:
+			$hera='Э-э-э... Нет. Просто нет.'
+		else
+			$hera='Какого хера, чел! В шары долбишься: я мужик!'
+		end
+		act'<<$hera>>':
+			horny[npc]-=sexiness[you]/2
+			counteryou+=1
+			if vag[you]>0 and counteryou>=20:you_dirty_slut[npc]-=5&face[you]-=1&counteryou=0
+			cls&gt 'preloc'
+		end
+	end
+	if (womenbrain[you]>75 or (demon_dick[you]>0 and pol[you]>0)):
+		 act'Кокетничать':
+			 horny[npc]+=sexiness[you]/2
+			 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 if arhivson=npc:
+				'Вы улыбаетесь и кокетничаете с парнем. <<$name[npc]>> подмигивает - Давай сходим в укромное местечко, я тебе кое-что покажу.'
+			 elseif dukevalorama=npc:
+				'<<$name[npc]>> подмигивает - Девочка, я влиятельный и богатый человек, держись меня и у тебя все будет.'
+			 else
+				 if pol[npc]=0:'Вы улыбаетесь и кокетничаете с парнем. <<$name[npc]>> оживился и набравшись наглости предложил - Давай сходим в укромное местечко, я тебе кое-что покажу.'
+				 if pol[npc]>0:'Вы улыбаетесь и кокетничаете с девушкой. <<$name[npc]>> оживилась и набравшись наглости предложила - Давай сходим в укромное местечко, я тебе кое-что покажу.'
+			 end
+			 act'<b>Уйти</b>':dont_give[npc]+=1&gt 'preloc'
+			 act'Пошли к тебе':
+				 you_dirty_slut[npc]+=5
+				 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+				 if Z[you]=3:
+					gt'go_to_npc_home_gm'
+				 else
+					gt'go_to_npc_home'
+				 end
+			 end
+			 if corr[you]>=75:
+				act'Дай <<sexiness[you]>> шиллингов и пошли к тебе':
+					 you_dirty_slut[npc]+=50
+					 money[you]+=sexiness[you]*100
+					 know_whore['<<npc>>,<<you>>']+=1
+					 if Z[you]=3:
+						gt'go_to_npc_home_gm'
+					 else
+						gt'go_to_npc_home'
+					 end
+				 end
+			 end
+			 if corr[you]>=50:
+				 act'Давай <<max(sexiness[you]/2,1)>> шиллингов и я отсосу':
+					 know_whore['<<npc>>,<<you>>']+=1
+					 money[you]+=sexiness[you]/2*100
+					 pose[you]=2
+					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					 '<<$name[npc]>> <<$surname[npc]>> улыбаясь - Хорошо, шлюшка.'
+					 gs'block_quick', 'give_bj'
+				 end
+			 end
+			 gs'block_quick'
+		end
+	end
+end
+if dont_give[npc]>=1:
+	if womenbrain[you]<=75 and (demon_dick[you]=0 or (demon_dick[you]>0 and pol[you]=0)):
+		if vag[you]>0:
+			$hera='Э-э-э... Нет. Просто нет.'
+		else
+			$hera='Какого хера, чел! В шары долбишься: я мужик!'
+		end
+		act'<<$hera>>':
+			horny[npc]-=sexiness[you]/2
+			you_dirty_slut[npc]-=5
+			face[you]-=1
+			cls&gt 'preloc'
+		end
+	end
+	if (womenbrain[you]>75 or (demon_dick[you]>0 and pol[you]>0)):
+		 act'Кокетничать':
+			 horny[npc]+=sexiness[you]/2
+			 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 if dukevalorama=npc:
+				'<<$name[npc]>> подмигивает - Девочка, я влиятельный и богатый человек, держись меня и у тебя все будет.'
+			 else
+				 if pol[npc]=0:'Вы улыбаетесь и кокетничаете с парнем. <<$name[npc]>> оживился и предлагает вам выпить чего-нибудь вместе.'
+				 if pol[npc]>0:'Вы улыбаетесь и кокетничаете с девушкой. <<$name[npc]>> оживилась и предлагает вам выпить чего-нибудь вместе.'
+			 end
+			 act'<b>Уйти</b>':dont_give[npc]+=1&gt 'preloc'
+			 act'Согласиться':gt'lust_drink'
+		end
+	end
+end

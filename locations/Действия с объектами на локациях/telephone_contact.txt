@@ -1,0 +1,39 @@
+﻿gs'stat'&num=npc&gs'body'&*pl''&gs'npcbase'
+'<<$name[npc]>> - слушаю'&act'<b>Положить трубку</b>':gt 'preloc'
+if cantwalk_num=0:
+	 act'Нужно увидеться, можешь подойти к моему дому?':
+		 cls&gs'stat'
+		 act'<b>Положить трубку</b>':gt 'preloc'
+		if isenemy['<<npc>>,<<you>>']>0:
+			'<<$name[npc]>> <<$surname[npc]>> говорит в трубку - Отвали от меня и больше не звони.'&act'<b>Положить трубку</b>':contact[npc]=0&gt 'preloc'
+		else
+			if Z[npc]=Z[you]:
+				'<<$name[npc]>> <<$surname[npc]>> говорит в трубку - Да, конечно, сейчас подойду.'
+				 act'Подходи к моему дому':X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=0&R[npc]=0&cantwalk[npc]=3&cantwalk_num=npc&gt'preloc'
+			else
+				'<<$name[npc]>> <<$surname[npc]>> говорит в трубку - Извини, я в другом районе.'
+				if portal[you]>0:
+					if portal_zar[you]>0:
+						act'Я портальнусь к тебе':
+							 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=0&R[you]=0&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=0&R[npc]=0
+							 portal_zar[you]-=1&cantwalk[npc]=3&cantwalk_num=npc&gt'preloc'
+						end
+					else
+						'Вы вздохнули - Жалко, у меня нет зарядов в портальной машинке.'
+					end
+				else
+					'Вы вздохнули - Жалко, у меня нет портальной машинки.'
+				end
+			 end
+		 end
+	end
+end
+if mlev[you]>=5:
+	act'Пройти сквозь мглу':cantwalk[npc]=3&cantwalk_num=npc&X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&gt'preloc'&!Пройти сквозь мглу!Jorge
+else
+	'осталось еще поднять уровень магии на <<5-mlev[you]>> и можно самому портал строить'		
+end
+act'<b>Вычеркнуть</b>':
+	if arrpos('my_contact', npc)>=0: killvar 'my_contact', arrpos('my_contact', npc)
+	contact[npc]=0&gt 'preloc'
+end

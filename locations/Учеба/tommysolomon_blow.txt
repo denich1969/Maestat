@@ -1,0 +1,39 @@
+﻿npc=i&num=i&tommysolomon_day_blow=daystart
+gs'stat'&'<center><img src="pic/face/5/140.jpg" ></center>'&'К вам неожиданно подваливает со своей ухмылочкой Томми и берет вас за локоток - Солнышко, пора отрабатывать.'
+act'Идти в туалет':
+	dilamina_lezdomQW[you]=1&tommysolomon_day_blow=daystart&corr[you]+=5
+	X=3&Y=3&Z=3&H=1&R=5&X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
+	cls&gs'add_sex_stat', you, npc&horny[npc]=0&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
+	$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой хуй в школьном туалете'
+	$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала хуй Томми Соломону в школьном туалете.'
+	sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
+	time+=15&gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+	'Вы вошли в туалет и убедившись что тут никого нет сели на корточки перед Томми и тот со своей наглой ухмылкой расстегнул ширинку и вытащил свой член. '
+	'Устроившись по удобнее, что бы не плюхнутся задом на пол туалета вы взялись за бедра парня и взяли его член в рот. '
+	'Привычными движениями вы начали сосать хуй стараясь при этом покрепче его сжимать губами и не издавать звуков. '
+	'Хотя иногда громкие сосущие звуки непроизвольно вырывались из вашего рта под усмешки Томми.'
+	 if magik[you]>magik[npc]:
+	     'Вы чувствуете какое то заклятие на члене Томми, это заклятие явно заставляет вас кайфовать от отсоса.'
+		act'Сосать блокируя магию':
+			 empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'&!oral_fixation[you]+=10
+			 'Томми кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
+			 if tommyblow[you]=1 or tommyblow[you]>=5:'Томми заправляя член в штаны грустно вздохнул - Ну вот, <<tommyblow[you]>> раз ты мне уже отсосала. Хотя ты явно разгадала мой маленький трюк.'
+			 if tommyblow[you]>1 and tommyblow[you]<5:'Томми заправляя член в штаны грустно вздохнул - Ну вот, <<tommyblow[you]>> раза ты мне уже отсосала. Хотя ты явно разгадала мой маленький трюк.'
+			 'Томми пожал плечами - Я просто хочу что бы ты начала ловить кайф от минета и все. Но если ты сбиваешь мою магию, то ладно. Твое право.'
+			 if dilamina_lezdomQW[you]=1 and tommyblow[you]>=10:
+				 dilamina_lezdomQW[you]=2&'Томми достал смартфон и ухмыльнувшись удалил там что то - Ты отработала свое. Можешь быть свободна.'&!oral_fixation[you]+=10
+			 end
+			 act'Встать':gt'preloc'
+		 end
+	end
+	act'Сосать':
+		 empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&oral_fixation[you]+=10&cls&gs'stat'&'<center><video src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'
+		 'Томми кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
+		 if tommyblow[you]=1 or tommyblow[you]>=5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раз ты мне уже отсосала.'
+		 if tommyblow[you]>1 and tommyblow[you]<5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раза ты мне уже отсосала.'
+		 if dilamina_lezdomQW[you]=1 and tommyblow[you]>=10:
+			dilamina_lezdomQW[you]=2&oral_fixation[you]+=10&'Томми достал смартфон и ухмыльнувшись удалил там что то - Ты отработала свое. Можешь быть свободна.'
+		 end
+		 act'Встать':gt'preloc'
+	 end
+end

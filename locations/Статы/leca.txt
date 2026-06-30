@@ -1,0 +1,1 @@
+﻿mana[you]-=100&health[you]+=50&gt'preloc'

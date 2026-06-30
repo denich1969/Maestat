@@ -1,0 +1,10 @@
+﻿if spiral[you]=0 and vag[you]>0:
+	inseminate[you]=father_you_child&pregnant_day[you]=daystart
+else
+	father_you_child=0&inseminate[you]=0&pregnant_day[you]=0
+end
+if spiral[npc]=0 and vag[npc]>0:
+	inseminate[npc]=father_npc_child&pregnant_day[npc]=daystart
+else
+	father_npc_child=0&inseminate[npc]=0&pregnant_day[npc]=0
+end

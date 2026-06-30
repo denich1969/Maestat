@@ -1,0 +1,1 @@
+﻿npc=ARGS[0]&gt'spitrit_npc'

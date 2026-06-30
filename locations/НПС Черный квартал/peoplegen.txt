@@ -1,0 +1,42 @@
+﻿tipe=rand(2)&!0-одиночки, 1 - семья черная, 2 - семья черно-белая
+if tipe=0:
+	polrand=rand(1,10)
+	if polrand<=8:gs'bmale_gen'
+	if polrand>8:gs'bfemale_gen'
+	$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
+	ne_world[]=i&walkprog[i]=27
+	work[i]=2&if rand(1,100)>70:work[i]=3
+end
+if tipe=1:
+	gs'bmale_gen'
+	$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
+	$famili_surname=$gensurname_f
+	ne_world[]=i&walkprog[i]=27
+	work[i]=2&if rand(1,100)>70:work[i]=3
+	fi=i
+	pretipename=nation[fi]
+	gs'bfemale_gen'&$surname[i]=$famili_surname
+	ne_world[]=i&walkprog[i]=27
+	work[i]=rand(2,3)
+	vag[i]=1+dickd[fi]
+	sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100&guy[i]+=1&girl[fi]+=1
+	sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i
+	a_vag_lon[fi]=100&p_vag_lon[i]=100
+	husband[i]=fi&husband[fi]=i
+end
+if tipe=2:
+	gs'bmale_gen'&$famili_surname=$gensurname_f
+	$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
+	ne_world[]=i&walkprog[i]=27
+	work[i]=2&if rand(1,100)>70:work[i]=3
+	fi=i
+	pretipename=nation[fi]
+	gs'female_gen'&$surname[i]=$famili_surname
+	ne_world[]=i&walkprog[i]=27
+	work[i]=rand(2,3)
+	vag[i]=1+dickd[fi]
+	sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100&guy[i]+=1&girl[fi]+=1
+	sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&	 sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i
+	a_vag_lon[fi]=100&p_vag_lon[i]=100
+	husband[i]=fi&husband[fi]=i
+end

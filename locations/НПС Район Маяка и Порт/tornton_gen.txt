@@ -1,0 +1,21 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&tornton=i
+lvl[i]=1&soul[i]=500
+master[i]=0&delusion[i]=0&magik[i]=15&beliver[i]=2&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=17
+$title[i]=''&$history[i]='Наше семейство Маршей влиятельно и могущественно. Я владею борделем, и портовые шлюхи должны платить мне дань.'
+$name[i]='Торнтон'&$surname[i]='Марш'&$nick[i]='Хозяин борделя'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=20&dickd[i]=42&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&&tit[i]=0
+rost[i]=186&fat[i]=800&mus[i]=800&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=1
+age[i]=30&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=0
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(10,30)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=2&ratio[i]=1&brave[i]=1&lust[i]=100&horny[i]=50&!характер
+	girl[i]+=100&avagsex[i]+=100&aanal[i]+=100&abj[i]+=100
+h_slot[i]=0
+w_slot[i]=9&!l_hand_t[i]=2&r_hand_t[i]=1
+t_slot[i]=50&l_slot[i]=53&b_slot[i]=24
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+n_world[]=i&walkprog[i]=13
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

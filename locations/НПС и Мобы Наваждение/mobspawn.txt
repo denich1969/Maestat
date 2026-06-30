@@ -1,0 +1,56 @@
+﻿ if daystartobsession=3 and cladka['4,4,770,0,0']=2:
+     cladka['4,4,770,0,0']=1
+     X=4&Y=4&Z=770&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'
+     X=10&Y=5&Z=770&H=0&R=0&gs'goblin'&gs'goblin'&gs'goblin'
+     X=5&Y=0&Z=750&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'succubus'
+end
+if daystartobsession=4 and cladka['0,3,770,0,0']=2:cladka['0,3,770,0,0']=1&X=0&Y=3&Z=770&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'
+if daystartobsession=4:
+     X=4&Y=0&Z=770&H=0&R=0&piroga['<<X>>,<<Y>>,<<Z>>,0,0']=1
+     gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'&gs'aborigen_gen'&$title[i]='Туземец'
+     gs'aborigen_gen'&$title[i]='Туземец'&$nick[i]='Туземец в боевой раскраске'
+     reflex[i]=100&mobexp[i]=50&gs'aborigen_gen'&$title[i]='Туземец'&$nick[i]='Туземец с перьями в украшениях'
+     reflex[i]=100&mobexp[i]=50&gs'shaman'&gs'succubus'&gs'succubus'&gs'succubus'
+     X=5&Y=0&Z=750&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'
+end
+if daystartobsession=5 and cladka['10,3,770,0,0']=2:
+     cladka['10,3,770,0,0']=1
+     X=10&Y=3&Z=770&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'
+end
+if daystartobsession=3:
+     X=13&Y=13&Z=740&H=0&R=0&gs'succubus'&gs'succubus'&gs'succubus'
+     X=11&Y=3&Z=771&H=0&R=0&gs'succubus'
+end
+if daystartobsession=5:
+     X=10&Y=10&Z=730&H=0&R=0&gs'succubus'&gs'succubus'&gs'succubus'
+     X=5&Y=0&Z=750&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'succubus'&gs'succubus'&gs'succubus'
+     X=10&Y=5&Z=770&H=0&R=0&gs'goblin'&gs'goblin'&gs'goblin'
+end
+if daystartobsession=6:
+     X=13&Y=13&Z=740&H=0&R=0&gs'succubus'&gs'succubus'&gs'succubus'
+     X=5&Y=0&Z=750&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'succubus'&gs'succubus'&gs'succubus'
+end
+if daystartobsession=7:
+     X=13&Y=13&Z=740&H=0&R=0&gs'succubus'&gs'succubus'&gs'succubus'
+     X=1&Y=6&Z=750&H=0&R=0&gs'succubus'
+     X=5&Y=0&Z=750&H=0&R=0&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'mobgen'&gs'succubus'&gs'succubus'&gs'succubus'
+     X=10&Y=5&Z=770&H=0&R=0&gs'goblin'&gs'goblin'&gs'goblin'
+end
+if total_freegirl<2 and master[you]=1:X=99&Y=rand(97,99)&Z=200&H=0&R=0&gs'freegirl'
+if total_tentacle<30:X=rand(0,10)&Y=rand(0,10)&Z=770&H=0&R=0&gs'mobgen'
+if total_tentacle<5:X=rand(1,9)&Y=rand(1,9)&Z=770&H=0&R=0&gs'mobgen'
+if total_tentacle<10:X=rand(1,9)&Y=rand(1,9)&Z=770&H=0&R=0&gs'mobgen'
+if total_tentacle<15:X=rand(1,9)&Y=rand(1,9)&Z=770&H=0&R=0&gs'mobgen'
+if total_aborigen<3:X=rand(1,9)&Y=rand(1,9)&Z=770&H=0&R=0&gs'aborigen_gen'&$title[i]='Туземец'
+if total_slut<15:X=4&Y=7&Z=770&H=0&R=0&gs'justgirl'
+if total_whore<5:X=11&Y=2&Z=771&H=0&R=0&gs'justgirl'
+if total_client<20:
+	X=4&Y=5&Z=771&H=0&R=0
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+end
+if master[you]>0 and total_freegirl<10:X=99&Y=96&Z=200&H=0&R=0&gs'freegirl'
+if need_pornakter>0:need_pornakter-=1&X=10&Y=10&Z=773&H=0&R=0&gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)

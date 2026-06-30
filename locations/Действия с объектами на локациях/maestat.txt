@@ -1,0 +1,144 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Маестат, легендарный престол. Трон абсолютной власти.'
+gs'Item'&*pl''&gs 'npconloc'&act'Отойти':gt 'preloc'
+act'Сесть на трон':
+	cls&gs'stat'
+     if master[you]>0:
+         if firsttime_maestat=0:
+			 soul[you]+=900&firsttime_maestat=1&magik[you]+=5
+			 key['<<you>>,<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1
+			 can_sleep['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,2']=1
+         end
+		 health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&'Маестат чувствует вашу божественную силу и отзывается легким гулом и теплотой'&act'Встать':gt 'preloc'
+		 if rememberme>0:
+			 act'<b>Восстановить свой облик</b>':
+				 i=you
+				 rem=0
+				 $name[i]=$name[rem]&$surname[i]=$surname[rem]
+				 spec_face_pic[i]=spec_face_pic[rem]&face_pic[i]=face_pic[rem]
+				 age[i]=age[rem]
+				 face[i]=face[rem]&gla[i]=gla[rem]&glacol[i]=glacol[rem]&nose[i]=nose[rem]&scull[i]=scull[rem]&cheeks[i]=cheeks[rem]&beard[i]=beard[rem]
+				 dick[i]=dick[rem]&dickd[i]=dickd[rem]&ball[i]=ball[rem]&vag[i]=vag[rem]&ass[i]=ass[rem]&tits[i]=tits[rem]&nip[i]=nip[rem]
+				 rost[i]=rost[rem]&fat[i]=fat[rem]&mus[i]=mus[rem]&skin[i]=skin[rem]
+				 face_hair[i]=face_hair[rem]&tit_hair_can[i]=tit_hair_can[rem]&tit_hair[i]=tit_hair[rem]&leg_hair_can[i]=leg_hair_can[rem]&leg_hair[i]=leg_hair[rem]&hlong[i]=hlong[rem]&hcol[i]=hcol[rem]
+				 l_hand_t[i]=l_hand_t[rem]&r_hand_t[i]=r_hand_t[rem]
+				back_t[i]=back_t[rem]
+				stamp_t[i]=stamp_t[rem]
+				tits_t[i]=tits_t[rem]
+				belly_t[i]=belly_t[rem]
+				pubis_t[i]=pubis_t[rem]
+				l_ass_t[i]=l_ass_t[rem]&r_ass_t[i]=r_ass_t[rem]
+				l_leg_t[i]=l_leg_t[rem]&r_leg_t[i]=r_leg_t[rem]
+				 cls&gt'preloc'
+			 end
+		 end
+		 act'<b>Запомнить свой облик</b>':
+			 knowlanguage[you]+=1
+			 rememberme=1
+			 i=0
+			 $name[i]=$name[you]&$surname[i]=$surname[you]
+			 spec_face_pic[i]=spec_face_pic[you]&face_pic[i]=face_pic[you]
+			 age[i]=age[you]
+			 face[i]=face[you]&gla[i]=gla[you]&glacol[i]=glacol[you]&nose[i]=nose[you]&scull[i]=scull[you]&cheeks[i]=cheeks[you]&beard[i]=beard[you]
+			 dick[i]=dick[you]&dickd[i]=dickd[you]&ball[i]=ball[you]&vag[i]=vag[you]&ass[i]=ass[you]&nip[i]=nip[you]&tits[i]=tits[you]
+			 rost[i]=rost[you]&fat[i]=fat[you]&mus[i]=mus[you]&skin[i]=skin[you]
+			face_hair[i]=face_hair[you]&tit_hair_can[i]=tit_hair_can[you]&tit_hair[i]=tit_hair[you]&leg_hair_can[i]=leg_hair_can[you]&leg_hair[i]=leg_hair[you]&hlong[i]=hlong[you]&hcol[i]=hcol[you]
+			 l_hand_t[i]=l_hand_t[you]&r_hand_t[i]=r_hand_t[you]
+			 back_t[i]=back_t[you]
+			 stamp_t[i]=stamp_t[you]
+			 tits_t[i]=tits_t[you]
+			 belly_t[i]=belly_t[you]
+			 pubis_t[i]=pubis_t[you]
+			 l_ass_t[i]=l_ass_t[you]&r_ass_t[i]=r_ass_t[you]
+			 l_leg_t[i]=l_leg_t[you]&r_leg_t[i]=r_leg_t[you]
+			 cls&gt'preloc'
+		 end
+		 if rememberme>0:
+			 'Вы можете преобразиться.'
+			 if scull[you]>0:'<a href="exec:scull[you]=0&gt $curloc">Обыкновенные скулы</a>'
+			 if cheeks[you]>0:'<a href="exec:cheeks[you]=0&gt $curloc">Обыкновенные щеки</a>'
+			 if scull[you]=0:'<a href="exec:scull[you]=1&gt $curloc">Широкие скулы</a>'
+			 if cheeks[you]=0:'<a href="exec:cheeks[you]=1&gt $curloc">Пухлые щеки</a>'
+			 ''
+			 if skin[you]!0:'<a href="exec:skin[you]=0&gt $curloc">Белая кожа</a>'
+			 if skin[you]!1:'<a href="exec:skin[you]=1&gt $curloc">Светлая кожа</a>'
+			 if skin[you]!2:'<a href="exec:skin[you]=2&gt $curloc">Загорелая кожа</a>'
+			 if skin[you]!3:'<a href="exec:skin[you]=3&gt $curloc">Смуглая кожа</a>'
+			 ''
+			 if hcol[you]!0:'<a href="exec:hcol[you]=0&gt $curloc">Черные волосы</a>'
+			 if hcol[you]!1:'<a href="exec:hcol[you]=1&gt $curloc">Русые волосы</a>'
+			 if hcol[you]!2:'<a href="exec:hcol[you]=2&gt $curloc">Рыжие волосы</a>'
+			 if hcol[you]!3:'<a href="exec:hcol[you]=3&gt $curloc">Светлые волосы</a>'
+			 ''
+			 if glacol[you]!0:'<a href="exec:glacol[you]=0&gt $curloc">Черные глаза</a>'
+			 if glacol[you]!1:'<a href="exec:glacol[you]=1&gt $curloc">Карие глаза</a>'
+			 if glacol[you]!2:'<a href="exec:glacol[you]=2&gt $curloc">Серые глаза</a>'
+			 if glacol[you]!3:'<a href="exec:glacol[you]=3&gt $curloc">Зеленые глаза</a>'
+			 if glacol[you]!4:'<a href="exec:glacol[you]=4&gt $curloc">Голубые глаза</a>'
+			 ''
+			 if gla[you]!0:'<a href="exec:gla[you]=0&gt $curloc">Стандартный размер глаз</a>'
+			 if gla[you]=0:'<a href="exec:gla[you]=1&gt $curloc">Маленькие глаза</a>'
+			 if gla[you]=0:'<a href="exec:gla[you]=2&gt $curloc">Раскосые глаза</a>'
+			 if gla[you]=0:'<a href="exec:gla[you]=3&gt $curloc">Большие глаза</a>'
+			 ''
+			 if nose[you]!0:'<a href="exec:nose[you]=0&gt $curloc">Обыкновенный нос</a>'
+			 if nose[you]!1:'<a href="exec:nose[you]=1&gt $curloc">Маленький вздернутый носик</a>'
+			 if nose[you]!2:'<a href="exec:nose[you]=2&gt $curloc">Утонченный, аристократический нос</a>'
+			 if nose[you]!3:'<a href="exec:nose[you]=3&gt $curloc">Широкий нос</a>'
+			 if nose[you]!4:'<a href="exec:nose[you]=4&gt $curloc">Горбатый нос</a>'
+			 ''
+			 if lips[you]!0:'<a href="exec:lips[you]=0&gt $curloc">Обыкновенные губы</a>'
+			 if lips[you]!1:'<a href="exec:lips[you]=1&gt $curloc">Пухленькие губы</a>'
+			 if lips[you]!2:'<a href="exec:lips[you]=2&gt $curloc">Толстые губы</a>'
+			 act'Установить феминности и маскулинность':
+				temp=input("Установить значение феминности, сейчас <<face[you]>> от 0, до 100")
+			     if temp>=0 and temp<=100:face[you]=temp
+				cls&gt $curloc
+			 end
+			 act'Установить мускулатуру':
+				temp=input("Установить мускулатуру, сейчас <<mus[you]>> от 500, до 3000")
+			     if temp>=500 or temp<=3000:mus[you]=temp
+				cls&gt $curloc
+			 end
+			 act'Установить жир':
+				temp=input("Установить полноту тела, сейчас <<fat[you]>> от 100, до 5000")
+			     if temp>=100 or temp<=5000:fat[you]=temp
+				cls&gt $curloc
+			 end
+			 if dick[you]>1:
+				 if dick[you]<25:act'Увеличить член <<dick[you]>>см':dick[you]+=1&gt $curloc
+				 if dick[you]>8:act'Уменьшить член <<dick[you]>>см':dick[you]-=1&gt $curloc
+				 if dickd[you]<45:act'Член толще <<dickd[you]>>мм':dickd[you]+=1&gt $curloc
+				 if dickd[you]>30:act'Член тоньше <<dickd[you]>>мм':dickd[you]-=1&gt $curloc
+				 if ball[you]<100:act'Половая мощь быка':ball[you]=100&gt $curloc
+				 act'Хочу вагину вместо члена':dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&gt 'preloc'
+			 else
+				 if ass[you]<30:act'Увеличить попу':ass[you]+=1&gt $curloc
+				 if ass[you]>20:act'Уменьшить попу':ass[you]-=1&gt $curloc
+				 if tits[you]<22:act'Увеличить грудь':tits[you]+=1&gt $curloc
+				 if tits[you]>=13:act'Уменьшить грудь':tits[you]-=1&gt $curloc
+				 act'Хочу член вместо вагины':dick[you]=15&dickd[you]=30&ball[you]=50&vag[you]=0&gt 'preloc'
+			 end
+		 end
+     else
+		 if water_gem[you]>0 and fire_gem[you]>0 and earth_gem[you]>0 and wind_gem[you]>0 and soul_gem[you]>0:
+			'Вы садитесь на престол и трон оживает, силы захваченные вами входят в трон, смешиваются там в одном бурлящем танце. '
+			'Сила Маестата звенит и нарастает, вы чувствуете все осколки божественной силы, и эти разбитые силы тянутся к Маестату.'
+			 act'Впитать силы':
+				 water_gem[you]=0&fire_gem[you]=0&earth_gem[you]=0&wind_gem[you]=0&soul_gem[you]=0&if beliver[you]>0:gt'beliverend'
+				 master[you]=100&cls&gs'stat'&'Силы божественных сущностей сливаются в троне и выплескиваются в вас, а затем отступают. '
+				'Вы сидите на остывающем троне и чувствуете свою новоприобритенную божественную силу.'
+				 act'Собрать всех богов во едино и стать единым (Победа)':
+					cls&'Младшие боги маестата это части единого бога, и вы как аватар собрали все свои части и стали больше чем собой, вы стали всем, ибо Бог - это все. '
+					'Вы перестали быть человеком и стали единым Богом, единым с Богом. Дорога к Богу может быть разная, вы стали Богом, чтобы понять, что всегда были частью Бога.'
+				 end
+				 act'Отринуть слияние (Фриплей)':
+					 cls&gs'stat'&'Вы стали сливаться с младшими богами в Единого Бога, потому что младшие боги это лишь части Единого Бога, аватаром которого вы прямо сейчас стали становиться. '
+					'Но вы прекратили процесс слияния и отпустили части себя на свободу ради возможности быть человеком, ради ограничения себя и своих возможностей.'&act'Встать':gt 'preloc'
+				 end
+			 end
+		 else
+			 'Вы садитесь на трон и ничего не происходит. Престол леденяще холоден, тверд и неприятно огромен. В голову лезут самые мрачные мысли из потаенных глубин сознания.'&act'Встать':gt 'preloc'
+		 end
+     end
+end

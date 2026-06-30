@@ -1,0 +1,62 @@
+﻿gs'stat'
+loc_for_drop=0
+if station=1:'<center><b>Станция Врата темного города</b></center>'
+if station=2:'<center><b>Станция Блэкберри</b></center>'
+if station=3:'<center><b>Станция Жилмассив</b></center>'
+if station=4:'<center><b>Станция Аптаун</b></center>'
+if station=5:'<center><b>Станция Даунтаун</b></center>'
+'<center><img src="pic/loc/ras/underground.jpg" ></center>'
+if station<=1:
+	''
+else
+	'Стены, покрытые кремовой плиткой, кое-где забрызганные кровью, на них — царапины, скорее всего следы чьих-то когтей, и всевозможные граффити. Как всегда, слово «Ктулху» было написано с ошибками. Плакаты рядом с перечнем станций были странными, неприятными, как сны, которые лучше не вспоминать. Рекламные плакаты рекламировали фильмы, поездки и услуги, о которых в нормальной жизни говорят только шёпотом.'
+end
+if station>=2:
+	 act'<b>Уйти</b>':
+		 if station=2:X[you]=2&Y[you]=2&Z[you]=station
+		 if station=3:X[you]=3&Y[you]=0&Z[you]=station
+		 if station=4:X[you]=2&Y[you]=2&Z[you]=station
+		 if station=5:X[you]=2&Y[you]=2&Z[you]=station
+		gt'preloc'
+	 end
+end
+if station=2:
+'<b>Юг</b>'
+'Жилмассив'
+'Аптаун'
+'Даунтаун'
+end
+if station=3:
+'<b>Север</b>'
+'Блэкберри'
+'<b>Юг</b>'
+'Аптаун'
+'Даунтаун'
+end
+if station=4:
+'<b>Север</b>'
+'Блэкберри'
+'Жилмассив'
+'<b>Юг</b>'
+'Даунтаун'
+end
+if station=5:
+'<b>Север</b>'
+'Блэкберри'
+'Жилмассив'
+'Аптаун'
+end
+if station>2:
+     act'Ехать на север':
+		 station-=1
+		 time+=5&cls&gs'stat'&'Вы мчитесь в вагоне метро под землей'
+		 act'....':gt $curloc
+     end
+end
+if station<5:
+     act'Ехать на юг':
+		 station+=1
+		 time+=5&cls&gs'stat'&'Вы мчитесь в вагоне метро под землей'
+		 act'....':gt $curloc
+     end
+end

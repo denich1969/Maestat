@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&captain=i
+lvl[i]=1&soul[i]=500
+master[i]=0&delusion[i]=0&magik[i]=16&beliver[i]=0&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=20&!номер типа фотки и фотки
+$name[i]='Олбрайт'&$surname[i]=''&$nick[i]='Капитан'&$title[i]=''&$history[i]='Я капитан пакетбота Харон, я привожу сюда людей, но никогда и ни на каких условиях отсюда никого не увожу.'
+face[i]=20&gla[i]=0&glacol[i]=100&nose[i]=0
+dick[i]=15&dickd[i]=35&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=175&fat[i]=800&mus[i]=800&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=6&beard[i]=100
+age[i]=70&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=0
+pol[i]=0&gs'body'&total_generated_male+=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=100&selfrespect[i]=1&positiv[i]=0&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=10&!характер
+w_slot[i]=9&!l_hand_t[i]=2&r_hand_t[i]=1
+t_slot[i]=69&l_slot[i]=56&b_slot[i]=28
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+n_world[]=i&walkprog[i]=18
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

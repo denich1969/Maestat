@@ -1,0 +1,166 @@
+﻿if cum_face[w]>0:
+	cum_face[w]=0
+     if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+		 $walklog+='<br>'
+		 if know['<<w>>,<<you>>']=0:$walklog+='<<$nick[w]>> вытирает сперму'
+		 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> вытирает сперму'
+	 end
+end
+if mob_busy[w]>0 and mob_busy[w]<time:
+	 horny[w]=0
+     mob_busy[w]=0&mob_sleep[w]=time+15
+     under_sub[w]=0
+     action_tipe[w]=0
+end
+if soul[w]<=0 and slutgirl=w:
+    X[w]=2&Y[w]=3&Z[w]=1&H[w]=0&R[w]=0
+    dead[w]=2
+    slutgirlgrave+=1
+end     
+if slutgirl=w and guy[w]>=20 and port_whore[w]=0 and slutgirlonce=0 and slave[w]=0 and Zhome[w]=1:
+    gang[w]+=1
+    slutgirlonce=1
+    port_whore[w]=1
+    $history[w]='До попадания в город я была моделью. А тут сломалась и стала проституткой'
+    l_leg_t[w]=2&pubis_t[w]=1&stamp_t[w]=rand(1,4)
+	t_slot[w]=71&l_slot[w]=0&b_slot[w]=11
+    ut_slot[w]=0&ul_slot[w]=0&ub_slot[w]=0
+    nip_p[w]=3&vag_pirs[w]=3&nose_p[w]=2&tongue_p[w]=1
+end
+if port_whore[w]>0 and slave[w]=0:slave[w]=tornton
+if slutgirl=w and tornton_lose_slave=0 and myagent[w]=you:
+         tornton_lose_slave=1
+         if slave[w]=tornton:slave[w]=0
+end
+walkOBR[w]+=1
+if walkOBR[w]>100:walkOBR[w]=1
+gotogirlfriend_npc=0
+if girlfriend_num[w]>0 and todaymeetgirl[w]!daystart and hour>=17:
+     gfrnum=girlfriend_num[w]
+     gotogirlfriend_npc=1
+    if husband[gfrnum]>0 and weak_hubby[gfrnum]=0 and lust[gfrnum]<75:
+         gotogirlfriend_npc=0
+		 girlfriend_num[w]=0
+		 boyfriend_num[s]=0
+		 ex_girlfriend['<<w>>,<<s>>']=1
+     end
+end
+if husband[w]>0 and dick[w]>0 and todaymeetwife[w]!daystart and hour>=21:gotogirlfriend_npc=2
+if you=girlfriend_num[w] and gotogirlfriend_npc=1:gotogirlfriend_npc=0
+if you=husband[w] and gotogirlfriend_npc=2:gotogirlfriend_npc=0
+if pol[w]>0 and boyfriend_num[w]>0:
+    if whore[w]>0:
+         s=boyfriend_num[w]
+		 girlfriend_num[s]=0
+		 boyfriend_num[w]=0
+		 ex_girlfriend['<<s>>,<<w>>']=1
+    end
+end
+if pol[w]>0 and girlfriend_num[w]>0:
+    s=girlfriend_num[w]
+	girlfriend_num[w]=0&boyfriend_num[w]=0&girlfriend_num[s]=0&boyfriend_num[s]=0
+	ex_girlfriend['<<w>>,<<s>>']=1
+end
+destroy_marriage=0
+if gotogirlfriend_npc=1:
+	if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+		 todaymeetgirl[w]=daystart
+		 s=girlfriend_num[w]
+		 destroy_marriage=0
+		 if dead[s]>0:destroy_marriage=1
+		 if pol[s]=0:destroy_marriage=1
+		 if pol[w]>0:destroy_marriage=1
+		 if Z[w]!Z[s]:destroy_marriage=1
+		 if whore[s]>0:destroy_marriage=1
+		 if slave[s]>0:destroy_marriage=1
+		 if slave[w]>0:destroy_marriage=1
+		 if destroy_marriage=0:
+			 X[s]=X[w]&Y[s]=Y[w]&Z[s]=Z[w]&H[s]=H[w]&R[s]=R[w]
+			 if lust[s]<=ball[w]:
+				 lust[s]+=1
+				 agro[s]-=1&agro[w]+=1
+				 friends['<<w>>,<<s>>']+=5&friends['<<s>>,<<w>>']+=5
+			end
+			if lust[s]>ball[w]:
+				 lust[s]-=1
+				 agro[s]+=1&agro[w]-=1
+				 friends['<<w>>,<<s>>']-=1&friends['<<s>>,<<w>>']-=1
+			end
+			if friends['<<w>>,<<s>>']<=0:
+				 friends['<<w>>,<<s>>']=0&friends['<<s>>,<<w>>']=0
+				 girlfriend_num[w]=0&boyfriend_num[s]=0
+				 ex_girlfriend['<<w>>,<<s>>']=1
+			end
+			 if soul[s]<50:soul[s]+=20
+			 gs'location_sex'
+			 $think[w]='думает о всякой фигне'&!дома
+		end
+		if destroy_marriage=1:
+			 girlfriend_num[w]=0&boyfriend_num[s]=0
+			 ex_girlfriend['<<w>>,<<s>>']=1
+		end
+	else
+		 $destination[w]='дом'
+		 gs'destination'
+		 $think[w]='хочет домой'&!вне дома
+		 gs'walk_dest'
+	 end
+end
+if gotogirlfriend_npc=2 and w!father:
+	if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+		 todaymeetwife[w]=daystart
+		 s=husband[w]
+		 destroy_marriage=0
+		 if dead[s]>0:destroy_marriage=1
+		 if pol[s]=0:destroy_marriage=1
+		 if pol[w]>0:destroy_marriage=1
+		 if Z[w]!Z[s]:destroy_marriage=1
+		 if whore[s]>0:destroy_marriage=0
+		 if slave[s]>0:destroy_marriage=1
+		 if slave[w]>0:destroy_marriage=1
+		 if lust[s]>ball[w]:
+			 friends['<<w>>,<<s>>']=0&friends['<<s>>,<<w>>']=0
+			 lust[s]+=1
+			 weak_hubby[s]+=1
+		 end
+		if destroy_marriage=0:
+			X[s]=X[w]&Y[s]=Y[w]&Z[s]=Z[w]&H[s]=H[w]&R[s]=R[w]
+		     if soul[s]<50:soul[s]+=20
+			gs'location_sex'
+			$think[w]='думает о всякой фигне'&!дома
+	     end
+	     if destroy_marriage=1:husband[w]=0&husband[s]=0
+	 else
+		 $destination[w]='дом'
+		 gs'destination'
+		 $think[w]='хочет домой'&!вне дома
+		 gs'walk_dest'
+	 end
+end
+if gotogirlfriend_npc=2 and w=father:
+	mesto_parents=rand(0,4)
+	 if mesto_parents=0:X[w]=Xhome[w]&Y[w]=Yhome[w]&Z[w]=Zhome[w]&H[w]=Hhome[w]&R[w]=Rhome[w]+1
+	 if mesto_parents=1:X[w]=2&Y[w]=3&Z[w]=3&H[w]=1&R[w]=6&!в палате
+	 if mesto_parents=1:X[w]=2&Y[w]=3&Z[w]=3&H[w]=1&R[w]=6&!в палате
+	 if mesto_parents=2:X[w]=2&Y[w]=0&Z[w]=3&H[w]=2&R[w]=3&!траходром
+	 if mesto_parents=3:X[w]=2&Y[w]=0&Z[w]=3&H[w]=2&R[w]=2&!сауна
+	 if mesto_parents=4:X[w]=1&Y[w]=0&Z[w]=3&H[w]=6&R[w]=5&!общага
+	 if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and R[w]=Rhome[w]+1:
+		 todaymeetwife[w]=daystart
+		 s=husband[w]
+		 if lust[s]>ball[w]:
+			 friends['<<w>>,<<s>>']=0&friends['<<s>>,<<w>>']=0
+			 lust[s]+=1
+			 weak_hubby[s]+=1
+		 end
+		 X[s]=X[w]&Y[s]=Y[w]&Z[s]=Z[w]&H[s]=H[w]&R[s]=R[w]
+		 if soul[s]<50:soul[s]+=20
+		 gs'location_sex'
+		 $think[w]='думает о всякой фигне'&!дома
+	 else
+		 $destination[w]='дом'
+		 gs'destination'
+		 $think[w]='хочет домой'&!вне дома
+		 gs'walk_dest'
+	 end
+ end

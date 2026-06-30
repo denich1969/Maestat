@@ -1,0 +1,6 @@
+﻿SHOWSTAT 0
+SHOWOBJS 0
+showinput 0
+'<center><b><font size=big>КОНЦОВКА ДОХЛОГО СЛАБАКА</a></font></b></center>'
+'Вы нарушили клятву и предали Джофри, хотя это вас никак не спасло.'
+''

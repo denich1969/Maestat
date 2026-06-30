@@ -1,0 +1,39 @@
+﻿if $args[2]='before':
+	if event_kargan_bar['event']=0 and rand(0,10)=10:
+		event_kargan_bar['event']=rand(1,1)
+		if event_kargan_bar['event']=1 and event_kargan_bar['belinda']>0:event_kargan_bar['event']=0
+		if event_kargan_bar['event']=1 and you_slut[belinda]>0:event_kargan_bar['event']=2
+	end
+	if event_kargan_bar['event']=0:
+		args[20]=arrsize('replic_suck_kargan_bar_before')&args[21]=rand(args[20]-1)
+		if args[21]<arrsize('replic_suck_kargan_bar_before'):dynamic $replic_suck_kargan_bar_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_suck_kargan_bar_before')
+	end
+	if event_kargan_bar['event']=1:
+		args[20]=arrsize('replic_bj_kargan_event_belinda_before')&args[21]=rand(args[20]-1)
+		if args[21]<arrsize('replic_bj_kargan_event_belinda_before'):dynamic $replic_bj_kargan_event_belinda_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_bj_kargan_event_belinda_before')
+	end	
+	if event_kargan_bar['event']=2:
+		args[20]=arrsize('replic_bj_kargan_event_belinda_know_before')&args[21]=rand(args[20]-1)
+		if args[21]<arrsize('replic_bj_kargan_event_belinda_know_before'):dynamic $replic_bj_kargan_event_belinda_know_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_bj_kargan_event_belinda_know_before')
+	end	
+end
+if $args[2]='cum':
+	if event_kargan_bar['event']=0:
+		args[20]=arrsize('replic_suck_kargan_bar_cum')&args[21]=rand(args[20]-1)
+		if args[21]<arrsize('replic_suck_kargan_bar_cum'):dynamic $replic_suck_kargan_bar_cum[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_suck_kargan_bar_cum')
+	end
+	if event_kargan_bar['event']=1:
+		args[20]=arrsize('replic_bj_kargan_event_belinda_cum')&args[21]=rand(args[20]-1)
+		if args[21]<arrsize('replic_bj_kargan_event_belinda_cum'):dynamic $replic_bj_kargan_event_belinda_cum[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_bj_kargan_event_belinda_cum')
+	end		
+	if event_kargan_bar['event']=2:
+		args[20]=arrsize('replic_bj_kargan_event_belinda_know_cum')&args[21]=rand(args[20]-1)
+		if args[21]<arrsize('replic_bj_kargan_event_belinda_know_cum'):dynamic $replic_bj_kargan_event_belinda_know_cum[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_bj_kargan_event_belinda_know_cum')
+	end		
+end

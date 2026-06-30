@@ -1,0 +1,24 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&nari=i
+lvl[i]=1&money[i]=5500&soul[i]=100&iskr[i]=80000
+master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0&!Нет наваждения
+spec_face_pic[i]=5&face_pic[i]=153
+$name[i]='Аллегра'&$surname[i]='Ландольф'&$nick[i]='Госпожа Аллегра'&$title[i]='Госпожа'&if you=domina:$history[i]='Ваша сестра'
+face[i]=80&gla[i]=0&glacol[i]=2&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0&!souldar[i]=1&
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=20&anus[i]=0&throat[i]=0&ass[i]=34&nip[i]=45&tits[i]=18
+rost[i]=165&fat[i]=1400&mus[i]=600&skin[i]=1&preskin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&cunthair[i]=10&hlong[i]=35&curl[i]=0&hcol[i]=3
+womenbrain[i]=100&bisex[i]=1&lust[i]=10&agro[i]=0&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&thenoob[i]=1&!характер
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energymax[i]=86&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1
+can_bj[i]=1&can_anal[i]=1
+w_slot[i]=0&h_slot[i]=0&c_slot[i]=0
+tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=40&l_slot[i]=90&b_slot[i]=14
+ut_slot[i]=9&ul_slot[i]=14&ub_slot[i]=12
+item[26]=0
+if you=domina:
+	know['<<you>>,<<nari>>']+=1&know['<<nari>>,<<you>>']+=1&friends['<<you>>,<<nari>>']+=20&friends['<<nari>>,<<you>>']+=20
+	brother[nari]=you&brother[you]=nari&sister[domina]=nari&sister[nari]=domina
+end
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!in_home[i]=2&!X[i]=4&Y[i]=2&Z[i]=404&H[i]=1&R[i]=1
+roma_world[]=i&walkprog[i]=100&fight_prog[i]=1&!местность и программа движения!программа боя

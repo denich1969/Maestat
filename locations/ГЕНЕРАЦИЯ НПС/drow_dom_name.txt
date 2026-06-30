@@ -1,0 +1,110 @@
+﻿:markdrowdom
+domrand=rand(0,29)
+
+if domrand=0:$dom='Ален'
+if domrand=1:$dom='Але'
+if domrand=2:$dom='Араб'
+if domrand=3:$dom='Аркен'
+if domrand=4:$dom='Аувру'
+if domrand=5:$dom='Баэн'
+if domrand=6:$dom='Барри'
+if domrand=7:$dom='Кладд'
+if domrand=8:$dom='Десп'
+if domrand=9:$dom='Дэ'
+if domrand=10:$dom='До'
+if domrand=11:$dom='Элс'
+if domrand=12:$dom='Эвер'
+if domrand=13:$dom='Фрэ'
+if domrand=14:$dom='Годе'
+if domrand=15:$dom='Хэлви'
+if domrand=16:$dom='Хла'
+if domrand=17:$dom='Хун'
+if domrand=18:$dom='Кен'
+if domrand=19:$dom='Кил'
+if domrand=20:$dom='Маэ'
+if domrand=21:$dom='Мэл'
+if domrand=22:$dom='Май'
+if domrand=23:$dom='Ноку'
+if domrand=24:$dom='Орли'
+if domrand=25:$dom='Оус'
+if domrand=26:$dom='Райлин'
+if domrand=27:$dom='Тэкен'
+if domrand=28:$dom='Тор'
+if domrand=29:$dom='Зау'
+
+
+prirand=rand(0,29)
+if prirand=0:$pri='афин'
+if prirand=1:$pri='ана'
+if prirand=2:$pri='ани'
+if prirand=3:$pri='ар'
+if prirand=4:$pri='арн'
+if prirand=5:$pri='атэ'
+if prirand=6:$pri='ат'
+if prirand=7:$pri='дуис'
+if prirand=8:$pri='эрвс'
+if prirand=9:$pri='эп'
+if prirand=10:$pri='этт'
+if prirand=11:$pri='гим'
+if prirand=12:$pri='ирин'
+if prirand=13:$pri='лил'
+if prirand=14:$pri='мтор'
+if prirand=15:$pri='ндар'
+if prirand=16:$pri='нельд'
+if prirand=17:$pri='раэ'
+if prirand=18:$pri='раэль'
+if prirand=19:$pri='ррет'
+if prirand=20:$pri='сек'
+if prirand=21:$pri='ттлар'
+if prirand=22:$pri='ттар'
+if prirand=23:$pri='тайл'
+if prirand=24:$pri='унд'
+if prirand=25:$pri='урден'
+if prirand=26:$pri='вал'
+if prirand=27:$pri='ввир'
+if prirand=28:$pri='зинге'
+if prirand=29:$pri='т'
+
+
+
+
+$temp_name_drow_dom=$dom+$pri
+
+!'
+if drowdom>0:
+dd=1
+:markdrowdomprov
+     if $temp_name_drow_dom=$name_drow_dom[dd]:jump'markdrowdom'
+dd+=1
+     if dd<=drowdom:jump'markdrowdomprov' 
+drowdom+=1
+$name_drow_dom[drowdom]=$temp_name_drow_dom
+end
+if drowdom=0:
+drowdom+=1
+$name_drow_dom[drowdom]=$temp_name_drow_dom    
+end
+'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

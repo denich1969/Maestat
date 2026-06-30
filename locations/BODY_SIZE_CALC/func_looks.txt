@@ -1,0 +1,145 @@
+﻿sexy_point[args[0]]=0
+beautiful_point[args[0]]=0
+tits_point_s[args[0]]=0
+tits_point[args[0]]=0
+tits_point_b[args[0]]=0
+ass_point[args[0]]=0
+ass_point_s[args[0]]=0
+ass_point_b[args[0]]=0
+clothe_sexy_point[args[0]]=0
+!тело
+!tits_point[args[0]] - на случай открытых сисек
+!Грудь максимум 300/50
+args[10]=tits_bonus[args[0]]
+if args[10] >= 30:
+	if args[10]>45:
+		!sexy_point[args[0]]+= 450 + (args[10] - 45)*10
+		!tits_point[args[0]]= 300 - (args[10] - 45)*10
+		!sexy_point[args[0]]+= (args[10]-30)*20
+		tits_point_s[args[0]]= (args[10]-30)*20
+	else
+		tits_point_b[args[0]]+= 300-(args[10]-30)*20
+		tits_point_s[args[0]]+= (args[10]-30)*20
+		!сумма 2
+		!tits_point[args[0]]=300-(args[10]-30)*20+(args[10]-30)*20
+	end
+else
+	tits_point_b[args[0]]+= args[10]*10
+	!tits_point[args[0]]=args[10]*10
+end
+!if args[0] = you:'func_tits '+args[10]
+
+args[10] = tors_bonus[args[0]]
+if args[10]>=0:
+	beautiful_point[args[0]]+= 300 + args[10]*5
+else
+	beautiful_point[args[0]]+= 300 + args[10]*20
+end
+!if args[0] = you:'func_tors '+args[10]
+!if args[0]=you:'beautiful_point[args[0]] 1 '+beautiful_point[args[0]]
+
+!жопка максимум 300/50
+args[10] = ass_bonus[args[0]]
+if args[10] >=0:
+	!103,5
+	if args[10]>15:
+		!sexy_point[args[0]]+= 300 - (args[10] - 15)*10
+		ass_point_s[args[0]]=300-(args[10]-15)*10
+	else
+		ass_point_b[args[0]]+= 300 - (args[10])*20
+		!sexy_point[args[0]]+= (args[10])*20
+		ass_point_s[args[0]]=(args[10])*20
+	end
+else
+	ass_point_b[args[0]]+= (30 + args[10])*10
+	!ass_point[args[0]]=(30 + args[10])*10
+end
+!if args[0] = you:'func_ass '+args[10]
+!if args[0]=you:'beautiful_point[args[0]] 2 '+beautiful_point[args[0]]
+
+!талия максимум 300/50
+args[10] = waist_bonus[args[0]]
+if args[10]>=0:
+	beautiful_point[args[0]]+= 300 + args[10]*5
+else
+	beautiful_point[args[0]]+= 300 + args[10]*20
+end
+!if args[0] = you:'func_waist '+args[10]
+!жир (нужно доделать)
+!"
+if fat[args[0]]<fatNorm[args[0]]:
+	beautiful_point[args[0]]-=(fatNorm[args[0]] - fat[args[0]])/5
+end
+"
+if fat[args[0]]>fatNorm[args[0]]:beautiful_point[args[0]]+= (fatNorm[args[0]]-fat[args[0]])/30
+if mus[args[0]]<musNorm[args[0]]:beautiful_point[args[0]]-= (musNorm[args[0]]-mus[args[0]])/30
+if mus[args[0]]>musNorm[args[0]]*2:beautiful_point[args[0]]+= (musNorm[args[0]]*2-mus[args[0]])/30
+if hat_slot[args[0]]!10 and hat_slot[args[0]]!22:
+	if scull[args[0]]=0:beautiful_point[args[0]]+=30
+	if scull[args[0]]=1:beautiful_point[args[0]]-=30
+	if cheeks[args[0]]=1:beautiful_point[args[0]]+=30
+	if hcol[args[0]]=3:beautiful_point[args[0]]+=30
+	if glacol[args[0]]=4:beautiful_point[args[0]]+=30
+	if gla[args[0]]=1:beautiful_point[args[0]]-=30
+	if gla[args[0]]=3:beautiful_point[args[0]]+=30
+	if nose[args[0]]=1:beautiful_point[args[0]]+=30
+	if nose[args[0]]=2:beautiful_point[args[0]]+=30
+	if nose[args[0]]=3:beautiful_point[args[0]]-=30
+	if nose[args[0]]=4:beautiful_point[args[0]]-=30
+	sexy_point[args[0]]+=lips[args[0]]*25
+	if beard[args[0]]>0:beautiful_point[args[0]]-=900&sexy_point[args[0]]-=900
+end
+if hlong[args[0]]>30:beautiful_point[args[0]]+=30
+if leg_hair[args[0]]>0:beautiful_point[args[0]]-=120&sexy_point[args[0]]-=120
+if coat_slot[args[0]]=0:
+	clothe_sexy_point[args[0]]+=sexy_t[top_slot[args[0]]]
+	clothe_sexy_point[args[0]]+=sexy_l[low_slot[args[0]]]
+	clothe_aristokrat_point[args[0]]+=aristokrat_t[top_slot[args[0]]]
+	clothe_aristokrat_point[args[0]]+=aristokrat_l[top_slot[args[0]]]
+	if tit_hair[args[0]]>0:beautiful_point[args[0]]-=600&sexy_point[args[0]]-=600
+end
+clothe_aristokrat_point[args[0]]+=aristokrat_b[top_slot[args[0]]]
+clothe_aristokrat_point[args[0]]+=aristokrat_ub[top_slot[args[0]]]
+clothe_aristokrat_point[args[0]]+=aristokrat_hat[top_slot[args[0]]]
+clothe_sexy_point[args[0]]+=sexy_b[boot_slot[args[0]]]
+clothe_sexy_point[args[0]]+=sexy_ub[uboot_slot[args[0]]]
+clothe_sexy_point[args[0]]+=sexy_hat[uboot_slot[args[0]]]
+!beautiful_point[args[0]]+=preskin[args[0]]*25
+!sexy_point[args[0]]+=lips[args[0]]*25
+args[150]=clothe_sexy_point[args[0]]-clothe_aristokrat_point[args[0]]
+if coat_slot[args[0]]=0 and hat_slot[args[0]]!10:
+	beautiful_point[args[0]]+=preskin[args[0]]*30
+	sexy_point[args[0]]+=preskin[args[0]]*30
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+beautiful_point[args[0]]+=ass_point_b[args[0]]+tits_point_b[args[0]]
+beautiful_point[args[0]]=beautiful_point[args[0]]/15
+sexy_point[args[0]]+=ass_point_s[args[0]]+tits_point_s[args[0]]
+sexy_point[args[0]]=sexy_point[args[0]]/15
+ass_point[args[0]]=ass_point_b[args[0]]+ass_point_s[args[0]]
+tits_point[args[0]]=tits_point_s[args[0]]+tits_point_b[args[0]]
+
+sexylook[args[0]]=0
+if clothe_sexy_point[args[0]]>0 and clothe_sexy_point[args[0]]<5:sexylook[args[0]]=1
+if clothe_sexy_point[args[0]]>=5 and clothe_sexy_point[args[0]]<10:sexylook[args[0]]=2
+if clothe_sexy_point[args[0]]>=10 and clothe_sexy_point[args[0]]<25:sexylook[args[0]]=3
+if clothe_sexy_point[args[0]]>=25 and clothe_sexy_point[args[0]]<35:sexylook[args[0]]=4
+if clothe_sexy_point[args[0]]>=35:sexylook[args[0]]=5
+!total_sexy[args[0]]=sexy_point[args[0]]*clothe_sexy_point[args[0]]/50+sexy_point[args[0]]
+total_sexy[args[0]]=sexy_point[args[0]] + sexy_point[args[0]]*clothe_sexy_point[args[0]]/150
+if beasthood[args[0]]>0:
+	total_sexy[args[0]]-=total_sexy[args[0]]*beasthood[args[0]]/100
+	beautiful_point[args[0]]-=beautiful_point[args[0]]*beasthood[args[0]]/100
+end
+if perk_beauty[args[0]]>=1:
+	beautiful_point[args[0]]+=beautiful_point[args[0]]*perk_beauty[args[0]]*25/100
+end
+if total_sexy[args[0]] + beautiful_point[args[0]]>0:
+	if (total_sexy[args[0]]+1)*(beautiful_point[args[0]]+1)/40>(total_sexy[args[0]] + beautiful_point[args[0]])/2:
+		total_sexy[args[0]]=(total_sexy[args[0]]+1)*(beautiful_point[args[0]]+1)/40
+	else
+		total_sexy[args[0]]=(total_sexy[args[0]] + beautiful_point[args[0]])/2
+	end
+end
+if perk_sexy[args[0]]>=1:total_sexy[args[0]]+=total_sexy[args[0]]*perk_sexy[args[0]]*25/100
+!attraction[args[0]]=beautiful_point[args[0]]+total_sexy[args[0]]

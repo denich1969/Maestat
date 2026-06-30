@@ -1,0 +1,54 @@
+﻿:newlevel
+expneed[you]=lvl[you]*lvl[you]*5
+if exp[you]>=expneed[you]:
+	exp[you]=exp[you]-expneed[you]
+	lvl[you]+=1&lvlpoint+=5&currlvl=1
+	jump'newlevel'
+end
+if exptravnik[you]>=16:lvltravnik[you]=1
+if exptravnik[you]>=32:lvltravnik[you]=2
+if exptravnik[you]>=64:lvltravnik[you]=3
+if exptravnik[you]>=128:lvltravnik[you]=4
+if exptravnik[you]>=256:lvltravnik[you]=5
+if exptravnik[you]>=512:lvltravnik[you]=6
+if exptravnik[you]>=1024:lvltravnik[you]=7
+if exptravnik[you]>=2048:lvltravnik[you]=8
+if exptravnik[you]>=4096:lvltravnik[you]=9
+if exptravnik[you]>=8192:lvltravnik[you]=10
+
+
+lvlpoint[you]+=lvlpoint
+lvlpoint=0
+if currlvl=1:
+	if pass_perk_accept=0:gs'perk_lvl_passiv'&exit
+	gs'stat'
+	'Душа <<soul[you]>>'
+	if magik[you]>0:'Магичность <<magik[you]>>'
+	'Живучесть <<vital[you]>>'
+	'Мускулатура <<mus[you]>>'
+	if will[you]>0:'Воля <<will[you]>>'
+	if fight_skill[you]>0:'Боевые навыки <<fight_skill[you]>>'
+	if shoot_skill[you]>0:'Огнестрельное оружие <<shoot_skill[you]>>'
+	'Рефлексы <<reflex[you]>>'
+	if soulpower[you]>0:'<<soulpower[you]>> сила духа, урон, выносливость и грузоподъемность'
+	if corrupt[you]>0:'<<corrupt[you]>> оскверненность'&*nl
+	'Очков для распределения <<lvlpoint[you]>>'
+	if lvlpoint[you]>0:
+		act'Перки':gt'perk_lvl'
+		act'Увеличить живучесть':lvlpoint[you]-=1&vital[you]+=1&gt $curloc
+		act'Увеличить мускулатуру':lvlpoint[you]-=1&mus[you]+=100&gt $curloc
+		act'Увеличить силу духа':lvlpoint[you]-=1&soulpower[you]+=1&gt $curloc
+		act'Увеличить рефлексы':lvlpoint[you]-=1&reflex[you]+=1&gt $curloc
+		if dom[you]<100:
+			act'Увеличить доминантность':lvlpoint[you]-=1&dom[you]+=5&gt $curloc
+		end
+	end
+end
+ act'Уйти':
+	!exp[you]=0
+	currlvl=0
+	health[you]=healthmax[you]
+	mana[you]=manaMax[you]
+	energy[you]=energyMax[you]
+	gt 'preloc'
+ end

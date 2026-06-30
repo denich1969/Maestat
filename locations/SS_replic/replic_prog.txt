@@ -1,0 +1,6 @@
+﻿!0 - кто     !1 - кому       !2 стадия       !3 действие     !"Стадии     before - обычная     cum - актив кончил      cumslut - пассив кончил"
+if args[0]=traktirman:
+	if traktirman_event['bar']=0:$replic_programm[traktirman]='kargan'
+	if traktirman_event['bar']=1:$replic_programm[traktirman]='kargan_bar'	
+end
+$args[10]=$replic_programm[args[0]]&gs'replic_<<$args[3]>>',args[0],args[1],$args[2]

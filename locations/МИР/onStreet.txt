@@ -1,0 +1,33 @@
+﻿$buildingsList = ""&!"Список домов куда можно войти"
+if maxPositionD['<<X[you]>>']>0:
+	i = 1
+	:areaHouseLoop
+    $buildingsList += "<br>"
+    $buildingsList += "<a href='exec:  gt""moveToD"", <<i>>'> <<$locnameD['<<X[you]>>,<<i>>']>> </a>"				
+	i += 1	
+	if i <= maxPositionD['<<X[you]>>']: jump 'areaHouseLoop'&!-end of loop
+	!if maxPositionD['<<X[you]>>']>0:"<p>Вы можете войти в: "
+	$buildingsList
+end
+if $locname['<<X[you]-1>>,0,0,0,0']!'':
+	 act'<b>На север</b>':
+	     if X[you]>=1000 and X[you]<=1010:
+			time+=15
+	     else
+			time+=rand(30,60)
+	     end
+		 X[you]-=1
+		 gt 'world'
+	 end
+end
+if $locname['<<X[you]+1>>,0,0,0,0']!'':
+	 act'<b>На юг</b>':
+	     if X[you]>=1000 and X[you]<=1010:
+			time+=15
+	     else
+			time+=rand(30,60)
+	     end
+		 X[you]+=1
+		 gt 'world'
+	 end
+end

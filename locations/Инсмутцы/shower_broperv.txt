@@ -1,0 +1,9 @@
+﻿gs'stat'&horny[brother]=50&agro[brother]+=1&lust[brother]+=1
+if you=mother:
+	'<center><img src="pic/event/shower/<<rand(0,5)>>.jpg" ></center>'
+else
+	'<center><video src="pic/misc/shower.webm" ></video></center>'
+end
+'Вы моетесь в душе и вдруг чувствуете сквозняк. Посмотрев на дверь, вы замечаете там щелку, в которую кто-то подглядывает.'
+horny[you]+=10&corr[you]+=rand(0,1)&act'Уйти':gt 'preloc'
+if corr[you]>=75 and (you=sister or you=mother):act'Хочешь потрогать?':npc=brother&friends[npc]+=1&gs'drop_follower'&gs'sexpower'&gt'justsex'&!corr[npc]-=10

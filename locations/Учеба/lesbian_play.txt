@@ -1,0 +1,46 @@
+﻿gs'stat'&'<center><img src="pic/face/5/49.jpg" ></center>'&'Диламина подошла к вам после уроков и взяв вас за руку повела в учительскую - У меня сегодня игривое настроение.'
+npc=techer&dilaminaCuntLikerNeed=0
+act'Идти':
+	tipesex=iif(vag[you]>10,rand(1,100),rand(1,50))&horny[you]+=50&cls&gs'stat'&'<center><video src="pic/sex/lesb/foreplay.webm" ></video></center>'
+	'<<$name[npc]>> засунула вам руку между ног и начала ласкать вашу киску. Вы довольно быстро от ее движений почувствовали удовольствие.'
+     if tipesex<70:
+         act'...':
+			 cls&gs'stat'&'<center><video src="pic/sex/lesb/tits0.webm" ></video></center>'&'<<$name[npc]>> достала вашу грудь и впившись губами в ваш сосок начала ее лизать'
+             if rand(1,100)<70:
+				'Учительница села в кресло и раздинула ноги, она хитро улыбнулась и чуть приподняла длинную черную юбку - приступай'
+				 act'Отлизать':
+					npc=techer&dilaminaCuntLiker+=1&horny[npc]=0&my_last_fucker[you]=npc&last_fuck_time[you]=time&cls&gs'stat'&lesb[npc]+=1&lesb[you]+=1
+					$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> вылизала мне.'
+					$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> дала мне полизать у нее'
+					'<center><video src="pic/sex/lesb/<<rand(0,4)>>.webm" ></video></center>'
+					'Диламина сняла юбку и раздвинула ляшки, показав свою мокрую и блестящую от ожидания пизду, она поманила вас пальчиком. '
+					'Вы встали на колени перед учительницей и облизнули ее душистый бутон и начали вылизывать ей. '
+					'Диламина слегка постанывая кайфовала и вскоре она изогнулась в оргазме и убрала ваше лицо от своей промежности. '
+					'Женщина усмехнулась - Не знаю какая ты будешь ведьма, но пиздолизка ты талантливая.'&sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&act'Уйти':gt 'lesbian_play_end'
+				 end
+             else
+				'Учительница сняла юбку и повернувшись к вам задом наклонилась - вылижи мою попку'
+				 act'Вылизать':
+					 npc=techer&dilaminaCuntLiker+=1&horny[npc]=0&my_last_fucker[you]=npc&last_fuck_time[you]=time&cls&gs'stat'&lesb[npc]+=1&lesb[you]+=1
+					 $global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> вылизала мне попу.'
+					 $global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> дала мне полизать у нее попу'
+					 '<center><video src="pic/sex/lesb/anilingus<<rand(0,1)>>.webm" ></video></center>'&sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&act'Уйти':gt 'lesbian_play_end'
+					 'Вы начали вылизывать анус женщине и иногда ласкали ее клитор рукой, через некоторое время училка содрогнулась в оргазме - Фух, а ты отличная жополизка!'
+				 end
+             end
+         end
+     end
+     if tipesex>=70:
+         act'...':
+			 cls&gs'stat'&'<center><video src="pic/sex/lesb/tits0.webm" ></video></center>'&'<<$name[npc]>> достала вашу грудь и впившись губами в ваш сосок начала ее лизать, затем она игриво положила вас'
+			 act'...':
+				npc=techer&dilaminaCuntLiker+=1&horny[npc]=0&my_last_fucker[you]=npc&last_fuck_time[you]=time&cls&gs'stat'&lesb[npc]+=1&lesb[you]+=1
+				$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> была отфистена мной.'
+				$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> отфистила меня'
+				vag[you]+=5&'<center><video src="pic/sex/lesb/fisting0.webm" ></video></center>'&sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&act'Уйти':gt 'lesbian_play_end'
+				'Диламина смазала вашу киску какой то мазью и стала засовывать вам внутрь руку, ваша плоть легко поддалась и рука Диламины вошла внутрь вас, '
+				'после чего ведьма глядя вам в глаза медленно и аккуратно, но в то же время сильно и настойчиво начала трахать вас своим кулаком. И через нкоторое время вы застонали в оргазме.'
+			 end
+         end
+     end
+end

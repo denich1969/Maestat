@@ -1,0 +1,29 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=2
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Телебашня'&maxPositionR['<<$templocH>>']=2
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Телебашня'&$lname['<<$temploc>>']='Телебашня'&$lname_go['<<$temploc>>']='на телебашню'
+$locopis['<<$temploc>>']='Высотное здание транслирующее телевидение на весь город'
+np['<<$temploc>>']=167
+blocksex['<<$temploc>>']=1
+R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Студия'
+$locname['<<$temploc>>']='Студия'&$lname['<<$temploc>>']='Студия'&$lname_go['<<$temploc>>']='на студию'
+$locopis['<<$temploc>>']='Большая студия на которой происходят съемки'
+np['<<$temploc>>']=160
+can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&studia['<<$temploc>>']=1
+H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Сауна Кафе'&maxPositionR['<<$templocH>>']=3
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Кафе'&$lname['<<$temploc>>']='Кафе'&$lname_go['<<$temploc>>']='в кафе'
+$locopis['<<$temploc>>']='В этом помещении находится общее кафе с несколькими столиками в деревенской обстановке.'
+np['<<$temploc>>']=166
+saunakafe['<<$temploc>>']=1	 
+R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Сауна'
+$locname['<<$temploc>>']='Сауна'&$lname['<<$temploc>>']='Сауна'&$lname_go['<<$temploc>>']='в сауну'&$locopis['<<$temploc>>']='Отличная сауна с бассейном и парилкой'
+np['<<$temploc>>']=165
+can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&sauna['<<$temploc>>']=1&can_drink['<<$temploc>>']=1
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната отдыха'
+$locname['<<$temploc>>']='Комната отдыха'&$lname['<<$temploc>>']='Комната отдыха'&$lname_go['<<$temploc>>']='в комнату отдыха'
+$locopis['<<$temploc>>']='Гостинничный номер из двух комната, небольшой гостинной с мягкой мебелью и спальной.'
+np['<<$temploc>>']=48
+can_sleep['<<$temploc>>']=0&mirror['<<$temploc>>']=1 

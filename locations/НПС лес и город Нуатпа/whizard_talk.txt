@@ -1,0 +1,253 @@
+﻿if healedWK=0:
+	act'Поговорить':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> я читала о таком проклятии, буду пробовать снять проклятье.'&act'...':gt $loc[you]
+	end
+end
+if healedWK=1:
+	if health[you]<healthmax[you]:
+		act'Попросить вылечить вас':
+			health[you]=healthmax[you]&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> что то неразборчиво говорит и направляет на вас магическую палочку и вы вылечиваетесь.'&act'...':gt $loc[you]
+		end
+	end
+	act'Как ты?':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		'<<$name[npc]>> - тут отличная библиотека, есть что почитать. Да и вообще, этот маяк удивительное строение, дрейфующий островок бытия в великом ничто.'&act'...':gt $loc[you]
+	end
+	act'Поговорить о магии':
+		talk_about_magik+=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		'<<$name[npc]>> - Я сама еще всего лишь ученица, и многого не знаю. Силу маг черпает из каналов силы, но для того что бы суметь это сделать, нужно сродство с магией и чем выше сила воли, тем больший объем магии может использовать маг. С каждым новым каналом сил будет все больше. Но что бы пользоватся магией, нужна волшебная палочка.'&act'...':gt $loc[you]
+	end
+	if talk_about_magik>0 and magik[you]=0:
+		act'Волшебная палочка':
+			talk_about_magik+=1&if forest_village=0:forest_village=1
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - палочку тебе может сделать механик. Я знаю, одного, живет в деревушке возле леса с гоблинами. Обратись к нему.'
+			'Дальше девушка рассказывает как вам найти деревушку в лесу гоблинов.'&act'...':gt $loc[you]
+		end
+	end
+	if magik[you]=0 and talk_about_magik>0:
+		act'Научи меня магии':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы стали просить научить вас магии и <<$name[npc]>> задумалась.'
+			www=w_slot[you]
+			if w_slot[you]>0 and $weapon_tipe[www]='палочка':
+				'Тебе нужно открыть канал магии, для этого нужно либо годами учиться, либо много духовной силы. Девушка присмотрелась к вам и стала водить волшебной палочкой вокруг вашей головы'
+				if soul[you]>=1100 and insight[you]>0:
+					'<<$name[npc]>> у тебя много души, можем попытатся открыть тебе канал.'
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=1000&insight[you]+=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				else
+					'<<$name[npc]>> покачала отрицательно головой - у тебя слишком слабая душа, только на открытие канала надо не меньше 1000 души, да еще нужно что бы у тебя осталась душа.'
+				end
+			else
+				'<<$name[npc]>> тебе нужна волшебная палочка что бы учиться'
+			end
+			act'...':gt $loc[you]
+		end
+	end
+	if magik[you]>=1:
+		act'Просить научить заклинаниям':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы стали просить научить вас магии и <<$name[npc]>> задумалась.'
+			www=w_slot[you]
+			if w_slot[you]>0 and $weapon_tipe[www]='палочка':
+				if spell_heal[you]=0:
+					'За 100 душ я обучу тебя заклинанию лечения'
+					if soul[you]>=120:
+						act'Учить заклинание лечения':
+							spell_heal[you]+=1&soul[you]-=100&insight[you]+=1&time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+							'<<$name[npc]>> обучает вас заклинанию лечения и объясняет что то, сколько вы будете вылечивать в бою зависит от вашего опыта и канала магии'&act'...':gt $loc[you]
+						end
+					end
+				end
+				if spell_endur[you]=0:
+					'За 100 душ я обучу тебя заклинанию восстановления выносливости'
+					if soul[you]>=120:
+						act'Учить заклинание восстановления выносливости':
+							spell_endur[you]+=1&soul[you]-=100&insight[you]+=1&time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+							'<<$name[npc]>> обучает вас заклинанию восстановления выносливости и объясняет что то, сколько вы будете вылечивать в бою зависит от вашего опыта и канала магии'&act'...':gt $loc[you]
+						end
+					end
+				end
+				if magik[you]>=2:
+					if spell_svetlak[you]=0:
+						'За 500 душ я обучу тебя заклинанию атаки светлячков.'
+						if soul[you]>=520:
+							act'Учить заклинание светлячков':
+								spell_svetlak[you]+=1&soul[you]-=500&insight[you]+=1&time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+								'<<$name[npc]>> обучает вас заклинанию которое поднимает в воздух рой огоньков самонаводящихся на противника и атакующих его'&act'...':gt $loc[you]
+							end
+						end
+					end
+					if spell_sfera[you]=0:
+						'За 500 душ я обучу тебя заклинанию защитной сферы.'
+						if soul[you]>=520:
+							act'Учить заклинание сферы':
+								spell_sfera[you]+=1&soul[you]-=500&insight[you]+=1&time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+								'<<$name[npc]>> обучает вас заклинанию которое создает вокруг вас защитное поле'&act'...':gt $loc[you]
+							end
+						end
+					end
+				end
+				if magik[you]>=3:
+					if spell_ljod[you]=0:
+						'За 1000 душ я обучу тебя заклинанию лед, защита разума от демонов.'
+						if soul[you]>=1020:
+							act'Учить заклинание лед':
+								spell_ljod[you]+=1&soul[you]-=1000&insight[you]+=1&time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+								'<<$name[npc]>> обучает вас заклинанию которое защитит вас от психических атак демонов'&act'...':gt $loc[you]
+							end
+						end
+					end
+					if spell_speed[you]=0:
+						'За 500 душ я обучу тебя заклинанию скорости.'
+						if soul[you]>=1020:
+							act'Учить заклинание скорости':
+								spell_speed[you]+=1&soul[you]-=1000&insight[you]+=1&time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+								'<<$name[npc]>> обучает вас заклинанию которое позволит вам ускоряться на поле боя'&act'...':gt $loc[you]
+							end
+						end
+					end
+				end
+				if magik[you]>=4:'<<$name[npc]>> - Я не знаю заклинаний для 4го канала магии.'
+			else
+				'<<$name[npc]>> - тебе нужна волшебная палочка, что бы учиться.'
+			end
+			act'...':gt $loc[you]
+		end
+		act'Открыть новый канал':
+			cls&time+=15&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			if magik[you]=1:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 10 озарения и 2000 душ'
+				if insight[you]>10 and soul[you]>=2100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=2000&insight[you]-=10
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=2:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 20 озарения и 3000 душ'
+				if insight[you]>20 and soul[you]>=3100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=3000&insight[you]-=20&
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=3:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 30 озарения и 4000 душ'
+				if insight[you]>30 and soul[you]>=4100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=4000&insight[you]-=30
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=4:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 40 озарения и 5000 душ'
+				if insight[you]>40 and soul[you]>=5100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=5000&insight[you]-=40
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=5:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 50 озарения и 6000 душ'
+				if insight[you]>50 and soul[you]>=6100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=6000&insight[you]-=50
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=6:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 60 озарения и 7000 душ'
+				if insight[you]>60 and soul[you]>=7100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=7000&insight[you]-=60
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=7:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 70 озарения и 8000 душ'
+				if insight[you]>70 and soul[you]>=8100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=8000&insight[you]-=70
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=8:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 80 озарения и 9000 душ'
+				if insight[you]>80 and soul[you]>=9100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=9000&insight[you]-=80
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			if magik[you]=9:
+				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 90 озарения и 10000 душ. Это последний канал доступный человеку, потому что 100 озарения, это безумие.'
+				if insight[you]>90 and soul[you]>=10100:
+					act'Открыть канал':
+						magik[you]+=1&soul[you]-=2000&insight[you]-=90
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы чувствуете как некий мистический огонь горит в вас и начинаете чувствовать магию'&act'...':gt $loc[you]
+					end
+				end
+			end
+			act'...':gt $loc[you]
+		end
+	end
+	if magik[you]>=1 and item[25]>0 and sex_times['<<npc>>,<<you>>']=0:
+		act'Предложить отпраздновать':
+			item[25]-=1&burden[you]-=item_burden[25]&alko[you]+=6&if lust[npc]<100:lust[npc]+=rand(5,10)
+			time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'Заняться сексом':gt'sex'
+			'<<$name[npc]>> напилась вискаря вместе с вами отмечая ваши успехи в магии и кажется между вами пробежала искра и <<$name[npc]>> смотрит на вас загадочно улыбаясь'&act'Уйти':gt $loc[you]
+		end
+	end
+	if magik[you]>=1 and wizKey=0:
+	 	act'Как восстанавливать ману?':
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> - мана сама восстанавливается во время сна, но в магической башне было место силы, там всегда можно было зачерпнуть ману.'&act'Уйти':gt $loc[you]
+			if wizKey=0:
+				act'Просить доступ к башне магов':
+					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&if altotronQW=0:altotronQW=1
+					'<<$name[npc]>> отрицательно качает головой - Я не могу, это башня мага Альтотрона, моего учителя. Он ушел куда то в город Нуатпу, найди его и спроси у него.'&act'Уйти':gt $loc[you]
+				end
+			end
+		end   
+	end
+	if sex_times['<<npc>>,<<you>>']>0 and dick[you]>1 and ball[you]>1 and can_anal[npc]=0:
+		act'Уговаривать заняться анальным сексом':
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы уговариваете девушку заняться анальным сексом'&!agro[npc]=100&lust[npc]=40
+			if orgasm_times[npc]=0:
+				'<<$name[npc]>> отрицательно качает головой - Не, мне такое не нравиться.'
+			else
+				can_anal[npc]=1&agro[npc]-=5&'<<$name[npc]>> улыбается - Ты хорош в постеле, думаю можно попробовать, вдруг это не так плохо.'
+			end
+			act'Уйти':gt $loc[you]
+		end
+	end
+	if sex_times['<<npc>>,<<you>>']>0:
+		act'Обсуждать секс':
+			if lust[npc]<100:lust[npc]+=1
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы разговариваете о сексе'
+			if lust[npc]<50:
+				'<<$name[npc]>> смущается и слушает вас, но ничего не рассказывает.'
+			else
+				know_sexlife[npc]+=1&'<<$name[npc]>> улыбается и рассказывает, что когда она училась у Альтотрона, то обслуживала его ртом и так же она трахалась с трактирщиком из соседской деревни'
+			end
+			act'Уйти':gt $loc[you]
+		end
+		if item[25]>0:
+			act'Предложить выпить виски':
+				item[25]-=1&burden[you]-=item_burden[25]&alko[you]+=6&if lust[npc]<100:lust[npc]+=rand(5,10)
+				time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'Заняться сексом':gt'sex'
+				'<<$name[npc]>> напилась вискаря вместе с вами отмечая ваши успехи в магии и кажется между вами пробежала искра и <<$name[npc]>> смотрит на вас загадочно улыбаясь'&act'Уйти':gt $loc[you]
+			end
+		end
+	end
+end

@@ -1,0 +1,142 @@
+﻿global_radar=0&tormoza=0&tormoza_radar=0&$walklog=''&!w=1&npcmax=arrsize('$name')
+if Z[you]=0:npcmax=arrsize('homeworld')
+if Z[you]=100:npcmax=arrsize('paradiseworld')
+if Z[you]=7777:npcmax=arrsize('Moonworld')
+if Z[you]=1:npcmax=arrsize('n_world')
+if Z[you]=2:npcmax=arrsize('ne_world')
+if Z[you]=3:npcmax=arrsize('e_world')
+if Z[you]=4:npcmax=arrsize('se_world')
+if Z[you]=5:npcmax=arrsize('s_world')
+if Z[you]=10:npcmax=arrsize('root_world')
+if Z[you]=404:npcmax=arrsize('romaworld')
+if Z[you]=440:npcmax=arrsize('mistworld')
+if Z[you]=300:npcmax=arrsize('lighthouse')
+if Z[you]=310:npcmax=arrsize('se_lighthouse')
+if Z[you]>=700 and Z[you]<800:npcmax=arrsize('obsession_world')
+if Z[you]=772:npcmax=arrsize('l_obsession_world')
+if Z[you]=773:npcmax=arrsize('t_obsession_world')
+if Z[you]=730:npcmax=arrsize('m_obsession_world')
+if Z[you]>=200 and Z[you]<300:npcmax=arrsize('real_world')
+ar=0
+:markwalker
+if Z[you]=0:w=homeworld[ar]
+if Z[you]=100:w=paradiseworld[ar]
+if Z[you]=7777:w=Moonworld[ar]
+if Z[you]=1:w=n_world[ar]
+if Z[you]=2:w=ne_world[ar]
+if Z[you]=3:w=e_world[ar]
+if Z[you]=4:w=se_world[ar]
+if Z[you]=5:w=s_world[ar]
+if Z[you]=10:w=root_world[ar]
+!Проверка !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Начало цикла
+if w!you and age[w]<=0 and cantwalk[w]=0:age[w]=rand(18,25)
+if Z[you]=404:w=romaworld[ar]
+if Z[you]=440:w=mistworld[ar]
+if Z[you]>=700 and Z[you]<800:w=obsession_world[ar]
+if Z[you]=772:w=l_obsession_world[ar]
+if Z[you]=773:w=t_obsession_world[ar]
+if Z[you]=730:w=m_obsession_world[ar]
+if Z[you]=200 and Z[you]<300:w=real_world[ar]
+if Z[you]=310:w=se_lighthouse[ar]
+if Z[you]=300:w=lighthouse[ar]
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Начало цикла
+if Z[you]>=700 and Z[you]<800:
+	if w!you and dead[w]=1000 and startnewspawn=1:dead[w]=0
+	if canagromob=1 and corr[w]>=1000 and onceuptime[w]=0:onceuptime[w]=1&dead[w]=1000
+	if w!you and dead[w]=0 and Z[w]=Z[you]:
+		 if corr[w]>=100 and vag[w]>=1 and agro[w]=0:
+			 if mob[w]!4 and fucked[w]>=50:
+				 exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
+				 vag[w]=40&minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
+			 end
+		 end
+		 if mob[w]=21 and corr[w]>=100:
+			 exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Сисси шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
+			 minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
+		 end
+		 if succubus_slut[w]>0:
+			if corr[w]<100:corr[w]=100
+			sucslut=succubus_slut[w]&if dead[sucslut]>0:succubus_slut[w]=0&exsucslave[w]=sucslut&corr[w]=0
+		end
+	end
+	!cantwalk[w]=0
+	!if Z[you]=7777:ZONE[you]=0
+	!if Z[you]>=0 and Z[you]<=3:ZONE[you]=1
+	!if Z[you]>=4 and Z[you]<=6:ZONE[you]=2
+	!if Z[w]=7777:ZONE[w]=0
+	!if Z[w]>=0 and Z[w]<=3:ZONE[w]=1
+	!if Z[w]>=4 and Z[w]<=6:ZONE[w]=2
+	!cantwalk[w]=1
+	!if Z[you]=Z[w]:cantwalk[w]=0
+	!if w=follower[you]:cantwalk[w]=1
+	if w!you and dead[w]=0 and cantwalk[w]=0:
+		freez=0&if w=recepboy:freez=1
+		if freez=0:
+			 if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]>0:
+				if mob_busy[w]=1:mob_sleep[w]=time+60
+				mob_busy[w]=0
+			 end
+			 if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0:
+				randtipe=rand(0,2)&!if randtipe=0:''&!нет движения
+				 if randtipe=1:
+					randnapr=rand(0,1)&!по Х
+					 if randnapr=0 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']=0:
+						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на восток'
+						X[w]+=1
+					 end
+					 if randnapr=1 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']=0:
+						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на запад'
+						X[w]-=1
+					 end
+				 end
+				 if randtipe=2:
+					 randnapr=rand(0,1)&!по У
+					 if randnapr=0 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']=0:
+						  if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на север'
+						Y[w]+=1
+					 end
+					 if randnapr=1 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']=0:
+						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на юг'
+						Y[w]-=1
+					 end
+				 end
+				 if slutegg[w]>0:
+					slutegg[w]-=1
+					if slutegg[w]=0:
+						 eggborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100&gs'mobgen'&if eggborn[w]>=10:total_slut-=1&dead[w]=1
+					end
+				 end
+				 if slutborn[w]>0:
+					slutborn[w]-=1
+		if slutborn[w]=0 and slutborntipe[w]=1:slutborntipe[w]=0&motherborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&gs'aborigen_gen'&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100
+		if slutborn[w]=0 and slutborntipe[w]=2:timesgoblinbird[w]+=1&slutborntipe[w]=0&motherborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&gs'goblin'&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100
+				 end
+				if Z[you]=Z[w]:gs'subwalkerNW'
+			 end
+		 end
+	end
+end
+$think[w]=''
+if w!you and dead[w]=0 and $name[w]!'' and immobilaze[w]=0 and age[w]=0 and mob[w]>0:age[w]=rand(18,30)
+if demon_dick_stomath[w]>0: gs'demon_dick_stomath_func',w
+if w!you and dead[w]=0 and $name[w]!'' and immobilaze[w]=0 and age[w]>0:
+	!if pol[w]>0 and ul_slot[w]=5:ul_slot[w]=rand(1,4)
+	if mob_busy[w]>0 and daybusympb[w]!daystart:daybusympb[w]=daystart&mob_busy[w]=0
+	gs'noslutlist'
+	gs'wal_class'
+end
+if w!you and dead[w]=0 and follower[w]=you and $name[w]!'' and immobilaze[w]=0 and age[w]>0:X[w]=X[you]&Y[w]=Y[you]&Z[w]=Z[you]
+!if follower[w]=you and (dead[w]>0 or corr[w]>=100 or health[w]<=0 or mob_busy[w]>0 or mob_sleep[w]>time):follower[w]=0&!последователи
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=Z[you] and H[w]=0 and $name[w]!'' and walkprog[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0 and age[w]>0:
+	$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&gs'wal_zero'
+end
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=Z[you] and H[w]>0 and walkprog[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0 and age[w]>0:
+	$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&gs'walk_rand_build'&!ВНУТРИ ПОМЕЩЕНИЯ
+end
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=Z[you] and mob_busy[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0 and age[w]>0:
+	$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&gs'wal_main'
+end
+if mob_busy[w]>0 and mob_busy[w]<time and w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=Z[you] and immobilaze[w]=0 and age[w]>0:
+	horny[w]=0&mob_busy[w]=0&mob_sleep[w]=time+15&under_sub[w]=0&action_tipe[w]=0
+end
+ar+=1&tormoza+=1&if ar<=npcmax:jump'markwalker'&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!конец цикла

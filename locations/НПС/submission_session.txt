@@ -1,0 +1,194 @@
+﻿gs'stat'
+if openmouth=0:
+	'<center><img src="<<$d_view>>" ></center>'
+	if $slavename[npc]='':'<b><<$name[npc]>> стоит покорно глядя в пол</b>'&$tempname=$name[npc]
+	if $slavename[npc]!'':'<b><<$slavename[npc]>> стоит покорно глядя в пол</b>'&$tempname=$slavename[npc]
+	if agro[npc]<25:needhum=10
+	if agro[npc]>=25 and agro[npc]<50:needhum=50
+	if agro[npc]>=50 and agro[npc]<75:needhum=100
+	if agro[npc]>=75:needhum=200
+	if humiliate[npc]>=needhum*10:'Рабыня плачет и умоляет прекратить экзекуцию'
+	if humiliate[npc]>needhum and humiliate[npc]<needhum*10:'Глаза рабыни влажные и она кажется готова заплакать'
+	if humiliate[npc]<=needhum:'Рабыня хмурится и испытывает неловкость'
+    act'Рот открой':openmouth=1&gt $curloc
+else
+	temphcol=hcol[npc]
+	if temphcol>3:temphcol=3
+	'<center><img src="pic/sex/bdsm/open<<temphcol>>.jpg" ></center>'&'Рабыня раскрыла рот и вытащила язык'&act'Рот закрой':openmouth=0&gt $curloc
+end
+act'Пощечина':
+     if selfrespect[npc]=0:humiliate[npc]+=1
+     if selfrespect[npc]=1:humiliate[npc]+=5
+     if selfrespect[npc]=2:humiliate[npc]+=10
+     if brave[npc]=0:humiliate[npc]+=10
+     if brave[npc]=1:humiliate[npc]+=5
+     if brave[npc]=2:humiliate[npc]+=1
+     humiliate[npc]+=lust[npc]/10
+	cls&gs'stat'
+	if skin[you]>4:
+		'<center><video src="pic/sex/degraded/bbcslap<<rand(0,8)>>.webm" ></video></center>'&'Вы отвешиваете звонкую пощечину и рабыня хватается за лицо'
+	else
+		'<center><video src="pic/sex/degraded/slap<<rand(0,30)>>.webm" ></video></center>'&'Вы отвешиваете звонкую пощечину и рабыня хватается за лицо'
+	end
+	act'...':gt $curloc
+end
+act'Плюнуть':
+	if selfrespect[npc]=0:humiliate[npc]+=1
+	if selfrespect[npc]=1:humiliate[npc]+=10
+	if selfrespect[npc]=2:humiliate[npc]+=15
+	if brave[npc]=0:humiliate[npc]+=5
+	if brave[npc]=1:humiliate[npc]+=2
+	if brave[npc]=2:humiliate[npc]+=1
+	humiliate[npc]+=lust[npc]/10
+	cls&gs'stat'
+	if pol[you]>0:'<center><video src="pic/sex/bdsm/spit_lesb0.webm" ></video></center>'
+	if pol[you]=0:
+		 if skin[you]>4:
+			 '<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'Вы харкаете в лицо своей рабыне'
+		 else
+			 '<center><video src="pic/sex/degraded/spit<<rand(0,6)>>.webm" ></video></center>'&'Вы харкаете в лицо своей рабыне'
+		 end
+	end
+	act'...':gt $curloc
+end
+act'Вылижи мне обувь!':
+     if selfrespect[npc]=0:humiliate[npc]+=1
+     if selfrespect[npc]=1:humiliate[npc]+=15
+     if selfrespect[npc]=2:humiliate[npc]+=20
+     if brave[npc]=0:humiliate[npc]+=1
+     if brave[npc]=1:humiliate[npc]+=2
+     if brave[npc]=2:humiliate[npc]+=3
+     humiliate[npc]+=lust[npc]/10
+	cls&gs'stat'
+	if pol[you]>0:'<center><video src="pic/sex/degraded/licklesb.webm" ></video></center>'
+	if pol[you]=0:'<center><video src="pic/sex/degraded/lick.webm" ></video></center>'
+	'Рабыня встает на колени и начинает облизывать вашу обувь'&act'...':gt $curloc
+end
+if energy[you]>=10:
+	 act'Порка!':
+		energy[you]-=10
+		 if selfrespect[npc]=0:humiliate[npc]+=10
+		 if selfrespect[npc]=1:humiliate[npc]+=25
+		 if selfrespect[npc]=2:humiliate[npc]+=50
+		 if brave[npc]=0:humiliate[npc]+=50
+		 if brave[npc]=1:humiliate[npc]+=25
+		 if brave[npc]=2:humiliate[npc]+=10
+		 humiliate[npc]+=lust[npc]/10
+		 cls&gs'stat'
+		 if pol[you]>0:'<center><video src="pic/sex/bdsm/lesb_spank0.webm" ></video></center>'
+		 if pol[you]=0:'<center><video src="pic/sex/bdsm/dom_spank0.webm" ></video></center>'
+		 'Вы положили рабыню к себе на колени и начали пороть ей задницу'&act'...':gt $curloc
+	 end
+end
+$d_endslave={
+	 if humiliate[npc]>=needhum*10:
+		humiliate[npc]=0
+	     if agro[npc]>0:agro[npc]-=1
+		 if agro[npc]<25:submission[npc]+=25
+		 if agro[npc]>=25 and agro[npc]<50:submission[npc]+=10
+		 if agro[npc]>=50 and agro[npc]<75:submission[npc]+=5
+		 if agro[npc]>=75:submission[npc]+=1
+	 end
+	 if humiliate[npc]>needhum and humiliate[npc]<needhum*10:
+		 humiliate[npc]=0
+		 if agro[npc]>0:agro[npc]-=1
+		 submission[npc]+=1
+	 end
+	 if humiliate[npc]<=needhum:
+		 if submission[npc]>0:submission[npc]-=1
+		 agro[npc]+=1
+	 end
+	openmouth=0
+}
+ if dick[you]>0 and horny[you]>=50 and gender[npc]>0:act'Я хочу трахнуть тебя':dynamic $d_endslave&gs'drop_follower'&gs'sexpower'&gt'justsex'
+ if vag[you]>0 and vag[npc]>0 and horny[you]>=50:
+	 act'Вылижи мне':
+		 cuntlick[npc]+=1&horny[you]=0&health[you]+=50&energy[you]+=100
+		 cls&gs'stat'&'<center><video src="pic/sex/bdsm/lezdom_lick0.webm" ></video></center>'&'Вы сели раздвинув ноги и поманили пальцем рабыню. '
+		'<<$tempname>> встала на колени и ее язычок прикоснулся к вашей вагине. Рабыня начала лизать вам клитор и вы почувствовали распространяющееся по низу живота приятное тепло.'
+		 'Вскоре вас охватил оргазм и судорога прошла по телу.'
+	     act'Хватит':
+			 horny[you]=0
+			 my_last_fucker[you]=npc&last_fuck_time[you]=time&gs'add_sex_stat', you, npc
+			 lesb[npc]+=1&lesb[you]+=1&submission[npc]+=1
+			 $global_npc_log[npc]+='<br>'
+			 $global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. Госпожа <<$name[you]>> заставила меня вылизать у нее.'
+			 $global_npc_log[you]+='<br>'
+			 $global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$tempname>> вылизала мне киску.'
+			 in_fight=0&in_sex=0&gt $curloc
+         end
+	 end
+end
+if energy[you]>=50:
+	act'Пальцы в попу':
+		 energy[you]-=50
+		 cls&gs'stat'
+		 if pol[you]>0:'<center><video src="pic/sex/lesb/finger_anal0.webm" ></video></center>'
+		 if pol[you]=0:'<center><video src="pic/sex/fisting/finger.webm" ></video></center>'
+		 if anus[npc]<10:humiliate[npc]+=25&'Попа слишком тесная и вы с трудом просовываете туда палец, хотя рабыня уже чуть не воет от боли.'
+		 if anus[npc]>=10 and anus[npc]<20:humiliate[npc]+=10&'Вы с трудом засунули пару пальцев в попку рабыни и та застонала от боли'
+		 if anus[npc]>=20 and anus[npc]<30:humiliate[npc]+=5&'Вы аккуратно ввели в попу пальцы и начали ее трахать'
+		 if anus[npc]>=30 and anus[npc]<40:humiliate[npc]+=1&'Вы легко вводите пальцы в рабочую попку'
+		 if anus[npc]>=40:'Пальцы легко входят в попку'
+		 if anus[npc]<10:anus[npc]+=10
+		 if anus[npc]>=10 and anus[npc]<20:anus[npc]+=5
+		 if anus[npc]>=20 and anus[npc]<30:anus[npc]+=3
+		 if anus[npc]>=30 and anus[npc]<40:anus[npc]+=2
+		 if anus[npc]>=40:anus[npc]+=1	 
+		 if anus[npc]>=20:
+			 act'Ввести кулак':
+				 cls&gs'stat'
+				 if anus[npc]>=40:
+					 if pol[you]>0:'<center><video src="pic/sex/lesb/anal_fist1.webm" ></video></center>'
+					 if pol[you]=0:'<center><video src="pic/sex/fisting/1.webm" ></video></center>'
+					 anus[npc]+=1&humiliate[npc]+=5&'Ваш кулак спокойно входит в попу рабыни'
+				 end
+				 if anus[npc]>=20 and anus[npc]<40:
+					 anus[npc]+=5&humiliate[npc]+=20
+					 if pol[you]>0:'<center><video src="pic/sex/lesb/anal_fist0.webm" ></video></center>'
+					 if pol[you]=0:'<center><video src="pic/sex/fisting/3.webm" ></video></center>'
+					 'Попка постепенно сдается и ваш кулак проходит внутрь'
+				 end
+				 act'Вынуть':gt $curloc
+			 end
+		 end
+		 act'Вынуть':gt $curloc
+	 end
+end
+if item[31]>0 and energy[you]>50:
+	 act'Дилдо в попу':
+		 energy[you]-=50
+		 cls&gs'stat'
+		 if anus[npc]>=30:
+			 if pol[you]=0:'<center><video src="pic/sex/fisting/dildo_hard.webm" ></video></center>'
+			 if pol[you]>0:'<center><video src="pic/sex/lesb/dildo_anal0.webm" ></video></center>'
+		 else
+			'<center><video src="pic/sex/lesb/dildo_anal0.webm" ></video></center>'
+		 end
+		 if anus[npc]<10:humiliate[npc]+=50&'Попа у рабыни очень тесная и вам не удается пропихнуть туда дилдо.'
+		 if anus[npc]>=10 and anus[npc]<20:humiliate[npc]+=25&'Вы с трудом засовываете в попу рабыни дилдак и та сжимает зубы и шипит от боли'
+		 if anus[npc]>=20 and anus[npc]<30:humiliate[npc]+=10&'Вы аккуратно ввели в анус рабыни дилдо и начали аккуратно ее трахать'
+		 if anus[npc]>=30 and anus[npc]<40:humiliate[npc]+=5&'Вы легко ввели в рабочую попку дилдо и начали ее трахать'
+		 if anus[npc]>=40:humiliate[npc]+=1&'Дилдак буквально залетел в вашу раздолбанную жопу и вы начали себя им трахать'
+		 if anus[npc]<10:anus[npc]+=10
+		 if anus[npc]>=10 and anus[npc]<20:anus[npc]+=5
+		 if anus[npc]>=20 and anus[npc]<30:anus[npc]+=3
+		 if anus[npc]>=30 and anus[npc]<40:anus[npc]+=2
+		 if anus[npc]>=40:anus[npc]+=1
+		 act'...':gt $curloc
+	 end	 
+	act'Дилдо в горло':
+		 energy[you]-=50
+		 cls&gs'stat'
+		 if pol[you]=0:'<center><video src="pic/sex/fisting/dildo_face0.webm" ></video></center>'
+		 if pol[you]>0:'<center><video src="pic/sex/lesb/dildo_face0.webm" ></video></center>'
+		 if throat[npc]<10:throat[npc]=10
+		 if throat[npc]<12:humiliate[npc]+=50&'У рабыни сразу же начинаются рвотные спазмы'
+		 if throat[npc]>=12 and throat[npc]<15:humiliate[npc]+=25&'Рабыня кое как с трудом может заглотить кончик дилдо, а дальше у нее начинается рвотный рефлекс'
+		 if throat[npc]>=15 and throat[npc]<20:humiliate[npc]+=10&'Рабыня может заглотить дилдак, хотя ее порой все таки скручивает рвотный рефлекс'
+		 if throat[npc]>=20 and throat[npc]<25:humiliate[npc]+=5&'Вы легко запихиваете дилдак в горло рабыни и трахаете ее'
+		 if throat[npc]>=25:humiliate[npc]+=1&'У рабыни полностью отсутствует рвотный рефлекс и вы легко трахаете ее горло'
+		 throat[npc]+=1&act'...':gt $curloc
+	end
+end
+act'<b>Свободна</b>':dynamic $d_endslave&gt'preloc'

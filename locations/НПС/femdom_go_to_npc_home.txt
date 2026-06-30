@@ -1,0 +1,13 @@
+﻿X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
+!solo=npc&horny[npc]=50&pose[you]=2
+gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ведет вас за собой в свою опочивальню'
+if martamarsh=npc:
+	 if pol[you]>0 and sexiness[you]<20 and dick[you]>1:
+		 '<<$name[npc]>> заставляет вас переодеться в более сексуальный наряд'
+		 t_slot[you]=52&l_slot[you]=0&b_slot[you]=25
+		 ut_slot[you]=0&ul_slot[you]=6
+		 if leg_hair[you]>0:leg_hair[you]=0&'<<$name[npc]>> берет бритву и сбривает вам волосы на ногах'
+	end
+end
+act'Ждать':gt'pegging_sex'

@@ -1,0 +1,10 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Стол шерифа'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if dead[sherif]=0:
+	'Координаты шерифа X-<<X[sherif]>> Y-<<Y[sherif]>> Z-<<Z[sherif]>> H (номер дома) -<<H[sherif]>> R (номер комнаты)-<<R[sherif]>>'
+     if H[sherif]=0:
+     	 act'Позвонить в звонок':
+			 X[you]=X[sherif]&Y[you]=Y[sherif]&Z[you]=Z[sherif]&H[you]=0&R[you]=0
+			 cls&gs'stat'&'Вы хлопнули ладонью по кнопке замка и оттуда вырвалась чернота которая подхватила вас и куда то перенесла.'&act'Осмотреться':gt'preloc'
+		 end
+     end
+end

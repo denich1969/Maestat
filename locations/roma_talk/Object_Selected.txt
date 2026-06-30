@@ -1,0 +1,6 @@
+﻿!Здесь будет находится функция, проверяющая, что выбран объект, чье название начинается с переданной строки
+!Предполагаемый вызов:
+!FUNC('Object_Selected', $Object_Name)
+
+$Object_Name = $args[0]
+result = ($MID($selobj, 1, LEN($Object_Name)) = $Object_Name)

@@ -1,0 +1,16 @@
+﻿clo=ARGS[0]
+
+if ut_slot[you]=0:
+item_ut[clo]-=1
+burden[you]-=item_ut_burden[clo]
+ut_slot[you]=clo
+else
+clothednow=ut_slot[you]
+item_ut[clothednow]+=1
+burden[you]+=item_ut_burden[clothednow]
+item_ut[clo]-=1
+burden[you]-=item_ut_burden[clo]
+ut_slot[you]=clo
+end
+
+gt'preloc'

@@ -1,0 +1,18 @@
+﻿!$d_view='pic/mob/14.jpg'&'<center><img src="<<$d_view>>" ></center>'
+if mob_sleep[npc]>time:
+	'Шаман громко камлает ударяя в бубен'
+else
+	 if you_slut[npc]>0:
+	 'Шаман смотрит на вас с нескрываемым презрением и брезгливостью'
+	 	 if corr[npc]<100:
+			act'<b>Уйти</b>':gt 'preloc'
+	     end
+	     dynamic $d_fear
+	 else
+		 if horny[npc]<50:
+			 'Шаман брезгливо сплевывает - Не смей прерывать мое общение с духами умерших'&act'<b>Уйти</b>':gt 'preloc'
+		 else
+			 'Шаман напряженно пялится на вас и вы замечаете что у него стоит член'&dynamic $d_fear
+		 end
+	 end
+end

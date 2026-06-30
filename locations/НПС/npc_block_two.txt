@@ -1,0 +1,90 @@
+﻿if follower[npc]>0:
+	if follower[npc]=you:'Следует за вами'
+	if follower[npc]!you:'Следует за кем то'     
+	if sex_follow[you]=npc:
+		if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0) and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+			if gender[npc]>0:
+				if total_npc_on_loc>1 and whore[npc]=0 and demon_dick_queen[npc]!you:
+					act'Я хочу заняться с тобой сексом':
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> оглядывается - Давай найдем другое место, тут слишком людно.'&act'...':gt'preloc'
+					end
+				else
+					act'Я хочу занятся с тобой сексом':
+						 if sluttySisQW=3 and npc=sister and you=brother:sistersex+=1
+						 friends[npc]+=1&gs'drop_follower'&gs'sexpower'&if blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:gt'justsex'
+						 !if blocksex['<<$loc[you]>>']=1 or blocksexH['<<$loc[you]>>']=1:'Здесь запрещено, идём в другое место'&gt $curloc
+					 end
+				end
+			end
+		end
+		if dick[npc]>1 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+			if total_npc_on_loc>1:
+			    if hubby>0 and hubby!npc:
+					act'Трахни меня при муже, он куколд':
+						 gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+					end
+			    else
+					if corr[you]>=90:
+						if empty_ball[npc]<time:
+							if agro[npc]>=70 or (skin[npc]>3 and skin[npc]<7) or demon_dick_queen[npc]=you:
+								act'Трахни меня при всех':
+									 gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+								end
+							else
+								act'Трахни меня при всех':
+									 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Я знаю что ты потаскушка, но я стесняюсь.'&act'...':gt'preloc'
+								end
+							end
+						else
+							act'Трахни меня при всех':
+								 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Детка, дай мне отдохнуть.'&act'...':gt'preloc'
+							end
+						end
+					end
+			    end
+			else
+				if empty_ball[npc]<time:
+					act'Возьми меня':
+						if you=mother and npc=father and MinetDocha=3:
+							cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - милая, ну не издевайся, ты же знаешь что случилось... Я сейчас не могу...'
+							horny[you]+=15&corr[you]+=1&act'...':gt'preloc'
+						else
+							gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+						end
+					end
+				else
+					act'Возьми меня':
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Детка, дай мне отдохнуть.'&act'...':gt'preloc'
+					 end
+				 end
+        	 end
+        else
+			if dick[you]=1 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+				act'Возьми меня':
+					if you=mother and npc=father and MinetDocha=3:
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - милая, ну не издевайся, ты же знаешь что случилось... Я сейчас не могу...'
+						 horny[you]+=15&corr[you]+=1&act'...':gt'preloc'
+					else
+						 gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+					end
+				end
+			end
+		end
+		 if vag[you]>0 and vag[npc]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+		     lesboBlock=0&if cuntmanQW=1 and npc=mother and you=father and wifeKnowCunt=0:lesboBlock=1&$acttwosex='Вылижи мне'&if dick[you]>3:$acttwosex='Я хочу секса'
+		     if lesboBlock=0:
+				 act'<<$acttwosex>>':
+					if dom[you]<dom[npc] or agro[you]<agro[npc]:
+						cls&'<<$name[npc]>> - О нет, дорогая моя, Это ты мне вылизывать будешь!'
+						last_sex[npc]=time+(60*5)&friends[npc]+=1&dom[you]-=rand(3,6)&cuntlick[you]+=1&horny[you]=99&health[you]+=50&energy[you]+=100&!if manamax[you]>0:mana[you]+=soul[you]
+						lust[npc]+=1&gs'stat'&'<center><video src="pic/sex/lesb/<<rand(0,5)>>.webm" ></video></center>'
+						'<<$name[npc]>> стонет когда вы вылизываете ее мокрое и горячее влагалище и вскоре девушка кончает содрогаясь в оргазме.'&act'Уйти':gt 'after_lesb_sex'
+					else
+						gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&gt'justsex'
+					end
+				 end
+			end
+		end
+	end
+   !act'Прекращай следовать за мной':gs'drop_follower'&gt'preloc'
+end

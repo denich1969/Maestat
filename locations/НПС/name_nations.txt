@@ -1,0 +1,89 @@
+﻿if $title[i]='Проститутка из чёрного квартала':
+	namerander=rand(1,100)&if namerander<50:args[0]=rand(1)
+	if namerander>=50 and namerander<=70:args[0]=9
+	if namerander>70:args[0]=rand(2,8)
+end
+if $title[i]='Негр из чёрного квартала':
+	namerander=rand(1,100)&if namerander<=70:args[0]=0
+	if namerander>70:args[0]=rand(1,9)
+end
+if $title[i]='Житель жилмассива':
+	tipername=rand(1,10)&if tipername<=8:args[0]=0
+	if tipername>8:args[0]=rand(1,9)
+end
+if $title[i]='Мужчина из даунтауна' or $title[i]='Женщина из даунтауна':
+	natiorand=rand(1,100)&if natiorand<=70:args[0]=9
+	if natiorand>70:args[0]=rand(0,8)
+end
+if $title[i]='Мужчина из аптауна' or $title[i]='Женщина из аптауна':args[0]=rand(9)
+if pretipename>0:args[0]=pretipename
+if args[1]=0:
+	if args[0]=0:
+		gs'ru_man_name'&$name[args[2]]=$genname&gs'ru_surname'&$surname[args[2]]=$gensurname
+	elseif args[0]=1:
+		gs'ru_man_name'&$name[args[2]]=$genname&gs'ru_surname'&$surname[args[2]]=$gensurname
+	elseif args[0]=2:
+		gs'manname_srb'&$name[args[2]]=$genname&gs'surname_srb'&$surname[args[2]]=$gensurname
+	elseif args[0]=3:
+		gs'manname_noh'&$name[args[2]]=$genname&gs'surname_noh'&$surname[args[2]]=$gensurname
+	elseif args[0]=4:
+		gs'manname_ara'&$name[args[2]]=$genname&gs'surname_ara'&$surname[args[2]]=$gensurname
+	elseif args[0]=5:
+		gs'manname_sa'&$name[args[2]]=$genname&gs'surname_sa'&$surname[args[2]]=$gensurname
+	elseif args[0]=6:
+		gs'manname_ukr'&$name[args[2]]=$genname&gs'surname_ukr'&$surname[args[2]]=$gensurname
+	elseif args[0]=7:
+		gs'manname_az'&$name[args[2]]=$genname&gs'surname_az'&$surname[args[2]]=$gensurname
+	elseif args[0]=8:
+		gs'manname_rom'&$name[args[2]]=$genname&gs'surname_rom'&$surname[args[2]]=$gensurname
+	elseif args[0]=9:
+		gs'man_name'&$name[args[2]]=$genname&gs'surname'&$surname[args[2]]=$gensurname
+	end
+else
+	if args[0]=0:
+		gs'ru_woman_name'&$name[args[2]]=$genname&gs'ru_surname'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=1:
+		gs'ru_woman_name'&$name[args[2]]=$genname&gs'ru_surname'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=2:
+		gs'womanname_srb'&$name[args[2]]=$genname&gs'surname_srb'&$surname[args[2]]=$gensurname
+	elseif args[0]=3:
+		gs'womanname_noh'&$name[args[2]]=$genname&gs'surname_noh'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=4:
+		gs'womanname_ara'&$name[args[2]]=$genname&gs'surname_ara'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=5:
+		gs'womanname_sa'&$name[args[2]]=$genname&gs'surname_sa'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=6:
+		gs'womanname_ukr'&$name[args[2]]=$genname&gs'surname_ukr'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=7:
+		gs'womanname_az'&$name[args[2]]=$genname&gs'surname_az'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=8:
+		gs'womanname_rom'&$name[args[2]]=$genname&gs'surname_rom'&$surname[args[2]]=$gensurname_f
+	elseif args[0]=9:
+		gs'woman_name'&$name[args[2]]=$genname&gs'surname'&$surname[args[2]]=$gensurname
+	end
+end
+nation[args[2]]=args[0]&pretipename=0
+
+!{
+if skin[i]>3 and skin[i]<7:
+face_pic[i]=rand(70001,70029)&!присвоение фотки
+skin[i]=rand(4,6)
+hcol[i]=0
+gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3
+else
+skin[i]=rand(0,3)
+hcol[i]=rand(0,3)
+gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)
+end
+
+if skin[i]>3 and skin[i]<7:
+dick[i]=rand(18,30)&dickd[i]=rand(40,55)&ball[i]=rand(70,100)
+else
+dicklongrand=rand(1,100)
+if dicklongrand<=80:dick[i]=rand(12,17)
+if dicklongrand>80 and dicklongrand<=90:dick[i]=rand(7,13)
+if dicklongrand>90 and dicklongrand<100:dick[i]=rand(18,25)
+if dicklongrand=100:dick[i]=rand(25,28)
+dickd[i]=rand(30,55)&ball[i]=rand(30,100)
+end
+}

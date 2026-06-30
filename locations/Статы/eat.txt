@@ -1,0 +1,43 @@
+﻿if $args[1]='':
+	if demon_dick[you]=0:
+		hunger[you]=0&health[you]+=10&energy[you]+=10&!fat[you]+=1
+		fat[you]+=iif(inseminate[you]>0,rand(10,15),iif(vag[you]>0,rand(5,10),rand(1,4)))
+		if superslut[you]!1:health[you]+=10&energy[you]+=10
+	else
+		msg('Вы не нуждаетесь в еде, ваша еда это Души!')
+	end
+else
+	if $args[1]='rubl':gem-=args[0]&$valuta='рублях'
+	if $args[1]='iskr':gem-=args[0]&$valuta='искрах'
+	if $args[1]='gulden':gem-=args[0]&$valuta='гульденах'
+	if $args[1]='gem':gem-=args[0]&$valuta='геммах'
+	if $args[1]='atanga':atanga-=args[0]&$valuta='таньга'
+	if $args[1]='money':money-=args[0]&$valuta='шилллингах.'
+	if $args[1]='kredit':kredit-=args[0]&$valuta='кредитах'
+	if $args[1]='veksel':veksel-=args[0]&$valuta='векселях'
+	if serafLip[you]=0 and DemonMorf[you]=0:
+		 if golod[you]>= 10:
+			 golod[you]+=5&health[you]+=5&fat[you]+=1&'Вы объелись.'
+		 else
+			 golod[you]+=10&health[you]+=5&mana[you]+=5&'Вы хорошо покушали.'
+		 end
+	end
+	if serafLip[you]=1 or DemonMorf[you]>0:
+		golod[you]= 0&health[you]=health[you]/2&mana[you]=mana[you]/2&'Резко заболел желудок и вас тут же вырвало, вы не сможете есть ничего, кроме спермы.'
+	end
+	gs'stat'&if args[0]>0:'Оплата в '+ $valuta+' составила: <<args[0]>> '
+end
+if Z[you]=200:
+	if args[1] = 0: args[1] = you
+	if $args[0]='':$args[0]='normal'
+	args[11]=(stomach_v[args[1]]+stomach_f[args[1]])&!полностью
+	if args[2] = 0:args[2] = stomachMax
+	if args[2] > (stomachMax*15/10-args[11]): args[2] = (stomachMax*15/10-args[11])&!args[2] = stomachMax
+	if $args[0]='normal':leisure[args[1]]+=args[2]*100/stomachMax/10&stomach_v[args[1]]+=args[2]/2&stomach_f[args[1]]+=args[2]/2&!нормальная!stomach_v - мало калорий!stomach_f - много калорий
+	if $args[0]='diet':	
+		args[10]=(stomach_v[args[1]]+stomach_f[args[1]])*100/stomachMax&!на сколько заполнен
+		leisure[args[1]]-=args[2]*100/stomachMax/10&stomach_v[args[1]]+=args[2]*3/4&stomach_f[args[1]]+=args[2]/4&!диетическая
+	end
+	if $args[0]='fastfud':leisure[args[1]]+=args[2]*100/stomachMax/5&stomach_v[args[1]]+=args[2]/4&stomach_f[args[1]]+=args[2]*3/4&!жирная
+	if $args[0]='extra':leisure[args[1]]+=args[2]*100/stomachMax*3/20&stomach_f[args[1]]+=args[2]&!Спортпит
+end

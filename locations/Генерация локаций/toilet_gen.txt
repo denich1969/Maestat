@@ -1,0 +1,72 @@
+﻿!Образец вызова
+!gs 'toilet_gen',уровень туалета, 'ванные принадлежности',номер предмета
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locnameR['<<$temploc>>']='Туалет'
+$locname['<<$temploc>>']='Туалет'
+$lname['<<$temploc>>']='Туалет'
+$lname_go['<<$temploc>>']='в туалет'
+gs'item_base'
+if args[0]=0:
+	 !описание
+	$locopis['<<$temploc>>']='Обычный общественный туалет'
+	 !номер картинки
+	np['<<$temploc>>']=1
+	shower['<<$temploc>>']=0
+	!item_loc['<<rand(17,21)>>,<<$temploc>>']=1
+elseif  args[0]=1:
+	 !описание
+	$locopis['<<$temploc>>']='Совмещенный санузел с унитазом, ванной и раковиной'
+	 !номер картинки
+	np['<<$temploc>>']=155
+	shower['<<$temploc>>']=1
+	item_loc['<<rand(17,21)>>,<<$temploc>>']=1
+	!item_loc['12,<<$temploc>>']=10
+	!item_loc['14,<<$temploc>>']=1
+	!item_loc['16,<<$temploc>>']=3
+	!item_loc['17,<<$temploc>>']=5
+	!item_loc['20,<<$temploc>>']=3
+elseif  args[0]=2:
+	 !описание
+	$locopis['<<$temploc>>']='Раздельный санузел с унитазом, ванной с душем и раковиной'
+	 !номер картинки
+	np['<<$temploc>>']=4
+	shower['<<$temploc>>']=1
+	item_loc['<<rand(17,21)>>,<<$temploc>>']=1
+elseif  args[0]=3:
+	$locopis['<<$temploc>>']='Шикарный раздельный санузел со всевозможными устройствами'
+	 !номер картинки
+	np['<<$temploc>>']=349
+	shower['<<$temploc>>']=1
+	item_loc['<<rand(17,21)>>,<<$temploc>>']=1
+elseif  args[0]=4:
+	 !описание
+	$locopis['<<$temploc>>']='Общественный туалет с душевой кабиной'
+	 !номер картинки
+	np['<<$temploc>>']=4
+	shower['<<$temploc>>']=1
+	!item_loc['<<rand(17,21)>>,<<$temploc>>']=1
+elseif  args[0]=5:
+	 !описание
+	$locopis['<<$temploc>>']='Туалетная комната где можно сделать все дела и даже помыться'
+	 !номер картинки
+	np['<<$temploc>>']=67
+	shower['<<$temploc>>']=1
+elseif  args[0]=6:
+	 !описание
+	$locopis['<<$temploc>>']='Туалетная комната с умывальником и унитазом.'
+	 !номер картинки
+	np['<<$temploc>>']=45
+	shower['<<$temploc>>']=0
+elseif  args[0]=7:
+	 !описание
+	$locopis['<<$temploc>>']='Стандартный общественный туалет с дырой в перегородке между кабинками.'
+	 !номер картинки
+	np['<<$temploc>>']=237
+	shower['<<$temploc>>']=0
+	gloryhole['<<$temploc>>']=1
+end
+can_drink['<<$temploc>>']=1
+mirror['<<$temploc>>']=1
+toilet['<<$temploc>>']=1
+!включение биосферы на Лунной базе или космическом корабле
+if Z=200 or Z=777 or Z=7777: biospere['<<$temploc>>']=1

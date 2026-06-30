@@ -1,0 +1,3 @@
+﻿X[npc]=Xhome[you]&Y[npc]=Yhome[you]&Z[npc]=Zhome[you]&H[npc]=Hhome[you]&R[npc]=Rhome[you]
+X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]
+solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> и вы идете к вам, чтобы поразвлечься'&act'Обниматься':gt'sex'

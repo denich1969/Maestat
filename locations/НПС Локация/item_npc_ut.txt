@@ -1,0 +1,12 @@
+﻿takeitem=ARGS[0]
+cls
+if ut_slot[npc]=0:
+	item_ut[takeitem]-=1
+	ut_slot[npc]=takeitem
+else
+	npcitem=ut_slot[npc]
+	item_ut[npcitem]+=1
+	item_ut[takeitem]-=1
+	ut_slot[npc]=takeitem
+end
+gt 'npc_cloth'

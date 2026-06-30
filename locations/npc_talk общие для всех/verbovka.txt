@@ -1,0 +1,42 @@
+﻿$d_verbovka={
+	 act'Завербовать':
+	 cls
+	 gs'multi_world'
+	 
+	 agency_ud[npc]=1
+	 myagent[npc]=you
+	 
+	 if contact[npc]=0:
+	 contact[npc]=you
+	 my_contact[]=npc
+	 end
+	 
+	 gs'stat'
+	 '<center><img src="<<$d_view>>" ></center>'
+	 '<<$name[npc]>> - Ладно, я буду твоим агентом'
+	 act'<b>Отлично</b>':gt 'preloc'
+	 end
+}
+if myagent[npc]=0:
+	 act'Вербовать в агенты':
+	 cls
+	 gs'stat'
+	 '<center><img src="<<$d_view>>" ></center>'
+	 'Вы начинаете издалека уговаривать стать вашим агентом.'
+	 '<<$name[npc]>> задумывается над вашими словами - Я могу работать на тебя, 100 души и 1000 шиллингов'
+	 act'<b>Потом поговорим</b>':gt 'preloc'
+	     if soul[you]>100 and money[you]>=100000:
+	     	 act'Дать душу и деньги':
+			 cls
+			 soul[you]-=100
+			 soul[npc]+=100
+			 money[you]-=100000
+			 money[npc]+=100000
+			 gs'stat'
+			 '<center><img src="<<$d_view>>" ></center>'
+			 'Вы отдаете оговоренное и подписываете контракт. <<$name[npc]>> теперь ваш агент.'
+			 dynamic $d_verbovka
+			 end
+	     end
+	 end
+end

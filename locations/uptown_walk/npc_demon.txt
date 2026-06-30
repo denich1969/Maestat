@@ -1,0 +1,33 @@
+﻿if trueform[npc]=0:
+	know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+	$d_view='pic/mob/137.jpg'&'<center><img src="<<$d_view>>" ></center>'
+     if sexiness[you]>50 and vag[you]>0:
+		 if empty_ball[npc]>=time:
+			 '<<$nick[npc]>> - убирайся отсюда, шлюха!'&act'<b>Уйти</b>':gt 'preloc'
+		 else
+		     if goodoldtimesQW=21:
+				 '<<$nick[npc]>> - хозяева ожидают тебя в вип комнате!'&act'<b>Уйти</b>':gt 'preloc'
+		     else
+				'<<$nick[npc]>> - на колени, жалкая рабыня!'
+				 act'На колени':
+					 corr[you]+=5&cls&gs'stat'&horny[npc]=50&X=2&Y=3&Z=4&H=6&R=0
+					 if X[you]=X and Y[you]=Y and Z[you]=Z and H[you]=H and R[you]=R:
+						 hardtimer=0&sexpower[npc]=10&gt'bdsm_sub'
+					 else
+						 sexpower[npc]=10&hardtimer=0&'<<$nick[npc]>> телепортирует вас в преисподнюю'
+						 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R&act'...':gt'bdsm_sub'
+					 end
+				 end
+			 end
+		 end
+     else
+		 '<<$nick[npc]>> - изыди, смертный!'&act'<b>Уйти</b>':gt 'preloc'
+     end
+else
+	if mob_sleep[npc]>time:
+		'Демон читает свои темные молитвы от которых кровь стынет в жилах'
+	else
+		'Узри мою реальную сущность, червь! Рычит <<$nick[npc]>> злобно. На колени, тварь!'&!'Демон рычит злобно - на колени, тварь!'
+	end
+	!'Демон читает свои темные молитвы, от которых кровь стынет в жилах'
+end

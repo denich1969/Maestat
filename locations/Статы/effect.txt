@@ -1,0 +1,11 @@
+﻿if args[0]=0:args[0]=you
+if horny[args[0]]>0 and busy[args[0]]=0:
+    if energy[args[0]]*10<energyMax[args[0]]:horny[args[0]]-=5
+    if health[args[0]]+20<healthmax[args[0]]:horny[args[0]]-=5
+    if thirst[args[0]]>=10:horny[args[0]]-=5
+    if hunger[args[0]]>=10:horny[args[0]]-=5 
+end
+if temp_lust[args[0]]>0:temp_lust[args[0]]=0
+if superslut[args[0]]=1:horny[args[0]]+=25&dom[args[0]]-=1
+gs'effect_feminize',args[0]
+gs'effect_manize',args[0]

@@ -1,0 +1,2 @@
+﻿npc=ARGS[0]
+gt'telephone_contact'

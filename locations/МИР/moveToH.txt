@@ -1,0 +1,3 @@
+﻿num=you&H[you] = ARGS[0]&openinv=0&time+=5
+if livingloc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1 and ownerloc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']>0:gt'proverkaH'
+$walklog=''&gt 'world' 

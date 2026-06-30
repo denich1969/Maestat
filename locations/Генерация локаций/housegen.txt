@@ -1,0 +1,27 @@
+﻿!Образец вызова: gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
+H=args[0]&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&privat['<<$templocH>>']=1&lock['<<$templocH>>']=args[5]&$locnameH['<<$templocH>>']=$args[1]&maxPositionR['<<$templocH>>']=args[2]
+if $args[1]='Квартира №1' or $args[1]='Квартира №2' or $args[1]='Квартира №3' or $args[1]='Квартира №4' or $args[1]='Квартира №5':
+	houselev0=1&houselev1=1&houselev2=1&houselev3=1&houselev4=1
+elseif $args[1]='Муравейник Дом 1' or $args[1]='Муравейник Дом 2' or $args[1]='Муравейник Дом 3' or $args[1]='Муравейник Дом 4' or $args[1]='Муравейник Дом 5':
+	houselev0=5&houselev1=1
+elseif $args[1]='Пентхаус Ландриганов':
+	houselev0=2&houselev1=4&houselev2=1&houselev3=4&houselev4=2&houselev5=2
+elseif $args[1]='Пентхаус Эосфор':
+	houselev0=2&houselev1=2&houselev2=1&houselev3=2&houselev4=4&houselev5=2
+else
+	houselev0=rand(3)&houselev1=rand(5)&houselev2=rand(4)&houselev3=rand(4)&houselev4=rand(4)&houselev5=rand(2)
+end
+!Образец вызова: gs 'roomgen',R-номер комнаты,'имя комнаты',уровень комнаты от 0 до 3,'жильцы',предмет
+if args[0]>=0 and args[2]>1:
+	gs 'roomgen',0,'Прихожая','<<houselev0>>', '<<$args[3]>>',args[4]
+	gs 'roomgen',1,'Кухня','<<houselev1>>', '<<$args[3]>>',args[4]
+	gs 'roomgen',2,'Туалет','<<houselev2>>', '<<$args[3]>>',args[4]
+	gs 'roomgen',3,'Спальная','<<houselev3>>', '<<$args[3]>>',args[4]
+	gs 'roomgen',4,'Гостиная','<<houselev4>>', '<<$args[3]>>',args[4]
+	if args[0]=5: gs 'roomgen',5,'Библиотека','<<houselev5>>', '<<$args[3]>>',args[4]
+elseif args[0]>=0 and args[2]<2:
+	gs 'roomgen',0,'Муравейник','<<houselev0>>', '<<$args[3]>>',args[4]
+	gs 'roomgen',1,'Туалет','<<houselev1>>', '<<$args[3]>>',args[4]
+elseif args[0]>=0 and args[2]<1:
+
+end

@@ -1,0 +1,20 @@
+﻿takeitem=ARGS[0]
+cls
+if t_slot[npc]=0:
+	item_t[takeitem]-=1
+	t_slot[npc]=takeitem
+else
+	npcitem=t_slot[npc]
+	item_t[npcitem]+=1
+	item_t[takeitem]-=1
+	t_slot[npc]=takeitem
+end
+if long_t[takeitem]>0:
+    npcitem=l_slot[npc]
+    if npcitem > 0:
+        l_slot[npc] = 0
+        item_l[npcitem]+=1
+        burden[you]+=item_l_burden[npcitem]
+    end
+end
+gt 'npc_cloth'

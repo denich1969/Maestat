@@ -1,0 +1,23 @@
+﻿!моб w & девушка s
+if dick[w]>1:
+	canaction=1&!моб самец
+	gunslinger=0
+	 if mob[w]=1:canaction=1&!гопота
+	 if mob[w]=3:canaction=1&if sweet[s]=1:canaction=2&!инсмутец
+	 if mob[w]=4:canaction=1&gunslinger=1&if w_slot[w]=0:w_slot[w]=9&!гангста
+	 if mob[w]=5:
+		canaction=1&!бандит демон
+		 if trueform[w]=1:
+			genderbender=1
+		 else
+			genderbender=0
+		 end
+	 end
+	 if mob[w]=8:canaction=1&!мардук
+	 if mob[w]=13:canaction=1&gunslinger=1&if w_slot[w]=0:w_slot[w]=9&!полицейский
+	 if whore[s]>0:canaction=0
+	 if canaction=1:gs'action_mob_simpl'
+	 if canaction=2:gs'action_mob_insmout'
+else
+	!моб самка & не доступно
+end

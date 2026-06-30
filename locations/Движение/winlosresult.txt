@@ -1,0 +1,79 @@
+﻿if mobwin>0:
+	agro[w]+=1
+	if mob[s]=0:agro[s]-=1
+	fight_skill[w]+=5
+	win[w]+=1
+	soul[w]+=1
+	loss[s]+=1
+	!soul[s]-=2
+	if stamp_t[s]>0:
+		soul[s]-=rand(0,1)
+	else
+		soul[s]-=2
+	end
+	soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+	mus[w]+=10
+	healthmax[w]=healthmax[w]+10
+	health[w]=healthmax[w]
+	energy[w]=energymax[w]
+	minuron[w]+=rand(2,5)&maxuron[w]+=rand(5,10)
+	reflex[w]+=1
+	 if genderbender>0:feminize[s]+=rand(3,10)
+	 $fightlog[w]+='<br>'
+	 $fightlog[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[w]>>-<<loss[w]>> vs <<$name[s]>> <<$surname[s]>>. <<win[s]>>-<<loss[s]>>'
+	 $fightlog[s]+='<br>'
+	 $fightlog[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[s]>>-<<loss[s]>> vs <<$name[w]>> <<$surname[w]>>. <<win[w]>>-<<loss[w]>>'
+	 if mob[s]=3:$fightlog[w]+='(инсмутец)'
+	 if mob[w]=3:$fightlog[s]+='(инсмутец)'
+	 winner['<<w>>,<<s>>']+=1&loser['<<s>>,<<w>>']+=1
+	 if mob[w]=1:
+	     if sfera_amulet[w]=0:
+			sftemp=rand(0,1)
+		    if sftemp=1:sfera_amulet[w]=500
+		 end
+		 if pol[s]>0:gs'raper'
+	 end
+	 if mob[w]=3:gs'raper'
+	 if mob[s]=1:
+	     if fight_prog[s]=1:fight_prog[s]=rand(25,28)
+		mus[s]+=10
+		healthmax[s]=healthmax[s]+10
+		health[s]=healthmax[s]
+		energy[s]=energymax[s]
+		minuron[s]+=rand(2,5)&maxuron[s]+=rand(5,10)
+		reflex[s]+=2
+	 end
+else
+	if mob[w]=0:agro[w]-=1
+	agro[s]+=1
+	fight_skill[s]+=5
+	win[s]+=1&loss[w]+=1
+	soul[s]+=1&soul[w]-=2
+	soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+	mus[s]+=10
+	healthmax[s]=healthmax[s]+10&health[s]=healthmax[s]
+	energy[s]=energymax[s]
+	minuron[s]+=rand(2,5)&maxuron[s]+=rand(5,10)
+	reflex[s]+=1
+	$fightlog[s]+='<br>'
+	$fightlog[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[s]>>-<<loss[s]>> vs <<$name[w]>> <<$surname[w]>>. <<win[w]>>-<<loss[w]>>'
+	$fightlog[w]+='<br>'
+	$fightlog[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[w]>>-<<loss[w]>> vs <<$name[s]>> <<$surname[s]>>. <<win[s]>>-<<loss[s]>>'
+	if mob[s]=3:$fightlog[w]+='(инсмутец)'
+	if mob[w]=3:$fightlog[s]+='(инсмутец)'
+	winner['<<s>>,<<w>>']+=1&loser['<<w>>,<<s>>']+=1
+	if mob[s]=1:
+		 if sfera_amulet[s]=0:
+			sftemp=rand(0,1)
+			 if sftemp=1:sfera_amulet[s]=500
+		 end
+	end
+	if mob[w]=1:
+		 mus[w]+=10
+		 healthmax[w]=healthmax[w]+10&health[w]=healthmax[w]
+		 energy[w]=energymax[w]
+		 minuron[w]+=rand(2,5)&maxuron[w]+=rand(5,10)
+		 reflex[w]+=2
+		 if fight_prog[w]=1:fight_prog[w]=rand(25,28)
+	end
+end

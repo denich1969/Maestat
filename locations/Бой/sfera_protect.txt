@@ -1,0 +1,190 @@
+﻿gs'stat'
+'<center><img src="pic/event/sfera.jpg"></center>'
+!uronV=rand(minuronV,maxuronV)
+if enemy_udar=1:
+!физ удар
+	 if sfera_fiz>uronV:
+	     if proboyV>0:
+	     sfera_fiz=0
+	     uronV=uronV/10
+	     if uronV<=0:uronV=10
+	     'Удар пробил сферу на сквозь'
+	     	 if defence_you>0:
+	             if defence_you<uronV:
+				 uronV=uronV-defence_you
+				 if sbivatel>0:uronV=uronV+10
+				 health[you]-=uronV
+				 'Удар пробивает вашу защиту и наносит вам <<uronV>> единиц урона'
+				 else
+				 defence_you-=uronV
+				 'Ваша защита поглотила урон но удар вас порядком встряхнул'
+				 end
+	         else
+	         health[you]-=uronV
+			 'Удар наносит вам <<uronV>> единиц урона'
+	         end
+	     else
+		 sfera_fiz-=uronV
+		 if mistice>0:sfera_fiz-=mistice
+		 'От удара силой в <<uronV>> единиц, сфера лишь прогибается и теряет часть силы'
+		 if mistice>0:'Туман вгрызается в вашу сферу стараясь ее растворить и наносит <<mistice>> единиц повреждений'
+	     end
+	 else
+	     if proboyV>0:
+	     uronV=uronV-sfera_fiz
+	     if uronV<=0:uronV=10
+	     'Удар пробил сферу'
+	         if defence_you>0:
+	             if defence_you<uronV:
+				 uronV=uronV-defence_you
+				 if sbivatel>0:uronV=uronV+10
+				 health[you]-=uronV
+				 'Удар пробивает вашу защиту и наносит вам <<uronV>> единиц урона'
+				 else
+				 defence_you-=uronV
+				 'Ваша защита поглотила урон но удар вас порядком встряхнул'
+				 end
+	         else
+	         health[you]-=uronV
+			 'Удар наносит вам <<uronV>> единиц урона'
+	         end
+	     else
+	     sfera_fiz=0
+	     'От удара сфера разбивается с яркими брызгами'
+	     end
+	 end
+	 
+end
+ if enemy_udar=2:
+ !атака огнем
+	 if fireuronV>sfera_fiz:
+	     if proboyV>0:
+	     fireuronV=fireuronV-sfera_fiz
+	     'Удар пробил сферу'
+	         if defence_you>0:
+	             if defence_you<fireuronV:
+				 fireuronV=fireuronV-defence_you
+				 if sbivatel>0:fireuronV=fireuronV+10
+				 health[you]-=fireuronV
+				 'Удар пробивает вашу защиту и наносит вам <<fireuronV>> единиц урона'
+				 else
+				 defence_you-=fireuronV
+				 'Ваша защита поглотила урон но удар вас порядком встряхнул'
+				 end
+	         else
+	         health[you]-=uronV
+			 'Удар наносит вам <<uronV>> единиц урона'
+	         end
+	     else
+	     sfera_fiz=0
+	     'От удара огня сфера разлетелась брызгами но защитила вас от урона'
+	     end 
+	 else
+	 sfera_fiz-=fireuronV
+	 'От удара огня сфера прогнулась и потеряла часть свой силы'
+	 end
+ end
+ if enemy_udar=3:
+ !звук и страх
+	 if fearatkV>sfera_fiz:
+	 sfera_fiz=0
+	 'Сфера разлетелась брызгами но защитила вас от психической атаки'
+	 else
+	 sfera_fiz-=fearatkV
+	 'Сфера прогнулась и ослабла но выдержала атаку на психику'
+	 end
+ end
+  if enemy_udar=4:
+ !похоть
+	 if fearatkV>sfera_fiz:
+	 sfera_fiz=0
+	 'Сфера разлетелась брызгами но защитила вас от психической атаки'
+	 else
+	 sfera_fiz-=fearatkV
+	 'Сфера прогнулась и ослабла но выдержала атаку на психику'
+	 end
+ end
+if enemy_udar=5:
+!огнестрел
+	 if sfera_fiz>uronV:
+	 sfera_fiz=sfera_fiz-uronV
+	 'От выстрела сфера лишь прогибается и теряет часть силы'
+	 else
+	 sfera_fiz=0
+	 'От выстрела сфера разбивается с яркими брызгами'
+	 end
+end
+ if enemy_udar=6:
+ !гравитация
+	 if mag_uronV>sfera_fiz:
+	 sfera_fiz=0
+	 energy[you]-=mag_uronV+(insight[you]*2)
+	 restrikt=1
+	 pose[you]=3
+	 'Гравитация надавливает на вас, сфера лопается с брызгами и вы падаете под тяжестью собственного веса'
+	 else
+	 sfera_fiz-=mag_uronV
+	 'Ваша сфера спасает вас от гравитации'
+	 end
+ end
+  if enemy_udar=7:
+ !смерть
+     if proboyV>0:
+     sfera_fiz=0
+	 health[you]-=mag_uronV
+	 'Под ударом сфера просто поплавилась и потекла теряя структуру и исчезла'
+	 mag_uronV-=sfera_fiz
+	 'Эманации смерти наносят вам урон <<mag_uronV>> единиц'
+     else
+		 if mag_uronV>sfera_fiz:
+		 sfera_fiz=0
+		 mag_uronV-=sfera_fiz
+		 health[you]-=mag_uronV
+		 'Эманации смерти разрушают сферу и наносят вам урон <<mag_uronV>> единиц'
+		 else
+		 sfera_fiz-=mag_uronV
+		 'Ваша сфера спасает вас от эманаций смерти, хотя и ослабевает'
+		 end
+	 end
+	 if fearatkV>sfera_fiz:
+	 sfera_fiz=0
+	 'Сфера разлетелась брызгами но защитила вас от психической атаки'
+	 else
+	 sfera_fiz-=fearatkV
+	 'Сфера прогнулась и ослабла но выдержала атаку на психику'
+	 end
+ end
+   if enemy_udar=8:
+ !портал
+     if proboyV>0:
+     sfera_fiz=0
+	 health[you]-=mag_uronV
+	 'Под ударом портала сфера просто разлетелась брызгами'
+	 mag_uronV-=sfera_fiz
+	 'Портал наносит вам урон <<mag_uronV>> единиц'
+     else
+		 if mag_uronV*2>sfera_fiz:
+		 sfera_fiz=0
+		 health[you]-=mag_uronV
+		 'Портал разрушает сферу и наносит вам урон <<mag_uronV>> единиц'
+		 else
+		 sfera_fiz-=mag_uronV*2
+		 'Ваша сфера спасает вас от портала, хотя и ослабевает'
+		 end
+	 end
+ end
+ if anticlonV>0 and clon>0:
+ clon=0
+ 'Ваши клоны исчезают'
+ end
+gs'stat'
+act'Далее':gt'fight'
+
+
+
+
+
+
+
+
+

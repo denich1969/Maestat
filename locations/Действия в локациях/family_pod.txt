@@ -1,0 +1,21 @@
+﻿$nameloc[you]=$curloc&gs'stat'&act'Уйти':gt 'preloc'
+$npc_loc=''&npcmax=arrsize('puppil')
+ar=0
+:markfamilypod
+	w=puppil[ar]
+	if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and $name[w]!'' and my_puppil[w]>0:$npc_loc+='<br>'&$npc_loc+='<a href="exec:gt ''gopupil'',<<w>>"><<$name[w]>> <<$surname[w]>></a> Место нахождения <<$lname[''<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'']>>, карманных денег <<money[w]/100>> шиллингов и <<money[w] mod 100>> пенсов'
+ar+=1&if ar<=npcmax:jump'markfamilypod'
+*pl ''&'<<$npc_loc>>'&totalpay=rentmoney+1000
+*pl 'В семейном бюджете <<money/100>> шиллингов и <<money mod 100>> пенсов'
+'За жилье вы платите <<rentmoney/100>> шиллингов и <<rentmoney mod 100>> пенсов пенсов в сутки. '
+'Расходы на еду 10 шиллингов. Оплата всех расходов <<totalpay/100>> шиллингов и <<totalpay mod 100>> пенсов автоматически списывается с семейного бюджета.'
+act'Взять из бюджета':
+	cls&takemoney=input("Всего есть в бюджете <<money>> пенсов")&if takemoney>0 and takemoney<=money:money[you]+=takemoney&money-=takemoney
+	gt $curloc
+end
+if money[you]>0:
+	act'Положить в бюджет':
+		cls&takemoney=input("Всего у вас есть <<money[you]>> пенсов")&if takemoney>0 and takemoney<=money[you]:money[you]-=takemoney&money+=takemoney
+		gt $curloc
+	end
+end

@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&fisherman=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&magik[i]=14&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=8&!номер типа фотки и фотки
+$name[i]='Мартин'&$surname[i]='Бауэр'&$nick[i]='Рыбак'&$title[i]=''&$history[i]='Хозяин таверны мой родной брат. Я ловлю рыбу, а он готовит ее и продает.'
+face[i]=20&gla[i]=0&glacol[i]=2&nose[i]=0
+dick[i]=18&dickd[i]=40&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=185&fat[i]=1000&mus[i]=1200&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=6&beard[i]=0
+age[i]=50&vital[i]=50&will[i]=10&reflex[i]=rand(50,70)
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=0&selfrespect[i]=1&positiv[i]=0&extrovert[i]=0&ratio[i]=1&brave[i]=1&lust[i]=10&!характер
+!l_hand_t[i]=2&r_hand_t[i]=1
+t_slot[i]=6&l_slot[i]=3&b_slot[i]=6
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+n_world[]=i&walkprog[i]=3
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

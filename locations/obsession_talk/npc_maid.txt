@@ -1,0 +1,27 @@
+﻿cls&'<center> <<$title[npc]>></center>'&'<center><img src="<<$d_view>>" ></center>'&!$d_view='pic/mob/<<picture[npc]>>.jpg'&
+if mob_sleep[npc]>time:
+	'<<$nick[npc]>> свернулась клубочком и спит'
+else
+     if you_slut[npc]>0:
+		 if h_slot[you]=12 and corr[npc]<50:
+			'<<$nick[npc]>> кланяется вам - Какие будут приказания, ваше величество?'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+			act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&gt'justasex'
+			gs'take_follower'&!позвать с собой персонажа
+		 else
+			 '<<$nick[npc]>> презрительно смотрит на вас'&dynamic $d_fear
+		 end
+     else
+		 if corr[npc]<100:
+			horny[npc]=0
+			 if h_slot[you]=12:
+				'<<$nick[npc]>> кланяется вам - Какие будут приказания, ваше величество?'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+				act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&gt'justasex'
+				gs'take_follower'&!позвать с собой персонажа
+			 else
+				 '<<$nick[npc]>> хмурится - Я вызову стражу!'&dynamic $d_fear
+			 end
+		 else
+			 '<<$nick[npc]>> краснеет и мнет груди'&dynamic $d_fear
+		 end
+	 end
+end

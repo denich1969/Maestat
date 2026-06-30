@@ -1,0 +1,407 @@
+﻿if $UCASE($ARGS[0])='RETURN_DESC':num=ARGS[1]
+if UCASE($ARGS[0])='IN_PREVIEW':ARGS['WITHOUT_COLORS']=1
+if mob[num]=0:gs'body_stat'
+$colorSkin=$iif(skin[num]>5,"b","")
+if face[num]>=50 and ass[num]>=20:
+	pol[num]=1&!100% вариант для pol[num]=1 (Т.е. дефолт)
+else
+	pol[num]=0&!далее  идут исключения.
+   if face[num]>=80:pol[num]=1& !Вариант для "Фембоев" и женщин с маленькой задницей, но с превликательным, женственным лицом.
+   if vag[num]>0 and face[num]>20 and dick[num]=0:pol[num]=1& !Вариант для "Страшных-тёток", т.е. наличие женских половых органов, но с низким значением лица.
+end
+if pol[num]=0:
+     if dick[num]>0 and vag[num]=0:gender[num]=0&$gendername[num]='Мужчина'
+     if vag[num]>0 and dick[num]>0 and tit[num]<4:gender[num]=2&$gendername[num]='Кунтбой'
+     if vag[num]>0 and dick[num]>0 and tit[num]>3:gender[num]=5&$gendername[num]='Фембой'
+end
+if pol[num]=1:
+     if dick[num]>0 and vag[num]>0 and tit[num]<4:gender[num]=3&$gendername[num]='Шимейл'
+     if dick[num]>0 and vag[num]>0 and tit[num]>3:gender[num]=4&$gendername[num]='Фунтари'
+     if vag[num]>0 and dick[num]=0:gender[num]=1&$gendername[num]='Женщина'
+end
+!* ---------------------------------- ЛИЦО ---------------------------------- *!
+if face[num]<0:face[num]=0
+if face[num]>100:face[num]=100
+$ARGS['GENDER_COLOR'] = func('util_func', 'get_gender_color', face[num])
+if dagongene>110 and num=you:
+	if face[num]<=20:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Суровое выветренное лицо</b></font> истмунской особи мужского пола'
+	if face[num]>20 and face[num]<=40:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Классическая физиономия</b></font> истмундца'
+	if face[num]>40 and face[num]<=60:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Смазливая харя</b></font> истмундца'
+	if face[num]>60 and face[num]<=80:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Женственная физиономия</b></font> истмундци'
+	if face[num]>80:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Довольно симпатичное лиц</b>о</font> истмундской самки, со своими особеностями'
+else
+	if face[num]<=20:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Мужественное лицо</b></font> с чертами, будто бы высеченными из гранита'
+	if face[num]>20 and face[num]<=40:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Мужское лицо</b></font>'
+	if face[num]>40 and face[num]<=60:$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Андрогинное лицо</b></font> без определенных половых признаков'
+	if face[num]>20 and face[num]<=60:
+		if $gendername[num]='Шимейл':$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Мужеподобное лицо шимейла</b></font>'
+		if $gendername[num]='Фунтари':$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Андрогинное лицо фунтари</b></font>'
+	end
+	if face[num]>60 and face[num]<=80:
+		if $gendername[num]='Мужчина' or $gendername[num]='Кунтбой':
+			$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Женоподобное лицо</b></font>'
+		else
+			$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Женское лицо</b></font>'
+		end
+		if $gendername[num]='Фембой':$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Бабское лицо фембоя мало похожее на мужское</b></font>'
+	end
+	if face[num]>80:
+		if $gendername[num]='Мужчина' or $gendername[num]='Кунтбой':
+			$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Женственно-пидорское лицо</b></font>, округлое и аккуратное'
+		else
+			$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Красивое женское лицо</b></font> с мягкими чертами'
+		end
+		if $gendername[num]='Фембой':$face[num]='<font color="<<$ARGS[''GENDER_COLOR'']>>"><b>Бабское лицо фембоя совсем не похожее на мужское</b></font>'
+	end
+end
+if scull[num]>0:$face[num]+=', широкие скулы'
+if cheeks[num]>0:$face[num]+=', пухлые щеки'
+if skin[num]<2 and horny[num]>=50:$face[num]+=', на лице заметен румянец'
+!* ---------------------------------- ГЛАЗА --------------------------------- *!
+$ARGS['EYE_COLOR']=func('util_func', 'get_eye_color', glacol[num], ARGS['WITHOUT_COLORS'])
+if glacol[num]=0:$glacol[num]='<font color="<<$ARGS[''EYE_COLOR'']>>">черные</font>'
+if glacol[num]=1:$glacol[num]='<font color="<<$ARGS[''EYE_COLOR'']>>">карие</font>'
+if glacol[num]=2:$glacol[num]='<font color="<<$ARGS[''EYE_COLOR'']>>">серые</font>'
+if glacol[num]=3:$glacol[num]='<font color="<<$ARGS[''EYE_COLOR'']>>">зеленые</font>'
+if glacol[num]=4:$glacol[num]='<font color="<<$ARGS[''EYE_COLOR'']>>">голубые</font>'
+if glacol[num]=5:$glacol[num]='<font color="<<$ARGS[''EYE_COLOR'']>>">красные</font>'
+if glacol[num]=6:$glacol[num]='<font color="<<$ARGS[''EYE_COLOR'']>>">желтые</font>'
+if gla[num]=0:$face[num]+=', <b><<$glacol[num]>></b> глаза'
+if gla[num]=1:$face[num]+=', маленькие <b><<$glacol[num]>></b> глаза'
+if gla[num]=2:$face[num]+=', раскосые <b><<$glacol[num]>></b> глаза'
+if gla[num]=3:$face[num]+=', большие <b><<$glacol[num]>></b> глаза'
+if gla[num]=100:$face[num]+=', слепые глаза'
+if govnar[num]=1:$face[num]+=', под глазами темные круги подглазин'
+!* ---------------------------------- ГУБЫ ---------------------------------- *!
+if souldar[num]=1:$face[num]+=', родинка над губой'
+if souldar[num]=2:$face[num]+=', родинка на носу'
+if souldar[num]=3:$face[num]+=', родинка на щеке'
+$d_lipsview={view("pic/misc/fullLips<<lips[num]>>.jpg")}
+$d_lip_tatview={view("pic/bodymod/tatlip<<lip_tat[num]>>.jpg")}
+if lips[num]=1:$face[num]+=', пухленькие <a class="plain" href="exec:dynamic $d_lipsview">губы</a>'
+if lips[num]=2:$face[num]+=', толстые <a class="plain" href="exec:dynamic $d_lipsview">губы</a>'
+if lips[num]=3:$face[num]+=', огромные <a class="plain" href="exec:dynamic $d_lipsview">губы</a>, похожие на букву О'
+if lip_tat[num]=1:$face[num]+='<a class="plain" href="exec:dynamic $d_lip_tatview">, на внутренней стороне губы татуировка</a>'
+!* ----------------------------------- НОС ---------------------------------- *!
+if nose[num]=0:$face[num]+=', обыкновенный нос'
+if nose[num]=1:$face[num]+=', маленький вздернутый носик'
+if nose[num]=2:$face[num]+=', утонченный, аристократический нос'
+if nose[num]=3:$face[num]+=', широкий нос'
+if nose[num]=4:$face[num]+=', горбатый нос'
+if nose[num]=5:$face[num]+=', длинный, крючковатый нос'
+!* --------------------------------- ПИРСИНГ -------------------------------- *!
+$d_tonpirsview={view("pic/bodymod/tonpirs<<tongue_p[num]>>.jpg")}
+if tongue_p[num]=1:$face[num]+=', язык проколот и в него вставлена <a href="exec:dynamic $d_tonpirsview">штанга</a>'
+if tongue_p[num]>1:$face[num]+=', язык проколот и в него вставлены <a href="exec:dynamic $d_tonpirsview">штанги</a>'
+$d_nosepirsview={view("pic/bodymod/npirstipe<<nose_p[num]>>.jpg")}
+if nose_p[num]=1:$face[num]+=', нос проколот и в него вставлено <a class="plain" href="exec:dynamic $d_nosepirsview">колечко</a>'
+if nose_p[num]=2:$face[num]+=', нос проколот и в него вставлено <a class="plain" href="exec:dynamic $d_nosepirsview">большое кольцо</a>'
+!* --------------------------------- ВОЛОСЫ --------------------------------- *!
+if curl[num]=0:$curl[num]=''
+if curl[num]=1:$curl[num]='кудрявые '
+if curl[num]=2:$curl[num]='отливающие сталью '
+if curl[num]=3:$curl[num]='маслянистые '
+$ARGS['HAIR_COLOR']=func('util_func', 'get_hair_color', hcol[num], ARGS['WITHOUT_COLORS'])
+if dagongene>110:
+	if hcol[num]=0:primcol[num]=0&$hcol[num]='<<$curl[num]>><b>пепельно-темные</b> волосы'&$hcola[num]='черная'
+	if hcol[num]=1:primcol[num]=1&$hcol[num]='<<$curl[num]>><b>бледно-русые</b> волосы'&$hcola[num]='русая'
+	if hcol[num]=2:primcol[num]=2&$hcol[num]='<<$curl[num]>><b>бледно-рыжие</b> волосы'&$hcola[num]='рыжая'
+	if hcol[num]=3:primcol[num]=3&$hcol[num]='<<$curl[num]>><b>бледные</b> волосы'&$hcola[num]='светлая'
+	if hcol[num]=4:primcol[num]=0&$hcol[num]='<<$curl[num]>><b>пыльно-синие</b> волосы'&$hcola[num]='синяя'
+	if hcol[num]=5:primcol[num]=2&$hcol[num]='<<$curl[num]>><b>бледно-красные</b> волосы'&$hcola[num]='красная'
+	if hcol[num]=6:primcol[num]=3&$hcol[num]='<<$curl[num]>><b>седые</b> волосы'&$hcola[num]='белая'
+else
+	if hcol[num]=0:primcol[num]=0&$hcol[num]='<<$curl[num]>><b><font color="<<$ARGS[''HAIR_COLOR'']>>">черные</font></b> волосы'&$hcola[num]='<font color="<<$ARGS[''HAIR_COLOR'']>>">черная</font>'
+	if hcol[num]=1:primcol[num]=1&$hcol[num]='<<$curl[num]>><b><font color="<<$ARGS[''HAIR_COLOR'']>>">русые</font></b> волосы'&$hcola[num]='<font color="<<$ARGS[''HAIR_COLOR'']>>">русая</font>'
+	if hcol[num]=2:primcol[num]=2&$hcol[num]='<<$curl[num]>><b><font color="<<$ARGS[''HAIR_COLOR'']>>">рыжие</font></b> волосы'&$hcola[num]='<font color="<<$ARGS[''HAIR_COLOR'']>>">рыжая</font>'
+	if hcol[num]=3:primcol[num]=3&$hcol[num]='<<$curl[num]>><b><font class="white-shadow" color="<<$ARGS[''HAIR_COLOR'']>>">светлые</font></b> волосы'&$hcola[num]='<font color="<<$ARGS[''HAIR_COLOR'']>>">светлая</font>'
+	if hcol[num]=4:primcol[num]=0&$hcol[num]='<<$curl[num]>><b><font color="<<$ARGS[''HAIR_COLOR'']>>">синие</font></b> волосы'&$hcola[num]='<font color="<<$ARGS[''HAIR_COLOR'']>>">синяя</font>'
+	if hcol[num]=5:primcol[num]=2&$hcol[num]='<<$curl[num]>><b><font color="<<$ARGS[''HAIR_COLOR'']>>">красные</font></b> волосы'&$hcola[num]='<font color="<<$ARGS[''HAIR_COLOR'']>>">красная</font>'
+	if hcol[num]=6:primcol[num]=3&$hcol[num]='<<$curl[num]>><b><font color="<<$ARGS[''HAIR_COLOR'']>>">белые</font></b> волосы'&$hcola[num]='<font color="<<$ARGS[''HAIR_COLOR'']>>">белая</font>'
+end
+if hlong[num]<=0:$hlong[num]='лысая голова'
+if hlong[num]>0 and hlong[num]<=25:$hlong[num]='короткие <<$hcol[num]>>'
+if hlong[num]>25 and hlong[num]<=50:$hlong[num]='<<$hcol[num]>> длинной до плеч'
+if hlong[num]>50 and hlong[num]<=75:$hlong[num]='<<$hcol[num]>> длинной до лопаток'
+if hlong[num]>75:$hlong[num]='<<$hcol[num]>> длинной до поясницы'
+if mutation[num]>=10 and mutation[num]<25:$hlong[num]+=', под волосами на коже головы растут шишки'
+if mutation[num]>=25 and mutation[num]<50:$hlong[num]+=', на шишках что-то растет'
+if mutation[num]>=50 and mutation[num]<75:$hlong[num]+=', под волосами на коже растут грибы'
+if mutation[num]>=75:$hlong[num]+=', сквозь волосы торчат проросшие в вашей коже грибы'
+hairlong[num]=iif(hlong[num]<=25,0,1)
+if beard[num]<=0 and mustage[num]>0:mustage[num]=0
+if mustage[num]=0:
+	 if beard[num]>=1 and beard[num]<=25:$face[num]+=', на лице короткая <<$hcola[num]>> щетина'
+	 if beard[num]>25 and beard[num]<=75:$face[num]+=', на лице окладистая <<$hcola[num]>> борода'
+	 if beard[num]>75:$face[num]+=', лицо закрывает длинная <<$hcola[num]>> борода'
+else
+	$face[num]+=', на лице усы'
+end
+!* ---------------------------------- КОЖА ---------------------------------- *!
+if preskin[num]=0:$preskin[num]=''
+if preskin[num]=1:$preskin[num]='Гладкая '
+if preskin[num]=2:$preskin[num]='Блестящая '
+if preskin[num]=3:$preskin[num]='Маслянистая '
+if mutation[num]>=10 and preskin[num]>0:preskin[num]=0
+if preskin[num]>=1:tit_hair[num]=0&leg_hair[num]=0
+if preskin[num]>0:$skin[num]='<<$preskin[num]>><b>' + $func('get_stat_desc', 'skin', skin[num], ARGS['WITHOUT_COLORS']) + '</b> кожа'
+if preskin[num]=0:
+	if dagongene>110  and num=you:
+		$skin[num]='<b><font class="little-shadow" color="<<iif(ARGS[''WITHOUT_COLORS'']>0, "#202020", "#fff4eb")>>">Бледная как у утопленника</b></font> кожа жителя истмунда'
+	else
+		$skin[num]='<b>' + $func('get_stat_desc', 'skin', skin[num], ARGS['WITHOUT_COLORS']) + '</b> кожа'
+	end
+end
+if mutation[num]>=10 and mutation[num]<25:$skin[num]+=' на которой видны крупные шишки'
+if mutation[num]>=25 and  mutation[num]<50:$skin[num]+=', на шишках что-то растет'
+if mutation[num]>=50 and  mutation[num]<75:$skin[num]+=', на коже растут грибы'
+if mutation[num]>=75:$skin[num]+=', на коже растет множество грибов, как опята на старом пне'
+!* ---------------------------------- ТЕЛО ---------------------------------- *!
+!weigth[num]=(rost[num]-130)+(fat[num]/100)+(mus[num]/100)&waist[num]=weigth[num]&if num=you:fat[num]=1000&mus[num]=6000&'fat[num] '+fat[num]&'tits[num] '+tits[num]
+args[100]=fat[num]&args[101]=tits[num]&!буфер
+if tits[num]>10:
+	args[51]=0&if tits[num]>10:args[51]=(tits[num]-10)*60&!пойдет на сиськи
+	if fat[num]>=args[51]:
+		fat[num]-=args[51]
+	else
+		tits[num]=fat[num]/60+10&fat[num]=0
+	end
+end
+!weigth[num]=(rost[num]*50/180)+(3*fat[num]+mus[num]*2)/320+tit[num]/2
+weigth[num]=(rost[num]*50/180)+(2*args[100]+mus[num]*4)/320+tit[num]/2&waist[num]=(rost[num]*50/180)+(2*fat[num]+mus[num]*4)/320+tit[num]/2-tit[num]/2&
+if demon_dick[num]>0:waist[num]-=demon_dick[num]/2
+breast[num]=waist[num]+4+tits[num]*3/2&hips[num]=waist[num]+1+ass[num]&fp_temp=fat[num]/100&biceps[num]=(rost[num]/10)+(fat[num]/1000)+(mus[num]/100)&$bodybuild[num]=''
+if mus[num]>fat[num]:
+     if mus[num]>=5000:$bodybuild[num]='Тело с огромными мышцами.'&bodypic[num]=iif(pol[num]>0,11,11)
+     if mus[num]<5000 and mus[num]>=3000:$bodybuild[num]='Тело с большими мышцами.'&bodypic[num]=iif(pol[num]>0,10,10)
+     if mus[num]<3000 and mus[num]>=2000:$bodybuild[num]='Мускулистое тело.'&bodypic[num]=iif(pol[num]>0,9,9)
+     if mus[num]<2000 and mus[num]>=1500:$bodybuild[num]='Атлетичное тело.'&bodypic[num]=iif(pol[num]>0,8,8)
+     if mus[num]<1500 and mus[num]>=800:$bodybuild[num]='Худое тело с выделяющимися мышцами.'&bodypic[num]=iif(pol[num]>0,7,7)
+     if mus[num]<800:$bodybuild[num]='Тощее костистое тело.'&bodypic[num]=iif(pol[num]>0,6,6)
+else
+     if fat[num]>=3000:$bodybuild[num]='Рыхлое, жирное тело'&bodypic[num]=iif(pol[num]>0,5,5)
+     if fat[num]<3000 and fat[num]>=2500:$bodybuild[num]='Жирное тело.'&bodypic[num]=iif(pol[num]>0,4,4)
+     if fat[num]<2500 and fat[num]>=2000:$bodybuild[num]='Пухлое тело.'&bodypic[num]=iif(pol[num]>0,3,3)
+     if fat[num]<2000 and fat[num]>=1500:$bodybuild[num]=$iif(pol[num]>0,'Формастое тело.','Жирноватое тело.')&bodypic[num]=iif(pol[num]>0,2,2)
+     if fat[num]<1500 and fat[num]>=800:$bodybuild[num]=$iif(pol[num]>0,'Стройное тело.','Мягкое тело без видимой мускулатуры.')&bodypic[num]=iif(pol[num]>0,1,1)
+     if fat[num]<800:$bodybuild[num]='Худощавое тело, на котором не заметно мускулатуры.'&bodypic[num]=iif(pol[num]>0,0,0)
+end
+if skin[num]>=4:
+	if mus[num]>fat[num]:
+		 if mus[num]>=3000:$bodybuild[num]='Тело с огромными мышцами.'&bodypic[num]=iif(pol[num]>0,53,34)
+		 if mus[num]<3000 and mus[num]>=2000:$bodybuild[num]='Мускулистое тело.'&bodypic[num]=iif(pol[num]>0,52,33)
+		 if mus[num]<2000 and mus[num]>=1500:$bodybuild[num]='Атлетичное тело.'&bodypic[num]=iif(pol[num]>0,51,32)
+		 if mus[num]<1500 and mus[num]>=800:$bodybuild[num]='Худощавое тело с выделяющимися мышцами.'&bodypic[num]=iif(pol[num]>0,50,31)
+	else
+		 if fat[num]>=3000:$bodybuild[num]='Рыхлое, жирное тело.'&bodypic[num]=iif(pol[num]>0,53,35)
+		 if fat[num]<3000 and fat[num]>=2500:$bodybuild[num]='Жирное тело.'&bodypic[num]=iif(pol[num]>0,52,36)
+		 if fat[num]<2500 and fat[num]>=2000:$bodybuild[num]='Пухлое тело.'&bodypic[num]=iif(pol[num]>0,51,37)
+		 if fat[num]<2000 and fat[num]>=1500:$bodybuild[num]=$iif(pol[num]>0,'Формастое тело.','Жирноватое тело.')&bodypic[num]=iif(pol[num]>0,51,38)
+		 if fat[num]<1500 and fat[num]>=800:$bodybuild[num]=$iif(pol[num]>0,'Стройное тело.','Мягкое тело без видимой мускулатуры.')&bodypic[num]=iif(pol[num]>0,50,39)
+		 if fat[num]<800:$bodybuild[num]='Худощавое тело, на котором не заметно мускулатуры.'&bodypic[num]=iif(pol[num]>0,50,39)
+	end
+end
+$d_bodyview={
+	if pol[num]>0:view("pic/body/<<bodypic[num]>>.jpg")
+	if pol[num]=0:view("pic/bodyman/<<bodypic[num]>>.jpg")
+}
+!* ---------------------------------- ГРУДЬ --------------------------------- *!
+$bodybuild[num]='<a class="plain" href="exec:dynamic $d_bodyview"><<$bodybuild[num]>></a>'
+if nip[num]<10:$nip[num]='крохотными сосками'
+if nip[num]>=10 and nip[num]<20:$nip[num]='маленькими сосками'
+if nip[num]>=20 and nip[num]<50:$nip[num]='крупными сосками диаметром <<nip[num]/10>>,<<nip[num] mod 10>> сантиметров'
+if nip[num]>=50:$nip[num]='огромными как блюдца сосками диаметром <<nip[num]/10>>,<<nip[num] mod 10>> сантиметров'
+$d_titspirsview={view("pic/bodymod/nippirs<<nip_p[num]>>.jpg")}
+if nip_p[num]=1:$nip[num]+='<a class="plain" href="exec:dynamic $d_titspirsview">, соски проколоты и в них вставлены штанги</a>'
+if nip_p[num]=2:$nip[num]+='<a class="plain"  href="exec:dynamic $d_titspirsview">, соски проколоты и в них вставлены колечки</a>'
+if nip_p[num]=3:$nip[num]+='<a class="plain" href="exec:dynamic $d_titspirsview">, соски проколоты и в них вставлены огромные кольца</a>'
+if t_slot[num]=0 and ut_slot[num]=0:
+	if tits[num]<10:tit[num]=0&$tits[num]='плоская грудь с <<$nip[num]>>'
+	if tits[num]>=10 and tits[num]<14:tit[num]=1&$tits[num]='Крошечная остренькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tits[num]>=14 and tits[num]<17:tit[num]=2&$tits[num]='Маленькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tits[num]>=17 and tits[num]<19:tit[num]=3&$tits[num]='Округлая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tits[num]>=19 and tits[num]<21:tit[num]=4&$tits[num]='Объемная грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tits[num]>=21 and tits[num]<23:tit[num]=5&$tits[num]='Большая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tits[num]>=23 and tits[num]<25:tit[num]=6&$tits[num]='Огромная грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tits[num]>=25:tit[num]=7&$tits[num]='Гигантская грудь <<tit[num]>>го размера'
+else
+	if tits[num]<10:tit[num]=0&$tits[num]='плоская грудь'
+	if tits[num]>=10 and tits[num]<14:tit[num]=1&$tits[num]='Крошечная остренькая грудь <<tit[num]>>го размера'
+	if tits[num]>=14 and tits[num]<17:tit[num]=2&$tits[num]='Маленькая грудь <<tit[num]>>го размера'
+	if tits[num]>=17 and tits[num]<19:tit[num]=3&$tits[num]='Округлая грудь <<tit[num]>>го размера'
+	if tits[num]>=19 and tits[num]<21:tit[num]=4&$tits[num]='Объемная грудь <<tit[num]>>го размера'
+	if tits[num]>=21 and tits[num]<23:tit[num]=5&$tits[num]='Большая грудь <<tit[num]>>го размера'
+	if tits[num]>=23 and tits[num]<25:tit[num]=6&$tits[num]='Огромная грудь <<tit[num]>>го размера'
+	if tits[num]>=25:tit[num]=7&$tits[num]='Гигантская грудь <<tit[num]>>го размера'
+end
+if dagongene>110 and num=you:
+	$saggyYesNo="pic/tits/istmtits<<tit[num]>>.jpg"
+else
+	$saggyYesNo=$iif (saggy[num]>0,"pic/tits/saggy<<$colorSkin>><<tit[num]>>.jpg","pic/tits/<<$colorSkin>><<tit[num]>>.jpg")
+end
+$d_titsview={view("pic/tits/<<iif(dagongene>110 and num=you, 'istmtits', '')>><<$colorSkin>><<tit[num]>>.jpg")}&!$d_titsview={view($saggyYesNo)}
+if tit[num]=0:$tits[num]=$iif(mus[num]>=2000 and mus[num]>fat[num],'Мускулистая грудь с <<$nip[num]>>','Плоская грудь с <<$nip[num]>>')
+if tit_hair[num]>0:$tits[num]+=', на груди растут волосы'
+if tit[num]=0:$full_tits[num]=$tits[num]
+if tit[num]>0:$full_tits[num]='<a class="plain" href="exec:dynamic $d_titsview"><<$tits[num]>></a>'
+tslottemp=t_slot[num]
+if invis_t[tslottemp]=1 and t_slot[num]>0 and ut_slot[num]=0:
+	if tit[num]=0:$tits[num]=$iif(mus[num]>=2000 and mus[num]>fat[num],'Мускулистая грудь с <<$nip[num]>>','Плоская грудь с <<$nip[num]>>')
+	!if tit[num]=0:$tits[num]='Плоская грудь с <<$nip[num]>>'
+	 if tit[num]=1:$tits[num]='Крошечная остренькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	 if tit[num]=2:$tits[num]='Маленькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	 if tit[num]=3:$tits[num]='Округлая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	 if tit[num]=4:$tits[num]='Объемная грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	 if tit[num]=5:$tits[num]='Большая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	 if tit[num]>=6:$tits[num]='Огромная грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	 if tit_hair[num]>0:$tits[num]+=', на груди растут волосы'
+	 if tit_hair[num]<=0:$tits[num]+=', грудь гладкая и блестящая, без единого волоска'
+end
+if tit[num]>0:$tits[num]='<a class="plain" href="exec:dynamic $d_titsview"><<$tits[num]>></a>'
+$d_assview=$iif(dagongene>110 and num=you,{view("pic/body/istmAss<<assnum>>.jpg")},{view("pic/body/ass<<$colorSkin>><<assnum>>.jpg")})
+tits_real[num]=tits[num]&tits[num]=args[101]
+fat_real[num]=fat[num]&fat[num]=args[100]
+!* --------------------------------- ЗАДНИЦА -------------------------------- *!
+if ass[num]<5:assnum=0&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Плоская мужская попа</a>'
+if ass[num]>=5 and ass[num]<10:assnum=1&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крохотная попа</a>'
+if ass[num]>=10 and ass[num]<15:assnum=2&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Маленькая попа</a>'
+if ass[num]>=15 and ass[num]<20:assnum=3&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Небольшая попа</a>'
+if ass[num]>=20 and ass[num]<25:assnum=4&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Девичья попочка</a>'
+if ass[num]>=25 and ass[num]<30:assnum=rand(5,7)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Женственная попка</a>'
+if ass[num]>=30 and ass[num]<35:assnum=rand(8,10)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Крупная попа</a>'
+if ass[num]>=35 and ass[num]<40:assnum=rand(11,13)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Большая задница</a>'
+if ass[num]>=40:assnum=rand(14,15)&$ass[num]='<a class="plain" href="exec:dynamic $d_assview">Огромная жопа</a>'
+tempseelegs[num]=0
+if l_slot[num]=0:tempseelegs[num]=1
+if l_slot[num]>0:
+	 lowslottemp=l_slot[num]&if long_l[lowslottemp]>0:tempseelegs[num]=1
+end
+if tempseelegs[num]>0:
+	if leg_hair[num]>0:$ass[num]+=', на ногах растут волосы'
+	if leg_hair[num]<=0:$ass[num]+=', ноги гладкие и блестящие'
+	$full_ass[num]=$ass[num]
+else
+	if leg_hair[num]>0:$full_ass[num]=$ass[num]+', на ногах растут волосы'
+	if leg_hair[num]<=0:$full_ass[num]=$ass[num]+', ноги гладкие и блестящие'
+end
+!* -------------------------------- ГЕНИТАЛИИ ------------------------------- *!
+$genital[num]=''
+if dick[num]<=1 and vag[num]=0 and ball[num]=0:$genital[num]='Между ног гладкая поверхность с дырочкой для мочеиспускания и никаких признаков половых органов.'
+if dicktipe[num]=0:$dicktipe[num]='обыкновенный человеческий член'
+if dicktipe[num]=1:$dicktipe[num]='лошадиный член с плоской головкой'
+if dicktipe[num]=2:$dicktipe[num]='собачий член'
+if dicktipe[num]=3:$dicktipe[num]='кошачий член с треугольными, мягкими шипами из плоти'
+if dicktipe[num]=4:$dicktipe[num]='демонический член с крупными шарообразными шишками'
+if dicktipe[num]=5:$dicktipe[num]='мясистый бычий член'
+if dicktipe[num]=6:$dicktipe[num]='закрученный как штопор поросячий член'
+if dick[num]>1 and ball[num]=1:$genital[num]='Между ног вялый член с кастрированными яйцами.'
+if dick[num]>1 and ball[num]=0:$genital[num]='Между ног <<$dicktipe[num]>> длиной <<dick[num]>> сантиметров и толщиной <<dickd[num]/10>>,<<dickd[num] mod 10>> сантиметров.'
+if ball[num]<25:$ball[num]='маленькие яйчишки'
+if ball[num]>=25 and ball[num]<50:$ball[num]='яйца'
+if ball[num]>=50 and ball[num]<75:$ball[num]='крупные яйца'
+if ball[num]>=75:$ball[num]='огромные яйца'
+if dick[num]=1 and ball[num]=1:$genital[num]='Между ног лишь треугольный шрам от отрезанных половых органов и дырочка, через которую евнух писает.'
+if dick[num]=1 and ball[num]>1:$genital[num]='Между ног шрам от отрезанного члена, ниже которого висят <<$ball[num]>>.'
+if dick[num]>1 and ball[num]>1:
+     if horny[num]>=20:
+		$genital[num]='Между ног <<$dicktipe[num]>> длиной <<dick[num]>> сантиметров и толщиной <<dickd[num]/10>>,<<dickd[num] mod 10>> сантиметров, ниже которого висят <<$ball[num]>>'
+     else
+		$genital[num]='Между ног вялый член <<dick[num]/4>> сантиметров и толщиной <<dickd[num]/20>>,<<dickd[num] mod 20>> сантиметров, ниже которого висят <<$ball[num]>>'
+     end
+end
+if vag[num]>0:
+     if cunthair[num]<=0:vag_tipe[num]=0
+     if cunthair[num]>0 and cunthair[num]<5:vag_tipe[num]=1
+     if cunthair[num]>=5:vag_tipe[num]=2
+	 if $genital[num]='':
+		 $d_pussytype={view("pic/vag/type<<vag_tipe[num]>>.jpg")}
+		 $tatooyesno = "."
+		 if pubis_t[num]>0:$tatooyesno=', с набитой татуировкой.>'
+         if vag_tipe[num]=0:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">гладко-выбритое</a> влагалище<<$tatooyesno>>'
+         if vag_tipe[num]=1:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">покрытое небольщшими волосиками</a> влагалище<<$tatooyesno>>'
+         if vag_tipe[num]=2:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">скрытое волосами</a> влагалище<<$tatooyesno>>'
+     else
+		$genital[num]+=', ниже члена находится влагалище'
+     end
+	$d_clitpirsview={view("pic/bodymod/pirsclit<<vag_pirs[num]>>.jpg")}
+     if vag_pirs[num]=1:$genital[num]+=', клитор проколот и в него вставлена <a class="plain" href="exec:dynamic $d_clitpirsview">штанга</a>'
+     if vag_pirs[num]=2:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">колечко</a>'
+     if vag_pirs[num]=3:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">большое кольцо</a>'
+     if vag_pirs[num]=4:$genital[num]+=', клитор с которого свисает <a class="plain" href="exec:dynamic $d_clitpirsview">цепочка с колокольчиком</a>'
+end
+!* ---------------------------------- АНУС ---------------------------------- *!
+if anus[num]=0:$anus[num]='Девственный анус'&anus_pic[num]=0
+if anus[num]>0 and anus[num]<10:$anus[num]='Анус в виде маленькой щелочки'&anus_pic[num]=1
+if anus[num]>=10 and anus[num]<20:$anus[num]='Анус в виде звездочки'&anus_pic[num]=2
+if anus[num]>=20 and anus[num]<40:$anus[num]='Рабочий анус в виде щелки'&anus_pic[num]=3
+if anus[num]>=40 and anus[num]<80:$anus[num]='Раздолбанный анус в виде щели'&anus_pic[num]=4
+if anus[num]>=80 and anus[num]<150:$anus[num]='Сильно поношенная анальная дырка'&anus_pic[num]=5
+if anus[num]>=150:$anus[num]='Не закрывающаяся разъебанная дыра в жопе'&anus_pic[num]=5
+$full_genital[num]=$genital[num]+' '+$anus[num]
+!if l_slot[num]>0 or (ul_slot[num]>0) or (t_slot[num]>0 and long_t[t_slot[num]]>0 and sheer[t_slot[num]]=0):
+if (l_slot[num]>0 or ul_slot[num]>0 or (t_slot[num]>0 and long_t[t_slot[num]]>0 and sheer[t_slot[num]]=0)) and $UCASE($ARGS[0]) ! 'RETURN_DESC':$genital[num]=''&$anus[num]=''
+!* ------------------------------ ВОЗРАСТ/ЛИЦО ------------------------------ *!
+if age[num]<20:$age[num]='На вид лет 18-20'
+if age[num]>=20 and age[num]<25:$age[num]='На вид лет 20-25'
+if age[num]>=25 and age[num]<30:$age[num]='На вид лет 25-30'
+if age[num]>=30 and age[num]<35:$age[num]='На вид лет 30-35'
+if age[num]>=35 and age[num]<40:$age[num]='На вид лет 35-40'
+if age[num]>=40 and age[num]<45:$age[num]='На вид лет 40'
+if age[num]>=45 and age[num]<50:$age[num]='На вид лет 45'
+if age[num]>=50 and age[num]<55:$age[num]='На вид лет 50'
+if age[num]>=55 and age[num]<60:$age[num]='На вид лет 55'
+if age[num]>=60:$age[num]='На вид больше 60 лет'
+if num=you:
+     if face_pic[you]>0:
+         if spec_face_pic[you]>=7:
+			$d_view_st={view("pic/face/<<spec_face_pic[you]>>/<<hairlong[you]>>_<<hcol[you]>>.jpg")}
+         elseif spec_face_pic[you]=6:
+			 gs 'util_func', "update_portrait", num&$d_view_st={view("pic/face/6/t<<face_tipe[you]>>/<<pic_hcol[you]>>/<<face_pic[you]>>.jpg")}
+         else
+			$d_view_st={view("pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg")}
+         end
+     else
+		 if face_pic[you]>0:
+			 if face[you]>=50 and skin[you]<4:
+				 if hcol[you]=0 and face_pic[you]>100:face_pic[you]=rand(1,100)
+				 if hcol[you]=1 and face_pic[you]>126:face_pic[you]=rand(1,115)
+				 if hcol[you]=2 and face_pic[you]>100:face_pic[you]=rand(1,100)
+				 if hcol[you]>=3 and face_pic[you]>167:face_pic[you]=rand(1,100)
+			 end
+			 if face[you]>=50 and skin[you]>3 and skin[you]<7 and face_pic[you]=0 and face_pic[you]>20:face_pic[you]=rand(1,20)
+			 if face[you]<50 and skin[you]>3 and skin[you]<7 and face_pic[you]<70001 and face_pic[you]>70029:face_pic[you]=rand(70001,70029)
+			 if face[you]>=50 and skin[you]<4:$d_view_st={view("pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg")}
+			 if face[you]>=50 and skin[you]>3 and skin[you]<7:$d_view_st={view("pic/face/4/<<face_pic[you]>>.jpg")}
+			 if face[you]<50:$d_view_st={view("pic/faceman/<<face_pic[you]>>.jpg")}
+		 end
+	 end
+   if force_male_portrait[you]>0:$d_view_st={view('pic/faceman/<<face_pic[you]>>.jpg')}
+   if force_fem_portrait[you]>0:$d_view_st={view('pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg')}
+	$ager[num]='<a class="plain" href="exec:dynamic $d_view_st"><<$age[num]>></a>'
+end
+if num=you:$facetxt[num]='<<$ager[num]>>
+<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
+if num!you:$facetxt[num]='<<$age[num]>>
+<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
+if h_slot[num]>0:
+	faceclo=h_slot[num]&if masked[faceclo]=1:$facetxt[num]='Лицо скрыто маской'
+end
+!* -------------------------------------------------------------------------- *!
+!*                                     END                                    *!
+!* -------------------------------------------------------------------------- *!
+if $UCASE($ARGS[0])='RETURN_DESC':
+	$RESULT+='<tr><td>Рост <<rost[num]>> сантиметров, вес <<weigth[num]>> кг, <<breast[num]>>-<<waist[num]>>-<<hips[num]>>, разница между талией и бедрами <<ass[num]>> см, окружность бицепса <<biceps[num]>> см.</td></tr>'
+    $RESULT+='<tr><td><<$bodybuild[num]>></td></tr>'
+    $RESULT+='<tr><td><<$facetxt[num]>></td></tr>'
+    $RESULT+='<tr><td><<$ass[num]>></td></tr>'
+    $RESULT+='<tr><td><<$tits[num]>></td></tr>'
+    $RESULT+='<tr><td><<$genital[num]>></td></tr>'
+end
+if num=you:
+	$opis[num]='Рост <<rost[num]>> сантиметров, вес <<weigth[num]>> кг, <<breast[num]>>-<<waist[num]>>-<<hips[num]>>, разница между талией и бедрами <<ass[num]>> см, окружность бицепса <<biceps[num]>> см,<br><<$bodybuild[num]>><br><<$facetxt[num]>><br><<$ass[num]>><br><<$tits[num]>><br><<$genital[num]>>'
+	!'<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
+end
+if num!you:
+	$opis[num]='Рост <<rost[num]>> сантиметров, вес <<weigth[num]>> кг, <<breast[num]>>-<<waist[num]>>-<<hips[num]>>, разница между талией и бедрами <<ass[num]>> см, окружность бицепса <<biceps[num]>> см,<br><<$bodybuild[num]>><br><<$facetxt[num]>><br><<$ass[num]>><br><<$tits[num]>><br><<$genital[num]>>'
+	!'<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
+end

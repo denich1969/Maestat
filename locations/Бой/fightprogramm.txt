@@ -1,0 +1,1023 @@
+﻿if progV=0:enemy_udar=1&'<<$name[npc]>> кусает вас.'&!energyV-=1& !пес или волк
+if progV=1:
+	if energy[npc]>=5:energy[npc]-=5&enemy_udar=1&'<<$name[npc]>> бьет вас.'
+	if energy[npc]<5:energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+end
+if progV=2:
+	udartipe=rand(0,3)&!Тентакль
+	 if udartipe<2:enemy_udar=1&sbivatel=0&'<<$name[npc]>> бьет вас щупальцем.'
+	 if udartipe=2:enemy_udar=1&cumming_atk=1&'<<$name[npc]>> резко кончает в вас из одной из щупалец.'
+	 if udartipe=3:enemy_udar=1&tentaV=1&$restrikt_text='Вас скрутило щупальце.'&'<<$name[npc]>> пытается скрутить вас.'
+end
+if progV=3:
+	udartipe=rand(0,2)
+	 if udartipe=0:enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет силовой волной.'
+	 if udartipe=1:enemy_udar=2&fireuronV=rand(10,20)&'<<$name[npc]>> швыряет в вас огненный шар.'
+	 if udartipe=2:enemy_udar=3&fearatkV=rand(5,15)&'<<$name[npc]>> пронзительно кричит, вселяя ужас.'
+end
+if progV=4:
+	udartipe=rand(0,1)
+	 if udartipe=0:enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет кнутом.'
+	 if udartipe=1:enemy_udar=1&'<<$name[npc]>> пинает вас каблуком.'
+end
+if progV=5:
+	udartipe=rand(0,3)
+	 if udartipe=0:enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет кнутом.'
+	 if udartipe=1:enemy_udar=3&fearatkV=rand(10,25)&'<<$name[npc]>> рычит леденящим душу голосом, вселяя ужас.'
+	 if udartipe=2:enemy_udar=1&tentaV=1&$restrikt_text='Вас схватили.'&'<<$name[npc]>> пытается схватить вас.'
+	 if udartipe=3:enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет ладонью.'
+end
+if progV=6:
+	udartipe=rand(0,4)
+	 if udartipe=0:enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет силовой волной.'
+	 if udartipe=1:enemy_udar=2&fireuronV=rand(100,200)&'<<$name[npc]>> швыряет в вас огненный шар.'
+	 if udartipe=2:enemy_udar=3&fearatkV=rand(120,200)&'<<$name[npc]>> пронзительно кричит, вселяя ужас.'
+	 if udartipe=3:
+		if health[npc]<healthmax[npc]:
+			 health[npc]+=50
+			 if health[npc]>healthmax[npc]:health[npc]=healthmax[npc]
+			 '<<$name[npc]>> выпивает зелье.'
+		 else
+			 if defenceV<200:
+				 defenceV=200&'<<$name[npc]>> колдует на себя магическую защиту.'
+			 else
+				 if sfera_fiz>0:
+					 sfera_fiz=0&'<<$name[npc]>> колдует что-то и ваша защитная сфера лопает как мыльный пузырь.'
+				 else
+					 enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет силовой волной.'
+				 end
+			 end
+		 end
+	 end
+	 if udartipe=4:
+		'<<$name[npc]>> колдует что-то непонятное.'
+		 if mana[you]>0:
+			mana[you]-=rand(150,250)
+			 if mana[you]<0:mana[you]=0
+			 'Вы чувствуете какие-то колебания и часть вашей магической силы уходит.'
+		 end 
+	 end
+end
+if progV=7:
+	minuronV=minuron[npc]&maxuronV=maxuron[npc]&udartipe=rand(1,3)&!суккуб
+	 if udartipe=1:
+		 enemy_udar=4
+		 uronV=rand(minuronV,maxuronV)
+		 uronV=uronV+(corr[you]*2)
+		 fearatkV=uronV
+		 if fearatkV<=0:fearatkV=5
+		 if fearatkV>30:fearatkV=30
+		 '<<$name[npc]>> показывает вам попку.'
+	 end
+	 if udartipe=2:
+		 if health[npc]<healthmax[npc]:
+			 health[npc]+=50
+			 if health[npc]>healthmax[npc]:health[npc]=healthmax[npc]
+			 '<<$name[npc]>> выпивает зелье.'
+		 else
+			 if defenceV<100:
+				 defenceV=100&'<<$name[npc]>> колдует на себя магическую защиту.'
+			 else
+				 if sfera_fiz>0:
+					 sfera_fiz=0&'<<$name[npc]>> колдует что-то и ваша защитная сфера лопает как мыльный пузырь.'
+				 else
+					 enemy_udar=4
+					 uronV=rand(minuronV,maxuronV)
+					 uronV=uronV+corr[you]
+					 fearatkV=uronV
+					 if fearatkV<=0:fearatkV=5
+					 if fearatkV>30:fearatkV=30
+					 '<<$name[npc]>> посылает вам воздушный поцелуй.'
+				 end
+			 end
+		 end
+	 end
+	 if udartipe=3:
+		 if mana[you]>0:
+			 '<<$name[npc]>> колдует что-то непонятное.'
+			 mana[you]-=rand(50,125)
+			 if mana[you]<0:mana[you]=0
+			 'Вы чувствуете какие-то колебания и часть вашей магической силы уходит.'
+		 else
+			 enemy_udar=4
+			 uronV=rand(minuronV,maxuronV)
+			 uronV=uronV+corr[you]
+			 fearatkV=uronV
+			 if fearatkV<=0:fearatkV=5
+			 if fearatkV>30:fearatkV=30
+			 '<<$name[npc]>> хихикает, лаская грудь.'
+		 end 
+	 end
+end
+if progV=8:
+	udartipe=rand(0,3)&!ИЛИТИД
+	if health[npc]<healthmax[npc]:health[npc]+=10
+	 if udartipe=0:enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет силовой волной.'
+	 if udartipe=1:enemy_udar=3&fearatkV=rand(120,200)&'<<$name[npc]>> пронзительно кричит, вселяя ужас.'
+	 if udartipe=2:
+		 if health[npc]<healthmax[npc]:
+			 health[npc]+=50&'<<$name[npc]>> выпивает зелье.'&if health[npc]>healthmax[npc]:health[npc]=healthmax[npc]
+		 else
+			 if defenceV<100:
+				defenceV=100&'<<$name[npc]>> колдует на себя магическую защиту.'
+			 else
+				 if sfera_fiz>0:
+					sfera_fiz=0&'<<$name[npc]>> колдует что-то и ваша защитная сфера лопает как мыльный пузырь.'
+				 else
+					 enemy_udar=1&sbivatel=1&'<<$name[npc]>> бьет силовой волной.'
+				 end
+			 end
+		 end
+	 end
+	 if udartipe=3:
+		'<<$name[npc]>> колдует что-то непонятное.'
+		 if mana[you]>0:
+			 mana[you]-=rand(250,500)&'Вы чувствуете какие-то колебания и часть вашей магической силы уходит.'&if mana[you]<0:mana[you]=0
+		 end 
+	 end
+end
+if progV=9:
+	udartipe=rand(0,3)&!гигадемон
+	 if h_slot[you]=4:h_slot[you]=0&'<<$name[npc]>> что-то колдует и маска на вашем лице рассыпается в пыль.'
+	 if udartipe=0:enemy_udar=2&fireuronV=rand(150,280)&'<<$name[npc]>> швыряет в вас огненный шар.'
+	 if udartipe=1:enemy_udar=3&fearatkV=rand(140,260)&'<<$name[npc]>> пронзительно кричит, вселяя ужас.'
+	 if udartipe=2:
+		 if health[npc]<healthmax[npc]:
+			 health[npc]+=200&'<<$name[npc]>> выпивает зелье.'&if health[npc]>healthmax[npc]:health[npc]=healthmax[npc]
+		 else
+			 if defenceV<100:
+				defenceV=300&'<<$name[npc]>> колдует на себя магическую защиту.'
+			 else
+				 if sfera_fiz>0:
+					sfera_fiz=0&'<<$name[npc]>> колдует что-то и ваша защитная сфера лопает как мыльный пузырь.'
+				 else
+					 enemy_udar=2&fireuronV=rand(150,280)&'<<$name[npc]>> швыряет в вас огненный шар.'
+				 end
+			 end
+		 end
+	 end
+	 if udartipe=3:
+		'<<$name[npc]>> колдует что-то непонятное.'
+		 if mana[you]>0:
+			mana[you]-=rand(350,650)&'Вы чувствуете какие-то колебания и часть вашей магической силы уходит.'&if mana[you]<0:mana[you]=0
+		 end 
+	 end
+end
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ГИНГЕМА
+if progV=10:
+	 if maskfox[npc]=1 and defenceV<=0:
+		maskfox[npc]=0&health[npc]=healthmax[npc]&reactV=40
+		'Невидимая защита с глухим хлопком лопается и <<$name[npc]>> падает, а с ее ног слетают серебряные башмачки.'
+	 end
+	 if maskfox[npc]=0:
+		udartipe=rand(0,1)
+		 if udartipe=0:enemy_udar=1&'<<$name[npc]>> с яростным визгом пытается вцепиться в вас ногтями.'
+		 if udartipe=1:enemy_udar=1&'<<$name[npc]>> лягается.'
+	 else
+		udartipe=rand(0,5)
+		if reactV<reflex[you]:udartipe=2
+	 	 if udartipe=0:enemy_udar=1&'<<$name[npc]>> бьет вас посохом, который удлиняется и обрастает колючками.'
+	 	 if udartipe=1:enemy_udar=3&fearatkV=rand(30,60)&'<<$name[npc]>> поднимает руку и ей на руку садится филин, который смотрит на вас не мигая своими желтыми глазами и ухает, нагоняя ужас.'
+	 	 if udartipe=2:
+			 enemy_udar=0
+			 if reactV>reflex[you]*2:reactV+=1
+			 if reactV>reflex[you] and reactV<reflex[you]*2:reactV+=5
+			 if reactV<reflex[you]:reactV=reflex[you]
+			 '<<$name[npc]>> щелкает каблуками и начинает очень быстро двигаться.'
+		 end
+		 if udartipe=3:
+			enemy_udar=6&sbivatel=1&mag_uronV=rand(20,50)
+			'<<$name[npc]>> достает маленький камешек и шепчет, после чего швыряет камешек вам под ноги и вы чувствуете, как вас притягивает к камешку гравитация.'
+		 end
+		 if udartipe=4:
+		     if clonV<2:
+				 clonV+=1&'<<$name[npc]>> поднимает руку и ей на руку садится филин, который смотрит на вас не мигая своими желтыми глазами и ухает.'
+		     else
+				enemy_udar=1&'<<$name[npc]>> бьет вас посохом, который удлиняется и обрастает колючками.'
+		     end
+		 end
+		 if udartipe=5:
+		     if clonV<3:
+				clonV+=3&'<<$name[npc]>> поднимает руку и ей на руку садится филин, который смотрит на вас не мигая своими желтыми глазами и ухает.'
+		     else
+				enemy_udar=1&'<<$name[npc]>> бьет вас посохом, который удлиняется и обрастает колючками.'
+		     end
+		 end
+	 end
+end
+if progV=11:
+	 if health[npc]*2>=healthmax[npc]:
+		enemy_udar=1&'<<$name[npc]>> бьет вас.'
+	 else
+		 '<<$name[npc]>> выхватывает ствол и стреляет в вас.'
+		 can_blocking=1&uronV=rand(1,150)&enemy_udar=5&shootV=1
+	 end
+end
+if progV=12:
+     if defenceV<500 and dagonprotectday[npc]!daystart:
+		 dagonprotectday[npc]=daystart
+		 defenceV=500&'<<$name[npc]>> кричит - Лорд Дагон, защити меня!'& !!!!!!!!!!!!!!!!!!!ШЕРИФ
+	 else
+		udartipe=rand(0,2)
+		 if udartipe=0:can_blocking=1&uronV=rand(50,180)&enemy_udar=5&shootV=1&'<<$name[npc]>> вскидывает револьвер и стреляет в вас.'
+		 if udartipe=1:
+		     if clonV<3:
+				 clonV+=3&'<<$name[npc]>> вскидывает руку - Именим твоим, Лорд Дагон, не позволь нечистивцам узреть меня!'
+		     else
+				 can_blocking=1&uronV=rand(50,180)&enemy_udar=5&shootV=1&'<<$name[npc]>> вскидывает револьвер и стреляет в вас.'
+		     end
+		 end
+		 if udartipe=2:
+			 if health[npc]<healthmax[npc]:
+				health[npc]+=200&'<<$name[npc]>> хрипит - Лорд Дагон, даруй мне силы!'&if health[npc]>healthmax[npc]:health[npc]=healthmax[npc]
+			 else
+				 if defenceV<100:
+					defenceV=300&'<<$name[npc]>> кричит - Лорд Дагон, защити меня!'
+				 else
+					 if sfera_fiz>0:
+						sfera_fiz=0&'<<$name[npc]>> вопиет - Лорд Дагон, прокляни грешников, не верующих в тебя!'&'После этого крика ваша защитная сфера лопается.'
+					 else
+						can_blocking=1&uronV=rand(50,180)&enemy_udar=5&shootV=1&'<<$name[npc]>> вскидывает револьвер и стреляет в вас.'
+					 end
+				 end
+			 end
+		 end
+	 end
+end 
+if progV=13:
+     if mana[npc]<manamax[npc]/2:
+		 mana[npc]=manamax[npc]&'<<$name[npc]>> достает горсть земли и заряжается силой.'&!!!!!!!!!!!!!!!!!!!АНТЕЙ
+     else
+		 if defenceV<4000:
+			 mana[npc]-=500&defenceV=5000&'<<$name[npc]>> кричит, покрываясь камнями: Я - сын Земли! Моя защита непреодолима!'
+		 else
+			udartipe=0
+			 if udartipe=0:
+				 mana[npc]-=100& enemy_udar=1&'<<$name[npc]>> швыряет в вас камнем.'
+				 if H[you]=0:uronV=rand(400,680)
+				 if H[you]>0:uronV=rand(200,380)
+			 end
+		 end
+	 end
+end
+if progV=14:
+     if mana[npc]<500:
+     mana[npc]=manamax[npc]
+		'<<$name[npc]>> произносит заклинание и под его ногами вспыхивает пентаграмма.'&!!!!!!!!!!!!!!!!!!!ЛЮКС ЭОСФОР
+     else
+		 if defenceV<2000:
+			mana[npc]-=500&defenceV=5000&sfera_psihV=1000&'<<$name[npc]>> кастует на себя щит.'
+		 else
+			udartipe=rand(0,4)
+			 if udartipe=0:mana[npc]-=100&uronV=rand(400,680)&enemy_udar=1&'<<$name[npc]>> наносит нечеловеческий удар рукой.'
+			 if udartipe=1:
+				 enemy_udar=2&mana[npc]-=100&fireuronV=rand(650,2500)&anticlonV=1&proboyV=1&
+				 '<<$name[npc]>> возжигает пламя в руке, которое стелится по земле и бьет вас многохвостой огненной плетью.'
+			 end
+			 if udartipe=2:enemy_udar=3&mana[npc]-=100&fearatkV=rand(240,360)&'<<$name[npc]>> рычит, вселяя ужас - Внемли мне, смертная тварь!'
+			 if udartipe=3:
+				enemy_udar=6&sbivatel=1&mag_uronV=rand(100,300)
+				'<<$name[npc]>> достает маленький камешек и шепчет, после чего швыряет камешек вам под ноги и вы чувствуете как вас притягивает к камешку гравитация.'
+			 end
+			 if udartipe=4:
+				 if clonV<2:
+					mana[npc]-=100&clonV+=3&'<<$name[npc]>> что-то шепчет и его тело начинает двоиться.'
+				 else
+					uronV=rand(400,680)&enemy_udar=1&'<<$name[npc]>> наносит нечеловеческий удар рукой.'
+				 end
+			 end
+		 end
+	 end
+end
+if progV=15:
+     if mana[npc]>50:
+		 if defenceV<=0:
+			mana[npc]-=50&defenceV=1000&'<<$name[npc]>> колдует и ставит сферу защиты.'&!!!!!!!!!!!!!!!!!!!Боевой маг
+		 else
+			udartipe=rand(0,2)
+			 if udartipe=0:enemy_udar=1&'<<$name[npc]>> наносит вам удар кулаком.'
+			 if udartipe=1:enemy_udar=1&sbivatel=1&'<<$name[npc]>> наносит вам удар ногой с разворота.'
+			 if udartipe=2:enemy_udar=2&mana[npc]-=100&uronV=rand(150,500)&'<<$name[npc]>> метает в вас силу, сформированную в клинок.'
+		 end
+	 else
+		mana[npc]+=100&'<<$name[npc]>> достает кристал маны и разламывает его.'
+	 end
+end
+if progV=16:
+	udartipe=rand(0,3)&mistice=mistice*2&!туманник
+	if mistice=0:mistice=1
+	 if udartipe<2:enemy_udar=1&sbivatel=0&'<<$name[npc]>> бьет вас острым как бритва отростком.'
+	 if udartipe=2:enemy_udar=1&sbivatel=1&mistice+=1&anticlonV=1&'<<$name[npc]>> резко плюет в вас чем-то омерзительным.'
+	 if udartipe=3:enemy_udar=1&tentaV=1&$restrikt_text='Вас схватили тонкие лапки существа.'&'<<$name[npc]>> пытается схватить вас.'
+end
+if progV=17:
+	udartipe=rand(0,5)&mistice=mistice*3&!хрупкая сестрица
+	if mistice=0:mistice=1
+	 if udartipe<2:enemy_udar=1&sbivatel=0&'<<$name[npc]>> бьет вас острым как бритва отростком.'
+	 if udartipe=2:enemy_udar=1&sbivatel=1&mistice+=5&anticlonV=1&'<<$name[npc]>> резко плюет в вас чем-то омерзительным.'
+	 if udartipe=3:enemy_udar=1&tentaV=1&$restrikt_text='Вас схватили тонкие лапки существа.'&'<<$name[npc]>> пытается схватить вас.'
+	 if udartipe=4:enemy_udar=3&fearatkV=rand(200,360)&'<<$name[npc]>> пронзительно кричит, вселяя ужас.'
+	 if udartipe=5:
+		 if defenceV<100:
+			defenceV=500&'<<$name[npc]>> визжит на границе ультразвука - О мой бог, Баал Зебуб, внемли мне!'&'<<$name[npc]>> окружается защитной сферой.'
+		 else
+			 if sfera_fiz>0:
+				sfera_fiz=0&'<<$name[npc]>> визжит на границе ультразвука - О мой бог, Баал Зебуб, внемли мне!'&'После этого крика ваша защитная сфера лопается'
+			 else
+				clonV+=3&'<<$name[npc]>> визжит на границе ультразвука - О мой бог, Баал Зебуб, внемли мне!'&'После этого крика <<$name[npc]>> двоится'
+			 end
+		 end
+	 end
+end
+if progV=18:
+	 if health[npc]*2>=healthmax[npc]:
+		enemy_udar=1&'<<$name[npc]>> бьет вас дубиной.'
+	 else
+		can_blocking=1&uronV=rand(150,200)&enemy_udar=5&shootV=1&'<<$name[npc]>> выхватывает ствол и стреляет в вас.'
+	 end
+end
+if progV=19:
+     if mana[npc]>50:
+		 if defenceV<=0:
+			mana[npc]-=50&defenceV=500&'<<$name[npc]>> колдует и ставит сферу защиты.'&!!!!!!!!!!!!!!!!!!!Некромант
+		 else
+			 enemy_udar=7&mana[npc]-=100&mag_uronV=rand(100,300)&earatkV=rand(100,300)&'<<$name[npc]>> колдует на вас эманации смерти.'
+		 end
+	 else
+		mana[npc]+=100&'<<$name[npc]>> достает кристал маны и разламывает его.'
+	 end
+end 
+if progV=20:
+     if lebeda_seed[you]>0:
+		 mana[npc]+=lebeda_seed[you]*10&mana[you]-=lebeda_seed[you]*10&health[you]-=lebeda_seed[you]*2&energy[you]-=lebeda_seed[you]&!!!!!!!!!!!!!!!!!!!ЛЕБЕДА
+		 'С вами творится что то странное, ваша мана утекает и ее собирает Лебеда, вам становится все хуже и хуже и вы едва держитесь на ногах, хотя никакого воздействия не чувствуете.'
+     end
+     if mana[npc]<500:
+		mana[npc]=manamax[npc]&'<<$name[npc]>> произносит заклинание и под ее ногами стелится трава.'
+     else
+		tipe=rand(0,3)
+         if tipe=0:
+			 if defenceV<500:
+				mana[npc]-=500&defenceV=5000&sfera_psihV=1000&'<<$name[npc]>> произносит заклинание и ее окружают гибкие лозы, защищающие от урона.'
+			 else
+				enemy_udar=4&mana[npc]-=100&fearatkV=rand(500,1000)&'<<$name[npc]>> игриво ласкает свою грудь и делает губки бантиком.'
+			 end
+		 end
+		 if tipe>0:
+		 udartipe=rand(0,5)
+			 if udartipe=0:mana[npc]-=100&'На руке Лебеды проростают колючки и она хлещет ими вас.'&uronV=rand(800,1680)&enemy_udar=1&drunk_bloodV=1
+			 if udartipe=1:mana[npc]-=100&'На руке Лебеды проростают колючки и она хлещет ими вас.'&uronV=rand(100,200)&enemy_udar=1&anticlonV=1&proboyV=1&drunk_bloodV=1&'<<$name[npc]>> прикладывает руки к земле и из ее пальцев прорастяют стелящиеся по земле колючки, которые заполняют пространство.'
+			 if udartipe=2:enemy_udar=3&mana[npc]-=100&fearatkV=rand(240,360)&'<<$name[npc]>> смотрит на вас жутким нечеловеческим взглядом.'
+			 if udartipe=3:enemy_udar=4&mana[npc]-=100&fearatkV=rand(500,1000)&'<<$name[npc]>> игриво ласкает свою грудь и делает губки бантиком.'
+			 if udartipe=4:enemy_udar=6&sbivatel=1&mag_uronV=rand(100,300)&'<<$name[npc]>> достает маленький камешек и шепчет, после чего швыряет камешек вам под ноги и вы чувствуете как вас притягивает к камешку гравитация.'
+			 if udartipe=5:
+				 if clonV<2:
+					 mana[npc]-=100&clonV+=10&'<<$name[npc]>> что-то шепчет и на ее теле расцветают бутоны, из которых выпадают ее двойники.'
+				 else
+					uronV=rand(800,1500)&enemy_udar=1&'<<$name[npc]>> наносит нечеловеческий удар рукой.'
+				 end
+			 end
+		 end
+	 end
+end 
+if progV=21:
+     if mana[npc]<500:
+		mana[npc]=manamax[npc]&'<<$name[npc]>> произносит заклинание и под его ногами вспыхивает пентаграмма.'&!МЕРЛИН
+     else
+		tipe=rand(0,3)
+         if tipe=0:
+			 if defenceV<2000:
+				mana[npc]-=500&defenceV=5000&sfera_psihV=1000&'<<$name[npc]>> кастует на себя щит.'
+			 else
+				enemy_udar=2&mana[npc]-=100&fireuronV=rand(650,2500)&anticlonV=1&proboyV=1
+				'<<$name[npc]>> возжигает пламя в руке, которое стелится по земле и бьет вас многохвостой огненной плетью.'
+			 end
+		else
+			udartipe=rand(0,4)
+			 if udartipe=0:mana[npc]-=100&'<<$name[npc]>> наносит нечеловеческий удар рукой.'&uronV=rand(400,680)&enemy_udar=1
+			 if udartipe=1:enemy_udar=2&mana[npc]-=100&fireuronV=rand(650,2500)&anticlonV=1&proboyV=1&'<<$name[npc]>> возжигает пламя в руке, которое стелится по земле и бьет вас многохвостой огненной плетью.'
+			 if udartipe=2:enemy_udar=3&mana[npc]-=100&fearatkV=rand(240,360)&'<<$name[npc]>> рычит, вселяя ужас - Внемли мне, смертная тварь!'
+			 if udartipe=3:enemy_udar=6&sbivatel=1&mag_uronV=rand(100,300)&'<<$name[npc]>> достает маленький камешек и шепчет, после чего швыряет камешек вам под ноги и вы чувствуете как вас притягивает к камешку гравитация.'
+			 if udartipe=4:
+				 if clonV<2:
+					mana[npc]-=100&'<<$name[npc]>> что-то шепчет и его тело начинает двоиться.'&clonV+=3
+				 else
+					'<<$name[npc]>> наносит нечеловеческий удар рукой.'&uronV=rand(400,680)&enemy_udar=1
+				 end
+			 end
+		 end
+	 end
+end 
+if progV=22:
+     if portal_interferences>0:
+		'Помехи не дают пользоваться порталами.'&!ДЖОФРИ
+         if mana[npc]<500:
+			'<<$name[npc]>> наносит нечеловеческий удар рукой.'&uronV=rand(100,300)&enemy_udar=1
+		 else
+			tipe=2
+			if defenceV<4000 and defenceVround<round:tipe=1
+			if tipe=1:defenceVround=round+2&mana[npc]-=500&defenceV=5000&'<<$name[npc]>> кастует на себя каменную защиту.'
+			if tipe=2:
+				udartipe=0
+				 if udartipe=0:mana[npc]-=100&'<<$name[npc]>> швыряет в вас камнем.'&uronV=rand(400,680)&enemy_udar=1
+			 end
+		 end
+     else
+		 if mana[npc]<500:
+			mana[npc]=manamax[npc]&defenceV=1000&'<<$name[npc]>> достает из портала черную розу и берет из нее силы, накладывая на себя щит.'
+			enemy_udar=8&mag_uronV=rand(300,600)&'<<$name[npc]>> открывет кучу порталов вокруг себя и бьет в портал.'
+		 else
+			portal_defV=1&enemy_udar=8&mag_uronV=rand(600,1200)&'<<$name[npc]>> открывет кучу порталов вокруг себя и бьет в портал.'
+		 end
+	 end
+end  
+if progV=23:
+     if mana[npc]<500:
+		mana[npc]=manamax[npc]&'<<$name[npc]>> произносит заклинание и под его ногами вспыхивает пентаграмма.'&!РУННЫЙ МАГ
+     else
+		tipe=rand(0,3)
+         if tipe=0:
+			 if defenceV<2000:
+				mana[npc]-=500&defenceV=5000&sfera_psihV=1000&'<<$name[npc]>> кастует на себя щит.'
+			 else
+				enemy_udar=2&mana[npc]-=100&fireuronV=rand(650,2500)&anticlonV=1&proboyV=1
+				'<<$name[npc]>> возжигает пламя в руке, которое стелится по земле и бьет вас многохвостой огненной плетью.'
+			 end
+		 end
+		 if tipe>0:
+			udartipe=rand(0,4)
+			 if udartipe=0:mana[npc]-=100&'<<$name[npc]>> наносит нечеловеческий удар рукой.'&uronV=rand(400,680)&enemy_udar=1
+			 if udartipe=1:
+				enemy_udar=2&mana[npc]-=100&fireuronV=rand(650,2500)&anticlonV=1&proboyV=1
+				'<<$name[npc]>> возжигает пламя в руке, которое стелится по земле и бьет вас многохвостой огненной плетью.'
+			 end
+			 if udartipe=2:enemy_udar=3&mana[npc]-=100& fearatkV=rand(240,360)&'<<$name[npc]>> рычит, вселяя ужас - Внемли мне, смертная тварь!'
+			 if udartipe=3:
+				enemy_udar=6&sbivatel=1&mag_uronV=rand(100,300)
+				'<<$name[npc]>> достает маленький камешек и шепчет, после чего швыряет камешек вам под ноги и вы чувствуете как вас притягивает к камешку гравитация.'
+			 end
+			 if udartipe=4:
+				 if clonV<2:
+					mana[npc]-=100&'<<$name[npc]>> что-то шепчет и его тело начинает двоиться.'&clonV+=3
+				 else
+					'<<$name[npc]>> наносит нечеловеческий удар рукой.'&uronV=rand(400,680)&enemy_udar=1
+				 end
+			 end
+		 end
+	 end
+end  
+if progV=24:
+udartipe=rand(0,2)
+	 if udartipe=0:mana[npc]-=100&uronV=rand(500,800)&enemy_udar=1&'<<$name[npc]>> швыряет в вас камнем.'&!!!!!!!!!!!!!!!!!!!Богарт
+	 if udartipe=1:sbivatel=1&mana[npc]-=100&uronV=rand(800,3500)&enemy_udar=1&'<<$name[npc]>> покрывает камнем руки и бьет вас огромным каменным кулаком.'
+	 if udartipe=2:mana[npc]-=100&enemy_udar=6&sbivatel=1&mag_uronV=rand(800,1500)&'<<$name[npc]>> хлопает ладоши и вас накрывает гравитационная волна.'
+end
+if progV=25:
+	 if energy[npc]>=5:
+		energy[npc]-=5&enemy_udar=1&tipe=rand(1,10)
+	     if tipe<8:
+			uronV=rand(40,80)&'<<$name[npc]>> бьет вас обрезком трубы.'
+	     else
+			sbivatel=1&'<<$name[npc]>> швыяет вам в лицо перец с солью.'
+	 	 end
+	 else
+		energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+	 end
+end 
+if progV=26:
+	 if energy[npc]>=5:
+		energy[npc]-=5&enemy_udar=1&tipe=rand(1,10)
+	     if tipe<8:
+			uronV=rand(50,100)&'<<$name[npc]>> пыряет вас финкой.'
+	      else
+			sbivatel=1&'<<$name[npc]>> швыяет вам в лицо перец с солью.'
+	 	 end
+	 else
+		energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+	 end
+end 
+if progV=27:
+	 if energy[npc]>=5:
+		energy[npc]-=5&enemy_udar=1&tipe=rand(1,10)
+	     if tipe<8:
+			uronV=rand(40,80)&'<<$name[npc]>> бьет вас кастетом.'
+	     else
+			sbivatel=1&'<<$name[npc]>> швыяет вам в лицо перец с солью.'
+	 	 end
+	 else
+		energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+	 end
+end 
+if progV=28:
+	 if energy[npc]>=5:
+		energy[npc]-=5&enemy_udar=1&tipe=rand(1,10)
+	     if tipe<8:
+			uronV=rand(40,80)&'<<$name[npc]>> бьет вас свинчаткой.'
+	 	 else
+			sbivatel=1&'<<$name[npc]>> швыяет вам в лицо перец с солью.'
+	 	 end
+	 else
+		energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+	 end
+end 
+if progV=29:
+	 '<<$name[npc]>> выхватывает ствол и стреляет в вас.'
+	 can_blocking=1&wslo=w_slot[npc]&uron_weapon_w[npc]=uron_w_item[wslo]&uronV=rand(1,uron_weapon_w[npc])&enemy_udar=5&shootV=1
+end 
+if progV=30:
+	 if energy[npc]>=5:
+		energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+		 if newFS=1:
+			!новый расчет урона - 80-120% от оружия в руке + 10% за 1000 мышц или 10 навыка боя или 10 силы духа
+			uronV=(uron_m_item[mslo]*rand(80,120))/100
+			mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+			uronV+=(mus_uV+fsk_uV+sp_uV)
+			minuronV=uronV*9/10
+			maxuronV=uronV*11/10
+		else
+			uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+			minuronV=uronV&maxuronV=uronV+rand(1,20)
+		end
+		'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+	 else
+		energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+	 end
+end 
+if progV=31:
+	 if mana[npc]>=200:
+		 if defenceV<=1000:
+			mana[npc]-=200&defenceV=mlev[npc]*500&'<<$name[npc]>> колдует и ставит хрустальный щит.'&!Диламина 3я категория
+		 else
+			udartipe=rand(0,2)
+			 if udartipe=0:mana[npc]-=200&'<<$name[npc]>> собирает мглу и та змеится по земле ища вас.'&enemy_udar=10
+			 if udartipe=1 and clonV>0:
+				 energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+				 if newFS=1:
+					uronV=(uron_m_item[mslo]*rand(80,120))/100
+					mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+					uronV+=(mus_uV+fsk_uV+sp_uV)
+					minuronV=uronV*9/10
+					maxuronV=uronV*11/10
+				else
+					uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+					minuronV=uronV&maxuronV=uronV+rand(1,20)
+				end
+				 '<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+			 end
+			 if udartipe=1 and clonV=0:mana[npc]-=100&clonV+=3&'<<$name[npc]>> кастует клонов и перед вашим взором несколько противников.'
+			 if udartipe=2:enemy_udar=1&mana[npc]-=100&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас силу, сформированную в клинок.'
+		 end
+	 else
+	     if blackrose[npc]>0:
+			blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+			'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'
+	     else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end
+!!!!!!!!!!!!!!!!!!Маг 4я категория
+if progV=32:
+	 if mana[npc]>=100:
+		 if defenceV<=600:
+			mana[npc]-=50&defenceV=mlev[npc]*500&sfera_psihV=mlev[npc]*20&'<<$name[npc]>> колдует и ставит защитную сферу.'
+		 else
+			udartipe=rand(0,2)
+			 if udartipe=0:
+				 energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+				 if newFS=1:
+					uronV=(uron_m_item[mslo]*rand(80,120))/100
+					mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+					uronV+=(mus_uV+fsk_uV+sp_uV)
+					minuronV=uronV*9/10
+					maxuronV=uronV*11/10
+				 else
+					uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+					minuronV=uronV&maxuronV=uronV+rand(1,20)
+				 end
+				 '<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+			 end
+			 if udartipe=1 and clonV>0:
+				 energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+				 if newFS=1:
+					uronV=(uron_m_item[mslo]*rand(80,120))/100
+					mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+					uronV+=(mus_uV+fsk_uV+sp_uV)
+					minuronV=uronV*9/10
+					maxuronV=uronV*11/10
+				 else
+					uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+					minuronV=uronV&maxuronV=uronV+rand(1,20)
+				 end
+				 '<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+			 end
+			 if udartipe=1 and clonV=0:mana[npc]-=100&clonV+=3&'<<$name[npc]>> кастует клонов и перед вашим взором несколько противников.'
+			 if udartipe=2:enemy_udar=1&mana[npc]-=100&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас силу, сформированную в клинок.'
+		 end
+	 else
+	     if blackrose[npc]>0:
+			blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+			'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'
+	     else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end 
+!!!!!!!!!!!!!!!!!!Маг 5я категория
+if progV=33:
+	 if mana[npc]>=100:
+		 if defenceV<=500:
+			mana[npc]-=50&defenceV=mlev[npc]*500&sfera_psihV=mlev[npc]*20&'<<$name[npc]>> колдует и ставит защитную сферу.'
+		 else
+			energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+			if newFS=1:
+				uronV=(uron_m_item[mslo]*rand(80,120))/100
+				mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+				uronV+=(mus_uV+fsk_uV+sp_uV)
+				minuronV=uronV*9/10
+				maxuronV=uronV*11/10
+			else
+				uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+				minuronV=uronV&maxuronV=uronV+rand(1,20)
+			end
+			'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+		 end
+	 else
+	     if blackrose[npc]>0:
+			blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+			'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'
+	     else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end 
+if progV=34:
+	 if mana[npc]>=200:
+		 if defenceV<=1000:
+			mana[npc]-=200&defenceV=mlev[npc]*500&sfera_psihV=mlev[npc]*20&'<<$name[npc]>> колдует и ставит хрустальный щит.'&!!Маг 2я категория
+		 else
+			udartipe=rand(0,2)
+			 if udartipe=0:mana[npc]-=200&'<<$name[npc]>> собирает мглу и та змеится по земле ища вас.'&enemy_udar=10
+			 if udartipe=1 and clonV>0:
+				mana[npc]-=100&'<<$name[npc]>> создает вокруг себя мглистый туман.'
+				 if sfera_fiz>0:
+					 if mlev[npc]>=8:
+						sfera_fiz=sfera_fiz/10&'Мглистый туман разъедает вашу защиту и ослабляет ее в десять раз'
+					 elseif mlev[npc]=7:
+						sfera_fiz=sfera_fiz/4&'Мглистый туман разъедает вашу защиту и ослабляет ее в четыре раза'
+					 else
+						sfera_fiz=sfera_fiz/2&'Мглистый туман разъедает вашу защиту и ослабляет ее в двое'
+					 end
+				 end
+			 end
+			 if udartipe=1 and clonV=0:mana[npc]-=100&clonV+=3&'<<$name[npc]>> кастует клонов и перед вашим взором несколько противников.'
+			 if udartipe=2:enemy_udar=1&mana[npc]-=100&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас силу, сформированную в клинок.'
+		 end
+	 else
+	     if blackrose[npc]>0:
+			blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+			'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'
+	     else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end 
+if progV=35:
+	 if mana[npc]>=200:
+		 if defenceV<=1000:
+			mana[npc]-=200&defenceV=mlev[npc]*500&sfera_psihV=mlev[npc]*20&'<<$name[npc]>> колдует и ставит хрустальный щит.'&!!Маг 1я категория
+		 else
+			udartipe=rand(0,2)
+			 if udartipe=0:mana[npc]-=200&'<<$name[npc]>> собирает мглу и та змеится по земле ища вас.'&enemy_udar=10
+			 if udartipe=1 and clonV>0:
+				mana[npc]-=100&'<<$name[npc]>> создает вокруг себя мглистый туман.'
+				 if sfera_fiz>0:
+					 if mlev[npc]>=8:
+						sfera_fiz=sfera_fiz/10&'Мглистый туман разъедает вашу защиту и ослабляет ее в десять раз'
+					 elseif mlev[npc]=7:
+						sfera_fiz=sfera_fiz/4&'Мглистый туман разъедает вашу защиту и ослабляет ее в четыре раза'
+					 else
+						sfera_fiz=sfera_fiz/2&'Мглистый туман разъедает вашу защиту и ослабляет ее в двое'
+					 end
+				 end
+			 end
+			 if udartipe=1 and clonV=0:mana[npc]-=100&clonV+=3&'<<$name[npc]>> кастует клонов и перед вашим взором несколько противников.'
+			 if udartipe=2 and mana[npc]<1000:enemy_udar=1&mana[npc]-=100&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас силу, сформированную в клинок.'
+			 if udartipe=2 and mana[npc]>=1000:enemy_udar=1&mana[npc]-=800&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас пробивную молнию.'&enemy_udar=20
+		 end
+	 else
+	     if blackrose[npc]>0:
+			blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+			'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'
+	     else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end  
+if progV=36:
+	 if mana[npc]>=200:
+		 if defenceV<=1000:
+		     if shilduse[npc]>=3:
+				 if mana[npc]<2000:
+					 if blackrose[npc]>0:
+						blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+						'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'&!Маг вне категорий
+					 else
+						mana[npc]-=200&defenceV=mlev[npc]*500&'<<$name[npc]>> колдует и ставит хрустальный щит.'&shilduse[npc]+=1
+					 end
+				 end
+				 if mana[npc]>=2000:shilduse[npc]=0&mana[npc]-=1000&'<<$name[npc]>> метает в вас мультимолнию.'&enemy_udar=30
+		     else
+				mana[npc]-=200&defenceV=mlev[npc]*500&sfera_psihV=mlev[npc]*20&'<<$name[npc]>> колдует и ставит хрустальный щит.'&shilduse[npc]+=1
+		     end
+		 else
+			shilduse[npc]=0&udartipe=rand(0,2)
+			if firstudar[npc]!time:firstudar[npc]=time&udartipe=0
+			 if udartipe=0 and mana[npc]<2000:mana[npc]-=200&'<<$name[npc]>> собирает мглу и та змеится по земле ища вас.'&enemy_udar=10
+			 if udartipe=0 and mana[npc]>=2000:mana[npc]-=1000&'<<$name[npc]>> метает в вас мультимолнию.'&enemy_udar=30
+			 if udartipe=1 and clonV>0:
+				mana[npc]-=100&'<<$name[npc]>> создает вокруг себя мглистый туман.'
+				 if sfera_fiz>0:
+					 if mlev[npc]>=8:
+						sfera_fiz=sfera_fiz/10&'Мглистый туман разъедает вашу защиту и ослабляет ее в десять раз'
+					 elseif mlev[npc]=7:
+						sfera_fiz=sfera_fiz/4&'Мглистый туман разъедает вашу защиту и ослабляет ее в четыре раза'
+					 else
+						sfera_fiz=sfera_fiz/2&'Мглистый туман разъедает вашу защиту и ослабляет ее в двое'
+					 end
+				 end
+			 end
+			 if udartipe=1 and clonV=0 and mana[npc]<1000:mana[npc]-=100&clonV+=3&'<<$name[npc]>> кастует клонов и перед вашим взором несколько противников.'
+			 if udartipe=1 and clonV=0 and mana[npc]>=1000:mana[npc]-=800&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас пробивную молнию.'&enemy_udar=20
+			 if udartipe=2 and mana[npc]<1000:mana[npc]-=200&'<<$name[npc]>> собирает мглу и та змеится по земле ища вас.'&enemy_udar=10
+			 if udartipe=2 and mana[npc]>=1000:mana[npc]-=800&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас пробивную молнию.'&enemy_udar=20
+		 end
+	 else
+	     if blackrose[npc]>0:
+			blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+			'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'
+	     else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end   
+if progV=37:
+	 '<<$name[npc]>> в своем бронекостюме наводит на вас здоровенную пушку и стреляет.'
+	 can_blocking=1&uronV=rand(1,5000)&enemy_udar=5&shootV=1
+end 
+if progV=38:
+	 if energy[npc]>=5:
+		tipeatk=rand(0,1)
+	     if tipeatk=0:
+			energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+			if newFS=1:
+				uronV=(uron_m_item[mslo]*rand(80,120))/100
+				mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+				uronV+=(mus_uV+fsk_uV+sp_uV)
+				minuronV=uronV*9/10
+				maxuronV=uronV*11/10
+			else
+				uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+				minuronV=uronV&maxuronV=uronV+rand(1,20)
+			end
+			'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+         end
+         if tipeatk=1:
+			'<<$name[npc]>> выхватывает ствол и стреляет в вас.'
+			can_blocking=1&wslo=w_slot[npc]&uron_weapon_w[npc]=uron_w_item[wslo]&uronV=rand(1,uron_weapon_w[npc])&enemy_udar=5&shootV=1
+         end
+	 else
+		energy[npc]+=100&'<<$name[npc]>> пытается отдышаться.'
+	 end
+end  
+if progV=39:
+	 if health[npc]<healthmax[npc] and canpray[npc]>0:
+		canpray[npc]-=1&health[npc]+=200&!Марта Марш
+	 if health[npc]>healthmax[npc]:health[npc]=healthmax[npc]
+		'<<$name[npc]>> кричит - Лорд Дагон, даруй мне силы!'
+	 else
+		 if mana[npc]>=200:
+			 if defenceV<=1000:
+				mana[npc]-=200&defenceV=mlev[npc]*500&sfera_psihV=mlev[npc]*20&'<<$name[npc]>> колдует и ставит хрустальный щит.'
+			 else
+				udartipe=rand(0,2)
+				 if evilgrassV<=0:
+					evilgrassV+=5&'<<$name[npc]>> кидает на землю семена, которые тут же всходят колючими хлыстами и начинают бить во все стороны стараясь вас задеть.'
+				 else
+					 if udartipe=0:mana[npc]-=200&'<<$name[npc]>> собирает мглу и та змеится по земле ища вас.'&enemy_udar=10
+					 if udartipe=1:enemy_udar=4&mana[npc]-=100&fearatkV=rand(500,1000)&'<<$name[npc]>> игриво ласкает свою грудь и делает губки бантиком.'
+					 if udartipe=2:
+						 if sfera_fiz>0:
+							sfera_fiz=0&'<<$name[npc]>> колдует что-то и ваша защитная сфера лопает как мыльный пузырь.'
+						 else
+							 if mana[you]>0:
+								'<<$name[npc]>> колдует что-то непонятное.'&mana[you]-=rand(50,125)
+								if mana[you]<0:mana[you]=0
+								'Вы чувствуете какие-то колебания и часть вашей магической силы уходит.'
+							 else
+								enemy_udar=1&mana[npc]-=100&minuronV=mlev[npc]*90&maxuronV=mlev[npc]*110&'<<$name[npc]>> метает в вас силу, сформированную в клинок.'
+							 end
+						 end
+					 end
+				 end
+			 end
+		 else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end 
+if progV=40:
+	 if mana[npc]>=200:
+		 if defenceV<=1000:
+			mana[npc]-=200&defenceV=mlev[npc]*500&sfera_psihV=mlev[npc]*20&'<<$name[npc]>> колдует и ставит хрустальный щит.'&!Маг 2я категория Эльф
+		 else
+			udartipe=rand(0,1)
+			 if udartipe=0:
+				enemy_udar=1&mslo=m_slot[npc]
+				if newFS=1:
+					uronV=(uron_m_item[mslo]*rand(80,120))/100
+					mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+					uronV+=(mus_uV+fsk_uV+sp_uV)
+					minuronV=uronV*9/10
+					maxuronV=uronV*11/10
+					uskorV+=3
+				else
+					uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+					minuronV=uronV&maxuronV=uronV+rand(1,20)&uskorV+=3
+				end
+				'<<$name[npc]>> начинает двигаться невероятно быстро держа в руке <<$item_name[mslo]>> и невероятно быстро и элегантно бьет вас.'
+			 end
+			 if udartipe=1:
+				mana[npc]-=100&'<<$name[npc]>> создает вокруг себя мглистый туман.'
+				 if sfera_fiz>0:
+					 if mlev[npc]>=8:
+						sfera_fiz=sfera_fiz/10&'Мглистый туман разъедает вашу защиту и ослабляет ее в десять раз'
+					 elseif mlev[npc]=7:
+						sfera_fiz=sfera_fiz/4&'Мглистый туман разъедает вашу защиту и ослабляет ее в четыре раза'
+					 else
+						sfera_fiz=sfera_fiz/2&'Мглистый туман разъедает вашу защиту и ослабляет ее в двое'
+					 end
+				 end
+			 end
+		 end
+	 else
+	     if blackrose[npc]>0:
+			blackrose[npc]-=1&health[npc]=healthmax[npc]&energy[npc]=energyMax[npc]&mana[npc]=manamax[npc]&defenceV+=1000 
+			'<<$name[npc]>> сжимает в руке черную розу и восстанавливает свои силы.'
+	     else
+			 if manacristal[npc]>0:
+				manacristal[npc]-=1&mana[npc]+=100&'<<$name[npc]>> разламывает кристал маны.'
+			 else
+				 if energy[npc]>=5:
+					energy[npc]-=5&enemy_udar=1&mslo=m_slot[npc]
+					if newFS=1:
+						uronV=(uron_m_item[mslo]*rand(80,120))/100
+						mus_uV=(uronV*mus[npc])/10000&fsk_uV=(uronV*fight_skill[npc])/100&sp_uV=(uronV*soulpower[npc])/100
+						uronV+=(mus_uV+fsk_uV+sp_uV)
+						minuronV=uronV*9/10
+						maxuronV=uronV*11/10
+					else
+						uron_weapon_m[npc]=uron_m_item[mslo]&uronV=mus[npc]/100&uronV=uronV+uron_weapon_m[npc]+soulpower[npc]
+						minuronV=uronV&maxuronV=uronV+rand(1,20)
+					end
+					'<<$name[npc]>> держит в руке <<$item_name[mslo]>> и бьет вас.'
+				 else
+					energy[npc]+=10&'<<$name[npc]>> пытается отдышаться.'
+				 end
+			 end
+		 end
+	 end
+end

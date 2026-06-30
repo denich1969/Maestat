@@ -1,0 +1,58 @@
+﻿X=2&Y=0&Z=3&H=3&R=3&!act'<b>Уйти</b>':gt 'preloc'
+if agency_ud[you]>0:
+	 act'Показать удостоверение агентства':
+		 horny[npc]=0&mob_sleep[npc]=time+15&cls&gs'stat'&'Вы достаете корочки агентства добрых дел и <<$nick[npc]>> сразу же меняется в лице и отдает вам честь.'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if X[you]=X and Y[you]=Y and Z[you]=Z and H[you]=H and R[you]=R:
+	'<<$nick[npc]>> потирает кулаки - Я тебя научу говно, уважать власть!'
+else
+	narush=0 
+	if peecover[you]>0:narush=1
+	if cum_face[you]>0:narush=1
+	if cum_clo[you]>0 and fullnude[you]=0:narush=1
+	if cum_clo[you]>0 and fullnude[you]=1:narush=1
+	if visible_lift[you]=1:narush=1
+	if visible_panties[you]=1:narush=1
+	if t_nude[you]>0:narush=1
+	if l_nude[you]>0:narush=1
+	 if narush=1:
+		 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+		 '<<$nick[npc]>> козыряет - сержант <<$name[npc]>> <<$surname[npc]>>. Нарушаем? Что это еще за неподобающий вид? Штраф 100 шиллингов'
+		 if money[you]>=10000:
+			 act'Оплатить штраф':
+				 money[you]-=10000&mob_sleep[npc]=time+15&police_day[you]=daystart&X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]
+				 cls&gs'stat'&'<<$nick[npc]>> забирает деньги и выписывает вам квиток, согласно которому вас не должны штрафовать сегодня'&'Затем отправляет вас порталом домой'&act'...':gt 'preloc'
+			 end
+		 end
+		 act'У меня нет денег':
+			 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
+			 cls&gs'stat'&'<<$nick[npc]>> скучающе достает бланк протокола и начинает его заполнять.'&'Внезапно портал утаскивает вас вместе с представителем закона в тюремные камеры полицеского участка.'
+			 '<<$nick[npc]>> кладет рапорт на стол и достает дубинку - Пора тебя научить бояться!'&act'<b>Эй? Ты чего?</b>':gt 'prefight'
+		 end
+	 else 
+		 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+		 '<<$nick[npc]>> козыряет - сержант <<$name[npc]>> <<$surname[npc]>>. Ваши документики?'
+		 if police_day[you]=daystart:
+			 act'Показать квиток об оплаченом штрафе':
+				 horny[npc]=0&mob_sleep[npc]=time+15&cls&gs'stat'&'Вы достаете квиток и <<$nick[npc]>> придирчиво рассматривает его, затем теряя к вам интерес отдает его вам.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 else
+			 act'Нет у меня документов':
+				 horny[npc]=0&mob_sleep[npc]=time+15&cls&'<<$nick[npc]>> - Нарушаем? Оплачивайте штраф 5 шиллингов'
+				 if money[you]>=500:
+					 act'Оплатить штраф':
+						 money[you]-=500&mob_sleep[npc]=time+15&police_day[you]=daystart
+						 cls&gs'stat'&'<<$nick[npc]>> забирает деньги и выписывает вам квиток, согласно которому вас не должны штрафовать сегодня'&act'...':gt 'preloc'
+					 end
+				 end
+				 act'У меня нет денег':
+					 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
+					 cls&gs'stat'&'<<$nick[npc]>> скучающе достает бланк протокола и начинает его заполнять.'
+					 'Внезапно портал утаскивает вас вместе с представителем закона в тюремные камеры полицеского участка.'
+					 '<<$nick[npc]>> кладет рапорт на стол и достает дубинку - Пора тебя научить бояться!'&act'<b>Эй? Ты чего?</b>':gt 'prefight'
+				 end
+			 end
+		 end
+	 end
+end

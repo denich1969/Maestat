@@ -1,0 +1,26 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&magus=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=100&beliver[i]=100&!Не имеет отношения к богине луны, иллюзия
+tipemobpic[i]=1&picture[i]=158
+$title[i]='Маг королевства'&$name[i]='Эльган'&$nick[i]='Маг. '
+face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+dick[i]=30&dickd[i]=50&ball[i]=70&vag[i]=0&ass[i]=2&nip[i]=8&tits[i]=rand(0,5)
+dicklongrand=rand(1,100)&if dicklongrand<=80:dick[i]=rand(12,17)
+if dicklongrand>80 and dicklongrand<=90:dick[i]=rand(7,13)
+if dicklongrand>90 and dicklongrand<100:dick[i]=rand(18,25)
+if dicklongrand=100:dick[i]=rand(25,28)
+rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(800,2400)&skin[i]=rand(0,3)
+$nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)
+age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=160&$nick[i]+=$iif(age[i]<25,' парень',' мужчина')
+healthmax[i]=1000&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1&total_magus+=1&!minuron[i]=rand(10,20)&maxuron[i]=rand(30,50)
+forbidsex[i]=0&!присвоение отсутствия запрета
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=rand(0,1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=1&ratio[i]=2&brave[i]=2&lust[i]=0&corr[i]=0&!характер
+if lust[i]>=75 and agro[i]>=75:alfa[i]=1&total_alfa+=1
+t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+obsession_world[]=i&
+if you=princess:delusion[i]=0&corr[i]=0&agro[i]=1
+if you!princess:delusion[i]=1&mob[i]=29&mobexp[i]=100&corr[i]=100&agro[i]=rand(1,2)

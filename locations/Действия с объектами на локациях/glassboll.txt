@@ -1,0 +1,259 @@
+﻿act'Убрать':gt 'preloc'
+IF $ARGS[0] = 'map_draw_loc':
+	$J_locXYZ='<<jx>>,<<jy>>,<<jz>>'
+	$J_locname='<<$lname[''<<$J_locXYZ>>,0,0'']>>'
+	if $MyCord=$J_locXYZ:
+		$j_name='<b><font color="#FF00FF">ВЫ ТУТ</font></b>'
+		!First row
+		!if jy=jym:
+		!$MyMap_text+='<td width="<<100/(jxm+1)>>%" align=center vAlign=middle bgcolor="white">'
+		!else
+		$MyMap_text+='<td align=center vAlign=middle bgcolor="white">'
+		!end
+		$MyMap_text+='<b><<$J_locname>></b><br><<$j_name>></td>'
+	else
+		if j_PortalYou=0:
+			$j_cord=$J_locname
+		elseif j_PortalYou=1:
+			$j_cord='<a href="exec: portal_zar[<<you>>]-=1 & X[<<you>>]=<<jx>> & Y[<<you>>]=<<jy>> & Z[<<you>>]=<<jz>> & H[<<you>>]=0 & R[<<you>>]=0 & gt ''preloc''"><<$J_locname>></a>'
+		else
+			!Мгла
+			$j_cord='<a href="exec:X[<<you>>]=<<jx>> & Y[<<you>>]=<<jy>> & Z[<<you>>]=<<jz>> & H[<<you>>]=0 & R[<<you>>]=0 & gt ''preloc''"><<$J_locname>></a>'
+		end
+		$buildingsList=''
+		if maxPositionH['<<$J_locXYZ>>']>0:
+			ji = 1
+			:mm_areaHouseHLoop
+			$J_CurBulding=$locnameH['<<$J_locXYZ>>,<<ji>>']
+			!Убираем здания с любым номером, будет неловко если появиться клуб "7-е небо" или "13 посохов в дорогу"
+			!\d - "любая цифра"
+			if $STRFIND($J_CurBulding,'\d')='': $buildingsList +="<br><<$J_CurBulding>>"
+			ji += 1
+			if ji <= maxPositionH['<<$J_locXYZ>>']: jump 'mm_areaHouseHLoop'
+		end
+		$JFon=''&!$JFon='bgcolor="#d6d6d6" '
+		if $J_locname='Река' or $J_locname='Дельта реки' :
+			!7de1fa
+			!6491c8
+			$JFon='bgcolor="#6688aa" '
+		elseif $J_locname='Озеро' :
+			$JFon='bgcolor="#e1f0ff" '&!e1f0ff
+		elseif $J_locname='Хвойный лес' or $J_locname='Парк' or $J_locname='Лесоповал' or $J_locname='Сквер' or $J_locname='Великий дуб' or $J_locname='Лабиринт Батори' :
+			$JFon='bgcolor="#a0e1a0" '
+		end
+		$J_npcFaces=''&!===== NPC Faces =====
+		!If J_ShowNpcFaces=1:
+		If ARGS[1]=1:
+			$J_npcFaces='<br>'
+			jpic=1
+			npcmax=arrsize('$name')
+			:mm_marknpcloc
+			!if jx=X[jpic] and jy=Y[jpic] and ARGS[1]=Z[jpic] and jpic!you and dead[jpic]=0:
+			if jx=X[jpic] and jy=Y[jpic] and jz=Z[jpic] and jpic!you and dead[jpic]=0:
+				$J_npcFaces+='<a href="exec:msg''<<$name[jpic]>> <<$surname[jpic]>>''"><img height="50" src="'+$FUNC('TechLoc','face_pic',jpic)+'"></a>'
+			end
+			jpic+=1
+			if jpic<=npcmax:jump'mm_marknpcloc'
+		END&!===== NPC Faces =====
+		if FirstRow=1:FirstRow=0&!Вывод колонки
+		$MyMap_text+='<td '+$JFon+'align=center vAlign=middle>'&!$MyMap_text+='<td '+$JFon+'align=left vAlign=top>'
+		$MyMap_text+=$j_cord
+		if under['<<$J_locXYZ>>,0,0']>=1:$MyMap_text+='<br><b><font size="2" color="green">Станция метро</font></b>'&!--- метро
+		$MyMap_text+='<font size="1">'+$buildingsList+'</font>'+$J_npcFaces+'</td>'&!Вывод колонки
+	end
+END
+IF $ARGS[0] = 'map_draw_rayon_row':
+	jx=0
+	:jm_x
+	gs $curloc, 'map_draw_loc',ARGS[1]
+	jx+=1
+	if jx<=jxm:jump'jm_x'
+END
+IF $ARGS[0] = '':
+	*CLR
+	act'Убрать':gt 'preloc'
+	act'<b>Карта</b>'     : gt $curloc	
+	act'-Рыбацкая деревня': gt $curloc,'map_draw_Z',1
+	act'-Блэкберри'      : gt $curloc,'map_draw_Z',2
+	act'-Жилмассив'      : gt $curloc,'map_draw_Z',3
+	act'-Аптаун'      : gt $curloc,'map_draw_Z',4
+	act'-Даунтаун'      :	gt $curloc,'map_draw_Z',5
+	jz=1&!стартовый мир/район
+	!количество районов в строке, минимум 1
+	!j_rayon_in_row=1
+	!j_rayon_in_row=2
+	jxm=4&jym=4&jzm=5&!максимальная координата
+	!|  1  | 2 |
+	!| MAR | 3 |
+	!|  5  | 4 |
+	! начинаем рисовать
+	$MyMap_text=''
+	If mlev[you]>=5 and mana[you]>=500 and badworld[Z[you]]=0:
+		j_PortalYou=2
+		$MyMap_text+='Сила Мглы показывает путь'
+	else
+		If portal[you]=1 and portal_zar[you]>0 and badworld[Z[you]]=0:
+			j_PortalYou=1
+			$MyMap_text+='Обнаружен телепортер, осталось зарядов: <<portal_zar[you]>>.'
+		else
+			j_PortalYou=0
+			$MyMap_text+='Перемещение по карте станет гораздо удобней с нашим портативным телепортером. Ишите нас в Назадовском тупике (4,0,5).'
+		end
+	end
+	$MyCord='<<x[you]>>,<<y[you]>>,<<z[you]>>'&!я тут
+	$MyMap_text+='<table width="100%" border="1" cellspacing="0" bordercolor="#e1f0ff" bgcolor="#d6d6d6">'&!$MyMap_text+='<tr align=center><td colspan="11"><font size="2">карта города</font></td></tr>'
+	$MyMap_text+='<font size="2">'&!Размер шрифта по умолчанию
+	$J_ColStyle=' width="9%"'
+	!к00рдинаты X
+	$MyMap_text+='<tr align=center>'
+	$MyMap_text+='<td width="1%"></td>'
+	$MyMap_text+='<td width="9%"><font size="2"> 0 </font></td>'
+	$MyMap_text+='<td width="9%"> 1 </td>'
+	$MyMap_text+='<td width="9%"> 2 </td>'
+	$MyMap_text+='<td width="9%"> 3 </td>'
+	$MyMap_text+='<td width="9%"> 4 </td>'
+	$MyMap_text+='<td width="9%"> 0 </td>'
+	$MyMap_text+='<td width="9%"> 1 </td>'
+	$MyMap_text+='<td width="9%"> 2 </td>'
+	$MyMap_text+='<td width="9%"> 3 </td>'
+	$MyMap_text+='<td width="9%"> 4 </td>'
+	$MyMap_text+='</tr>'
+	:jm_z
+	CurZ=jz
+	jy=jym
+	FirstRow=1
+	:jm_y
+	jz=CurZ
+	$MyMap_text+='<tr bgcolor="#d6d6d6">'&!Новая строка&!$MyMap_text+='<tr align=left vAlign=top bgcolor="#d6d6d6">'
+	$MyMap_text+='<td  width="1%" bgcolor="#d6d6d6"><<jy>></td>'&!координаты Y
+	if jz=3:
+		if FirstRow=1:$MyMap_text+='<td colspan="5" rowspan="5" bgcolor="#6688aa" align="center" vAlign="middle"><font size="16" color="blue"><b>МОРЕ</b></font></td>'
+		gs $curloc, 'map_draw_rayon_row'
+	elseif jz=4:
+		jz+=1&gs $curloc, 'map_draw_rayon_row'
+		jz=CurZ&gs $curloc, 'map_draw_rayon_row'
+		jz+=1
+	else
+		gs $curloc, 'map_draw_rayon_row'
+		jz+=1
+		gs $curloc, 'map_draw_rayon_row'
+	end
+	$MyMap_text+='</tr>'
+	jy-=1&!---по Y сверху вниз
+	if jy>=0:jump'jm_y'
+	jz+=1
+	if jz<=jzm:jump'jm_z'
+	$MyMap_text+='</font>'
+	$MyMap_text+='</table>'
+	'<<$MyMap_text>>'
+	KILLVAR 'jx'
+	KILLVAR 'jy'
+	KILLVAR 'jz'
+	KILLVAR 'CurZ'
+	KILLVAR 'jxm'
+	KILLVAR 'jym'
+	KILLVAR 'jzm'
+	KILLVAR '$J_locXYZ'
+	KILLVAR '$J_locname'
+	KILLVAR '$MyCord'
+	KILLVAR '$j_name'
+	KILLVAR 'j_PortalYou'
+	KILLVAR 'FirstRow'
+	KILLVAR '$J_ColStyle'
+	KILLVAR '$JFon'
+	KILLVAR '$J_CurBulding'
+	KILLVAR '$buildingsList'
+END
+!ARGS[1] - Z
+!ARGS[2] - Max X
+!ARGS[3] - Max Y
+!$ARGS[4] - Название мира
+IF $ARGS[0]='map_draw_Z':
+	*CLR
+	act'Убрать':gt 'preloc'
+	act'<b>Карта</b>'     : gt $curloc	
+	act'-Рыбацкая деревня': gt $curloc,'map_draw_Z',1
+	act'-Блэкберри'      : gt $curloc,'map_draw_Z',2
+	act'-Жилмассив'      : gt $curloc,'map_draw_Z',3
+	act'-Аптаун'      : gt $curloc,'map_draw_Z',4
+	act'-Даунтаун'      :	gt $curloc,'map_draw_Z',5
+	jz=ARGS[1]&!J_ShowNpcFace=1
+	$j_name_loc=''
+	if  ARGS[1]=1:
+		$j_name_loc='Рыбацкая деревня'&jxm = 4&jym = 4 
+	elseif ARGS[1]=2:
+		$j_name_loc='Блэкберри'&jxm = 4&jym = 4 
+	elseif ARGS[1]=3:
+		$j_name_loc='Жилмассив'&jxm = 4&jym = 4 
+	elseif ARGS[1]=4:
+		$j_name_loc='Аптаун'&jxm = 4&jym = 4 
+	elseif ARGS[1]=5:
+		$j_name_loc='Даунтаун'&jxm = 4&jym = 4 
+	elseif ARGS[1]=10:
+		$j_name_loc='Корневище'&jxm = 30&jym = 30
+	elseif ARGS[1]=100:
+		$j_name_loc='Райский остров'&jxm = 5&jym = 5 
+	elseif ARGS[1]=404:
+		$j_name_loc='Туман'&jxm = 10&jym = 10 
+	elseif ARGS[1]=7777:
+		$j_name_loc='Луна'&jxm = 10&jym = 10
+	else
+		$j_name_loc=$ARGS[4]&jxm = ARGS[2]&jym = ARGS[3] 
+	end
+	pl '<<jxm>>,<<jym>>,<<jz>>'
+	$MyMap_text=''&! начинаем рисовать
+	If mlev[you]>=5 and mana[you]>=500 and badworld[Z[you]]=0:
+		j_PortalYou=2
+		$MyMap_text+='Сила Мглы показывает путь'
+	else
+		If portal[you]=1 and portal_zar[you]>0 and badworld[Z[you]]=0:
+			j_PortalYou=1
+			$MyMap_text+='Обнаружен телепортер, осталось зарядов: <<portal_zar[you]>>.'
+		else
+			j_PortalYou=0
+			$MyMap_text+='Перемещение по карте станет гораздо удобней с нашим портативным телепортером. Ишите нас в Назадовском тупике (4,0,5).'
+		end
+	end
+	$MyCord='<<x[you]>>,<<y[you]>>,<<z[you]>>'&!я тут
+	$MyMap_text+='<table width="100%" border="1" cellspacing="0" bordercolor="#e1f0ff" bgcolor="#d6d6d6">'
+	$MyMap_text+='<tr><th colspan="<<jxm+2>>"><<$j_name_loc>></th></tr>'
+	$MyMap_text+='<font size="2">'&!Размер шрифта по умолчанию
+	$MyMap_text+='<tr align=center>'&!Выводим строку с координатами X
+	$MyMap_text+='<td width="1%"></td>'
+	jx=0
+	:jmz_cord
+	$MyMap_text+='<td width="<<100/(jxm+1)>>%"><<jx>></td>'
+	jx+=1
+	if jx<=jxm:jump'jmz_cord'
+	$MyMap_text+='</tr>'&!Начинаем вывод
+	jy=jym
+	:jmz_y
+	$MyMap_text+='<tr bgcolor="#d6d6d6">'&!Новая строка&!$MyMap_text+='<tr align=left vAlign=top bgcolor="#d6d6d6">'
+	$MyMap_text+='<td  width="1%" bgcolor="#d6d6d6"><<jy>></td>'&!координаты Y
+	gs $curloc, 'map_draw_rayon_row',1
+	$MyMap_text+='</tr>'
+	jy-=1&!---по Y сверху вниз
+	if jy>=0:jump'jmz_y'
+	$MyMap_text+='</font>'
+	$MyMap_text+='</table>'
+	'<<$MyMap_text>>'
+	KILLVAR 'jx'
+	KILLVAR 'jy'
+	KILLVAR 'jz'
+	KILLVAR 'CurZ'
+	KILLVAR 'jxm'
+	KILLVAR 'jym'
+	KILLVAR 'jzm'
+	KILLVAR '$J_locXYZ'
+	KILLVAR '$J_locname'
+	KILLVAR '$MyCord'
+	KILLVAR '$j_name'
+	KILLVAR 'j_PortalYou'
+	KILLVAR 'FirstRow'
+	KILLVAR '$J_ColStyle'
+	KILLVAR '$JFon'
+	KILLVAR '$J_CurBulding'
+	KILLVAR '$buildingsList'
+	KILLVAR '$J_npcFaces'
+	KILLVAR 'jpic'
+END

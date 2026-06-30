@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&mech=i
+lvl[i]=1&soul[i]=100&work[i]=0&mechanic[i]=1
+master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0&!fight_prog[i]=1
+spec_face_pic[i]=5&face_pic[i]=158&!face_npc[i]=1&face_pic[i]=2
+$name[i]='Мердок'&$surname[i]='Механик'
+face[i]=10&gla[i]=0&glacol[i]=4&nose[i]=3&lips[i]=0
+dick[i]=23&dickd[i]=55&ball[i]=100&
+rost[i]=198&fat[i]=500&mus[i]=3000&skin[i]=2
+hlong[i]=10&hcol[i]=6&beard[i]=-10
+age[i]=30&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1&gs'male_gen'
+womenbrain[i]=0&bisex[i]=0&agro[i]=100&selrespect[i]=2&positiv[i]=0&extrovert[i]=2&ratio[i]=1&brave[i]=2&lust[i]=100
+h_slot[i]=0&m_slot[i]=6
+c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=3&ut_slot[i]=0&l_slot[i]=2
+ul_slot[i]=0&b_slot[i]=3&ub_slot[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2&!$loc[i]='forest_village'
+se_lighthouse[]=i&walkprog[i]=304&!npcii[i]=1&!программа движения

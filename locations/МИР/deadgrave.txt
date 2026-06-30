@@ -1,0 +1,5 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Охранные руны сдерживают саму смерть в ее могиле'
+gs'Item'&*pl''&gs 'npconloc'
+act'Отойти':gt 'preloc'
+if BlackRoseQW[you]=5:BlackRoseQW[you]=6&'<b>ВОТ ОНО МЕСТО ПЛЕНЕНИЯ СМЕРТИ, КОТОРОЕ ПРОСИЛ НАЙТИ ДЖОФРИ</b>'

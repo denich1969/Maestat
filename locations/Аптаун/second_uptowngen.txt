@@ -1,0 +1,65 @@
+﻿X=1&Y=2&Z=4&!H=7
+maxPositionH['<<X>>,<<Y>>,<<Z>>']+=1
+H=maxPositionH['<<X>>,<<Y>>,<<Z>>']&Hmass=H
+$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Массажный салон'&privat['<<$templocH>>']=0&lock['<<$templocH>>']=0&maxPositionR['<<$templocH>>']=4
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Массажный салон'&$lname['<<$temploc>>']='Массажный салон'&$lname_go['<<$temploc>>']='в салон'
+$locopis['<<$temploc>>']='Холл салона со стойкой администратора и удобными диванами для ожидающих посетителей'
+np['<<$temploc>>']=49
+mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&massage['<<$temploc>>']=1&blocksex['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
+$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Общественный туалет'
+np['<<$temploc>>']=1
+can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&shower['<<$temploc>>']=1
+R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Массажный кабинет №1'
+$locname['<<$temploc>>']='Массажный кабинет'&$lname['<<$temploc>>']='Массажный кабинет'&$lname_go['<<$temploc>>']='в массажный кабинет'
+$locopis['<<$temploc>>']='Комната с большим массажным столом'
+np['<<$temploc>>']=254
+mirror['<<$temploc>>']=1&massage['<<$temploc>>']=2
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Массажный кабинет №2'
+$locname['<<$temploc>>']='Массажный кабинет'&$lname['<<$temploc>>']='Массажный кабинет'&$lname_go['<<$temploc>>']='в массажный кабинет'
+$locopis['<<$temploc>>']='Комната с большим массажным столом'
+np['<<$temploc>>']=254
+mirror['<<$temploc>>']=1&massage['<<$temploc>>']=2
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&lock['<<$temploc>>']=1&$locnameR['<<$temploc>>']='Жилая комната'&lock['<<$temploc>>']=1
+$locname['<<$temploc>>']='Жилая комната'&$lname['<<$temploc>>']='Жилая комната'&$lname_go['<<$temploc>>']='в жилую комнату'
+$locopis['<<$temploc>>']='Большая комната, в которой вполне можно жить как в квартире-студии'
+np['<<$temploc>>']=6
+tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&tiler=i
+lvl[i]=1&soul[i]=500&work[i]=0&subwork[i]=100
+master[i]=0&delusion[i]=0&magik[i]=8&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=143
+$name[i]='Рон'&$surname[i]='Тайлер'&$nick[i]='Белокурый красавчик'&$title[i]=''&$history[i]='Я отличный массажист и у меня свой массажный салон'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=23&dickd[i]=45&ball[i]=100&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=190&fat[i]=800&mus[i]=2000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=20&hcol[i]=3
+age[i]=27&vital[i]=100&will[i]=50&reflex[i]=110
+p0l[i]=0&gs'body'&total_generated_male+=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+bisex[i]=0&agro[i]=10&selfrespect[i]=1&positiv[i]=2&extrovert[i]=1&ratio[i]=1&brave[i]=1&lust[i]=40&!характер
+h_slot[i]=0
+t_slot[i]=2&l_slot[i]=5&b_slot[i]=2
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+se_world[]=i&walkprog[i]=79
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&femas=i
+lvl[i]=1&soul[i]=500&work[i]=0&subwork[i]=100
+magik[i]=3&beliver[i]=0&master[i]=0&delusion[i]=0
+spec_face_pic[i]=5&face_pic[i]=144
+$name[i]='Мария'&$surname[i]='Санчес'&$nick[i]='Пухлая девушка латинос'&$title[i]=''&$history[i]='Я работаю на Тайлера, массажисткой'
+face[i]=100&gla[i]=0&glacol[i]=0&nose[i]=3&lips[i]=2
+dick[i]=0&dickd[i]=0&ball[i]=0&ass[i]=40&vag[i]=1&tits[i]=18&nip[i]=15
+rost[i]=160&fat[i]=2600&mus[i]=1000&skin[i]=2
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&hcol[i]=0
+age[i]=23&vital[i]=100&will[i]=50&reflex[i]=110
+pol[i]=1&gs'body'&total_generated_female+=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+bisex[i]=0&agro[i]=10&selfrespect[i]=0&positiv[i]=2&extrovert[i]=0&ratio[i]=1&brave[i]=1&lust[i]=40&!характер
+h_slot[i]=0
+t_slot[i]=20&l_slot[i]=76&b_slot[i]=2
+ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=0
+se_world[]=i&walkprog[i]=79
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

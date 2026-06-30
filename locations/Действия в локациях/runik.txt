@@ -1,0 +1,15 @@
+﻿gs'stat'&'Рунный алтарь'&gs'Item'&gs 'npconloc'&act'Отойти':gt 'preloc'
+if runik['<<$loc[you]>>']=1:
+	'Рунный портал не работает'&if item[29]>0:act'Вставить рунный камень':runik['<<$loc[you]>>']=2&item[29]-=1&burden[you]-=item_burden[29]&time+=5&cls&gt $curloc
+end
+if runik['<<$loc[you]>>']=2:
+	'В алтарь встроен рунный камень'
+	 act'Выдрать рунный камень':runik['<<$loc[you]>>']=1&item_loc['29,<<$loc[you]>>']+=1&time+=5&cls&gt $curloc
+	 if openportal['4,7,0']>=1 and magik[you]>0 and mana[you]>=10:act'Портал на остров 10 маны':mana[you]-=10&use_runik_portal+=1&X[you]=4&Y[you]=7&Z[you]=100&cls&gt 'preloc'
+	 if magik[you]=0:act'Приложить руку':magik[you]=1&cls&gs'stat'&num=you&gs'body'&mana[you]=manamax[you]&gt 'preloc'
+	 if item[29]>=1:act'Сжечь рунный камень и получить 200 души':soul[you]+=200&item[29]-=1&burden[you]-=item_burden[29]&time+=5&cls&gt $curloc
+	 if item[29]>=9 and magik[you]=4:act'Пожертвовать 9 рунных камней':magik[you]=5&item[29]-=9&burden[you]-=item_burden[29]*9&time+=5&cls&gt $curloc
+	 if item[29]>=6 and magik[you]=3:act'Пожертвовать 6 рунных камней':magik[you]=4&item[29]-=6&burden[you]-=item_burden[29]*6&time+=5&cls&gt $curloc
+	 if item[29]>=3 and magik[you]=2:act'Пожертвовать 3 рунных камня':magik[you]=3&item[29]-=3&burden[you]-=item_burden[29]*3&time+=5&cls&gt $curloc
+	 if item[29]>=1 and magik[you]=1:act'Пожертвовать рунный камень':magik[you]=2&item[29]-=1&burden[you]-=item_burden[29]&time+=5&cls&gt $curloc
+end

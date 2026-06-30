@@ -1,0 +1,33 @@
+﻿if sallivan_work=1:
+	 if ExpWorkSallivan>=50 and ExpWorkSallivan<150 and sallivansalary=150 and friends['<<npc>>,<<you>>']>=25:
+		act'Попросить повышения зарплаты':
+			cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумывается и кивает' 
+			 ' - Ну, ты работаешь нормально, так что не вижу проблемы. Давай буду платить по 1,8 шиллинга в час.'&sallivansalary=180&act'<b>Поблагодарить и уйти</b>':gt 'preloc'
+		end
+	 end
+	 if ExpWorkSallivan>=150 and ExpWorkSallivan<250 and sallivansalary=180 and friends['<<npc>>,<<you>>']>=45:
+		act'Попросить повышения зарплаты':
+			cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумывается и кивает' 
+			 ' - Согласен, ты работаешь достаточно хорошо, так что не вижу препятствий. Давай буду платить 2 шиллинга в час.'&sallivansalary=200&act'<b>Поблагодарить и уйти</b>':gt 'preloc'
+		end
+	 end
+	 if ExpWorkSallivan>=250 and sallivansalary=200 and friends['<<npc>>,<<you>>']>=75 and face[you]>60:
+		act'Попросить повышения зарплаты':
+			cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумывается и кивает' 
+			 ' - Только потому что ты со мной уже достаточно долго раюотаешь. Давай буду платить по 2,5 шиллинга в час. '
+			'Но это в последний раз, уж прости. И тебе придется иногда меня обслуживать персонально, понимаешь о чем я? Пойдут тебе такие услови?'			 
+			 act'<b>Согласиться</b>':sallivansalary=250&sallivansex=1&gt 'preloc'
+			 act'<b>Отказаться</b>':gt 'preloc'
+		end
+	 end
+else
+	act'Спросить о работе в баре':
+		cls&'<center><img src="<<$d_view>>" ></center>'
+		'<<$name[npc]>> - Да, а почему бы и нет? Мне нужна помощница: столы помыть, клиентов обслужить, за стойкой иногда постоять. Готов платить по 1,5 Шиллинга в час. Устраивает?'
+		act'Согласиться на работу в баре':
+			sallivan_work=1&ExpWorkSallivan=1&sallivansalary=150&cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> кивает вам.' 
+			 ' - Тогда можешь начинать в любое время с 9 до 21 часа включительно. и да - чаевые, если будут, можешь оставлять себе.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+		act'<b>Уйти</b>':gt 'preloc'
+	end
+end

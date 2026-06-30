@@ -1,0 +1,25 @@
+﻿gs'stat'&'<center><img src="pic/loc/ras/orange.jpg" ></center>'
+if last_orange['<<$loc[you]>>']=0 and day_orange['<<$loc[you]>>']!daystart:last_orange['<<$loc[you]>>']=rand(0,1)&day_orange['<<$loc[you]>>']=daystart
+if last_orange['<<$loc[you]>>']>0:
+	'На дереве растут апельсины'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		 act'Трясти':
+			 time+=5&cls&gs'walker'&gs'stat'
+		     last_orange['<<$loc[you]>>']=0&item_loc['23,<<$loc[you]>>']+=1&day_orange['<<$loc[you]>>']=daystart
+		     time+=5&energy[you]-=50&sportiv[you]+=1&mus[you]+=1
+			 if fat[you]>10:fat[you]-=1
+			 if fat[you]>100:fat[you]-=1
+			 if fat[you]>500:fat[you]-=2
+			 if fat[you]>1000:fat[you]-=2
+			 if fat[you]>1500:fat[you]-=3
+			 if fat[you]>2000:fat[you]-=3
+			 if fat[you]>2500:fat[you]-=4
+			 if fat[you]>3000:fat[you]-=4
+			gt $curloc
+		 end
+	 end
+else
+	'На дереве не видно созревших апельсинов'
+end
+gs'Item'&*nl ''&gs 'npconloc'
+act'Отойти':gt 'world'

@@ -1,0 +1,52 @@
+﻿if Z[you]=750 or Z[you]=740:
+	!$d_view='pic/face/<<hcol[npc]>>/<<picture[npc]>>.jpg'&'<center><img src="<<$d_view>>" ></center>'
+	!if hcol[npc]=0:'Черные волосы'
+	!if hcol[npc]=1:'Русые волосы'
+	!if hcol[npc]=2:'Рыжие волосы'
+	!if hcol[npc]=3:'Светлые волосы'
+	if mob_sleep[npc]>time:
+		'<<$nick[npc]>> задумалась'
+	else
+		if you_slut[npc]>0:
+			'<<$nick[npc]>> презрительно смотрит на вас'&if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=50&gt 'preloc'
+			dynamic $d_fear
+		else
+			if corr[npc]<100:
+				if h_slot[you]=24:
+					'<<$nick[npc]>> уважительно кланеется - Ваше величество!'&act'<b>Уйти</b>':horny[npc]-=50&gt 'preloc'
+					if princess=you and nalog[npc]<princessdaystart:act'Собрать налоги':nalog[npc]=daystart+1&gulden[you]+=3000&horny[npc]-=30&gt 'preloc'
+				else
+					'<<$nick[npc]>> смотрит на вас - Здравствуйте!'&act'<b>Уйти</b>':horny[npc]-=50&gt 'preloc'
+					 act'Слухи':
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						 text=rand(0,8)
+						 if text=0 and princess!you:'<<$nick[npc]>> - Поговаривают принцесса пропала.'
+						 if text=0 and princess=you:'<<$nick[npc]>> - У нас отличное маленькое королевство.'
+						 if text=1 and princess!you:'<<$nick[npc]>> - Поговаривают любой кто оденет диадему принцессы станет принцессой.'
+						 if text=1 and princess=you:'<<$nick[npc]>> - Поговаривают диадема принцессы магическая.'
+						 if text=2 and princess!you:'<<$nick[npc]>> - Поговаривают Хмуры напустили чудовищ на окрестные земли.'
+						 if text=2 and princess=you:'<<$nick[npc]>> - У нас красивый город на берегу моря.'
+						 if text=3:'<<$nick[npc]>> - В порту несколько раз видели чудовищ выбирающихся из моря.'
+						 if text=4:'<<$nick[npc]>> - Стражники сильные и тренированные, они никого не пускают в дворец.'
+						 if text=5:'<<$nick[npc]>> - В лесу живут эльфы и у них нет домов, они предпочитают жить под открытым небом.'
+						 if text=6:'<<$nick[npc]>> - Колючки в лесу можно вырубать только топором.'
+						 if text=7:'<<$nick[npc]>> - Говорят рунными камнями можно открыть какой то портал.'
+						 if text=8 and princess!you:'<<$nick[npc]>> - Хмуры хотят захватить королевство, они привели с собой гоблинов.'
+						 if text=8 and princess=you:'<<$nick[npc]>> - За городом раскинулся эльфийский лес.'
+						 act'<b>Уйти</b>':gt 'preloc'
+					 end
+				end
+				if friends[npc]>0 and corr[npc]<100:gs'take_follower'
+				if friends[npc]>0 and horny[you]>=50:act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&gt'justasex'
+			else
+				'<<$nick[npc]>> краснеет'&dynamic $d_fear
+			end
+		end
+	end
+elseif Z[you]=100:
+
+elseif Z[you]=200:
+
+else
+
+end 

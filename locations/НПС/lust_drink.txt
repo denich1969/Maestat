@@ -1,0 +1,38 @@
+﻿ alko[you]+=rand(3,9)&horny[you]+=10
+cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Покупает по бутылке холодного пива и вы отходите в сторонку выпивая пиво и болтая, парень клеится к вам и обнимает вас'
+act'Еще выпить':
+	 alko[you]+=rand(3,9)&horny[you]+=40
+	 cls&gs'stat'&'<center><video src="pic/misc/grab<<rand(0,4)>>.webm" ></video></center>'&'Вы распиваете еще пива и становитесь все пьянее, парень откровенно пристает к вам и мацает вас'
+	act'Еще выпить':
+		 alko[you]+=rand(3,9)&horny[you]+=50&cls&gs'stat'&'<center><video src="pic/misc/grab<<rand(5,6)>>.webm" ></video></center>'
+		 'Вы напились уже довольно сильно и вас мотает, руки парня уже не стесняясь шарят по вашему телу и залезают вам в трусы'
+		act'Пошли к тебе':
+			 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+			if Z[you]=3:
+				 gt'go_to_npc_home_gm'
+			else
+				 gt'go_to_npc_home'
+			end
+		end
+		gs'block_quick'
+	end
+	if alko[you]<20:act'<b>Уйти</b>':dont_give[npc]+=1&gt 'preloc'
+	act'Пошли к тебе':
+		 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+		if Z[you]=3:
+			 gt'go_to_npc_home_gm'
+		else
+			 gt'go_to_npc_home'
+		end
+	end
+end
+if alko[you]<20:act'<b>Уйти</b>':dont_give[npc]+=1&gt 'preloc'
+act'Пошли к тебе':
+	 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+	if Z[you]=3:
+		 gt'go_to_npc_home_gm'
+	else
+		 gt'go_to_npc_home'
+	end
+end
+gs'block_quick'

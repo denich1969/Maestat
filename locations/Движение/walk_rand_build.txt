@@ -1,0 +1,35 @@
+﻿randtipe=rand(0,2)
+if cum_face[w]>0:randtipe=3
+if randtipe=1:
+        if R[w]>0:
+			R[w]=0
+            if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+			 $walklog+='<br>'
+			 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> выходит из комнаты'
+			 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> выходит из комнаты'
+			 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> выходит из комнаты'
+		 end
+    end
+end
+if randtipe=2:
+    if R[w]=0:
+        if maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']>0:
+			 maxpos=maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']
+			 randgo_r=rand(1,maxpos)
+			 R[w]=randgo_r
+			 $text_go=$lname_go['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']
+             if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $walklog+='<br>'
+				 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+				 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+				 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+		     end
+         end
+     end
+end
+if randtipe=3:
+	cum_face[w]=0
+	 $walklog+='<br>'
+	 if know['<<w>>,<<you>>']=0:$walklog+='<<$nick[w]>> вытирает сперму'
+	 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> вытирает сперму'
+end

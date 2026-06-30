@@ -1,0 +1,173 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Полки с продуктами'
+gs'Item'&*nl''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if supermarket['<<$loc[you]>>']=1:
+	if rubl[you]>=100000:
+		 act'Купить продукты 1000р':
+			 rubl[you]-=100000&item[98]+=1&burden[you]+=item_burden[98]&cls&gs'stat'&'Вы заплатили деньги и купили продукты'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if rubl[you]>=10000:
+		act'Купить пиво 100р':
+			 rubl[you]-=10000&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить бургер 100р':
+			 rubl[you]-=10000&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'Вы заплатили деньги и купили бургер'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить пиццу 100р':
+			 rubl[you]-=10000&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'Вы заплатили деньги и купили пиццу'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить колу 100р':
+			 rubl[you]-=10000&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'Вы заплатили деньги и купили колу'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить апельсин 100р':
+			 rubl[you]-=10000&item[23]+=1&burden[you]+=item_burden[23]&cls&gs'stat'&'Вы заплатили деньги и купили апельсин'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить банан 100р':
+			 rubl[you]-=10000&item[22]+=1&burden[you]+=item_burden[22]&cls&gs'stat'&'Вы заплатили деньги и купили банан'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить полотенце 100р':
+			 rubl[you]-=10000&item[20]+=1&burden[you]+=item_burden[20]&cls&gs'stat'&'Вы заплатили деньги и купили полотенце'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить мыло 100р':
+			 rubl[you]-=10000&item[17]+=1&burden[you]+=item_burden[17]&cls&gs'stat'&'Вы заплатили деньги и купили мыло'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить бритвенный станок 1500р':
+			 rubl[you]-=150000&item[15]+=1&burden[you]+=item_burden[15]&cls&gs'stat'&'Вы заплатили деньги и купили бритвенный станок'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить лезвие для бритвы 150р':
+			rubl[you]-=15000&item[16]+=1&burden[you]+=item_burden[16]&cls&gs'stat'&'Вы заплатили деньги и купили лезвие для бритвы'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	  if rubl[you]>=5000:
+		act'Съесть мороженое 50р':
+			 rubl[you]-=5000&fat[you]+=50&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и съели вкусную мороженку'&if vag[you]>0 and ass[you]<42:ass[you]+=1
+			act'<b>Уйти</b>':gt $curloc
+		end
+	 end
+end
+if supermarket['<<$loc[you]>>']=2:
+     act'<b>Смотреть карту</b>':gt 'mapwatch'
+     if map=0:
+		'Карту города можно купить за 10 шиллингов'
+		 if money[you]>=1000:
+			 act'Купить карту':
+				 money[you]-=1000&map=1&cls&gs'stat'&'Вы заплатили деньги и купили карту'&act'<b>Уйти</b>':gt $curloc
+			 end
+		end
+     end
+	if money[you]>=25000:
+		 act'Купить стационарный телефон 250 шиллингов':
+			 money[you]-=25000&item[143]+=1&burden[you]+=item_burden[143]
+			cls&gs'stat'&'Вы заплатили деньги и стационарный телефон, который можно установить в любом месте. Правда после установки его уже нельзя будет забрать.'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=1000:
+		 act'Купить продукты 10 шиллингов':
+			 money[you]-=1000&item[98]+=1&burden[you]+=item_burden[98]&cls&gs'stat'&'Вы заплатили деньги и купили продукты'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=100:
+		 act'Купить пиво 1ш':
+			 money[you]-=100&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=1000:
+		 act'Купить макияж 10ш':
+			 money[you]-=1000&kit+=20&cls&gs'stat'&'Вы заплатили деньги и купили макияж'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	if money[you]>=50:
+		 act'Купить бургер 50п':
+			 money[you]-=50&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'Вы заплатили деньги и купили бургер'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить пиццу 50п':
+			 money[you]-=50&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'Вы заплатили деньги и купили пиццу'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить колу 50п':
+			 money[you]-=50&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'Вы заплатили деньги и купили колу'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить апельсин 50п':
+			 money[you]-=50&item[23]+=1&burden[you]+=item_burden[23]&cls&gs'stat'&'Вы заплатили деньги и купили апельсин'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить банан 50п':
+			 money[you]-=50&item[22]+=1&burden[you]+=item_burden[22]&cls&gs'stat'&'Вы заплатили деньги и купили банан'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить полотенце 50п':
+			 money[you]-=50&item[20]+=1&burden[you]+=item_burden[20]&cls&gs'stat'&'Вы заплатили деньги и купили полотенце'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить мыло 50п':
+			 money[you]-=50&item[17]+=1&burden[you]+=item_burden[17]&cls&gs'stat'&'Вы заплатили деньги и купили мыло'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить бритвенный станок 50п':
+			 money[you]-=50&item[15]+=1&burden[you]+=item_burden[15]&cls&gs'stat'&'Вы заплатили деньги и купили бритвенный станок'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить лезвие для бритвы 50п':
+			 money[you]-=50&item[16]+=1&burden[you]+=item_burden[16]&cls&gs'stat'&'Вы заплатили деньги и купили лезвие для бритвы'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	 if money[you]>=300:
+		act'Съесть мороженое 3ш':
+			 money[you]-=300&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и съели вкусную мороженку'&fat[you]+=50&if vag[you]>0 and ass[you]<42:ass[you]+=1
+			act'<b>Уйти</b>':gt $curloc
+		end
+	 end
+end
+if supermarket['<<$loc[you]>>']=3:
+	if gulden[you]>=25000:
+		 act'Купить стационарный телефон 250г':
+			 gulden[you]-=25000&item[143]+=1&burden[you]+=item_burden[143]&
+			 cls&gs'stat'&'Вы заплатили деньги и стационарный телефон, который можно установить в любом месте. Правда после установки его уже нельзя будет забрать.'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if gulden[you]>=1000:
+		 act'Купить продукты 10г':
+			 gulden[you]-=1000&item[98]+=1&burden[you]+=item_burden[98]&cls&gs'stat'&'Вы заплатили деньги и купили продукты'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if gulden[you]>=100:
+		 act'Купить пиво 1г':
+			 gulden[you]-=100&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if gulden[you]>=1000:
+		 act'Купить макияж 10г':
+			 gulden[you]-=1000&kit+=20&cls&gs'stat'&'Вы заплатили деньги и купили макияж'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	if gulden[you]>=50:
+		 act'Купить бургер 50ц':
+			gulden[you]-=50&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'Вы заплатили деньги и купили бургер'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить пиццу 50ц':
+			 gulden[you]-=50&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'Вы заплатили деньги и купили пиццу'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить колу 50ц':
+			 gulden[you]-=50&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'Вы заплатили деньги и купили колу'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить апельсин 50ц':
+			 gulden[you]-=50&item[23]+=1&burden[you]+=item_burden[23]&cls&gs'stat'&'Вы заплатили деньги и купили апельсин'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить банан 50ц':
+			gulden[you]-=50&item[22]+=1&burden[you]+=item_burden[22]&cls&gs'stat'&'Вы заплатили деньги и купили банан'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить полотенце 50ц':
+			 gulden[you]-=50&item[20]+=1&burden[you]+=item_burden[20]&cls&gs'stat'&'Вы заплатили деньги и купили полотенце'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить мыло 50ц':
+			 gulden[you]-=50&item[17]+=1&burden[you]+=item_burden[17]&cls&gs'stat'&'Вы заплатили деньги и купили мыло'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить бритвенный станок 50ц':
+			 gulden[you]-=50&item[15]+=1&burden[you]+=item_burden[15]&cls&gs'stat'&'Вы заплатили деньги и купили бритвенный станок'&act'<b>Уйти</b>':gt $curloc
+		 end
+		 act'Купить лезвие для бритвы 50ц':
+			 gulden[you]-=50&item[16]+=1&burden[you]+=item_burden[16]&cls&gs'stat'&'Вы заплатили деньги и купили лезвие для бритвы'&act'<b>Уйти</b>':gt $curloc
+		 end
+	 end
+	 if gulden[you]>=30000:
+		act'Съесть мороженое 300г':
+			 gulden[you]-=30000&fat[you]+=50& cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и съели вкусную мороженку'&if vag[you]>0 and ass[you]<42:ass[you]+=1
+			act'<b>Уйти</b>':gt $curloc
+		end
+	 end
+end

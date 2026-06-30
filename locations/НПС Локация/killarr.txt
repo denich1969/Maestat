@@ -1,0 +1,18 @@
+﻿! Удаление из числового массива $args[0] ненулевого значения со строковым индексом $args[1]
+if $args[1]='': exit
+dynamic replace({	
+	set args = 0
+	:find_next
+	args = arrpos(args, '%array%', %array%[$args])
+	if args ! -1 and args < arrsize('%array%'):
+		set %array%[args] += 1
+		if %array%[args] = %array%[$args]: jump 'found'
+		set %array%[args] -= 1
+		set args += 1
+		jump 'find_next'
+	end
+	! Ничего не найдено
+	exit
+	:found
+	killvar '%array%', args	
+}, '%array%', $args[0]), $args[1]

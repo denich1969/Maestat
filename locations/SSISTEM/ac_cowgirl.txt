@@ -1,0 +1,11 @@
+﻿temp_vag+=1&sexpower[you]-=1&$func('get_images', 'vag_fuck_cow', npc, you)&'<<$name[npc]>> садится на ваш член.'
+if vag[npc]=1:
+	horny[npc]=0&'<<$name[npc]>> стонет, вы чувствуете что рвете ей девственную плеву и ваш член обагряет кровь'
+else
+	horny[npc]+=lust[npc]/10
+	if agro[npc]<=20:'<<$name[npc]>> вяло елозит на вас постоянно сбиваясь с ритма'
+	if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> ритмично двигается на вашем члене'
+	if agro[npc]>=50:'<<$name[npc]>> скачет на вашем хую как на лошади'
+end
+gs'fuck_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&if args[10]>0:agro[npc]+=1
+act'...':gt 'activ_sex'

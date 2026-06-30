@@ -1,0 +1,133 @@
+﻿!npcmax=arrsize('$name')
+if Z[w]=0:snpcmax=arrsize('homeworld')
+if Z[w]=10:snpcmax=arrsize('root_world')
+if Z[w]=100:snpcmax=arrsize('paradiseworld')
+if Z[you]>=200 and Z[you]<300:snpcmax=arrsize('real_world')
+if Z[you]>=700 and Z[you]<800:snpcmax=arrsize('obsession_world')
+if Z[you]=772:snpcmax=arrsize('l_obsession_world')
+if Z[you]=773:snpcmax=arrsize('t_obsession_world')
+if Z[you]=730:snpcmax=arrsize('m_obsession_world')
+if Z[w]=7777:snpcmax=arrsize('Moonworld')
+if Z[w]=404:snpcmax=arrsize('romaworld')
+if Z[w]=440:snpcmax=arrsize('mistworld')
+if Z[w]=1:snpcmax=arrsize('n_world')
+if Z[w]=2:snpcmax=arrsize('ne_world')
+if Z[w]=3:snpcmax=arrsize('e_world')
+if Z[w]=4:snpcmax=arrsize('se_world')
+if Z[w]=5:snpcmax=arrsize('s_world')
+sar=0
+:markradar
+if Z[w]=0:s=homeworld[sar]
+if Z[w]=10:s=root_world[sar]
+if Z[w]=100:s=paradiseworld[sar]
+if Z[you]>=200 and Z[you]<300:s=real_world[sar]
+if Z[you]>=700 and Z[you]<800:s=obsession_world[sar]
+if Z[you]=772:s=l_obsession_world[sar]
+if Z[you]=773:s=t_obsession_world[sar]
+if Z[you]=730:s=m_obsession_world[sar]
+if Z[w]=7777:s=Moonworld[sar]
+if Z[w]=404:s=romaworld[sar]
+if Z[w]=440:s=mistworld[sar]
+if Z[w]=1:s=n_world[sar]
+if Z[w]=2:s=ne_world[sar]
+if Z[w]=3:s=e_world[sar]
+if Z[w]=4:s=se_world[sar]
+if Z[w]=5:s=s_world[sar]
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+first_can=0
+if w=grief and sexpartner['<<grief>>,<<elderdot>>']=0 and X[w]=X[elderdot] and Y[w]=Y[elderdot] and Z[w]=Z[elderdot] and H[w]=H[elderdot] and R[w]=R[elderdot] and elderdot_timer!time:
+	elderdot_timer=time&s=elderdot
+end
+!убрал условие and sexperaday[w]!daystart перед условием and w!s
+if w!you and s!you and dead[s]=0 and cantwalk[s]=0 and follower[s]=0 and $name[s]!'' and mob_busy[s]=0 and mob_busy[w]=0 and my_puppil[w]=0 and my_puppil[s]=0 and w!s and age[w]>0 and age[s]>0:first_can=1
+if (pol[w]=0 and sexperaday[w]=daystart and sextoday[w]>lust[w]/20) or (horny[w]/10<rand(3,7)):first_can=0&!новый расчет - если мужик затрахался или недостаточно возбужден
+if first_can=1:
+	if X[w]=X[s] and Y[w]=Y[s] and Z[w]=Z[s] and H[w]=H[s] and R[w]=R[s] and sexcentr['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and hardfucked_timer[s]<time and age[w]>0 and age[s]>0:
+		if mob[w]>0:
+			if mob[s]>0:
+				!мобы не нападают на мобов
+			else
+				num=s&gs'body'
+				if statist[s]=1:
+					if pol[s]=0:
+						gs'mob_vs_man'&!увидел мужика
+					else
+						gs'mob_vs_woman'&!увидел тетку
+					end
+				else
+					!мобы не атакуют важных нпс
+					if moon_curse[s]>=1:
+						if pol[s]=0:
+							gs'mob_vs_man'&!увидел мужика
+						else
+							gs'mob_vs_woman'&!увидел тетку
+						end
+					 end
+				 end
+			end
+		else
+			 num=w&gs'body'
+			 num=s&gs'body'
+			 gs'predicktor'&!предустановки
+			if tiler=w:
+				if pol[s]>0 and massageday[s]!daystart and s!femas:gs'massage_walk'
+			elseif femas=w:
+				 if pol[s]=0 and massageday[s]!daystart and s!tiler:gs'massage_hj'
+			elseif grief=w:
+				sexcanbe=0
+				if misstress[s]=0 and pol[s]>0 and sexperaday[s]!daystart:
+					if elderdot=s:sexcanbe=1
+					if youngdot=s and sexpartner['<<grief>>,<<elderdot>>']>0:sexcanbe=1
+					if selfrespect[s]=0:sexcanbe=1
+					if mrspiggy=s:sexcanbe=1
+					if positiv[s]=2:sexcanbe=1
+					if extrovert[s]=2:sexcanbe=1
+					if ratio[s]=0:sexcanbe=1
+					if brave[s]=0:sexcanbe=1
+					if sexcanbe=1:friends['<<w>>,<<s>>']+=100&friends['<<s>>,<<w>>']+=100&lust[s]+=5&horny[w]=100&horny[s]=100&gs'location_sex'
+				end
+				if pol[s]=0:gs'man_vs_man'
+			else
+				if dick[w]>1:
+					!членоносец осматривается
+					if mob[s]=0:
+						if pol[s]=0:
+							gs'man_vs_man'&!увидел мужика
+						else
+							gs'man_vs_woman'&!увидел тетку
+						end
+					end
+				else
+					!тетка осматривается
+					if pol[s]=0:
+						gs'woman_vs_man'&!увидел мужика
+						else
+						gs'woman_vs_woman'&!увидел тетку
+					end
+				end
+			end
+		end
+	end
+end
+if w!you and s!you and dead[s]=0 and cantwalk[s]=0 and follower[s]=0 and $name[s]!'' and mob_busy[s]=0 and mob_busy[w]=0 and my_puppil[w]=0 and my_puppil[s]=0 and w!s and age[w]>0 and age[s]>0:
+     if X[w]=X[s] and Y[w]=Y[s] and Z[w]=Z[s] and H[w]=H[s] and R[w]=R[s] and sexcentr['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=100500:
+	     if dick[w]>1 and mob[w]=0 and dont_fuck!1 and vag[s]>0 and action_tipe[w]=0 and action_tipe[s]=0 and sextimer[w]<time:gs'locationhard_sex'
+     end
+end
+if w!you and s!you and dead[s]=0 and cantwalk[s]=0 and follower[s]=0 and $name[s]!'' and mob_busy[s]>0 and mob_busy[w]=0 and my_puppil[w]=0 and my_puppil[s]=0 and w!s and age[w]>0 and age[s]>0:
+	 if X[w]=X[s] and Y[w]=Y[s] and Z[w]=Z[s] and H[w]=H[s] and R[w]=R[s]:
+         if mob[w]=3 and action_tipe[s]>=667 and action_tipe[s]<670 and aktive_tipe[s]=0 and action_tipe[w]=0:gs'raper'&action_tipe[s]+=1&!насилуют на локации
+         if mob[w]=3 and action_tipe[s]=666 and aktive_tipe[s]=0:gang[s]+=1&gs'raper'&action_tipe[s]=667&!насилуют на локации
+         if dick[w]>0 and action_tipe[s]>=701 and action_tipe[s]<770 and aktive_tipe[s]=0 and action_tipe[w]=0 and sextimer[w]<time:action_tipe[s]+=1&gs'locationhard_sex'&!насилуют на локации
+         if dick[w]>0 and action_tipe[s]=700 and aktive_tipe[s]=0 and action_tipe[w]=0 and sextimer[w]<time:gang[s]+=1&action_tipe[s]=701&gs'locationhard_sex'&!насилуют на локации
+     end
+end
+sar+=1&tormoza+=1&tormoza_radar+=1&if sar<=snpcmax:jump'markradar'
+!mob_busy[i] что то делает, присвоено время (таймер)
+!action_tipe[i]=1 секкс
+!action_tipe[i]=2 трогает
+!action_tipe[i]=3 сосет под столом
+!action_tipe[i]=4 активный говорильщик
+!action_tipe[i]=5 пассивный говорильщик
+!action_tipe[i]=6 провокатор драки
+!action_tipe[i]=7 жертва драки

@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&traktirman=i
+lvl[i]=1&soul[i]=100&hunter[i]=0
+master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=160&!face_npc[i]=1&face_pic[i]=8&!фотки
+gs'male_gen'&$name[i]='Карган'&$surname[i]='Велиган'&$doing[i]='стоит за стойкой'
+face[i]=10&gla[i]=0&glacol[i]=1&nose[i]=0&lips[i]=0&cheeks[i]=0
+dick[i]=18&dickd[i]=40&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=185&fat[i]=1000&mus[i]=2000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=1&beard[i]=0
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=45&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=0&pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=40&selrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=50
+h_slot[i]=3&m_slot[i]=7&w_slot[i]=4&!шмот
+c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=9&l_slot[i]=8&b_slot[i]=9
+ut_slot[i]=0&ul_slot[i]=3&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2&!$loc[i]='fv_tavern'
+se_lighthouse[]=i&!npcii[i]=1

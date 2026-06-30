@@ -1,0 +1,5 @@
+﻿clo=ARGS[0]
+item[clo]+=1
+burden[you]+=item_burden[clo]
+l_ring[you]=0
+gt'preloc'

@@ -1,0 +1,63 @@
+﻿
+$walklog=''
+w=1
+npcmax=arrsize('$name')
+:markfight
+cantwalk[w]=0
+if master[you]=0 and Z[w]=7777:cantwalk[w]=1
+if w!you and dead[w]=0 and cantwalk[w]=0 and Z[w]=Z[you]:
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!конец условия
+     freez=0
+     if w=recepboy:freez=1
+     if freez=0:
+		 if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]>0:
+			 if mob_busy[w]=1:
+			 mob_sleep[w]=time+60
+			 end
+			 mob_busy[w]=0
+		 end
+		 if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0:
+		 naprav=0
+		 wantgofight=0
+		 if agro[w]=0 and corr[w]>=100 and horny[w]>=50:
+		 wantgofight=rand(0,1)
+		 end
+		 if agro[w]=1:
+		     if corr[w]>=100:
+		     wantgofight=1
+		     else
+             wantgofight=rand(0,1)
+             end
+         end
+		 if agro[w]=2:wantgofight=1
+		 if corr[w]>=500:wantgofight=1
+		     if wantgofight=1:
+				 if X[w]+1=X[you]:naprav=1
+				 if X[w]-1=X[you]:naprav=2
+				 if Y[w]+1=Y[you]:naprav=3
+				 if Y[w]-1=Y[you]:naprav=4
+				 if naprav=1 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']=0:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на восток'
+					X[w]+=1
+				 end
+				 if naprav=2 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']=0:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на запад'
+					X[w]-=1
+				 end
+				 if naprav=3 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']=0:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на север'
+					Y[w]+=1
+				 end
+				 if naprav=4 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']=0:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на юг'
+					Y[w]-=1
+				 end
+			 end
+		 end
+     end
+end
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!конец цикла
+w+=1
+if w<=npcmax:jump'markfight'
+
+

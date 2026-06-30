@@ -1,0 +1,21 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&sherif=i
+lvl[i]=1&soul[i]=500
+master[i]=0&delusion[i]=0&magik[i]=3&beliver[i]=2&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=16
+$title[i]=''&$history[i]='Я шериф в порту. Шериф это выборная должность, а в порту очень много Инсмутцев, а наше семейство тесно связано с богом моря Дагоном. Улавливаешь мысль? Не переходи нам дорогу.'
+$name[i]='Ларкин'&$surname[i]='Марш'&$nick[i]='Шериф'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=20&dickd[i]=42&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=192&fat[i]=800&mus[i]=800&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=1&beard[i]=20
+age[i]=35&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=100&!характер
+	 girl[i]+=100&avagsex[i]+=100
+	 aanal[i]+=100&abj[i]+=100
+h_slot[i]=4&w_slot[i]=112&!l_hand_t[i]=2&r_hand_t[i]=1
+t_slot[i]=49&l_slot[i]=52&b_slot[i]=23
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+n_world[]=i&walkprog[i]=12&fight_prog[i]=12
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

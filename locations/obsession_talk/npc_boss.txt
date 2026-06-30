@@ -1,0 +1,6 @@
+﻿$d_view='pic/mob/126.jpg'&'<center><img src="<<$d_view>>" ></center>'
+if mob_sleep[npc]>time:
+	'<<$nick[npc]>> находится в трансе'
+else
+	'<<$nick[npc]>> - хлещет кнутом по земле и рыча идет к вам'
+end

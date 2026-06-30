@@ -1,0 +1,66 @@
+﻿if demon_dick[mother[npc]]>0:demon_dick_queen[npc]=mother[npc]
+if demon_dick[npc]>0:
+	if demon_dick[you]>0:
+		if demon_dick_queen[npc]=you:
+			if pol[npc]=0:'<b>В его глазах почтение и желание...</b>'&!вы его королева
+			if pol[npc]>0:'<b>В ее глазах почтение и желание...</b>'
+		else
+			if demon_dick_queen[you]=npc:
+				if soul[you]>=soul[npc]*3:
+					'<b>Вы чувтвуете что клеймо на душе больше не оказывает сильного давления на ум и он остаеться вполне ясным</b>'
+					act'Снять с себя контроль':
+						cla&soul[you]-=soul[npc]&soul_loc['<<X[npc]>>,<<Y[npc]>>,<<Z[npc]>>,<<H[npc]>>,<<R[npc]>>']+=soul[npc]&demon_dick_queen[you]=0&!TODO - пока заготовка
+						"Наконец вы обрели свободу"&gs'stat'&act'Готово!':gt'npc'
+					end
+				else
+					if pol[npc]=0:'<b>Вы чувтвуете неприодалимое вличение и подсознательное желание угодить этому существу</b>'&!она ваша королева
+					if pol[npc]>0:'<b>Вы чувтвуете неприодалимое вличение и подсознательное желание угодить этому существу</b>'
+				end	
+			else
+				if pol[npc]=0:'<b>Вы чувтвуете от него схожую с вашей силу</b>'&!просто 2 суккуба
+				if pol[npc]>0:'<b>Вы чувтвуете от неё схожую с вашей силу</b>'
+			end
+		end
+	else	
+		if sexpartner['<<npc>>,<<you>>']>0:
+			if demon_dick_sub[you]>=25:"Вы чувтвуете неприодолимое желание еще раз попробовать его сперму"
+			if demon_dick_sub[you]>=5 and demon_dick_sub[you]<15:"Странно, почему у него такая вкусная сперма"
+			if demon_dick_sub[you]>=15 and demon_dick_sub[you]<25:"У него определенно со спермой что-то не так, раз вам всегда мало... а пофиг! Приятно ведь!"	
+			if demon_dick_queen[you]=0 and demon_dick_sub[you]>25:
+				if soul[npc]-soul[you]*2>=soul[you]*3+1000:
+					"Вы чувтвуете как чужой разум силовй врываеться в ваш"&soul[npc]-=soul[you]*2&soul[you]+=soul[you]*2&demon_dick_queen[you]=npc
+					cla&"Ну чтоже, ты получила, то что я обещал, а теперь на колени!"&gs'stat'&act'Сесть':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+				end	
+			end
+		end
+	end
+else	
+	if demon_dick[you]>0:
+		if sexpartner['<<you>>,<<npc>>']>0:
+			if demon_dick_sub[npc]>0 and demon_dick_queen[npc]=0:
+				if demon_dick_sub[npc]>=25:"Вы чувтвуете, что она готова к обращению"
+				if demon_dick_sub[npc]>=5 and demon_dick_sub[npc]<15:"Ваши флюиды заметно коснулись ее, но их еще маловато"
+				if demon_dick_sub[npc]>=15 and demon_dick_sub[npc]<25:"Ваши флюиды почти развратили ее, и скоро она будет готова"
+			end	
+			if demon_dick_queen[npc]=0 and demon_dick_sub[npc]>25:
+				if soul[you]-soul[npc]*2>=soul[npc]*3+1000:
+					act'Сломать разум':
+						soul[you]-=soul[npc]*2&soul[npc]+=soul[npc]*2&demon_dick_queen[npc]=you&cla&"Вы вливаете в нее свою душу, отмечая свою метку на ее душе"&gs'stat'&act'Готово!':gt'npc'
+					end
+				else
+					"Вашей силы души не хватит для подчинения и контроля"
+				end	
+			end
+		end	
+	end
+end
+if demon_dick_queen[npc]=you and whore[npc]=0:
+	act"Мне нужны души!":
+		cla&"<<$name[npc]>> говорит, что ради вас станет проституткой и постарается"&whore[npc]=you&gs'stat'&act'Как наберешь достаточно, мой хуй к твоим услугам!':gt'npc'
+	end
+end
+if demon_dick_queen[npc]=you and whore[npc]=you:
+	act"Я не хочу, чтобы ты работала проституткой!":
+		cla&"<<$name[npc]>> согласилась, но души собирать будет сложнее"&whore[npc]=0&gs'stat'&act'Отлично':gt'npc'
+	end
+end

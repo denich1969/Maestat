@@ -1,0 +1,43 @@
+﻿gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'&!you_see_bj[sss]+=1&you_see_fucker[ddd]+=1
+'<<$name[sss]>> <<$surname[sss]>> влажно чавкая сосет член, а <<$name[ddd]>> <<$surname[ddd]>> блаженствует разглядывая лицо девушки.'&act'Уйти':gt'preloc'
+cangopre=1
+if sss=sister and ddd=borisbogart:
+     if you=brother:
+		 act'Подглядывать':
+			 cls&gs'stat'&'<center><video src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'
+			 'Богарт внезапно вынул хуй изо рта вашей сестры и стал ссать ей в рот, а та набирала полный рот мочи и проглатывала.'
+			 act'Подглядывать':
+				 action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0
+				 cls&gs'stat'&'<center><video src="pic/sex/degraded/cum_toilet.webm" ></video></center>'&'Богарт сует вашу сестру лицом в унитаз и кончает ей на лицо, а затем окунает в унитаз и смывает воду.'
+				 act'Уйти':gt'preloc'
+			 end
+		 end
+         if sluttySisQW=0:sluttySisQW=1
+         'Моей сестре наваливают в рот прямо в общественном сортире, ну она и шалава'
+         if item[26]>0:
+			'Так, у меня есть смартфон, можно сфоткать эту шалаву'
+             act'Сфоткать':
+				 if sluttySisQW=1:sluttySisQW=2
+				 cls&gs'stat'&'<center><img src="pic/sex/pornpic/toilet_foto0.jpg" ></center>'&'Вы сфоткали свою сестру с хуем Богарта во рту'&act'Уйти':gt'preloc'
+             end
+         else
+			'Хмм, будь у меня смартфон я бы сфоткал эту сучку с хуем во рту, тогда бы не отвертелась'
+         end
+     end
+     if you=mother:'Боже, моя дочка сосет в общественном сортире'
+     if you=father:
+		 cangopre=0
+		 if uberSolderQW[you]<3:uberSolderQW[you]=3
+		 'Богарт наваливает на ротан моей дочери!'
+         if cuntmanQW=0:
+			 act'Ах ты старый козел!':
+				 action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0
+				 npc=borisbogart&in_fight=1&cls&gs'stat'&'<center><img src="pic/face/5/46.jpg" ></center>'&'Вы ворвались вихрем в туалет и заорали на Богарта'&act'Драться':cant_fight_run=1&gs'progcurse'&gt 'prefight'
+			 end
+		 else
+		     if vag[you]>0:horny[you]+=50&'У вас запорхали бабочки внизу живота'
+             act'Уйти':gt'preloc'
+		 end
+     end
+end
+if cangopre=1:act'Уйти':gt'preloc'

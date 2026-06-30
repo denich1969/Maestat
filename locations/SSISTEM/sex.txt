@@ -1,0 +1,222 @@
+﻿in_sex=1&if boid=npc and sexpartner['<<boid>>,<<you>>']>0 and dead[kraig]=0 and onceperadaygangkraig[kraig]!daystart:onceperadaygangkraig[kraig]=daystart&gt'boid_talk'
+if solo>0:gt'fem_sex_start'
+$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&if camera['<<$loc[you]>>']>=1 and camerastarttime<time:camerastarttime=time+30&film+=1
+gs'nudeness'&gs'stat'&busy[you]=1&$npc_loc=''&sexaction=0
+open_mouth[you]=1&open_anus[you]=1&open_lhand[you]=1&open_rhand[you]=1&open_vag[you]=iif(vag[you]=0,0,1)
+womenbrain[you]+=1&cantdo=0&you_blow=0&vag_fucker=0&anal_fucker=0&dp_you=0&npc_want_dp=0&total_fucker=0&once_pose=0
+i=1&npcmax=arrsize('$name')
+i=1
+if stop_gang=time and maxgang>0:maxgang=0
+if maxgang>0 and stop_gang<time:stop_gang=time&temp_ganger=maxgang
+:marknpclocsex
+if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] and i!you and dead[i]=0:
+	num=i&gs'body'&$fullname[i]=$name[i]+' '+$surname[i]&$status[i]=''&if $nick[i]!'':$fullname[i]=$nick[i]
+	if maxgang>0 and solo=0:
+		 if mob_sleep[i]>=time:
+		 
+		 else
+			 if dick[i]>1 and temp_ganger<=0:mob_sleep[i]=time&horny[i]=0
+			 if dick[i]>1 and temp_ganger>0:horny[i]=50&temp_ganger-=1
+		 end
+	end
+     if dick[i]>1:
+		 if mob_sleep[i]>=time:
+			$status[i]=' безучастно наблюдает'
+		 else
+			if fightwinwer=i:'?????'
+			!horny[i]+=sexiness[you]+forhorn[you]
+		     if solo>0:
+		         if i=solo:
+					 sexaction=i&total_fucker+=1&gs'sexposerNV'
+		         else
+					$status[i]=' подсматривает'
+		         end
+		     else
+				 if corr[i]>=50 or horny[i]>=50 or agro[i]>=2 or fightwinwer=i:
+				     sexaction=i
+					 if cantdo=1:
+						 if pose[you]=1:$status[i]=' дрочит перед вашим лицом свой <<dick[i]>> сантиметровый член'
+						 if pose[you]>1:
+						 	 if agro[i]=0:$status[i]=' скромно наблюдает'
+							 if agro[i]=1:
+								 horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)+(corr[i]/10)
+								 textrand=rand(0,5)
+								 if textrand=0:$text='Выебите эту шлюху!'
+								 if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
+								 if textrand=2:$text='Классная шлюха!'
+								 if textrand=3:$text='Понизим эту тупую телку!'
+								 if textrand=4:$text='Шмара!'
+								 if textrand=5:$text='Раздвигай ляжки, шлюха!'
+								 $status[i]=' смеется - <<$text>>'
+							 end
+							 if agro[i]=2:
+								 horny[i]+=(sexiness[you]/8)+(forhorn[you]+pol[you]*3)+(corr[i]/10)
+								 textrand=rand(0,5)
+								 if textrand=0:$text='Выебите эту шлюху!'
+								 if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
+								 if textrand=2:$text='Классная шлюха!'
+								 if textrand=3:$text='Понизим эту тупую телку!'
+								 if textrand=4:$text='Шмара'
+								 if textrand=5:$text='Раздвигай ляжки, шлюха!'
+								 $status[i]=' орет - <<$text>>'
+							 end
+						 end
+					 end
+					 if visout_panties[you]>0:
+						 total_fucker+=1&gs'sexposerNV'&!gs'sexposer'
+					 else
+						 if l_slot[you]>0 and cantdo=0:
+							 ls=l_slot[you]
+							 if long_l[ls]>0:
+								 cantdo=1&item_loc_l['<<ls>>,<<$loc[you]>>']+=1&l_slot[you]=0&$status[i]=' <b>стаскивает с вас юбку</b>'
+							 else
+								 cantdo=1&item_loc_l['<<ls>>,<<$loc[you]>>']+=1&l_slot[you]=0&$status[i]=' <b>стаскивает с вас штаны</b>'
+							 end
+						 end
+						 if ul_slot[you]>0 and cantdo=0:
+							 cantdo=1
+							 if rand(1,5)=5:
+								 ul_slot[you]=0&$status[i]=' <b>стаскивает с вас трусы и прячет их себе в карман</b>'
+							 else
+								 uls=ul_slot[you]&item_loc_ul['<<uls>>,<<$loc[you]>>']+=1&ul_slot[you]=0&$status[i]=' <b>стаскивает с вас трусы</b>'
+							 end
+						 end
+						 if l_slot[you]=0 and ul_slot[you]=0 and cantdo=0:total_fucker+=1&gs'sexposerNV'
+					 end
+				 else
+				     if agro[i]=0:$status[i]=' скромно наблюдает'
+				     if agro[i]=1:
+						 horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)+(corr[i]/10)
+						 textrand=rand(0,5)
+						 if textrand=0:$text='Выебите эту шлюху!'
+						 if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
+						 if textrand=2:$text='Классная шлюха!'
+						 if textrand=3:$text='Понизим эту тупую телку!'
+						 if textrand=4:$text='Шмара!'
+						 if textrand=5:$text='Раздвигай ляжки, шлюха!'
+						 $status[i]=' смеется - <<$text>>'
+                     end
+				     if agro[i]=2:
+						 horny[i]+=(sexiness[you]/8)+(forhorn[you]+pol[you]*3)+(corr[i]/10)
+						 textrand=rand(0,5)
+						 if textrand=0:$text='Выебите эту шлюху!'
+						 if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
+						 if textrand=2:$text='Классная шлюха!'
+						 if textrand=3:$text='Понизим эту тупую телку!'
+						 if textrand=4:$text='Шмара!'
+						 if textrand=5:$text='Раздвигай ляжки, шлюха!'
+						 $status[i]=' орет - <<$text>>'
+                     end
+				 end
+			 end
+		 end
+     else
+         if mob_sleep[i]>=time:
+			$status[i]=' безучастно наблюдает'
+		 else
+			 if solo>0:
+				 if i=solo:
+					 sexaction=i&total_fucker+=1&gs'sexfemaleposer'
+				 else
+					$status[i]=' подсматривает'
+				 end
+			 else
+				 if vag[i]=0:
+					 if mob[i]=1:$status[i]=' ритмично раскачивается'
+					 if mob[i]>1:$status[i]=' пялится на вас с ухмылкой'
+				 else
+					 if corr[i]>=50 or horny[i]>=50 or fightwinwer=i:
+						 sexaction=i&gs'sexfemaleposer'&if cantdo=1 and pose[you]=1:$status[i]=' ласкает свои груди глядя на вас'&!женкие нпс
+					 else
+						$status[i]=' безучастно наблюдает'
+					 end
+				 end
+			 end
+         end
+     end
+     if mob[i]=0 and $status[i]='':$status[i]=' смотрит на вас'
+     if mob[i]>0 and $status[i]='':$status[i]=' не решительно смотрит на вас'
+     $npc_loc+='<br>'
+     if horny[i]<50:
+		 if mob[i]>0:$npc_loc+='<<$fullname[i]>> <<$name[i]>> <<$surname[i]>> <<$status[i]>>'
+		 if mob[i]=0 and know['<<i>>,<<you>>']=0:$npc_loc+='<<$nick[i]>> <<$status[i]>>'
+		 if mob[i]=0 and know['<<i>>,<<you>>']>0:$npc_loc+='<<$name[i]>> <<$surname[i]>> <<$status[i]>>'
+	 else
+		 if mob[i]>0:$npc_loc+='<font color="Red"><<$fullname[i]>> <<$name[i]>> <<$surname[i]>> <<$status[i]>> </font>'
+		 if mob[i]=0 and know['<<i>>,<<you>>']=0:$npc_loc+='<font color="Red"><<$nick[i]>> <<$status[i]>></font>'
+		 if mob[i]=0 and know['<<i>>,<<you>>']>0:$npc_loc+='<font color="Red"><<$name[i]>> <<$surname[i]>> <<$status[i]>></font>'
+	 end
+end
+i+=1&if i<=npcmax:jump'marknpclocsex'
+if sexaction=0:
+	busy[you]=0
+	 if temp_gang>0:temp_gang=0&!gang[you]+=1
+	 if afterloss=1:afterloss=0&X[you]=Xloss&Y[you]=Yloss&Z[you]=Zloss
+	 if blowbangstatus>0:blowbangstatus=0
+	 if cocksucking>0:cocksucking=0
+	solo=0&rtimer=0&fightwinwer=0&gang[you]+=1
+	$global_npc_log[you]+='<br>'
+	$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Меня трахали группой.'
+	in_sex=0&in_fight=0&gt'preloc'
+else
+	if sexpartner['<<you_blow>>,<<you>>']=0 and you_blow>0 and sextime[you_blow]<time:
+		 if dick[you_blow]>1 and pol[you_blow]=0:guy[you]+=1
+		 if dick[you_blow]>1 and pol[you_blow]>0:shemale[you]+=1
+		 if vag[you_blow]>0:girl[you]+=1
+		 if dick[you]>1:guy[you_blow]+=1
+		 if vag[you]>0:girl[you_blow]+=1
+		 sextime[you_blow]=time+5&sexpartner['<<you_blow>>,<<you>>']+=1&sexpartner['<<you>>,<<you_blow>>']+=1
+	end
+	if sexpartner['<<vag_fucker>>,<<you>>']=0 and vag_fucker>0 and sextime[vag_fucker]<time:
+		 if dick[you]>1:guy[vag_fucker]+=1
+		 if pol[vag_fucker]=0:guy[you]+=1
+		 if dick[vag_fucker]>1 and pol[vag_fucker]>0:shemale[you]+=1
+		 if vag[you]>0:girl[vag_fucker]+=1
+		 sextime[vag_fucker]=time+5&sexpartner['<<vag_fucker>>,<<you>>']+=1&sexpartner['<<you>>,<<vag_fucker>>']+=1
+	end
+	if sexpartner['<<anal_fucker>>,<<you>>']=0 and anal_fucker>0 and sextime[anal_fucker]<time:
+		 if pol[anal_fucker]=0:guy[you]+=1
+		 if dick[anal_fucker]>1 and pol[anal_fucker]>0:shemale[you]+=1
+		 if dick[you]>1:guy[anal_fucker]+=1
+		 if vag[you]>0:girl[anal_fucker]+=1
+		 sextime[anal_fucker]=time+5&sexpartner['<<anal_fucker>>,<<you>>']+=1&sexpartner['<<you>>,<<anal_fucker>>']+=1
+	end
+	 if you_blow>0 or vag_fucker>0 or anal_fucker>0:
+		 if you_blow>0:znp=you_blow
+		 if vag_fucker>0:znp=vag_fucker
+		 if anal_fucker>0:znp=anal_fucker
+	     if sextime[znp]<time:sextime[znp]=time+5&sexpartner['<<znp>>,<<you>>']+=1&sexpartner['<<you>>,<<znp>>']+=1
+	 end
+	if r_leg_t[you]=0 and blacked[you]>=20 and magworld[Znow]>0 and DeaActTat=0:
+		 if (skin[you_blow]>3 and skin[you_blow]<7) or (skin[vag_fucker]>3 and skin[vag_fucker]<7) or (skin[anal_fucker]>3 and skin[anal_fucker]<7):
+			r_leg_t[you]=1&'У вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
+		end
+	end
+	if mob[you_blow]=9 or mob[vag_fucker]=9 or mob[anal_fucker]=9:
+		 if mark_dagon[you]=0:mark_dagon[you]=1&l_leg_t[you]=1&'У вас жжёт кожу на левой ляжке и на ней вырисовывается татуировка русалки.'
+	end
+	 if pose[you]=1:
+		'<b>Вы стоите</b>'
+	     act'Уйти':
+			 fightwinwer=0&solo=0&rtimer=0&busy[you]=0&sexaction=0&cantdo=0&if vag[you]>0:open_vag[you]=1
+			 open_anus[you]=1&open_mouth[you]=1&maxgang=0&gt'preloc'
+         end
+	 end
+	 if pose[you]=2:'<b>Вы на коленях</b>'&gs'on_knee'
+	 if pose[you]=3:'<center><img src="pic/sex/miss_pov<<rand(0,8)>>.jpg" ></center>'&'<b>Вы лежите на спине</b>'&gs'on_back'
+	 if pose[you]=4:'<b>Вы стоите на четвереньках</b>'&$func('get_images', 'poser_dog', you)&gs'on_hands'
+	 if pose[you]>1 and you_blow=0 and vag_fucker=0 and anal_fucker=0:
+	     act'...':
+			 sexaction=0&cantdo=0&if vag[you]>0:open_vag[you]=1
+			 open_anus[you]=1&open_mouth[you]=1&gt $curloc
+         end
+         if cantdo=0:
+			 act'Встать':
+				 energy[you]+=10&pose[you]-=1&sexaction=0&cantdo=0&if vag[you]>0:open_vag[you]=1
+				 open_anus[you]=1&open_mouth[you]=1&gt $curloc
+			 end
+         end
+	 end
+	 if m_slot[you]=25 and solo=0 and magworld[Znow]>0:m_slot[you]=31&$item_m_name[31]='Дилдо'&uron_weapon_m[you]=10&'Сияющий меч в ваших руках превращается в дилдо'
+	*pl ''&'<<$npc_loc>>'
+end

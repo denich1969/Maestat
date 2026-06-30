@@ -1,0 +1,121 @@
+﻿debug_god=0&truegod=1&action_god[truegod]=0&!создаем массив помещаем туда действие, чтобы он не пересекался с боевыми, а так же размещаем параметр для доп условий
+special_move[truegod]=0&lastpos=1&lastcoorX[lastpos]=X[you]&lastcoorY[lastpos]=Y[you]&lastcoorZ[lastpos]=Z[you]&lastcoorH[lastpos]=H[you]&lastcoorR[lastpos]=R[you]
+'<center><img src="pic/godoutofendless/out_of_mortal.png" ></center>'&!Ставим картинку через html код
+!ДЕБАГЕРЫ
+if godoutofendless[you]!0 and godoutofendless[you]!1:
+	if debug_god=0:
+		 'В мироздании что-то пошло не так излишнее присутствие твоей силы в этом мире начинает приводить к аномальным последствиям'
+	     act 'Ослабить себя до уровня смертной оболчки':
+			 godoutofendless[you]=0&!!отлавливаем баг когда параметр godoutofendless[you]=0 больше единицы или меньше нуля
+		 end
+		 if godoutofendless[you]=0:
+			 'Ты вывел своё естество за грань бытия и за грань того, что находится за ним. Однако последствия твоего присутствия всё ещё имеют шанс появится в самых причудливых формах.'
+		 else
+			 debug_god=1&'Кажется не вышло. Давай попробуем снова.'&act'Бесполезный кусок материи. Давай снова':gt 'godoutofendlesspower'
+		 end
+	end
+end
+if debug_god=1:
+	 if godoutofendless[you]<0:
+		 'Похоже твоя сила странным образом ушла в минус загляни в основу мироздания и проверь нет ли где вычитания из параметра godoutofendless[you] на данны момент он равен <<godoutofendless[you]>>'
+		 X[you]=3&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt 'world'&!!дебагер на случай если по каким-то причинам присвоение не дало эффекта
+	 end
+	 if godoutofendless[you]<0:
+		'Твоей силы слишком много параметр godoutofendless улетел куда-то за абсолютной единицы, проверь основу мироздания на предмет прибавления к godoutofendless, он равен <<godoutofendless[you]>>'
+		 X[you]=3&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt 'world'
+	 end
+end
+if godoutofendless[you]=0:
+	'Смертная оболочка остаётся далеко позади ты смотришь. В суть самого себя пока поле зрения не размывается далеко за мыслимые и немыслемые пределы. '
+	'Ты мог бы испугаться, но понимаешься, что процессы способные повергнуть в неосмысляемый ужас смертный разум для тебя всего лишь возврат к естественному состоянию. '
+	'Не уходя слишком далеко, от своего смертного воплощения ты остаешься у источника своей силы.'&!САМИ СИЛЫ БОГА
+	 act 'Воплотить её часть в смертной оболочке':
+		'Ты извлекаешь крохотную частицу предназначенную для взаимодействия с тем уровнем материи, который на данный момент окружает твою смертную оболочку. '
+		'Но и этого вполне достаточно, чтобы ниизвергнуть тех кто мнит себя неуязвимым.'&godoutofendless[you]=1&gt 'godoutofendlesspower'
+	 end
+	 act 'Оставить силу там где она есть...пока что':X[you]=lastcoorX&Y[you]=lastcoorY&Z[you]=lastcoorZ&H[you]=lastcoorH&R[you]=lastcoorR&gt 'world'
+end
+if godoutofendless[you]=1:
+	 'Смертная оболочка остаётся далеко позади, ты у канала своей силы'
+	 act 'Дать смертной оболчке <br>насыщение</br>':action_god[truegod]=1&hunger[you]=0&thirst[you]=0&sleep[you]=0&pisswasser[you]=0&gt 'godpoweraction'
+	 act 'Дать смертной оболочке <br>возбуждение</br>':
+		 action_god[truegod]=2&horny_plus=$input("Возбуждение")
+		 if horny_plus=0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+	     else
+			 horny[you] += horny_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Наполнить разум оболочки опытом':
+		 action_god[truegod] = 3&exp_plus=$input("В среднем чтобы смертному полностью освоить навык, необходимо в среднем 417 суток, сколько дней вы хотите провести в обучении")
+		 if exp_plus=0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 exp[you]+=exp_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Наполнить разум <br>похотью</br>':
+		 action_god[truegod] = 4&lust_plus=$input("Похоть")
+		 if lust_plus=0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 lust[you]+=lust_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Наполнить тело <br>властностью</br>':
+		 action_god[truegod]=5&dom_plus=$input("Доминирование")
+		 if dom_plus=0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 dom[you]+=dom_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Наполнить разум оболочки <br>волей</br>':
+		 action_god[truegod]=6&will_pluss=$input("Сила воли")
+	     if will_plus = 0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 will[you]+=will_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Изменить <br>структуру мышц</br> оболочки':
+		 action_god[truegod]=7&mus_plus=$input("Мышцы")&fat_plus=$input("Жир")
+		 if mus_plus=0 and fat_plus=0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 mus[you]+=mus_plus&fat[you]+=fat_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Изменить <br>жизненную силу</br> оболчки':
+		 action_god[truegod]=8&vital_plus=$input("Жизненная слила")
+		 if vital_plus = 0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 vital[you]+=vital_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Изменить <br>размер души</br> оболочки':
+		 action_god[truegod]=9&soul_plus=$input("Колличество души")
+		 if exp_plus = 0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 soul[you]+=soul_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Материализовать <br>деньги</br> в кармане оболочки':
+		 action_god[truegod]=10&money[you]=$input("Деньги 10=1 шилинг")
+		 if exp_plus = 0:
+			 special_move[truegod]=1&gt 'godpoweraction'
+		 else
+			 exp[you]+=exp_plus&gt 'godpoweraction'
+		 end
+	 end
+	 act 'Впасть в сон':
+		 action_god[truegod]=0&time+=$input('Сколько смертных минут вы хотите спать')
+		 hunger[you]=0&thirst[you]=0&sleep[you]=0&pisswasser[you]=0
+	     health[you]=healthmax[you]&energy[you]=enerhyhmax[you]&X[you]=lastcoorX&Y[you]=lastcoorY&Z[you]=lastcoorZ&H[you]=lastcoorH&R[you]=lastcoorR&gt 'world'
+	 end
+	 act '<brЗахват Маэстата</br>':action_god[truegod]=11&gt 'godpoweraction'
+	 act 'Вернуться в мир смертных':action_god[god]=0&X[you]=lastcoorX&Y[you]=lastcoorY&Z[you]=lastcoorZ&H[you]=lastcoorH&R[you]=lastcoorR&gt 'world'
+	 act 'Заглянут в структуру мира':action_god[truegod]=0&special_move[truegod]=0&gt 'cheats'
+end

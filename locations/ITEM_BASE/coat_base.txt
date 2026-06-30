@@ -1,0 +1,131 @@
+﻿!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=0
+$item_coat_name[i]='Имя итема'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=5
+item_coat_def[i]=5
+$item_coat_text[i]='описание итема.'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=1
+$item_coat_name[i]='Брезентовый плащ'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+item_coat_def[i]=5
+$item_coat_text[i]='Плащ из брезента.'
+view_coat[i]=1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=2
+$item_coat_name[i]='Шуба'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=10
+view_coat[i]=2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=3
+$item_coat_name[i]='Кожанный плащ охотника'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=20
+view_coat[i]=3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=4
+$item_coat_name[i]='Коричневый кожанный плащ'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=10
+view_coat[i]=4
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=5
+$item_coat_name[i]='Плащ пыльник'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=20
+view_coat[i]=5
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=6
+$item_coat_name[i]='Черное кожанное пальто'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=50
+view_coat[i]=i
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=7
+$item_coat_name[i]='Кашемировый реглан'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=5
+view_coat[i]=i
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=8
+$item_coat_name[i]='Укрепленное кожанное пальто'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=100
+view_coat[i]=i
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=9
+$item_coat_name[i]='Двубортное кожанное пальто'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=20
+view_coat[i]=i
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=10
+$item_coat_name[i]='Шинель'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=10
+view_coat[i]=i
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i=11
+$item_coat_name[i]='Пальто королевского охотника'
+clo_coat_item[i]=1
+$item_coat_use[i]='Надеть'
+!вес
+item_coat_burden[i]=800
+$item_coat_text[i]=''
+item_coat_def[i]=10
+view_coat[i]=i
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

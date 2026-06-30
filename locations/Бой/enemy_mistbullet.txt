@@ -1,0 +1,76 @@
+﻿gs'stat'
+'Мгла струится по земле ища вас'
+
+
+hod=0
+uronV=mlev[npc]*150
+if uronV<1:uronV=1
+'<<$name[npc]>> произносит заклятие и вокруг начинает сгущаться мгла'
+'Мгла сама наводится и от нее не увернуться'
+     popad=1
+
+
+if stun>0:
+stun-=1
+popad=2
+end
+
+if portal_def>0:
+'Удар мглы попадает в портал и никакого вреда не наносит'
+else
+
+	 if storm_shild>0:
+	 uronV-=storm_shild
+	     if uronV<=0:
+	     popad=0
+	     'Ваш вихрь кружащийся вокруг вас полностью расшвыривает мглу'
+	     else
+	     'Ваш вихрь кружащийся вокруг вас уменьшает урон мглы раздирая ее'
+	     end
+	 end
+	     
+	 if popad>=1:
+	     
+	 	 if clon>0:
+	     'Мгла растворяет клонов и те исчезают'
+	     clon=0
+	     end
+	     
+		 if popad=2:uronV=uronV*2
+		 
+		 if mgla_resist[you]=0:
+			 if sfera_fiz>0:
+				 if sfera_fiz<uronV:
+				 uronV=uronV-sfera_fiz
+				 sfera_fiz=0
+				 health[you]-=uronV
+				 'Сфера лопается и вы получаете <<uronV>> единиц урона'
+				 if popad=2:'Критическое попадание'
+				 if stun=0:stun=rand(0,2)
+				 if stun>0:stun=rand(1,2)
+					 if stun>0:
+					 'Вас будто парализует и вы падаете'
+					 end
+				 else
+				 sfera_fiz-=uronV
+				 'Сфера выдерживает удар мглы но ослабляется'
+				 end
+			 else
+			 health[you]-=uronV
+			 if stun=0:stun=rand(0,2)
+			 if stun>0:stun=rand(1,2)
+				 if stun>0:
+				 'Вас будто парализует и вы падаете'
+				 end
+			 'Вам никак не защититься от мглы и вы получаете <<uronV>> единиц урона'
+			 end
+		 else
+			'Мгла не наносит вам никакого урона'
+		 end
+	 else
+		'Вы избегаете урона'
+	 end
+end
+
+gs'stat'
+act'Далее':gt'fight'

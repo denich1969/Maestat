@@ -1,0 +1,1 @@
+﻿Xs=ARGS[0]&Ys=ARGS[1]&gt'seespirit'

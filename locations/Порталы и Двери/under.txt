@@ -1,0 +1,11 @@
+﻿station=Z[you]
+gs'stat'
+loc_for_drop=0
+if station=2:'<center><b>Станция Блэкберри</b></center>'
+if station=3:'<center><b>Станция Жилмассив</b></center>'
+if station=4:'<center><b>Станция Аптаун</b></center>'
+if station=5:'<center><b>Станция Даунтаун</b></center>'
+'<center><img src="pic/loc/ras/under.jpg" ></center>'
+'Турникеты через которые можно пройти на станцию метро заплатив 20 пенсов'
+act'<b>Уйти</b>':gt'preloc'
+if money[you]>=20:act'Заплатить 20 пенсов и пройти на станцию':money[you]-=20&cls&gt 'underground'

@@ -1,0 +1,24 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> - Откуда у тебя эти позорные татуировки?'
+'Вы нехотя рассказали обстоятельства при которых у вас появилась татуировка.'
+cancuck=1
+if selfrespect[npc]=0:cancuck=1
+if npc=motherearth:cancuck=1
+if npc=mother and you=father:cancuck=1
+if you=mother and npc=father:cancuck=1
+if cancuck=1:
+	cuckold[npc]=you
+	'<<$name[npc]>> поддакивает вам - Ладно, проехали, всякое в жизни бывает!'
+else
+	husband[you]=0&husband[npc]=0
+	boyfriend_num[you]=0&girlfriend_num[npc]=0
+	ex_boyfriend[npc]=you
+	'<<$name[npc]>> злится на вас - Немедленно! Развод!'
+     if HhomeLast[npc]>0:
+		Xhome[npc]=XhomeLast[npc]&Yhome[npc]=YhomeLast[npc]&Zhome[npc]=ZhomeLast[npc]&Hhome[npc]=HhomeLast[npc]&Rhome[npc]=RhomeLast[npc]
+		'<<$name[npc]>> злится на вас - Я немедленно ухожу от тебя!'
+     else
+		key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=0
+		'<<$name[npc]>> злится на вас - Убирайся из моего дома!'
+     end
+end
+act'<b>Уйти</b>':gt 'preloc'

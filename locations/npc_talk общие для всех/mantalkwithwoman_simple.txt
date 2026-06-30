@@ -1,0 +1,76 @@
+﻿if boyfriend_num[npc]=you and girlfriend_num[you]=npc:
+	'<<$name[npc]>> девушка с которой вы встречаетесь'
+     if Zhome[you]>0 and husband[npc]=0 and husband[you]=0:
+         if shame_tattoo[you]=0:
+             if Zhome[you]=Zhome[npc] and Zhome[you]=3 and zilmassiv_home[you]=1: 
+				 act'<i>Предложить ей стать вашей женой</i>':
+					 boyfriend_num[npc]=0&girlfriend_num[you]=0&ex_boyfriend[npc]=you&husband[you]=npc&husband[npc]=you&cls&gs'stat'&gs'multi_world'
+					 XhomeLast[npc]=Xhome[npc]&YhomeLast[npc]=Yhome[npc]&ZhomeLast[npc]=Zhome[npc]&HhomeLast[npc]=Hhome[npc]&RhomeLast[npc]=Rhome[npc]
+					 Xhome[npc]=Xhome[you]&Yhome[npc]=Yhome[you]&Zhome[npc]=Zhome[you]&Hhome[npc]=Hhome[you]&Rhome[npc]=Rhome[you]
+					 '<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена! Я перееду жить к тебе.'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+			 if Zhome[you]!Zhome[npc] and Zhome[you]=3 and zilmassiv_home[you]=1: 
+				 act'<i>Предложить ей стать вашей женой</i>':
+					 boyfriend_num[npc]=0&girlfriend_num[you]=0&ex_boyfriend[npc]=you&husband[you]=npc&husband[npc]=you
+					 last_walkprog[npc]=walkprog[npc]
+					 XhomeLast[npc]=Xhome[npc]&YhomeLast[npc]=Yhome[npc]&ZhomeLast[npc]=Zhome[npc]&HhomeLast[npc]=Hhome[npc]&RhomeLast[npc]=Rhome[npc]
+					 Xhome[npc]=Xhome[you]&Yhome[npc]=Yhome[you]&Zhome[npc]=Zhome[you]&Hhome[npc]=Hhome[you]&Rhome[npc]=Rhome[you]
+					 e_world[]=npc&walkprog[npc]=26
+					 ew[npc]=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена! Я перееду жить к тебе в жилмассив.'
+					 act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 else
+			 act'<i>Предложить ей стать вашей женой</i>':
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> отказывается - Стать женой человека с татуировками шлюхи? Нет уж ,спасибо.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+     end
+     act'<i>Расстаться</i>':
+		 friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&boyfriend_num[npc]=0&girlfriend_num[you]=0&ex_boyfriend[npc]=you
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> злится на вас - Ну и пошел ты! Ублюдок!'&act'<b>Уйти</b>':gt 'preloc'
+     end
+     act'Давай я тебя переодену':gt'npc_cloth'
+     if item[79]>0 and dom[you]>dom[npc]:
+		act'Давай сделаем тебя женственнее':
+			cls&'<center><img src="pic/event/somn.jpg" ></center>'&'<<$name[npc]>> смотрит на вас виновато и несмело соглашается с вашим предложением.'
+			if item[79]>0:
+				 act'Дать выпить феминайзер':
+					 item[79]-=1&feminize[npc]+=5&cls&gs'stat'&'<center><video src="pic/event/drinkpoison.webm" ></video></center>'
+					 'Вы смотрите как <<$name[npc]>> выпивает феминайзер и удовлетворенно киваете.'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+			 if item[79]>1:
+				 act'Дать выпить сразу два флакона феминайзера':
+					 item[79]-=2&feminize[npc]+=15&cls&gs'stat'& '<center><video src="pic/event/drinkpoison.webm" ></video></center>'
+					 'Вы смотрите как <<$name[npc]>> выпивает конскую дозу феминайзера и удовлетворенно киваете.'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 end
+	 end
+end
+if boyfriend_num[npc]>0:
+	bfg=boyfriend_num[npc]&'<b>У нее есть парень <<$name[bfg]>> <<$surname[bfg]>></b>'&if dead[bfg]>0:boyfriend_num[npc]=0
+     if husband[npc]=0 and brother[npc]!you and ex_boyfriend[npc]!you and blok_bf[npc]=0 and girlfriend_num[you]=0 and friends['<<npc>>,<<you>>']>=50 and master[npc]=0:
+		 act'Предложить встречаться':
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас виновато - Я уже встречаюсь, мой парень <<$name[bfg]>> <<$surname[bfg]>>.'&act'<b>Уйти</b>':gt 'preloc'
+			 act'Я разберусь с ним':
+				 otbivbf[bfg]=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас испуганно - Только не надо драк!'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+     end
+end
+if boyfriend_num[npc]=0 and master[npc]=0:
+     if husband[npc]=0 and brother[npc]!you and ex_boyfriend[npc]!you and blok_bf[npc]=0 and girlfriend_num[you]=0 and friends['<<npc>>,<<you>>']>=50:
+		 act'Предложить встречаться':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		    if friends['<<npc>>,<<you>>']>=75:
+				boyfriend_num[npc]=you&girlfriend_num[you]=npc&'<<$name[npc]>> обрадовалась и поцеловала вас.'
+		    else
+				'<<$name[npc]>> смотрит на вас скептически - мне кажется ты торопишь события.'
+		    end
+			act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end

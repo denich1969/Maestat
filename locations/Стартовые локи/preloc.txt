@@ -1,0 +1,16 @@
+﻿busy[you]=0&if cocksucking>0:cocksucking=0
+if randportal=1:randportal=0&X[you]=rand(1,3)&Y[you]=Rand(1,3)&Z[you]=rand(2,5)&H[you]=0&R[you]=0
+$loc='Хуй'
+if CONFIG['DISABLE_spores']=0:
+	if arrsize('stored_lebedaseed')>0:copyarr 'lebeda_seed', 'stored_lebedaseed'&killvar 'stored_lebedaseed'
+else
+	if arrsize('lebeda_seed')>0:
+		if arrsize('stored_lebedaseed')=0:copyarr 'stored_lebedaseed', 'lebeda_seed'
+		killvar 'lebeda_seed'
+	end
+end
+if $worldloc[you]!'':
+	gt $worldloc[you]
+else
+	gt'world'
+end

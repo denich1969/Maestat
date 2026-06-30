@@ -1,0 +1,211 @@
+﻿act'Давай я тебя переодену':gt'npc_cloth'
+act'<b>Узнать подробности</b>':
+	cls&gs'stat'
+     if magik[npc]=0:'Магические силы отсутствуют.'
+     if mlev[npc]=9:'Божественная сила.'
+     if mlev[npc]=8:'Сила вне категорий.'
+     if mlev[npc]=7:'1я категория силы.'
+     if mlev[npc]=6:'2я категория силы.'
+     if mlev[npc]=5:'3я категория силы.'
+     if mlev[npc]=4:'4я категория силы.'
+     if mlev[npc]=3:'5я категория силы.'
+     if mlev[npc]=2:'6я категория силы.'
+     if mlev[npc]=1:'7я категория силы.'
+     if magik[npc]>0:'Количество каналов магии <<magik[npc]>>.'
+     if manamax[npc]>0:'Объем маны <<manamax[npc]>>.'
+	 if bisex[npc]=1:'Бисексуальность.'
+     '<<soul[npc]>> единиц души.'&*nl'Агрессивность <<agro[npc]>>.'&*nl'Похоть <<lust[npc]>>.'
+     if selfrespect[npc]=0:'Не уважает себя.'
+     if selfrespect[npc]=1:'Нормальное самоуважение'
+     if selfrespect[npc]=2:'Бахвальство.'
+     if positiv[npc]=0:'Мрачно смотрит на вещи.'
+     if positiv[npc]=1:'Рационально смотрит на вещи.'
+     if positiv[npc]=2:'Позитивно смотрит на вещи.'
+     if extrovert[npc]=0:'Интроверт и не любит общество.'
+     if extrovert[npc]=1:'Умеет как и общаться, так и нет.'
+     if extrovert[npc]=2:'Экстроверт и любит общаться.'
+     if ratio[npc]=0:'Повинуется голосу сердца.'
+     if ratio[npc]=1:'Мыслительный тип, который способен впасть в эмоции.'
+     if ratio[npc]=2:'Повинуется рассудку.'
+     if brave[npc]=0:'Проявляет трусость.'
+     if brave[npc]=1:'Проявляет трусость и храбрость в зависимости от степени опасности.'
+     if brave[npc]=2:'Проявляет храбрость.'
+     if misstress[npc]=1:'Госпожа, предпочитающая доминировать.'
+     if subslut[npc]=1:'Пониженная шлюха, любящая подчиняться.'
+     if femwhore[npc]=1:'Агрессивная шлюха.'&*nl
+	 if pol[npc]=0:
+		 if guy[npc]>0:'Было <<guy[npc]>> парней.'
+		 if girl[npc]>0:'Было <<girl[npc]>> девушек.'
+		 if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занимался лесбийским сексом.'
+		 if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосал член'
+		 if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосал член, из этого <<glory[npc]>> раз сосала член в глорихоле.'
+		 if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давал в рот.'
+		 if glory_bj[npc]>0:'<<$name[npc]>> отсосал <<glory_bj[npc]>> хуев в глорихоле.'
+		 if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз.'
+		 if avagsex[npc]>0:'Он трахал во влагалище <<avagsex[npc]>> раз.'
+		 if aanal[npc]>0:'Он <<aanal[npc]>> раз трахал в попу.'
+		 if anal[npc]>0:'Его трахали в попу <<anal[npc]>> раз.'
+		 if mastr[npc]>0:'<<mastr[npc]>> раз мастурбировал.'
+		 !if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов.'
+		 if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизал пизду.'
+		 if pee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<pee[npc]>> раз он мочился в рот.'
+		 if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<drinkpee[npc]>> раз пил мочу.'
+	 else
+		 if guy[npc]>0:'Было <<guy[npc]>> парней.'
+		 if girl[npc]>0:'Было <<girl[npc]>> девушек.'
+		 if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занималась лесбийским сексом.'
+		 if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосала член'
+		 if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосала член, из этого <<glory[npc]>> раз сосала член в глорихоле.'
+		 if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давала в рот'
+		 if glory_bj[npc]>0:'<<$name[npc]>> отсосала <<glory_bj[npc]>> хуев в глорихоле.'
+		 if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз.'
+		 if avagsex[npc]>0:'Она трахала во влагалище <<avagsex[npc]>> раз.'
+		 if aanal[npc]>0:'Она <<aanal[npc]>> раз трахала в попу.'
+		 if anal[npc]>0:'Ее трахали в попу <<anal[npc]>> раз.'
+		 if mastr[npc]>0:'<Она <mastr[npc]>> раз мастурбировала.'
+		 !if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов.'
+		 if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизала пизду'
+		 if pee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<pee[npc]>> раз она мочилась в рот.'
+		 if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<drinkpee[npc]>> раз пила мочу.'
+	 end
+	act'<b>Уйти</b>':gt 'preloc'
+	act'С кем у тебя было':gt 'whos_sex_partner'
+	if soul[you]>=soul[npc]*2 and my_puppil[npc]=0 and free_spirit>0:
+		'Ваша душа мощнее больше чем в два раза, вы можете подавить душу этого человека и сделать своей куклой, правда у вас сгорит <<soul[npc]>> единиц души при захвате контроля.'
+		 act'Захватить контроль':soul[you]-=soul[npc]&free_spirit+=1&my_puppil[npc]=1&puppil[]=npc&total_puppil+=1&gt'free_spirit'&!you=npc
+	end
+	if slave[npc]=0 and item_h[6]=0 and item_h[7]=0 and soul[you]>100:
+		if pol[npc]>0:
+			'Вы можете силой души подавить ее волю и заставить стать рабыней, но вам нужен ошейник.'
+		else
+			'Вы можете силой души подавить его волю и заставить стать рабом, но вам нужен ошейник.'
+		end
+	end
+	if slave[npc]=0 and item_h[6]>0 and soul[you]>100:
+		 act'Подавить волю и взять в рабство (100 души и кожанный ошейник)':
+			 soul[you]-=100&soul[npc]+=100&item_h[6]-=1&h_slot[npc]=6&slave[npc]=you&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> вытирает слезы и одевает ошейник соглашаясь с рабством'&act'Уйти':gt'preloc'
+		 end
+	end
+	if slave[npc]=0 and item_h[7]>0 and soul[you]>100:
+		act'Подавить волю и взять в рабство (100 души и металический ошейник)':
+			 soul[you]-=100&soul[npc]+=100&item_h[7]-=1&h_slot[npc]=7&slave[npc]=you&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> вытирает слезы и одевает ошейник соглашаясь с рабством'&act'Уйти':gt'preloc'
+		end
+	end
+end
+if soul[you]>10:
+	 act'Дать 10 души':
+		 soul[you]-=10&soul[npc]+=10&friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 '<<$name[npc]>> - Огромное спасибо!'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if satansToyQW[you]=3 and pol[npc]>0 and vag[npc]>1:
+	 act'<b>Пан Твердовский</b>':
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы объясняете задачу, нужно соблазнить пана Твердовского и заманить его в кафе Антея, которое перименовали в "Рим". '
+		'<<$name[npc]>> морщится - Ну ладно, я все сделаю. Но с тебя 10 души и 100 шиллингов.'
+		 act'<b>Позже</b>':gt 'preloc'
+		 if soul[you]>10 and money[you]>=10000:
+			 act'Дать требуемое':
+				 soul[you]-=10&soul[npc]+=10&money[you]-=10000&money[npc]+=10000&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ладно, иди в кафе и жди.'
+				 act'Идти в кафе':
+					time+=60&cls&gs'stat'&'Вы сидите в кафе и ждете.'
+					 act'Ждать':
+						 X[you]=2&Y[you]=0&Z[you]=3&H[you]=2&R[you]=0&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+						 agen_who_kill_twardovski=npc&npc=twardovski&X[npc]=2&Y[npc]=3&Z[npc]=1&H[npc]=0&R[npc]=0&dead[npc]=2
+						 if satansToyQW[myrealbody]=3 and myrealbody>0 and myrealbody!you:satansToyQW[myrealbody]=100
+						 if satansToyQW[you]=3:satansToyQW[you]=100
+						 dominant_fucker=twardovski&submissive_slut=agen_who_kill_twardovski&girl[dominant_fucker]+=1&guy[submissive_slut]+=1
+						 sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=1&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=1
+						 vagsex[submissive_slut]+=1&avagsex[dominant_fucker]+=1&bj[submissive_slut]+=1&abj[dominant_fucker]+=1
+						 sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker
+						 sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+						 time+=5&cls&gs'stat'&'<center><img src="pic/face/5/78.jpg" ></center>'
+						 'В кафе входит ваша агентка под ручку с паном Твердовским, но как только они переступают порог, довольное лицо Твердовского перекашивает гримаса и он бормочет - Стоп. Что это со мной?'
+						 'Из-за стола поднялся Люкс Эосфор и подошел к Твердовскому - Это ты почувствовал, как у тебя душа от тела отделилась.'
+						 '<<$name[npc]>> отпрянул - Что? Но в договоре было прописано, что я получаю силу в обмен на душу, а душу отдам только находясь в Риме.'
+						 'Эосфор вальяжно усмехнулся - Это и есть Рим. Кафе "Рим". И твоя душа целиком и полностью теперь принадлежат Сатане.'
+						 'Пан попытался убежать, но ноги подкосились и он упал. К нему подошел Люкс и присел на корточки - Договор закрыт.'
+						 'Пан Твердовский протяжно завыл и его вой оборвался на полуноте, а его бездыханное тело осталось на полу. Люкс встал с довольной физиономией и, подмигнув вам, вышел из кафе.'
+						 act'<b>Уйти</b>':gt 'preloc'
+					 end
+				 end
+			 end
+		 end
+	 end
+end
+if satansToyQWmoney=3 and pol[npc]>0 and vag[npc]>1:
+	 act'<b>Пан Твердовский</b>':
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы объясняете задачу, нужно соблазнить пана Твердовского и заманить его в кафе Антея, которое перименовали в "Рим". '
+		'<<$name[npc]>> морщится - Ну ладно, я все сделаю. Но с тебя 10 души и 100 шиллингов.'&act'<b>Позже</b>':gt 'preloc'
+		 if soul[you]>10 and money[you]>=10000:
+			 act'Дать требуемое':
+				 soul[you]-=10&soul[npc]+=10&money[you]-=10000&money[npc]+=10000&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> ладно, иди в кафе и жди.'
+				 act'Идти в кафе':
+					time+=60&cls&gs'stat'&'Вы сидите в кафе и ждете.'
+					 act'Ждать':
+						X[you]=2&Y[you]=0&Z[you]=3&H[you]=2&R[you]=0&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+						agen_who_kill_twardovski=npc&npc=twardovski&X[npc]=2&Y[npc]=3&Z[npc]=1&H[npc]=0&R[npc]=0&dead[npc]=2&satansToyQWmoney=100
+						dominant_fucker=twardovski&submissive_slut=agen_who_kill_twardovski&girl[dominant_fucker]+=1&guy[submissive_slut]+=1
+						sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=1&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=1
+						vagsex[submissive_slut]+=1&avagsex[dominant_fucker]+=1&bj[submissive_slut]+=1&abj[dominant_fucker]+=1
+						sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+						soul[you]+=5000&money[you]+=1000000&time+=5&cls&gs'stat'&'<center><img src="pic/face/5/78.jpg" ></center>'
+						'В кафе входит ваша агентка под ручку с паном Твердовским, но как только они переступают порог, довольное лицо Твердовского перекашивает гримаса и он бормочет - Стоп. Что это со мной?'
+						'Из-за стола поднялся Люкс Эосфор и подошел к Твердовскому - Это ты почувствовал, как у тебя душа от тела отделилась.'
+						'<<$name[npc]>> отпрянул - Что? Но в договоре было прописано, что я получаю силу в обмен на душу, а душу отдам только находясь в Риме.'
+						'Эосфор вальяжно усмехнулся - Это и есть Рим. Кафе "Рим". И твоя душа целиком и полностью теперь принадлежат Сатане.'
+						'Пан попытался убежать, но ноги подкосились и он упал. К нему подошел Люкс и присел на корточки - Договор закрыт.'
+						'Пан Твердовский протяжно завыл и его вой оборвался на полуноте, а его бездыханное тело осталось на полу. Люкс встал с довольной физиономией и дал вам договор на душу и деньги'
+						act'<b>Уйти</b>':gt 'preloc'
+					end
+				end
+			end
+		end
+	end
+end
+!if Xhome[npc]=Xstart and Yhome[npc]=Ystart and Zhome[npc]=Zstart and Hhome[npc]=Hstart and Rhome[npc]=Rstart:
+if saunakafehome[npc]=0 and saunakafeowner>=1:
+     act'Поселить в кафе "Рим"':
+		 saunakafehome[npc]=1
+		 Xhome[npc]=2&Yhome[npc]=0&Zhome[npc]=3&Hhome[npc]=2&Rhome[npc]=3
+		 e_world[]=npc
+		 walkprog[npc]=26
+		  cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы объясняете, что теперь можно жить в кафе "Рим", так как оно принадлежит вам.'
+		 act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+act'Дать денег':
+	 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Огромное спасибо'
+	 givemoney=input("Введите сумму в шиллингах")
+	 givemoney=givemoney*100
+	 if givemoney<=money[you]:
+	     money[npc]+=givemoney&money[you]-=givemoney&'Вы дали денег'
+	 else
+	     'Что-то пошло не так'
+	 end
+	 act'<b>Уйти</b>':gt 'preloc'
+end
+if blackrunepower[you]>=1:
+     if muggle[npc]>=1 and magik[you]>3:
+		 act'Сделать магом (-1 магичности)':
+			 magik[you]-=1&muggle[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> теперь может развиваться как маг'
+			 '<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+     if muggle[npc]=0 and magik[you]>3 and magik[num]<36:
+		 act'Отдать магичность':
+			 magik[you]-=1&magik[npc]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> получил от вас магический канал'
+			 '<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+     if muggle[npc]=0 and magik[npc]>3 and magik[num]<36:
+         if marked_brp[npc]=0:
+			 act'Поставить клеймо':
+				 marked_total+=1&marked_brp[npc]=you&my_marked_brp[]=npc&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 'Вы применили черную руну и <<$name[npc]>> получает от вас клеймо. Вы умирая можете забрать силу и убить отмеченного.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+         end
+     end
+     if marked_brp[npc]=you:'Клеймо позволяет вам умирая заменит свою силу на силу отмеченного'
+end

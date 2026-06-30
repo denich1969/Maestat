@@ -1,0 +1,24 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&silviabrokk=i
+lvl[i]=1&soul[i]=100000&runemaster_spell[i]=50
+master[i]=0&delusion[i]=0&magik[i]=20&beliver[i]=1
+spec_face_pic[i]=5&face_pic[i]=37
+$title[i]=''&$history[i]='Мой муж Леон - большая шишка, ему принадлежит пивоварня и он мне подарил ресторан.'
+$name[i]='Сильвия'&$surname[i]='Брокк'&$nick[i]='Симпатичная блондинка'
+face[i]=70&gla[i]=0&glacol[i]=4&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=35&anus[i]=0&ass[i]=35&nip[i]=45&tits[i]=20
+rost[i]=172&fat[i]=2000&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=3
+age[i]=30&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=1&lust[i]=20&!характер
+	 girl[brokk]+=1&guy[i]+=1
+	 sexpartner['<<i>>,<<brokk>>']+=100&sexpartner['<<brokk>>,<<i>>']+=100
+	 vagsex[i]+=100&avagsex[brokk]+=100
+	 husband[i]=brokk&husband[brokk]=i
+     sexpartner_num_m['<<i>>,<<guy[i]>>']=brokk&sexpartner_num_f['<<brokk>>,<<girl[brokk]>>']=i
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=73&l_slot[i]=0&b_slot[i]=8
+ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=9
+ne_world[]=i&walkprog[i]=36
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

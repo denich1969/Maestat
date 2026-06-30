@@ -1,0 +1,7 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Храм Дагона'&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Храм'&$lname['<<$temploc>>']='Храм'&$lname_go['<<$temploc>>']='в храм'
+$locopis['<<$temploc>>']='Величественный и мрачный храм в тенях которого таится ужас и до края сознания доносится навязчивый шепот рисующий ужасные картины.'
+np['<<$temploc>>']=75
+mirror['<<$temploc>>']=0

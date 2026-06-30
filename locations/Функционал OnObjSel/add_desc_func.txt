@@ -1,0 +1,676 @@
+﻿!Перенёс весь функционал из OnObjSel в эту локацию, чтоб можно было ре-юзать его из любой функции.
+$ARGS[0]= $UCASE($ARGS[0])
+if $ARGS[0] ! '':
+	!* --------------------------------- ЖУРНАЛ --------------------------------- *!
+	if $ARGS[0] = 'ЖУРНАЛ':
+		clr&p'<<func("generate_links", 1, 13, "ЖУРНАЛ")>>'
+		$d_haronqw={
+			if MainQW[you]=1:msg("Вы не помните, как попали на этот странный корабль. И не понимаете, куда он вас привез. С корабля меня буквально выгнал на причал какой-то грязный старик, капитан корабля. Может, его расспросить?")
+			if MainQW[you]=10:msg("После расспросов капитана понятней не стало. Вы оказались в изолированном от мира городе, где полно таких же попаданцев как вы и еще сверхестественных сущностей.")
+			if MainQW[you]=20:msg("Великий Дуб связан с вашим миром, как и со множеством других миров.")
+		}
+		$d_powerwallqw={
+			if power_wallQW[you]=1:msg("Невидимая стена не дает мне выйти из района.")
+			if power_wallQW[you]=10:msg("Невидимую стену поставил шериф.")
+			if power_wallQW[you]=50:msg("Шериф не хочет выпускать сброд из района, для этого он установил невидимую стену. Он посоветовал обратиться к своей сестре, торгующей книгами, чтобы снять квартиру в городе.")
+			if power_wallQW[you]=70:msg("Марта Марш готова снять мне квартиру в Жилмассиве, стоит 100 шиллингов в месяц, оплата вперед.")
+			if power_wallQW[you]=80:msg("Дом в Блэкберри куплен, осталось только найти шерифа и попросить его пропустить через невидимую стену.")
+			if power_wallQW[you]=100:msg("Теперь невидимая стена меня больше не сдерживает.")
+			if power_wallQW[you]=110:msg("Шериф открыл для вас проход через невидимую стену.")
+			if power_wallQW[you]=120:msg("Пришлось брать в рот у шерифа, что бы он пропустил меня через невидимую стену.")
+		}
+		$d_larkinqw={if larkinQW[you]=1:msg("Вы так достали инсмутцев, что они нажаловались на вас шерифу и вы договорились с шерифом, что больше не будете бить и грабить инсмутцев.")}
+		$d_kill_sheriffqw={if kill_sheriffQW[you]=1:msg("Вы убили шерифа Ларкина Марша, которого защищали силы самого лорда Дагона.")}
+		$d_blackroseqw={
+			if BlackRoseQW[you]=1:msg("На кладбище вы нашли Черную Розу, коснувшись которой у вас было видение, в котором присутствовал человек с белыми волосами.")
+			if BlackRoseQW[you]=2:msg("У вас, оказывается, есть зачаточный Дар. Джофри рассказал вам, что охотится на мелкого бога Мардука.")
+			if BlackRoseQW[you]=3:msg("Джофри попросил меня использовать дар на Некроманте, поискать источник его силы.")
+			if BlackRoseQW[you]=4:msg("Ваш дар показал вам, что некромант пытается освободить Бога Смерти, которого заключил в плен Мастер рун.")
+			if BlackRoseQW[you]=5:msg("Джофри поручил найти место, где пленена смерть. И обещал меня взять на работу в свое агентство.")
+			if BlackRoseQW[you]=6:msg("Загадка оказалась с простой разгадкой, Некромант просто построил свой дом на могиле Смерти.")
+			if BlackRoseQW[you]=7:msg("Джофри был очень доволен моими данными.")
+			if BlackRoseQW[you]=8:msg("Джофри принял меня в Агентство Добрых Дел и предоставил мне жилье в Жилмассиве.")
+			if BlackRoseQW[you]=100:msg("Вы – оперативник Агентства Добрых Дел")
+			if BlackRoseQW[you]=101:msg("Вы узнали, что смерть Богарта находится в игле")
+		}
+		$d_operativQW={
+			if operativQW=1:msg("Эмиль Бассани поручил мне разобрать бумажки в офисе Агентства.")
+			if operativQW=2:msg("Бумаги разобраны, нужно доложить Эмилю Бассани.")
+			if operativQW=3:msg("Эмиль послал меня в порт с письмом. Письмо нужно отдать Селене Шеларди.")
+			if operativQW=4:msg("Селена Шеларди отдала мне очень мощное кольцо.")
+			if operativQW=5:msg("Неожиданно кольцо отдали мне.")
+			if operativQW=6:msg("Эмиль послал меня узнать подробней про некоего Мабуту, главу клуба из района Блэкберри.")
+			if operativQW=7:msg("Мабута послал узнать меня что за дурь толкает эльф в Блэкберри")
+			if operativQW=8:msg("Вы видели видения эльфа и тот устроил у себя в квартире странный оазис, там кусок леса, единорог и феи")
+			if operativQW=9:msg("Мабута готов сотрудничать и заключить партнерское соглашение, если агентство отожмет бизнес по торговле пыльцой у эльфа.")
+			if operativQW=10:msg("Хорошенько получив по шее эльф согласился работать на Мабуту. Надо сказать Мабуте.")
+			if operativQW=11:msg("После получения контроля над наркотрафиком Мабута стал партнером агентства. Надо доложить о выполнении задания Эмилю Бассани.")
+			if operativQW=12:msg("Эмиль Бассани был доволен тем, что Мабута теперь союзник агентства.")
+		}
+		$d_StealQW={
+			if StealQW=1:msg("Надо выяснить как Олбрайт ориентируется в плавании.")
+			if StealQW=2:msg("Найти того, кто связан с Олбрайтом.")
+			if StealQW=3:msg(" Спросить у Олбрайта о магическом кристалле.")
+			if StealQW=4:msg(" Как же выглядит этот кристалл?")
+			if StealQW=5:msg(" Научиться взламывать замки.")
+			if StealQW=6:msg(" Проникнуть на корабль и обыскать каюту капитана.")
+			if StealQW=7:msg(" ")
+			if StealQW=8:msg(" ")
+			if StealQW=9:msg(" .")
+			if StealQW=10:msg(" .")
+			if StealQW=11:msg(" .")
+			if StealQW=12:msg(" .")
+		}
+		$d_knowRuneMasterQW={
+			if knowRuneMasterQW=1:msg("Я знаю, кто такой Рунный маг. Он скрывается под личиной татуировщика в Блэкберри.")
+			if knowRuneMasterQW=2:msg("Шеф поручил мне найти иглу со смертью Богарта.")
+			if knowRuneMasterQW=3:msg("Дюк Валорама передал на выставку статую ангела-хранителя. Дюк Валорама и искусство - вещи с разных планет. Явно со статуэткой нечисто.")
+			if knowRuneMasterQW=4:msg("Шеф поручил мне выяснить, как охраняется статуэтка с иглой.")
+			if knowRuneMasterQW=5:msg("В статуэтке чувствуется смерть и на ней лежит заклинание портала.")
+			if knowRuneMasterQW=6:msg("Шеф поблагодарил меня за хорошую работу по поиску смерти Богарта")
+			if knowRuneMasterQW=7:
+				if dinamite=0:msg("Шеф поручил мне купить взрывчатку у бога войны в Блэкберри")
+				if dinamite=1:msg("Поручение шефа выполнено и взрывчатка куплена")
+				if dinamite=2:msg("Поручение шефа выполнено и взрывчатка заложена")
+			end
+			if knowRuneMasterQW=8:msg("У вас есть взрывчатка, чтобы заминировать статуэтку со смертью Богарта.")
+			if knowRuneMasterQW=100:msg("Богарт убит")
+			
+			!if BlackRoseQW[you]=9:msg("Я знаю, кто такой Рунный маг. Он скрывается под личиной татуировщика в Блэкберри.")
+			!if BlackRoseQW[you]=10:msg("Шеф поручил мне найти иглу со смертью Богарта.")
+			!if BlackRoseQW[you]=11:msg("Дюк Валорама передал на выставку статую ангела-хранителя. Дюк Валорама и искусство - вещи с разных планет. Явно со статуэткой нечисто.")
+			!if BlackRoseQW[you]=12:msg("Шеф поручил мне выяснить, как охраняется статуэтка с иглой.")
+			!if BlackRoseQW[you]=13:msg("В статуэтке чувствуется смерть и на ней лежит заклинание портала.")
+			!if BlackRoseQW[you]=14:msg("Шеф поручил мне завести друга в Блэкберри, чтобы купить взрывчатку, и потом устранить этого друга.")
+			!if BlackRoseQW[you]=15:msg("Вы купили динамит у Ареса, теперь нужно позаботиться о конспирации и грохнуть подставное лицо.")
+			!if BlackRoseQW[you]=16:msg("Динамит куплен. Человек, купивший динамит, устранен. Можно идти на отчет к Шефу.")
+			!if BlackRoseQW[you]=17:msg("Шеф поручил мне заложить динамит и подорвать, глядя Богарту в глаза.")
+			!if BlackRoseQW[you]=20:msg("Богарт умер на моих глазах.")
+		}
+		$d_sportzalqw={
+			if sportzalQW=1:msg("Лена Рогова хочет открыть спортзал, но ей не дает этого сделать шериф.")
+			if sportzalQW=50:msg("Шериф теперь не против того, чтобы Лена Рогова открыла свой спортзал.")
+			if sportzalQW=100:msg("Лена Рогова открыла свой спортзал.")
+		}
+		$d_bogarslutqw={
+			if bogart_slut_reit[you]=1:msg("Я отсосала Богарту.")
+			if bogart_slut_reit[you]=2:msg("Кажется, я становлюсь личной хуесоской Богарта.")
+			if bogart_slut_reit[you]=3:msg("Богарт, совершенно не стесняясь, водит меня в туалет, где дает мне в рот.")
+			if bogart_slut_reit[you]=4:msg("Богарт макнул меня лицом в унитаз как последнюю шлюху.")
+			if bogart_slut_reit[you]=5:
+			if momslutQW=0:msg("Я стала писсуаром Богарта.")
+			if momslutQW=1:msg("Мало того, что я писсуар Богарта, так он еще и нам с мамой наваливает в рты.")
+			end
+			if bogart_slut_reit[you]=100:msg("Богарт умер и то, что он проделывал со мной, останется только моей тайной.")
+			if bogart_slut_reit[you]=6:msg("Я стала писсуаром Богарта и рассказала об этом сестре.")
+		 }
+		$d_fragile_sistersQW={
+			if fragile_sistersQW<100:msg("Что будет, если убивать хрупких сестриц?")
+			if fragile_sistersQW=100:msg("Вы победили армию насекомых темного бога Баал Зебуба.")
+		}
+		$d_afterBogartqw={
+			if afterBogartQW=1:msg("Богарт умер, кто теперь будет властвовать в Жилмассиве?")
+			if afterBogartQW=2:msg("Мне нужно убедить Сладкова начать пропагандировать по телевидению агентство.")
+			if afterBogartQW=3:msg("Антей - претендент на трон Жилмассива.")
+			if afterBogartQW=4:msg("Джофри поручил мне напасть на Антея. Мне нужно лишь продержаться, пока Джофри готовит заклинание.")
+			if afterBogartQW=5:msg("Антей мертв и больше никто не стоит на пути к власти в Жилмассиве.")
+			if afterBogartQW=6:msg("Джофри стал аватаром Жилмассива.")
+		}
+		$d_satansYoyqw={
+			if satansToyQW[you]=1:msg("Люкс Эосфор, маг вне категорий, владелец Общества по продаже душ, узнал, что вы взорвали выставку и очень недоволен вами.")
+			if satansToyQW[you]=2:msg("Люкс Эосфор в качестве заглаживания вины потребовал от вас душу пана Твердовского. Он заключил договор, согласно которому он пользуется силой сатаны, но потеряет душу, оказавшись в Риме")
+			if satansToyQW[you]=3:msg("Джофри свалил на вас и Рамина Лотфи дело с паном Твердовским.")
+			if satansToyQW[you]=100:msg("Пан Твердовский попал в Рим и его душа по договору отлетела Сатане.")
+			if satansToyQW[you]=101:msg("Люкс Эосфор переоценил свои силы и пал от моей руки.")
+		}
+		$d_satansYoyMoneyqw={
+			if satansToyQWmoney=1:msg("Люкс Эосфор, маг вне категорий, владелец Общества по продаже душ, хочет вам поручить некое дело.")
+			if satansToyQWmoney=2:msg("Люкс Эосфор, заплатит вам кругленькую сумму, если вы вернете ему душу пана Твердовского. Он заключил договор, согласно которому он пользуется силой сатаны, но потеряет душу, оказавшись в Риме")
+			if satansToyQWmoney=3:msg("Джофри свалил на вас и Рамина Лотфи дело с паном Твердовским.")
+			if satansToyQWmoney=100:msg("Пан Твердовский попал в Рим и его душа по договору отлетела Сатане.")
+		}
+		$d_runemasterQW={
+			if runemasterQW=1:msg("Новый начальник Агентства Чарли Фишер поручил мне бить гопников и ставить на них руну.")
+			if runemasterQW=2:msg("Новый начальник Агентства Чарли Фишер поручил мне сделать так, чтобы татуировщик Пабло в меня влюбился.")
+			if runemasterQW=3:msg("Рунный маг Пабло влюбился в вас.")
+			if runemasterQW=4:msg("Фишеру нужно, чтобы Рунный маг Пабло показал, как создать руну защиты от смерти.")
+			if runemasterQW=5:msg("Рунный маг Пабло дал вам лист, на котором нарисовал руну защиты от смерти.")
+			if runemasterQW=6:msg("Чарли Фишер приказал убить Некроманта из Портового района.")
+			if runemasterQW=7:msg("Некромант стал учеником Джофри.")
+			if runemasterQW=8:msg("Чарли Фишер поручил мне прийти в отель Мардук, что в Аптауне, и найти Мардука, а он ударит его своим новым оружием.")
+			if runemasterQW=9:msg("Чарли Фишер убил Мардука при помощи своей перчатки смерти.")
+			if runemasterQW=100:msg("Некромант убил Обеда Марша и стал аватаром порта.")
+		}
+		$d_endofvaloramaQW={
+			if endofvaloramaQW=1:msg("Эмиль хочет устранить Дюка Валораму, для начала нужно найти симпатичную девушку из числа моих агентов и устроить ее на телевидение работать.")
+			if endofvaloramaQW=2:msg("Никаких проблем со Сладковым не возникло и он взял на работу ведущей ту, на которую указало агентство.")
+			if endofvaloramaQW=3:msg("Надо сгонять в порт к Чарли Фишеру за настойкой смерти.")
+			if endofvaloramaQW=4:msg("Фишер дал пузырек со смертью, надо подлить Дюку в ресторане.")
+			if endofvaloramaQW=5:msg("Дюк Валорама был отравлен мною в ресторане.")
+			if endofvaloramaQW=6:msg("Мне нужно продать в бордель Тортону Маршу вдову Дюка Валорамы, Джейн.")
+			if endofvaloramaQW=100:msg("С семейством Валорама покончено, Дюк на том свете, а Джейн - шлюха в порту.")
+		}
+		$d_prophecyQW={
+			if prophecyQW=1:msg("Мардук показал мне пророчество. Джофри собирается покорить Маестат. Он сделает учеников аватарами, а потом поглотит их силу. И вы не переживете этого, никто не переживет.")
+			if prophecyQW=2:msg("Рунный маг разорвал ваш договор ученика и учителя с Джофри. Но вы поклялись отказаться от Маестата.")
+			if prophecyQW=3:msg("Вы убили Джофри.")
+			if prophecyQW=100:msg("Вы раздали силу ради баланса.")
+			if prophecyQW=110:msg("Вы не собрали силы для покорения Маестата, но вы и так получили много, как минимум жизнь и свободу.")
+		}
+		$d_portAvatarQW={
+			if portAvatarQW=1:msg("Чарли Фишер поселился в моем отеле и ждет меня.")
+			if portAvatarQW=2:msg("Чарли Фишер попросил привести к нему тетушку Лебеду, чтобы он смог ее убить.")
+			if portAvatarQW=100:msg("В тяжелом бою мы вдвоем с Фишером одолели тетушку Лебеду и она сбежала, бросив кольцо. Теперь Фишер - аватар Аптауна.")
+		}
+		$d_antiportalQW={
+			if against_portal=1:msg("Надо как-то блокировать порталы Джофри, но как?")
+			if against_portal=2:msg("Рунный маг дал вам руны, которые заблокируют порталы, если их нанести на столы в кафе.")
+			if against_portal=3:msg("Вы нанесли руны в кафе на столы.")
+			if against_portal=4:msg("Порталы сработали и не дали Джофри использовать свою самую сильную магию.")
+		}
+		$d_mabutaQW={
+			if mabutaQW=1:msg("Мабута стал учеником Джофри и вам нужно ему помочь взойти на вершину Блэкберри.")
+			if mabutaQW=2:msg("Мабута заказал убить Мерлина.")
+			if mabutaQW=3:msg("Мабута говорит, что у Мерлина был роман с какой-то ведьмой, но та его отшила.")
+			if mabutaQW=4:
+				if dead[merlin]=0:msg("У Мерлина была любовь, Одри Гигеркрафт, которая его отшила. Сейчас она ведьма и живет где-то в Даунтауне.")
+				if dead[merlin]>0:msg("Мерлин мертв, надо сообщить об этом Мабуте.")
+			end
+			if mabutaQW=50:msg("Мабута узнал о смерти Мерлина и развязывает войну с Леоном Брокком.")
+			if mabutaQW=100:msg("Мабута стал аватаром Блэкберри.")
+		}
+		$d_frank_viscontiQW={
+			if frank_viscontiQW=1:msg("Фрэнку Висконти понравилась моя фигура и он силой затащил меня в сауну, где изнасиловал меня.")
+			if frank_viscontiQW=2:msg("Я отсосала Фрэнку Висконти в офисе под столом.")
+			if frank_viscontiQW=3:msg("Фрэнк Висконти унизил меня. Он устроил мне групповой блоубанг в сквере.")
+			if frank_viscontiQW=4:msg("Фрэнк Висконти сделал мне татуировку на внутренней стороне губы. Теперь я обожаю сосать хуи и есть сперму.")
+			if frank_viscontiQW=5:msg("Я не выйду из туалета, пока не насосу 10 хуев.")
+			if frank_viscontiQW=6:msg("Я насосала в глорихоле, куда меня отправил Фрэнк, 10 хуев.")
+			if frank_viscontiQW=7:msg("Фрэнк пометил меня как хуесоску.")
+			if frank_viscontiQW=8:msg("Фрэнк снял на камеру, как мне устраивают блоубанг.")
+			if frank_viscontiQW=9:msg("Фрэнк пустил меня по кругу в порно кинотеатре.")
+			if frank_viscontiQW=100:msg("Фрэнк Висконти, надеясь загладить все, что он проделывал со мной, дал мне 5000 шиллингов.")
+		}
+		$d_lebeda_birdQW={
+			if lebeda_birdQW=1:msg("В меня вселилась тетушка Лебеда и мне надо родить ребенка, который станет новым телом для нее, иначе она со временем пожрет мою душу целиком.")
+			if lebeda_birdQW=100:msg("Я родила тетушку Лебеду.")
+		}
+		$d_iammilfqw={
+			if IamMilfQW=1:msg("У меня спокойная и размеренная жизнь с детьми и мужем, но как будто чего-то не хватает.")
+			if IamMilfQW=2:msg("Моя подруга Лигия изменяет мужу со своим начальником, Дюком Валорамой.")
+			if IamMilfQW=3:msg("Я изменила мужу.")
+			if IamMilfQW=4:msg("Я изменила мужу и призналась в этом подруге.")
+		}
+		$d_sisterfuckerqw={
+			if sluttySisQW=1:msg("Моя сестра сосет хуй Богарту, но у меня нет доказательств.")
+			if sluttySisQW=2:msg("Я сфотографировал свою сестру с хуем во рту.")
+			if sluttySisQW=3:msg("После фоток сестра стала как шелковая.")
+			if sluttySisQW=4:msg("Похоже сестра решила мне отомстить, надо быть аккуратнее.")
+			if sluttySisQW=5:msg("Сестра мне жестко отомстила.")
+			if sluttySisQW>5:msg("Женская месть: страшная сила. Сестра превратила меня в девку...")
+		}
+		$d_uberSolderQW={
+			if uberSolderQW[you]=1:msg("Фрэнк Висконти намекал, что он что-то знает, касающееся меня.")
+			if uberSolderQW[you]=2:msg("Фрэнк сказал, чтобы я проверил учительскую в школе часов в 8 утра по будням.")
+			if uberSolderQW[you]=3:msg("Я увидел, как моя дочка сосет член Богарту. Нервы у меня не выдержали, я набросился на Богарта, закономерно проиграл, и он лишил меня мужского достоинства.")
+			if uberSolderQW[you]=4:msg("Богарт бессмертен, но Дюк Валорама что-то знает про его бессмертие.")
+			if uberSolderQW[you]=5:msg("Смерть Богарта в статуэтке ангела, в музее Даунтауна. Но, думаю, как только Богарт узнает, что я разузнал его тайну, он меня найдет в любой точке Жилмассива и уничтожит.")
+			if uberSolderQW[you]=6:msg("Вы сломали статуэтку со смертью Богарта.")
+			if uberSolderQW[you]=7:msg("Вы сломали статуэтку со смертью Богарта и побили мага охранника.")
+			if uberSolderQW[you]=9:msg("Вы победили Антея и стали аватаром жилмассива.")
+			if uberSolderQW[you]=10:msg("Вы отказались от предложения богини стать вашей женой.")
+			if uberSolderQW[you]=15:msg("Вы бросили семью ради богини и особняка.")
+			if uberSolderQW[you]=100:msg("Я проиграл и теперь я уже ничего не могу сделать.")
+		}
+		if cuntmanQW=1 and dick[you]>1:magik[you]+=1&cuntmanQW=100
+		$d_cuntmanqw={
+			if cuntmanQW=1:msg("Богарт лишил меня мужского достоинства.")
+			if cuntmanQW=100:msg("Я преодолел проклятие Богарта и вернул себе свой член.")
+		}
+		$d_punishedQW={if punishedQW>0:msg("Меня лишили магических сил.")}
+		$d_autodocQW={
+			if autodocQW=1:msg("Нужно поговорить с капитаном Олбрайтом из портового района, сколько душ он хочет, чтобы привезти обновление для автодока.")
+			if autodocQW=2:msg("Неожиданно капитан Олбрайт не идет на контакт, а только бранится.")
+			if autodocQW=3:msg("Нужно договариваться с пронырой Дидье Гальяно")
+			if autodocQW=4:msg("Дидье Гальяно затребовал договор жертвы, который можно взять у Люкса Эосфора в Даунтауне, а также бутылку вина шато Мардук, которую можно взять у Батори, и 500 шиллингов за услуги.")
+			if autodocQW=5:msg("Больнице нужен спонсор, им вполне может стать Фрэнк Висконти.")
+			if autodocQW=6:msg("Нужно послать жену к Фрэнку, чтобы подписать нужные бумажки.")
+			if autodocQW=10:msg("Фрэнк Висконти стал спонсором больницы. Теперь можно идти к Люксу Эосфору в Даунтаун, за договором жертвы.")
+			!if autodocQW=11:msg("Мне не хватает души для покупки договора жертвы")
+			if autodocQW=15:msg("У меня есть договор жертвы, теперь нужно на винзавод Батори в Аптаун, чтобы раздобыть вино шато Мардук.")
+			if autodocQW=20:msg("У меня есть договор жертвы и вино шато Мардук. Теперь нужно идти к Дидье Гальяно в порт")
+			if autodocQW=50:msg("У меня есть обновление которое нужно отдать доктору Вишневскому")
+			if autodocQW=100:msg("На автодок установлены самые последние обновления")
+		}
+		$d_dilaminaFallQW={
+			if dilaminaFallQW=10:msg("Эдвард Стованс нанял меня, чтобы избить Диламину Гигеркрафт.")
+			if dilaminaFallQW=100:msg("Вы избили Диламину Гигеркрафт и Эдвард Стованс разобрался с ней")
+		}
+		$d_germionaQW={
+			if germionaQW=10:msg("Гермиона намекнула мне, что тетушка Лебеда может помочь разобраться с детективом следящим за ней")
+			if germionaQW=20:msg("Тетушка Лебеда дала мне грибочков, которые нужно заставить детектива понюхать, но не объяснила для чего они.")
+			if germionaQW=30:msg("Детектив, нюхнув грибков Лебеды, кажется, спутал ее с Гермионой, и теперь таскается за ней.")
+			if germionaQW=40:msg("Гермиона готова меня отблагодарить за избавление от шпионажа.")
+		}
+		$d_vamireQW={
+			if vamireQW=1:msg("Лагерта Саливан переживает за своего брата Чарльза Пратчета, тот после свадьбы с недавно прибывшей в порт женщиной очень сильно изменился.")
+			if vamireQW=2:msg("Тревога Лагерты была оправдана. Ее брат Чарльз Пратчет попал под чары вампирши Ромеи Попеску")
+			if vamireQW=5:msg("Вампирша Ромея поручила мне заманить Лагерту в укромное место, где она сможет ее обратить")
+			if vamireQW=55:msg("Вампирша Ромея с моей помощью убила Лагерту Саливан")
+			if vamireQW=100:msg("Лагерта Саливан поблагодарила меня за информацию о вампирше и дальше с чудовищем должны разобраться Марши.")
+			if vamireQW=110:msg("Лагерта Саливан поблагодарила меня за хорошую работу, к сожалению ее брат трэл вампирши и он не пережил расставания с госпожой.")
+		}
+		$d_blackedGangQW={
+			if blackedGangQW=1:msg("Мне довелось видеть как черные парни трахают толпой бедных девушек. Это не порядок и тут надо разобраться.")
+			if blackedGangQW=2:msg("Эти парни под защитой рунной магии. Они получают силу от женщин и сильные маги не способны помнить о их существовании.")
+			if blackedGangQW=3:msg("Ситуация кажется гораздо серьезней чем выглядит на первый взгляд. Мне нужно обратиться к богине Луны.")
+			if blackedGangQW=4:msg("Богиня Луны подсказала способ найти мага создавшего черную руну. Нужно в разговоре про банду применить дар.")
+			if blackedGangQW=5:msg("Оказывается этот черный маг применивший руны Дидье Гальяно")
+			if blackedGangQW=100:msg("Богиня луны приказала мне убить Дидье Гальяно")
+			if blackedGangQW=110:msg("Вы убили черного мага")
+			if blackedGangQW=150:msg("Вы убили черного мага и богиня луны благодарна вам")
+			if blackedGangQW=130:msg("Черная банда во главе с черным магом живы и здоровы и никто про них не вспомнит, а у меня теперь есть их сила.")
+		}
+		$d_bocmanQW={
+			if bocmanQW=1:msg("Боцман просит передать привет Маше Сладковой")
+			if bocmanQW=2:msg("Маша считает секс с боцманом ошибкой и не хочет его видеть")
+			if bocmanQW=4:msg("Боцман хочет узнать как купить шлюху у Торнтона Марша")
+			if bocmanQW=5:msg("Торнтон разрешил покупать его шлюх за 2000")
+			if bocmanQW=6:msg("Боцман не хочет покупать шлюху, а хочет ее самостоятельно сделать с моей помощью")
+			if bocmanQW=10:msg("С моей помощью Боцман сделал из невинной девушки шлюху")
+		}
+		$d_BossmainQW={
+			if BossmainQW=0:msg("Устроиться на работу.в офисе")
+			if BossmainQW=1:msg("Отчитвться перед Боссом.")
+			if BossmainQW=2 and pol[you]=1:msg("Сблизиться с Боссом.")
+			if BossmainQW=2 and pol[you]=0:msg("Сблизиться с Боссом.")
+			if BossmainQW=3 and pol[you]=0:msg("Отчитаться о проделанной работе.")
+		}
+		$d_bocmanmotherQW={
+			if bocmanmotherQW=1:msg("Боцман шантажирует меня: требует либо 50 шиллингов, либо отсосать ему.")
+			if bocmanmotherQW=2:msg("Пришлось отсосать Боцману, так как он шантажировал меня.")
+			if bocmanmotherQW=110:msg("Я заплатила Боцману, так как он шантажировал меня. В следующий раз нужно быть осторожнее.")
+		}
+		!$d_greatoakqw={if oakqw=1:msg("Великий Дуб связан с другими мирами.")}
+		!luksDeadQW=100 убит Люкс Эосфор
+		  !globalQW=1 проявление Дара.
+		  !globalQW=2 герой в Агентстве.
+		  !globalQW=3 смерть Богарта.
+		  !globalQW=4 смерть Антея, Джофри - аватар.
+		  !globalQW=5 полиция, Джофри - аватар.
+		  !globalQW=6 ГГ - аватар.
+		  !ЧФ 1-23
+		  !ДХ 1-25
+		  !НБ 2-17
+		pl'<b>Активные квесты</b>'
+		if Z[you]<200:
+			if BlackRoseQW[you]>=1 and BlackRoseQW[you]<100:pl'<a href="exec:dynamic $d_blackroseqw">Агентство Добрых Дел</a> <<BlackRoseQW[you]>>'
+			if knowRuneMasterQW>=1 and knowRuneMasterQW<100:pl'<a href="exec:dynamic $d_knowRuneMasterQW">Смерть Богарта</a>'
+			if afterBogartQW>=1 and afterBogartQW<6:pl'<a href="exec:dynamic $d_afterBogartqw">Король умер, да здравствует король</a>'
+			if operativQW>=1 and operativQW<100:pl'<a href="exec:dynamic $d_operativQW">Оперативная работа</a>'
+			if StealQW>=1 and  StealQW<100:pl'<a href="exec:dynamic $d_StealQW">Взлом замков</a>'
+			if satansToyQW[you]>=1 and satansToyQW[you]<100:pl'<a href="exec:dynamic $d_satansYoyqw">Люкс Эосфор</a>'
+			if satansToyQWmoney>=1 and satansToyQWmoney<100:pl'<a href="exec:dynamic $d_satansYoyMoneyqw">Люкс Эосфор</a>'
+			if blackedGangQW>=1 and blackedGangQW<100:pl'<a href="exec:dynamic $d_blackedGangQW">Черная магия</a>'
+			if bocmanQW>=1 and bocmanQW<10:pl'<a href="exec:dynamic $d_bocmanQW">Сема Боцман</a>'
+			if bocmanmotherQW=1:pl'<a href="exec:dynamic $d_bocmanmotherQW">Предъявы Боцмана</a>'
+			if vamireQW>=1 and vamireQW<100 and vamireQW!55:pl'<a href="exec:dynamic $d_vamireQW">Чарльз Пратчет</a>'
+			if germionaQW[you]>=1 and germionaQW[you]<100:pl'<a href="exec:dynamic $d_germionaQW">Увлечения Гермионы</a>'
+			if dilaminaFallQW=10:pl'<a href="exec:dynamic $d_dilaminaFallQW">Падение Диламины</a>'
+			if uberSolderQW[you]>=1 and uberSolderQW[you]<100:pl'<a href="exec:dynamic $d_ubersolderqw">Суперсолдат</a>'
+			if autodocQW>=1 and autodocQW<100:pl'<a href="exec:dynamic $d_autodocQW">Обновление автодока</a>'
+			if punishedQW>=1:pl'<a href="exec:dynamic $d_punishedQW">Пониженный</a>'
+			if cuntmanQW>=1 and cuntmanQW<100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
+			if sluttySisQW>=1 and sluttySisQW<3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
+			if IamMilfQW>=1 and IamMilfQW<100:pl'<a href="exec:dynamic $d_iammilfqw">Моя жизнь</a>'
+			if lebeda_birdQW>=1 and lebeda_birdQW<100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды</a>'
+			if prophecyQW>=1 and prophecyQW<100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество</a>'
+			if against_portal>=1 and against_portal<4:pl'<a href="exec:dynamic $d_antiportalQW">Портальная магия</a>'
+			if mabutaQW>=1 and mabutaQW<100:pl'<a href="exec:dynamic $d_mabutaQW">Мабута</a>'
+			if portAvatarQW>=1 and portAvatarQW<100:pl'<a href="exec:dynamic $d_portAvatarQW">Фишер</a>'
+			if endofvaloramaQW>=1 and endofvaloramaQW<100:pl'<a href="exec:dynamic $d_endofvaloramaQW">Конец Валорамы</a>'
+			if runemasterQW>=1 and runemasterQW<100:pl'<a href="exec:dynamic $d_runemasterQW">Мастерство рун</a>'
+			if MainQW[you]>=1:pl'<a href="exec:dynamic $d_haronqw">Пробуждение</a>'
+			if power_wallQW[you]>=1 and power_wallQW[you]<100:pl'<a href="exec:dynamic $d_powerwallqw">Невидимая стена</a>'
+			if larkinQW[you]>=1 and kill_sheriffQW[you]=0:pl'<a href="exec:dynamic $d_larkinqw">Ужас инсмутцев</a>'
+			if BlackRoseQW[you]>=1 and BlackRoseQW[you]<20 and knowRuneMasterQW<100:pl'<a href="exec:dynamic $d_blackroseqw">Черная роза</a>'
+			if sportzalQW>=1 and sportzalQW<100:pl'<a href="exec:dynamic $d_sportzalqw">Спортзал</a>'
+			if bogart_slut_reit[you]>0 and bogart_slut_reit[you]<100 and BlackRoseQW[you]<20:pl'<a href="exec:dynamic $d_bogarslutqw">Шлюха Богарта</a>'
+			if frank_viscontiQW>0 and frank_viscontiQW<100:pl'<a href="exec:dynamic $d_frank_viscontiQW">Фрэнк Висконти</a>'
+			if oakqw>=1 and oakqw<100:pl'<a href="exec:dynamic $d_greatoakqw">Великий дуб</a>'
+		end
+		if Z[you]=404:
+			if roma_home[you]=0:pl'Преобрести Дом для проживания в Риме'
+		end
+		if Z[you]=200:
+			if BossmainQW<6:pl'Знакомство с Демонами'
+		end
+		pl'<b>Завершенные квесты</b>'
+		if Z[you]<200:
+			if BlackRoseQW[you]>=100:pl'<a href="exec:dynamic $d_blackroseqw">Агентство Добрых Дел</a>'
+			if BlackRoseQW[you]=20 or knowRuneMasterQW=100:pl'<a href="exec:dynamic $d_blackroseqw">Смерть Богарта.</a>'
+			if knowRuneMasterQW>=100:pl'<a href="exec:dynamic $d_knowRuneMasterQW">Смерть Богарта</a>'
+			if afterBogartQW>=6:pl'<a href="exec:dynamic $d_afterBogartqw">Король умер, да здравствует король!</a>'
+			if operativQW>=100:pl'<a href="exec:dynamic $d_operativQW">Оперативная работа</a>'
+			if StealQW>=100:pl'<a href="exec:dynamic $d_StealQW">Взлом замков</a>'
+			if satansToyQW[you]>=100:pl'<a href="exec:dynamic $d_satansYoyqw">Охота на Пана Твердовского.</a>'
+			if satansToyQWmoney>=100:pl'<a href="exec:dynamic $d_satansYoyMoneyqw">Охота на Пана Твердовского.</a>'
+			if blackedGangQW>=100:pl'<a href="exec:dynamic $d_blackedGangQW">Черная магия</a>'
+			if bocmanQW>=10:pl'<a href="exec:dynamic $d_bocmanQW">Сема Боцман</a>'
+			if bocmanmotherQW>1:pl'<a href="exec:dynamic $d_bocmanmotherQW">Предъявы Боцмана</a>'
+			if vamireQW=55:pl"Вампирша Ромея с моей помощью убила Лагерту Саливан"
+			if vamireQW>=100:pl'<a href="exec:dynamic $d_vamireQW">Чарльз Пратчет</a>'
+			if germionaQW[you]>=100:pl'<a href="exec:dynamic $d_germionaQW">Увлечения Гермионы</a>'
+			if dilaminaFallQW=100:pl'<a href="exec:dynamic $d_dilaminaFallQW">Падение Диламины</a>'
+			if uberSolderQW[you]>=100:pl'<a href="exec:dynamic $d_ubersolderqw">Суперсолдат</a>'
+			if autodocQW>=100:pl'<a href="exec:dynamic $d_autodocQW">Обновление автодока</a>'
+			if cuntmanQW>=100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
+			if sluttySisQW>=3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
+			if lebeda_birdQW=100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды.</a>'
+			if prophecyQW>=100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество.</a>'
+			if against_portal>=4:pl'<a href="exec:dynamic $d_antiportalQW">Портальная магия.</a>'
+			if mabutaQW>=100:pl'<a href="exec:dynamic $d_mabutaQW">Мабута.</a>'
+			if portAvatarQW=100:pl'<a href="exec:dynamic $d_portAvatarQW">Фишер.</a>'
+			if endofvaloramaQW=100:pl'<a href="exec:dynamic $d_endofvaloramaQW">Конец Валорамы.</a>'
+			if runemasterQW=100:pl'<a href="exec:dynamic $d_runemasterQW">Мастерство рун.</a>'
+			if fragile_sistersQW=100:pl'<a href="exec:dynamic $d_fragile_sistersQW">Хрупкие сестрицы. Вы победили армию насекомых темного бога Баал Зебуба.</a>'
+			if bogart_slut_reit[you]=100 or BlackRoseQW[you]=20 or knowRuneMasterQW=100:pl'<a href="exec:dynamic $d_bogarslutqw">Шлюха Богарта.</a>'
+			if frank_viscontiQW=100:pl'<a href="exec:dynamic $d_frank_viscontiQW">Фрэнк Висконти.</a>'
+			if power_wallQW[you]>=100:pl'<a href="exec:dynamic $d_powerwallqw">Невидимая стена.</a>'
+			if kill_sheriffQW[you]=1:pl'<a href="exec:dynamic $d_kill_sheriffqw">Смерть шерифа.</a>'
+			if sportzalQW>=100:pl'<a href="exec:dynamic $d_sportzalqw">Спортзал.</a>'
+			if blackberry_home[you]=1:pl'Дом в Блэкберри, улица Грув. Координаты 3.3.2'
+			if zilmassiv_home[you]=1:pl'Квартира в Жилмассиве. Улица Грез. Координаты 3.1.3'
+			if uptown_home[you]=1:pl'Квартира в районе Аптаун. Улица Двух Лун, восток. Координаты 1.2.4.3'
+			if saunakafeowner=1:pl'Вам принадлежит кафе "Рим". Координаты 2.0.3'
+			if hotelowner=1:pl'Вам принадлежит отель "Мардук". координаты 1.1.4'
+		end
+		if Z[you]=404:
+			if roma_home[you]=1:pl'У вас есть Дом в Риме'
+		end
+		if Z[you]=200:
+			if BossmainQW<6:pl'Вы узнали о существовании Демонов'
+		end
+		
+		pl''
+		if savetipe=0:pl'Автосохранения в 1 файл <a href="exec:savetipe=1&gs''stat''">Сохранять каждый день в разные файлы</a>'
+		if savetipe=1:pl'Автосохранения каждый день в разные сейвы <a href="exec:savetipe=0&gs''stat''">Сохранять в 1 файл</a>'
+		pl''
+		pl'<<$global_npc_log[you]>>'
+    end
+	!* -------------------------------- ИНВЕНТАРЬ ------------------------------- *!
+    if $ARGS[0] = 'ИНВЕНТАРЬ':
+		clr
+		openinv=1
+		if busy[you]=0:
+			dynamic $d_inv
+		else
+			p'<<func("generate_links", 1, 13, "ИНВЕНТАРЬ")>>'&pl'В данный момент - нельзя пользоваться инвентарем.'
+		end
+    end
+	!* ---------------------------- ПЕРСОНАЖ/ОПИСАНИЕ --------------------------- *!
+    if $ARGS[0] = 'ПЕРСОНАЖ' or $ARGS[0] = 'ОПИСАНИЕ':
+		clr&p'<<func("generate_links", 1, 13, "ОПИСАНИЕ")>>'
+		num=you
+		gs'body', 'IN_PREVIEW'&clotemp=clonum[you]&openinv=0
+		pl'<<$name[you]>> <<$surname[you]>>'&!if $nick[you]!'':pl'<<$nick[you]>>'
+		pl'<<$opis[you]>>'
+		if defence[you]>0:pl'Защита <<defence[you]>>ед.'
+		if $l_hand_t[you]!'':pl'Татуировка на левой руке - <<$l_hand_t[you]>>.'
+		if $r_hand_t[you]!'':pl'Татуировка на правой руке - <<$r_hand_t[you]>>.'
+		if $back_t[you]!'':pl'Татуировка на спине <<$back_t[you]>>.'
+		if $stamp_t[you]!'':pl'Татуировка на пояснице <<$stamp_t[you]>>.'
+		if $tits_t[you]!'':pl'Татуировка на груди <<$tits_t[you]>>.'
+		if $belly_t[you]!'':pl'Татуировка на животе <<$belly_t[you]>>.'
+		if $pubis_t[you]!'':pl'Татуировка на лобке <<$pubis_t[you]>>.'
+		if $l_ass_t[you]!'':pl'Татуировка на левой ягодице <<$l_ass_t[you]>>.'
+		if $r_ass_t[you]!'':pl'Татуировка на правой ягодице <<$r_ass_t[you]>>.'
+		if $l_leg_t[you]!'':pl'Татуировка на левой ноге <<$l_leg_t[you]>>.'
+		if $r_leg_t[you]!'':pl'Татуировка на правой ноге <<$l_leg_t[you]>>.'
+		if busy[you]=0:
+			pl''
+			if sfera_amulet[you]>0:pl'На руке одет браслет с рунами дающий вам <<sfera_amulet[you]>> едениц защиты при входе в бой'
+			if w_slot[you]>0:
+				wslot=w_slot[you]&pl'Оружие дальнего боя. <<$item_w_name[wslot]>> Урон <<uron_weapon_w[you]>> <a href="exec:gt''w_uneq'',<<wslot>>">убрать</a>'
+				if weapon_tipe=1:
+					pl'Патроны <<w_patron_load[you]>>/<<w_patron_max[you]>>'
+					if w_patron_load[you]<w_patron_max[you]:
+						needpatron=w_patron_max[you]-w_patron_load[you]&patrontipe=w_patrontipe[you]
+						if item[patrontipe]>0:
+							pl'У вас <<item[patrontipe]>> патронов в запасе, <a href="exec:gt''reload'',<<patrontipe>>">Перезарядить</a>'
+						else
+							pl'У вас нет патронов для данного оружия.'
+						end
+					end
+				end
+			end
+			if m_slot[you]>0:mslot=m_slot[you]&pl'Оружие ближнего боя. <<$item_m_name[mslot]>> Урон <<uron_weapon_m[you]>> <a href="exec:gt''m_uneq'',<<mslot>>">убрать</a>'
+			if amulet[you]>0:amul=amulet[you]&pl'На шее висит "<<$item_name[amul]>>" <a href="exec:gt''amul_un'',<<amul>>">снять</a>'
+			if l_ring[you]>0:lring=l_ring[you]&pl'На левой руке надето "<<$item_name[lring]>>" <a href="exec:gt''lring_un'',<<lring>>">снять</a>'
+			if r_ring[you]>0:rring=r_ring[you]&pl'На правой руке надето "<<$item_name[rring]>>" <a href="exec:gt''rring_un'',<<rring>>">снять</a>'
+			if collar[you]=1:pl'У вас на шее кожаный ошейник.'
+			if collar[you]=2:pl'У вас на шее металлический ошейник.'
+			pl''
+			pl'Ваша одежда:'
+			if c_slot[you]>0:
+				coattemp=c_slot[you]&$d_c_view='view"pic/clo/coat/<<coattemp>>.jpg"'
+				if ban_c[you]=0:pl'<a href="exec:dynamic $d_c_view"><<$c_name[coattemp]>></a> <a href="exec:gt''coat_un'',<<coattemp>>">снять</a>'
+				if ban_c[you]>0:pl'<a href="exec:dynamic $d_c_view"><<$c_name[coattemp]>></a>'
+			end
+			if tz_slot[you]>0:
+				tztemp=tz_slot[you]&$d_tz_view='view"pic/clo/tz/<<coattemp>>.jpg"'
+				if ban_tz[you]=0:pl'<a href="exec:dynamic $d_tz_view"><<$tz_name[tztemp]>></a> <a href="exec:gt''tz_un'',<<tztemp>>">снять</a>'
+				if ban_tz[you]>0:pl'<a href="exec:dynamic $d_tz_view"><<$tz_name[tztemp]>></a>'
+			end
+			if tg_slot[you]>0:
+				tgtemp=tg_slot[you]&$d_tg_view='view"pic/clo/tg/<<coattemp>>.jpg"'
+				if ban_tg[you]=0:pl'<a href="exec:dynamic $d_tg_view"><<$tg_name[tgtemp]>></a> <a href="exec:gt''tg_un'',<<tgtemp>>">снять</a>'
+				if ban_tg[you]>0:pl'<a href="exec:dynamic $d_tg_view"><<$tg_name[tgtemp]>></a>'
+			end
+			if h_slot[you]>0:
+				hattemp=h_slot[you]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'
+				if ban_h[you]=0:pl'<a href="exec:dynamic $d_hat_view"><<$h_name[hattemp]>></a> <a href="exec:gt''hat_un'',<<hattemp>>">снять</a>'
+				if ban_h[you]>0:pl'<a href="exec:dynamic $d_hat_view"><<$h_name[hattemp]>></a>'
+			end
+			if t_slot[you]>0:
+				toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'
+				if ban_t[you]=0:pl'<a href="exec:dynamic $d_top_view"><<$t_name[toptemp]>></a> <a href="exec:gt''top_un'',<<toptemp>>">снять</a>'
+				if ban_t[you]>0:pl'<a href="exec:dynamic $d_top_view"><<$t_name[toptemp]>></a>'
+			end
+			if l_slot[you]>0:
+				lowtemp=l_slot[you]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'
+				if ban_l[you]=0:pl'<a href="exec:dynamic $d_low_view"><<$l_name[lowtemp]>></a> <a href="exec:gt''low_un'',<<lowtemp>>">снять</a>'
+				if ban_l[you]>0:pl'<a href="exec:dynamic $d_low_view"><<$l_name[lowtemp]>></a>'
+			end
+			if b_slot[you]>0:
+				boottemp=b_slot[you]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'
+				if ban_b[you]=0:pl'<a href="exec:dynamic $d_boot_view"><<$b_name[boottemp]>></a> <a href="exec:gt''boot_un'',<<boottemp>>">снять</a>'
+				if ban_b[you]>0:pl'<a href="exec:dynamic $d_boot_view"><<$b_name[boottemp]>></a>'
+			end
+			if ut_slot[you]>0:
+				utoptemp=ut_slot[you]&$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'
+				pl'<a href="exec:dynamic $d_utop_view"><<$ut_name[utoptemp]>></a> <a href="exec:gt''ut_un'',<<utoptemp>>">снять</a>'
+			end
+			if ul_slot[you]>0:
+				ulowtemp=ul_slot[you]
+				$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'
+				pl'<a href="exec:dynamic $d_ulow_view"><<$ul_name[ulowtemp]>></a> <a href="exec:gt''ul_un'',<<ulowtemp>>">снять</a>'
+			end
+			if ul_slot[you]=0:
+				If pol[you]=0 and womenbrain[i]<=10: 
+					pl'Вы без трусов'
+				else
+					pl'Вы без трусиков'
+				end
+			end
+			if ub_slot[you]>0:
+				uboottemp=ub_slot[you]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'
+				pl'<a href="exec:dynamic $d_uboot_view"><<$ub_name[uboottemp]>></a> <a href="exec:gt''ub_un'',<<uboottemp>>">снять</a>'
+			end
+			if tongue_p[you]>0 or nose_p[you]>0 or nip_p[you]>0 or vag_pirs[you]>0:pl'Пирсинг:'&pl $func('generate_links', 0, 18)
+		end
+	end
+	if $ARGS[0] = 'СТАТИСТИКА':
+		  clr
+		  p'<<func("generate_links", 1, 13, "СТАТИСТИКА")>>'
+		  pl'<center><b><<$selobj>></b></center>'
+		  pl'Побед: <<win[you]>>, поражений: <<loss[you]>>, бегств: <<run[you]>>'
+		  if murderer[you]>0:pl'Вы убили: <<murderer[you]>> <<func("get_word", "человек", murderer[you])>>.'
+		  if guy[you]>0:pl'У вас <<func("get_word", "был", guy[you])>>: <<guy[you]>> <<func("get_word", "парень", guy[you])>>.'
+		  if girl[you]>0:pl'У вас <<func("get_word", "была", girl[you])>>: <<girl[you]>> <<func("get_word", "девушка", girl[you])>>.'
+		  if shemale[you]>0:pl'У вас <<func("get_word", "был", shemale[you])>>: <<shemale[you]>> <<func("get_word", "шимейл", shemale[you])>>'
+		  if tentacle[you]>0:pl'Вас <<tentacle[you]>> <<func("get_word", "раз", tentacle[you])>> насиловали тентакли, <<t_anal[you]>> <<func("get_word", "раз", t_anal[you])>> в попу, <<t_bj[you]>> <<func("get_word", "раз", t_bj[you])>> в рот.'
+		  if ork[you]>0:pl'Вас <<ork[you]>> <<func("get_word", "раз", ork[you])>> трахали орки.'
+		  if goblin[you]>0:pl'Вас <<goblin[you]>> <<func("get_word", "раз", goblin[you])>> трахали гоблины'
+		  if mistbist[you]>0:pl'Вас <<mistbist[you]>> <<func("get_word", "раз", mistbist[you])>> трахали туманные твари.'
+		  !if wolf[you]>=3:pl'Вас ебали <<wolf[you]>> волка, вы настоящая сучка для случки.'
+		  if wolf[you]>0:pl'Вас <<func("get_word", "ебал", wolf[you])>> <<wolf[you]>> <<func("get_word", "волк", wolf[you])>>.'
+		  if submission[you]>0:pl'У вас <<func("get_word", "была!", submission[you])>> <<submission[you]>> бдсм <<func("get_word", "сессия", submission[you])>> в качестве рабыни.'
+		  if gang[you]>0:pl'Вы <<gang[you]>> <<func("get_word", "раз", gang[you])>> принимали участие в групповым сексе.'
+		  if insmout_gang[you]>0:pl'Инсмутцы изнасиловали вас'
+		  if lesb[you]>0:pl'Вы <<lesb[you]>> <<func("get_word", "раз", lesb[you])>> занимались лесбийским сексом.'
+		  if bj[you]>0 and glory[you]=0:pl'Вы <<bj[you]>> <<func("get_word", "раз", bj[you])>> сосали член.'
+		  if bj[you]>0 and glory[you]>0:pl'Вы <<bj[you]>> <<func("get_word", "раз", bj[you])>> сосали член, из этого вы <<glory[you]>> <<func("get_word", "раз", glory[you])>> сосали член в глорихоле.'
+		  if abj[you]>0:pl'Вам <<abj[you]>> <<func("get_word", "раз", abj[you])>> сосали член.'
+		  if glory_bj[you]>0:pl'Вы отсосали <<glory_bj[you]>> <<func("get_word", "хуй", glory_bj[you])>> в глорихоле.'
+		  if fluffer[you]=1:pl'Вы начинающая флаффер, девочка на подсосе в порно'
+		  if fluffer[you]>1:pl'<<fluffer[you]>> <<func("get_word", "час", fluffer[you])>> вы сосали хуи порноактерам работая в порностудии флаффером.'
+		  if hj[you]>0:pl'Вы <<hj[you]>> <<func("get_word", "раз", hj[you])>> довели до оргазма руками.'
+		  if ahj[you]>0:pl'Вас <<ahj[you]>> <<func("get_word", "раз", ahj[you])>> довели до оргазма руками.'
+		  if vagsex[you]>0:pl'Вас трахали во влагалище <<vagsex[you]>> <<func("get_word", "раз", vagsex[you])>>.'
+		  if avagsex[you]>0:pl'Вы трахали во влагалище <<avagsex[you]>> <<func("get_word", "раз", avagsex[you])>>.'
+		  if aanal[you]>0:pl'<<aanal[you]>> <<func("get_word", "раз", aanal[you])>> вы трахали в попу.'
+		  if anal[you]>0:pl'Вас трахали в попу <<anal[you]>> раз'
+		  if jerk[you]>0:pl'<<jerk[you]>> <<func("get_word", "раз", jerk[you])>> мастурбировали.'
+		  if orgasm_times[you]>0:pl'Вы получили <<orgasm_times[you]>> <<func("get_word", "оргазм", orgasm_times[you])>> пока вас трахали.'
+		  if squirt[you]>0:pl'<<squirt[you]>> <<func("get_word", "раз", squirt[you])>> вы сквиртанули.'
+		  if cuntlick[you]>0:pl'<<cuntlick[you]>> <<func("get_word", "раз", cuntlick[you])>> вас заставляли лизать пизду.'
+		  if pee[you]>0 and CONFIG['DISABLE_PEE']=0:pl'<<pee[you]>> <<func("get_word", "раз", pee[you])>> вы мочились в рот.'
+		  if drinkpee[you]>0 and CONFIG['DISABLE_PEE']=0:pl'<<drinkpee[you]>> <<func("get_word", "раз", drinkpee[you])>> вас обоссали.'
+		  if whore[you]>0:pl'Вы <<whore[you]>> <<func("get_word", "раз", whore[you])>> занимались проституцией.'
+		  if bimboporn>0:pl'Вы <<bimboporn>> <<func("get_word", "раз", bimboporn[you])>> снимались в порно.'
+		  if port_repa[you]>0:pl'Вас уважают и некоторые даже боятся в Порту'
+		  if gilmassive_repa[you]>0:pl'Вы уважаемый член общества в Жилмассиве'
+		  if megapolis_repa[you]>0:pl'Вы уважаемый член общества в Мегаполисе'
+		  if egg[you]>0:pl'Вы выносили и родили <<egg[you]>> <<func("get_word", "яйцо", egg[you])>> от ночных тварей из своей задницы.'
+		  if child[you]>0:pl'Вы родили <<child[you]>> <<func("get_word", "ребёнок", child[you])>>.'
+		  if $fightlog[you]!'':pl'<<$fightlog[you]>>'
+	end
+	if $ARGS[0] = 'ХАРАКТЕРИСТИКИ':
+		clr&p'<<func("generate_links", 1, 13, "ХАРАКТЕРИСТИКИ")>>'
+		num=you
+		gs'body'&pl'<center><b><<$selobj>></b></center>'
+		if muggle[you]>=1:
+			!magik[you]
+			pl'У вас нет никакого магического дара'
+		else
+			pl'<<lvl[you]>>й уровень. Опыт <<exp[you]>>/<<expneed[you]>>'
+		end
+		if demon_dick[you]>0:
+			pl "Уровень "+IIF(pol[you]=0,'Инкуба', 'Суккуба')+": <b>" + demon_dick[you] + "</b> ("+soul[you]+"/"+demon_dick_soul_need[you]+")"
+			pl "Насыщение душами: <b>" + demon_dick_stomath[you] + "</b> ("+demon_dick_stomath_max[you]+")"
+		end
+		pl'Жизнь <<health[you]>>/<<healthmax[you]>>'
+		pl'Энергия <<energy[you]>>/<<energymax[you]>>'
+		if manamax[you]>0:pl'Мана <<mana[you]>>/<<manamax[you]>>'&pl'Опыта для получения канала <<magik_exp[you]>>/<<magik_exp_need[you]>>'
+		  if techer_dogovor[you]>0:ted=techer_dogovor[you]&pl'Ваш учитель <<$name[ted]>> <<$surname[ted]>>, вы не можете причинить ему вред.'
+		  if whoreboss[you]>0:sutener=whoreboss[you]&pl'Ваш сутенер <<$name[sutener]>> <<$surname[sutener]>>, и вы должны приносить ему деньги.'
+		  !if second_life[you]>0:pl'<<second_life[you]>> дополнительных жизней.'
+		 pl''
+		 if magik[you]>0:
+			if mlev[you]=9:pl'<b>Божественная сила</b>'
+			if mlev[you]=8:pl'<b>Сила вне категорий</b>, чтобы обрести божественную силу, нужно 37 каналов магии.'
+			if mlev[you]=7:pl'<b>1-я категория силы</b>, чтобы повысить категорию, нужно 29 каналов магии.'
+			if mlev[you]=6:pl'<b>2-я категория силы</b>, чтобы повысить категорию, нужно 22 канала магии.'
+			if mlev[you]=5:pl'<b>3-я категория силы</b>, чтобы повысить категорию, нужно 16 каналов магии.'
+			if mlev[you]=4:pl'<b>4-я категория силы</b>, чтобы повысить категорию, нужно 11 каналов магии.'
+			if mlev[you]=3:pl'<b>5-я категория силы</b>, чтобы повысить категорию, нужно 7 каналов магии.'
+			if mlev[you]=2:pl'<b>6-я категория силы</b>, чтобы повысить категорию, нужно 4 канала магии.'
+			if mlev[you]=1:pl'<b>7-я категория силы</b>, чтобы повысить категорию, нужно 2 канала магии.'
+			if magik[you]=1:pl'<b><<magik[you]>></b> канал магии.'
+			if magik[you]>=2 and magik[you]<5:pl'<b><<magik[you]>></b> канала магии.'
+			if magik[you]>=5:pl'<b><<magik[you]>></b> каналов магии.'
+		end
+		if hunter[you]>0 or magik[you]>0 or insight[you]>0:
+			 if soul[you]>=20:
+				pl'Ваша душа <<soul[you]>>% от человеческой души'
+			 else
+				pl'Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>'
+			 end
+		end
+		pl'Живучесть <<vital[you]>>'
+		pl'Мускулатура <<mus[you]>>'
+		if soulpower[you]>0:pl'Сила духа, дающая бонус к урону, грузоподъемности и выносливости <<soulpower[you]>>.'
+		if will[you]>0:pl'Воля <<will[you]>>'&!', параметр удержания канала магии ? Что это даёт в других играх?'
+		if fight_skill[you]>0:pl'Навыки рукопашного боя <<fight_skill[you]>>'
+		if shoot_skill[you]>0:pl'Навык стрельбы <<shoot_skill[you]>>'
+		pl'Физиологические рефлексы <<reflex[you]>>'
+		pl'Текущая реакция, использующаяся в бою <<react[you]>>'
+		pl'Доминантность <<dom[you]>>'
+		pl'Агресивность <<agro[you]>>'
+		if corr[you]<10:$corr_txt[you]='Зажатая'
+		if corr[you]>=10 and corr[you]<25:$corr_txt[you]='Стыдливая'
+		if corr[you]>=25 and corr[you]<50:$corr_txt[you]='Игривая'
+		if corr[you]>=50 and corr[you]<75:$corr_txt[you]='Пошлая'
+		if corr[you]>=75:$corr_txt[you]='Блядь'
+		if pol[you]>0:pl'Развращенность <<corr[you]>>. <<$corr_txt[you]>>'
+		if pol[you]=0:pl'Развращенность <<corr[you]>>.'
+		pl'Похоть <<lust[you]>>'
+		if visioner[you]>0:pl'Дар <<visioner[you]>>'
+		if implant_speed[you]>0:pl'Ваш имплант, увеличивающий рефлексы <<implant_speed[you]>>-го уровня.'
+		if implant_power[you]>0:pl'Ваш имплант, увеличивающий силу удара <<implant_power[you]>>-го уровня.'
+		if implant_vigor[you]>0:pl'Ваш имплант, увеличивающий здоровье <<implant_vigor[you]>>-го уровня.'
+		if implant_seed[you]=1:pl'У вас антигрибной имплант раз в сутки устраняющий одну спору. <<lebeda_seed[you]>> спор паразитов, <<spore[you]>> мутагенных спор. Уровень мутации <<mutation[you]>>'
+		if knowlanguage[you]>0:pl'Вы умеете читать магические руны.'
+		if soulMG[you]>0:pl'Вы умеете поглощать и отдавать душу.'
+		if canbewitch[you]>=1:pl'Вам знакомо ремесло ведьмы и вы умеете варить колдовские зелья.'
+		if free_spirit>0:pl'Вы умеете вселяться в чужие тела.'
+		if mardukpower>0:pl'Раз в сутки вы можете внушить к себе любовь человека.'
+		if Tsukuyomi[you]>0:pl'Вы владеете гипнотической силой чтения луны, посылаете противника в транс пока он не получит урон'
+		if work[you]=1:pl'Вы работаете на рыбообрабатывающей фабрике.'
+		if work[you]=4:pl'Вы работаете на механической мануфактуре.'
+		if work[you]=6:pl'Вы работаете в госпитале.'
+		if work[you]=11:pl'Вы работаете в телецентре.'
+		if work[you]=19:pl'Вы работаете в офисе.'
+		pl""
+		if perk_feminize[you]>0:pl"При пассивном оргазме, тело вырабатывает женские гормоны "+perk_feminize[you]
+		if anal_fixation[you]>250:pl"Вы обожаете когда вас ебут в жопу и все время кончаете от этого "
+		if oral_fixation[you]>=1000:pl"Вы обожаете члены! Вы готовы кончить едва почувтвовав его во рту"
+		if perk_sexy[you]>0:pl"Вы умете говорить и двигаться так, что ни один мужчина не останеться ровнодушным (+<<perk_sexy[you]*10>>% к сексуальности)"
+		if perk_cumnpc[you]>0:pl"Когда вы или партнер кончает, то вы получаете <<perk_cumnpc[you]*10>> xp"
+		if demon_dick[you]>0:
+			$args[200]=$IIF(pol[you]=0,"Инкуба","Суккуба")
+			pl"<i>Способности <<$args[200]>>:</i>"
+			pl"- 1 раз в день, вы получаете опыт, в зависимости от 'качества' оргазма и уровня <<$args[200]>>(Как в активной, так и в пассивной форме)"
+			pl"- Во время пассивного оргазма тело выробатывает женские гормоны"
+			pl"- Во время активного оргазма тело выробатывает мужские гормоны если тело имеет мужскую форму"
+			if demon_dick[you]>1:pl"- Во время бурного секса повышает вашу физическую форму"
+			if demon_dick[you]>2:pl"- Во время оргазма восстанавливает энергию"
+			if demon_dick[you]>3:pl"- Ваши флюиды могут усилить потенцию мужчины"
+			if demon_dick[you]>4:pl"- Ваши флюиды могут увеличить достоинства мужчины (на сколько, зависит от уровня <<$args[200]>>)"
+			if demon_dick[you]>8:pl"- Ваша сперма феминизирует партнера"
+		end
+	end
+	if $ARGS[0] = 'ОБНОВИТЬ':openinv=0&gs'stat'
+	if $ARGS[0] = 'НАСТРОЙКИ':
+		if busy[you]=0:
+			UNSEL & gt "settings"
+		else
+			 gs'stat'
+			 pl'<br>'
+			 pl'<b>В данный момент вы слишком заняты, чтоб пользоваться настройками.</b>'
+		end
+	end
+	if $ARGS[0] = 'ВВОД КОМАНД' or $ARGS[0] = 'КОМАНДА':
+		$ARGS['INPUT'] = INPUT ('Введите команду')
+		UNSEL & $ARGS['COMMAND'] = DYNEVAL($ARGS['INPUT'])
+	end
+	if $ARGS[0] = 'АВАРИЙКА':X[you]=XHome[you]&Y[you]=YHome[you]&Z[you]=ZHome[you]&H[you]=0&R[you]=0&gt 'world'
+	if $ARGS[0] = 'UI ТОГГЛЕР':
+		 if CONFIG['UI_EDITOR'] = 1:
+			CONFIG['UI_EDITOR'] = 0&gs'stat'
+		 else
+			CONFIG['UI_EDITOR'] = 1&gs'stat'
+		 end
+	end
+end

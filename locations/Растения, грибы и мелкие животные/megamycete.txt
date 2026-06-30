@@ -1,0 +1,7 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&mic=megamycete['<<$loc[you]>>']
+'Вы чувствуете мицелий, у него <<mic>> тонких нитей, у вас в организме на зов мицелия отзываются <<spore[you]>> грибные споры'
+'У вас <<mutation[you]>>% мутации от мутационного барьера, при превышении которого вы превратитесь в чудовище.'
+gs'Item'&*pl''&gs 'npconloc'
+act'Уйти':gt 'preloc'
+if spore[you]>=1 and mutation[you]>=10:act'Уменьшить мутацию':mutation[you]-=1&spore[you]-=1&gt $curloc

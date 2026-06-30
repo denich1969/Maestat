@@ -1,0 +1,40 @@
+﻿!$d_view = 'pic/faceman/<<picture[npc]>>.jpg'&'<center><img src="<<$d_view>>" ></center>'
+if mob_sleep[npc]>time:
+	'Клиент дремлет'
+else
+	 if you_slut[npc]>0:
+	     if you_slut[npc]=1:'Клиент смотрит на вас с нескрываемым презрением и брезгливостью'
+	     if you_slut[npc]=2:'Клиент с усмешкой говорит вам - А я видел порнуху с тобой'
+	 	 if whore[you]>0:act'Предложить секс за 100 гульденов':solo=npc&horny[npc]=50&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
+		 dynamic $d_fear
+	 else
+		 if horny[npc]<50:
+			 'Клиент с интересом смотрит на вас'&act'<b>Уйти</b>':gt 'preloc'
+			 act'Поговорить':
+				 cls&gs'stat'&'Клиент говорит вам - Это отличное место что бы трахать шлюх. Если ты шлюха, то ты пришла по адресу.'&!'<center><img src="<<$d_view>>" ></center>'
+				 if fucker[npc]>0:'Клиент гордо говорит что он отъебал уже <<fucker[npc]>> шлюшек'
+				act'<b>Уйти</b>':gt 'preloc'
+			end
+			 if whore[you]>0:
+				 act'Соблазнять':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					 if sexiness[you]>=90 and cum_face[you]=0:
+						'Клиент оценивающе смотрит на вас - Классная шлюха, даю 100 гульденов.'
+					 	 act'Секс за 100 гульденов':solo=npc&horny[npc]=50&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
+					 else
+						'Клиент скептически говорит вам - Отвали шмара, я пока не в настроении.'
+					 end
+					act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 else
+			if pol[you]>0:
+				'Клиент напряженно пялится на вас и вы замечаете что у него стоит член - Эй шлюха, даю 100 гульденов'
+				 act'Секс за 100 гульденов':solo=npc&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
+				 dynamic $d_fear
+			else
+				'Иди выеби уже кого-нибудь.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		 end
+	 end
+end

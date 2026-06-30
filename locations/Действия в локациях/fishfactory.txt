@@ -1,0 +1,14 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Столы для разделки рыбы'&gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'
+if work[you]=1:
+	 if week<100:
+		 if hour>=7 and hour<=15:
+		     if energy[you]>=10:
+				act'Работать':gt'work_in_fishfactory'
+			 else
+				'Вы едва стоите на ногах от усталости и смену вы не сможете отработать'
+			 end
+		 end
+	 else
+		'Сейчас выходной день'
+	 end
+end

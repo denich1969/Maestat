@@ -1,0 +1,15 @@
+﻿if corr[npc]>=100:
+	'<<$nick[npc]>> злобно скалит зубы.'
+else
+	 if know['<<npc>>,<<you>>']=0:
+		 act'Познакомиться':
+			 know['<<npc>>,<<you>>']+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> говорит что он лесной волк и его зовут <<$name[npc]>>.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 else
+	     if horny[npc]>=50:
+			'<<$nick[npc]>> злобно скалит зубы.'
+	     else
+			'<<$nick[npc]>> настороженно смотрит на вас.'&act'<b>Уйти</b>':gt 'preloc'
+	     end
+	 end
+end

@@ -1,0 +1,23 @@
+﻿$MAINDESC_BACKIMAGE = 'butcher.jpg'&!ЛАВКА МЯСНИКА
+ "<<$content>>/butchery/shop3.jpg"&CLR&close all
+if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/butcher_knife.mp3",Громкость_эффектов
+ACT 'Говорить с мясником': GT "Butcher_talk"
+IF OBJ "Добыча":
+	!price = Func('Butcher_price')
+	IF возраст = 1:
+		$price_txt = "Ишь ты какая молоденькая и сочная! Такая потянет на <<50*целка>> золотых."
+	ELSEIF возраст = 2:
+		$price_txt = "Что ж, мясо довольно молодое. Дам за нее <<25*целка>> золотых."
+	ELSEIF возраст = 3:
+		$price_txt = "Не слишком то молодое мясо. Но <<15*целка>> золотых за нее я пожалуй могу дать."
+	ELSEIF возраст = 4:
+		$price_txt = "Жесткое, старое мясо. Эта туша стоит не больше <<15*целка>> золотых."
+	END
+	result = Base_meat_price[возраст]*целка&!ОЦЕНКА СТОИМОСТИ МЯСА
+	ACT "Продать добычу мяснику":
+		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/money.mp3",Громкость_эффектов
+		DELOBJ "Добыча"&girl=0&money+= price&!msg "Вы получили <<price>> золотых монет"
+	end
+	ACT "Показать добычу мяснику": msg "<<$price_txt>>"
+END
+ACT "Уйти": GT $curloc

@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum
+mob[i]=17&mobexp[i]=50&!номер моба для разговора
+tipemobpic[i]=1&picture[i]=rand(89,90)&!номер типа фотки!номер фотки
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс
+visualpol[i]=0&!видимый пол, не зависит от половых органов
+tipe=rand(0,5)
+if tipe=0:$name[i]='Мутировавший дикарь'
+if tipe=1:$name[i]='Мутант'
+if tipe=2:$name[i]='Чудовище'
+if tipe=3:$name[i]='Обезумевший мутант'
+if tipe=4:$name[i]='Дикий мутант'
+if tipe=5:$name[i]='Одичалый мутант'
+$nick[i]=$name[i]&$nick[i]=$nick[i]&$basestatus[i]=' рычит'
+dick[i]=rand(15,30)&dickd[i]=rand(35,55)&ball[i]=rand(60,70)
+healthmax[i]=10*rand(60,200)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(10,30)&maxuron[i]=rand(45,80)&!Урон в бою
+reflex[i]=rand(60,100)
+agro[i]=2&corr[i]=1000
+root_world[]=i&walkprog[i]=0&fight_prog[i]=1&!программа движения!программа боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

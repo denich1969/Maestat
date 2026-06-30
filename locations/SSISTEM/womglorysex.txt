@@ -1,0 +1,42 @@
+﻿if (vag[you]>=0 or (vag[you]>0 and pol[num]>=1)) and whoreboss[you]=tornton and tongue_p[you]=1:
+	msg("Вы уже неделю не приносили денег Торнтону, а он ждать не любит. Поэтому берет дело в свои руки и отправляет вас на заработки принудительно")
+	cls&'<center><video src="pic/sex/wglory/startwglory.webm" ></video></center>'&'Магическая сила подхватила вас и переместила в неизвестное место. '
+	'Во время переноса даже ваша одежда куда-то исчезла, где ваше тело сразу сковали крепкие путы, а ваше положение оказалось более чем незавидным...'
+	'Вы оказались в темном пространстве от пояса и выше, а ваша голая промежность торчала наружу с привязанными ногами. '
+	'Вам остается только лишь принять свою участь, ведь в данном пространстве вы даже кричать не можете - вас просто не слышно...'
+	 X[you]=3&Y[you]=4&Z[you]=1&H[you]=1&R[you]=3
+	 solo=0&mob_sleep[npc]=0&money[you]=0&tornton_dolg[you]=0&tornton_dolg_day[you]=0&pose[you]=2
+	 t_slot[you]=0&l_slot[you]=0&b_slot[you]=0&ut_slot[you]=0&ul_slot[you]=0&lastsex=time
+	 act 'Ждать':
+		cls&'<center><video src="pic/sex/wglory/client.webm" ></video></center>'
+		'Вы почувствовали, что вас снизу кто-то трогает, но поделать с этим ничего не можете. Что должно случиться - все равно случиться...'
+		act 'Ждать':
+			dom[you]-=1&face[you]+=1&feminize[you]+=rand(1,3)&cls
+			if rand(1,2)=1:
+				cls&'Клиент, которого вы даже не видите, начсинает размашисто страхать вас в пизду, не интересуясь вашим мнением и делает это неприлично долго. '
+				'<center><video src="pic/sex/wglory/sex<<rand(1,4)>>.webm" ></video></center>'&'Вы лишь молча принимаете член и ждете окончания этой унизительной процедуры...'
+				act 'Ждать':
+					 cls
+					 if rand(1,4)=4:
+						'Вы почувствовали, что клиент разрядился прямо в вашу вагину, что радости конечно никак не добавляло - вами просто воспользовались как мастурбатором, вот и все...'
+						'<center><video src="pic/sex/wglory/cuminside1.webm" ></video></center>'
+						vag[you]+=2&inseminate+=rand(1,10)&if inseminate[you]=0 and insemrand=10:father_you_child=you&gs'preggo'
+					 else
+						'Вы почувствовали, что клиент ускорился и вынув член, кончил на ваши половые органы - вами просто воспользовались как мастурбатором, вот и все...'
+						vag[you]+=2&'<center><video src="pic/sex/wglory/cumout<<rand(1,4)>>.webm" ></video></center>'
+					 end 
+					 act 'Ждать Торнтона...':time+=25&gs'soulcraft'&sutenerpayday[you]=daystart+7&gt'go_to_bordel'				
+				end
+			else
+				'Клиент, которого вы даже не видите, начсинает размашисто страхать вас в жопу, не интересуясь вашим мнением и делает это неприлично долго. '
+				'<center><video src="pic/sex/wglory/anal.webm" ></video></center>'&'Вы лишь молча принимаете член и ждете окончания этой унизительной процедуры...'	
+				 anus[you]+=5&anal[you]+=1&aanal[you]+=1
+				 act 'Ждать':
+					cls&'<center><video src="pic/sex/wglory/cumout<<rand(1,4)>>.webm" ></video></center>'
+					'Вы почувствовали, что клиент ускорился и вынув член, кончил на ваши половые органы - вами просто воспользовались как мастурбатором, вот и все...'
+					act 'Ждать возвращения':time+=25&gs'soulcraft'&sutenerpayday[you]=daystart+7&gt'go_to_bordel'				
+				 end
+			end
+		end
+	 end
+end

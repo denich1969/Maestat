@@ -1,0 +1,65 @@
+﻿gs'stat'&'<center><img src="pic/face/5/32.jpg" ></center>'&'Черный маг стонет - что то мне нехорошо, но это мы сейчас поправим.'
+if dead[tbigg]=0:
+	dead[tbigg]=2&magik[npc]=magik[tbigg]&vital[npc]=vital[npc]+vital[tbigg]&reflex[npc]=reflex[tbigg]&num=npc&gs'body'
+	health[npc]=healthmax[npc]&mana[npc]=manamax[npc]&energy[npc]=energymax[npc]
+	if fight_prog[npc]=0:fight_prog[npc]=1
+	if m_slot[npc]>0:fight_prog[npc]=30
+	if w_slot[npc]>0:fight_prog[npc]=29
+	if m_slot[npc]>0 and w_slot[npc]>0:fight_prog[npc]=38
+	if mlev[npc]=3:fight_prog[npc]=33&!5
+	if mlev[npc]=4:fight_prog[npc]=32&!4
+	if mlev[npc]=5:fight_prog[npc]=31&!3
+	if mlev[npc]=6:fight_prog[npc]=34&!2
+	if mlev[npc]=7:fight_prog[npc]=35&!1
+	if mlev[npc]=8:fight_prog[npc]=36&!ВК
+	if mlev[npc]=9:fight_prog[npc]=36&!год
+	defenceV=2500&regenerator_manaV=10&nostunnerV=1&'<<$name[npc]>> декламирует и рисует руну в воздухе - Я забираю твои силы Тайрел Биггс'&act'...':gt'fight'
+elseif dead[mgreen]=0:
+	dead[mgreen]=2&magik[npc]=magik[mgreen]&vital[npc]=vital[mgreen]+vital[npc]&reflex[npc]=reflex[mgreen]&num=npc&gs'body'
+	health[npc]=healthmax[npc]&mana[npc]=manamax[npc]&energy[npc]=energymax[npc]
+	if fight_prog[npc]=0:fight_prog[npc]=1
+	if m_slot[npc]>0:fight_prog[npc]=30
+	if w_slot[npc]>0:fight_prog[npc]=29
+	if m_slot[npc]>0 and w_slot[npc]>0:fight_prog[npc]=38
+	if mlev[npc]=3:fight_prog[npc]=33&!5
+	if mlev[npc]=4:fight_prog[npc]=32&!4
+	if mlev[npc]=5:fight_prog[npc]=31&!3
+	if mlev[npc]=6:fight_prog[npc]=34&!2
+	if mlev[npc]=7:fight_prog[npc]=35&!1
+	if mlev[npc]=8:fight_prog[npc]=36&!ВК
+	if mlev[npc]=9:fight_prog[npc]=36&!год
+	defenceV=2500&regenerator_manaV=25&nostunnerV=1&'<<$name[npc]>> декламирует и рисует руну в воздухе - Я забираю твои силы Митч Грин.'&act'...':gt'fight'
+elseif dead[dlong]=0:
+	dead[dlong]=2&magik[npc]=magik[dlong]&vital[npc]=vital[dlong]+vital[npc]&reflex[npc]=reflex[dlong]&num=npc&gs'body'
+	health[npc]=healthmax[npc]&mana[npc]=manamax[npc]&energy[npc]=energymax[npc]
+	if fight_prog[npc]=0:fight_prog[npc]=1
+	if m_slot[npc]>0:fight_prog[npc]=30
+	if w_slot[npc]>0:fight_prog[npc]=29
+	if m_slot[npc]>0 and w_slot[npc]>0:fight_prog[npc]=38
+	if mlev[npc]=3:fight_prog[npc]=33&!5
+	if mlev[npc]=4:fight_prog[npc]=32&!4
+	if mlev[npc]=5:fight_prog[npc]=31&!3
+	if mlev[npc]=6:fight_prog[npc]=34&!2
+	if mlev[npc]=7:fight_prog[npc]=35&!1
+	if mlev[npc]=8:fight_prog[npc]=36&!ВК
+	if mlev[npc]=9:fight_prog[npc]=36&!год
+	defenceV=2500&regenerator_manaV=50&nostunnerV=1&'<<$name[npc]>> декламирует и рисует руну в воздухе - Я забираю твои силы Донни Лонг.'&act'...':gt'fight'
+else
+	dead[npc]=2&blackedGangQW=110&murderer[you]+=1&block_blackrule=1&busy[you]=0&in_fight=0&in_sex=0&if necromancerFight=1:necromancerFight=0
+	win[you]+=1&Zgen=Z[you]&if soulMG[you]>0:soul[you]+=1
+	soul[npc]-=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+	if mob[npc]=0:
+		mobexp[npc]=10&if mlev[npc]>0:mobexp[npc]=(mlev[npc]*mlev[npc])*10
+	end
+	exp[you]+=mobexp[npc]
+	if beliver[you]=4:
+		exp[you]+=mobexp[npc]*3&if magik[you]>0:magik_exp[you]+=1
+	end
+	horny[npc]=0&fightwinwer=0&dom[you]+=1&cant_fight_run=0&loss[npc]+=1
+	defenceV=0&sfera_psihV=0&sfera_fiz=0&defence_you=0&sfera_psih=0&fire_defence[you]=0&sfera_antigrav=0&clon=0
+	 $fightlog[you]+='<br>'
+	 $fightlog[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[you]>>-<<loss[you]>> vs <<$name[npc]>> <<$surname[npc]>>. <<win[npc]>>-<<loss[npc]>>'
+	 $fightlog[npc]+='<br>'
+	 $fightlog[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[npc]>>-<<loss[npc]>> vs <<$name[you]>> <<$surname[you]>>. <<win[you]>>-<<loss[you]>>'
+	'Он падает на колени и стонет - Или уже не поправим.'&'Маг падает на землю и после короткой агонии умирает'&act'...':gt'world'
+end

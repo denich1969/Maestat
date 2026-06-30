@@ -1,0 +1,8 @@
+﻿if multiworlder[npc]=0:
+	if Zhome[npc]!1:n_world[]=npc&nw[npc]=1
+	if Zhome[npc]!2:ne_world[]=npc&new[npc]=1
+	if Zhome[npc]!3:e_world[]=npc&ew[npc]=1
+	if Zhome[npc]!4:se_world[]=npc&sew[npc]=1
+	if Zhome[npc]!5:s_world[]=npc&sw[npc]=1
+	multiworlder[npc]=1
+end

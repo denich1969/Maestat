@@ -1,0 +1,95 @@
+﻿total_npc_sex+=1
+znts=Z[w]
+npc_sex[znts]+=1
+sexperaday[s]=daystart&sexperaday[w]=daystart
+if brave[s]=2:brave[s]=1
+if lebeda_seed[w]>0:lebeda_seed[s]+=1
+if lebeda_seed[s]>0:lebeda_seed[w]+=1
+Znow=Z[w] 
+if magworld[Znow]>0:
+     if lebeda=s:
+		 if soul[w]>0:soul[s]+=1&soul[w]-=2&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+	 else
+		 if stamp_t[s]>0:
+			 if stampblockday[s]=daystart:
+				slutday[s]+=1
+			 else
+				 stampblockday[s]=daystart
+				 soul[s]-=2&soul[w]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+			 end
+		 else
+			 soul[s]-=2&soul[w]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+		 end
+	 end
+end
+agro[w]+=1&lust[s]+=1
+if mob[s]=0:agro[s]-=10
+if moon_curse[s]>=1:lust[s]+=10
+healthmax[w]=healthmax[w]+10&health[w]=healthmax[w]&energy[w]=energymax[w]&minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)
+reflex[w]+=1
+under_sub[w]=s&under_sub[s]=w
+mob_busy[w]=time+15&mob_busy[s]=time+15
+if action_tipe[w]<666:action_tipe[w]=666
+if action_tipe[s]<666:action_tipe[s]=666
+aktive_tipe[w]=1&aktive_tipe[s]=0
+gs'add_sex_stat',w,s
+if vag[s]>0:
+	vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+else
+	anus[s]+=1&anal[s]+=1&aanal[w]+=1
+end
+bj[s]+=1&abj[w]+=1
+if throat[s]<10:throat[s]=10
+if dick[w]>throat[s]:throat[s]+=1
+$surnamemylastfucker[s]=$surname[w]
+$global_npc_log[w]+='<br>'
+$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> была изнасилована мной'
+$global_npc_log[s]+='<br>'
+$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> изнасиловал меня.'
+if statist[s]=1 and whore[s]=0:panic[s]+=1
+if thenoob[s]=1 and whore[s]=0:panic[s]+=1
+if stamp_t[s]=0:stamp_t[s]=rand(1,4)
+if mob[w]=1:
+	if whore[s]=0 and Z[s]=3 and dead[bocman]=0:
+		 healthmax[w]=healthmax[w]+20&health[w]=healthmax[w]&energy[w]=energymax[w]&minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)
+		 reflex[w]+=5
+		 slutmaker[w]+=1
+	     whore[s]=1&whoreboss[s]=bocman
+	     $global_npc_log[s]+='<br>'
+         $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> сделал меня шлюхой.'
+        if dick[s]>0:
+           $history[w]='Когда то я был парнем, но после того как меня пустили по кругу у меня магическим образом вместо члена появилась шмонька'
+            dick[s]=0&dickd[s]=0&ball[s]=0
+	        if vag[s]=0:vag[s]=1
+	        t_slot[s]=rand(31,36)&l_slot[s]=rand(15,22)&b_slot[s]=rand(8,11)
+            ut_slot[s]=0&ul_slot[s]=0&ub_slot[s]=0
+            soul[s]+=30
+	    end
+	end
+end
+if mob[w]=3:
+	 insmout_gang[s]+=1
+	 if insmout_gang[s]>=3 and pol[s]>0:
+	     if whore[s]=0 and port_whore[s]=0 and Z[s]=1:
+			healthmax[w]=healthmax[w]+20&health[w]=healthmax[w]
+			 energy[w]=energymax[w]
+			 minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)
+			 reflex[w]+=5
+			 slutmaker[w]+=1
+	         port_whore[s]=1
+	         whore[s]=1&whoreboss[s]=w
+	         $global_npc_log[s]+='<br>'
+             $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> сделал меня шлюхой.'
+             Xhome[s]=3&Yhome[s]=0&Zhome[s]=1&Hhome[s]=3&Rhome[s]=0
+            if dick[s]>0:
+                 $history[w]='Когда то я был парнем, но после того как меня пустили по кругу у меня магическим образом вместо члена появилась шмонька'
+                 dick[s]=0&dickd[s]=0&ball[s]=0
+	             if vag[s]=0:vag[s]=1
+	             t_slot[s]=rand(31,36)&l_slot[s]=rand(15,22)&b_slot[s]=rand(8,11)
+                 ut_slot[s]=0&ul_slot[s]=0&ub_slot[s]=0
+                 soul[s]+=30
+	        end
+	   end
+	end
+end
+horny[w]=0&horny[s]=0

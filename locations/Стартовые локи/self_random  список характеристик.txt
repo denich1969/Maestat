@@ -1,0 +1,35 @@
+﻿cls&pol=rand(1)
+if pol=0:
+	face_pic[i]=rand(1,230)
+	$title[i]=''
+	gs'manname'&$name[i]=$genname
+	gs'surnamegen'&$surname[i]=$gensurname
+	face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+	dick[i]=rand(8,28)&dickd[i]=rand(30,50)&ball[i]=rand(30,100)&vag[i]=0&ass[i]=2&nip[i]=8&tits[i]=0
+	rost[i]=rand(165,195)&fat[i]=rand(800,1500)&mus[i]=rand(1000,2500)&skin[i]=rand(0,3)
+	face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)
+	age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=60&will[i]=50&reflex[i]=50
+	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&
+	pol[i]=0&gs'body'
+	gs'body_auto',you,'old_npc_once'
+else
+	!face_pic[i]=rand(1,230)
+	$title[i]=''
+	gs'womanname'&$name[i]=$genname
+	gs'surnamegen'&	$surname[i]=$gensurname_f
+	face[i]=rand(55,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
+	dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(12,30)&nip[i]=rand(30,70)&tits[i]=rand(12,18)
+	rost[i]=rand(155,180)&fat[i]=rand(1000,3000)&mus[i]=rand(600,1200)&skin[i]=rand(0,3)
+	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=rand(60,100)&hcol[i]=rand(0,3)
+	age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=40&will[i]=50&reflex[i]=40
+	health[i]=healthmax[i]&mana[i]=manamax[i]&	mana[i]=0&energy[i]=energymax[i]&
+	if age[i]>=20:vag[i]=rand(1,40)
+	pol[i]=1&gs'body'
+	gs'body_auto',you,'old_npc_once'
+end
+gs'body'
+'<<$name[you]>> <<$surname[you]>>'
+'<<$opis[you]>>'
+act'Начать':kre=5&gt'create_player'
+act'Заново сгенерировать':body_updateV1[i]=0&clr&gt $curloc
+act'Вручную':kre=0&gt'create_player'

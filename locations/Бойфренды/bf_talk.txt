@@ -1,0 +1,110 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> приветствует вас и хочет поцеловать'
+if antey_count[you]>=10 and npc=antey or piss_mass['<<npc>>,<<you>>']>0 and npc=antey:gt'bf_antend'
+if knowshame[npc]<shame_tattoo[you]:gt'bf_shame_skandal'
+act'Целовать':
+	cantwalk[npc]=0&cantwalk_num=0&bf_want_walk[npc]=0&bf_meeting[npc]+=1&if sexpartner['<<npc>>,<<you>>']=0:pure_girl[npc]+=1
+	cls&gs'stat'&$func('get_images', 'poser_kiss', you, npc)&'Это ваша <<bf_meeting[npc]>>я встреча'&*pl'Вы целуетесь с парнем'
+	if agro[npc]<=80 and temp_bfsex[npc]>=5:temp_bfsex[npc]=0&soul[you]+=5&*pl'<<$name[npc]>> дарит вам кусочек души'
+	if npc=antey:
+		antey_count[you]+=1
+	    if money[you]<100000:money[you]+=50000&'<<$name[npc]>> дарит вам 500 шиллингов'
+	end
+	act'Гулять по улице':
+		horny[npc]+=sexiness[you]/2&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы болтаете с парнем и прогуливаетесь около дома.'
+	    if extrovert[npc]=0:'<<$name[npc]>> упорно молчит и кое как выдавливает из себя дежурные фразы'
+            if extrovert[npc]=1:'<<$name[npc]>> разговаривает короткими фразами и регулярно запинается'
+            if extrovert[npc]=2:
+	        if positiv[npc]=2:
+				'<<$name[npc]>> очень смешно шутит и поднимает вам настроение'
+	        else
+				'<<$name[npc]>> с упоением болтает обо всем подряд'
+	        end
+	    end
+		if Z[you]=3:
+			wantgo=rand(0,2)
+		    if wantgo=0:
+				'<<$name[npc]>> предлагает прогулятся в сквере'
+		     	 act'Идти в сквер':
+					time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'Вместе с парнем вы прогуливаетесь по тенистым аллеям сквера. Кое где видны кучки гопников распивающих пиво и гомонящих байки.'
+					if sexpartner['<<npc>>,<<you>>']=0:
+						'<<$name[npc]>> предлагает - Давай сходим ко мне'&act'Отказаться':gt 'bf_nosex'
+						act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+					else
+						tipetodo=rand(0,1)
+						if agro[npc]<90:tipetodo=0
+					    if tipetodo=0:
+							'<<$name[npc]>> предлагает - Давай сходим ко мне'&act'<b>Уйти</b>':gt 'preloc'
+							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+						end
+						if tipetodo=1:
+							'<<$name[npc]>> предлагает - Давай прямо тут, в кустиках.'&act'<b>Уйти</b>':gt 'preloc'
+							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+							act'Согласится':
+								bfsex[npc]+=1&temp_bfsex[npc]+=1
+								X[npc]=2&Y[npc]=1&Z[npc]=3&H[npc]=0&R[npc]=0
+								X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+							end
+						end
+					end
+				 end
+		    end
+		    if wantgo=1:
+				'<<$name[npc]>> предлагает сходить в кафе'
+		     	act'Идти в кафе':
+					time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'Вместе с парнем вы приходите в кафе и садитесь за столик. <<$name[npc]>> делает заказ и вскоре вы уже едите довольно не плохую еду.'
+					if sexpartner['<<npc>>,<<you>>']=0:
+						'<<$name[npc]>> предлагает - Давай сходим ко мне'&act'Отказаться':gt 'bf_nosex'
+						act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+					else
+						tipetodo=rand(0,1)&if agro[npc]<90:tipetodo=0
+					    if tipetodo=0:
+							'<<$name[npc]>> предлагает - Давай сходим ко мне'&act'<b>Уйти</b>':gt 'preloc'
+							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+						end
+						if tipetodo=1:
+							'<<$name[npc]>> предлагает - Давай сходим в сауну'&act'<b>Уйти</b>':gt 'preloc'
+							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+							act'Согласится':
+								bfsex[npc]+=1&temp_bfsex[npc]+=1
+								X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2
+								X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+							end
+						end
+						if tipetodo=2:
+							'<<$name[npc]>> предлагает - Пошли в номера'&act'<b>Уйти</b>':gt 'preloc'
+							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+							act'Согласится':
+								bfsex[npc]+=1&temp_bfsex[npc]+=1
+								X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=3
+								X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+							end
+						end
+					end
+				end
+		    end
+		    if wantgo=2:
+				'<<$name[npc]>> предлагает сходить в ресторан'
+		     	act'Идти в ресторан':
+					soul[you]+=1& time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вместе с парнем вы приходите в ресторан и садитесь за столик. '
+					'<<$name[npc]>> делает заказ и вскоре вам приносят изысканные блюда. Еда буквально сделана с душой и эта душа наполняет вас'
+					if sexpartner['<<npc>>,<<you>>']=0:
+						'<<$name[npc]>> предлагает - Давай сходим ко мне'&act'Отказаться':gt 'bf_nosex'
+						act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+					else
+						'<<$name[npc]>> предлагает - Давай сходим ко мне'&act'<b>Уйти</b>':gt 'preloc'
+						act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+					end
+				end
+		    end
+		else
+			'<<$name[npc]>> предлагает - Давай сходим ко мне'&act'<b>Уйти</b>':gt 'preloc'
+			act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
+		end
+	end
+end

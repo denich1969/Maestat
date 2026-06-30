@@ -1,0 +1,20 @@
+﻿if money[you]>=500:
+	 act'Пригласить посидеть в трактире, 5 шиллингов':
+		 money[you]-=500
+		 if extrovert[npc]=0:friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+		 if extrovert[npc]=1:friends['<<npc>>,<<you>>']+=5&friends['<<you>>,<<npc>>']+=5
+		 if extrovert[npc]=2:friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10
+		 X[you]=1&Y[you]=1&Z[you]=1&H[you]=1&R[you]=0
+		 X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+		 energy[you]=energyMax[you]
+		 time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 '<<$name[npc]>> вместе с вами идет в трактир и вы заказываете кушанья и выпивку. Вместе вы выпиваете, едите и болтаете'
+		 act'<b>Уйти</b>':gt 'preloc'
+	     if item[100]>0:
+	         act'Подмешать возбудитель':
+				 lust[npc]+=1&corr[npc]+=1&horny[npc]=50&item[100]-=1&burden[you]-=item_burden[100]
+				 cls&gs'stat'& '<center><img src="<<$d_view>>" ></center>'&'Вы подливаете возбудитель в напиток девушке и видите как краснеют ее щеки.'&act'<b>Уйти</b>':gt 'preloc'
+	         end
+	     end
+	 end
+end

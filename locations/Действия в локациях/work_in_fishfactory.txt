@@ -1,0 +1,7 @@
+﻿payment=0&walkwer_time=3
+:markworkinff
+	nopee=1&time+=60&gs'stat'&if walkwer_time>0:gs'walker'&walkwer_time-=1
+	money[you]+=70&payment+=70&if fat[you]>=10:fat[you]-=1
+if hour<17:jump'markworkinff'
+energy[you]=10&fishsmell[you]+=1&nopee=0&gs'stat'&'<center><img src="pic/loc/cehfish.jpg" ></center>'&act'Отойти':gt 'preloc'
+'Вы встаете за стол и начинаете разделывать рыбу подготавливая ее к обработке. И так монотонно до 17 часов. В конце дня вам дают <<payment/100>> шиллингов <<payment mod 100>> пенсов'

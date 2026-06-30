@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&pele=i
+lvl[i]=1&soul[i]=100
+master[i]=5&delusion[i]=0&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=42
+$history[i]='Я богиня яростного пламени была рождена в вулкане, долго скиталась пока наконец не воплотилась в городе, тут я основала кирпичный завод, так как обжигать глину я умею прекрасно.'
+$name[i]='Пеле'&$surname[i]=''&$nick[i]='Огненная богиня'&$title[i]='Богиня'&
+face[i]=70&gla[i]=0&glacol[i]=5&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&ass[i]=35&nip[i]=45&tits[i]=12
+rost[i]=185&fat[i]=1000&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=5
+age[i]=30&vital[i]=400&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=0&ratio[i]=0&brave[i]=2&lust[i]=20&!характер
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=75&l_slot[i]=0&b_slot[i]=29
+ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=0
+ne_world[]=i&walkprog[i]=41
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

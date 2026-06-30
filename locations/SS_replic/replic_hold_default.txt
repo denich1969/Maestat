@@ -1,0 +1,3 @@
+﻿if $args[2]='before':dynamic $replic_hold_default_before[rand(arrsize('replic_hold_default_before')-1)],args[0],args[1]
+if $args[2]='cum':dynamic $replic_hold_default_cum[rand(arrsize('replic_hold_default_cum')-1)],args[0],args[1]
+if $args[2]='cumslut':dynamic $replic_hold_default_cumslut[rand(arrsize('replic_hold_default_cumslut')-1)],args[0],args[1]

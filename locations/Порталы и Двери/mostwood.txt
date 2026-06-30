@@ -1,0 +1,34 @@
+﻿if GingemaMagilFall=0:
+	'Гравитационная магия не дает вам перейти мост'
+	act'Уйти':gt 'preloc'
+	if master[you]>0:
+		act'Перелететь':
+			 cls
+			if Z[you]=1:
+				 X[you]=0
+				 !Y[you]=8
+				 Z[you]=2
+				 gt 'preloc'
+			end
+			if Z[you]=2:
+				 X[you]=10
+				 !Y[you]=8
+				 Z[you]=1
+				 gt 'preloc'
+			end
+		end
+    end
+else
+	if Z[you]=1:
+		X[you]=0
+		!Y[you]=8
+		Z[you]=2
+		gt 'preloc'
+	end
+	if Z[you]=2:
+		X[you]=10
+		!Y[you]=8
+		Z[you]=1
+		gt 'preloc'
+	end
+end

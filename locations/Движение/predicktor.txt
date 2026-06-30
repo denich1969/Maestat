@@ -1,0 +1,26 @@
+﻿if husband[w]=s and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if kid_first[w]=s and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if kid_first[s]=w and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if father[w]=s and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if mother[w]=s and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if father[s]=w and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if mother[s]=w and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if ((spyson=w and arhivson=s) or (spyson=s and arhivson=w)) and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=70&friends['<<s>>,<<w>>']+=70
+if sportman=w and statist[s]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if sportman=s and statist[w]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if brokk=w:
+	 if statist[s]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+	 if mabuta=s:friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+	 if merlin=s:friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+	 if twardovski=s:friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+end
+if brokk=s and statist[w]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if mabuta=w:
+	if statist[s]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+	if skin[s]>3 and skin[s]<7:friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+end
+if mabuta=s and statist[w]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if addboss=w and statist[s]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if tabernman=w and statist[s]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if captain=w and statist[s]=0 and know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=10&friends['<<s>>,<<w>>']+=10
+if blackganger[w]>=1 and blackganger[s]>=1:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=70&friends['<<s>>,<<w>>']+=70

@@ -1,0 +1,40 @@
+﻿gs'stat'&*pl 'Стойка магической лавки'
+gs'Item'
+gs 'npconloc'
+act'Уйти':gt 'preloc'
+*nl 'Малый восстановитель выносливости - 500 гульденов'
+'Рунный камень - 500 гульденов'
+'Малое лечение - 1000 гульденов'
+'Мыло - 10 гульденов'
+'Бритвенный станок - 20 гульденов'
+'Лезвия для станка - 5 гульденов'
+ if gulden[you]>=1000:
+	 act'Купить мыло 10':
+		 gulden[you]-=1000&item[17]+=1&burden[you]+=item_burden[17]&cls&gs'stat'&'Вы заплатили деньги и купили мыло'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+ if gulden[you]>=2000:
+	 act'Купить бритвенный станок 20':
+		 gulden[you]-=2000&item[14]+=1&burden[you]+=item_burden[14]&cls&gs'stat'&'Вы заплатили деньги и купили бритвенный станок'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if gulden[you]>=500:
+	 act'Купить лезвия для станка 5':
+		 gulden[you]-=500&item[16]+=1&burden[you]+=item_burden[16]&cls&gs'stat'&'Вы заплатили деньги и купили лезвие'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+ if gulden[you]>=50000:
+	 act'Купить малый восстановитель выносливости 500':
+		 gulden[you]-=50000&item[49]+=1&burden[you]+=item_burden[49]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+ if gulden[you]>=50000 and runestonetabern=0:
+	 act'Купить рунный камень':
+		 gulden[you]-=50000&runestonetabern=1&item[29]+=1&burden[you]+=item_burden[29]&cls&gs'stat'&'Вы заплатили деньги и купили рунный камень'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+ end
+if gulden[you]>=100000:
+	 act'Купить малое лечение 1000':
+		 gulden[you]-=100000&item[51]+=1&burden[you]+=item_burden[51]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+ end

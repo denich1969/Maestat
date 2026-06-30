@@ -1,0 +1,1 @@
+﻿dom=ARGS[0]&sub=ARGS[1]&feminize[sub]+=1&gt'sexnpc'

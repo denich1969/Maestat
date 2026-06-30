@@ -1,0 +1,27 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&gruberwife=i
+lvl[i]=1&soul[i]=700&work[i]=28&subwork[i]=50
+master[i]=0&delusion[i]=0&magik[i]=16&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=112
+$title[i]=''&$history[i]='Мы с мужем практикуем свободную любовь и у нас есть свой кинотеатр для взрослых'
+$name[i]='Урсула'&$surname[i]='Грубер'&$nick[i]='Доминантная девушка'
+face[i]=100&gla[i]=2&glacol[i]=1&nose[i]=2&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=40&throat[i]=20&ass[i]=32&nip[i]=40&tits[i]=18
+rost[i]=175&fat[i]=1000&mus[i]=1200&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=1
+age[i]=30&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=2&lust[i]=100&!характер
+	 girl[gruber]+=1&guy[i]+=1
+	 sexpartner['<<i>>,<<gruber>>']+=100&sexpartner['<<gruber>>,<<i>>']+=100
+	 vagsex[i]+=100&avagsex[gruber]+=100
+	 anal[i]+=100&aanal[gruber]+=100
+	 anal[gruber]+=100&aanal[i]+=100
+	 bj[i]+=100&abj[gruber]+=100
+	 sexpartner_num_m['<<i>>,<<guy[i]>>']=gruber&sexpartner_num_f['<<gruber>>,<<girl[gruber]>>']=i
+     husband[i]=gruber&husband[gruber]=i
+tongue_p[i]=1&nip_p[i]=1&vag_pirs[i]=1&!l_hand_t[i]=3
+t_slot[i]=90&l_slot[i]=34&b_slot[i]=10
+ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=0
+se_world[]=i&walkprog[i]=29
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

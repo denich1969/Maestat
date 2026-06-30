@@ -1,0 +1,1 @@
+﻿num=you&R[you] = ARGS[0]&openinv=0&time+=5&$walklog=''&gt 'world' 

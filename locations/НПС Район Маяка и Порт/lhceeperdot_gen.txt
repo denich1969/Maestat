@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&zelladay=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=3&magik[i]=5&beliver[i]=3&!Не имеет отношения к богине луны, иллюзия
+spec_face_pic[i]=5&face_pic[i]=7
+$title[i]=''&$history[i]='Я живу на маяке, Луг мой отец и он воплощение бога света. Наш маяк удерживает гибельный туман и позволяет городу жить.'
+$name[i]='Альбина'&$surname[i]='Де Даннан'&$nick[i]='Блондинка'
+face[i]=70&gla[i]=3&glacol[i]=3&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=32&nip[i]=45&tits[i]=16
+rost[i]=170&fat[i]=1400&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=20&curl[i]=0&hcol[i]=3
+age[i]=20&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=0&selfrespect[i]=1&positiv[i]=2&extrovert[i]=1&ratio[i]=0&brave[i]=2&lust[i]=0&!характер
+l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=43&l_slot[i]=0&b_slot[i]=12
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=4
+n_world[]=i&walkprog[i]=2
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

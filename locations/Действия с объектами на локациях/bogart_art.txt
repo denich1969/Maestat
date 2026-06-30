@@ -1,0 +1,47 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/misc/snake.jpg" ></center>'&'Шедевры искусства, картины и скульптуры.'
+gs'Item'&*pl''&gs 'npconloc'&act'Отойти':gt 'preloc'
+if punishedQW>0:'Вы замечаете что статуэтка ангела со смертью Богарта пропала.'
+if uberSolderQW[you]=5 and punishedQW=0:
+	'Вы видите статуэтку ангела про которую говорил Дюк Валорама'
+     if punishedQW=0:
+		 act'Уничтожить статую':
+			 knowkiller=you&in_fight=1&uberSolderQW[you]=6&dead[borisbogart]=2&magik[you]+=1&murderer[you]+=1
+			 cls&gs'stat'&'Вы врезали по статуэтке от чего она рассыпалась в пыль и из нее выпала черная, источающая смерть игла, которую вы тут же сломали.'
+			 act'Отойти':
+				 in_fight=1&npc=spiro&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+				 cls&gs'stat'&'<center><img src="pic/face/5/88.jpg" ></center>'&'Из вспыхнувшего портала выскочил маг готовый с вами драться'
+				 act'Драться':in_fight=1&cant_fight_run=1&gs'progcurse'&gt 'prefight'
+			 end
+		 end
+	 end
+end
+if know_needle>=1:
+	'Вы предполагаете, что в статуэтке ангела-хранителя находится игла со смертью Богарта. Иначе с чего это было Богине Земли создавать статую, а Дюку Валораме тайком отправлять статую на выставку?'
+     if know_needle=1 or BlackRoseQW[you]=12:
+         if mana[you]>=100:
+             act'Сканировать статуэтку магией':
+				 mana[you]-=100&BlackRoseQW[you]=13&know_needle=2&if knowRuneMasterQW=4:knowRuneMasterQW=5
+				 cls&gs'stat'&'Вы попытались применить свой дар на статуэтке и все-таки что-то почувствовали. Во-первых, вы почувствовали смерть, а во-вторых, на статуэтке лежит заклятие портала.'
+                 act'Отойти':npc=spiro&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]&gt 'npc'
+             end
+         end
+     end
+     if know_needle=2 or BlackRoseQW[you]=13:
+		 act'Уничтожить статую':
+			 knowkiller=you&in_fight=1&know_needle=3&dead[borisbogart]=2&magik[you]+=1&murderer[you]+=1
+			 cls&gs'stat'&'Вы врезали по статуэтке от чего она рассыпалась в пыль и из нее выпала черная, источающая смерть игла, которую вы тут же сломали.'
+			 act'Отойти':
+				 in_fight=1&npc=spiro&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+				 cls&gs'stat'&'<center><img src="pic/face/5/88.jpg" ></center>'&'Из вспыхнувшего портала выскочил маг готовый с вами драться'
+				 act'Драться':in_fight=1&cant_fight_run=1&gs'progcurse'&gt 'prefight'
+			 end
+		 end
+     end
+     if (know_needle=2 or BlackRoseQW[you]=13) and dinamite=1:
+		 act'Заложить взрывчатку':
+			 dinamite=2&cls&gs'stat'&'Взрывчатки у вас много и она мощная, хватит разнести тут весь зал, потому вы просто спрятали динамит под одной из витрин.'
+			 act'Отойти':knowkiller=you&npc=spiro&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]&gt 'npc'
+		 end
+     end
+end

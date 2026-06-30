@@ -1,0 +1,63 @@
+﻿if sexpartner[npc]=0:sexpartner[npc]=1&girl[you]+=1
+horny[you]=0&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Проститутка спрятала деньги и натужно улыбнулась.'&!$d_view='pic/face/<<hcol[npc]>>/<<picture[npc]>>.jpg'
+if dick[you]>1:
+	avagsex[you]+=1&manize[you]+=1
+     act'Навалить на клыка':
+		 abj[you]+=1&health[you]+=50&cls&gs'stat'&'<center><video src="pic/sex/bj/suck<<rand(8)>>.webm" ></center>'&'Шлюха покорно сосет ваш член засасывая его как пылесосом.'
+	     act'Кончить в рот':
+			 cls&gs'stat'&'<center><video src="pic/sex/bj/slut_cum_mouth<<rand(6)>>.webm" ></center>'&'Вы кончили в рот шлюхе и та покорно сглотнула'&act'Уйти':gt 'preloc'
+		     if pisswasser[you]>0:
+				 act'Нассать в рот':
+					 pee[you]+=1&pisswasser[you]=0&pissonloc['<<$loc[you]>>']=time+250&cls&gs'stat'&'<center><video src="pic/sex/rape/manpee.webm" ></center>'
+					 'Вы заставили шлюху открыть рот и нассали ей туда ,а она покорно терпела и проглатывала вашу мочу..'&act'Уйти':gt 'preloc'
+				 end
+			 end
+		 end
+     end
+     act'Оттрахать':
+		 energy[you]+=100&avagsex[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/vag/m<<rand(2)>>.webm" ></center>'&'Шлюха раздвигает ляшки и вы вгоняете в нее свой член и начинаете трахать'
+	     act'Кончить внутрь':
+			 cls&gs'stat'&'<center><video src="pic/sex/vag/mcum<<rand(4)>>.webm" ></center>'&'Вы трахаете шлюху и кончаете внутрь ее'&act'Уйти':gt 'preloc'
+		 end
+		 act'Кончить в рот':
+			 cls&gs'stat'&'<center><video src="pic/sex/bj/slut_cum_mouth<<rand(6)>>.webm" ></center>'
+			 'Вы достали член из растраханной пизды шлюхи и кончили в ей в рот, а та покорно сглотнула'&act'Уйти':gt 'preloc'
+		     if pisswasser[you]>0:
+				 act'Нассать в рот':
+					 pee[you]+=1&pisswasser[you]=0&pissonloc['<<$loc[you]>>']=time+250&cls&gs'stat'&'<center><video src="pic/sex/rape/manpee.webm" ></center>'
+					 'Вы заставили шлюху открыть рот и нассали ей туда ,а она покорно терпела и проглатывала вашу мочу..'&act'Уйти':gt 'preloc'
+				 end
+			 end
+		 end
+     end
+     act'Трахнуть в жопу':
+		 if manamax[you]>0:mana[you]+=soul[you]
+		 aanal[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/anal/d<<rand(3)>>.webm" ></center>'
+		 'Вы поставили раком шлюху и вогнали ей в задницу свой член. Шлюха стонет, а вы размашисто дрючите ее в рабочую задницу.'
+	 	 act'Кончить внутрь':
+			 cls&gs'stat'&'<center><video src="pic/sex/anal/anal_cream0.webm" ></center>'&'Вы кончаете в задницу шлюхе'&act'Уйти':gt 'preloc'
+		 end
+	 	 act'Кончить в рот':
+			 cls&gs'stat'&'<center><video src="pic/sex/bj/slut_cum_mouth<<rand(0,6)>>.webm" ></center>'
+			 'Вы достали член из растраханной жопы шлюхи и кончили в ей в рот, а та покорно сглотнула'&act'Уйти':gt 'preloc'
+		     if pisswasser[you]>0:
+				 act'Нассать в рот':
+					 pee[you]+=1&pisswasser[you]=0&pissonloc['<<$loc[you]>>']=time+250&cls&gs'stat'&'<center><video src="pic/sex/rape/manpee.webm" ></center>'
+					 'Вы заставили шлюху открыть рот и нассали ей туда ,а она покорно терпела и проглатывала вашу мочу..'&act'Уйти':gt 'preloc'
+				 end
+			 end
+		 end
+     end
+else
+	lesb[you]+=1
+     act'Отлижи у меня':
+		 lesb[you]+=1&health[you]+=50&energy[you]+=100&if manamax[you]>0:mana[you]+=soul[you]
+		 cls&gs'stat'&'<center><video src="pic/sex/rape/cunt.webm" ></center>'&'Вы сели на лицо шлюхи и заставили ее отлизать у вас, вскоре вы кончили.'&act'Уйти':gt 'preloc'
+	     if pisswasser[you]>0:
+			 act'Нассать в рот':
+				 pee[you]+=1&pisswasser[you]=0&pissonloc['<<$loc[you]>>']=time+250&cls&gs'stat'&'<center><video src="pic/sex/rape/pee.webm" ></center>'
+				 'Вы заставили шлюху открыть рот и нассали ей туда ,а она покорно терпела и проглатывала вашу мочу..'&act'Уйти':gt 'preloc'
+			 end
+		 end
+	 end
+end

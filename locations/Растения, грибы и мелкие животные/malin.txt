@@ -1,0 +1,12 @@
+﻿gs'stat'&'<center><img src="pic/loc/ras/malin.jpg" ></center>'&'Куст малины.'
+if last_malin['<<$loc[you]>>']=0 and day_malin['<<$loc[you]>>']!daystart:last_malin['<<$loc[you]>>']=rand(0,1)&day_malin['<<$loc[you]>>']=daystart
+if last_malin['<<$loc[you]>>']>0:
+	'На кусте растут ягоды'
+	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
+		 act'Собирать':time+=5&cls&gs'walker'&gs'stat'&last_malin['<<$loc[you]>>']=0&item_loc['53,<<$loc[you]>>']+=1&day_malin['<<$loc[you]>>']=daystart&gt $curloc
+	end
+else
+	'На кустах ничего нет'
+end
+gs'Item'&*nl ''&gs 'npconloc'
+act'Отойти':gt 'world'

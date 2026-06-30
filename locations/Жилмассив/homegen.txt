@@ -1,0 +1,44 @@
+﻿:markhomegen
+numhome=H+maxPositionH["<<X>>,<<Y>>,<<Z>>"]-args[0]
+H+=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом <<numhome>>'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом <<numhome>>'&$lname['<<$temploc>>']='Дом <<numhome>>'&$lname_go['<<$temploc>>']='в дом <<numhome>>'
+$locopis['<<$temploc>>']='Раздолбанная мебель, ободранные обои и прокуренный потолок.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&killvar 'numhome'
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+if H<=maxPositionH['<<X>>,<<Y>>,<<Z>>']-args[0]+4:jump 'markhomegen'
+
+!{H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом 2'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом 2'&$lname['<<$temploc>>']='Дом 2'&$lname_go['<<$temploc>>']='в дом 2'
+$locopis['<<$temploc>>']='Раздолбанная мебель, ободранные обои и прокуренный потолок.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом 3'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом 3'&$lname['<<$temploc>>']='Дом 3'&$lname_go['<<$temploc>>']='в дом 3'
+$locopis['<<$temploc>>']='Раздолбанная мебель, ободранные обои и прокуренный потолок.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом 4'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом 4'&$lname['<<$temploc>>']='Дом 4'&$lname_go['<<$temploc>>']='в дом 4'
+$locopis['<<$temploc>>']='Раздолбанная мебель, ободранные обои и прокуренный потолок.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
+H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом 5'&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Дом 5'&$lname['<<$temploc>>']='Дом 5'&$lname_go['<<$temploc>>']='в дом 5'
+$locopis['<<$temploc>>']='Раздолбанная мебель, ободранные обои и прокуренный потолок.'
+np['<<$temploc>>']=103
+mirror['<<$temploc>>']=1
+gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i&gs'gopnik_gen'&e_world[]=i
+R=1&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета}

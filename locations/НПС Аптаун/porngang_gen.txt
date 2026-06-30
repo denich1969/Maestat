@@ -1,0 +1,77 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&verhoven=i
+lvl[i]=1&soul[i]=100&work[i]=0&subwork[i]=100
+master[i]=0&delusion[i]=0&magik[i]=8&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=117
+$name[i]='Петр'&$surname[i]='Верховенский'&$nick[i]='Нагловатый молодой человек'&$title[i]=''&$history[i]='Я порно режисер'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=18&dickd[i]=45&ball[i]=80&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=180&fat[i]=800&mus[i]=1500&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=20&hcol[i]=1
+age[i]=27&vital[i]=70&will[i]=50&reflex[i]=90
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=2&ratio[i]=2&brave[i]=1&lust[i]=100&!характер
+h_slot[i]=0&m_slot[i]=127&w_slot[i]=125
+t_slot[i]=92&l_slot[i]=5&b_slot[i]=33
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+se_world[]=i&walkprog[i]=72
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&stavrogin=i
+lvl[i]=1&soul[i]=1000&work[i]=0&subwork[i]=100
+master[i]=0&delusion[i]=0&magik[i]=6&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=118
+$name[i]='Николай'&$surname[i]='Ставрогин'&$nick[i]='Демонический красавец'&$title[i]=''&$history[i]='Я компаньон Верховенского'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=23&dickd[i]=52&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
+rost[i]=190&fat[i]=800&mus[i]=1800&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=20&hcol[i]=0
+age[i]=25&vital[i]=70&will[i]=50&reflex[i]=90
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&lust[i]=50&!характер
+h_slot[i]=0&m_slot[i]=124&w_slot[i]=112
+t_slot[i]=91&l_slot[i]=91&b_slot[i]=32
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+se_world[]=i&walkprog[i]=72
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&pornstar=i
+lvl[i]=1&soul[i]=15000&work[i]=0&subwork[i]=50
+master[i]=0&delusion[i]=0&magik[i]=1&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=119
+$name[i]='Шарлотта'&$surname[i]='Де Слат'&$nick[i]='Порнозвезда'&$title[i]=''&$history[i]='Я снимаюсь в порно и горжусь этим'
+face[i]=100&gla[i]=2&glacol[i]=1&nose[i]=2&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=65&anus[i]=60&throat[i]=30&ass[i]=32&nip[i]=40&tits[i]=12
+rost[i]=170&fat[i]=800&mus[i]=600&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=0
+age[i]=30&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(10,40)&bisex[i]=1&agro[i]=10&selfrespect[i]=0&positiv[i]=1&extrovert[i]=1&ratio[i]=0&brave[i]=0&lust[i]=100&!характер
+tongue_p[i]=1&nip_p[i]=1&vag_pirs[i]=1
+h_slot[i]=7&stamp_t[i]=rand(1,4)&!l_hand_t[i]=3
+t_slot[i]=35&l_slot[i]=46&b_slot[i]=11
+ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=0
+se_world[]=i&walkprog[i]=72
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+slave[npc]=verhoven
+w=verhoven&s=stavrogin&know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=100&friends['<<s>>,<<w>>']+=100
+w=verhoven&s=pornstar&know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=100&friends['<<s>>,<<w>>']+=100
+w=pornstar&s=stavrogin&know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=100&friends['<<s>>,<<w>>']+=100
+	 dominant_fucker=verhoven&submissive_slut=pornstar
+	 girl[dominant_fucker]+=1&guy[submissive_slut]+=1
+	 sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=100&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=100
+	 vagsex[submissive_slut]+=100&avagsex[dominant_fucker]+=100
+	 anal[submissive_slut]+=100&aanal[dominant_fucker]+=100
+	 bj[submissive_slut]+=100&abj[dominant_fucker]+=100
+	 sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+	 dominant_fucker=stavrogin&submissive_slut=pornstar
+	 girl[dominant_fucker]+=1&guy[submissive_slut]+=1
+	 sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=100&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=100
+	 vagsex[submissive_slut]+=100&avagsex[dominant_fucker]+=100
+	 anal[submissive_slut]+=100&aanal[dominant_fucker]+=100
+	 bj[submissive_slut]+=100&abj[dominant_fucker]+=100
+	 sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+gang[pornstar]+=10&drinkpee[pornstar]+=100&whore[pornstar]+=100

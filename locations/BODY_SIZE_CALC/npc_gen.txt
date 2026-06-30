@@ -1,0 +1,93 @@
+﻿if black_block=1:
+	gs'negr_gen'&homeX[i]=X&homeY[i]=Y&homeZ[i]=Z&homeH[i]=H&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=0&ownerloc['<<X>>,<<Y>>,<<Z>>,<<H>>']=i
+	!gs'workpodbor'
+	!if class[i]=0:''&!низший класс
+	!if class[i]=1:''&!средний класс
+	!if class[i]=2:''&!элитный класс
+else
+	tipe=iif(rand(1,100)<=70,0,1)&!tipe=rand(0,3)
+	if pre_class=0:tipe=0
+	if tipe=0:
+		poltemp=iif(rand(1,10)<=8,0,1)
+		if poltemp=0:gs'male_gen'
+		if poltemp=1:gs'female_gen'
+		homeX[i]=X&homeY[i]=Y&homeZ[i]=Z&homeH[i]=H&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=0&ownerloc['<<X>>,<<Y>>,<<Z>>,<<H>>']=i
+		!gs'workpodbor'
+		!if class[i]=0:''&!низший класс
+		!if class[i]=1:''&!средний класс
+		!if class[i]=2:''&!элитный класс
+	end
+	if tipe=1:
+		gs'surname'&$famili_surname=$gensurname&gs'male_gen'&$surname[i]=$famili_surname
+		homeX[i]=X&homeY[i]=Y&homeZ[i]=Z&homeH[i]=H&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=0&ownerloc['<<X>>,<<Y>>,<<Z>>,<<H>>']=i
+		fi=i
+		gs'female_gen'
+		vag[i]=1+dickd[fi]
+		sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100
+		a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100
+		guy[i]=1&girl[fi]=1
+		a_vag_lon[fi]=100&p_vag_lon[i]=100
+		$surname[i]=$famili_surname
+		homeX[i]=X&homeY[i]=Y&homeZ[i]=Z&homeH[i]=H
+		X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=0
+		husband[i]=fi&husband[fi]=i
+	end
+	if tipe=2:
+		gs'surnamegen'&$famili_surname=$gensurname&$famili_surname_f=$gensurname_f&gs'male_gen'&$surname[i]=$famili_surname
+		fi=i&npcmaxnum+=1
+		age[i]=rand(36,50)
+		$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''
+		ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		gs'female_gen'&
+		vag[i]=dickd[fi]
+		sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100
+		a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100
+		guy[i]=1&girl[fi]=1
+		a_vag_lon[fi]=100&p_vag_lon[i]=100
+		$surname[i]=$famili_surname_f
+		age[i]=rand(36,50)
+		$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''
+		ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		si=i&npcmaxnum+=1&pol[i]=iif(rand(1,10)<=7,0,1)
+		if pol[i]=0:gs'male_gen'&$surname[i]=$famili_surname
+		if pol[i]=1:gs'female_gen'&$surname[i]=$famili_surname_f&vag[i]=1
+		age[i]=rand(18,20)
+		$home_loc[i]='korr'
+		home_cell[i]=cell
+		$loc[i]=''
+		ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		husband[si]=fi&husband[fi]=si&!Отношения мужа и жены
+		kid_first[fi]=i&kid_first[si]=i
+		father[i]=fi&mother[i]=si
+	end
+	if tipe=3:
+		gs'surnamegen'&$famili_surname=$gensurname&$famili_surname_f=$gensurname_f&gs'male_gen'&$surname[i]=$famili_surname
+		age[i]=rand(36,50)
+		$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''
+		ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		fi=i&npcmaxnum+=1
+		gs'female_gen'&$surname[i]=$famili_surname_f
+		vag[i]=dickd[fi]&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100&guy[i]=1&girl[fi]=1&a_vag_lon[fi]=100&p_vag_lon[i]=100
+		age[i]=rand(36,50)
+		$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''
+		ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		si=i&npcmaxnum+=1&pol[i]=iif(rand(1,10)<=7,0,1)
+		if pol[i]=0:gs'male_gen'&$surname[i]=$famili_surname
+		if pol[i]=1:gs'female_gen'&$surname[i]=$famili_surname_f&vag[i]=1
+		age[i]=rand(18,20)
+		$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''
+		ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		husband[si]=fi&husband[fi]=si&!Отношения мужа и жены
+		kid_first[fi]=i&kid_first[si]=i&!Первый ребёнок
+		father[i]=fi&mother[i]=si
+		bro=i&npcmaxnum+=1&pol[i]=iif(rand(1,10)<=7,0,1)&!генерация второго ребёнка
+		if pol[i]=0:gs'male_gen'&$surname[i]=$famili_surname
+		if pol[i]=1:gs'female_gen'&$surname[i]=$famili_surname_f&vag[i]=1
+		age[i]=rand(18,20)
+		$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''
+		ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		kid_second[fi]=i&kid_second[si]=i&!Второй ребёнок
+		father[i]=fi&mother[i]=si
+		brother[i]=bro&brother[bro]=i
+	end
+end

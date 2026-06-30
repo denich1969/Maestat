@@ -1,0 +1,46 @@
+﻿if secupgen=0:secupgen=1&gs'second_uptowngen'
+if satansToyQWmoney=100 and endofschool=0:
+	endofschool=1&work[odri]=51&subwork[odri]=10&klass[odri]=0&magik[odri]+=10&soul[odri]+=1000&s_world[]=odri&walkprog[odri]=30&!odri
+     if boyfriend_num[odri]>0:sder=boyfriend_num[odri]& girlfriend_num[sder]=0&boyfriend_num[odri]=0&ex_girlfriend['<<sder>>,<<odri>>']=1
+	 if girlfriend_num[odri]>0:sde=girlfriend_num[odri]&girlfriend_num[odri]=0&boyfriend_num[sde]=0&ex_girlfriend['<<odri>>,<<sde>>']=1
+	 if husband[odri]>0:hubby=husband[odri]&husband[odri]=0&husband[hubby]=0
+	X=2&Y=1&Z=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']+=1
+	H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартира №6'&privat['<<$templocH>>']=1&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=4
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
+	np['<<$temploc>>']=2
+	mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+	$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком'
+	np['<<$temploc>>']=3
+	can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Совмещенный санузел с унитазом, ванной и раковиной'
+	np['<<$temploc>>']=4
+	can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&shower['<<$temploc>>']=1
+	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+	$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
+	np['<<$temploc>>']=5
+	can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+	gs'downfamilygen'
+	R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
+	$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
+	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
+	np['<<$temploc>>']=6
+	tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+	R=3
+	Xhome[odri]=X&Yhome[odri]=Y&Zhome[odri]=Z&Hhome[odri]=H&Rhome[odri]=R&X[odri]=X&Y[odri]=Y&Z[odri]=Z&H[odri]=H&R[odri]=R
+	$history[odri]='Я стала ведьмой'&dominant_fucker=himic&submissive_slut=odri&gs'add_sex_stat',submissive_slut,dominant_fucker
+	! girl[dominant_fucker]+=1&guy[submissive_slut]+=1
+	! sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=100&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=100
+	 vagsex[submissive_slut]+=100&avagsex[dominant_fucker]+=100
+	 anal[submissive_slut]+=100&aanal[dominant_fucker]+=100
+	 bj[submissive_slut]+=100&abj[dominant_fucker]+=100
+	! sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+	work[victoria_visconti]=11&klass[victoria_visconti]=0&magik[victoria_visconti]+=1&soul[victoria_visconti]+=1000&!victoria_visconti
+	$history[sladkovadot]='Я работаю на телевиденье'&work[sladkovadot]=11&klass[sladkovadot]=0&magik[sladkovadot]+=1&soul[sladkovadot]+=1000&!sladkovadot
+	work[sladkovamasha]=11&klass[sladkovamasha]=0&magik[sladkovamasha]+=1&$history[sladkovamasha]='Я работаю на телевиденье'&soul[sladkovamasha]+=1000&!sladkovamasha
+	work[arhivson]=7&klass[arhivson]=0&magik[arhivson]+=1&$history[arhivson]='Я работаю в Агенстве, оперативником'&!arhivson
+	work[spyson]=7&klass[spyson]=0&magik[spyson]+=1&$history[spyson]='Я работаю в Агенстве, оперативником'&!spyson
+end

@@ -1,0 +1,22 @@
+﻿X[npc]=2&Y[npc]=3&Z[npc]=2&H[npc]=0&R[npc]=0
+X[you]=2&Y[you]=3&Z[you]=2&H[you]=0&R[you]=0
+gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> взяв вас под ручку идет к руинам пакгауза и убедившись на месте что никто за вами не наблюдает, начинает вас обнимать'
+if dick[you]>0 and (womenbrain[you]<75 or demon_dick[you]>0):
+	act'Я хочу занятся с тобой сексом':
+		friends[npc]+=1&!corr[npc]-=10
+		if ball[you]=0:sexpower[you]=0
+		if ball[you]>0:
+			if ball[you]<=30:sexpower[you]=1
+			if ball[you]>30 and ball[you]<=40:sexpower[you]=2
+			if ball[you]>40 and ball[you]<=50:sexpower[you]=3
+			if ball[you]>50 and ball[you]<=60:sexpower[you]=4
+			if ball[you]>60 and ball[you]<=70:sexpower[you]=5
+			if ball[you]>70 and ball[you]<=80:sexpower[you]=6
+			if ball[you]>90:sexpower[you]=7
+			if demon_dick[you]>0:sexpower[you]+=demon_dick[you]
+			if demon_dick[npc]>0:sexpower[you]+=demon_dick[npc]
+		end
+		gt'justsex'
+	end
+end
+ 

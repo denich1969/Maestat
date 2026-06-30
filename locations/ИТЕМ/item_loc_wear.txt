@@ -1,0 +1,15 @@
+﻿cls&item_loc['<<ARGS[0]>>,<<$loc[you]>>']-=1
+if $ARGS[1]='t':t_slot[you]=ARGS[0]
+if $ARGS[1]='l':l_slot[you]=ARGS[0]
+if $ARGS[1]='b':b_slot[you]=ARGS[0]
+if $ARGS[1]='ut':ut_slot[you]=ARGS[0]
+if $ARGS[1]='lu':ul_slot[you]=ARGS[0]
+if $ARGS[1]='ub':ub_slot[you]=ARGS[0]
+if $ARGS[1]='c':c_slot[you]=ARGS[0]
+if $ARGS[1]='tz':tz_slot[you]=ARGS[0]
+if $ARGS[1]='tg':tz_slot[you]=ARGS[0]
+if $ARGS[1]='h':h_slot[you]=ARGS[0]
+if $ARGS[1]='m':m_slot[you]=ARGS[0]
+if $ARGS[1]='w':w_slot[you]=ARGS[0]
+gt 'preloc'
+!gt ''item_loc_wear'',<<zit>>,{t}

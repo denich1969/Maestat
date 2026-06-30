@@ -1,0 +1,29 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Полки с продуктами'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if money[you]>=100:
+	 act'Купить пиво 1ш':
+		 money[you]-=100&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=50:
+	 act'Купить бургер 50п':
+		 money[you]-=50&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'Вы заплатили деньги и купили бургер'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить пиццу 50п':
+		 money[you]-=50&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'Вы заплатили деньги и купили пиццу'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить колу 50п':
+		 money[you]-=50&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'Вы заплатили деньги и купили колу'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить апельсин 50п':
+		 money[you]-=50&item[23]+=1&burden[you]+=item_burden[23]&cls&gs'stat'&'Вы заплатили деньги и купили апельсин'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить банан 50п':
+		 money[you]-=50&item[22]+=1&burden[you]+=item_burden[22]&cls&gs'stat'&'Вы заплатили деньги и купили банан'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить полотенце 50п':
+		 money[you]-=50&item[20]+=1&burden[you]+=item_burden[20]&cls&gs'stat'&'Вы заплатили деньги и купили полотенце'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить мыло 50п':
+		 money[you]-=50&item[17]+=1&burden[you]+=item_burden[17]&cls&gs'stat'&'Вы заплатили деньги и купили мыло'&act'<b>Уйти</b>':gt $curloc
+	 end
+end

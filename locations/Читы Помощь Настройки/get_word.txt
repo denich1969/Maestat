@@ -1,0 +1,178 @@
+﻿!Это функция для правильного склонения слов.
+!Она принемает 2 аргумента.
+!Первый аргумент - слово, для которого нужно провести склонение, например "женщина"
+!Второй аргумент - число, для которого нужно провести склонение, например "2"
+!Если второй агрумент не был передан, будет использована первая форма склонения, т.е. под цифрой 0.
+!Ниже будет хранится список возможных слов в виде массивов.
+!Когда мы получаем слово и число, мы перенаправляем запрос в функцию get_word_form и возвращаем полученый результат.
+
+!Как использовать в коде:
+!Предположим нам нужно определить склонение для слово "женщина", и мы имеем число 5.
+!Запрос должен выглядеть так: $woman_word = func('get_word', 'женщина', 5) по итогу, переменной $woman_word будет присвоено значение "женщин".
+!Если использовать в строке, то мы должны делать это так: "В вашей команде 5 <<func('get_word', 'мужчины', 5)>>", на месте вызова функции появится слово "мужчин".
+
+
+$ARGS[0]=UCASE($ARGS[0])
+
+
+
+
+if $ARGS[0] ! '':
+  !Используем все склонения слова для индексации, т.к. так трудее ошибиться, т.е. переданное слово "девушек" - будет таким-же валидным вариантом как и "девушка".
+  !На наличие слова проверяем по INSTR, т.к. пустые строки нельзя чередовать через OR.
+
+  if INSTR('ЖЕНЩИНА, ЖЕНЩИНЫ, ЖЕНЩИН', $ARGS[0])>0:
+  $arr_with_words[0] = 'женщина'
+  $arr_with_words[1] = 'женщины'
+  $arr_with_words[2] = 'женщин'
+  end
+
+  if INSTR('ДЕВУШКА, ДЕВУШКИ, ДЕВУШЕК', $ARGS[0])>0:
+  $arr_with_words[0] = 'девушка'
+  $arr_with_words[1] = 'девушки'
+  $arr_with_words[2] = 'девушек'
+  end
+
+  if INSTR('МУЖЧИНА, МУЖЧИНЫ, МУЖЧИН', $ARGS[0])>0:
+  $arr_with_words[0] = 'мужчина'
+  $arr_with_words[1] = 'мужчины'
+  $arr_with_words[2] = 'мужчин'
+  end
+
+  if INSTR('ПАРЕНЬ, ПАРНЯ, ПАРНЕЙ', $ARGS[0])>0:
+  $arr_with_words[0] = 'парень'
+  $arr_with_words[1] = 'парня'
+  $arr_with_words[2] = 'парней'
+  end
+
+  !Вариация слова с Щ
+  if INSTR('ЧЛЕНОДЕВКА, ЧЛЕНОДЕВКИ, ЧЛЕНОДЕВОК', $ARGS[0])>0:
+  $arr_with_words[0] = 'членодевка'
+  $arr_with_words[1] = 'членодевки'
+  $arr_with_words[2] = 'членодевок'
+  end
+
+  if INSTR('РЕБЁНОК, РЕБЁНКА, ДЕТЕЙ', $ARGS[0])>0:
+  $arr_with_words[0] = 'ребенок'
+  $arr_with_words[1] = 'ребёнка'
+  $arr_with_words[2] = 'детей'
+  end
+
+  if INSTR('ЧЕЛОВЕК, ЧЕЛОВЕКА', $ARGS[0])>0:
+  $arr_with_words[0] = 'человек'
+  $arr_with_words[1] = 'человека'
+  $arr_with_words[2] = 'человек'
+  end
+
+  if INSTR('КОТ, КОТЫ, КОТОВ', $ARGS[0])>0:
+  $arr_with_words[0] = 'кот'
+  $arr_with_words[1] = 'коты'
+  $arr_with_words[2] = 'котов'
+  end
+
+  if INSTR('СОБАКА, СОБАКИ, СОБАК', $ARGS[0])>0:
+  $arr_with_words[0] = 'собака'
+  $arr_with_words[1] = 'собаки'
+  $arr_with_words[2] = 'собак'
+  end
+
+  if INSTR('ДРУГ, ДРУЗЬЯ, ДРУЗЕЙ', $ARGS[0])>0:
+  $arr_with_words[0] = 'друг'
+  $arr_with_words[1] = 'друга'
+  $arr_with_words[2] = 'друзей'
+  end
+
+  if INSTR('СЕСТРА, СЕСТРЫ, СЕСТЕР', $ARGS[0])>0:
+  $arr_with_words[0] = 'сестра'
+  $arr_with_words[1] = 'сестры'
+  $arr_with_words[2] = 'сестер'
+  end
+
+  if INSTR('БРАТ, БРАТЬЯ, БРАТЬЕВ', $ARGS[0])>0:
+  $arr_with_words[0] = 'брат'
+  $arr_with_words[1] = 'брата'
+  $arr_with_words[2] = 'братьев'
+  end
+
+  if INSTR('РАЗ, РАЗА', $ARGS[0])>0:
+  $arr_with_words[0] = 'раз'
+  $arr_with_words[1] = 'раза'
+  $arr_with_words[2] = 'раз'
+  end
+
+  if $ARGS[0] = 'БЫЛ':
+  $arr_with_words[0] = 'был'
+  $arr_with_words[1] = 'было'
+  $arr_with_words[2] = 'было'
+  end
+
+  if $ARGS[0] = 'БЫЛА':
+  $arr_with_words[0] = 'была'
+  $arr_with_words[1] = 'было'
+  $arr_with_words[2] = 'было'
+  end
+
+  if INSTR('ЕБАЛ, ЕБАЛИ, ЕБАЛО', $ARGS[0])>0:
+  $arr_with_words[0] = 'ебал'
+  $arr_with_words[1] = 'ебали'
+  $arr_with_words[2] = 'ебало'
+  end
+
+  if INSTR('ХУЙ, ХУЯ, ХУЁВ', $ARGS[0])>0:
+  $arr_with_words[0] = 'хуй'
+  $arr_with_words[1] = 'хуя'
+  $arr_with_words[2] = 'хуёв'
+  end
+
+  if INSTR('ЯЙЦО, ЯЙЦА, ЯИЦ', $ARGS[0])>0:
+  $arr_with_words[0] = 'яйцо'
+  $arr_with_words[1] = 'яйца'
+  $arr_with_words[2] = 'яиц'
+  end
+
+
+  if INSTR('ОРГАЗМ, ОРГАЗМА, ОРГАЗМОВ', $ARGS[0])>0:
+  $arr_with_words[0] = 'оргазм'
+  $arr_with_words[1] = 'оргазма'
+  $arr_with_words[2] = 'оргазмов'
+  end
+
+  if INSTR('ВОЛК, ВОЛКА, ВОЛКОВ', $ARGS[0])>0:
+  $arr_with_words[0] = 'волк'
+  $arr_with_words[1] = 'волка'
+  $arr_with_words[2] = 'волков'
+  end
+
+  if INSTR('СЕССИЯ, СЕССИИ, СЕССИЙ', $ARGS[0])>0:
+  $arr_with_words[0] = 'сессия'
+  $arr_with_words[1] = 'сессии'
+  $arr_with_words[2] = 'сессий'
+  end
+
+  if INSTR('ЧАС, ЧАСА, ЧАСОВ', $ARGS[0])>0:
+  $arr_with_words[0] = 'час'
+  $arr_with_words[1] = 'часа'
+  $arr_with_words[2] = 'часов'
+  end
+
+  if INSTR('ГОД, ГОДА, ЛЕТ', $ARGS[0])>0:
+  $arr_with_words[0] = 'год'
+  $arr_with_words[1] = 'года'
+  $arr_with_words[2] = 'лет'
+  end
+
+  if $ARGS[0] = 'ТИ':
+  $arr_with_words[0] = '-го'
+  $arr_with_words[1] = '-х'
+  $arr_with_words[2] = '-ти'
+  end
+
+end
+
+
+if $arr_with_words[0] ! '':
+$RESULT = $arr_with_words[func ('get_word_form', ARGS[1])]
+end
+
+killvar '$arr_with_words'
+

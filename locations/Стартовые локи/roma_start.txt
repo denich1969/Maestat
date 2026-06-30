@@ -1,0 +1,56 @@
+﻿!saverules=1
+if $args[0]='домина':
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&domina=i&you=i
+	lvl[i]=1&soul[i]=100&iskr[i]=800&rome_pass=1&roma_home[i]=1&!nuat[i]=20000&gulden[you]=10000&money[i]=5500
+	dolgsmg+=1500&dolgsmgday=daystart+20&item[26]=0
+	magik[i]=0
+	spec_face_pic[i]=5&face_pic[i]=152
+	$name[i]='Грация'&$surname[i]='Ландольф'&$nick[i]='Блондинка'&$title[i]='Госпожа'&$history[i]='Вы Госпожа из Вечного Рима'&$class = "bard"
+	face[i]=80&gla[i]=3&glacol[i]=2&nose[i]=1&lips[i]=1&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)&souldar[i]=1&facetipe[i]=11
+	dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=10&ass[i]=27&nip[i]=45&tits[i]=12
+	rost[i]=170&fat[i]=1000&mus[i]=600&skin[i]=1&preskin[i]=2
+	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&cunthair[i]=10&hlong[i]=35&curl[i]=1&hcol[i]=3
+	healthmax[i]=100&health[i]=healthmax[i]&mana[i]=manamax[i]&mana[you]=0&energymax[i]=100&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	age[i]=iif(preage>0,preage,18)&preage=0&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1
+	womenbrain[i]=100&lust[i]=10&agro[i]=0&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&thenoob[i]=1&horny[you]=0
+	w_slot[i]=0&h_slot[i]=0&c_slot[i]=0
+	tz_slot[i]=0&tg_slot[i]=0
+	t_slot[i]=40&l_slot[i]=90&b_slot[i]=14
+	ut_slot[i]=9&ul_slot[i]=14&ub_slot[i]=12
+	roma_world[]=i&walkprog[i]=29
+	Xstart=4&Ystart=2&Zstart=404&Hstart=1&Rstart=1&ownerloc['<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>']=you
+	X[you]=Xstart&Y[you]=Ystart&Z[you]=Zstart&H[you]=Hstart&R[you]=Rstart&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&item_loc['148,<<$loc[you]>>']=1	
+	Xhome[you]=Xstart&Yhome[you]=Ystart&Zhome[you]=Zstart&Hhome[you]=Hstart&Rhome[you]=Rstart
+elseif $args[0]='маг':
+	gs'male_gen'&mage=i&you=i
+	magik[i]=10
+	womenbrain[i]=0&!spec_face_pic[i]=5&face_pic[i]=181
+	mus[i]=1600&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	$name[i]='Лаит'&$surname[i]='Двуликий'&$nick[i]='Мрак'&$title[i]=''&$history[i]='Вы маг'&$class = "mage"
+	Xstart=4&Ystart=4&Zstart=404&Hstart=0&Rstart=0&$loc[you]='<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>,<<Rstart>>'
+elseif $args[0]='варвар':
+	gs'male_gen'&barbarian=i&you=i
+	$name[i]='Конан'&$surname[i]='Смит'&$nick[i]='Киммериец'&$title[i]='Конан варвар'&$history[i]='Вы воин-варвар из Киммерии, сын кузнеца'&$class = "warrior"
+	womenbrain[i]=0&spec_face_pic[i]=5&face_pic[i]=180
+	mus[i]=4000&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	Xstart=4&Ystart=4&Zstart=404&Hstart=0&Rstart=0&$loc[you]='<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>,<<Rstart>>'
+elseif $args[0]='охотник':
+	gs'male_gen'&hunter=i&you=i
+	womenbrain[i]=0&!spec_face_pic[i]=5&face_pic[i]=182
+	mus[i]=3200&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	$name[i]='Хантер'&$surname[i]='Олден'&$nick[i]='Ловчий'&$title[i]='Егерь'&$history[i]='Вы охотник, сын егеря его светлости графа Энска'&$class = "ranger"
+	Xstart=4&Ystart=4&Zstart=404&Hstart=0&Rstart=0&$loc[you]='<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>,<<Rstart>>'
+elseif $args[0]='убийца':
+	gs'male_gen'&assasin=i&you=i
+	womenbrain[i]=0&!spec_face_pic[i]=5&face_pic[i]=183
+	mus[i]=2400&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	$name[i]='Джонатан '&$surname[i]='Те-а-тим-а'&$nick[i]='Титим'&$title[i]='Тень'&$history[i]='Вы убийца из гильдии, девиз которой: Nil Mortifi Sine Lucre (Без оплаты нельзя убивать)'&$class = "ranger"
+	Xstart=4&Ystart=4&Zstart=404&Hstart=0&Rstart=0&$loc[you]='<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>,<<Rstart>>'
+end
+'<<$name[you]>> <<$surname[you]>>'&*pl'<<$opis[you]>>'
+SHOWSTAT 1&SHOWOBJS 1
+addobj'Персонаж'&addobj'Характеристики'&addobj'Статистика'&addobj'Инвентарь'&addobj'Журнал'&addobj'Обновить'&addobj'Аварийка'&&!ADDOBJ "Записки охотника"&addobj'Записная книжка'
+gs'404_roma_gen'&X[you]=Xstart&Y[you]=Ystart&Z[you]=Zstart&H[you]=Hstart&R[you]=Rstart&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+roma_world[]=i
+slaverQW=1000&!slave=slavemaxnum+1&slavemaxnum+=1&gs'slavegen'&slave_total+=1
+cla&cls&gt'romastory'

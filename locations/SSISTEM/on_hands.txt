@@ -1,0 +1,4 @@
+﻿if vag_fucker>0 and anal_fucker=0:gt'on_hands_v' 
+if vag_fucker=0 and anal_fucker>0:gt'on_hands_a'
+if vag_fucker>0 and anal_fucker>0:gt'on_hands_dp'
+if you_blow>0 and vag_fucker=0 and anal_fucker=0:pose[you]=2&gt'on_knee'

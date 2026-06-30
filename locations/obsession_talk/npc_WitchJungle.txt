@@ -1,0 +1,61 @@
+﻿if Z[you]=770:
+	 $d_view='pic/mob/witch.jpg'&'<center><img src="<<$d_view>>" ></center>'
+	 if mob_sleep[npc]>time:
+		'Ведьма находится в трансе'
+	 else
+		 if you_slut[npc]=0:
+			 act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+			 act'Поговорить':
+				 know_about_portal[you]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				 'Ведьма фыркает - Я тоже в плену у этого мира, но я достаточно сильна, что бы противостоять местным болванам. Я соберу руны для портала и уберусь отсюда домой.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+			 if know_about_portal[you]>0:
+				 act'Как отсюда выбраться?':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Ведьма фыркает - Портал. Сейчас он работает только в одну сторону. Кто то отправляет сюда людей, а это место пожирает души. '
+					'Так вот, портал можно грубо запустить силой душ, но это надо иметь много сил. Либо специальными рунами. Одну руну я нашла, но этого мало.'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+			 act'Спросить совета':
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&timestxt=rand(1,3)
+				 if timestxt=1:
+					 'Ведьма рассказывает что на болотах растет такой куст, чьи листья полностью восстанавливают здоровье.'&if knowlist=0:knowlist=1
+				 end
+				 if timestxt=2:
+					 if kolknow=0:kolknow=1
+					 'Ведьма говорит что у колючки можно оторвать шип, и если чудовище со щупальцами на вас набросится достаточно будет швырнуть ему этот шип ,что бы чудовище уснуло.'
+				 end
+				 if timestxt=3:'Ведьма рассказывает, что для того что бы колючки не втыкались в вас нужно носить два слоя одежды, к примеру под штаны всегда одевать трусы, а под блузкой носить лифчик'
+				act'<b>Уйти</b>':gt 'preloc'
+			 end
+			 act'Научи меня магии':
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Ведьма смеется над вами - Нет, я не буду тебя учить.'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+		 if you_slut[npc]>0:
+			'Ведьма презрительно плюет в вас'&if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+			 dynamic $d_fear
+		 end
+	 end
+elseif Z[you]=100:
+	if master[you]>0:
+		if know['<<npc>>,<<you>>']=0:know['<<npc>>,<<you>>']+=1&!Клэр Севиль
+		if pol[you]=0:'<<$nick[npc]>> кланяется вам - Что угодно, мой господин?'
+		if pol[you]>0:'<<$nick[npc]>> кланяется вам - Что угодно, моя госпожа?'
+		if horny[you]>=50 or mysubslut[npc]=1:act'Я хочу занятся с тобой сексом':times_talk['<<npc>>,<<you>>']+=1&times_talk['<<you>>,<<npc>>']+=1&gt'justsex'&!corr[npc]-=10
+		 if horny[you]<50:
+			 act'Возбуди меня':
+				 horny[you]+=50& times_talk['<<npc>>,<<you>>']+=1&times_talk['<<you>>,<<npc>>']+=1
+				 cls&gs'stat'&'<center><video src="pic/sex/solo/twerk<<rand(0,12)>>.webm" ></video></center>'&*pl'Исполняет перед вами тверк'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+		 act'Не приставай ко мне!':cls&mobtalk[npc]=time+120&gt 'preloc'
+	end
+	act'Спросить про филина':
+		 X[filin]=X[you]&Y[filin]=Y[you]&Z[filin]=Z[you]
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&*pl'<<$name[npc]>> показывает пальцем - Вот он! Мудрая птица, знает множество тайн!'&act'<b>Уйти</b>':gt 'preloc'
+	end
+	act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+else
+	if know['<<npc>>,<<you>>']=0:know['<<npc>>,<<you>>']+=1
+	'<<$nick[npc]>> делает страшное лицо - Я <<$nick[npc]>> <<$name[npc]>>! Никто не смеет приближиться к моей пещере!'&act'<b>Уйти</b>':gt 'preloc'
+end

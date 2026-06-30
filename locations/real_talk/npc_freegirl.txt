@@ -1,0 +1,12 @@
+﻿cls&'<center> <<$title[npc]>></center>'&'<center><img src="<<$d_view>>" ></center>'&!$d_view='pic/face/<<hcol[npc]>>/<<face_pic[npc]>>.jpg'
+if mob_sleep[npc]>time:
+	'Девушка задумалась'
+else
+    if master[you]>0:
+		'Девушка непонимающе смотрит на вас'&act'<b>Уйти</b>':gt 'preloc' 
+		act'<b>Отправить в наваждение</b>':
+			 soul[you]+=10&mob[npc]=40&$title[i]='Обычная девушка'&total_freegirl-=1&total_girl+=1&lastpis[npc]=face_pic[npc]
+			 X[npc]=4&Y[npc]=7&Z[npc]=770&H[npc]=0&R[npc]=0&$loc[npc]='<<4>>,<<7>>,<<770>>,<<0>>,<<0>>'&cls&gt 'preloc'
+		end
+	end
+end

@@ -1,0 +1,15 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Рыбообрабатывающая фабрика'&maxPositionR['<<$templocH>>']=2&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Рыбообрабатывающая фабрика'&$lname['<<$temploc>>']='Рыбообрабатывающая фабрика'&$lname_go['<<$temploc>>']='на фабрику'
+$locopis['<<$temploc>>']='Большой цех в котором обрабатывают и консервируют рыбу. На стене крупное объявление о том, что на фабрику требуются работники, обратится нужно к Чарльзу Пратчету.'
+np['<<$temploc>>']=225
+mirror['<<$temploc>>']=1&fishfactory['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Дирекция'
+$locname['<<$temploc>>']='Дирекция'&$lname['<<$temploc>>']='Дирекция'&$lname_go['<<$temploc>>']='в дирекцию'
+$locopis['<<$temploc>>']='Офисный центр фабрики, несколько грубых письменных столов, секретеры и шкафы для документов.'
+np['<<$temploc>>']=226
+mirror['<<$temploc>>']=0
+R=2&gs 'toilet_gen',4&!gs 'toilet_gen',уровень туалета
+np['<<$temploc>>']=1
+item_loc['18,<<$temploc>>']=5

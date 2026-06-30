@@ -1,0 +1,33 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Прилавок'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+*nl 'Малый восстановитель выносливости 5 шиллингов'&*nl'Малое лечение 5 шиллингов'&*nl'Восстановитель выносливости 50 шиллингов'
+*nl'Зелье лечения 50 шиллингов'&*nl'Кристал маны 100 шиллингов'&*nl'Заряженная роза 1500 шиллингов'
+if money[you]>=500:
+	 act'Купить малый восстановитель выносливости 5 шиллингов':
+		 money[you]-=500&item[49]+=1&burden[you]+=item_burden[49]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if money[you]>=500:
+	 act'Купить малое лечение 5 шиллингов':
+		 money[you]-=500&item[51]+=1&burden[you]+=item_burden[51]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if money[you]>=5000:
+	 act'Купить восстановитель выносливости 50 шиллингов':
+		 money[you]-=5000&item[50]+=1&burden[you]+=item_burden[50]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=5000:
+	 act'Купить лечение 50 шиллингов':
+		 money[you]-=5000&item[93]+=1&burden[you]+=item_burden[93]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=10000:
+	 act'Купить кристал маны 100 шиллингов':
+		 money[you]-=10000&item[68]+=1&burden[you]+=item_burden[68]&cls&gs'stat'&'Вы заплатили деньги и купили кристал'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=150000:
+	 act'Купить заряженную розу 1500 шиллингов':
+		 money[you]-=150000&item[92]+=1&burden[you]+=item_burden[92]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+	 end
+end

@@ -1,0 +1,4 @@
+﻿gs'stat'&in_fight=1&npc=cromar&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+gs'stat'&'<center><img src="pic/face/5/92.jpg" ></center>'
+ 'Сзади вас хватают за шкирку и с чудовищной силой швыряют. Вы больно приземляетесь и над вами возвышается охотник - Ничего личного, но за тебя назначена не плохая награда.'
+act'Драться':health[you]=health[you]/2&pose[you]=2&in_fight=1&cant_fight_run=1&hiperbrona[npc]=2500&canclon[npc]=5&manacristal[npc]=5&blackrose[npc]=3&gs'progcurse'&gt 'prefight'

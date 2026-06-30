@@ -1,0 +1,26 @@
+﻿if statist[w]=1 and muggle[w]=1 and thenoob[w]=1:sweet[w]=1
+if odri=w:noslut[w]=2
+if spywoman=w:noslut[w]=1
+if bianka_visconti=w:noslut[w]=2
+if lagerta=w:noslut[w]=2
+if AldousHarding=w:noslut[w]=2
+if silviabrokk=w:noslut[w]=1
+if djgirl=w:noslut[w]=1
+if techer=w:noslut[w]=2
+if janevalorama=w:noslut[w]=2
+if victoria_visconti=w:noslut[w]=2
+if sladkova=w:noslut[w]=2
+if sladkovadot=w:noslut[w]=2
+if presledovatel=w:noslut[w]=2
+if fembatory=w:noslut[w]=2
+if germiona=w:noslut[w]=2
+if gilmanwife=w:noslut[w]=2
+if spirowife=w:noslut[w]=2
+if himicwife=w:noslut[w]=2
+if cromarwife=w:noslut[w]=2
+if takemurawife=w:noslut[w]=2
+if noslut[w]>0 and whoreboss[w]=0:
+     if wantblackcock[w]>0:wantblackcock[w]=0
+     if r_leg_t[w]=1:r_leg_t[w]=0
+     if stamp_t[w]>0:stamp_t[w]=0
+end

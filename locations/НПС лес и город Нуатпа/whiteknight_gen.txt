@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&whiteknightG=i
+lvl[i]=1&soul[i]=100&hunter[i]=1
+master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=159&!face_npc[i]=1&face_pic[i]=6
+$title[i]=''&$history[i]=''&$doing[i]='лежит на кровати'
+gs'male_gen'&$name[i]='Гастон'&$surname[i]='Эберхард'&$nick[i]='Охотник'
+face[i]=10&gla[i]=0&glacol[i]=4&nose[i]=0&lips[i]=0&cheeks[i]=0&beard[i]=0
+dick[i]=21&dickd[i]=46&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=188&fat[i]=500&mus[i]=2500&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=3
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=27&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=0&pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=40&selfrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=0&!характер
+m_slot[i]=3&!l_hand_t[i]=2&r_hand_t[i]=1
+h_slot[i]=0&w_slot[i]=1&c_slot[i]=0
+w_slot[i]=1&tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=0&l_slot[i]=0&b_slot[i]=0
+ut_slot[i]=0&ul_slot[i]=3&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=1&!$loc[i]='home_3'
+se_lighthouse[]=i&walkprog[i]=18&!npcii[i]=1

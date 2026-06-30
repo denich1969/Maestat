@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&kapitan=i
+lvl[i]=1&soul[i]=500
+master[i]=0&magik[i]=16&beliver[i]=0&delusion[i]=0&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=156&!face_npc[i]=1&face_pic[i]=3&!номер типа фотки и фотки
+$title[i]=''&$history[i]='Я капитан.'
+$name[i]='Винс'&$surname[i]='Мореход'&$nick[i]='Капитан'
+face[i]=10&gla[i]=0&glacol[i]=1&nose[i]=0&lips[i]=0
+dick[i]=18&dickd[i]=45&ball[i]=100&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=186&fat[i]=500&mus[i]=2500&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=1&beard[i]=50 
+age[i]=62&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=0
+pol[i]=0&gs'body'&total_generated_male+=1&!gs'male_gen'
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=40&selfrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=0&!характер
+h_slot[i]=0&w_slot[i]=3&!l_hand_t[i]=2&r_hand_t[i]=1
+c_slot[i]=1&tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=2&l_slot[i]=2&b_slot[i]=2
+ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2&!$loc[i]='fv_kap'&
+lighthouse[]=i&!walkprog[i]=67&!npcii[i]=1

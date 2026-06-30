@@ -1,0 +1,3 @@
+﻿clo=ARGS[0]
+
+gt'buyboot'

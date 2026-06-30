@@ -1,0 +1,52 @@
+﻿if magworld[Znow]>0:
+	 if stamp_t[you]>0:
+		 if stampblockday[you]=daystart:
+			slutday[you]+=1
+		 else
+			 stampblockday[you]=daystart
+			 soul[you]-=target_soul
+			 soul[npc]+=target_soul/2
+			 soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=target_soul/2
+		 end
+	 elseif r_ass_t[you]>=1:
+		 if stampblockday[you]=daystart:
+			slutday[you]+=1
+		 else
+			 stampblockday[you]=daystart
+			 soul[you]-=target_soul
+			 soul[npc]+=target_soul/2
+			 soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=target_soul/2
+		 end
+	elseif r_leg_t[you]>=1:
+		 if stampblockday[you]=daystart:
+			slutday[you]+=1
+		 else
+			 stampblockday[you]=daystart
+			 soul[you]-=target_soul
+			 soul[npc]+=target_soul/2
+			 soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=target_soul/2
+		 end
+	 elseif l_ass_t[you]>=1:
+		 if stampblockday[you]=daystart:
+			slutday[you]+=1
+		 else
+			 stampblockday[you]=daystart
+			 soul[you]-=target_soul
+			 soul[npc]+=target_soul/2
+			 soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=target_soul/2
+		 end
+	 elseif pubis_t[you]>0:
+		 if stampblockday[you]=daystart:
+			slutday[you]+=1
+		 else
+			 stampblockday[you]=daystart
+			 soul[you]-=target_soul
+			 soul[npc]+=target_soul/2
+			 soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=target_soul/2
+		 end
+	 else
+		 soul[you]-=target_soul
+		 soul[npc]+=target_soul/2
+		 soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=target_soul/2
+	 end
+end

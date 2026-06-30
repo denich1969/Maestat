@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&mrflesh=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&magik[i]=23&beliver[i]=13
+spec_face_pic[i]=5&face_pic[i]=27
+$title[i]='Мистер'&$name[i]='Плоть'&$surname[i]=''&$nick[i]='Светловолосый мужчина с жестоким взглядом'&
+face[i]=20&gla[i]=0&glacol[i]=3&nose[i]=0
+dick[i]=18&dickd[i]=42&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=180&fat[i]=1000&mus[i]=1800&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=3
+age[i]=49&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=0&positiv[i]=0&extrovert[i]=0&ratio[i]=1&brave[i]=2&lust[i]=60&!характер
+!l_hand_t[i]=2
+t_slot[i]=39&l_slot[i]=7&b_slot[i]=5
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+se_world[]=i
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

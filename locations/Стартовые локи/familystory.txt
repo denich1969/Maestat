@@ -1,0 +1,76 @@
+﻿tipe_start=2&bossQW=4
+addobj'Аварийка'
+cls&gs'stat'&'<center><img src="pic/misc/town.jpg" ></center>'
+'Родители давным-давно попали в город на корабле Харон, поселились в Жилмассиве и родили двух детишек. Город находится в мистическом месте на берегу моря и окружен со всех сторон туманом, сквозь который ничто живое пройти не может. В городе среди простых людей живут боги и волшебники. Никакого единого закона в городе не существует. И вопросы с преступностью жители решают через заказные убийства. Негодяев, достающих окружающих, в итоге находят убийцы, и после знакомства с профи отморозков хоронят на кладбище в порту. Большая часть населения не способна в магию, а те, кто способны, на самом-то деле довольно слабы. Сильных волшебников по пальцам можно пересчитать. В городе есть и своя собственная магия, введенная в ранг законов природы, могут сами появляться татуировки от некоторых действий. Граждане предпочитают автотранспорту портальные машинки. Телефон работает только проводной, а смартфоны можно использовать лишь в качестве фотоаппарата. Но самое главное свойство города в том, что душа тут товар. Ее покупают и продают. А также могут отнять, в основном при помощи секса.'&*nl
+'Отец прокаченный, вооруженный, и маг среднего уровня'
+'Мать не владеет магией и работает медсестрой в больнице'
+'Сын мелкий, слабый и не пользующийся уважением на улице среди гопоты'
+'Сестренка симпатичная и перспективная колдушка'
+act'Отец':
+     SHOWSTAT 1&SHOWOBJS 1
+     you=father&num=you&womenbrain[you]=0&item[17]=1&money[you]+=15000
+     larkinQW[you]=1&!персональный квест
+     key_power_wall[you]=1&power_wallQW[you]=110
+	 ins_reit[you]=12
+     gs'item_base'
+     eatitem=44&$item_m_name[eatitem]=$item_text[eatitem]&uron_weapon_m[you]=uron_m_item[eatitem]
+     candivorce=1&!нельзя разводится
+     know['<<sherif>>,<<you>>']+=1&know['<<you>>,<<sherif>>']+=1
+	 know['<<borisbogart>>,<<you>>']+=1&know['<<you>>,<<borisbogart>>']+=1
+	 know['<<dukevalorama>>,<<you>>']+=1&know['<<you>>,<<dukevalorama>>']+=1
+     know['<<frank_visconti>>,<<you>>']+=1&know['<<you>>,<<frank_visconti>>']+=1
+     know['<<antey>>,<<you>>']+=1&know['<<you>>,<<antey>>']+=1
+     friends['<<frank_visconti>>,<<you>>']=100&friends['<<you>>,<<frank_visconti>>']=100
+     know['<<spywoman>>,<<you>>']+=1&know['<<you>>,<<spywoman>>']+=1
+     friends['<<spywoman>>,<<you>>']=100&friends['<<you>>,<<spywoman>>']=100
+	 contact[frank_visconti]=you&my_contact[]=frank_visconti
+     contact[spywoman]=you&my_contact[]=spywoman
+     health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]
+     cls&gs'stat'&gs'body'&'<center><img src="pic/misc/gilmass.jpg" ></center>'&!$worldloc[you]='world'
+    'Вас зовут <<$name[you]>>, давным-давно вы попали в город на корабле "Харон". В Портовом районе вы побили нескольких инсмутцев, спасли от них девушку и шериф вас выгнал из района. '
+	'Вы взяли в жены спасенную вами девицу, она родила вам сына с дочерью, вам дали квартиру и вы работаете на машиностроительной мануфактуре под началом Фрэнка Висконти.'&act'Начать':gt'preloc'
+end
+act'Мать (не владеет магией)':
+     SHOWSTAT 1&SHOWOBJS 1
+     you=mother&num=you&womenbrain[you]=100&item[17]=1&money[you]+=15000
+     IamMilfQW=1&!персональный квест
+     candivorce=1& !нельзя разводится
+     mugglestart=1&!старт за магла
+     know['<<arhivwoman>>,<<you>>']+=1&know['<<you>>,<<arhivwoman>>']+=1&!подруга
+     friends['<<arhivwoman>>,<<you>>']=100&friends['<<you>>,<<arhivwoman>>']=100
+     contact[arhivwoman]=you&my_contact[]=arhivwoman
+     know['<<doctor>>,<<you>>']+=1&know['<<you>>,<<doctor>>']+=1&!начальник
+     friends['<<doctor>>,<<you>>']=100&friends['<<you>>,<<doctor>>']=100
+     contact[doctor]=you&my_contact[]=doctor
+     know['<<doctordother>>,<<you>>']+=1&know['<<you>>,<<doctordother>>']+=1&!дочка начальника
+     friends['<<doctordother>>,<<you>>']=10&friends['<<you>>,<<doctordother>>']=10
+     contact[doctordother]=you&my_contact[]=doctordother
+     health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]
+     cls&gs'stat'&gs'body'&'<center><img src="pic/misc/gilmass.jpg" ></center>'&!$worldloc[you]='world'
+    'Вас зовут <<$name[you]>>, давным-давно вы попали в город на корабле "Харон". В Портовом районе вас чуть не изнасиловали инсмутцы, но вас спас Дэн. Мужчина, ставший вашим мужем. '
+	'Вы переселились в Жилмассив вместе с ним, устроились работать в больницу, на стойку регистратуры, и так мирно живете день за днем, выращивая детей, работая и отдыхая. '
+	'Дружите с Лигией Стованс, главврач вас ценит и даже с дочерью главврача, работающей в госпитале, вы и то в приятельских отношениях.'&act'Начать':gt'preloc'
+end
+act'Брат':
+     SHOWSTAT 1&SHOWOBJS 1
+     you=brother&num=you&womenbrain[you]=30&schooler[you]=1&item[17]=1
+     health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]
+	 cls&gs'stat'&gs'body'&'<center><img src="pic/misc/gilmass.jpg" ></center>'&!$worldloc[you]='world'
+     'Вас зовут <<$name[you]>>, вы вместе с сестрой ходите в школу, что севернее вашего дома. Друзей у вас нет и тем более подружки. Уличные гопники запугивают вас и отбирают ваши карманные деньги.'
+     act'Начать':gt'preloc'
+end 
+act'Сестра':
+     you=sister&num=you&womenbrain[you]=80&schooler[you]=1&item[17]=1
+     health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]
+     know['<<sladkovamasha>>,<<you>>']+=1&know['<<you>>,<<sladkovamasha>>']+=1
+     friends['<<sladkovamasha>>,<<you>>']=100&friends['<<you>>,<<sladkovamasha>>']=100
+     contact[sladkovamasha]=you&my_contact[]=sladkovamasha
+	 cls&gs'stat'&gs'body'&'<center><img src="pic/misc/gilmass.jpg" ></center>'&!$worldloc[you]='world'
+    'Вас зовут <<$name[you]>>, вы вместе с братом ходите в школу, что севернее вашего дома. Нужно всего лишь перейти через небольшую речку, чтобы попасть в школу. '
+	'У вас есть подружка Маша Сладкова, с которой вы дружили с детства.'
+    'Как и большинство горожан, вы практически не выходили со своего района. Это всегда небезопасно. Даже в родном жилмассиве и то множество опасностей. '
+	'Днем по району шляются гопники и только ищут повод, чтобы ограбить или изнасиловать. '
+	'Хотя если уметь общаться с гопотой, то риски снижаются, да и если девушка без косяков и имеет парня, то гопники уже не так агрессивно себя ведут. '
+	'А ночью из тумана выползают кошмарные насекомоподобные твари, и если не спрятаться до рассвета, то можно ночь просто не пережить. '
+	'В Жилмассиве всем заправляет Богарт и его дружки, владеющие основными предприятиями района, но улицы принадлежат гопникам, а у них свои авторитеты.'&act'Начать':gt'sister_start'
+end

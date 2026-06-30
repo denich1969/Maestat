@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&bocman=i
+lvl[i]=1&soul[i]=100&work[i]=0
+master[i]=0&delusion[i]=0&magik[i]=12&beliver[i]=9
+spec_face_pic[i]=5&face_pic[i]=58
+$name[i]='Семен'&$surname[i]='Боцман'&$nick[i]='Уголовного вида мужчина'&$title[i]=''&$history[i]='Меня вся Лиговка знает, я решаю вопросы в корчме.'
+face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
+dick[i]=18&dickd[i]=40&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
+rost[i]=175&fat[i]=600&mus[i]=1000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=20&hcol[i]=1
+age[i]=45&vital[i]=300&will[i]=50&reflex[i]=120
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_male+=1
+womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=0&brave[i]=2&lust[i]=100&!характер
+h_slot[i]=0&m_slot[i]=75&w_slot[i]=108
+t_slot[i]=48&l_slot[i]=57&b_slot[i]=2
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+e_world[]=i&walkprog[i]=58
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

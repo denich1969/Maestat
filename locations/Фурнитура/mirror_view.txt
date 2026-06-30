@@ -1,0 +1,39 @@
+﻿if dagongene>110 and insmundface=1:
+	spec_face_pic[you]=6
+	face_tipe[you]=99
+	force_male_portrait[you]=0
+	force_fem_portrait[you]=0
+	if face[you]<15:face_pic[you]=6
+	if face[you]>=15 and face[you]<25:face_pic[you]=5
+	if face[you]>=25 and face[you]<45:face_pic[you]=4
+	if face[you]>=45 and face[you]<55:face_pic[you]=3
+	if face[you]>=55 and face[you]<70:face_pic[you]=2
+	if face[you]>=70 and face[you]<90:face_pic[you]=1
+	if face[you]>=90:face_pic[you]=0
+end
+if face_pic[you]>0 or spec_face_pic[you]=6 and face_pic[you]=0:
+     if spec_face_pic[you]>0:
+         if spec_face_pic[you]>=7:
+			$d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<hairlong[you]>>_<<hcol[you]>>.jpg'
+         elseif spec_face_pic[you]=6:
+			$d_view_mirr='pic/face/6/t<<face_tipe[you]>>/<<pic_hcol[you]>>/<<face_pic[you]>>.jpg'
+         else
+			$d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'
+         end
+     else
+         !'	 if face[you]>=50:
+			 if hcol[you]=0 and face_pic[you]>100:face_pic[you]=rand(1,100)
+			 if hcol[you]=1 and face_pic[you]>115:face_pic[you]=rand(1,115)
+			 if hcol[you]=2 and face_pic[you]>100:face_pic[you]=rand(1,100)
+			 if hcol[you]=3 and face_pic[you]>100:face_pic[you]=rand(1,100)
+		 end		 '
+		 if face[you]>=50 and skin[i]<4:$d_view_mirr='pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg'
+		 if face[you]>=50 and skin[i]>=4:$d_view_mirr='pic/face/4/<<face_pic[you]>>.jpg'
+         if face[you]<50:$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'
+	 end
+	 if force_male_portrait[you]>0:$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'
+     if force_fem_portrait[you]>0:$d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'
+!'нпс <<npc>>. Цвет волос <<hcol[npc]>>. Номер пикчи <<face_pic[npc]>>.'
+if ARGS[0]=0:'<center><img src="<<$d_view_mirr>>" ></center>'
+!'<center><img src="pic/face/<<hcol[npc]>>/<<face_pic[npc]>>.jpg" ></center>'
+end

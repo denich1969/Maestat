@@ -1,0 +1,114 @@
+﻿if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=Z[you] and H[w]>0:
+	randtipe=rand(0,3)&!в доме
+	if cum_face[w]>0:randtipe=4
+     if randtipe=1:
+         if R[w]>0:
+			R[w]=0
+             if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $walklog+='<br>'
+				 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> выходит из комнаты'
+				 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> выходит из комнаты'
+				 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> выходит из комнаты'
+			 end
+         end
+     end
+     if randtipe=2:
+         if R[w]=0:
+             if maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']>0:
+				 maxpos=maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']
+				 randgo_r=rand(1,maxpos)
+				 R[w]=randgo_r
+				 $text_go=$lname_go['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']
+                 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+					 $walklog+='<br>'
+					 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+					 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+					 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+			     end
+             end
+         end
+     end
+     if randtipe=3:
+         if R[w]=0:
+             if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $walklog+='<br>'
+				 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> выходит на улицу'
+				 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> выходит на улицу'
+				 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> выходит на улицу'
+			 end
+			H[w]=0
+         end
+     end
+	 if randtipe=4:
+		cum_face[w]=0&$walklog+='<br>'
+		 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> вытирает сперму'
+		 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> вытирает сперму'
+	 end
+end
+if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=Z[you] and H[w]=0:
+	randtipe=rand(0,3)&!по улице
+	if cum_face[w]>0:randtipe=4
+	!if randtipe=0:''& !нет движения
+    if randtipe=1:
+		randnapr=rand(0,1)&!по Х
+		if randnapr=0 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $walklog+='<br>'
+				 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на восток'
+				 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на восток'
+			 end
+			X[w]+=1
+		 end
+		if randnapr=1 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $walklog+='<br>'
+				 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на запад'
+				 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на запад'
+			 end
+			X[w]-=1
+		 end
+	 end
+	 if randtipe=2:
+		randnapr=rand(0,1)& !по У
+		if randnapr=0 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $walklog+='<br>'
+				 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на север'
+				 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на север'
+			 end
+			Y[w]+=1
+		 end
+		if randnapr=1 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+				 $walklog+='<br>'
+				 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на юг'
+				 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> <<$texwalk>> на юг'
+			 end
+			Y[w]-=1
+		 end
+	 end
+	 if randtipe=3:
+	     if maxPositionH['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']>0:
+			 maxpos=maxPositionH['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']
+			 if maxpos>1:Hrand=rand(1,maxpos)
+			 if maxpos=1:Hrand=1
+	         if lock['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<Hrand>>']=0:
+				 if privat['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<Hrand>>,0']=0 or privat['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<Hrand>>,0']>0 and X[w]=Xhome[w] and Y[w]=Yhome[w] and Z[w]=Zhome[w] and Hrand=Hhome[w]:
+					 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+						$text_go=$lname_go['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']
+						 $walklog+='<br>'
+						 if mob[w]>=1 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+						 if mob[w]=0 and know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> идет <<$text_go>>'
+						 if mob[w]=0 and know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> идет <<$text_go>>'
+					 end
+					H[w]=Hrand
+				 end
+	         end
+	     end
+	 end
+	 if randtipe=4:
+		cum_face[w]=0&$walklog+='<br>'
+		 if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> вытирает сперму'
+		 if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> вытирает сперму'
+	 end
+end

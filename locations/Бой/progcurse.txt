@@ -1,0 +1,65 @@
+﻿autoloss=0
+if mob[npc]=0 and beliver[npc]=2:itsrainingday['<<X[npc]>>,<<Y[npc]>>,<<Z[npc]>>,<<H[npc]>>,<<R[npc]>>']=time+120
+if blackwood=npc:
+     if dead[gilman]=0:X[gilman]=X[npc]&Y[gilman]=Y[npc]&Z[gilman]=Z[npc]&H[gilman]=H[npc]&R[gilman]=R[npc]&npc=gilman
+end
+if soulmaster=npc:
+     if dead[soulmistress]=2 and (dead[soulslut]=2 or dead[merlin]=2):firedefV=15000&falselife[npc]=5&hiperbrona[npc]=10000&canclon[npc]=10&fight_prog[npc]=14
+     if dead[soulmistress]=0 and dead[soulslut]=2:X[soulmistress]=X[npc]&Y[soulmistress]=Y[npc]&Z[soulmistress]=Z[npc]&H[soulmistress]=H[npc]&R[soulmistress]=R[npc]&npc=soulmistress
+     if dead[soulslut]=0:X[soulslut]=X[npc]&Y[soulslut]=Y[npc]&Z[soulslut]=Z[npc]&H[soulslut]=H[npc]&R[soulslut]=R[npc]&npc=soulslut
+end
+if fight_prog[npc]=0:fight_prog[npc]=1
+if m_slot[npc]>0:fight_prog[npc]=30
+if w_slot[npc]>0:fight_prog[npc]=29
+if m_slot[npc]>0 and w_slot[npc]>0:fight_prog[npc]=38
+if mlev[npc]=3:fight_prog[npc]=33&!5!затычка
+if mlev[npc]=4:fight_prog[npc]=32&!4
+if mlev[npc]=5:fight_prog[npc]=31&!3
+if mlev[npc]=6:fight_prog[npc]=34&!2
+if mlev[npc]=7:fight_prog[npc]=35&!1
+if mlev[npc]=8:fight_prog[npc]=36&!ВК
+if mlev[npc]=9:fight_prog[npc]=36&!год
+if mlev[npc]>=4:canclon[npc]=3&psihresist[npc]=10
+if addboss=npc and techer_dogovor[you]=addboss:autoloss=1
+if addboss=npc:portal_defV=30
+if brokk=npc:
+     if dead[twardovski]=2 and dead[merlin]=2:electro_resist[npc]=90&fight_prog[npc]=37&hiperbrona[npc]=100000&mgla_resist[npc]=100&psihresist[npc]=0
+     if dead[twardovski]=2 and dead[merlin]=0:X[merlin]=X[npc]&Y[merlin]=Y[npc]&Z[merlin]=Z[npc]&H[merlin]=H[npc]&R[merlin]=R[npc]&npc=merlin
+     if dead[twardovski]=0:X[twardovski]=X[npc]&Y[twardovski]=Y[npc]&Z[twardovski]=Z[npc]&H[twardovski]=H[npc]&R[twardovski]=R[npc]&npc=twardovski
+end
+if twardovski=npc:hiperbrona[npc]=5000&infinitmana[npc]=1&fight_prog[npc]=36
+if merlin=npc:reflex[npc]=20+react[you]&hiperbrona[npc]=50000&electro_resist[npc]=70&falselife[npc]=3&fight_prog[npc]=36
+if sherif=npc:hiperbrona[npc]=1000&fight_prog[npc]=12
+if antey=npc:hiperbrona[npc]=5000&fight_prog[npc]=13
+if lebeda=npc:&electro_resist[npc]=20&canclon[npc]=10&lebedalife[npc]=10&fight_prog[npc]=20
+if borisbogart=npc:reflex[npc]=20+react[you]&immortal[npc]=1&fight_prog[npc]=24
+if necromancer=npc:hiperbrona[npc]=1000&falselife[npc]=5&mgla_resist[npc]=1&fight_prog[npc]=19
+if obedmarsh=npc:magik[npc]=30&hiperbrona[npc]=10000&infinitmana[npc]=1&amulregen[npc]=1&godshand[npc]=10&waterdeep[npc]=1
+if martamarsh=npc:godshand[npc]=10&evil_grass[npc]=5&amulregen[npc]=1&manacristal[npc]=30&fight_prog[npc]=39
+if elfmag=npc:
+	soulpower[npc]=150
+	fight_prog[npc]=40
+	hiperbrona[npc]=2000
+	ironhand[npc]=1
+	evil_grass[npc]=1
+	num=npc
+	gs'body'
+	health[npc]=healthmax[npc]
+	mana[npc]=manamax[npc]
+	energy[npc]=energymax[npc]
+end
+if mabuta=npc:
+	electro_resist[npc]=80
+	vital[npc]=1000&reflex[npc]=20+react[you]
+	hiperbrona[npc]=50000
+	soulpower[npc]=600
+	m_slot[npc]=114&w_slot[npc]=111
+	fight_prog[npc]=38
+	num=npc
+	gs'body'
+	health[npc]=healthmax[npc]
+	mana[npc]=manamax[npc]
+	energy[npc]=energymax[npc]
+	amulregen[npc]=1
+end
+if savaof=npc:vital[npc]=600&reflex[npc]=react[you]&electro_resist[npc]=98&storm_defence[npc]=1000

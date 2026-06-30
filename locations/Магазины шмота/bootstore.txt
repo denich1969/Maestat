@@ -1,0 +1,17 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Полки с обувью'&!gs'Item'
+*pl''&!gs 'npconloc'
+act'Отойти':gt 'preloc'
+$boot_loc=''&clo=1&clomax=arrsize('$b_name')&newgenclo=0
+if today_bootgeneratar['<<$loc[you]>>']!daystart:today_bootgeneratar['<<$loc[you]>>']=daystart&newgenclo=1
+:markboottheloc
+    if newgenclo=1:
+		boothere['<<clo>>,<<$loc[you]>>']=rand(0,2)
+        if aristokrat_b[clo]>0:boothere['<<clo>>,<<$loc[you]>>']=0
+        if sexy_b[clo]>=25:boothere['<<clo>>,<<$loc[you]>>']=0
+        if pol_b[clo]=0 and pol[you]>0:boothere['<<clo>>,<<$loc[you]>>']=0
+        if pol_b[clo]=1 and pol[you]=0:boothere['<<clo>>,<<$loc[you]>>']=0
+    end 
+    if boothere['<<clo>>,<<$loc[you]>>']>0:$boot_loc+='<a href="exec:gt''gotoboot'',<<clo>>"><img src="pic/clo/boot/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markboottheloc'
+*pl''&'<<$boot_loc>>'

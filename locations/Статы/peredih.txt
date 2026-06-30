@@ -1,0 +1,1 @@
+﻿mana[you]-=100&energy[you]+=50&gt'preloc'

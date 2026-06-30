@@ -1,0 +1,49 @@
+﻿gs'stat'&act'Отвести взгляд':gt'sumrak'
+$npc_loc=''&$mobnpc_loc=''
+i=1&npcmax=arrsize('$name')
+:markseeloc
+if Xs=X[i] and Ys=Y[i] and Zs=Z[i] and i!you and dead[i]=0:
+	gs'subview'
+	 if magik[i]=0:$poweraura[i]='Магические силы отсутствуют.'
+	 if mlev[i]=9:$poweraura[i]='Божественная сила.'
+	 if mlev[i]=8:$poweraura[i]='Сила вне категорий.'
+	 if mlev[i]=7:$poweraura[i]='1я категория силы.'
+	 if mlev[i]=6:$poweraura[i]='2я категория силы.'
+	 if mlev[i]=5:$poweraura[i]='3я категория силы.'
+	 if mlev[i]=4:$poweraura[i]='4я категория силы.'
+	 if mlev[i]=3:$poweraura[i]='5я категория силы.'
+	 if mlev[i]=2:$poweraura[i]='6я категория силы.'
+	 if mlev[i]=1:$poweraura[i]='7я категория силы.'
+	 $poweraura[i]+=' <<win[i]>>-<<loss[i]>>'
+	 if know_seed[i]=1:$poweraura[i]+=' Заражение спорами паразитами'
+	 if mob[i]=0:
+		!if $title[i]!'':$npc_loc+='<<$title[i]>> '
+		 $npc_loc+='<br>'
+		 $npc_loc+='<<$poweraura[i]>>, душа <<soul[i]>> '
+		 if $d_viewnpc!'':$npc_loc+='<td><a href="exec:gt ''gonpcs'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
+		 if my_puppil[i]>0:$npc_loc+='<img src="pic/misc/body.png">'
+		 if vision_times[i]>0:$npc_loc+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
+		 if sexpartner['<<i>>,<<you>>']>0:
+			 if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
+		 else
+			 if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+			 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
+		 end
+	 else
+		 $mobnpc_loc+='<br>'
+		 if $d_viewnpc!'':$mobnpc_loc+='<td><a href="exec:gt ''gonpcs'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
+		 !if $title[i]!'':$npc_loc+='<<$title[i]>> '
+		 if know['<<i>>,<<you>>']=0:$mobnpc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$fullname[i]>></a><<$status[i]>>'
+		 if know['<<i>>,<<you>>']>0 and $surname[i]!'' and $nick[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+		 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $nick[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+		 if know['<<i>>,<<you>>']>0 and $nick[i]!'' and $surname[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+		 if know['<<i>>,<<you>>']>0 and $nick[i]!'' and $surname[i]!'':$mobnpc_loc+='<a href="exec:gt ''gonpcs'',<<i>>"><<$nick[i]>> <<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+	 end
+end
+i+=1&if i<=npcmax:jump'markseeloc'
+'<<$npc_loc>>'&*nl'<<$mobnpc_loc>>'

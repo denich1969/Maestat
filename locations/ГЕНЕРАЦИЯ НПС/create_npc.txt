@@ -1,0 +1,213 @@
+﻿if kre=0:
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+	lvl[i]=1&soul[i]=100&souldar[i]=0
+	magik[i]=0&muggle[i]=1&saggy[i]=0&beliver[i]=0&statist[i]=1&master[i]=0&delusion[i]=0&!Не имеет отношения к богине луны и наваждению
+	forbidsex[i]=0
+	 act'Мужской пол':pol=0&kre=1&gt $curloc
+	 act'Женский пол':pol=1&kre=1&gt $curloc
+end
+if kre=1:
+	 if pol=0:
+		 pol[i]=0&face[i]=30&'Мужской пол'
+		 dick[i]=15&dickd[i]=35&ball[i]=30&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
+		 face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10
+	 end
+	 if pol=1:
+		 pol[i]=1&face[i]=70&'Женский пол'
+		 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=24&nip[i]=25&tit[i]=12
+		 face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=5&leg_hair[i]=0&hlong[i]=30
+	 end
+	'Выберите имя и фамилию'
+     act'Написать имя':
+		 cls
+		 $name[i]=input("Введите имя")
+         if $name[i]='' or $name[i]=' ':
+             if pol=0:gs'ru_man_name'&$name[i]=$genname
+             if pol=1:gs'ru_woman_name'&$name[i]=$genname
+         end
+		$surname[i]=input("Введите фамилию")
+         if $surname[i]='' or $surname[i]=' ':
+			gs'ru_surname'
+             if pol=0:$surname[i]=$gensurname
+             if pol=1:$surname[i]=$gensurname_f
+         end
+		'<<$name[i]>> <<$surname[i]>>'
+         act'Не верно':gt $curloc
+         act'Верно':
+         	 if pol=0:rost[i]=160
+			 if pol=1:rost[i]=155
+			kre=2&gt $curloc
+         end
+     end
+end
+if kre=2:
+	'<<$name[i]>> <<$surname[i]>>'
+	 if pol=0:'Мужской пол'
+	 if pol=1:'Женский пол'
+	'Рост <<rost[i]>> см'
+	 if rost[i]<205:act'Увеличить на 1см':rost[i]+=1&gt $curloc
+	 if rost[i]<200:act'Увеличить на 5см':rost[i]+=5&gt $curloc
+	 if rost[i]>160:act'Уменьшить на 1см':rost[i]-=1&gt $curloc
+	 if rost[i]>165:act'Уменьшить на 5см':rost[i]-=5&gt $curloc
+	 act'Подтвердить рост':kre=3&gt $curloc
+end
+if kre=3:
+	'<<$name[i]>> <<$surname[i]>>'
+	 if pol=0:'Мужской пол'
+	 if pol=1:'Женский пол'
+	'Рост <<rost[i]>> см'
+	mus[you]=400&fat[you]=300
+     act'Ввод возраста':
+		 age[i]=input("Введите возраст")
+         if age[i]<18:age[i]=18
+         if age[i]>60:age[i]=60
+		 kre=4&cls&gt $curloc
+     end
+end
+if kre=4:
+	num=i&gs'body'
+	'<<$name[i]>> <<$surname[i]>>'
+	'<<$opis[i]>>'&*nl
+	'<<mus[i]>>'
+	'<<fat[i]>>'
+     if dick[i]>1:
+         if mus[i]<4000:'<a href="exec:mus[i]+=100&gt $curloc">Увеличить мышцы</a>'
+         if fat[i]<6000:'<a href="exec:fat[i]+=100&gt $curloc">Увеличить жир</a>'
+     else
+         if mus[i]<2000:'<a href="exec:mus[i]+=100&gt $curloc">Увеличить мышцы</a>'
+         if fat[i]<6000:'<a href="exec:fat[i]+=100&gt $curloc">Увеличить жир</a>'
+     end
+    if mus[i]>500:'<a href="exec:mus[i]-=100&gt $curloc">Уменьшить мышцы</a>'
+    if fat[i]>500:'<a href="exec:fat[i]-=100&gt $curloc">Уменьшить жир</a>'&*nl
+	 if scull[i]>0:'<a href="exec:scull[i]=0&gt $curloc">Обыкновенные скулы</a>'
+	 if cheeks[i]>0:'<a href="exec:cheeks[i]=0&gt $curloc">Обыкновенные щеки</a>'
+	 if scull[i]=0:'<a href="exec:scull[i]=1&gt $curloc">Широкие скулы</a>'
+	 if cheeks[i]=0:'<a href="exec:cheeks[i]=1&gt $curloc">Пухлые щеки</a>'&*nl
+     if skin[i]!0:'<a href="exec:skin[i]=0&gt $curloc">Белая кожа</a>'
+     if skin[i]!1:'<a href="exec:skin[i]=1&gt $curloc">Светлая кожа</a>'
+     if skin[i]!2:'<a href="exec:skin[i]=2&gt $curloc">Загорелая кожа</a>'
+     if skin[i]!3:'<a href="exec:skin[i]=3&gt $curloc">Смуглая кожа</a>'
+     if skin[i]!4:'<a href="exec:skin[you]=4&gt $curloc">Шоколадная кожа</a>'&*nl
+     if hcol[i]!0:'<a href="exec:hcol[i]=0&gt $curloc">Черные волосы</a>'
+     if hcol[i]!1:'<a href="exec:hcol[i]=1&gt $curloc">Русые волосы</a>'
+     if hcol[i]!2:'<a href="exec:hcol[i]=2&gt $curloc">Рыжие волосы</a>'
+     if hcol[i]!3:'<a href="exec:hcol[i]=3&gt $curloc">Светлые волосы</a>'&*nl
+     if glacol[i]!0:'<a href="exec:glacol[i]=0&gt $curloc">Черные глаза</a>'
+     if glacol[i]!1:'<a href="exec:glacol[i]=1&gt $curloc">Карие глаза</a>'
+     if glacol[i]!2:'<a href="exec:glacol[i]=2&gt $curloc">Серые глаза</a>'
+     if glacol[i]!3:'<a href="exec:glacol[i]=3&gt $curloc">Зеленые глаза</a>'
+     if glacol[i]!4:'<a href="exec:glacol[i]=4&gt $curloc">Голубые глаза</a>'&*nl
+     if gla[i]!0:'<a href="exec:gla[i]=0&gt $curloc">Стандартный размер глаз</a>'
+     if gla[i]=0:'<a href="exec:gla[i]=1&gt $curloc">Маленькие глаза</a>'
+     if gla[i]=0:'<a href="exec:gla[i]=2&gt $curloc">Раскосые глаза</a>'
+     if gla[i]=0:'<a href="exec:gla[i]=3&gt $curloc">Большие глаза</a>'&*nl
+     if nose[i]!0:'<a href="exec:nose[i]=0&gt $curloc">Обыкновенный нос</a>'
+     if nose[i]!1:'<a href="exec:nose[i]=1&gt $curloc">Маленький вздернутый носик</a>'
+     if nose[i]!2:'<a href="exec:nose[i]=2&gt $curloc">Утонченный, аристократический нос</a>'
+     if nose[i]!3:'<a href="exec:nose[i]=3&gt $curloc">Широкий нос</a>'
+     if nose[i]!4:'<a href="exec:nose[i]=4&gt $curloc">Горбатый нос</a>'&*nl
+     if lips[i]!0:'<a href="exec:lips[i]=0&gt $curloc">Обыкновенные губы</a>'
+     if lips[i]!1:'<a href="exec:lips[i]=1&gt $curloc">Пухленькие губы</a>'
+     if lips[i]!2:'<a href="exec:lips[i]=2&gt $curloc">Толстые губы</a>'
+     if dick[i]>1:
+         if dick[i]<25:act'Увеличить член':dick[i]+=1&gt $curloc
+         if dick[i]>8:act'Уменьшить член':dick[i]-=1&gt $curloc
+         if dickd[i]<45:act'Член толще':dickd[i]+=1&gt $curloc
+         if dickd[i]>30:act'Член тоньше':dickd[i]-=1&gt $curloc
+     else
+         if ass[i]<30:act'Увеличить попу':ass[i]+=1&gt $curloc
+         if ass[i]>20:act'Уменьшить попу':ass[i]-=1&gt $curloc
+         if tits[i]<22:act'Увеличить грудь':tits[i]+=1&gt $curloc
+         if tits[i]>=13:act'Уменьшить грудь':tits[i]-=1&gt $curloc
+     end
+     act'<b>Дальше</b>':kre=10&gt $curloc
+end
+if kre=10:
+	if face_pic[i]=0:face_pic[i]=rand(1,45)
+	 if face_pic[i]>0:
+		 if pol[i]>=1:$d_view_mirr='pic/face/<<hcol[i]>>/<<face_pic[i]>>.jpg'
+		 if pol[i]=0:$d_view_mirr='pic/faceman/<<face_pic[i]>>.jpg'
+		 '<center><img src="<<$d_view_mirr>>" ></center>'
+	 end
+     act'Установить фотку':face_pic[i]=input("Введите номер фотографии. Фотографию можно посмотреть в файлах игры.")&gt $curloc
+     act'<b>Оживить гомункула</b>':kre=11&gt $curloc
+end
+if kre=11:
+	gs'body'
+	'<<$name[i]>> <<$surname[i]>>'
+	'<<$opis[i]>>'
+	health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]
+	if pol[i]=0:
+		class[i]=rand(0,2)
+		if class[i]=0:t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&!низший класс
+		if class[i]=1:t_slot[i]=rand(5,7)&l_slot[i]=rand(4,5)&b_slot[i]=rand(2,3)&!средний класс
+		if class[i]=2:t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&!элитный класс
+		$nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+		$nick[i]+=$iif(age[i]<25,' парень',' мужчина')
+	 else
+		class[i]=rand(0,2)
+		if class[i]=0:
+			t_slot[i]=rand(12,16)&l_slot[i]=rand(23,26)&!низший класс
+			btipe=rand(0,1)
+			if btipe=0:b_slot[i]=13
+			if btipe=1:b_slot[i]=rand(2,3)
+		end
+		if class[i]=1:
+			t_slot[i]=rand(16,24)&!средний класс
+			tempclo=rand(0,2)
+			if tempclo=0:l_slot[i]=rand(9,14)
+			if tempclo=1:l_slot[i]=rand(60,89)
+			if tempclo=2:l_slot[i]=rand(27,44)
+			b_slot[i]=rand(8,9)
+		end
+		if class[i]=2:
+			t_slot[i]=rand(25,30)&!элитный класс
+			tempclo=rand(0,1)
+			if tempclo=0:l_slot[i]=rand(9,14)
+			if tempclo=1:l_slot[i]=rand(60,89)
+			b_slot[i]=rand(17,19)
+		end
+		ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
+		 if hcol[i]=0:$nick[i]='Брюнетка. '
+		 if hcol[i]=1:$nick[i]='Девушка. '
+		 if hcol[i]=2:$nick[i]='Рыжая девушка. '
+		 if hcol[i]=3:$nick[i]='Блондинка. '
+		 if hcol[i]=4:$nick[i]='Синеволосая девушка. '
+		 if hcol[i]=5:$nick[i]=iif(rand(1)=1,'Красноволосая девушка. ','Девушка с красной шевелюрой. ')
+		 if hcol[i]=6:$nick[i]='Седовласая женщина. '
+		 if hcol[i]=7:$nick[i]='Девушка с голубыми волосами. '
+		 if hcol[i]=8:$nick[i]='Русоволосая девушка. '
+	 end
+	 selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)
+	 kre=12
+	 gt $curloc
+end
+if kre=12:
+	gs'body'
+	'<<$name[i]>> <<$surname[i]>>'
+	'<<$opis[i]>>'
+	'Агрессивность <<agro[i]>>'
+	if agro[i]<100:'<a href="exec:agro[i]+=10&gt $curloc">Увеличить агрессивность</a>'
+	if agro[i]>0:'<a href="exec:agro[i]-=10&gt $curloc">Уменьшить агрессивность</a>'
+	'Похоть <<lust[i]>>'
+	if lust[i]<100:'<a href="exec:lust[i]+=10&gt $curloc">Увеличить похоть</a>'
+	if lust[i]>0:'<a href="exec:lust[i]-=10&gt $curloc">Уменьшить похоть</a>'
+     if selfrespect[i]=0:'Не уважает себя <a href="exec:selfrespect[i]+=1&gt $curloc">+</a>'
+     if selfrespect[i]=1:'Нормальное самоуважение <a href="exec:selfrespect[i]+=1&gt $curloc">+</a> <a href="exec:selfrespect[i]-=1&gt $curloc">-</a>'
+     if selfrespect[i]=2:'Бахвальство <a href="exec:selfrespect[i]-=1&gt $curloc">-</a>'
+     if positiv[i]=0:'Мрачно смотрит на вещи <a href="exec:positiv[i]+=1&gt $curloc">+</a>'
+     if positiv[i]=1:'Рационально смотрит на вещи <a href="exec:positiv[i]+=1&gt $curloc">+</a> <a href="exec:positiv[i]-=1&gt $curloc">-</a>'
+     if positiv[i]=2:'Позитивно смотрит на вещи <a href="exec:positiv[i]-=1&gt $curloc">-</a>'
+     if extrovert[i]=0:'Интроверт и не любит общество <a href="exec:extrovert[i]+=1&gt $curloc">+</a>'
+     if extrovert[i]=1:'Умеет как и общаться, так и нет <a href="exec:extrovert[i]+=1&gt $curloc">+</a> <a href="exec:extrovert[i]-=1&gt $curloc">-</a>'
+     if extrovert[i]=2:'Экстроверт и любит общаться <a href="exec:extrovert[i]-=1&gt $curloc">-</a>'
+     if ratio[i]=0:'Повинуется голосу сердца <a href="exec:ratio[i]+=1&gt $curloc">+</a>'
+     if ratio[i]=1:'Мыслительный тип, который способен впасть в эмоции <a href="exec:ratio[i]+=1&gt $curloc">+</a> <a href="exec:ratio[i]-=1&gt $curloc">-</a>'
+     if ratio[i]=2:'Повинуется рассудку <a href="exec:ratio[i]-=1&gt $curloc">-</a>'
+     if brave[i]=0:'Трус <a href="exec:brave[i]+=1&gt $curloc">+</a>'
+     if brave[i]=1:'Трусость и храбрость в зависимости от степени опасности <a href="exec:brave[i]+=1&gt $curloc">+</a> <a href="exec:brave[i]-=1&gt $curloc">-</a>'
+     if brave[i]=2:'Храбрец <a href="exec:brave[i]-=1&gt $curloc">-</a>'
+     act'Отправить в реальный мир (офис)':
+		 X=5&Y=5&Z=0&H=1&R=0&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&gt'preloc'
+     end
+end

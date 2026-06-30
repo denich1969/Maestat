@@ -1,0 +1,114 @@
+﻿if args[0]=0:args[0]=num
+if rost[args[0]]=0:exit
+!"DEBUG "+$name[args[0]]+" "+args[0]+" "+rost[args[0]]+ " body_updateV1[num] "+body_updateV1[args[0]]
+if fem[args[0]]>femMax:fem[args[0]]=femMax&!феминность тела 0-1000
+if fem[args[0]]<0:fem[args[0]]=0
+if ass[args[0]]>assMax:ass[args[0]]=assMax
+if ass[args[0]]<0:ass[args[0]]=0
+if tits[args[0]]>titsMax:tits[args[0]]=titsMax
+if tits[args[0]]<0:tits[args[0]]=0
+if pol[args[0]]=0:
+	musNorm[args[0]]=musNorm*20/10*rost[args[0]]/1800
+	fatNorm[args[0]]=fatNorm*rost[args[0]]/1800*8/10
+	!иначе при переходе от мужика к женщине может быть баг
+	!if mus[args[0]]-musNorm[args[0]]>=200:musNorm[args[0]]=musNorm[args[0]]=mus[args[0]]+100
+	!if musNorm[args[0]]-mus[args[0]]>=200:musNorm[args[0]]=musNorm[args[0]]=mus[args[0]]-100
+else
+	if musNorm[args[0]]=0:musNorm[args[0]]=musNorm*rost[args[0]]/1800
+	if fatNorm[args[0]]=0:fatNorm[args[0]]=fatNorm*rost[args[0]]/1800+tits[args[0]]/100*500
+end	
+args[52] = IIF(ass[args[0]]<assMax, ass[args[0]]*mus[args[0]]/2000, assMax*mus[args[0]]/2000)&!мышцы распределенные по телу
+args[51] = mus[args[0]] - args[52]&!сколько уйдет в мышцы при максимальном бонусе задницы
+args[70] = assMax*musNorm[args[0]]/2000&!сколько будет распределено по остальному телу, при максимальном значении задницы
+args[71] = musNorm[args[0]] - args[70]	
+if fem[args[0]]>femMax:"BAG ON body_size"
+args[30]=args[51]*(50-30*fem[args[0]]/femMax)/100&!плечи (мышцы)
+args[31]=args[51]*(40-10*fem[args[0]]/femMax)/100&!талия (мышцы)
+args[32]=args[51]*(20+10*fem[args[0]]/femMax)/100&!бедра (мышцы)
+args[72]=args[71]*(20+10*fem[args[0]]/femMax)/100&!идеальные бедра (при максимальном значении задницы)!120:90
+!сколько жыра уйдет в сиськи (при titsMax=540 90%)
+!Обратите внимание, что если жыра больше чем норма, то он пойдет не в сиськи!! (это сделанно чтоб персонаж не состоял из одних сисек, если вдруг решит растолстеть)
+!у низних (миниатюрных) персонажей даже 3 размер груди может быть впечатляющим
+if fat[args[0]]<=fatNorm[args[0]]:
+	args[38]=IIF(tits[args[0]]<titsMax,fat[args[0]]*tits[args[0]]/600,fat[args[0]]*titsMax/600)
+else	
+	args[38]=IIF(tits[args[0]]<titsMax,fatNorm[args[0]]*tits[args[0]]/600,fatNorm[args[0]]*titsMax/600)
+end
+args[40]= fat[args[0]] - args[38]&!жир распределенный по телу
+args[35]=args[40]*20/100&!плечи (жир)
+args[36]=args[40]*(60-40*fem[args[0]]/femMax)/100&!талия (жир)
+args[37]=args[40]*(20+30*fem[args[0]]/femMax)/100&!бедра (жир)
+!коррекция мускулатуры для дам
+!для женщин (дополнительные условия, это защита от дурака, при самом первом проходе)
+if pol[args[0]]>0 and weigth[args[0]]>0 and waist[args[0]]>0:
+	args[73]=rost[args[0]]*300/100&!базовый размер задницы
+	args[73]+= (args[72]+args[37]*2)*1800/rost[args[0]]/5+args[70]
+	args[73]= func('sqrt',(args[73]))&!размер при идеальной заднице
+	args[79] = func('func_ass',args[0],args[73])&!процент отклонения от нормы
+	!если сделать 15 возможны зацикливания
+	if (args[79]<15 and musNorm[args[0]]<mus[args[0]]*11/10):
+		!если задница отклоняеться менее чем на 15% нужно увеличить её
+		musNorm[args[0]]+=25
+		if musNorm_temp[args[0]]<0:musNorm[args[0]]=mus[args[0]]&musNorm_temp[args[0]]=0
+		musNorm_temp[args[0]]+=1
+		!if husband[you]=args[0]:$name[args[0]]+" оптимальная мускулатура "+musNorm[args[0]]+" ++ "+args[79]
+		!if args[78]<100:jump'test'
+	else	
+		if (args[79]>15 and musNorm[args[0]]>mus[args[0]]*9/10 and musNorm[args[0]]>musNorm*rost[args[0]]/1800/2):
+			!если задница отклоняеться более чем на 15% нужно уменьшить её
+			musNorm[args[0]]-=25
+			if musNorm_temp[args[0]]>0:musNorm[args[0]]=mus[args[0]]&musNorm_temp[args[0]]=0
+			musNorm_temp[args[0]]-=1
+			!if husband[you]=args[0]:$name[args[0]]+" оптимальная мускулатура "+musNorm[args[0]]+" -- "+args[79]
+			!if args[78]<100:jump'test'
+		end			
+	end
+	if waist_bonus[args[0]]>-2 and tit[args[0]]<2+lust[args[0]]/20 and tit[args[0]]<7 and fatNorm[args[0]]<fat[args[0]]*11/10:
+		fatNorm[args[0]]+=25
+		if fatNorm_temp[args[0]]<0:fatNorm[args[0]]=fat[args[0]]&fatNorm_temp[args[0]]=0
+		fatNorm_temp[args[0]]+=1
+	else
+		if (tit[args[0]]>2+lust[args[0]]/20 or breast_b[args[0]]>breastSizeE+1) and fatNorm[args[0]]>fat[args[0]]*9/10:
+			if (waist_bonus[args[0]]<=-2 or tit[args[0]] > 2+lust[args[0]]/20 or breast_b[args[0]]>=breastSizeEE) and fatNorm[args[0]]>300:
+				fatNorm[args[0]]-=25&!если сиськи слишком большие 
+				if fatNorm_temp[args[0]]>0:fatNorm[args[0]]=fat[args[0]]&fatNorm_temp[args[0]]=0
+				fatNorm_temp[args[0]]-=1
+			end
+		end
+	end
+end
+args[20] = rost[args[0]]/5*100&!базовый вес (минимум)
+args[20]=args[20]-args[20]*15*fem[args[0]]/femMax/100&!у женщин вес на 15% ниже базовый вес
+weigth[args[0]]=args[20]+fat[args[0]]+mus[args[0]]&!итог
+waist[args[0]]=rost[args[0]]*150/100&!значение талии
+waist_baza[args[0]]= func('sqrt',(waist[args[0]]))&!базовое значение талии
+waist[args[0]]+=(args[31]+args[36]*2)*1800/rost[args[0]]/4
+waist[args[0]]= func('sqrt',(waist[args[0]]))&!итог
+args[60]=(100*mus[args[0]]/musNorm[args[0]])&!отклоненеие мышц от нормы
+if args[60]>100:args[60]=100
+waist[args[0]]-= (args[60]-50)*4/4*(waist[args[0]]-waist_baza[args[0]])/100&!дополнительные расчеты преса персонажа
+rib[args[0]]= rost[args[0]]*210/100&!размер торса базовый
+rib[args[0]]+= (args[30]+args[35]*2)*1800/rost[args[0]]/4&!добавляем жир и мышцы
+rib[args[0]]= func('sqrt',rib[args[0]])
+args[50] = func('sqrt3',3*args[38]*100/(2*314)*8)&!объем сисек !8 - увеличиваем порядок точности в 2 раза 2^3
+breast_b[args[0]] = ((2*314+200)*args[50]/100-4*args[50])/4&!в формуле делим на 2 из-за порядка точности
+breast[args[0]]=rib[args[0]]+breast_b[args[0]]&!итог
+hips[args[0]]= rost[args[0]]*300/100&!бедра
+ass_stock[args[0]]=(args[32]+args[37]*2)*1800/rost[args[0]]/5
+ass_stock[args[0]]=func('sqrt',hips[args[0]])
+hips[args[0]]+= (args[32]+args[37]*2)*1800/rost[args[0]]/5+args[52]
+hips[args[0]]= func('sqrt',hips[args[0]])
+biceps[args[0]]=(rost[num]/100)+(args[40]/4000)+(args[51]/2000)
+if bic[args[0]]<20:bic[args[0]]=20
+waist_bonus[args[0]] = func('func_waist',args[0])
+ass_bonus[args[0]] = func('func_ass',args[0])
+tits_bonus[args[0]] = func('func_tits',args[0])
+tors_bonus[args[0]] = func('func_tors',args[0])
+if breast_b[args[0]]<breastSizeFlat:tit[args[0]]=0
+if breast_b[args[0]]>=breastSizeFlat and tits[args[0]]<breastSizeA:tit[args[0]]=1
+if breast_b[args[0]]>=breastSizeA and breast_b[args[0]]<breastSizeB:tit[args[0]]=2
+if breast_b[args[0]]>=breastSizeB and breast_b[args[0]]<breastSizeC:tit[args[0]]=3
+if breast_b[args[0]]>=breastSizeC and breast_b[args[0]]<breastSizeD:tit[args[0]]=4
+if breast_b[args[0]]>=breastSizeD and breast_b[args[0]]<breastSizeDD:tit[args[0]]=5
+if breast_b[args[0]]>=breastSizeDD and breast_b[args[0]]<breastSizeE:tit[args[0]]=6
+if breast_b[args[0]]>=breastSizeE:tit[args[0]]=7

@@ -1,0 +1,41 @@
+﻿X[npc]=Xhome[npc]
+Y[npc]=Yhome[npc]
+Z[npc]=Zhome[npc]
+H[npc]=Hhome[npc]
+R[npc]=Rhome[npc]
+
+X[blackmarsh]=Xhome[npc]
+Y[blackmarsh]=Yhome[npc]
+Z[blackmarsh]=Zhome[npc]
+H[blackmarsh]=Hhome[npc]
+R[blackmarsh]=Rhome[npc]
+
+!
+X[sblackmarsh]=Xhome[npc]
+Y[sblackmarsh]=Yhome[npc]
+Z[sblackmarsh]=Zhome[npc]
+H[sblackmarsh]=Hhome[npc]
+R[sblackmarsh]=Rhome[npc]
+
+X[you]=Xhome[npc]
+Y[you]=Yhome[npc]
+Z[you]=Zhome[npc]
+H[you]=Hhome[npc]
+R[you]=Rhome[npc]
+
+solo=0
+horny[npc]=50
+horny[blackmarsh]=50
+horny[sblackmarsh]=50
+mob_sleep[npc]=0
+mob_sleep[blackmarsh]=0
+mob_sleep[sblackmarsh]=0
+pose[you]=4
+
+
+gs'stat'
+'<center><img src="<<$d_view>>" ></center>'
+'<<$name[npc]>> ведет вас за собой в свою опочивальню и там приказывает вам встать раком'
+
+
+act'На четвереньки':gt'sex'

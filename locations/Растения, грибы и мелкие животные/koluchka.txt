@@ -1,0 +1,18 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/loc/ras/kol.jpg" ></center>'&'Колючий шевелящийся куст источающий сладкий, дурманящий аромат.'
+if last_kol['<<$loc[you]>>']=0 and day_kol['<<$loc[you]>>']!daystart:last_kol['<<$loc[you]>>']=rand(0,1)&day_kol['<<$loc[you]>>']=daystart
+if kolknow>0:
+	if last_kol['<<$loc[you]>>']>0:
+		'Среди колючек вы замечаете шип, могущий служить приманкой для чудовищ. Голыми руками его не вытащить, нужна тряпка'
+		 if (pose[you]=1 and item[1]>0 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and item[1]>0 and CONFIG['DISABLE_position']=1):
+			 act'Достать шип':
+				 item[1]-=1&burden[you]-=item_burden[1]&time+=5&cls&gs'walker'&gs'stat'
+				 if rand(1,100)<=80:last_kol['<<$loc[you]>>']=0&item_loc['30,<<$loc[you]>>']+=1&day_kol['<<$loc[you]>>']=daystart
+				gt $curloc
+			 end
+		 end
+	end
+end
+gs'Item'&*nl ''&gs 'npconloc'
+act'Отойти':gt 'world'
+if m_slot[you]=40:act'Вырубить колючку':energy[you]=0&koluchka['<<$loc[you]>>']=0&time+=30&cls&gt 'preloc'

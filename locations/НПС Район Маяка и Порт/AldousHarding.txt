@@ -1,0 +1,25 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&AldousHarding=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=1
+spec_face_pic[i]=5&face_pic[i]=24
+$title[i]=''&$history[i]='Я жена Билла Хардинга, владельца бара рога морского дьявола, что в порту, он бывший моряк.'
+$name[i]='Альдус'&$surname[i]='Хардинг'&$nick[i]='Высокая девушка с длинным носом'&!Имена
+face[i]=70&hcol[i]=1&gla[i]=0&glacol[i]=2&nose[i]=4&lips[i]=1&scull[i]=0&cheeks[i]=0&!Лицо (тип лица, тип глаз, цвет глаз, тип носа, тип губ, тип скул, тип щёк)
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=0&ass[i]=30&nip[i]=45&tits[i]=16&!Половые признаки (член, вагина, жопа, грудь)
+rost[i]=176&fat[i]=1500&mus[i]=1000&skin[i]=1&!Тело (рост, жир, мускулы, цвет кожи)
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=0&!Волосы (лицо, грудь, ноги, голова: длина, причёска, цвет)
+age[i]=38&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(70,100)&bisex[i]=1&agro[i]=10&selfrespect[i]=0&positiv[i]=2&extrovert[i]=0&ratio[i]=0&brave[i]=1&lust[i]=40&!характер
+	 girl[billharding]+=1&!Отношения
+	 sexpartner['<<i>>,<<billharding>>']+=100&sexpartner['<<billharding>>,<<i>>']+=100
+	 avagsex[billharding]+=100&abj[billharding]+=100
+	 husband[i]=billharding&husband[billharding]=i
+     sexpartner_num_m['<<i>>,<<guy[i]>>']=billharding&sexpartner_num_f['<<billharding>>,<<girl[billharding]>>']=i&!Отношения конец
+vagsex[i]+=100&guy[i]+=1&bj[i]+=100&!Сексуальный опыт
+!l_hand_t[i]=3&nose_p[i]=1&! Прикид
+t_slot[i]=53&l_slot[i]=0&b_slot[i]=16
+ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)&! Прикид конец
+n_world[]=i&walkprog[i]=22&!Программа движения
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

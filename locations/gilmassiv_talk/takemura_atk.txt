@@ -1,0 +1,4 @@
+﻿gs'stat'&in_fight=1&npc=takemura&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+gs'stat'&'<center><img src="pic/face/5/96.jpg" ></center>'&'Вам наносят сильный удар по ногам от которого вы падаете, возвышающийся над вами охотник грозно говорит '
+'- Пришла пора заплатить тебе за твои преступления'
+act'Драться':health[you]=health[you]/2&pose[you]=2&in_fight=1&cant_fight_run=1&hiperbrona[npc]=15000&canclon[npc]=10&manacristal[npc]=5&blackrose[npc]=10&gs'progcurse'&gt 'prefight'

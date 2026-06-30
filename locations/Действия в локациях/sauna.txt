@@ -1,0 +1,19 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Бассейн'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
+ if (energy[you]>=50 and pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=50 and CONFIG['DISABLE_position']=1):
+	 act'Купаться в бассейне':
+		 energy[you]-=50&mus[you]+=1
+		 if fat[you]>10:fat[you]-=1
+		 if fat[you]>100:fat[you]-=1
+		 if fat[you]>500:fat[you]-=1
+		 if fat[you]>1000:fat[you]-=1
+		 if fat[you]>1500:fat[you]-=1
+		 if fat[you]>2000:fat[you]-=1
+		 if fat[you]>2500:fat[you]-=1
+		 if fat[you]>3000:fat[you]-=1
+		 sportiv[you]+=1&status_tipe[you]=1&status_time[you]=time+120
+		 cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0&peecover[you]=0&fishsmell[you]=0
+		 time+=60&cls&gs'walker'&gs'stat'& 'Вы целый час купаетесь в освежающей воде.'&act'...':gt 'preloc'
+		if pol[you]>0:'<center><video src="pic/misc/pool<<rand(4)>>.webm" ></video></center>'
+		if pol[you]=0:'<center><video src="pic/misc/poolman<<rand(3)>>.webm" ></video></center>'
+	 end
+ end

@@ -1,0 +1,162 @@
+﻿$lastloc[you]=$curloc&time+=5&gs'stat'&num=npc
+if spec_face_pic[npc]=6:
+	if face[npc]<=20:face_pic[npc]=4
+	if face[npc]>20 and face[npc]<=40:face_pic[npc]=3
+	if face[npc]>40 and face[npc]<=60:face_pic[npc]=2
+	if face[npc]>60 and face[npc]<=80:face_pic[npc]=1
+	if face[npc]>80:face_pic[npc]=0
+	pic_hcol[npc]=hcol[npc]
+end
+if sexiness[you]>=100 and you_slut[npc]=0:you_slut[npc]=1
+if cum_face[you]>0 and you_slut[npc]=0:you_slut[npc]=1
+if mob[npc]=0:
+	!'Cvjnhb yb;t'
+	!*nl'<<$title[npc]>>'*nl'<<walkprog[npc]>>'*nl'<$think[npc]>>'
+	gs'body'&gs'npcbase'
+	 knowaura[npc]+=1
+     if magik[npc]=0:'Вы не чувствуете собственных магических сил у этого человека.'
+     if mlev[npc]=9:'Божественная сила.'
+     if mlev[npc]=8:'Сила вне категорий.'
+     if mlev[npc]=7:'1я категория силы.'
+     if mlev[npc]=6:'2я категория силы.'
+     if mlev[npc]=5:'3я категория силы.'
+     if mlev[npc]=4:'4я категория силы.'
+     if mlev[npc]=3:'5я категория силы.'
+     if mlev[npc]=2:'6я категория силы.'
+     if mlev[npc]=1:'7я категория силы.'
+     if magik[npc]>0:'Количество каналов магии <<magik[npc]>>.'
+     if mana[npc]>0:'Объем маны <<mana[npc]>>.'
+     '<<soul[npc]>> единиц души.'
+     if lust[npc]<25:'Похоть в ауре не заметна.'
+     if lust[npc]>=25 and lust[npc]<50:'Похоть в ауре едва заметна.'
+     if lust[npc]>=50 and lust[npc]<75:'Похоть в ауре довольно заметна.'
+     if lust[npc]>=75:'Похоть в ауре преобладает над всем остальным.'
+     if agro[npc]<25:'Агрессивности в ауре не заметно.'
+     if agro[npc]>=25 and agro[npc]<50:'Агрессивность в ауре довольно слаба.'
+     if agro[npc]>=50 and agro[npc]<75:'Агрессивность в ауре преобладает.'
+     if agro[npc]>=75:'В ауре яркой огненной полосой пролегает высокая агрессивность.'
+     '<<npc>> номер согласно Пифагорейской метафизики.'&*nl'Тентура мысли <<walkprog[npc]>>.'
+     if mob_busy[npc]>0:'Мысли чем-то сильно заняты.'
+     if cantwalk[npc]>0:'Чего-то ждет.'
+	 if cantwalk_num=npc:'Ждет вас.'
+	 'Координаты дома <<Xhome[npc]>> <<Yhome[npc]>> <<Zhome[npc]>> <<Hhome[npc]>> <<Rhome[npc]>>'
+	 if statist[npc]=1:'Судьба неопределена.'
+	 if guy[npc]>0 and pol[npc]=0:'У него было <<guy[npc]>> парней'
+	 if guy[npc]>0 and pol[npc]>0:'У нее было <<guy[npc]>> парней'
+	 if girl[npc]>0 and pol[npc]=0:'У него было <<girl[npc]>> девушек'
+	 if girl[npc]>0 and pol[npc]>0:'У нее было <<girl[npc]>> девушек'
+	 if inseminate[npc]>0 and master[you]>0:fat=inseminate[npc]&'<b><<$name[npc]>> беременна.</b> Отец <<$name[fat]>> <<$surname[fat]>>. Родить должна через <<9-(daystart-pregnant_day[npc])>> дней'
+	 *nl'Побед <<win[npc]>>'&*nl'Поражений <<loss[npc]>>'
+	if visualpol[npc]=0:
+		if guy[npc]>0:'Было <<guy[npc]>> парней'
+		if girl[npc]>0:'Было <<girl[npc]>> девушек'
+		if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занимался лесбийским сексом'
+		if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосал член'
+		if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосал член, из этого <<glory[npc]>> раз сосала член в глорихоле'
+		if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давал в рот'
+		if glory_bj[npc]>0:'<<$name[npc]>> отсосал <<glory_bj[npc]>> хуев в глорихоле'
+		if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз'
+		if avagsex[npc]>0:'Он трахал во влагалище <<avagsex[npc]>> раз'
+		if aanal[npc]>0:'Он <<aanal[npc]>> раз трахал в попу'
+		if anal[npc]>0:'Его трахали в попу <<anal[npc]>> раз'
+		if mastr[npc]>0:'<<mastr[npc]>> раз мастурбировал.'
+		if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов'
+		if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизал пизду'
+		if pee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<pee[npc]>> раз он мочился в рот'
+		if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<drinkpee[npc]>> раз пил мочу'
+	end
+	if visualpol[npc]>0:
+		if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занималась лесбийским сексом'
+		if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосала член'
+		if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосала член, из этого <<glory[npc]>> раз сосала член в глорихоле'
+		if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давала в рот'
+		if glory_bj[npc]>0:'<<$name[npc]>> отсосала <<glory_bj[npc]>> хуев в глорихоле'
+		if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз'
+		if avagsex[npc]>0:'Она трахала во влагалище <<avagsex[npc]>> раз'
+		if aanal[npc]>0:'Она <<aanal[npc]>> раз трахала в попу'
+		if anal[npc]>0:'Ее трахали в попу <<anal[npc]>> раз'
+		if mastr[npc]>0:'<Она <mastr[npc]>> раз мастурбировала.'
+		if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов'
+		if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизала пизду'
+		if pee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<pee[npc]>> раз она мочилась в рот'
+		if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<drinkpee[npc]>> раз пила мочу'
+	end
+else
+if $surname[npc]!'':'<b><center><<$nick[npc]>></center></b>'&!мобы
+if know['<<npc>>,<<you>>']>0:
+	 if $surname[npc]='':'<b><center><<$nick[npc]>> <<$name[npc]>></center></b>'
+	 if $surname[npc]!'':'<b><center><<$name[npc]>> <<$surname[npc]>></center></b>'
+end
+gs'gen_d_view'&'<center><img src="<<$d_view>>" ></center>'&!вывод картинки второстепенных НПС и мобов
+if cum_face[npc]>time:
+	if visualpol[npc]=0:'<b>У него на лице видно сперму</b>'
+	if visualpol[npc]>0:'<b>У нее на лице видно сперму</b>'
+end
+if peecover[npc]>time:
+	if visualpol[npc]=0:'<b>У него мокрое от мочи лицо</b>'
+	if visualpol[npc]>0:'<b>У нее мокрое от мочи лицо</b>'
+end
+if win[npc]>0 or loss[npc]>0:'Побед и поражений <<win[npc]>>-<<loss[npc]>>'
+	if sexpartner['<<npc>>,<<you>>']>0 and sexpartner['<<you>>,<<npc>>']>0:
+		'<<$nick[npc]>> и вы, занимались сексом вместе <<sexpartner[''<<npc>>,<<you>>'']>> раз'
+		!'<a href="exec:time+=5&gt ''sexsbros''">Тестовый сброс секс статистик</a>'
+		 if bj_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<bj_mass[''<<npc>>,<<you>>'']>> раз давал вам в рот'
+		 if bj_mass['<<npc>>,<<you>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<bj_mass[''<<npc>>,<<you>>'']>> раз давала вам в рот'
+		 if bj_mass['<<you>>,<<npc>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<bj_mass[''<<you>>,<<npc>>'']>> раз сосал член у вас'
+		 if bj_mass['<<you>>,<<npc>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<bj_mass[''<<you>>,<<npc>>'']>> раз сосала член у вас'
+		 if vag_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<vag_mass[''<<npc>>,<<you>>'']>> раз трахал вас в пизду'
+		 if vag_mass['<<npc>>,<<you>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<vag_mass[''<<npc>>,<<you>>'']>> раз трахала вас в пизду'
+		 if vag_mass['<<you>>,<<npc>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<vag_mass[''<<you>>,<<npc>>'']>> раз давал вам в пизду'
+		 if vag_mass['<<you>>,<<npc>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<vag_mass[''<<you>>,<<npc>>'']>> раз давала вам в пизду'
+		 if anal_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<anal_mass[''<<npc>>,<<you>>'']>> раз ебал вас в жопу'
+		 if anal_mass['<<npc>>,<<you>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<anal_mass[''<<npc>>,<<you>>'']>> раз ебала вас в жопу'
+		 if anal_mass['<<you>>,<<npc>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<anal_mass[''<<you>>,<<npc>>'']>> раз давал вам в жопу'
+		 if anal_mass['<<you>>,<<npc>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<anal_mass[''<<you>>,<<npc>>'']>> раз давала вам в жопу'
+		 if piss_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<piss_mass[''<<npc>>,<<you>>'']>> раз ссал вам в рот'
+		 if piss_mass['<<npc>>,<<you>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<piss_mass[''<<npc>>,<<you>>'']>> раз ссала вам в рот'
+		 if piss_mass['<<you>>,<<npc>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<piss_mass[''<<you>>,<<npc>>'']>> раз получал в рот от вас мочу'
+		 if piss_mass['<<you>>,<<npc>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<piss_mass[''<<you>>,<<npc>>'']>> раз получала в рот от вас мочу'
+	end
+	if visualpol[npc]=0:
+		if guy[npc]>0:'Было <<guy[npc]>> парней'
+		if girl[npc]>0:'Было <<girl[npc]>> девушек'
+		if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занимался лесбийским сексом'
+		if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосал член'
+		if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосал член, из этого <<glory[npc]>> раз сосала член в глорихоле'
+		if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давал в рот'
+		if glory_bj[npc]>0:'<<$name[npc]>> отсосал <<glory_bj[npc]>> хуев в глорихоле'
+		if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз'
+		if avagsex[npc]>0:'Он трахал во влагалище <<avagsex[npc]>> раз'
+		if aanal[npc]>0:'Он <<aanal[npc]>> раз трахал в попу'
+		if anal[npc]>0:'Его трахали в попу <<anal[npc]>> раз'
+		if mastr[npc]>0:'<<mastr[npc]>> раз мастурбировал.'
+		if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов'
+		if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизал пизду'
+		if pee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<pee[npc]>> раз он мочился в рот'
+		if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<drinkpee[npc]>> раз пил мочу'
+	end
+	if visualpol[npc]>0:
+		if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занималась лесбийским сексом'
+		if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосала член'
+		if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосала член, из этого <<glory[npc]>> раз сосала член в глорихоле'
+		if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давала в рот'
+		if glory_bj[npc]>0:'<<$name[npc]>> отсосала <<glory_bj[npc]>> хуев в глорихоле'
+		if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз'
+		if avagsex[npc]>0:'Она трахала во влагалище <<avagsex[npc]>> раз'
+		if aanal[npc]>0:'Она <<aanal[npc]>> раз трахала в попу'
+		if anal[npc]>0:'Ее трахали в попу <<anal[npc]>> раз'
+		if mastr[npc]>0:'<Она <mastr[npc]>> раз мастурбировала.'
+		if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов'
+		if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизала пизду'
+		if pee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<pee[npc]>> раз она мочилась в рот'
+		if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:'<<drinkpee[npc]>> раз пила мочу'
+	end
+	 if master[you]>0:
+		 if rost[npc]>0:'Рост <<rost[npc]>>см'
+		 *nl'Побед <<win[npc]>>'&*nl'Поражений <<loss[npc]>>'&*nl'<<$fightlog[npc]>>'
+	 end
+end
+act'<b>Уйти</b>':gt 'preloc'
+act'<b>Тени</b>':gt 'sumrak'
+act'<b>Духи</b>':gt 'seespirit'
+if mana[you]>=1000:act'<b>Портал</b> 1000 маны':mana[you]-=1000&X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&gt 'preloc'

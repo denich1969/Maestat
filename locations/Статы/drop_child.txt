@@ -1,0 +1,1 @@
+﻿npc=child_on_hand[you]&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]&child_on_hand[you]=0&gt'preloc'

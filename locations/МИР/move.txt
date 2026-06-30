@@ -1,0 +1,27 @@
+﻿num=you
+X[you] = ARGS[0]&Y[you] = ARGS[1]&Z[you] = ARGS[2]&H[you] = 0&R[you] = 0
+if b_slot[you]=0 and Z[you]!11:time+=5
+if ub_slot[you]>0:
+	if burden[you]>=burdenmax[you]:energy[you]-=3
+	if burden[you]<burdenmax[you]:
+		 if burden[you]*2<burdenmax[you]:
+			energy[you]-=1
+		 else
+			energy[you]-=2
+		 end
+	end
+else
+	if burden[you]>=burdenmax[you]:energy[you]-=10
+	if burden[you]<burdenmax[you]:
+		 if burden[you]*2<burdenmax[you]:
+			energy[you]-=1
+		 else
+			energy[you]-=5
+		 end
+	end
+end
+openinv=0
+if Z[you]!11:time+=5
+gs'stat'
+gs'walk_programm'
+gt 'world'

@@ -1,0 +1,324 @@
+﻿total_npc_sex+=1
+znts=Z[w]
+npc_sex[znts]+=1
+sexperaday[s]=daystart&sexperaday[w]=daystart
+if know['<<w>>,<<s>>']=0:know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1
+if lebeda_seed[w]>0:lebeda_seed[s]+=1
+if lebeda_seed[s]>0:lebeda_seed[w]+=1
+Znow=Z[w]
+if dick[w]>0 and magworld[Znow]>0:
+     if lebeda=s:
+		 if soul[w]>0:soul[s]+=1&soul[w]-=2&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+	 else
+		 if stamp_t[s]>0:
+			 if stampblockday[s]=daystart:
+				slutday[s]+=1
+			 else
+				 stampblockday[s]=daystart&soul[s]-=2&soul[w]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+			 end
+		 else
+			 soul[s]-=2&soul[w]+=1&soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1
+		 end
+	 end
+end
+if demon_dick[s]>0 and demon_dick[w]=0:
+	if w!soulmaster:
+		args[20]=0&args[20]+=rand(demon_dick[s],15)/5
+		if rand(demon_dick[s],15)>=15:args[20]+=1
+		soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=args[20]
+		if soul[w]>0:soul[w]-=args[20]
+	end	
+	gs'get_soul_loc',s,demon_dick[s],w
+end
+lust[s]+=1&agro[w]+=1&if mob[s]=0 or pol[s]>0:agro[s]-=1
+if pol[w]=0:
+	if moon_curse[s]>=1:lust[s]+=2
+	healthmax[w]=healthmax[w]+10&health[w]=healthmax[w]&energy[w]=energymax[w]&minuron[w]+=rand(2,5)&maxuron[w]=rand(5,10)
+	reflex[w]+=1
+end
+under_sub[w]=s&under_sub[s]=w
+mob_busy[w]=time+15&mob_busy[s]=time+15
+action_tipe[w]=1&action_tipe[s]=1
+aktive_tipe[w]=1&aktive_tipe[s]=0
+gs'add_sex_stat',w,s
+if grief=w:
+	oral_fixation[s]+=1
+	agro[w]=100
+	bj[s]+=1&abj[w]+=1
+	if throat[s]<10:throat[s]=10
+	if dick[w]>throat[s]:throat[s]+=1
+	if sexpartner['<<w>>,<<s>>']=1:	
+		if s=slutgirl:girlfriend_num[boyfriend_num[slutgirl]]=0&boyfriend_num[slutgirl]=0&statist[slutgirl]=1&!фикс для Снежанны
+		if back_t[s]=0:
+			 grief_brand[s]+=1&if magik[grief]<35:magik[grief]+=1
+			 backtattoo_grief+=1
+			 if backtattoo_grief>6:backtattoo_grief=1
+			 if backtattoo_grief=1:back_t[s]=5
+			 if backtattoo_grief=2:back_t[s]=6
+			 if backtattoo_grief=3:back_t[s]=7
+			 if backtattoo_grief=4:back_t[s]=8
+			 if backtattoo_grief=5:back_t[s]=9
+			 if backtattoo_grief=6:back_t[s]=10
+		end	     
+		if vag[s]>0:
+			vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+		else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		end
+		$global_npc_log[w]+='<br>'
+		if whore[s]>0:
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+		else
+			 if grief_brand[s]>0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне и была мной помечена.'
+			 if grief_brand[s]=0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне.'
+		end
+		$global_npc_log[s]+='<br>'
+		if whore[s]>0:
+			 money[s]+=5000
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		else
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> занимались сексом...'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		 end
+	 end
+	 if sexpartner['<<w>>,<<s>>']=2 or (CONFIG['DISABLE_PEE']=1 and sexpartner['<<w>>,<<s>>']>=3):
+		 if vag[s]>0:
+			 vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+			 anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		 else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		 end
+		 if r_ass_t[s]=0:
+			r_ass_t[s]=1&grief_brand[s]+=1&if magik[grief]<35:magik[grief]+=1
+        end
+		$global_npc_log[w]+='<br>'
+		if whore[s]>0:
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги во все дыры.'
+		else
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне во все дыры.'
+		end
+		$global_npc_log[s]+='<br>'
+		if whore[s]>0:
+			 money[s]+=5000
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги во все дыры.'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		else
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> трахал меня во все дыры.'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		end
+	end
+	if sexpartner['<<w>>,<<s>>']>=3:
+		if vag[s]>0:
+			 vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+			 anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		end
+        pee[w]+=1
+        drinkpee[s]+=1
+        if l_hand_t[s]=0:
+			l_hand_t[s]=1&total_branded_slut[grief]+=1&grief_brand[s]+=1&if magik[grief]<35:magik[grief]+=1
+        end
+		$global_npc_log[w]+='<br>'
+		 if whore[s]>0:
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги во все дыры и я ее обоссал на последок.'
+		 else
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне во все дыры и я ей нассал в рот как последней шлюхе.'
+		 end
+		$global_npc_log[s]+='<br>'
+		 if whore[s]>0:
+			 money[s]+=5000
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги во все дыры и обоссал.'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		 else
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> трахал меня во все дыры и нассал мне в рот.'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		end
+	end
+elseif boid=w:
+	agro[w]=100
+	 bj[s]+=1&abj[w]+=1
+	 if throat[s]<10:throat[s]=10
+	 if dick[w]>throat[s]:throat[s]+=1
+	 if sexpartner['<<w>>,<<s>>']=1:
+	     if vag[s]>0:
+			vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+		 else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		 end
+	     $global_npc_log[w]+='<br>'
+		 if whore[s]>0:
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+		 else
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне.'
+		 end
+	     $global_npc_log[s]+='<br>'
+		 if whore[s]>0:
+			 money[s]+=5000
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		 else
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> занимались сексом...'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		 end
+	 end
+	 if sexpartner['<<w>>,<<s>>']>0 and dead[kraig]=0:
+		 gang[s]+=1
+		 action_tipe[w]=700&aktive_tipe[w]=1
+		 aktive_tipe[s]=0&action_tipe[s]=701
+		 !boid
+		 d=kraig
+		 X[d]=X[w]&Y[d]=Y[w]&Z[d]=Z[w]&H[d]=H[w]&R[d]=R[w]
+	     $global_npc_log[w]+='<br>'
+	     $global_npc_log[d]+='<br>'
+	     $global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне и моему корешу.'
+	     $global_npc_log[d]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне и моему корешу.'
+	     if remembergangbangday[s]!daystart:
+			 remembergangbangday[s]=daystart
+			 $global_npc_log[s]+='<br>'
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> и <<$name[d]>> <<$surname[d]>> оттрахали меня в двоем.'
+		 end
+		 gs'add_sex_stat',d,s
+		 bj[s]+=1&abj[w]+=1&abj[d]+=1
+		 if vag[s]>0:
+			vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+		 else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		 end
+		 if vag[s]>0:
+			vag[s]+=1&vagsex[s]+=1&avagsex[d]+=1
+		 else
+			anus[s]+=1&anal[s]+=1&aanal[d]+=1
+		 end
+	end
+	if sexpartner['<<w>>,<<s>>']>0 and dead[kraig]>0:
+		 if vag[s]>0:
+			vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+		 else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		 end
+	     $global_npc_log[w]+='<br>'
+		 if whore[s]>0:
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+		 else
+			$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне.'
+		 end
+	     $global_npc_log[s]+='<br>'
+		 if whore[s]>0:
+			 money[s]+=5000
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		 else
+			 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> занимались сексом...'
+			 insemrand=rand(1,10)
+			 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+			 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+			 father_npc_child=w
+		 end
+	end
+elseif dick[w]>1:
+	if rand(0,1)=1:
+		bj[s]+=1&abj[w]+=1
+	else
+		if vag[s]>0 and rand(0,1)=1:
+			vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+		else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+		end
+	end
+	if skin[w]>3 and skin[w]<7 and block_blackrule=0 and magworld[Znow]>0:
+		if r_leg_t[s]=0:r_leg_t[s]=1
+		if blackgangdead=0 and wantblackcockON=1 and vag[s]>=70 and anus[s]>=60 and throat[s]>=10:wantblackcock[s]=1
+	end
+	if throat[s]<10:throat[s]=10
+	if dick[w]>throat[s]:throat[s]+=1
+	$global_npc_log[w]+='<br>'
+	if whore[s]>0:
+		$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+	else
+		$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[s]>> <<$surname[s]>> занимались сексом...'
+	end
+	$global_npc_log[s]+='<br>'
+	if whore[s]>0:
+		 money[s]+=5000
+		 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
+		 insemrand=rand(1,10)
+		 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+		 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+		 father_npc_child=w
+	else
+		 $global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[w]>> <<$surname[w]>> занимались сексом...'
+		 insemrand=rand(1,10)
+		 if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w
+		 if inseminate[s]>0 and pregnant_day[s]=0:pregnant_day[s]=daystart
+		 father_npc_child=w
+	end
+else
+	$global_npc_log[s]+='<br>'&!женщина трахает
+	if rand(0,1)=1:
+		cuntlick[s]+=1&abj[w]+=1
+		if pol[s]=0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> отлизал мне'
+		if pol[s]>0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> отлизала мне'
+	else
+		if vag[s]>0 and rand(0,1)=1:
+			vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
+			if pol[s]=0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> был отстрапонен мной в пизду!?'
+			if pol[s]>0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> была отстрапонена мною в пизду'
+		else
+			anus[s]+=1&anal[s]+=1&aanal[w]+=1
+			if pol[s]=0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> был отстрапонен мной в задницу'
+			if pol[s]>0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> была отстрапонена мною в задницу'
+		end
+	end
+	if whore[s]>0:$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
+end
+if X[w]=1 and Y[w]=1 and Z[w]=1 and H[w]=1 and R[w]=0:
+	 if lust[s]<80:
+		 placeR=rand(2,3)&R[w]=placeR&R[s]=placeR&!трактир
+	 else
+		 action_tipe[w]=3&action_tipe[s]=3
+		 aktive_tipe[w]=1&aktive_tipe[s]=0
+	 end
+end
+if statist[s]=1 and whore[s]=0:panic[s]+=1
+if thenoob[s]=1 and whore[s]=0:panic[s]+=1
+if moon_curse[s]>=1:
+	panic[s]+=1&if soul[s]<=0:dead[s]=2
+	if guy[s]>=20 and port_whore[s]=0 and lust[s]>=75 and Z[s]=1:
+		 port_whore[s]=1&whore[s]+=1&$history[s]='Попав в город я сломалась и стала шлюхой'
+		 if stamp_t[s]=0:stamp_t[s]=rand(1,4)
+		 t_slot[s]=rand(31,36)&l_slot[s]=rand(15,22)&b_slot[s]=rand(8,11)
+		 ut_slot[s]=0&ul_slot[s]=0&ub_slot[s]=0
+		 nip_p[s]=3&vag_pirs[s]=3&nose_p[s]=2&tongue_p[s]=1
+	end
+end
+
+!if CONFIG['ENABLE_advanced_menu']>0:'тест <<X[w]>><<Y[w]>><<Z[w]>><<H[w]>><<R[w]>> <<pol[w]>> <<$name[w]>> <<$surname[w]>> и <<pol[s]>> <<$name[s]>> <<$surname[s]>>'

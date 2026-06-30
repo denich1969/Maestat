@@ -1,0 +1,27 @@
+﻿sss=ARGS[0]&ddd=ARGS[1]&horny[you]+=50&feminize[sss]+=1&gs'stat'
+if toilet['<<$loc[you]>>']>0:
+	 $func('get_images', 'toilet_fuck', sss, ddd)
+	if dick[sss]>1:
+		'<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> долбит его'
+	else
+		'<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> долбит её'
+	end
+	 you_see_sex[sss]+=1&corr[sss]+=rand(2,8)
+else
+	if H[you]=0:
+		$func('get_images', 'public_fuck', sss, ddd) 
+	else
+		if dick[sss]>1:
+			$func('get_images', 'anal_fuck_dog', sss, ddd)&'<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> дрючит его в задницу'&you_see_anal[sss]+=1
+		else
+			if rand(0,1)=0:
+				$func('get_images', 'vag_fuck_dog', sss, ddd)&'<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> долбит её'&you_see_sex[sss]+=1&corr[sub]+=rand(2,8)
+			else
+				$func('get_images', 'anal_fuck_dog', sss, ddd)&'<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> дрючит её в задницу'&you_see_anal[sss]+=1&corr[sss]+=rand(2,8)
+			end
+		end
+	end
+	face[sss]+=1&you_see_sex[sss]+=1&corr[sss]+=rand(2,8)&! '<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> долбит её'
+end
+act'Подсматривать':gs 'sex_see'
+act'<b>Уйти</b>':gt 'preloc'

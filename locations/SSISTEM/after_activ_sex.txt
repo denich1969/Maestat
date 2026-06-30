@@ -1,0 +1,54 @@
+﻿horny[you]=0
+if lebeda=npc:
+	if lebeda_seed[you]>0:lebeda_seed[npc]+=1
+	if lebeda_seed[npc]>0:lebeda_seed[you]+=1
+	gs'soulcraft',2&soul[npc]+=1
+else
+	 soul[npc]-=2&if soulMG[you]>0:soul[you]+=1
+end
+soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+if magworld[Znow]>0:
+     if lebeda=npc:
+		 soul[you]-=2&soul[npc]+=1
+	 else
+		 if stamp_t[npc]>0:
+			 if stampblockday[npc]=daystart:
+				slutday[npc]+=1
+			 else
+				 stampblockday[npc]=daystart&soul[npc]-=2&soul[you]+=1&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+			 end
+		 else
+			 soul[npc]-=2&soul[you]+=1&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+		 end
+	 end
+end
+anal_gape[npc]=0
+gs'add_sex_stat', you, npc
+last_fuck_time[you]=time+60
+exp[you]+=perk_cumnpc[you]*10&!Новое
+if temp_hj>0:hj_mass['<<you>>,<<npc>>']+=1&hj[npc]+=1&ahj[you]+=1&!p_bj['<<npc>>,<<you>>']+=1
+temp_hj=0
+if temp_blow>0:bj_mass['<<you>>,<<npc>>']+=1&bj[npc]+=1&abj[you]+=1&!p_bj['<<npc>>,<<you>>']+=1
+temp_blow=0
+if temp_vag>0:vag_mass['<<you>>,<<npc>>']+=1&vagsex[npc]+=1&	 avagsex[you]+=1&!p_vag['<<npc>>,<<you>>']+=1
+temp_vag=0
+if temp_anal>0:anal_mass['<<you>>,<<npc>>']+=1&anal[npc]+=1&aanal[you]+=1&!p_anal['<<npc>>,<<you>>']+=1
+temp_anal=0&temp_dirt_cock[you]=0
+if temp_blow_fss>0:bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1&!p_bj['<<npc>>,<<you>>']+=1&!герой с шимейлом
+temp_blow_fss=0
+if temp_vag_fss>0:vag_mass['<<npc>>,<<you>>']+=1&vagsex[you]+=1&avagsex[npc]+=1&!p_vag['<<npc>>,<<you>>']+=1&!герой с шимейлом
+temp_vag_fss=0
+if temp_anal_fss>0:anal_mass['<<npc>>,<<you>>']+=1&anal[you]+=1&aanal[npc]+=1&!p_anal['<<npc>>,<<you>>']+=1&!герой с шимейлом
+temp_anal_fss=0
+if slave[npc]=you:submission[npc]+=1
+$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[you]>> <<$surname[you]>> занимались сексом.'
+$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[npc]>> <<$surname[npc]>> занимались сексом.'
+in_fight=0&in_sex=0
+if runner[npc]>0:
+	runner[npc]=0&X[npc]=rand(0,4)&Y[npc]=rand(0,4)
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+end
+if demon_dick[you]>0:gs'get_soul_loc',you,demon_dick[you],you
+if demon_dick[npc]>0:gs'get_soul_loc',npc,demon_dick[npc],you
+gs'sex_func','deleteScene',in_sex[you]&gs'drop_follower'&gt'preloc'

@@ -1,0 +1,14 @@
+﻿if friends[npc]>0:
+
+end
+if friends['<<npc>>,<<you>>']=0:
+	 if know['<<npc>>,<<you>>']=0:
+		 act'Познакомиться':
+			 know['<<npc>>,<<you>>']+=1
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>>. Он ожившая медвежья шкура набитая опилками.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 else
+		'<<$name[npc]>> рычит - Не надоедай мне! Я всего лишь медвежья шкура набитая опилками.'
+	 end
+end
+act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'

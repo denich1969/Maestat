@@ -1,0 +1,38 @@
+﻿$locname['<<$temploc>>']='Болотце'&$lname['<<$temploc>>']='Болотце'&$locopis['<<$temploc>>']='Лесное озеро'
+np['<<$temploc>>']=101
+marsh['<<$temploc>>']=1&list['<<$temploc>>']=1&frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
+$locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'
+np['<<$temploc>>']=102
+scarecrow['<<$temploc>>']=1
+locrand=rand(1,10)
+if locrand<=6:
+     $locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Зеленый яркий лес'
+	 np['<<$temploc>>']=rand(73,80)
+	 zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)
+	 omela['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)
+	 kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1
+	 wolfgenrand=rand(0,1)&if wolfgenrand=1:gs'wolfgen'
+end
+if locrand=7:
+     $locname['<<$temploc>>']='Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Лесное озеро'
+	 np['<<$temploc>>']=82
+	 can_drink['<<$temploc>>']=2&lake['<<$temploc>>']=1&frog['<<$temploc>>']=rand(0,1)&Hirudinea['<<$temploc>>']=rand(0,1)
+	 list['<<$temploc>>']=rand(0,1)
+end
+if locrand=8:
+     $locname['<<$temploc>>']='Поляна'&$lname['<<$temploc>>']='Поляна'&$locopis['<<$temploc>>']='Заросшая густой и пышной травой полянка окруженная со всех сторон деревьями'
+	 np['<<$temploc>>']=83
+	 bella['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)
+end
+if locrand=9:
+     $locname['<<$temploc>>']='Овраг'&$lname['<<$temploc>>']='Овраг'&$locopis['<<$temploc>>']='Глубокий овраг по дну которого протекает тонкий ручеек'
+	 np['<<$temploc>>']=84
+	 can_drink['<<$temploc>>']=2
+	 kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1
+end
+if locrand=10:
+     $locname['<<$temploc>>']='Бурелом'&$lname['<<$temploc>>']='Бурелом'&$locopis['<<$temploc>>']='Множество поваленных и давно уже сгнивших стволов деревьев'
+	 np['<<$temploc>>']=85
+	 item_loc['46,<<$temploc>>']+=rand(1,10)
+	 kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1
+end

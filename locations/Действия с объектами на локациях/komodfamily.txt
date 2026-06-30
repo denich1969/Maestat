@@ -1,0 +1,95 @@
+﻿'<center><img src="pic/loc/komod.jpg" ></center>'
+act'Рыться в комоде':
+	rndel=iif(goldpoison=1,rand(5,9),rand(1,9))
+	if rndel=7:
+		time+=5&cls
+		if you=brother:
+			if poisonkomod!2:poisonkomod=1			
+			if rand(1,3)=2:
+				'После непродолжительных поисков вы неожиданно обнаружили какой-то пузырек с золотистой жидкостью. Ни этикетки, ни даже просто читаемой надписи на нем не было.'
+				'<center><img src="pic/loc/eventloc/GoldPoison.jpg" ></center>'
+				act'Выпить зелье':
+					cls&'<center><img src="pic/loc/eventloc/poison.jpg" ></center>'&'Опрокинув маленьки пузырек, вы выпили солоноватую жидкость и закрыли комод, чтобы скрыть следы своего присутствия тут.'
+					'При поглощении этого состава вы ощутили такой притов возбуждения и кайфа, что сразу поняли, что это надо однозначно повторить...'
+					 feminize[you]+=rand(6,12)&whorematka=1&face[you]+=10&gla[you]=3&glacol[you]=3&lust[you]+=10&corr[you]+=10&horny[you]=100
+					 goldpoison=1&nip[you]+=rand(1,7)&preskin[you]=2&if dick[you]>3: ball[you]+=10
+					 dagongene+=rand(25,45)&tit_hair[you]=-50&tit_hair_can[you]=0&leg_hair[you]=-50&leg_hair_can[you]=0&womenbrain[you]+=rand(10,20)
+					 if dagongene>100 and dick[you]>3: 
+						 msg("Боль пронзает ваш низ живота и вы хватаетесь за промежность. К вашему удивлению, там нет члена и, засунув руку в штаны, вы обнаруживаете там влагалище.")
+						 dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&msg("Ваши руки сами похватали какие-то старые Светкины вещи из шкафа и натянули их на вас...")
+						 t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)
+						 ut_slot[you]=0&ul_slot[you]=21&$name[you]='Пипка'&oral_fixation[you]+=50&msg("И только ощутив это, вы вдруг задались вопросом: А на кой хер я это вообще дeлал?!")
+					 end
+					 if lips[you]<3:lips[you]+=1
+					act'Отойти':gt 'world'
+				end
+				act'Отойти':gt 'world'
+			else
+				'После непродолжительных поисков вы неожиданно обнаружили какой-то пузырек с зеленой жидкостью. Ни этикетки, ни даже просто читабельной надписи на нем не было.'
+				'<center><img src="pic/loc/eventloc/GreenPoison.jpg" ></center>'
+				act'Выпить зелье':
+					if goldpoison=1:
+						nip[you]+=rand(1,7)&feminize[you]+=rand(1,2)&cls&'<center><img src="pic/loc/eventloc/poison.jpg" ></center>'
+						'Опрокинув маленьки пузырек, вы выпили солоноватую жидкость и поняли, что это просто помои, конча морской каракатицы, а не тот славный нектар, что вы уже вкусили... '
+						'Разочарование при этом было таким, что хоть головой о стену бейся!'&act'Отойти':gt 'world'
+					else
+						 cls&'<center><img src="pic/loc/eventloc/poison.jpg" ></center>'
+						 'Опрокинув маленьки пузырек, вы выпили солоноватую жидкость и закрыли комод, чтобы скрыть следы своего присутствия тут.'
+						 feminize[you]+=rand(10,15)&tit_hair[you]=0&tit_hair_can[you]=0&leg_hair[you]=0&leg_hair_can[you]=0&nip[you]+=rand(1,7)&act'Отойти':gt 'world'
+					end
+				end
+				act'Отойти':gt 'world'
+			end
+		end
+		if you=sister:
+			if eggsister=1:
+				'Вы с трудом смогли отыскать яйцо Дагона и теперь стоите на перепутье. Что с ним делать?'&'<center><img src="pic/loc/eventloc/egg.jpg" ></center>'
+				act'Разбить яйцо и выпить':
+					cls&'<center><img src="pic/loc/eventloc/eggeat.jpg" ></center>'
+					 'Надломив скорлупу, вы выпили его сладковатое содержимое в ожидании новых переживаний в жизни и приключений с запахом таинственности и причастности к чему-то неизведанному...'
+					 feminize[you]+=rand(4,7)&tit_hair[you]=0&tit_hair_can[you]=0&leg_hair[you]=0&leg_hair_can[you]=0&hlong[you]=rand(60,100)
+					 eggsister=2&gla[you]=3&glacol[you]=3&lips[you]+=rand(1,2)&preskin[you]=2&dom[you]-=50&corr[you]+=25&lust[you]+=15
+					 ass[you]=rand(5,15)&tits[you]=rand(8,16)&nip[you]+=25&tornton_dolg[you]=1&tornton_dolg_day[you]=daystart+2&msg('Вас наполнило чувство женственности, похоти и разврата, ваши губи запекло, а грудь и попка потяжелели. Но одновременно с этим, у вас появилось ощущение, что вы что-то кому-то должны... Мелочь, но все же.')&act'Отойти':gt 'world'
+				end
+				act'забыть и уйти':gt 'world'
+			else
+				if rand(1,4)=3 and sisteregg!1:
+					'После непродолжительных поисков вы неожиданно обнаружили какое-то яйцо зеленого цвета. Что бы это могло быть? Может мама в курсе?'
+					'<center><img src="pic/loc/eventloc/egg.jpg" ></center>'&sisteregg=1&act'Отойти':gt 'world'
+				else
+					'Вы покопались в вещах, и нашли пару шиллингов, видимо выпавшие из каких-то карманов.'
+					'<center><img src="pic/loc/eventloc/komod1.jpg" ></center>'&money[you]+=rand(80,220)&act'Отойти':gt 'world'
+				end
+			end
+		end
+		if you=father:
+			komrnd=rand(1,5)
+			if komrnd=3:
+				'Вы покопались в вещах, и неожиданно нашли какой-то флакончик. Не долго думая, вы взяли его себе, чтобы не валялся без дела.'
+				flaconrnd=rand(1,3)
+				if flaconrnd=1:item[80]+=1
+				if flaconrnd=2:item[79]+=1
+				if flaconrnd=3:item[100]+=1
+			else
+				'Вы покопались в вещах, и нашли пару шиллингов, видимо выпавшие из каких-то карманов.'&'<center><img src="pic/loc/eventloc/komod1.jpg" ></center>'&money[you]+=rand(80,220)
+			end
+			act'Отойти':gt 'world'
+		end
+		if you=mother:
+			komrnd=rand(1,5)
+			if komrnd=3:
+				'Вы покопались в вещах, и неожиданно нашли какой-то флакончик. Не долго думая, вы взяли его себе, чтобы не валялся без дела.'
+				flaconrnd=rand(1,3)
+				if flaconrnd=1:item[80]+=1
+				if flaconrnd=2:item[79]+=1
+				if flaconrnd=3:item[100]+=1
+			else
+				'Вы покопались в вещах, и нашли пару шиллингов, видимо выпавшие из каких-то карманов.'&'<center><img src="pic/loc/eventloc/komod1.jpg" ></center>'&money[you]+=rand(80,220)
+			end
+			act'Отойти':gt 'world'
+		end
+	else
+		time+=5&cls&'<center><img src="pic/loc/eventloc/komod1.jpg" ></center>'&'Вы покопались в вещах, но ничего интересного так и не нашли. Зачем вообще начинали? Что искали?'&act'Отойти':gt 'world'
+	end
+end
+act'Отойти':gt 'world'

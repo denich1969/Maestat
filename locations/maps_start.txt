@@ -1,0 +1,5 @@
+﻿SHOWACTS 1
+act 'Старт картографа (создан для разработчиков)':
+	addqst {genloc_testbench.qsp}
+	'<center><a class="plain" href="exec:gt''gentb_firstloc''"><H2><div><u>Побродить по локациям</u></div></H2></a></center>'
+end

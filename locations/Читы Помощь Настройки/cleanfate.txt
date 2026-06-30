@@ -1,0 +1,86 @@
+﻿if l_hand_t[you]>0:l_hand_t[you]=0&! Затираем все Татушки
+if r_hand_t[you]>0:r_hand_t[you]=0
+if back_t_[you]>0:back_t_[you]=0
+if stamp_t[you]>0:stamp_t[you]=0
+if tits_t[you]>0:tits_t[you]=0
+if belly_t[you]>0:belly_t[you]=0
+if pubis_t[you]>0:pubis_t[you]=0
+if l_ass_t[you]>0:l_ass_t[you]=0
+if r_ass_t[you]>0:r_ass_t[you]=0
+if l_leg_t[you]>0:l_leg_t[you]=0
+if r_leg_t[you]>0:r_leg_t[you]=0
+if guy[you]>0:guy[you]=0&! Стираем все события из жизни
+if girl[you]>0:girl[you]=0
+if shemale[you]>0:shemale[you]=0
+if tentacle[you]>0:tentacle[you]=0
+if ork[you]>0:ork[you]=0
+if goblin[you]>0:goblin[you]=0
+if gang[you]>0:gang[you]=0
+if wolf[you]>0:wolf[you]=0
+if lesb[you]>0:lesb[you]=0
+if bj[you]>0:bj[you]=0
+if glory[you]>0:glory[you]=0
+if abj[you]>0:abj[you]=0
+if glory_bj[you]>0:glory_bj[you]=0
+if vagsex[you]>0:vagsex[you]=0
+if avagsex[you]>0:avagsex[you]=0
+if aanal[you]>0:aanal[you]=0
+if anal[you]>0:anal[you]=0
+if mastr[you]>0:mastr[you]=0
+if orgasm_times[you]>0:orgasm_times[you]=0
+if cuntlick[you]>0:cuntlick[you]=0
+if pee[you]>0:pee[you]=0
+if drinkpee[you]>0:drinkpee[you]=0
+if whore[you]>0:whore[you]=0
+if whoreboss[you]>0:whoreboss[you]=0
+if mastr[you]>0:mastr[you]=0
+if jerk[you]>0:jerk[you]=0
+if insmout_gang[you]>0:insmout_gang[you]=0
+if gilmassive_repa[you]>0:gilmassive_repa[you]=0
+if egg[you]>0:egg[you]=0
+if child[you]>0:child[you]=0
+if techer_dogovor[you]>0:techer_dogovor[you]=0
+if corr[you]>50:corr[you]=50
+lust[you]=0
+lips[you]=1
+if oral_fixation[you]>50:oral_fixation[you]=50
+win[you]=0
+loss[you]=0
+run[you]=0
+i=npcmaxnum&cloint=0&! Стираем взаимоотношения
+:loop
+	ex_girlfriend['<<cloint>>,<<you>>']=0
+	friends['<<cloint>>,<<you>>']=0
+	know['<<you>>,<<cloint>>']=0
+	sexpartner['<<cloint>>,<<you>>']=0
+	times_talk['<<cloint>>,<<you>>']=0
+	know_whore['<<cloint>>,<<you>>']=0
+	sexpartner['<<cloint>>,<<you>>']=0
+	watch_you_slut['<<cloint>>,<<you>>']=0
+	you_dirty_slut[cloint]=0
+	bj_mass['<<you>>,<<cloint>>']=0 
+	anal_mass['<<you>>,<<cloint>>']=0
+	piss_mass['<<you>>,<<cloint>>']=0
+	shame_for_you['<<cloint>>,<<you>>']=0
+	if husband[cloint]=you:husband[cloint]=0
+	if kid_first[cloint]=you:kid_first[cloint]=0
+	if kid_second[cloint]=you:kid_second[cloint]=0
+	if father[cloint]=you:father[cloint]=0
+	if mother[cloint]=you:mother[cloint]=0
+	if brother[cloint]=you:brother[cloint]=0
+	!if myenemy[cloint]=you:myenemy[cloint]=0
+	if boyfriend_num[cloint]=you:boyfriend_num[cloint]=0
+	if girlfriend_num[cloint]=you:girlfriend_num[cloint]=0
+	!if myenemy[cloint]=you:myenemy[cloint]=0
+	if isenemy['<<cloint>>,<<you>>']>0:isenemy['<<cloint>>,<<you>>']=-cloint&gs 'killarr', 'isenemy', '<<cloint>>,<<you>>'
+	cloint+=1
+if cloint<i:jump 'loop'
+$fightlog[you]=''&! Стираем информацию о драках
+husband[you]=0&! Забываем родных и близких
+kid_first[you]=0&kid_second[you]=0
+father[you]=0&mother[you]=0&brother[you]=0
+!myenemy[you]=0
+boyfriend_num[you]=0&girlfriend_num[you]=0
+if blackberry_home[you]>0:blackberry_home[you]=0&! Теряем дом
+if zilmassiv_home[you]>0:zilmassiv_home[you]=0
+if uptown_home[you]>0:uptown_home[you]=0

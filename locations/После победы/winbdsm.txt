@@ -1,0 +1,20 @@
+﻿mob[i]=39&mobexp[i]=5&!i=npc
+picture[i]=111&$nick[i]='Шлюха'
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=40
+healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=100&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(3,6)&maxuron[i]=rand(8,15)
+reflex[i]=rand(30,40)
+X=rand(1,9)&Y=rand(1,9)&X[i]=X&Y[i]=Y&Z[i]=100&H=0&R=0&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+lowered[i]=you&soul[you]+=10&if sexpartner[npc]=0:sexpartner[npc]=1&girl[you]+=1
+agro[i]=0&horny[you]=0&gs'stat'
+if dick[you]>1:
+	manize[you]+=5&avagsex[you]+=1&'<center><video src="pic/sex/rape/forced.webm" ></center>'
+	'Побежденная госпожа плачет и умоляет вас не насиловать ее в киску, а то ее силы пропадут.'
+	'Вы ставите госпожу раком и начинаете ее со всей яростью ебать, делая из нее беспомощную шлюху.'
+	'Жестко оттрахав госпожу вы кончаете в ее пизду. И встаете на ноги над плачущей госпожой, которая теперь будет шлюхой.'
+else
+	lesb[you]+=1&'<center><video src="pic/sex/rape/fisting.webm" ></center>'
+	'Побежденная госпожа плачет и умоляет вас не ломать ей целку, а то ее силы пропадут.'
+	'Вы засовываете кулак во влагалище госпожи и начинаете жестоко ее трахать, делая из нее беспомощную и униженную шлюху.'
+	'Когда вам надоедает и вы устаете, вы вытаскиваете руку и встаете на ноги оставляя госпожу плакать над ее новой долей шлюхи.'
+end
+act'Встать':gt 'preloc'

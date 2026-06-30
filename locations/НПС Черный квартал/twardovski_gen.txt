@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&twardovski=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&magik[i]=35&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=71
+$title[i]='Пан'&$history[i]='Я в свое время обманул самого дьявола и сбежал в маестат получив силы, теперь работаю на Леона.'
+$name[i]='Войцех'&$surname[i]='Твардовский'&$nick[i]='Крепкий мужчина в хорошем костюме'&!левая рука Леона!умеет летать, потеряет душу в риме, до тех пор неуязвим
+face[i]=20&gla[i]=0&glacol[i]=2&nose[i]=0
+dick[i]=21&dickd[i]=42&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
+rost[i]=190&fat[i]=1000&mus[i]=2000&skin[i]=2
+face_hair[i]=0&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=40&hcol[i]=0&beard[i]=0
+age[i]=35&vital[i]=1000&will[i]=10&reflex[i]=150&mustage[i]=0
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=0&gs'body'&total_generated_female+=1
+bisex[i]=0&agro[i]=30&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=2&lust[i]=100&!характер
+!l_hand_t[i]=2&r_hand_t[i]=1
+t_slot[i]=72&l_slot[i]=7&b_slot[i]=5
+ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+ne_world[]=i&walkprog[i]=35
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

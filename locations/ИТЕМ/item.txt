@@ -1,0 +1,226 @@
+﻿if openinv=1:dynamic $d_inv
+$itemloc=''
+zit=1
+itemmax=arrsize('$item_name')
+:markitemloc
+if item_loc['<<zit>>,<<$loc[you]>>']>0:
+	$itemloc+='<br>'
+     if burden[you]+item_burden[zit]<=burdenmax[you]:
+     $itemloc+='<<$item_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_burden[zit])>>, <b><<item_loc[''<<zit>>,<<$loc[you]>>'']>>шт</b> <a href="exec:gt ''item_loc_take'',<<zit>>">Взять</a>'
+         if item_loc['<<zit>>,<<$loc[you]>>']>=10:
+         $itemloc+=' <a href="exec:gt ''item_loc_take_ten'',<<zit>>">Взять десяток</a>'
+         end
+         if item_loc['<<zit>>,<<$loc[you]>>']>=100:
+         $itemloc+=' <a href="exec:gt ''item_loc_take_hundred'',<<zit>>">Взять сотню</a>'
+         end
+         if item_loc['<<zit>>,<<$loc[you]>>']>=100:
+         $itemloc+=' <a href="exec:gt ''item_loc_take_all'',<<zit>>">Взять все</a>'
+         end
+     else
+     $itemloc+='<<$item_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_burden[zit])>>, <<item_loc[''<<zit>>,<<$loc[you]>>'']>>шт'
+     end
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc'
+$itemloc_t=''
+zit=1
+itemmax=arrsize('$t_name')
+:markitemloc_t
+if item_loc_t['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_t+='<br>'
+     if burden[you]+item_t_burden[zit]<=burdenmax[you]:
+     $itemloc_t+='<<$t_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_t_burden[zit])>>, <<item_loc_t[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_t'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_t'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_t+='<<$t_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_t_burden[zit])>>, <<item_loc_t[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_ripe_t'',<<zit>>">Порвать</a>'
+     end
+     if t_slot[you]=0:$itemloc_t+=' <a href="exec:gt ''item_loc_wear_t'',<<zit>>">Надеть</a>'
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_t'
+$itemloc_tg=''
+zit=1
+itemmax=arrsize('$item_tg_name')
+:markitemloc_tg
+if item_loc_tg['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_tg+='<br>'
+     if burden[you]+item_tg_burden[zit]<=burdenmax[you]:
+     $itemloc_tg+='<<$item_tg_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_tg_burden[zit])>>, <<item_loc_tg[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_tg'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_tg'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_tg+='<<$item_tg_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_tg_burden[zit])>>, <<item_loc_tg[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_ripe_tg'',<<zit>>">Порвать</a>'
+     end
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_tg'
+$itemloc_tz=''
+zit=1
+itemmax=arrsize('$item_tz_name')
+:markitemloc_tz
+if item_loc_tz['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_tz+='<br>'
+     if burden[you]+item_tz_burden[zit]<=burdenmax[you]:
+     $itemloc_tz+='<<$item_tz_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_tz_burden[zit])>>, <<item_loc_tz[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_tz'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_tz'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_tz+='<<$item_tz_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_tz_burden[zit])>>, <<item_loc_tz[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_ripe_tz'',<<zit>>">Порвать</a>'
+     end
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_tz'
+$itemloc_l=''
+zit=1
+itemmax=arrsize('$l_name')
+:markitemloc_l
+if item_loc_l['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_l+='<br>'
+     if burden[you]+item_l_burden[zit]<=burdenmax[you]:
+     $itemloc_l+='<<$l_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_l_burden[zit])>>, <<item_loc_l[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_l'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_l'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_l+='<<$l_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_l_burden[zit])>>, <<item_loc_l[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_ripe_l'',<<zit>>">Порвать</a>'
+     end
+     
+     if l_slot[you]=0:$itemloc_l+=' <a href="exec:gt ''item_loc_wear_l'',<<zit>>">Надеть</a>'
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_l'
+$itemloc_b=''
+zit=1
+itemmax=arrsize('$b_name')
+:markitemloc_b
+if item_loc_b['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_b+='<br>'
+     if burden[you]+item_b_burden[zit]<=burdenmax[you]:
+     $itemloc_b+='<<$b_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_b_burden[zit])>>, <<item_loc_b[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_b'',<<zit>>">Взять</a>'
+     else
+     $itemloc_b+='<<$b_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_b_burden[zit])>>, <<item_loc_b[''<<zit>>,<<$loc[you]>>'']>>шт'
+     end
+     
+     if b_slot[you]=0:$itemloc_b+=' <a href="exec:gt ''item_loc_wear_b'',<<zit>>">Надеть</a>'
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_b'
+$itemloc_ut=''
+zit=1
+itemmax=arrsize('$ut_name')
+:markitemloc_ut
+if item_loc_ut['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_ut+='<br>'
+     if burden[you]+item_ut_burden[zit]<=burdenmax[you]:
+     $itemloc_ut+='<<$ut_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_ut_burden[zit])>>, <<item_loc_ut[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_ut'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_ut'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_ut+='<<$ut_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_ut_burden[zit])>>, <<item_loc_ut[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_ripe_ut'',<<zit>>">Порвать</a>'
+     end
+     
+     if ut_slot[you]=0:$itemloc_ut+=' <a href="exec:gt ''item_loc_wear_ut'',<<zit>>">Надеть</a>'
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_ut'
+$itemloc_ul=''
+zit=1
+itemmax=arrsize('$ul_name')
+:markitemloc_ul
+if item_loc_ul['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_ul+='<br>'
+     if burden[you]+item_ul_burden[zit]<=burdenmax[you]:
+     $itemloc_ul+='<<$ul_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_ul_burden[zit])>>, <<item_loc_ul[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_ul'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_ul'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_ul+='<<$ul_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_ul_burden[zit])>>, <<item_loc_ul[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_ripe_ul'',<<zit>>">Порвать</a>'
+     end
+     if ul_slot[you]=0:$itemloc_ul+=' <a href="exec:gt ''item_loc_wear_ul'',<<zit>>">Надеть</a>'
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_ul'
+$itemloc_ub=''
+zit=1
+itemmax=arrsize('$ub_name')
+:markitemloc_ub
+if item_loc_ub['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_ub+='<br>'
+     if burden[you]+item_ub_burden[zit]<=burdenmax[you]:
+     $itemloc_ub+='<<$ub_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_ub_burden[zit])>>, <<item_loc_ub[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_ub'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_ub'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_ub+='<<$ub_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_ub_burden[zit])>>, <<item_loc_ub[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_ripe_ub'',<<zit>>">Порвать</a>'
+     end
+     if ub_slot[you]=0:$itemloc_ub+=' <a href="exec:gt ''item_loc_wear_ub'',<<zit>>">Надеть</a>'
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_ub'
+$itemloc_w=''
+zit=1
+itemmax=arrsize('$item_w_name')
+:markitemloc_w
+if item_loc_w['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_w+='<br>'
+     if burden[you]+item_w_burden[zit]<=burdenmax[you]:
+     $itemloc_w+='<<$item_w_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_w_burden[zit])>>, <<item_loc_w[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_w'',<<zit>>">Взять</a>'
+     else
+     $itemloc_w+='<<$item_w_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_w_burden[zit])>>, <<item_loc_w[''<<zit>>,<<$loc[you]>>'']>>шт'
+     end
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_w'
+$itemloc_m=''
+zit=1
+itemmax=arrsize('$item_m_name')
+:markitemloc_m
+if item_loc_m['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_m+='<br>'
+     if burden[you]+item_m_burden[zit]<=burdenmax[you]:
+     $itemloc_m+='<<$item_m_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_m_burden[zit])>>, <<item_loc_m[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_m'',<<zit>>">Взять</a>'
+     else
+     $itemloc_m+='<<$item_m_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_m_burden[zit])>>, <<item_loc_m[''<<zit>>,<<$loc[you]>>'']>>шт'
+     end
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_m'
+$itemloc_h=''
+zit=1
+itemmax=arrsize('$h_name')
+:markitemloc_h
+if item_loc_h['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_h+='<br>'
+     if burden[you]+item_h_burden[zit]<=burdenmax[you]:
+     $itemloc_h+='<<$h_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_h_burden[zit])>>, <<item_loc_h[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_h'',<<zit>>">Взять</a>'
+     else
+     $itemloc_h+='<<$h_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_h_burden[zit])>>, <<item_loc_h[''<<zit>>,<<$loc[you]>>'']>>шт'
+     end
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_h'
+$itemloc_coat=''
+zit=1
+itemmax=arrsize('$item_coat_name')
+:markitemloc_coat
+if item_loc_coat['<<zit>>,<<$loc[you]>>']>0:
+$itemloc_coat+='<br>'
+     if burden[you]+item_coat_burden[zit]<=burdenmax[you]:
+     $itemloc_coat+='<<$item_coat_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_coat_burden[zit])>>, <<item_loc_coat[''<<zit>>,<<$loc[you]>>'']>>шт <a href="exec:gt ''item_loc_take_coat'',<<zit>>">Взять</a> <a href="exec:gt ''item_loc_ripe_coat'',<<zit>>">Порвать</a>'
+     else
+     $itemloc_coat+='<<$item_coat_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_coat_burden[zit])>>, <<item_loc_coat[''<<zit>>,<<$loc[you]>>'']>>шт'
+     end
+end
+zit+=1
+if zit<=itemmax:jump'markitemloc_coat'
+if $itemloc!'':'<<$itemloc>>'
+if $itemloc_h!'':'<<$itemloc_h>>'
+if $itemloc_coat!'':'<<$itemloc_coat>>'
+if $itemloc_tz!'':'<<$itemloc_tz>>'
+if $itemloc_tg!'':'<<$itemloc_tg>>'
+if $itemloc_t!'':'<<$itemloc_t>>'
+if $itemloc_l!'':'<<$itemloc_l>>'
+if $itemloc_b!'':'<<$itemloc_b>>'
+if $itemloc_ut!'':'<<$itemloc_ut>>'
+if $itemloc_ul!'':'<<$itemloc_ul>>'
+if $itemloc_ub!'':'<<$itemloc_ub>>'
+if $itemloc_w!'':'<<$itemloc_w>>'
+if $itemloc_m!'':'<<$itemloc_m>>'
+!{if t_slot[you]=0 and last_top[you]>0 and item_loc_t['<<last_top[you]>>,<<$loc[you]>>']>0 and l_slot[you]=0 and last_low[you]>0 and item_loc_l['<<last_low[you]>>,<<$loc[you]>>']>0 and b_slot[you]=0 and last_boot[you]>0 and item_loc_b['<<last_boot[you]>>,<<$loc[you]>>']>0:
+	if ul_slot[you]>0:'<a href="exec:gt ''item_loc_clo''">Надеть верхнюю одежду</a>'
+	if ul_slot[you]=0:'<a href="exec:gt ''item_loc_fullclo''">Надеть вcю одежду</a>'
+end}
+toptemp = t_slot[you]=0 and last_top[you]>0 and item_loc_t['<<last_top[you]>>,<<$loc[you]>>']>0
+lowtemp = l_slot[you]=0 and last_low[you]>0 and item_loc_l['<<last_low[you]>>,<<$loc[you]>>']>0
+boottemp = b_slot[you]=0 and last_boot[you]>0 and item_loc_b['<<last_boot[you]>>,<<$loc[you]>>']>0
+if (toptemp and lowtemp and boottemp) or (toptemp and last_low[you]=0 and boottemp) _
+or (las_top[you]=0 and lowtemp and boottemp) or (toptemp and lowtemp and last_boot[you]=0):
+    if ul_slot[you]>0:'<a href="exec:gt ''item_loc_clo''">Надеть верхнюю одежду</a>'
+    if ul_slot[you]=0:'<a href="exec:gt ''item_loc_fullclo''">Надеть вcю одежду</a>'
+end

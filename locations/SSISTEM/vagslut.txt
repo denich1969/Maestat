@@ -1,0 +1,83 @@
+﻿!0-кто (если -1 значит дрочит)   !1-кого      !2-fin - финальный     !3-silent    !4-num
+result=0&if args[4]=0:args[4]=200
+args[30]=0
+if perk_orgazm_reload[args[1]]>0:orgasm[args[1]]=0
+if args[0]>0 and sexpower[args[0]]=0 and args[2]=0:args[2] = 1
+if vag[args[1]]<15:vag_deflorator[args[0]]+=1&vag[args[1]]=15&horny[args[1]]=0&exit
+if vag[args[1]]<dickd[args[0]]:
+	vag[args[1]]+=1&if grief=args[0]:vag[args[1]]+=5
+end
+if dickd[args[0]]>0:args[30]+=20*dickd[args[0]]/50
+if dickd[args[0]]=0:args[30]+=15
+if orgasm[args[1]]-time>0 and horny[args[1]]>=100:horny[args[1]]-=(orgasm[args[1]]-time)/3&orgasm[args[1]]-=100
+if demon_dick[args[0]]>0:args[30]+=demon_dick[args[0]]*15&!"<b>Ваш хуй пропитан феромонами, вызывая сильное возбуждение</b>"
+if demon_dick[args[1]]>0:
+	if vag[args[1]]<dickd[args[0]]:vag[args[1]]=dickd[args[0]]
+	args[30]+=demon_dick[args[1]]*15
+end
+args[30]+=feminize[args[1]]&args[30]+=perk_domvag[args[0]]*10
+if grief=args[0]:args[30]+=25
+horny[args[1]]+=func('to_arouse',args[1],args[30])
+if horny[args[1]]>150:"<b>Ах-ах-да!</b>"
+if horny[args[1]]>200 and lust[args[1]]<100:lust[args[1]]+=1+temp_orgazm[args[1]]
+if horny[args[1]]>args[4] or args[2]=1 and horny[args[1]]>=100:
+	result=1
+	!if horny[args[1]]>1200:horny[args[1]]=1200
+	if demon_dick[args[1]]>0:
+		if demon_dick[args[1]]>4 and dick[args[0]]>0:
+			args[50]=(dick[args[0]]<demon_dick[args[1]]*2)&args[51]=(dickd[args[0]]<demon_dick[args[1]]*4)
+			if args[50] or args[51]: "Вы чувтвуете как член увеличивается прямо у вас в киске от ваших флюидов"
+		end
+	end
+	if args[3]=0 and solo>0:
+		if temp_orgazm[args[1]]=0:
+			if args[1]=you:
+				'<b>Вы стонете и изгибаетесь в оргазме.</b>'
+			else
+				'<b><<$name[args[1]]>> изгибается в оргазме и громко стонет</b>'
+			end
+		else
+			if args[1]=you:
+				'<b>Вы стонете от непрерывного удовольствия.</b>'
+			else
+				'<b><<$name[args[1]]>> пыхтит от непрерывного удовольствия</b>'
+			end
+		end	
+	end
+	if args[3]=0 and solo=0:
+		if temp_orgazm[args[1]]=0:
+			if args[1]=you:
+				'<b>Вы стонете и извиваясь в оргазме.</b>'
+			else
+				'<b><<$name[args[1]]>> изгибается в оргазме и громко стонет</b>'
+			end
+		else
+			if args[1]=you:
+				'<b>Очередной член в киске сново кидает вас на пик блаженства.</b>'
+			else
+				'<b><<$name[args[1]]>> завывает от непрерывного удовольвия</b>'
+			end
+		end	
+	end
+	if temp_orgazm[args[1]]>0:temp_multiorgazm[args[1]]+=1
+	orgazms_vag['<<args[0]>>,<<args[1]>>']+=1&vag_orgazms[args[1]]+=1&if horny[args[1]]>200 and lust[args[1]]<100:lust[args[1]]+=1+temp_orgazm[args[1]]
+	gs'orgasm_effect',args[0],args[1]
+else
+	if args[4]<=200:temp_orgazm[args[1]]=0
+end
+!if args[2]=1:temp_orgazm[args[1]]=0
+if args[2]=1:
+	temp_orgazm[args[1]]=0
+	if master[args[1]]>0 and fuckgiftday[args[1]]!daystart:
+		fuckgiftday[args[1]]=daystart&magik[args[0]]+=1
+		if args[0]=you:'Богиня одаривает вас каналом магии'
+		if args[1]=you:'Вы одаряете <<$name[args[0]]>> каналом магии'
+	end
+	if master[args[0]]>0 and fuckgiftday[args[0]]!daystart:
+		fuckgiftday[args[0]]=daystart&magik[args[1]]+=1
+		if args[1]=you:'Бог одаривает вас каналом магии'
+		if args[0]=you:'Вы одаряете <<$name[args[0]]>> каналом магии'
+	end
+end
+if args[0]>0:gs'effect',args[0]
+if args[1]>0 and args[0]!args[1]:gs'effect',args[1]

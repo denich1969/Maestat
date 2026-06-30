@@ -1,0 +1,4 @@
+﻿t_slot[you]=last_top[you]&item_loc_t['<<last_top[you]>>,<<$loc[you]>>']-=1
+l_slot[you]=last_low[you]&item_loc_l['<<last_low[you]>>,<<$loc[you]>>']-=1 
+b_slot[you]=last_boot[you]&item_loc_b['<<last_boot[you]>>,<<$loc[you]>>']-=1
+gt'preloc'

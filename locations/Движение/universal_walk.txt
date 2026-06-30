@@ -1,0 +1,6 @@
+﻿!if arrpos('$universal_walk', ("universal_walk "+$name[w]))=-1:$log_data[]="universal_walk "+$name[w]
+if Zhome[w]=1:gs'insmouth_walk'&!порт
+if Zhome[w]=2:gs'blackblock_walk'&!блэкбери
+if Zhome[w]=3:gs'riverside_walk'&!жилмассив
+if Zhome[w]=4:gs'uptowner_walk'&!аптаун
+if Zhome[w]=5:gs'downtown_walk'&!даунтаун

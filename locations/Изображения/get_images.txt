@@ -1,0 +1,1022 @@
+﻿!Просто возвращаем нужную картинку/анимацию.
+!Это нужно для того, чтобы если нужно было что-то изменить - чтоб всё делалось в одном месте, вместо 20ти.
+$ARGS[0]=UCASE($ARGS[0])
+ARGS['PASSIVE']=ARGS[1]
+ARGS['ACTIVE']=ARGS[2]
+if skin[ARGS['PASSIVE']]>=4:ARGS['PASSIVE_IS_BLACK']=1
+if skin[ARGS['ACTIVE']]>3 and skin[ARGS['ACTIVE']]<7:ARGS['ACTIVE_IS_BLACK']=1
+if UCASE($ARGS[3])='FIT':
+   if dickd[ARGS['ACTIVE']]>anus[ARGS['PASSIVE']]:ARGS['BAD_FIT']=1
+end
+$CURRENT_SEX_TYPE = $ARGS[0]
+CURRENT_PASSIVE = ARGS['PASSIVE']
+CURRENT_ACTIVE = ARGS['PASSIVE']
+!* -------------------------------------------------------------------------- *!
+!*                                     ASS                                    *!
+!* -------------------------------------------------------------------------- *!
+!Anal fuck - doggy
+if $ARGS[0] = 'ANAL_FUCK_DOG':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+    if ARGS['BAD_FIT']=1:
+		if ARGS['ACTIVE_IS_BLACK']=1:
+			if dick[ARGS['PASSIVE']]>0:
+				$RESULT='<center><video src="pic/sex/degraded/badfit_s<<rand(0,20)>>.webm"></video></center>'
+			else
+				$RESULT='<center><video src="pic/sex/degraded/blacked<<rand(0,50)>>.webm"></video></center>'
+			end
+		else
+			if dick[ARGS['PASSIVE']]>0:
+				$RESULT='<center><video src="pic/sex/degraded/fuckeds<<rand(0,4)>>.webm"></video></center>'
+			else
+                $RESULT='<center><video src="pic/sex/degraded/fucked<<rand(0,41)>>.webm"></video></center>'
+            end
+		end
+    else
+		if ARGS['ACTIVE_IS_BLACK']=1:
+			if dick[ARGS['PASSIVE']]>0:
+				$RESULT='<center><video src="pic/sex/bbc/dog/shemale<<rand(0,68)>>.webm"></video></center>'
+			else
+				$RESULT='<center><video src="pic/sex/bbc/dog/anal<<rand(0,63)>>.webm"></video></center>'
+			end
+		else
+			if dick[ARGS['PASSIVE']]>0:
+				$RESULT='<center><video src="pic/sex/anal/shemale<<rand(0,53)>>.webm"></video></center>'
+			else
+				$RESULT='<center><video src="pic/sex/anal/d<<rand(0,65)>>.webm"></video></center>'
+			end
+		end
+    end
+end
+if $ARGS[0] = 'ANAL_FUCK_DOG_FAST':
+	if ARGS['ACTIVE_IS_BLACK'] = 1:blacked[ARGS['PASSIVE']] += 1
+	if ARGS['BAD_FIT'] = 1:
+		if ARGS['ACTIVE_IS_BLACK'] = 1:
+			if dick[ARGS['PASSIVE']] > 0: 
+				$RESULT = '<center><video src="pic/sex/degraded/badfit_s<<rand(0, 20)>>.webm"></video></center>' 
+			else 
+				$RESULT = '<center><video src="pic/sex/degraded/blacked<<rand(0, 50)>>.webm"></video></center>'
+			end
+		elseif dick[ARGS['PASSIVE']] > 0:
+			$RESULT = '<center><video src="pic/sex/degraded/fuckeds<<rand(0, 4)>>.webm"></video></center>'
+		else
+			$RESULT = '<center><video src="pic/sex/degraded/fucked<<rand(0, 41)>>.webm"></video></center>'
+		end
+	elseif ARGS['ACTIVE_IS_BLACK'] = 1:
+		if dick[ARGS['PASSIVE']] > 0: 
+			$RESULT = '<center><video src="pic/sex/bbc/dog/shemale<<rand(0, 68)>>.webm"></video></center>' 
+		else 
+			$RESULT = '<center><video src="pic/sex/bbc/dog/anal<<rand(0, 63)>>.webm"></video></center>'
+		end
+	elseif dick[ARGS['PASSIVE']] > 0:
+		$RESULT = '<center><video src="pic/sex/anal/shemale<<rand(0, 53)>>.webm"></video></center>'
+	else
+		$RESULT = '<center><video src="pic/sex/degraded/head_anal<<rand(0, 8)>>.webm"></video></center>'
+	end
+end
+!Anal fuck - Cowgirl
+if $ARGS[0] = 'ANAL_FUCK_COW':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+    if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/cow/shemale<<rand(0,37)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/cow/a<<rand(0,36)>>.webm" ></video></center>'
+		end
+    else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/cow/shemale_cow<<rand(0,61)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/cow/a<<rand(0,74)>>.webm" ></video></center>'
+		end
+    end
+end
+!Anal fuck - Cowgirl-flex
+if $ARGS[0] = 'ANAL_FUCK_COW_FLEX':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+    if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/cow/arflex.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/cow/ar_flex_afro<<rand(0,9)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/cow/ar_flex_s<<rand(0,1)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/cow/ar_flex<<rand(0,38)>>.webm" ></video></center>'
+		end
+	end
+end
+!Anal fuck - On back
+if $ARGS[0] = 'ANAL_FUCK_MIS':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/miss/shemale<<rand(0,29)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/miss/anal<<rand(0,26)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/anal/shemale_m<<rand(0,38)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/anal/m<<rand(0,43)>>.webm"></video></center>'
+		end
+	end
+end
+!Кончить внутрь - doggy
+if $ARGS[0] = 'ANAL_CREAM_DOG':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/dog/shemale_cream_d<<rand(0,3)>>.webm"></video></center>'
+		else
+            $RESULT='<center><video src="pic/sex/bbc/dog/w_cream_d<<rand(0,6)>>.webm"></video></center>'
+        end
+    else
+        if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/anal/anal_cream_s_<<rand(0,11)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/anal/anal_cream<<rand(0,22)>>.webm"></video></center>'
+		end
+	end
+end
+!Кончить внутрь - miss
+if $ARGS[0] = 'ANAL_CREAM_MIS':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+        if dick[ARGS['PASSIVE']]>0:
+            $RESULT='<center><video src="pic/sex/bbc/miss/shemale_cream.webm"></video></center>'
+        else
+			$RESULT='<center><video src="pic/sex/bbc/miss/cream<<rand(0,2)>>.webm"></video></center>'
+        end
+    else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/anal/anal_cream_man<<rand(0,5)>>.webm"></video></center>'
+		else
+		   $RESULT='<center><video src="pic/sex/anal/anal_m_cream<<rand(0,9)>>.webm"></video></center>'
+		end
+	end
+end
+!Кончить внутрь - cowgirl
+if $ARGS[0] = 'ANAL_CREAM_COW':
+   if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/cow/bbccumcow<<rand(0,2)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/cow/bbccreampie<<rand(0,1)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/cow/cream_shemale<<rand(0,2)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/anal/anal_cow_cream<<rand(0,5)>>.webm"></video></center>'
+		end
+	end
+end
+!Кончить снаружи - doggy
+if $ARGS[0] = 'CUM_ON_ASS_DOG':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/dog/shem_cumonass<<rand(0,4)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/dog/cumonass<<rand(0,3)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/vag/cumonass<<rand(1,6)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/vag/cumonass<<rand(2,19)>>.webm"></video></center>'
+		end
+	end
+end
+!Кончить снаружи - miss
+if $ARGS[0] = 'CUM_ON_ASS_MIS':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/anal/cum_on_ass_m_shem<<rand(0,1)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/vag/vagoutb<<rand(0,1)>>.webm"></video></center>'
+		end
+	else
+        if dick[ARGS['PASSIVE']]>0:
+            $RESULT='<center><video src="pic/sex/anal/cumonass_shem<<rand(0,2)>>.webm"></video></center>'
+        else
+            $RESULT='<center><video src="pic/sex/vag/mcumface<<rand(0,9)>>.webm"></video></center>'
+        end
+    end
+end
+!Кончить снаружи - cowgirl
+if $ARGS[0] = 'CUM_ON_ASS_COW':
+	if dick[ARGS['PASSIVE']]>0: 
+		$RESULT='<center><video src="pic/sex/anal/cum_on_ass_m_shem<<rand(0,1)>>.webm"></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/vag/cumonassmiss.webm"></video></center>'
+	end
+end
+!Раздвинуть "булки" - doggy
+if $ARGS[0] = 'SPREAD_ASS_DOG':
+    if ARGS['ACTIVE_IS_BLACK']=1:
+        if dick[ARGS['PASSIVE']]>0:
+            $RESULT='<center><video src="pic/sex/anal/d0_handbs<<rand(0,2)>>.webm"></video></center>'
+        else
+            $RESULT='<center><video src="pic/sex/anal/d0_handb<<rand(0,5)>>.webm"></video></center>'
+        end
+    else
+        if dick[ARGS['PASSIVE']]>0:
+            $RESULT='<center><video src="pic/sex/anal/d0_hands<<rand(0,10)>>.webm"></video></center>'
+        else
+            $RESULT='<center><video src="pic/sex/anal/d0_hand<<rand(0,13)>>.webm"></video></center>'
+        end
+    end
+end
+!Shemale кончает при doggy
+if $ARGS[0] = 'ANAL_FUCK_DOG_SHEM_CUM':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/dog/shem_cum<<rand(0,4)>>.webm"></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/anal/anal_shem_cum<<rand(0,7)>>.webm"></video></center>'
+	end
+end
+!Shemale кончает при miss
+if $ARGS[0] = 'ANAL_FUCK_MIS_SHEM_CUM':
+    if ARGS['ACTIVE_IS_BLACK']=1:
+       $RESULT='<center><video src="pic/sex/bbc/miss/anal_m_shem_cum<<rand(0,9)>>.webm"></video></center>'
+    else
+       $RESULT='<center><video src="pic/sex/anal/anal_m_shem_cum<<rand(0,19)>>.webm"></video></center>'
+    end
+end
+!Shemale кончает при cowgirl
+if $ARGS[0] = 'ANAL_FUCK_COW_SHEM_CUM':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/cow/bbc/shemale_cow_cum<<rand(0,1)>>.webm"></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/cow/shemale_cow_cum<<rand(0,6)>>.webm"></video></center>'
+	end
+end
+!* -------------------------------------------------------------------------- *!
+!*                                   ASS:END                                  *!
+!* -------------------------------------------------------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                     VAG                                    *!
+!* -------------------------------------------------------------------------- *!
+
+!* ---------------------------- Vag fuck - doggy ---------------------------- *!
+if $ARGS[0] = 'VAG_FUCK_DOG':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/dog/dog<<rand(0,40)>>.webm"></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/vag/d<<rand(0,32)>>.webm"></video></center>'
+	end
+end
+!* ----------------------------- Vag fuck - Miss ---------------------------- *!
+
+if $ARGS[0] = 'VAG_FUCK_MIS':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/miss/getto_pussy_l<<rand(0,55)>>.webm"></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/vag/m<<rand(0,42)>>.webm"></video></center>'
+	end
+end
+!* --------------------------- Vag fuck - cowgirl --------------------------- *!
+
+if $ARGS[0] = 'VAG_FUCK_COW':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/cow/v<<rand(0,58)>>.webm" ></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/cow/v<<rand(0,38)>>.webm" ></video></center>'
+	end
+end
+!* ------------------------- Кончить внутрь - doggy ------------------------- *!
+if $ARGS[0] = 'VAG_CREAM_DOG':
+    if ARGS['ACTIVE_IS_BLACK']=1:
+        $RESULT='<center><video src="pic/sex/bbc/dog/creampie_vag_d<<rand(0,5)>>.webm"></video></center>'
+    else
+        $RESULT='<center><video src="pic/sex/vag/dcum<<rand(0,14)>>.webm"></video></center>'
+    end
+end
+!* -------------------------- Кончить внутрь - miss ------------------------- *!
+if $ARGS[0] = 'VAG_CREAM_MIS':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/miss/cum<<rand(0,11)>>.webm"></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/vag/mcum<<rand(0,14)>>.webm"></video></center>'
+	end
+end
+!* ------------------------ Кончить внутрь - cowgirl ------------------------ *!
+if $ARGS[0] = 'VAG_CREAM_COW':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/cow/cumvag<<rand(0,10)>>.webm"></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/cow/cumvag<<rand(0,8)>>.webm"></video></center>'
+   end
+end
+!* ----------------------------- Кончить на лицо ---------------------------- *!
+if $ARGS[0] = 'VAG_CUM_ON_FACE':
+    if ARGS['ACTIVE_IS_BLACK']=1:
+        $RESULT='<center><video src="pic/sex/vag/vagoutb<<rand(0,1)>>.webm"></video></center>'
+    else
+        $RESULT='<center><video src="pic/sex/vag/mcumface<<rand(0,9)>>.webm"></video></center>'
+    end
+end
+!* --------------------------- Кончить на задницу --------------------------- *!
+if $ARGS[0] = 'VAG_CUM_ON_ASS':
+    if ARGS['ACTIVE_IS_BLACK']=1:
+        $RESULT='<center><video src="pic/sex/bbc/dog/cumonass<<rand(0,3)>>.webm"></video></center>'
+    else
+        $RESULT='<center><video src="pic/sex/vag/cumonass<<rand(2,19)>>.webm"></video></center>'
+    end
+end
+!* -------------------------------------------------------------------------- *!
+!*                                   VAG:END                                  *!
+!* -------------------------------------------------------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                    GANG                                    *!
+!* -------------------------------------------------------------------------- *!
+!* -------------------------------- BLOWBANG -------------------------------- *!
+if $ARGS[0] = 'BLOWBANG':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/blowgang_ff_nigg_bar<<rand(0,25)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/blowgang_ff_nigg_bar<<rand(0,25)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			if rand(0,1)=0:
+				$RESULT='<center><video src="pic/sex/group/bj/b<<rand(0,12)>>.webm" ></video></center>'
+			else
+				$RESULT='<center><video src="pic/sex/group/bj/b_shem_<<rand(0,2)>>.webm" ></video></center>'
+			end
+		else
+			$RESULT='<center><video src="pic/sex/group/bj/b<<rand(0,12)>>.webm" ></video></center>'
+		end
+   end
+end
+!* ------------------------------- MULTI_BLOW ------------------------------- *!
+if $ARGS[0] = 'MULTI_BLOW':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/blackporno_sucker<<rand(0,24)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/blackporno_sucker<<rand(0,24)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/group/bj/slut_dickface<<rand(0,7)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/group/bj/slut_dickface<<rand(0,7)>>.webm" ></video></center>'
+		end
+	end
+end
+!* ---------------------------- MASS_CUM_ON_FACE ---------------------------- *!
+if $ARGS[0] = 'MASS_CUM_ON_FACE':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/blowgang_nigg_bar_cum<<rand(0,13)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/blowgang_nigg_bar_cum<<rand(0,13)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/group/bj/slut_cum_on_face<<rand(0,9)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/group/bj/slut_cum_on_face<<rand(0,9)>>.webm" ></video></center>'
+		end
+	end
+end
+!* ---------------------------- MASS_CUM_IN_MOUTH --------------------------- *!
+if $ARGS[0] = 'MASS_CUM_IN_MOUTH':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/blackporno_cum<<rand(0,19)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/blackporno_cum<<rand(0,19)>>.webm" ></video></center>'
+		end
+   else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/slut_cum_mouth<<rand(0,30)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/slut_cum_mouth<<rand(0,30)>>.webm" ></video></center>'
+		end
+	end
+end
+!* ------------------- SPLITROAST - ANAL + DOGGY + SUCKING ------------------ *!
+if $ARGS[0] = 'SPLITROAST_DS':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/dog/spitroast_shem_<<rand(0,4)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/dog/analsr<<rand(0,10)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/group/spitroast/sad_<<rand(0,5)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/group/spitroast/ad<<rand(0,8)>>.webm" ></video></center>'
+		end
+	end
+end
+!* -------------------- SPLITROAST - VAG + MISS + SUCKING ------------------- *!
+if $ARGS[0] = 'SPLITROAST_VMS':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/miss/spitroast<<rand(0,2)>>.webm" ></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/group/spitroast/vm<<rand(0,3)>>.webm" ></video></center>'
+	end
+end
+!* ------------------- SPLITROAST - VAG + DOGGY + SUCKING ------------------- *!
+if $ARGS[0] = 'SPLITROAST_VDS':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bbc/dog/sr<<rand(0,3)>>.webm" ></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/group/spitroast/vd<<rand(0,13)>>.webm" ></video></center>'
+	end
+end
+!* --------------------- SPLITROAST - DOUBLE_PENETRATION -------------------- *!
+if $ARGS[0] = 'SPLITROAST_DP':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/gang/dp<<rand(0,7)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/gang/dp<<rand(0,7)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/group/dp/dp<<rand(0,13)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/group/dp/dp<<rand(0,13)>>.webm" ></video></center>'
+		end
+	end
+end
+!* -------------------------- GANGBANG - DP + SUCK -------------------------- *!
+if $ARGS[0] = 'GANGBANG':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/gang/gang_shem<<rand(0,8)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/gang/gang<<rand(0,14)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/group/spitroast/sam_<<rand(0,5)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/group/dp/dpb<<rand(0,20)>>.webm" ></video></center>'
+		end
+	end
+end
+!* -------------------------------------------------------------------------- *!
+!*                                  GANG:END                                  *!
+!* -------------------------------------------------------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                    ORAL                                    *!
+!* -------------------------------------------------------------------------- *!
+!* -------------------------------- FACEFUCK -------------------------------- *!
+if $ARGS[0] = 'FACEFUCK':
+	!if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/ff_nigg_bar<<rand(3,36)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/ff_nigg_bar<<rand(0,36)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/facefuck/<<rand(0,40)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/facefuck/<<rand(0,40)>>.webm" ></video></center>'
+		end
+	end
+end
+!* -------------------------------- BLOW_DEEP ------------------------------- *!
+!Заглот
+if $ARGS[0] = 'BLOW_DEEP':
+	!if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/facefuck/deep_black_<<rand(0,10)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/facefuck/deep_black_<<rand(0,10)>>.webm" ></video></center>'
+		end
+   else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/facefuck/deep<<rand(0,21)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/facefuck/deep<<rand(0,21)>>.webm" ></video></center>'
+		end
+	end
+end
+!* --------------------------------- BLOWJOB -------------------------------- *!
+if $ARGS[0] = 'BLOWJOB':
+	if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			if rand(0,10)=0:
+				$RESULT='<center><video src="pic/sex/bbc/bj<<rand(0,34)>>.webm"></video></center>'
+			else
+				$RESULT='<center><video src="pic/sex/bbc/bj_shem_<<rand(0,63)>>.webm"></video></center>'
+			end
+		else
+			$RESULT='<center><video src="pic/sex/bbc/bj<<rand(0,85)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			if rand(0,1)=0:
+				$RESULT='<center><video src="pic/sex/bj/suck<<rand(0,45)>>.webm"></video></center>'
+			else
+				$RESULT='<center><video src="pic/sex/bj/blow_shem<<rand(0,16)>>.webm"></video></center>'
+			end
+		else
+			$RESULT='<center><video src="pic/sex/bj/suck<<rand(0,45)>>.webm"></video></center>'
+		end
+	end
+end
+!* ------------------------------ BLOWJOB_KNEEL ----------------------------- *!
+if $ARGS[0] = 'BLOWJOB_KNEEL':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/bj_shem_<<rand(0,63)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/bj<<rand(0,85)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			if rand(0,1)=0:
+				$RESULT='<center><video src="pic/sex/bj/kneel<<rand(0,28)>>.webm" ></video></center>'
+			else
+				$RESULT='<center><video src="pic/sex/bj/blow_shem<<rand(0,16)>>.webm"></video></center>'
+			end
+		else
+			$RESULT='<center><video src="pic/sex/bj/kneel<<rand(0,28)>>.webm" ></video></center>'
+		end
+	end
+end
+if $ARGS[0] = 'BLOWJOB_HELPER':
+   if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/lesb/slut_bj<<rand(0,3)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/lesb/slut_bj<<rand(0,3)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/lesb/slut_bj<<rand(0,3)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/lesb/slut_bj<<rand(0,3)>>.webm" ></video></center>'
+		end
+	end
+end
+!* ------------------------------ LICK_DICKHEAD ----------------------------- *!
+!Леденец
+if $ARGS[0] = 'LICK_HEAD':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/lick<<rand(0,7)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/lick<<rand(0,7)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/lick<<rand(0,19)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/lick<<rand(0,19)>>.webm" ></video></center>'
+		end
+	end
+end
+!* --------------------------------- TITFUCK -------------------------------- *!
+if $ARGS[0] = 'TITFUCK':
+	!if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/tf<<rand(0,13)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/tf<<rand(0,13)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/tf<<rand(0,23)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/tf<<rand(0,23)>>.webm"></video></center>'
+		end
+	end
+end
+!* ------------------------------ CUM_IN_MOUTH ------------------------------ *!
+if $ARGS[0] = 'CUM_IN_MOUTH':
+	!if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/cum<<rand(0,26)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/cum<<rand(0,26)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/slut_cum_mouth<<rand(0,30)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/slut_cum_mouth<<rand(0,30)>>.webm"></video></center>'
+		end
+	end
+end
+!* ------------------------------- CUM_ON_FACE ------------------------------ *!
+if $ARGS[0] = 'CUM_ON_FACE':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bbc/facial<<rand(0,27)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bbc/facial<<rand(0,27)>>.webm" ></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/facial<<rand(0,23)>>.webm" ></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/facial<<rand(0,23)>>.webm" ></video></center>'
+		end
+	end
+end
+!* -------------------------------- DICKSLAP -------------------------------- *!
+if $ARGS[0] = 'DICKSLAP':
+	!if ARGS['ACTIVE_IS_BLACK']=1:blacked[ARGS['PASSIVE']]+=1
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/dickslap/black_slap<<rand(0,12)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/dickslap/black_slap<<rand(0,12)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/dickslap/<<rand(0,18)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/dickslap/<<rand(0,18)>>.webm"></video></center>'
+		end
+	end
+end
+!* ----------------------------------- 69 ----------------------------------- *!
+!Поза 69
+if $ARGS[0] = 'SIXNINE':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/snsb.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/snb<<rand(0,1)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/sns<<rand(0,3)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/sn<<rand(0,11)>>.webm"></video></center>'
+		end
+	end
+end
+!* --------------------------------- SWALLOW -------------------------------- *!
+if $ARGS[0] = 'SWALLOW':
+    if dick[ARGS['PASSIVE']]>0:
+		$RESULT='<center><video src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'
+    end
+end
+!* --------------------------------- CUMPLAY -------------------------------- *!
+if $ARGS[0] = 'CUMPLAY':
+    if dick[ARGS['PASSIVE']]>0:
+		$RESULT='<center><video src="pic/sex/degraded/cumplay.webm"></video></center>'
+    else
+		$RESULT='<center><video src="pic/sex/degraded/cumplay.webm"></video></center>'
+    end
+end
+!* -------------------------------- UNWANTED -------------------------------- *!
+if $ARGS[0] = 'UNWANTED_CUM_ON_FACE':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		$RESULT='<center><video src="pic/sex/bj/unwantedb<<rand(0,1)>>.webm" ></video></center>'
+	else
+		$RESULT='<center><video src="pic/sex/bj/unwanted<<rand(0,9)>>.webm" ></video></center>'
+	end
+end
+!* --------------------------------- HANDJOB -------------------------------- *!
+if $ARGS[0] = 'HANDJOB':
+	if ARGS['ACTIVE_IS_BLACK']=1:
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/handbbc<<rand(0,23)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/handbbc<<rand(0,23)>>.webm"></video></center>'
+		end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			$RESULT='<center><video src="pic/sex/bj/hand<<rand(0,13)>>.webm"></video></center>'
+		else
+			$RESULT='<center><video src="pic/sex/bj/hand<<rand(0,13)>>.webm"></video></center>'
+		end
+	end
+end
+!* -------------------------------------------------------------------------- *!
+!*                                  ORAL:END                                  *!
+!* -------------------------------------------------------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                    POSER                                   *!
+!* -------------------------------------------------------------------------- *!
+if ARGS[3]=1:ARGS['CLOTHED']=1
+!* ---------------------------------- DOGGY --------------------------------- *!
+if $ARGS[0] = 'POSER_DOG':
+	if ARGS['PASSIVE']=you:ARGS['CLOTHED']=0
+	if ARGS['CLOTHED']=1:
+		if dick[ARGS['PASSIVE']]>0:
+            $RESULT='<center><img src="pic/sex/poser/doggy_cloths<<rand(0,14)>>.jpg" ></center>'
+        else
+            $RESULT='<center><img src="pic/sex/poser/doggy_cloth<<rand(0,46)>>.jpg" ></center>'
+        end
+	else
+		if dick[ARGS['PASSIVE']]>0:
+			if anal_gape[ARGS['PASSIVE']]!1:$RESULT='<center><video src="pic/sex/poser/doggy_shemale<<rand(0,50)>>.webm"></video></center>'
+			if anal_gape[ARGS['PASSIVE']]=1:$RESULT='<center><video src="pic/sex/poser/doggy_gape_tr<<rand(0,2)>>.webm"></video></center>'
+		else
+			if anal_gape[ARGS['PASSIVE']]!1:
+				if rand(0,1)=1:
+					if hcol[npc]=0:$RESULT='<center><img src="pic/sex/poser/doggyblack<<rand(0,29)>>.jpg"></center>'
+                    if hcol[npc]=1:$RESULT='<center><img src="pic/sex/poser/doggyrus<<rand(0,27)>>.jpg"></center>'
+                    if hcol[npc]=2:$RESULT='<center><img src="pic/sex/poser/doggyred<<rand(0,7)>>.jpg"></center>'
+                    if hcol[npc]=3:$RESULT='<center><img src="pic/sex/poser/doggyblonde<<rand(0,21)>>.jpg"></center>'
+				else
+					$RESULT='<center><video src="pic/sex/poser/doggy<<rand(0,48)>>.webm"></video></center>'
+				end
+			end
+		end
+	end
+end
+!* ---------------------------------- MISS ---------------------------------- *!
+if $ARGS[0] = 'POSER_MIS':
+	 if ARGS['PASSIVE']=you:ARGS['CLOTHED']=0
+     if ARGS['CLOTHED']=1:
+        if dick[ARGS['PASSIVE']]>0:
+            $RESULT='<center><img src="pic/sex/poser/clothed_miss_s<<rand(0,19)>>.jpg" ></center>'
+        else
+            if hcol[npc]=0:$RESULT='<center><img src="pic/sex/poser/clothed_miss<<rand(0,20)>>.jpg"></center>'
+            if hcol[npc]=1:$RESULT='<center><img src="pic/sex/poser/clothed_miss<<rand(21,38)>>.jpg"></center>'
+            if hcol[npc]=2:$RESULT='<center><img src="pic/sex/poser/clothed_miss<<rand(39,40)>>.jpg"></center>'
+            if hcol[npc]=3:$RESULT='<center><img src="pic/sex/poser/clothed_miss<<rand(41,68)>>.jpg"></center>'
+        end
+    else
+        if dick[ARGS['PASSIVE']]>0:
+            $RESULT='<center><video src="pic/sex/poser/miss_shemale<<rand(0,14)>>.webm"></video></center>'
+        else
+            if hcol[npc]=0:$RESULT='<center><img src="pic/sex/poser/newmiss<<rand(0,21)>>.jpg" ></center>'
+	        if hcol[npc]=1:$RESULT='<center><img src="pic/sex/poser/newmiss<<rand(22,44)>>.jpg" ></center>'
+	        if hcol[npc]=2:$RESULT='<center><img src="pic/sex/poser/newmiss45.jpg" ></center>'
+	        if hcol[npc]=3:$RESULT='<center><img src="pic/sex/poser/newmiss<<rand(46,68)>>.jpg" ></center>'
+	    end
+    end
+end
+!* -------------------------------- MISS_POV -------------------------------- *!
+if $ARGS[0] = 'POSER_MIS_POV':
+	if dick[ARGS['PASSIVE']]>0:
+		$RESULT='<center><img src="pic/sex/poser/shemale_pov_miss<<rand(0,29)>>.jpg"></center>'
+	else
+		if ARGS['ACTIVE_IS_BLACK']=1:
+			if rand(0,1)=1:
+				$RESULT='<center><img src="pic/sex/poser/missbbc<<rand(0,8)>>.jpg"></center>'
+			else
+				$RESULT='<center><video src="pic/sex/poser/missbbc<<rand(0,1)>>.webm"></video></center>'
+			end
+		else
+			if rand(0,1)=1:
+				$RESULT='<center><video src="pic/sex/poser/pov<<rand(0,1)>>.webm"></video></center>'
+			else
+				$RESULT='<center><img src="pic/sex/miss_pov<<rand(0,8)>>.jpg" ></center>'
+			end
+		end
+	end
+end
+!* --------------------------------- COWGIRL -------------------------------- *!
+if $ARGS[0] = 'POSER_COW':
+   if ARGS['ACTIVE_IS_BLACK']=1:
+      if dick[ARGS['PASSIVE']]>0:
+         $RESULT='<center><img src="pic/sex/poser/cow_s_bbc<<rand(0,2)>>.jpg" ></center>'
+      else
+         $RESULT='<center><img src="pic/sex/poser/cow_bbc<<rand(0,8)>>.jpg" ></center>'
+      end
+   else
+      if dick[ARGS['PASSIVE']]>0:
+         $RESULT='<center><img src="pic/sex/poser/cow_s<<rand(0,9)>>.jpg" ></center>'
+      else
+         $RESULT='<center><img src="pic/sex/poser/cow<<rand(0,5)>>.jpg" ></center>'
+      end
+   end
+end
+!* ---------------------------------- KNEEL --------------------------------- *!
+if $ARGS[0] = 'POSER_KNEEL':
+   if temp_npc_clothe=1:
+         if hcol[npc]=0:$RESULT='<center><img src="pic/sex/poser/kneel_cloth<<rand(0,12)>>.jpg"></center>'
+         if hcol[npc]=1:$RESULT='<center><img src="pic/sex/poser/kneel_cloth<<rand(13,22)>>.jpg"></center>'
+         if hcol[npc]=2:$RESULT='<center><img src="pic/sex/poser/kneel_cloth<<rand(23,25)>>.jpg"></center>'
+         if hcol[npc]=3:$RESULT='<center><img src="pic/sex/poser/kneel_cloth<<rand(26,33)>>.jpg"></center>'
+   end
+   if temp_npc_clothe=0:
+         if hcol[npc]=0:$RESULT='<center><img src="pic/sex/poser/kneel_nude<<rand(0,5)>>.jpg"></center>'
+         if hcol[npc]=1:$RESULT='<center><img src="pic/sex/poser/kneel_nude<<rand(6,16)>>.jpg"></center>'
+         if hcol[npc]=2:$RESULT='<center><img src="pic/sex/poser/kneel_nude17.jpg"></center>'
+         if hcol[npc]=3:$RESULT='<center><img src="pic/sex/poser/kneel_nude<<rand(18,23)>>.jpg"></center>'
+   end
+end
+!* ------------------------------ KNEEL_OFFICE ------------------------------ *!
+
+if $ARGS[0] = 'POSER_KNEEL_OFFICE':
+   $RESULT='<center><video src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'
+end
+!* -------------------------------- KNEEL_POV ------------------------------- *!
+if $ARGS[0] = 'POSER_KNEEL_POV':
+    if dick[ARGS['ACTIVE']]>1 and pol[ARGS['ACTIVE']]>0:
+		$RESULT='<center><img src="pic/sex/poser/kneel_cloth<<rand(0,30)>>.jpg" ></center>'
+    elseif dick[ARGS['ACTIVE']]>0 and pol[ARGS['ACTIVE']]=0:
+        if ARGS['ACTIVE_IS_BLACK']=0:
+            if dick[ARGS['ACTIVE']]>=24:
+               $RESULT='<center><video src="pic/sex/cockm<<rand(0,4)>>.webm"></video></center>'
+            end
+            if dick[ARGS['ACTIVE']]>=20 and dick[ARGS['ACTIVE']]<24:
+               $RESULT='<center><img src="pic/sex/cock<<rand(60,64)>>.jpg"></center>'
+            end
+            if dick[ARGS['ACTIVE']]>=18 and dick[ARGS['ACTIVE']]<20:
+               $RESULT='<center><img src="pic/sex/cock<<rand(50,53)>>.jpg"></center>'
+            end
+            if dick[ARGS['ACTIVE']]>=16 and dick[ARGS['ACTIVE']]<18:
+               $RESULT='<center><img src="pic/sex/cock<<rand(40,42)>>.jpg"></center>'
+            end
+            if dick[ARGS['ACTIVE']]>=14 and dick[ARGS['ACTIVE']]<16:
+               $RESULT='<center><img src="pic/sex/cock<<rand(30,36)>>.jpg"></center>'
+            end
+            if dick[ARGS['ACTIVE']]>=12 and dick[ARGS['ACTIVE']]<14:
+               $RESULT='<center><img src="pic/sex/cock<<rand(20,24)>>.jpg"></center>'
+            end
+            if dick[ARGS['ACTIVE']]>=10 and dick[ARGS['ACTIVE']]<12:
+               $RESULT='<center><img src="pic/sex/cock<<rand(10,19)>>.jpg"></center>'
+            end
+            if dick[ARGS['ACTIVE']]<10:
+				$RESULT='<center><img src="pic/sex/cock<<rand(1,9)>>.jpg" ></center>'
+            end
+        else
+			$RESULT='<center><video src="pic/sex/bbc/before_blow<<rand(0,29)>>.webm" ></video></center>'
+        end
+	else
+		$RESULT='<center><img src="pic/sex/cunt<<rand(0,29)>>.jpg"></center>'
+	end
+end
+!* ---------------------------------- KISS ---------------------------------- *!
+if $ARGS[0] = 'POSER_KISS':
+				
+   if pol[ARGS['PASSIVE']]>0 and pol[ARGS['ACTIVE']]>0:
+		$RESULT='<center><video src="pic/sex/poser/kiss_female<<rand(0,11)>>.webm" ></video></center>'
+   else
+		if skin[you]>4:
+             '<center><video src="pic/sex/foreplay/black_kiss<<rand(0,16)>>.webm" ></video></center>'
+		else
+            $RESULT='<center><video src="pic/sex/poser/kiss_male<<rand(0,9)>>.webm" ></video></center>'
+		end
+	end
+end
+!* -------------------------------------------------------------------------- *!
+!*                                  POSER:END                                 *!
+!* -------------------------------------------------------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                  SPECIFIC                                  *!
+!* -------------------------------------------------------------------------- *!
+!Секс в туалете.
+if $ARGS[0] = 'TOILET_FUCK':
+     if ARGS['ACTIVE_IS_BLACK']=1:
+         if dick[ARGS['PASSIVE']]>0:
+             $RESULT='<center><video src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
+         else
+             $RESULT='<center><video src="pic/sex/public/toilet_pb<<rand(0,4)>>.webm" ></video></center>'
+         end
+     else
+         if dick[ARGS['PASSIVE']]>0:
+             $RESULT='<center><video src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
+         else
+             $RESULT='<center><video src="pic/sex/public/toilet_p<<rand(0,7)>>.webm" ></video></center>'
+         end
+     end
+end
+if $ARGS[0] = 'TOILET_BLOW':
+     if ARGS['ACTIVE_IS_BLACK']=1:
+         if dick[ARGS['PASSIVE']]>0:
+             $RESULT='<center><video src="pic/sex/public/toilet_blowbbc<<rand(3,24)>>.webm" ></video></center>'
+         else
+             $RESULT='<center><video src="pic/sex/public/toilet_blowbbc<<rand(0,24)>>.webm" ></video></center>'
+         end
+     else
+         if dick[ARGS['PASSIVE']]>0:
+             $RESULT='<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+         else
+             $RESULT='<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+         end
+     end
+end
+!На улице
+if $ARGS[0] = 'PUBLIC_FUCK':
+     if ARGS['ACTIVE_IS_BLACK']=1:
+         if dick[ARGS['PASSIVE']]>0:
+             $RESULT='<center><video src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>'
+         else
+             $RESULT='<center><video src="pic/sex/public/bbc_p<<rand(0,12)>>.webm" ></video></center>'
+         end
+     else
+         if dick[ARGS['PASSIVE']]>0:
+             $RESULT='<center><video src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
+         else
+             $RESULT='<center><video src="pic/sex/public/p<<rand(0,20)>>.webm" ></video></center>'
+         end
+     end
+end
+!На улице
+if $ARGS[0] = 'PUBLIC_BLOW':
+   if ARGS['ACTIVE_IS_BLACK']=0:
+      $RESULT='<center><video src="pic/sex/public/blow<<rand(0,27)>>.webm"></video></center>'
+   else
+      $RESULT='<center><video src="pic/sex/public/bbc_blow<<rand(0,21)>>.webm"></video></center>'
+   end
+end
+!* -------------------------------------------------------------------------- *!
+!*                                SPECIFIC:END                                *!
+!* -------------------------------------------------------------------------- *!
+
+!* -------------------------------------------------------------------------- *!
+!*                                  GLORYHOLE                                 *!
+!* -------------------------------------------------------------------------- *!
+!* ---------------------------- GLORYHOLE - DICK ---------------------------- *!
+if $ARGS[0] = 'GLORY_DICK':
+   if rand(0,1) = 0:
+      $RESULT='<center><img src="pic/sex/gloryhole/cock<<rand(0,13)>>.jpg"></center>'
+   else
+      $RESULT='<center><video src="pic/sex/gloryhole/cock<<rand(0,4)>>.webm"></video></center>'
+   end
+end
+!* ---------------------------- GLORYHOLE - BLOW ---------------------------- *!
+if $ARGS[0] = 'GLORY_BLOW':
+   if dick[ARGS['PASSIVE']]>0 and ARGS['PASSIVE'] ! 0:
+      $RESULT='<center><video src="pic/sex/gloryhole/<<rand(0,20)>>.webm" ></video></center>'
+   else
+      $RESULT='<center><video src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
+   end
+end
+!* -------------------------- GLORYHOLE - BLOW DEEP ------------------------- *!
+if $ARGS[0] = 'GLORY_BLOW_DEEP':
+   if dick[ARGS['PASSIVE']]>0 and ARGS['PASSIVE'] ! 0:
+      $RESULT='<center><video src="pic/sex/gloryhole/deep<<rand(0,3)>>.webm" ></video></center>'
+   else
+      $RESULT='<center><video src="pic/sex/gloryhole/deep<<rand(0,3)>>.webm" ></video></center>'
+   end
+end
+!* ------------------------ GLORYHOLE - CUM IN MOUTH ------------------------ *!
+if $ARGS[0] = 'GLORY_CUM_IN_MOUTH':
+   if dick[ARGS['PASSIVE']]>0 and ARGS['PASSIVE'] ! 0:
+      $RESULT='<center><video src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'
+   else
+      $RESULT='<center><video src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'
+   end
+end
+!* -------------------------- GLORYHOLE - FUCK ASS -------------------------- *!
+if $ARGS[0] = 'GLORY_ASS':
+   if dick[ARGS['PASSIVE']]>0 and ARGS['PASSIVE'] ! 0:
+      $RESULT='<center><video src="pic/sex/gloryhole/a/tr<<rand(1,3)>>.webm"></video></center>'
+   else
+      $RESULT='<center><video src="pic/sex/gloryhole/a/aact<<rand(1,7)>>.webm"></video></center>'
+   end
+end
+!* --------------------------- GLORYHOLE - ASS_IN --------------------------- *!
+if $ARGS[0] = 'GLORY_ASS_IN':
+   if dick[ARGS['PASSIVE']]>0 and ARGS['PASSIVE'] ! 0:
+      $RESULT='<center><video src="pic/sex/gloryhole/a/tr4.webm"></video></center>'
+   else
+      $RESULT='<center><video src="pic/sex/gloryhole/a/tr4.webm"></video></center>'
+   end
+end
+!* ------------------------- GLORYHOLE - FUCK PUSSY ------------------------- *!
+if $ARGS[0] = 'GLORY_PUSSY':
+   $RESULT='<center><video src="pic/sex/gloryhole/f/act<<rand(1,19)>>.webm"></video></center>'
+end
+!* ------------------------ GLORYHOLE - PUSSY_INSERT ------------------------ *!
+if $ARGS[0] = 'GLORY_PUSSY_IN':
+   $RESULT='<center><video src="pic/sex/gloryhole/f/n<<rand(1,3)>>.webm"></video></center>'
+end
+!* -------------------------- GLORYHOLE - PUSSY_OUT ------------------------- *!
+if $ARGS[0] = 'GLORY_PUSSY_OUT':
+   $RESULT='<center><video src="pic/sex/gloryhole/f/finmount1.webm"></video></center>'
+end
+!* -------------------------- GLORYHOLE - PUSSY_CUM ------------------------- *!
+if $ARGS[0] = 'GLORY_PUSSY_CUM':
+   $RESULT='<center><video src="pic/sex/gloryhole/f/pussycum<<rand(1,4)>>.webm"></video></center>'
+end
+!* -------------------------------------------------------------------------- *!
+!*                                GLORYHOLE:END                               *!
+!* -------------------------------------------------------------------------- *!

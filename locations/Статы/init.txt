@@ -1,0 +1,286 @@
+﻿$d_inv={
+	clr&p'<<func("generate_links", 1, 13, "ИНВЕНТАРЬ")>>'
+	burden[you]=0&if bocman_work=2:burden[you]+=1000
+	if povar_work=2:burden[you]+=1000
+	!* -------------------------------------------------------------------------- *!
+	!*                                  ПРЕДМЕТЫ                                  *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem=''&$invitem_caneat=''&itemmax=arrsize('$item_name')&iteminv=1
+	ARGS['ITEMS_WEIGHT']=0&ARGS['TOTAL_ITEMS_AMOUNT']=0&ARGS['FIRST_ITEM']=0
+	:markiteminv
+	if item[iteminv]<0:item[iteminv]=0
+    if item[iteminv]>0 and $item_name[iteminv]!'':
+		 ARGS['ITEMS_WEIGHT']+=item_burden[iteminv]*item[iteminv] & ARGS['TOTAL_ITEMS_AMOUNT']+=item[iteminv]
+		 if ARGS['FIRST_ITEM']>0:$invitem+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		 ARGS['FIRST_ITEM']=1
+		 if loc_for_drop=1 and $item_name[iteminv]!$item_text[iteminv] and $item_text[iteminv]!'':
+			$invitem+="<a class='plain' href='exec: gs""util_func"",""display_inv_item_info"", <<iteminv>>'><b><<$item_name[iteminv]>></b></a>: <b><<item[iteminv]>></b> шт."
+		 elseif (loc_for_drop=1 and $item_name[iteminv]!$item_text[iteminv] and $item_text[iteminv]='') or (loc_for_drop=1 and $item_name[iteminv]=$item_text[iteminv]):
+			$invitem+="<b><<$item_name[iteminv]>></b>: <b><<item[iteminv]>></b> шт."
+		 end
+		 !if loc_for_drop=1 and $item_name[iteminv]=$item_text[iteminv]:$invitem+="Бросить <a href='exec: gt""dropitem"", <<iteminv>>'><b><<$item_name[iteminv]>></b></a>. <b><<item[iteminv]>></b> шт"
+		 !if loc_for_drop=1 and item[iteminv]>=10:$invitem+=" &#8596 <a href='exec: gt""dropallitem"", <<iteminv>>'><b><font color='red'>Бросить все</font></b></a>"
+		 if loc_for_drop=0 and $item_name[iteminv]!$item_text[iteminv]:$invitem+="<<$item_name[iteminv]>> <<$item_text[iteminv]>> <<item[iteminv]>> шт"
+		 if loc_for_drop=0 and $item_name[iteminv]=$item_text[iteminv]:$invitem+="<<$item_name[iteminv]>> <<item[iteminv]>> шт"
+         if can_eat[iteminv]>0:
+             $invitem_caneat+='<br>'
+			 if loc_for_drop=1 and $item_name[iteminv]!$item_text[iteminv]:$invitem_caneat+="Бросить <a href='exec: gt""dropitem"", <<iteminv>>'><b><<$item_name[iteminv]>></b></a>. <<$item_text[iteminv]>> <b><<item[iteminv]>></b> шт"
+			 if loc_for_drop=1 and $item_name[iteminv]=$item_text[iteminv]:$invitem_caneat+="Бросить <a href='exec: gt""dropitem"", <<iteminv>>'><b><<$item_name[iteminv]>></b></a>.  <b><<item[iteminv]>></b> шт"
+			 if loc_for_drop=0 and $item_name[iteminv]!$item_text[iteminv]:$invitem_caneat+="<<$item_name[iteminv]>> <<$item_text[iteminv]>> <<item[iteminv]>> шт"
+			 if loc_for_drop=0 and $item_name[iteminv]=$item_text[iteminv]:$invitem_caneat+="<<$item_name[iteminv]>> <<item[iteminv]>> шт"
+			 caneat=can_eat[iteminv]
+             if $item_eat[iteminv]!'Съесть':
+				 $invitem+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
+				 $invitem_caneat+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
+             else
+                 if hunger[you]>1:
+					 $invitem+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
+					 $invitem_caneat+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
+                 else
+					 $invitem+=" <i>(вы сыты)</i>"
+					 $invitem_caneat+=" <i>(вы сыты)</i>"
+                 end
+             end
+         end
+				 if can_eat[iteminv]>0 and loc_for_drop=1:$invitem+=' &#8596 '
+				 if loc_for_drop=1:$invitem+="<a class='plain' href='exec: gt""dropitem"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+         !if clo_item[iteminv]>0:$invitem+=" <a href='exec: gs""item_clo"",<<iteminv>>'><b><<$item_eat[iteminv]>></b></a>"
+         burden[you]+=item_burden[iteminv]*item[iteminv]
+     end
+	iteminv+=1&if iteminv<=itemmax:jump'markiteminv'
+	!* -------------------------------------------------------------------------- *!
+	!*                               ВЕРХНЯЯ ОДЕЖДА                               *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_c=''&item_c_max=arrsize('$c_name')&iteminv=1
+	ARGS["CLOTHES_WEIGHT"]=0&ARGS["TOTAL_CLOTHES_AMOUNT"]=0&ARGS['FIRST_ITEM']=0
+	:markiteminvtc
+     if item_c[iteminv]>0 and $c_name[iteminv]!'':
+		ARGS["CLOTHES_WEIGHT"]+=item_c_burden[iteminv]*item_c[iteminv] & ARGS["TOTAL_CLOTHES_AMOUNT"]+=item_c[iteminv]
+		if ARGS['FIRST_ITEM']>0:$invitem_c+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_c+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""coat"",<<iteminv>>'><<$c_name[iteminv]>></a>: <b><<item_c[iteminv]>></b> шт."
+        $invitem_h+=" <a class='plain' href='exec: gs""item_clo_c"",<<iteminv>>'><font color='green'><b><<$item_c_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_c+=" &#8596 <a class='plain' href='exec: gt""dropitem_c"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+         burden[you]+=item_c_burden[iteminv]*item_c[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_c_max:jump'markiteminvtc'
+	if iteminv=item_c_max and $invitem_c!'':$invitem_c[iteminv]+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                               ПИДЖАКИ/ЖАКЕТЫ                                *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_tz=''&item_tz_max=arrsize('$tz_name')&iteminv=1
+	ARGS["CLOTHES_WEIGHT"]=0&ARGS["TOTAL_CLOTHES_AMOUNT"]=0&ARGS['FIRST_ITEM']=0
+	:markiteminvtz
+     if item_tz[iteminv]>0 and $tz_name[iteminv]!'':
+		ARGS["CLOTHES_WEIGHT"]+=item_tz_burden[iteminv]*item_tz[iteminv] & ARGS["TOTAL_CLOTHES_AMOUNT"]+=item_tz[iteminv]
+		if ARGS['FIRST_ITEM']>0:$invitem_tz+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_tz+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""tz"",<<iteminv>>'><<$tz_name[iteminv]>></a>: <b><<item_tz[iteminv]>></b> шт."
+        $invitem_tz+=" <a class='plain' href='exec: gs""item_clo_tz"",<<iteminv>>'><font color='green'><b><<$item_tz_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_tz+=" &#8596 <a class='plain' href='exec: gt""dropitem_tz"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+         burden[you]+=item_tz_burden[iteminv]*item_tz[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_tz_max:jump'markiteminvtz'
+	if iteminv=item_tz_max and $invitem_tz!'':$invitem_tz[iteminv]+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                               ЖИЛЕТЫ/КАРДИГАНЫ                                *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_tg=''&item_tg_max=arrsize('$tz_name')&iteminv=1
+	ARGS["CLOTHES_WEIGHT"]=0&ARGS["TOTAL_CLOTHES_AMOUNT"]=0&ARGS['FIRST_ITEM']=0
+	:markiteminvtg
+     if item_tg[iteminv]>0 and $tg_name[iteminv]!'':
+		ARGS["CLOTHES_WEIGHT"]+=item_tg_burden[iteminv]*item_tg[iteminv] & ARGS["TOTAL_CLOTHES_AMOUNT"]+=item_tg[iteminv]
+		if ARGS['FIRST_ITEM']>0:$invitem_tg+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_tg+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""tg"",<<iteminv>>'><<$tg_name[iteminv]>></a>: <b><<item_tg[iteminv]>></b> шт."
+        $invitem_tg+=" <a class='plain' href='exec: gs""item_clo_tg"",<<iteminv>>'><font color='green'><b><<$item_tg_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_tg+=" &#8596 <a class='plain' href='exec: gt""dropitem_tg"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+        burden[you]+=item_tg_burden[iteminv]*item_tg[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_tg_max:jump'markiteminvtg'
+	if iteminv=item_tg_max and $invitem_tg!'':$invitem_tg[iteminv]+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                                    ШАПКИ                                   *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_h=''&item_h_max=arrsize('$h_name')&iteminv=1
+	ARGS["CLOTHES_WEIGHT"]=0&ARGS["TOTAL_CLOTHES_AMOUNT"]=0&ARGS['FIRST_ITEM']=0
+	:markiteminvth
+     if item_h[iteminv]>0 and $h_name[iteminv]!'':
+		ARGS["CLOTHES_WEIGHT"]+=item_h_burden[iteminv]*item_h[iteminv] & ARGS["TOTAL_CLOTHES_AMOUNT"]+=item_h[iteminv]
+		if ARGS['FIRST_ITEM']>0:$invitem_h+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_h+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""hat"",<<iteminv>>'><<$h_name[iteminv]>></a>: <b><<item_h[iteminv]>></b> шт."
+        $invitem_h+=" <a class='plain' href='exec: gs""item_clo_h"",<<iteminv>>'><font color='green'><b><<$item_h_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_h+=" &#8596 <a class='plain' href='exec: gt""dropitem_h"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+         burden[you]+=item_h_burden[iteminv]*item_h[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_h_max:jump'markiteminvth'
+	if iteminv=item_h_max and $invitem_h!'':$invitem_h[iteminv]+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                               РУБАШКИ/БЛУЗКИ                               *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_t=''&item_t_max=arrsize('$t_name')&iteminv=1
+	ARGS['FIRST_ITEM']=0
+	:markiteminvt
+     if item_t[iteminv]>0 and $t_name[iteminv]!'':
+		ARGS["CLOTHES_WEIGHT"]+=item_t_burden[iteminv]*item_t[iteminv] & ARGS["TOTAL_CLOTHES_AMOUNT"]+=item_t[iteminv]
+		if ARGS['FIRST_ITEM']>0 or $invitem_h!'':$invitem_t+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_t+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""top"",<<iteminv>>'><<$t_name[iteminv]>></a>: <b><<item_t[iteminv]>></b> шт."
+        $invitem_t+=" <a class='plain' href='exec: gs""item_clo_t"",<<iteminv>>'><font color='green'><b><<$item_t_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_t+=" &#8596 <a class='plain' href='exec: gt""dropitem_t"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+         burden[you]+=item_t_burden[iteminv]*item_t[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_t_max:jump'markiteminvt'
+	if iteminv=item_t_max and $invitem_t!'':$invitem_t+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                                 ШТАНЫ/ЮБКИ                                 *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_l=''&item_l_max=arrsize('$l_name')&iteminv=1
+	ARGS['FIRST_ITEM']=0
+	:markiteminvl
+     if item_l[iteminv]>0 and $l_name[iteminv]!'':
+		ARGS["CLOTHES_WEIGHT"]+=item_l_burden[iteminv]*item_l[iteminv] & ARGS["TOTAL_CLOTHES_AMOUNT"]+=item_l[iteminv]
+		if ARGS['FIRST_ITEM']>0 or $invitem_h!'' or $invitem_t!'':$invitem_l+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_l+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""low"",<<iteminv>>'><<$l_name[iteminv]>></a>: <b><<item_l[iteminv]>></b> шт."
+		$invitem_l+=" <a class='plain' href='exec: gs""item_clo_l"",<<iteminv>>'><font color='green'><b><<$item_l_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_l+=" &#8596 <a class='plain' href='exec: gt""dropitem_l"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+        burden[you]+=item_l_burden[iteminv]*item_l[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_l_max:jump'markiteminvl'
+	if iteminv=item_l_max and $invitem_l!'':$invitem_l+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                                   БОТИНКИ                                  *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_b=''&item_b_max=arrsize('$b_name')&iteminv=1
+	ARGS['FIRST_ITEM']=0
+	:markiteminvb
+     if item_b[iteminv]>0 and $b_name[iteminv]!'':
+		ARGS["CLOTHES_WEIGHT"]+=item_b_burden[iteminv]*item_b[iteminv] & ARGS["TOTAL_CLOTHES_AMOUNT"]+=item_b[iteminv]
+		if ARGS['FIRST_ITEM']>0 or $invitem_h!'' or $invitem_t!'' or $invitem_l!'':$invitem_b+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_b+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""boot"",<<iteminv>>'><<$b_name[iteminv]>></a>: <b><<item_b[iteminv]>></b> шт."
+		$invitem_b+=" <a class='plain' href='exec: gs""item_clo_b"",<<iteminv>>'><font color='green'><b><<$item_b_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_b+=" &#8596 <a class='plain' href='exec: gt""dropitem_b"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+        burden[you]+=item_b_burden[iteminv]*item_b[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_b_max:jump'markiteminvb'
+	if iteminv=item_b_max and $invitem_b!'':$invitem_b+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                                   ЛИФЧИКИ                                  *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_ut=''&item_ut_max=arrsize('$ut_name')&iteminv=1
+	ARGS["UNDERWEAR_WEIGHT"]=0&ARGS["TOTAL_UNDERWEAR_AMOUNT"]=0&ARGS['FIRST_ITEM']=0
+	:markiteminvut
+     if item_ut[iteminv]>0 and $ut_name[iteminv]!'':
+		ARGS["UNDERWEAR_WEIGHT"]+=item_ut_burden[iteminv]*item_ut[iteminv] & ARGS["TOTAL_UNDERWEAR_AMOUNT"]+=item_ut[iteminv]
+		if ARGS['FIRST_ITEM']>0:$invitem_ut+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_ut+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""utop"",<<iteminv>>'><<$ut_name[iteminv]>></a>: <b><<item_ut[iteminv]>></b> шт."
+		$invitem_ut+=" <a class='plain' href='exec: gs""item_clo_ut"",<<iteminv>>'><font color='green'><b><<$item_ut_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_ut+=" &#8596 <a class='plain' href='exec: gt""dropitem_ut"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+        burden[you]+=item_ut_burden[iteminv]*item_ut[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_ut_max:jump'markiteminvut'
+	if iteminv=item_ut_max and $invitem_ut!'':$invitem_ut+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                                    ТРУСЫ                                   *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_ul=''&item_ul_max=arrsize('$ul_name')&iteminv=1
+	ARGS['FIRST_ITEM']=0
+	:markiteminvul
+     if item_ul[iteminv]>0 and $ul_name[iteminv]!'':
+		ARGS["UNDERWEAR_WEIGHT"]+=item_ul_burden[iteminv]*item_ul[iteminv] & ARGS["TOTAL_UNDERWEAR_AMOUNT"]+=item_ul[iteminv]
+		if ARGS['FIRST_ITEM']>0 or $invitem_ut!'':$invitem_ul+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_ul+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""ulow"",<<iteminv>>'><<$ul_name[iteminv]>></a>: <b><<item_ul[iteminv]>></b> шт."
+		$invitem_ul+=" <a class='plain' href='exec: gs""item_clo_ul"",<<iteminv>>'><font color='green'><b><<$item_ul_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_ul+=" &#8596 <a class='plain' href='exec: gt""dropitem_ul"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+        burden[you]+=item_ul_burden[iteminv]*item_ul[iteminv]
+     end
+	iteminv+=1
+	if iteminv<=item_ul_max:jump'markiteminvul'
+	if iteminv=item_ul_max and $invitem_ul!'':$invitem_ul+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                                    ЧУЛКИ                                   *!
+	!* -------------------------------------------------------------------------- *!
+	$invitem_ub=''&item_ub_max=arrsize('$ub_name')&iteminv=1
+	ARGS['FIRST_ITEM']=0
+	:markiteminvub
+     if item_ub[iteminv]>0 and $ub_name[iteminv]!'':
+		ARGS["UNDERWEAR_WEIGHT"]+=item_ub_burden[iteminv]*item_ub[iteminv] & ARGS["TOTAL_UNDERWEAR_AMOUNT"]+=item_ub[iteminv]
+		if ARGS['FIRST_ITEM']>0 or invitem_ul!'' or $invitem_ut!'':$invitem_ub+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+		ARGS['FIRST_ITEM']=1
+		$invitem_ub+="<a class='plain' href='exec: gs""util_func"",""get_msg_for_clothes"",""uboot"",<<iteminv>>'><<$ub_name[iteminv]>></a>: <b><<item_ub[iteminv]>></b> шт."
+		$invitem_ub+=" <a class='plain' href='exec: gs""item_clo_ub"",<<iteminv>>'><font color='green'><b><<$item_ub_use[iteminv]>></b></font></a>"
+		if loc_for_drop=1:$invitem_ub+=" &#8596 <a class='plain' href='exec: gt""dropitem_ub"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
+         burden[you]+=item_ub_burden[iteminv]*item_ub[iteminv]
+     end
+	iteminv+=1&if iteminv<=item_ub_max:jump'markiteminvub'
+	if iteminv=item_ub_max and $invitem_ub!'':$invitem_ub+='<<iif(CONFIG["DISABLE_HR_IN_INVENTORY"]=1, "<br>", "<hr>")>>'
+	!* -------------------------------------------------------------------------- *!
+	!*                                  РЕЗУЛЬТАТ                                 *!
+	!* -------------------------------------------------------------------------- *!
+	p'<center><b>&#11166;ИНВЕНТАРЬ&#11164;</b></center>'
+	p'<hr>'
+	pl'<b><img width="15" height="auto" src="pic/misc/UI/icons/weight.png">Нагрузка: <<func("util_func", "get_weight_text")>></b>'
+	if $invitem='' and $invitem_c='' and $invitem_tz='' and $invitem_tg='' and $invitem_h='' and $invitem_t='' and $invitem_l='' and $invitem_b='' and $invitem_ut='' and $invitem_ul='' and $invitem_ub='':p'<hr>'
+	if $invitem ! '':
+		p'<hr>'&p'<center><b><font color=#98441f>Предметы</font></b>: <a class="plain" href="exec:gs(''util_func'', ''get_weight_of_items'', ''$item_name'')"><<$func("util_func","get_weight_text_all",ARGS["ITEMS_WEIGHT"])>></a></center>'&p'<hr>'&p '<<$invitem>>'
+		if ARGS['TOTAL_ITEMS_AMOUNT']>=10:p'<hr><center><a class="plain" href="exec:gs(''drop_all_items_func'', ''items'') & gt $curloc"><font color=red>Выбросить всё</font></a></center>'
+		if $invitem_c='' and $invitem_tz='' and $invitem_tg='' and $invitem_h='' and $invitem_t='' and $invitem_l='' and $invitem_b='' and $invitem_ut='' and $invitem_ul='' and $invitem_ub='' and CONFIG["DISABLE_HR_IN_INVENTORY"]=0:p'<hr>'
+	end
+	if $invitem_c!'' or $invitem_tz!'' or $invitem_tz!'':
+		p'<hr>'&p'<center><b><font color=#98441f>Одежда</font></b>: <a class="plain" href="exec:gs(''util_func'', ''get_weight_of_items_func'', ''$c_name'', ''$tz_name'', ''$tg_name'')"><<$func("util_func","get_weight_text_all",ARGS["CLOTHES_WEIGHT"])>></a></center>'&p'<hr>'
+		if $invitem_c!'':p '<<$invitem_c>>'
+		if $invitem_tz!'':p '<<$invitem_tz>>'
+		if $invitem_tg!'':p '<<$invitem_tg>>'
+		if ARGS['TOTAL_CLOTHES_AMOUNT']>=10:p'<hr><center><a class="plain" href="exec:gs(''drop_all_items_func'', ''clothes'') & gt $curloc"><font color=red>Выбросить всё</font></a></center>'
+		if $invitem_h='' and $invitem_t='' and $invitem_l='' and $invitem_b='' and $invitem_ut='' and $invitem_ul='' and $invitem_ub='' and CONFIG["DISABLE_HR_IN_INVENTORY"]=0:p'<hr>'
+	end
+	if $invitem_h!'' or $invitem_t!'' or $invitem_l!'' or $invitem_b!'':
+		p'<hr>'&p'<center><b><font color=#98441f>Одежда</font></b>: <a class="plain" href="exec:gs(''util_func'', ''get_weight_of_items_func'', ''$h_name'', ''$t_name'', ''$l_name'', ''$b_name'')"><<$func("util_func","get_weight_text_all",ARGS["CLOTHES_WEIGHT"])>></a></center>'&p'<hr>'
+		if $invitem_h!'':p '<<$invitem_h>>'
+		if $invitem_t!'':p '<<$invitem_t>>'
+		if $invitem_l!'':p '<<$invitem_l>>'
+		if $invitem_b!'':p '<<$invitem_b>>'
+		if ARGS['TOTAL_CLOTHES_AMOUNT']>=10:p'<hr><center><a class="plain" href="exec:gs(''drop_all_items_func'', ''clothes'') & gt $curloc"><font color=red>Выбросить всё</font></a></center>'
+		if $invitem_ut='' and $invitem_ul='' and $invitem_ub='' and CONFIG["DISABLE_HR_IN_INVENTORY"]=0:p'<hr>'
+	end
+	if $invitem_ut!'' or $invitem_ul!'' or $invitem_ub!'':
+		p'<hr>'&p'<center><b><font color=#98441f>Нижнее белье</font></b>: <a class="plain" href="exec:gs(''util_func'', ''get_weight_of_items_func'', ''$ut_name'', ''$ul_name'', ''$ub_name'')"><<$func("util_func","get_weight_text_all",ARGS["UNDERWEAR_WEIGHT"])>></a></center>'&p'<hr>'
+		if $invitem_ut!'':p '<<$invitem_ut>>'
+		if $invitem_ul!'':p '<<$invitem_ul>>'
+		if $invitem_ub!'':p '<<$invitem_ub>>'
+		if ARGS['TOTAL_UNDERWEAR_AMOUNT']>=10:p'<hr><center><a class="plain" href="exec:gs(''drop_all_items_func'', ''underwear'') & gt $curloc"><font color=red>Выбросить всё</font></a></center>'
+		if CONFIG["DISABLE_HR_IN_INVENTORY"]=0:p'<hr>'
+	end
+	if key['<<you>>,3,3,3,1,4']=1:pl'Ключ от гримерки'
+	if inv_view=1:
+		p'<center><b>&#11166;ИНВЕНТАРЬ&#11164;</b></center>'
+		if $invitem ! '':p'<hr>'&p'<center><b>Предметы</b></center>'&p'<hr>'&p '<<$invitem>>'
+	end
+	if inv_view=2:
+		if $invitem_c!'' or $invitem_tz!'' or $invitem_tg!'':
+			p'<hr>'&p'<center><b>Верхняя одежда</b></center>'&p'<hr>'
+			if $invitem_c!'':p '<<$invitem_c>>'
+			if $invitem_tz!'':p '<<$invitem_tz>>'
+			if $invitem_tg!'':p '<<$invitem_tg>>'
+		end
+		if $invitem_h!'' or $invitem_t!'' or $invitem_l!'' or $invitem_b!'':
+			p'<hr>'&p'<center><b>Одежда</b></center>'&p'<hr>'
+			if $invitem_h!'':p '<<$invitem_h>>'
+			if $invitem_t!'':p '<<$invitem_t>>'
+			if $invitem_l!'':p '<<$invitem_l>>'
+			if $invitem_b!'':p '<<$invitem_b>>'
+		end
+		if $invitem_ut!'' or $invitem_ul!'' or $invitem_ub!'':
+			p'<hr>'&p'<center><b>Нижнее белье</b></center>'&p'<hr>'
+			if $invitem_ut!'':p '<<$invitem_ut>>'
+			if $invitem_ul!'':p '<<$invitem_ul>>'
+			if $invitem_ub!'':p '<<$invitem_ub>>'
+		end
+	end
+	if inv_view=3 and $invitem_caneat ! '':p'<hr>'&p'<center><b>Используемое</b></center>'&p'<hr>'&p '<<$invitem_caneat>>'
+}

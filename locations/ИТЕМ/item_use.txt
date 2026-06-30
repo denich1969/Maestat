@@ -1,0 +1,244 @@
+﻿if args[0]=0:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&clr&dynamic $d_inv&!действие итема: заготовка
+if args[0]=1:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&clr&gs'eat'&dynamic $d_inv&!действие итема: есть
+if args[0]=2:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[2]+=1&burden[you]+=item_burden[2]&clr&gs'drink'&dynamic $d_inv&!действие итема: пить воду
+if args[0]=3:
+	eatitem=args[1]&temp_ring=0
+     if l_ring[you]=0 and temp_ring=0:item[eatitem]-=1&burden[you]-=item_burden[eatitem]&l_ring[you]=eatitem&temp_ring=1&msg("Вы надели кольцо на безымянный палец левой руки")
+	 if r_ring[you]=0 and temp_ring=0:item[eatitem]-=1&burden[you]-=item_burden[eatitem]&r_ring[you]=eatitem&temp_ring=1&msg("Вы надели кольцо на безымянный палец правой руки")
+	 if l_ring[you]>0 and r_ring[you]>0 and temp_ring=0:msg("Кольцо некуда надеть")
+	clr&dynamic $d_inv
+end
+if args[0]=4:
+	eatitem=args[1]&temp_amulet=0
+	 if amulet[you]=0 and temp_amulet=0:item[eatitem]-=1&burden[you]-=item_burden[eatitem]&amulet[you]=eatitem&temp_amulet=1&msg("Вы надели амулет на шею")
+	if amulet[you]>0 and temp_amulet=0:msg("Вы не можете повесить амулет на шею")
+	clr&dynamic $d_inv
+end
+if args[0]=5:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[1]+=1&burden[you]+=item_burden[1]&clr&dynamic $d_inv&!действие итема: порвать на тряпки
+if args[0]=6:
+	eatitem=args[1]
+	 if m_slot[you]>0:
+		 clo=m_slot[you]&item[clo]+=1&burden[you]+=item_burden[clo]&m_slot[you]=0&uron_weapon_m[you]=0&$item_m_name[clo]=''&!убираем
+		 item[eatitem]-=1&burden[you]-=item_burden[eatitem]&m_slot[you]=eatitem&!взять в руку холодное оружие
+		 $item_m_name[eatitem]=$item_text[eatitem]&uron_weapon_m[you]=uron_m_item[eatitem]&!действие итема: урон
+	 else
+		 item[eatitem]-=1&burden[you]-=item_burden[eatitem]&m_slot[you]=eatitem&$item_m_name[eatitem]=$item_text[eatitem]&uron_weapon_m[you]=uron_m_item[eatitem]&!действие итема: урон
+	 end
+	clr&dynamic $d_inv
+end
+if args[0]=7:
+	eatitem=args[1]
+	 if w_slot[you]>0:
+		 clo=w_slot[you]&item[clo]+=1&burden[you]+=item_burden[clo]&w_slot[you]=0&uron_weapon_w[you]=0&$item_w_name[clo]=''&w_patron_max[you]=0&w_patrontipe[you]=0&!убираем
+		 item[eatitem]-=1&burden[you]-=item_burden[eatitem]&w_slot[you]=eatitem&!взять в руку огнестрельное оружие
+		 $item_w_name[eatitem]=$item_text[eatitem]&uron_weapon_w[you]=uron_w_item[eatitem]&!действие итема: урон
+		 w_patron_max[you]=item_w_patron_max[eatitem]&w_patrontipe[you]=item_w_patrontipe[eatitem]&weapon_tipe=1
+	 else
+		 item[eatitem]-=1&burden[you]-=item_burden[eatitem]&w_slot[you]=eatitem
+		 $item_w_name[eatitem]=$item_text[eatitem]&uron_weapon_w[you]=uron_w_item[eatitem]&!действие итема: урон
+		 w_patron_max[you]=item_w_patron_max[eatitem]&w_patrontipe[you]=item_w_patrontipe[eatitem]&weapon_tipe=1
+	 end
+	clr&dynamic $d_inv
+end
+if args[0]=8:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[12]+=1&burden[you]+=item_burden[12]&clr&dynamic $d_inv&!порвать книгу на бумагу
+if args[0]=9:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[15]+=1&burden[you]+=item_burden[15]&item[16]+=1&burden[you]+=item_burden[16]&clr&dynamic $d_inv
+if args[0]=10:
+     if item[15]>0 and item[16]>0:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[16]-=1&burden[you]-=item_burden[16]&item[14]+=1&burden[you]+=item_burden[14]
+	clr&dynamic $d_inv&!собрать станок
+end
+if args[0]=11:
+	eatitem=args[1]
+     if cum_face[you]>0 and status_tipe[you]>0:
+		 status_time[you]=0&$status[you]=''&status_tipe[you]=0&cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0&if eatitem=1:item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+         if eatitem=20:item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[21]+=1&burden[you]+=item_burden[21]
+     end
+     if cum_face[you]>0 and status_tipe[you]=0:
+         if eatitem=1:item[eatitem]-=1&burden[you]-=item_burden[eatitem]&cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0
+         if eatitem=20:item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[21]+=1&burden[you]+=item_burden[21]&cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0
+     end
+     if cum_face[you]=0 and status_tipe[you]>0:
+		 status_time[you]=0&$status[you]=''&status_tipe[you]=0&if eatitem=1:item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+         if eatitem=20:item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[21]+=1&burden[you]+=item_burden[21]
+     end
+	clr&dynamic $d_inv&!вытереться
+end
+if args[0]=12:
+	clr&eatitem=args[1]
+     if item[17]>0 or item[18]>0 or item[19]>0:gs'rashod_mila'&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[20]+=1&burden[you]+=item_burden[20]
+	dynamic $d_inv&!стирка полотенца
+end
+if args[0]=13:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&clr&gs'drink'&gs'eat'&dynamic $d_inv&!действие итема!есть и пить
+if args[0]=14:
+	eatitem=args[1]
+     if master[you]=1:useminihome+=1&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item_loc['<<eatitem>>,<<$loc[you]>>']=1&X[you]=100&Y[you]=100&Z[you]=7777&clr&gt'world'&!в квартиру
+     if master[you]=0:msg("Маленькая и прочная модель дома")
+	dynamic $d_inv
+end
+if args[0]=15:
+	eatitem=args[1]
+     if Z[you]<11 or Z[you]=100 and Z[you]=7777 or (Z[you]>=700 and Z[you]<800):
+		msg("Нет сети")
+	 else
+		msg("Никто не присылал сообщений")
+     end
+	clr&dynamic $d_inv&!смартфон
+end
+if args[0]=16:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]=healthmax[you]&clr&dynamic $d_inv&!лечка
+if args[0]=17:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]+=50&clr&dynamic $d_inv&!малое восстановление
+if args[0]=18:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]=energymax[you]&clr&dynamic $d_inv&!полное восстановление
+if args[0]=19:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]+=50&clr&dynamic $d_inv&!малое лечка
+if args[0]=20:
+	clr&eatitem=args[1]&!гримуар ведьмы
+     if knowlanguage[you]>0:
+         if daygrimuar!daystart:
+             if canbewitch[you]=0 and magik[you]<3:canbewitch[you]=1&magik[you]+=1
+			 daygrimuar=daystart&mana[you]=manamax[you]&msg("После прочтения гримуара вас охватывает магическая энергия.")
+         else
+			msg("Вы читаете тексты полные ужасных тайн повергающих в пучину кошмаров черной магии.")
+         end
+     else
+		msg("В гримуаре непонятные закорючки и схемы.")
+     end
+	dynamic $d_inv
+end
+if args[0]=21:
+	clr&eatitem=args[1]&!перемещение
+     if H[you]>0:
+		msg("Портал не работает в помещении")
+     else
+		gt'portal'
+     end
+	dynamic $d_inv
+end
+if args[0]=22:
+	clr&eatitem=args[1]&!свиток войнича
+     if knowlanguage[you]>0:
+         if dayvoinichread!daystart:
+             if master[you]>0 and voinichread=0:voinichread=1&magik[you]+=10&vital[you]+=500&soulpower[you]+=100&fight_skill[you]+=100&shoot_skill[you]+=100&reflex[you]+=100&num=you&gs'body'
+			 dayvoinichread=daystart&health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&msg("После прочтения свитка Войнича вас охватывает магическая энергия.")
+         else
+			msg("Вы читаете тексты полные ужасных тайн повергающих в пучину кошмаров черной магии.")
+         end
+     else
+		msg("В свитке Войнича текст написанный не существующими буквами и разные схемы не поддающиеся осмыслению.")
+     end
+	dynamic $d_inv
+end
+if args[0]=23:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&noagro[you]=time+60*3&clr&dynamic $d_inv&!Малое зелье отвода глаз
+if args[0]=24:
+	clr&eatitem=args[1]&!обучение языку
+     if knowlanguage[you]=0:
+		knowlanguage[you]+=1&msg("Вы читаете инструкции о том, как читать магические тексты.")
+     else
+		msg("Вы понимаете как читать магические тексты.")
+     end
+	dynamic $d_inv
+end
+if args[0]=25:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&noagro[you]=time+60*10&clr&dynamic $d_inv&!зелье отвода глаз
+if args[0]=26:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[2]+=1&burden[you]+=item_burden[2]&energy[you]+=20&health[you]+=20&alko[you]+=3&clr&gs'drink'&dynamic $d_inv
+if args[0]=27:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&feromon[you]+=5&clr&dynamic $d_inv&!феромоны
+if args[0]=28:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&feminize[you]+=5&clr&dynamic $d_inv&!феминайзер
+if args[0]=29:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&manize[you]+=5&clr&dynamic $d_inv&!манайзер
+if args[0]=30:
+	clr&eatitem=args[1]&!души
+     if knowlanguage[you]=0:
+         msg("В трактате не понятные закорючки.")
+     else
+		 if soulMG[you]=0:soulMG[you]=1
+		 msg("Вы читаете трактат о душах, как их поглощать, отдавать и прочее. И узнаете что душу невозможно поглотить сразу целиком, никакой божественной силы на это не хватит. Только малыми частями и проще всего это делать во время секса.")
+     end
+	dynamic $d_inv
+end
+if args[0]=31:
+	clr&eatitem=args[1]&!души
+	 if BlackRoseQW[you]=0 and muggle[you]=0 and souldar[you]>0:gt'blackroseQW'
+	dynamic $d_inv
+end
+if args[0]=32:
+	clr&eatitem=args[1]&!гримуар истинной формы
+     if knowlanguage[you]=0:
+         msg("В гримуаре не понятные закорючки.")
+     else
+		msg("Вы читаете гримуар. Длинное и сложное заклинание разрушающее иллюзию.")
+	     if X[you]=2 and Y[you]=3 and Z[you]=1 and H[you]=1:
+			 $locopis['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']='Иллюзия убогого домишки исчезла и стало видно, что вокруг шкафы с книгами, а на полу багровые руны запечатавшие саму смерть'
+			 deadgrave['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1&gt'preloc'
+	     end
+     end
+	dynamic $d_inv
+end
+if args[0]=33:
+	clr&eatitem=args[1]&!маестат
+     if knowlanguage[you]=0:
+        msg("В гримуаре не понятные закорючки.")
+     else
+		msg("В книге описывается что существует маестат. Это престол города. А сам город это пять элементов, вода, огонь, земля, воздух и душа. По легенде однажды объеденить стихии и взять престол сможет избранный и уподобиться он богам. А пока городом управляет тайное правительство, но согласно легендам в правительство входят те, кто сумел покорить стихию района, но при этом это обязательно должен быть человек, боги не входят в правительство и уж тем более не могут претендовать на маестат.")
+     end
+	dynamic $d_inv
+end
+if args[0]=34:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&clr&gs'drug'&dynamic $d_inv&!пыльца фей
+if args[0]=35:
+	eatitem=args[1]
+	item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	item[82]+=1&burden[you]+=item_burden[82]
+	health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]
+	sfera_fiz+=1000&clr&dynamic $d_inv&!заряженная роза
+end
+if args[0]=36:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&mana[you]+=100&clr&dynamic $d_inv&!кристал
+if args[0]=37:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]=healthmax[you]&clr&dynamic $d_inv&!лечилка
+if args[0]=38:
+	eatitem=args[1]
+	spore[you]+=1&health[you]=healthmax[you]&energy[you]=energyMax[you]&!действие итема
+	item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	clr&gs'eat'&dynamic $d_inv&!гриб
+end
+if args[0]=39:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&lust[you]+=1&corr[you]+=1&horny[you]+=50&clr&dynamic $d_inv&!возбудитель
+if args[0]=40:
+	eatitem=args[1]
+	item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	if fat[you]>20:fat[you]-=10
+	if fat[you]>=5000:fat[you]-=300
+	if fat[you]>=4000:fat[you]-=250
+	if fat[you]>=3000:fat[you]-=200
+	if fat[you]>=2000:fat[you]-=150
+	if fat[you]>=1000:fat[you]-=100
+	if ass[you]<20 and ass[you]>2:ass[you]-=1
+	clr&dynamic $d_inv&!жиросжигатель
+end
+if args[0]=41:
+	eatitem=args[1]&if busy[you]=0:gt'blowbook'
+	clr&dynamic $d_inv&!книга
+end
+if args[0]=42:eatitem=args[1]& msg("Парк Аптауна. Координаты 4.0. Средняя кабинка.")&clr&dynamic $d_inv&!записка
+if args[0]=43:
+	clr&eatitem=args[1]&if busy[you]=0:gt'glorybook'&!папка
+	dynamic $d_inv
+end
+if args[0]=44:
+	clr&eatitem=args[1]&!установка телефона
+     if H[you]>0 and telephone['<<$loc[you]>>']=0:telephone['<<$loc[you]>>']=1&my_telephone['<<$loc[you]>>']=1&eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	dynamic $d_inv
+end
+if args[0]=45:
+	clr&eatitem=args[1]&!установка ведьминого котла
+     if H[you]>0 and witchkotel['<<$loc[you]>>']=0:witchkotel['<<$loc[you]>>']=1&eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	dynamic $d_inv
+end
+if args[0]=46:
+	clr&eatitem=args[1]&!установка пентаграммы
+     if H[you]>0 and pentagramm['<<$loc[you]>>']=0:pentagramm['<<$loc[you]>>']=1&eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	dynamic $d_inv
+end
+if args[0]=47:
+	eatitem=args[1]
+	item[eatitem]-=1&burden[you]-=item_burden[eatitem]&magik[you]+=1&burden[you]+=item_burden[146]
+	health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]
+	sfera_fiz+=10000&sfera_psih+=1000&sfera_antigrav+=1000&clr&dynamic $d_inv&!Магическое яйцо
+end
+if args[0]=48:clr&gs'util_func', 'equip_piercing', args[1]&dynamic $d_inv&!пирсинг
+if args[0]=171:clr&GS 'Shift_Z_Rus_Handler'&dynamic $d_inv&!записки охотника!eatitem=args[1]
+if args[0]=999:
+	 eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&lust[you]+=1&corr[you]+=1&horny[you]+=50
+	 clr&gs'drink'&gs'eat'&health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&!Яйцо морского монстра
+	 dagongene+=rand(5,10)&msg("Вы раскусили плотную оболочку и выпилис одержимое, ощутив невероятный прилив сил и энергиии во всем теле!")&dynamic $d_inv
+end

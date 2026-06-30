@@ -1,0 +1,152 @@
+﻿'<b><center>Техносфера</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+'Медцентр уровень оснащенности которого превосходит любые известные вам медицинские учреждения.'
+gs'npconloc'&gs'item'
+if hour>=8 and hour<=20:
+	if iskr[you]>=50 and health[you]<healthmax[you]:
+		'Лечение стоит 50 искр'&act'Лечение 50 искр':iskr[you]-=50&time+=60&energy[you]=energyMax[you]&health[you]=healthmax[you]&mana[you]=manaMax[you]&gt $curloc
+	end
+	if iskr[you]>=100:
+		'Смена типа лица стоит 100 искр'
+		act'Смена типа лица 100 искр':
+			iskr[you]-=100&time+=60&clr&gs'stat'&if pol[you]=0 and age[you]>=30:face[you]=10
+			gs'body'
+			$d_view='pic/face/t<<facetipe[you]>>/<<hcolp[you]>>/<<facep[you]>>.jpg'
+			'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[you]>> <<$surname[you]>>'
+			'<<$opis[you]>>'
+			gs'body'
+			if facetipe[you]!0:act'1й тип лица':facetipe[you]=0&gt $curloc
+			if facetipe[you]!1:act'2й тип лица':facetipe[you]=1&gt $curloc
+			if facetipe[you]!2:act'3й тип лица':facetipe[you]=2&gt $curloc
+			if facetipe[you]!3:act'4й тип лица':facetipe[you]=3&gt $curloc
+			if facetipe[you]!4:act'5й тип лица':facetipe[you]=4&gt $curloc
+			if facetipe[you]!5:act'6й тип лица':facetipe[you]=5&gt $curloc
+			if facetipe[you]!6:act'7й тип лица':facetipe[you]=6&gt $curloc
+			if facetipe[you]!7:act'8й тип лица':facetipe[you]=7&gt $curloc
+			if facetipe[you]!8:act'9й тип лица':facetipe[you]=8&gt $curloc
+			if facetipe[you]!9:act'10й тип лица':facetipe[you]=9&gt $curloc
+			if facetipe[you]!10:act'11й тип лица':facetipe[you]=10&gt $curloc
+			if facetipe[you]!11:act'12й тип лица':facetipe[you]=11&gt $curloc
+			if facetipe[you]!12:act'13й тип лица':facetipe[you]=12&gt $curloc
+			if facetipe[you]!13:act'14й тип лица':facetipe[you]=13&gt $curloc
+			if facetipe[you]!14:act'15й тип лица':facetipe[you]=14&gt $curloc
+			if facetipe[you]!15:act'16й тип лица':facetipe[you]=15&gt $curloc
+			if facetipe[you]!16:act'17й тип лица':facetipe[you]=16&gt $curloc
+			if facetipe[you]!17:act'18й тип лица':facetipe[you]=17&gt $curloc
+			if facetipe[you]!18:act'19й тип лица':facetipe[you]=18&gt $curloc
+			if facetipe[you]!19:act'20й тип лица':facetipe[you]=19&gt $curloc
+			act'закончить':gt $curloc
+		end
+	end
+	if pet_follower>0:
+		slave=pet_follower
+		if sl_legs[slave]=0:
+			'За 100 искр вы можете исправить кривые ноги у рабыни'
+			if iskr[you]>=100:
+				act'Выпрямить рабыне ноги':
+					sl_legs[slave]=1&iskr[you]-=100&time+=60&cls&gs'stat'&'Вашей рабыне выпрямили ноги'&act'...':gt $curloc
+				end
+			end
+		end
+		 if sl_legs[slave]=1:
+			'За 150 искр вы можете исправить улучшить рабыне ноги'
+			if iskr[you]>=150:
+				act'Улучшить рабыне ноги':
+					sl_legs[slave]=2&iskr[you]-=150&time+=60&cls&gs'stat'&'Вашей рабыне улучшили ноги'&act'...':gt $curloc
+				end
+			end
+		end
+		if sl_tits[slave]=0:
+			'За 100 искр вашей рабыне могут увеличить грудь'
+			if iskr[you]>=100:
+				act'Увеличить грудь рабыни':
+					sl_tits[slave]=1&iskr[you]-=100&time+=60&cls&gs'stat'&'Вашей рабыне увеличили грудь'&act'...':gt $curloc
+				end
+			end
+		end
+		if sl_tits[slave]=1:
+			'За 150 искр вашей рабыне могут увеличить грудь'
+			if iskr[you]>=150:
+				act'Увеличить грудь рабыни':
+					sl_tits[slave]=2&iskr[you]-=150&time+=60&cls&gs'stat'&'Вашей рабыне увеличили грудь'&act'...':gt $curloc
+				end
+			end
+		end
+		if sl_ass[slave]=0:
+		'За 100 искр вашей рабыне могут увеличить попу'
+			if iskr[you]>=100:
+				act'Увеличить рабыне попу':
+					sl_ass[slave]=1&iskr[you]-=100&time+=60&cls&gs'stat'&'Вашей рабыне увеличили попу'&act'...':gt $curloc
+				end
+			end
+		end
+		if sl_ass[slave]=1:
+		'За 150 искр вашей рабыне могут увеличить попу'
+			if iskr[you]>=150:
+				act'Увеличить рабыне попу':
+					sl_ass[slave]=2&iskr[you]-=150&time+=60&cls&gs'stat'&'Вашей рабыне увеличили попу'&act'...':gt $curloc
+				end
+			end
+		end
+		if sl_face[slave]=0:
+			'За 100 искр вашей рабыне могут сделать косметическую операцию'
+			if iskr[you]>=100:
+				act'Косметическая операция':
+					sl_face[slave]=1&iskr[you]-=100&time+=60&cls&gs'stat'&'Вашей рабыне сделали косметическую операцию'&act'...':gt $curloc
+				end
+			end
+		end
+		if sl_face[slave]=1:
+			'За 150 искр вашей рабыне могут сделать косметическую операцию'
+			if iskr[you]>=150:
+				act'Косметическая операция':
+					sl_face[slave]=2&iskr[you]-=150&time+=60&cls&gs'stat'&'Вашей рабыне сделали косметическую операцию'&act'...':gt $curloc
+				end
+			end
+		end
+		if sl_ves[slave]!2:
+			'За 250 искр вашей рабыне могут нормализовать вес'
+			if iskr[you]>=250:
+				act'Нормализовать вес':
+					iskr[you]-=250&sl_ves[slave]=2&sl_fat[slave]=50&time+=60&cls&gs'stat'&'Вашей рабыне сделали косметическую операцию приводя ее вес в порядок'&act'...':gt $curloc
+				end
+			end
+		end
+	end
+	IF OBJ "Добыча" AND руки = 2:
+		ACT "Ампутировать руки":
+			if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//knife.mp3",Громкость_эффектов
+			CLR&"<center><H1>Лаборатория</H1></center><TABLE><TR> <TD><img src = 'content/butch/lavka.jpg'></TD><TD>"&wait 300
+			руки = 0&amp+=2&$руки = "Руки аккуратно ампутированы чуть выше локтя"
+			msg "Вы приковали девушку к столу в своей лаборатории. Она со страхом смотрит на ваши приготовления. Работа немного грязная, но требует аккуратности. Вы перетягиваете жгутом руку рабыни и резким ударом ножа в локтевой сустав отрезаете предплечье. После чего зашиваете рану и повторяете со второй рукой."
+		END 
+		IF руки = 0:DELACT "Ампутировать руки"
+	END
+	IF OBJ "Добыча" and руки = 0 AND соски = 2:
+		ACT "Пирсинговать соски":
+			if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//knife.mp3",Громкость_эффектов
+			CLR&'<TABLE><TR><TD><img src="content/meat.jpg"></TD><TD>'&wait 300
+			соски+=2&$соски = "Тяжелые бронзовые кольца вставлены в соски"
+			msg "Работа несложная - протыкаете сосок шилом и вставляете серьгу."
+		END 
+	IF соски = 4:DELACT "Пирсинговать соски"
+	END
+	IF OBJ "Добыча" and руки = 0:
+		ACT "Сделать обрезание":
+			if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//knife.mp3",Громкость_эффектов
+			CLR&'<TABLE><TR><TD><img src="content/meat.jpg"></TD><TD>'&wait 300
+			вагина+=4&$вагина = "Сделано обрезание"
+			msg "Работа несложная - отрезаете клитор и малые половые губы, а дырку сшиваете так, чтобы внутрь пролазил палец."
+		END 
+		IF вагина = 4:DELACT "Сделать обрезание"
+	END
+	IF OBJ "Добыча" and руки = 0 and соски > 2 AND пони = 0:
+		ACT "Одеть конскую сбрую":
+			if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//knife.mp3",Громкость_эффектов
+			CLR&'<TABLE><TR><TD><img src="content/meat.jpg"></TD><TD>'&wait 300
+			пони = 1&$пони = "Затянута в сбрую и оседлана"
+			msg "Работа несложная - засовываете анальную пробку и затягиваете ремни."
+		END 
+		IF пони = 1:DELACT "Одеть конскую сбрую"
+	END
+end

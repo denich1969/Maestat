@@ -1,0 +1,19 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&slutgirl=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=35
+$name[i]='Снежанна'&$surname[i]='Блюментайл'&$nick[i]='Эффектная блондинка'&$title[i]=''&$history[i]='Я работала в модельном бизнесе'&!Meredith Mickelson
+face[i]=100&gla[i]=3&glacol[i]=3&nose[i]=1&lips[i]=2&scull[i]=0&cheeks[i]=0&!Лицо (тип лица, тип глаз, цвет глаз, тип носа, тип губ, тип скул, тип щёк)
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=0&ass[i]=24&nip[i]=45&tits[i]=10&!Половые признаки (член, вагина, жопа, грудь)
+guy[i]+=11&vagsex[i]+=100&oral_fixation[i]=20&bj[i]+=100&throat[i]=18&!Сексуальный опыт
+rost[i]=180&fat[i]=700&mus[i]=600&skin[i]=1&!Тело (рост, жир, мускулы, цвет кожи)
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=3&!Волосы (лицо, грудь, ноги, голова: длина, причёска, цвет)
+age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=10&selfrespect[i]=2&positiv[i]=1&extrovert[i]=0&ratio[i]=0&brave[i]=0&lust[i]=70&thenoob[i]=1&!характер
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=25&l_slot[i]=19&b_slot[i]=19
+ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=0
+n_world[]=i&walkprog[i]=31&!Программа движения ранее было walkprog[i]=20
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'

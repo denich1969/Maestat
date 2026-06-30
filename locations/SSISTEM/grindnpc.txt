@@ -1,0 +1,13 @@
+﻿gs'stat'&'<center><video src="pic/sex/public/foreplay<<rand(0,23)>>.webm" ></video></center>'
+'<<$name[dom]>> <<$surname[dom]>> мацает девушку и говорит скабрезности, а <<$name[sub]>> <<$surname[sub]>> отчаянно краснеет.'&act'Уйти':gt'preloc'
+if boyfriend_num[you]=dom:
+	'Ваш парень щупает какую то тупую овцу!'
+     act'СКАНДАЛ!!!':
+		 mob_busy[dom]=0&mob_busy[sub]=0&agro[dom]-=10
+		 cls&gs'stat'&'<<$name[dom]>> перепугался когда его застали на горячем и начал просить прощения обещая вам подарить кусочек души'
+         act'Бросить изменника!':dom[you]+=10&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[dom]=you&gt 'preloc'
+         act'Простить':soul[you]+=10&gt 'preloc'
+     end
+end
+act '<i>Вмешаться мирно</i>':gt 'gotalk',dom,sub&!Jorge
+!act'<i>CHEAT: Драться (test)</i>':npc=dom&gt 'prefight'

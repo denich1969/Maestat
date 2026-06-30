@@ -1,0 +1,12 @@
+﻿cls&'<center> <<$title[npc]>></center>'&'<center><img src="<<$d_view>>" ></center>'&!$d_view='pic/face/<<hcol[npc]>>/<<face_pic[npc]>>.jpg'
+lastpis[npc]=picture[npc]
+if mob_sleep[npc]>time:
+	'Девушка свернулась клубочком и спит'
+else
+	 if you_slut[npc]=0:'Девушка смотрит на вас испуганно - ты не знаешь как отсюда выбраться? Я не пойму как сюда попала.'&act'<b>Уйти</b>':gt 'preloc'
+ 	 if you_slut[npc]>0:
+		'Девушка презрительно смотрит на вас'&if corr[npc]<100:act'<b>Уйти</b>':gt 'preloc'
+	     dynamic $d_fear
+	 end
+end
+if use_runik_portal>0 and mana[you]>=10:act'Портальнуть на остров (10 маны)':mana[you]-=10&use_runik_portal+=1&X[npc]=4&Y[npc]=7&Z[npc]=770&cls&gt 'preloc'

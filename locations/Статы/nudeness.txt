@@ -1,0 +1,19 @@
+﻿sport_clo[you]=0&office_dress=0&sport_dress=0
+if t_slot[you]>0:
+	tempslot=t_slot[you]&if aristokrat_t[tempslot]>0:office_dress+=1
+     if sport_t[tempslot]>0:sport_dress+=1&sport_clo[you]+=1
+end
+if l_slot[you]>0:
+	tempslot=l_slot[you]&if aristokrat_l[tempslot]>0:office_dress+=1
+     if sport_l[tempslot]>0:sport_dress+=1&sport_clo[you]+=1
+end
+if b_slot[you]>0:
+	tempslot=b_slot[you]&if aristokrat_b[tempslot]>0:office_dress+=1
+     if sport_b[tempslot]>0:sport_dress+=1
+     if sport_b[tempslot]>0:sport_clo[you]+=1
+end
+can_do_sport[you]=0&if sport_clo[you]>=3:can_do_sport[you]=1
+can_sleep=0&if t_slot[you]=0 and l_slot[you]=0 and b_slot[you]=0:can_sleep=1
+fullnude[you]=0&if t_nude[you]>0 and l_nude[you]>0:fullnude[you]=1
+if t_slot[you]=0 and l_slot[you]=0 and b_slot[you]=0 and ut_slot[you]=0 and ul_slot[you]=0 and ub_slot[you]=0:fullnude[you]=1
+gs'sexiness_val',you

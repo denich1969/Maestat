@@ -1,0 +1,2 @@
+﻿gs'sexpower_f',you
+gs'sexpower_f',npc

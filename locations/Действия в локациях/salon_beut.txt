@@ -1,0 +1,63 @@
+﻿$nameloc[you]=$curloc&gs'stat'&gs'mirror_view'&'Салон красоты'&*pl '10 шиллингов окраска волос.'&gs'Item'&*pl ''&gs 'npconloc'&act'Отойти':gt 'preloc'
+if money[you]>=1000:
+	 if hcol[you]!0:
+	     act'Черный цвет':
+			 money[you]-=1000&hcol[you]=0&cls&gs'stat'&'Вы покрасили волосы.'&act'...':gt $curloc
+	     end
+	 end
+	 if hcol[you]!1:
+	     act'Русый цвет':
+			 money[you]-=1000&hcol[you]=1&cls&gs'stat'&'Вы покрасили волосы.'&act'...':gt $curloc
+	     end
+	 end
+	 if hcol[you]!2:
+	     act'Рыжий цвет':
+			 money[you]-=1000&hcol[you]=2&cls&gs'stat'&'Вы покрасили волосы.'&act'...':gt $curloc
+	     end
+	 end
+	 if hcol[you]!3:
+	     act'Блонд':
+			 money[you]-=1000&hcol[you]=3&cls&gs'stat'&'Вы покрасили волосы.'&act'...':gt $curloc
+	     end
+	 end
+     if preskin[you]=0:
+	     act'Уход за кожей':
+			 if tit_hair[you]>0:tit_hair[you]=-10
+			 if leg_hair[you]>0:leg_hair[you]=-10
+			 money[you]-=1000&preskin[you]=1&cls&gs'stat'&'Вам провели серию процедур, чтобы ваша кожа стала гладкой.'&act'...':gt $curloc
+	     end
+     end
+     if hairlong[you]>0:
+	     act'Короткая стрижка':
+			 money[you]-=1000&hlong[you]=10&cls&gs'stat'&'Вам постригли волосы.'&act'...':gt $curloc
+	     end
+     end
+end
+if lips[you]<3:
+	'Можно увеличить губы за 100 шиллингов'
+    if money[you]>=10000:
+	     act'Увеличение губ':
+			 money[you]-=10000&lips[you]+=1&cls&gs'stat'&'Вам делают уколы в губы, от чего они увеличиваются.'&act'...':gt $curloc
+	     end
+	end
+end
+if lips[you]>0:
+	'Можно уменьшить губы за 100 шиллингов'
+    if money[you]>=10000:
+	     act'Уменьшение губ':
+			 money[you]-=10000&lips[you]-=1&cls&gs'stat'&'Вам делают уколы в губы, от чего они уменьшаются.'&act'...':gt $curloc
+	     end
+	end
+end
+if money[you]>=10000:
+	'Можно сделать укол в грудь, для увеличения груди за 100 шиллингов.'
+	act'Укол в грудь':
+		 money[you]-=10000&tits[you]+=2&cls&gs'stat'&'Вам делают уколы в груди, от чего грудь увеличивается.'&act'...':gt $curloc
+	end
+end
+if money[you]>=10000 and ass[you]<40:
+	'Можно увеличить попу за 100 шиллингов.'
+	act'Укол в попу':
+		 money[you]-=10000&ass[you]+=1&cls&gs'stat'&'Вам делают уколы в ягодицы, от чего они увеличиваются.'&act'...':gt $curloc
+	end
+end

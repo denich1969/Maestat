@@ -1,0 +1,277 @@
+﻿X=0&Y=0&Z=1&H=0&R=0&Xmax[Z]=4&Ymax[Z]=4&!26нпс
+$n_board[Z]='Туман'&$w_board[Z]='Море'&$e_board[Z]='Район Блэкберри'&$s_board[Z]='Море'
+magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworldOne
+H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if X=Xmax[Z] and Y>0 and Y<4:power_wall['<<$temploc>>']=1&d_border_way['<<$temploc>>']=2
+if X=0 or Y=0:
+     if X=0 and Y=0:
+     $temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+     $locname['<<$temploc>>']='Маяк'&$lname['<<$temploc>>']='Маяк'
+	 $locopis['<<$temploc>>']='На каменистом мысе выдающимся в мрачное море возвышается маяк. От маяка к никазистым хибарам из почерневших от времени досок петляет тропинка среди камней поросших мхом. С мыса прекрасный вид на бухту в которой расположен город. На противоположном берегу бухты видны высотные дома и аккуратная набережная, а левее от небоскребов виднеется дельта реки впадающей в море. По берегам реки видны неказистые бетонные коробки девяти и пятиэтажек советского типа. Горизонт моря при этом плотно укутан стеной тумана который никак не шевелится от ветра и выглядит устрашающе аномальным.'
+	 np['<<$temploc>>']=51
+	 gs'lighthouse_gen'
+	 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 elseif X=1 and Y=0:
+		$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 	 $locname['<<$temploc>>']='Деревянный пирс'&$lname['<<$temploc>>']='Деревянный пирс'
+		 $locopis['<<$temploc>>']='Старые деревянные пирсы к которым привязаны рыбачьи лодки. На берегу убогие постройки грубо сколоченные из старых досок и листов корабельного железа, а вокруг этих корявых лабиринтов непролазная грязища истоптанная следами грубых башмаков и босых ступней.'
+		 np['<<$temploc>>']=62
+		 gs'fishermanhut_gen'
+		 H=0&R=0
+	 elseif X=2 and Y=0:
+		 $temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 	 $locname['<<$temploc>>']='Лачуги рыболюдей'&$lname['<<$temploc>>']='Лачуги рыболюдей'
+		 $locopis['<<$temploc>>']='Убогие полуразвалившиеся лачуги на берегу моря пропахли рыбой, несколько плоскодонных лодок привязаны к столбикам вкопанным в землю. Так же несколько прогнивших лодок лежат на берегу и уже успели порасти мхом.'
+		 np['<<$temploc>>']=69
+		 gs'insmouth_hut_gen'
+		 H=0&R=0&!Капитан Олбед Марш&!тайный орден дагона
+	 elseif X=3 and Y=0:
+		$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Порт'&$lname['<<$temploc>>']='Порт'
+		 $locopis['<<$temploc>>']='Несколько пирсов к которым пришвартованы разномастные корабли, многие из которых проржавели до дыр и явно их разбирают на куски, а некоторые выглядят совершенно новыми. Причем создается ощущение что корабли из разных эпох, есть и паровые старинные калоши и современные скоростные катера. Возле пирса полукругом стоят три прочных и больших кирпичных здания на двух из которых аляповатые вывески, на одном борделя, на другом бара. Эти три капитальных строения образуют своего рода площадь и за ними на севере виднеется рыжее здание фабрики. Когда то часть этой площади было замощено камнем и лежали доски исполняющие роль тротуаров, но все это сгнило и почернело от времени и вокруг видны грязные лужи. Сырой воздух пахнет морем и рыбой, и иногда из подворотен ветром доносит запах мочи, и кое чего похуже. На стене борделя висит большой плакат зазывающий девиц без комплексов на не пыльную работу. Рядом с плакатом на стене наклеены фотографии девиц с членами в разных отверстиях. Судя по количеству девиц на эту стену позора, вешали каждую девушку избравшую своим ремеслом проституцию.'
+		 !$locopis['3,0,1,0,0']+=' На одной из этих фотографий вы находите свое лицо с членом во рту.'
+		 np['<<$temploc>>']=79
+		 charon['<<$temploc>>']=1
+		 gs'sportgirl_gen'&gs'smartgirl_gen'&gs'slutgirl_gen'
+		 maxPositionH['<<X>>,<<Y>>,<<Z>>']=3
+		 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар "Рога морского дьявола"'
+		 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
+		 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и рыбой дрянной бар с грубо сколоченной мебелью. На стене висит чучело какой то зубастой морской рыбы и старая рыболовная сеть. За отполированной локтями стойкой находятся полки с однообразными бутылками местного пойла. Скрипучий дощатый пол покрыт коркой грязи вряд ли когда то вообще мылся.'
+		 np['<<$temploc>>']=85
+		 mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&bartable['<<$temploc>>']=4
+		 H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Ночлежка для моряков'
+		 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Ночлежка'&$lname['<<$temploc>>']='Ночлежка'&$lname_go['<<$temploc>>']='в ночлежку'
+		 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и рыбой барак с деревянными нарами. В ночлежке любой человек может найти себе приют и переночевать на неудобных деревянных нарах в компании таких же бездомных, нюхая их носки и слушая храп. '
+		 np['<<$temploc>>']=195
+		 mirror['<<$temploc>>']=1
+		 can_drink['<<$temploc>>']=1
+		 can_sleep['<<$temploc>>']=1
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'seaman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бордель "Бабочка грез"'
+		 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+		 $locname['<<$temploc>>']='Бордель'&$lname['<<$temploc>>']='Бордель'&$lname_go['<<$temploc>>']='в бордель'
+		 $locopis['<<$temploc>>']='Пошлый бордель стены которого обиты красной тканью и мебелью драпированной в шелка. На стенах дешовая мазня с непристойными сюжетами. И хотя в комнатах полно канделябров и подсвечников, но освещение электрическое и по всему видно что сделано позже чем вся остальная обстановка. В борделе витает стойкий запах рыбы и спермы.'
+		 np['<<$temploc>>']=88
+		 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=3
+		 gs'portwhore_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'portwhore_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'portwhore_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'portwhore_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 gs'portwhore_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+		 maxPositionR['<<$templocH>>']=1
+		 R=1&gs 'toilet_gen',5&!gs 'toilet_gen',уровень туалета
+	 else
+		$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	     if $locname['<<$temploc>>']='':
+			 $locname['<<$temploc>>']='Морское побережье'&$lname['<<$temploc>>']='Морское побережье'
+			 $locopis['<<$temploc>>']='Морские волны мерно омывают камни скалистого северного берега бухты.'
+			 np['<<$temploc>>']=50
+	     end
+	 end
+	 can_swim['<<$temploc>>']=1
+elseif X=2 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Колодезная площадь'&$lname['<<$temploc>>']='Колодезная площадь'
+	 $locopis['<<$temploc>>']='Старинный колодец в центре не большой площади мощеной камнем, хотя в некоторых местах площадь уже зансело землей и там прорасла трава. Севернее мрачнеет древний храм судя по витражам посвященный морскому богу. Западнее видна большая и уютная таверна, а на востоке корпус фабрики. Южнее площадь подпирают лачуги грубо сколоченные из почерневших досок и кусков корабельного железа.'
+	 np['<<$temploc>>']=71
+	 can_drink['<<$temploc>>']=1&kolodec['<<$temploc>>']=1
+elseif X=1 and Y=2:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Руины пакгауза'&$lname['<<$temploc>>']='Руины пакгауза'
+	 $locopis['<<$temploc>>']='Разрушенный кирпичный дом в котором прорасли деревья и кусты.'
+	 np['<<$temploc>>']=72
+	 list['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&omela['<<$temploc>>']=rand(0,1)
+	 zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)&koluchka['<<$temploc>>']=rand(0,1)
+	item_loc['2,<<$temploc>>']=10&item_loc['46,<<$temploc>>']=7&item_loc['47,<<$temploc>>']=3&item_loc['48,<<$temploc>>']=2
+elseif X=1 and Y=3: 
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Старая железная дорога'&$lname['<<$temploc>>']='Старая железная дорога'
+	 $locopis['<<$temploc>>']='Ржавые заброшенные рельсы ведут к пакгаузу'
+	 np['<<$temploc>>']=73
+	 list['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&omela['<<$temploc>>']=rand(0,1)
+	 zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)&koluchka['<<$temploc>>']=rand(0,1)
+elseif X=1 and Y=4:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Старая железная дорога'&$lname['<<$temploc>>']='Старая железная дорога'
+	 $locopis['<<$temploc>>']='Ржавые заросшие травой рельсы теряются в густой стене тумана'
+	 np['<<$temploc>>']=73
+	 list['<<$temploc>>']=rand(0,1)
+	 mandragora['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&omela['<<$temploc>>']=rand(0,1)
+	 zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)&koluchka['<<$temploc>>']=rand(0,1)
+elseif X=2 and Y=2:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Храм Дагона'&$lname['<<$temploc>>']='Храм Дагона'
+	 $locopis['<<$temploc>>']='Старинный каменный собор готическими шпилями устремленный в небо. Вокруг собора довольно приличная мостовая сквозь которую пробивается трава. Южнее храма видна площадь в центре которой колодец.'
+	 np['<<$temploc>>']=74
+	 gs'dagonsobor_gen'&!плешивый люцифер из поселковой самодеятельности
+	 H=0&R=0
+elseif X=2 and Y=4:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Туманная топь'&$lname['<<$temploc>>']='Туманная топь'
+	 $locopis['<<$temploc>>']='Гиблое место перед стеной непроглядного тумана.'
+	 np['<<$temploc>>']=76
+	 can_swim['<<$temploc>>']=1&marsh['<<$temploc>>']=1
+	 frog['<<$temploc>>']=1&last_frog['<<$temploc>>']=1
+	 Hirudinea['<<$temploc>>']=1&last_Hirudinea['<<$temploc>>']=1
+	 koluchka['<<$temploc>>']=rand(0,1)&list['<<$temploc>>']=1
+elseif X=2 and Y=3:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Кладбище'&$lname['<<$temploc>>']='Кладбище'
+	 $locopis['<<$temploc>>']='Мрачное кладбище с источенными временем надгробьями'
+	 np['<<$temploc>>']=77
+	 grave['<<$temploc>>']=1
+	 mandragora['<<$temploc>>']=1&cikuta['<<$temploc>>']=1&bella['<<$temploc>>']=1&omela['<<$temploc>>']=1
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Домик кладбищенского сторожа'
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Дом'&$lname['<<$temploc>>']='Дом'&$lname_go['<<$temploc>>']='в дом'
+ 	 $locopis['<<$temploc>>']='Убогий домишко с простой мебелью. На стенах паутина и плесень.'
+	 np['<<$temploc>>']=70
+	 mirror['<<$temploc>>']=0
+	 gs'necromancer_gen'&H=0&R=0
+elseif X=1 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Таверна'&$lname['<<$temploc>>']='Таверна'
+	 $locopis['<<$temploc>>']='Старинное каменное здание с цветочными горшками и стенами увитыми зеленью. Восточнее видна мощеная кмнем площадь в центре которой находится колодец, за которым еще восточнее в отдалении находится фабрика.'
+	 np['<<$temploc>>']=64
+	 gs'tabern_gen'&H=0&R=0
+elseif X=3 and Y=2:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Улица Детей Ллура'&$lname['<<$temploc>>']='Улица Детей Ллура'
+	 $locopis['<<$temploc>>']='Мрачные и грязные кирпичные дома с темными переулками забитыми мусором.'
+	 np['<<$temploc>>']=80
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар "Шепот"'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
+ 	 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и рыбой дрянной бар.'
+	 np['<<$temploc>>']=85
+	 mirror['<<$temploc>>']=1&bartable['<<$temploc>>']=2&bar_shepot['<<$temploc>>']=1
+	 R=1&gs 'toilet_gen',4&!gs 'toilet_gen',уровень туалета
+	 H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Магазин "Гримуары и мистические товары Марты"'
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в магазин'
+ 	 $locopis['<<$temploc>>']='Небольшой магазинчишко набитый религиозными текстами, белетристикой и разной не понятной всячиной. Так же в магазине продается всякая мелочевка по типу мыла и полотенец.'
+	 np['<<$temploc>>']=196
+	 mirror['<<$temploc>>']=1&bookstore['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1&pentagramm['<<$temploc>>']=1
+	 H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Магазин одежды "Ле Лун"'
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Магазин одежды'&$lname['<<$temploc>>']='Магазин одежды'&$lname_go['<<$temploc>>']='в магазин одежды'
+ 	 $locopis['<<$temploc>>']='Маленький магазин одежды'
+	 np['<<$temploc>>']=197
+	 mirror['<<$temploc>>']=1&clostore['<<$temploc>>']=1&lelun['<<$temploc>>']=1
+	 H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом Капитана'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'&$locopis['<<$temploc>>']=''
+	 np['<<$temploc>>']=0
+	 mirror['<<$temploc>>']=1
+	 gs'captain'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+	 R=1&gs 'toilet_gen',6&!gs 'toilet_gen',уровень туалета
+	 H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом Салливанов'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+	 $locopis['<<$temploc>>']='Не большой но уютный домик'
+	 np['<<$temploc>>']=0
+	 mirror['<<$temploc>>']=1
+	 gs'sallivan'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+	 gs'lagerta'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+	 R=1&gs 'toilet_gen',6&!gs 'toilet_gen',уровень туалета
+	 R=0
+elseif X=3 and Y=4:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Фамильный особняк Маршей'&$lname['<<$temploc>>']='Особняк'
+	 $locopis['<<$temploc>>']='Среди тумана исходящего от туманной стены стоит старинный особняк влиятельной семьи Маршей, вокруг особняка кованная ограда окружает небольшой сад мертвых деревьев, в ветвях которых клубится туман.'
+	 np['<<$temploc>>']=86
+	 gs'marsh_mansion'
+elseif X=3 and Y=3:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Улица Посланников'&$lname['<<$temploc>>']='Улица Посланников'
+	 $locopis['<<$temploc>>']='Мрачные и грязные кирпичные дома'
+	 np['<<$temploc>>']=81
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=4
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Офис шерифа'
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Офис шерифа'&$lname['<<$temploc>>']='Офис шерифа'&$lname_go['<<$temploc>>']='в офис шерифа'
+ 	 $locopis['<<$temploc>>']='Типичный офис с казенной мебелью и прокопчеными от крепкого табака стенами'
+	 np['<<$temploc>>']=87
+	 mirror['<<$temploc>>']=1&sherifdesk['<<$temploc>>']=1
+	 H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Магазин рыбных снастей "На крючке"'
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в магазин'
+ 	 $locopis['<<$temploc>>']='Дрянной магазинчишко посвященный морю и рыбалке. На прилавках багры и сети для рыбалки. На стенах трофеи в виде чучел разных форм и расцветок рыб.'
+	 np['<<$temploc>>']=198
+	 mirror['<<$temploc>>']=1&fishstore['<<$temploc>>']=1
+	 H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом Хардингов'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+	 $locopis['<<$temploc>>']='Под потолком сушатся разные травы и на полках стеклянные банки с непонятным содержимым.'
+	 np['<<$temploc>>']=0
+	 mirror['<<$temploc>>']=1
+	 gs'billharding'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+	 gs'AldousHarding'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+	 R=1&gs 'toilet_gen',6&!gs 'toilet_gen',уровень туалета
+	 H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом Ожеронов'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
+	 $locopis['<<$temploc>>']='Не большой но уютный дом'
+	 np['<<$temploc>>']=0
+	 mirror['<<$temploc>>']=1
+	 gs'ogeron'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+	 R=1&gs 'toilet_gen',6&!gs 'toilet_gen',уровень туалета
+	 R=0
+elseif X=4 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Трущобы Инсмутцев'&$lname['<<$temploc>>']='Трущобы Инсмутцев'
+	 $locopis['<<$temploc>>']='Полуразвалившиеся вонючие хибары из гнилых досок представляют из себя настоящий лабиринт пахнущий рыбой и еще бог знает чем отвратительным.'
+	 np['<<$temploc>>']=82
+	 gs'insmouth_hut_gen'&H=0&R=0
+elseif X=4 and Y=2:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Улица Роз'&$lname['<<$temploc>>']='Улица Роз'
+	 $locopis['<<$temploc>>']='Тихая улочка где за каменными заборами стоят ухоженные особняки. На восток указывает табличка "Район Блэкберри"'
+	 np['<<$temploc>>']=83
+	 gs'pratchetholl'&H=0&R=0&gs'lunamansion'&H=0&R=0
+elseif X=4 and Y=3:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Улица Туманная'&$lname['<<$temploc>>']='Улица Туманная'
+	 $locopis['<<$temploc>>']='Мрачные и грязные кирпичные дома. С востока тянет вонью от свалки расположенной в районе Блэкберри'
+	 np['<<$temploc>>']=84
+	 maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+	 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар "Дядюшка Пью"'&maxPositionR['<<$templocH>>']=1
+	 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	 $locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
+ 	 $locopis['<<$temploc>>']='Грязный и провонявший сыростью и рыбой дрянной бар.'
+	 np['<<$temploc>>']=85
+	 mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&bartable['<<$temploc>>']=2
+	 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
+	 R=0
+elseif X=3 and Y=1:
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	$locname['<<$temploc>>']='Рыбообрабатывающая фабрика'&$lname['<<$temploc>>']='Рыбообрабатывающая фабрика'
+	$locopis['<<$temploc>>']='Старинное здание из красного кирпича, на стене висит потерепанное объявление о найме работников на чистку рыбы.'
+	np['<<$temploc>>']=78
+	gs'fishfactory_gen'&H=0&R=0
+else
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Каменистая равнина'&$lname['<<$temploc>>']='Каменистая равнина'
+	$locopis['<<$temploc>>']='Поросшие травой и цветами серые камни северной части бухты'
+	np['<<$temploc>>']=52
+end
+X+=1&if X<=Xmax[Z]:jump'markgenworldOne'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldOne'

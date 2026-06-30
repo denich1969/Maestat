@@ -1,0 +1,4 @@
+﻿uberSolderQW[you]=8&gs'stat'
+in_fight=1&npc=antey&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+gs'stat'&'<center><img src="pic/face/5/47.jpg" ></center>'&'Рядом с вами появился Антей, сын Богарта и богини земли, он в гневе проорал - Я тебя похороню!'
+act'Драться':in_fight=1&cant_fight_run=1&gs'progcurse'&gt 'prefight'

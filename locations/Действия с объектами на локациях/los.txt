@@ -1,0 +1,4 @@
+﻿gs'stat'&'<center><b><<$losname[''<<$loc[you]>>,<<Ltipe>>'']>></b></center>'
+'<<$lostxt[''<<$loc[you]>>,<<Ltipe>>'']>>'
+gs'Item'&*pl''&!gs 'npconloc'
+act'Уйти':gt 'preloc'

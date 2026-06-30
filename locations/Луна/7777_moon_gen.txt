@@ -1,0 +1,18 @@
+﻿X=0&Y=0&Z=7777&H=0&R=0&Xmax[Z]=10&Ymax[Z]=10&!Moonworld[Z]=i
+$n_board[Z]='Луна'&$w_board[Z]='Луна'&$e_board[Z]='Луна'&$s_board[Z]='Луна'
+magworld[Z]=100&oxigen[Z]=0&temper[Z]=0&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+:markgenworldMoon
+H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if X=0 or X=Xmax[Z] or Y=0 or Y=Ymax[Z]:d_border_way['<<$temploc>>']=7777
+if X=3 and Y=3:
+     $locname['<<$temploc>>']='Лунное море'&$lname['<<$temploc>>']='Лунное море'
+	 $locopis['<<$temploc>>']='Серая пустыня из пыли и камней. Сверху черное небо полное звезд. Среди безжизненного песка мерцает призрачный замок'
+	 np['<<$temploc>>']=39
+	 gs'moonbase_gen'
+else
+     $locname['<<$temploc>>']='Луна'&$lname['<<$temploc>>']='Луна'
+	 $locopis['<<$temploc>>']='Серая пустыня из пыли и камней. Сверху черное небо полное звезд.'
+	 np['<<$temploc>>']=39
+end
+X+=1&if X<=Xmax[Z]:jump'markgenworldMoon'
+X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldMoon'

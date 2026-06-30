@@ -1,0 +1,16 @@
+﻿ if magik[you]=0:
+ magik[you]=1
+ gs'body'
+ end
+ health[you]=healthmax[you]
+ energy[you]=energyMax[you]
+ mana[you]=manamax[you]
+     if master[you]=0:
+		 if toxic_time[you]>time:
+		 drug_addict[you]+=1
+			 if drug_addict[you]>=5:
+			 pain_timer[you]=time+60*12
+			 end
+		 end
+	 toxic_time[you]=time+60*6
+     end

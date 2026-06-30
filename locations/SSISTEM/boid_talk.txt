@@ -1,0 +1,14 @@
+﻿gs'stat'&'<center><img src="pic/face/5/132.jpg" ></center>'
+'Бойд лапает вас и вдруг в комнату входит его друг, Бойд ухмыляется - Не бойся, это мой дружище Виктор Крейг, ты же не будешь солнышко против секса в троем?'
+know['<<kraig>>,<<you>>']+=1&know['<<you>>,<<kraig>>']+=1
+act'Согласится':d=kraig&X[d]=X[boid]&Y[d]=Y[boid]&Z[d]=Z[boid]&H[d]=H[boid]&R[d]=R[boid]&horny[kraig]=50&solo=0&cls&gs'stat'&gt'sex'
+if girlfriend_num[npc]=you:
+	 act'Отвалите от меня, ебланы!':
+		 boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
+		 cls&gs'stat'&'<center><img src="pic/face/5/132.jpg" ></center>'&'<<$name[npc]>> злится на вас - Ну и пошла ты на хуй, дура!'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+else
+	 act'Отвалите от меня, ебланы!':
+		 cls&gs'stat'&'<center><img src="pic/face/5/132.jpg" ></center>'&'<<$name[npc]>> злится на вас - Ну и пошла ты на хуй, дура!'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end

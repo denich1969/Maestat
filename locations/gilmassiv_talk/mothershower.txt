@@ -1,0 +1,10 @@
+﻿horny[you]+=50&gs'stat'&'<center><img src="pic/event/shower/<<rand(0,5)>>.jpg" ></center>'
+if you=brother:'Мамка моется в ванной, она вас видит и шикает на вас - Блин! Да что, не понятно что ли что ванная занята?'&act'Уйти':R[you]=0&gt'preloc'
+if horny[mother]>=50 and dick[you]>1 and onceperadaymotherfucker!daystart:
+	'Вы видите как взгляд матери останавливается на против вашей ширинки.'
+	 act'Хочешь потрогать?':
+		 onceperadaymotherfucker=daystart&X[npc]=3&Y[npc]=1&Z[npc]=3&H[npc]=1&R[npc]=0&!corr[npc]-=10
+		 walker_cooldown[npc]=0&npc=mother&friends[npc]+=1&gs'drop_follower'&gs'sexpower'
+		 in_sex=1&pose[npc]=1&temp_npc_clothe=0&gt'activ_sex'
+	 end
+end

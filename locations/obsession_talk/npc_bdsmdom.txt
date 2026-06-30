@@ -1,0 +1,25 @@
+﻿!$d_view='pic/mob/<<picture[npc]>>.jpg'&'<center><img src="<<$d_view>>" ></center>'
+if mob_sleep[npc]>time:
+	'Госпожа находится в трансе'&act'Украсть ключ':item_loc['38,<<$loc[you]>>']+=1&gt 'preloc'
+ else
+     if m_slot[you]=35:
+		'Госпожа возмущенно кричит - откуда у тебя плеть? Такое жалкое существо как ты не имеет права пользоваться плетью. А ну быстро встала на колени  и отдала мне плеть.'
+		 act'На колени и отдать плеть':uron_weapon_m[you]=0&m_slot[you]=0&pose[you]=2&cls&gt 'sex'
+     else
+		 if horny[npc]<100:
+			 if you_slut[npc]=0:
+				act'<b>Уйти</b>':gt 'preloc'
+				 act'Поговорить':
+					 know_about_portal[you]+=1
+					 cls&gs'stat'&'Госпожа ухмыляется - Тут полно рабов нуждающихся в воспитании.'&!'<center><img src="<<$d_view>>" ></center>'
+					 act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+			 if you_slut[npc]>0:
+				'Госпожа презрительно говорит вам - на колени рабыня'& act'На колени':pose[you]=2&cls&gt 'sex'
+			 end
+		 else
+			'Госпожа рычит на вас - на колени жалкая тварь!'&act'На колени':pose[you]=2&cls&gt'pegging_sex'
+		 end
+	 end
+ end

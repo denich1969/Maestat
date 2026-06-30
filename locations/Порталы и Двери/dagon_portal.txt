@@ -1,0 +1,8 @@
+﻿gs'stat'&'<center><img src="pic/event/DagonPortal.jpg"></center>'&'Вас накрывает могучий как цунами зов Дагона и вас окутывает портал'
+if dagon_in_world=0:dagon_in_world=1&gs'dagon_gen'
+npc=lord_dagon
+if backupdagon=1:X_temp=X[you]&Y_temp=Y[you]&Z_temp=Z[you]&H_temp=H[you]&R_temp=R[you]
+X[npc]=2&Y[npc]=2&Z[npc]=1&H[npc]=1&R[npc]=0
+X[you]=2&Y[you]=2&Z[you]=1&H[you]=1&R[you]=0
+if magik[you]>0:magik[you]-=1&'Вы чувствуете как нарушается ваша связь с магией.'
+act'Шагнуть в портал':pose[you]=2&horny[npc]=50&gt'sex'

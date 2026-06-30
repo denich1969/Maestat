@@ -1,0 +1,23 @@
+﻿!(rost[num]/2) нормальный размер груди
+!процентное отклонение от нормальной пропорции (размер торса к размеру груди, чем выше тем лучше, чем выше значение, тем лучше) 69 минимальное значение
+if tits[args[0]]=0:
+	result=0
+	exit
+end	
+if args[0] = you:
+!'rib '+rib[args[0]]
+!'rost '+rost[args[0]]
+!'breast '+breast[args[0]]
+end
+!args[10] = 100*2*breast[args[0]]/(3*rib[args[0]])-100
+!args[11] = 100*(rost[args[0]]/3)/rib[args[0]]-100
+!result = breast_b[args[0]] + breast_b[args[0]]*(args[10]+args[11])/100
+!args[10] = breast[args[0]] - rib[args[0]]
+result = 0
+if rib[args[0]]>0:
+	args[11]=((10*100*breast[args[0]]/rib[args[0]])-1000)*90/100
+	args[10]=args[11]-args[11]/10*10
+	if args[10]>=5:args[11]=args[11]/10+1
+	if args[10]<5:args[11]=args[11]/10
+	result = args[11]
+end

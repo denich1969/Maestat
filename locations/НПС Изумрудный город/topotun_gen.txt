@@ -1,0 +1,17 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&topotun=i
+lvl[i]=1&soul[i]=100&mob[i]=204&mobexp[i]=100&!номер моба и опыт
+
+tipemobpic[i]=1&picture[i]=503&!номер типа фотки и фотки 
+
+visualpol[i]=rand(1)&!видимый пол, не зависит от половых органов
+if visualpol[i]=0:$nick[i]='Чучело медведя'&gs'man_name'&dick[i]=rand(12,28)&dickd[i]=rand(30,50)&ball[i]=rand(30,70)&vag[i]=0&mus[i]=0&$name[i]='Топотун'&$surname[i]='Потапыч'
+if visualpol[i]=1:$nick[i]='Медведица'&gs'woman_name'&dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&mus[i]=rand(2000,3200)&$name[i]='Топотунья'&$surname[i]='Потаповна'&gs'surname'
+
+healthmax[i]=3000&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+reflex[i]=rand(50,70)
+agro[i]=0&corr[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+walkprog[i]=222&fight_prog[i]=1&!программа движения!программа боя
+bl_resist[i]=1&!имунитет к ударам
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс

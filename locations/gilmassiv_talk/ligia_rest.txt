@@ -1,0 +1,18 @@
+﻿if arhivwoman=npc:
+	'<<$name[npc]>> рассказывает про работу на электростанции и то что у нее начальник Дюк Валорама, ни одной юбки не пропустит.'
+	 if X[dukevalorama]=X[you] and Y[dukevalorama]=Y[you] and Z[dukevalorama]=Z[you] and H[dukevalorama]=H[you] and R[dukevalorama]=R[you] and IamMilfQW=1:
+		know['<<dukevalorama>>,<<you>>']+=1&know['<<you>>,<<dukevalorama>>']+=1&friends['<<dukevalorama>>,<<you>>']=100&friends['<<you>>,<<dukevalorama>>']=100
+		'К вашему столу вдруг подкатывает толстый мужик и ваша подруга тут же надевает улыбку на харю - О, Дюк, какая приятная неожиданность.'
+		'Дюк целует ручку вашей подруге, вам и не дожидаясь приглашения садится за ваш столик, '
+		'к вашему столику тут же приносят лучшие напитки и закуски и уже хмельной мужчина начинает ездить вам по ушам, какие они кореша не разлей вода с Богартом.'
+		if sexpartner['<<arhivwoman>>,<<dukevalorama>>']=0:
+			 if IamMilfQW=1:IamMilfQW=2
+			 lust[npc]+=30&corr[npc]+=30&gs'add_sex_stat',arhivwoman,dukevalorama
+			 vagsex[arhivwoman]+=1&avagsex[dukevalorama]+=1&bj[arhivwoman]+=1&abj[dukevalorama]+=1
+			X=2&Y=0&Z=3&H=2&R=2
+			X[arhivwoman]=X&Y[arhivwoman]=Y&Z[arhivwoman]=Z&H[arhivwoman]=H&R[arhivwoman]=R
+			X[dukevalorama]=X&Y[dukevalorama]=Y&Z[dukevalorama]=Z&H[dukevalorama]=H&R[dukevalorama]=R
+			'Через некоторое время Валорама ничуть не стесняясь берет за руку вашу подругу и подмигнув вам выводит ее из ресторана.'
+		 end
+	 end
+ end

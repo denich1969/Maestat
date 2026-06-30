@@ -1,0 +1,20 @@
+﻿gs'stat'
+
+act'Убрать':gt'wardrobe'
+
+
+
+$itemloc_t=''
+zit=1
+itemmax=arrsize('$t_name')
+:markitemloc_t
+if t_wardrobe[zit]>0:
+!$itemloc_t+='<br>'
+     $itemloc_t+='<a href="exec:gt''t_wear'',<<zit>>"><img src="pic/clo/top/<<zit>>.jpg" ></a>'
+end
+
+zit+=1
+if zit<=itemmax:jump'markitemloc_t'
+
+'<<$itemloc_t>>'
+

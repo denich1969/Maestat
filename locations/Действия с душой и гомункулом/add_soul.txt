@@ -1,0 +1,45 @@
+﻿args[10]=0
+:X
+	args[11]=0
+	:Y	
+		args[12]=0
+		:Z
+			args[13]=0
+			:H
+				args[14]=0
+				:R
+					if $locname['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']!'':
+						if args[13]=0:soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(15,60)&!улица
+						if args[13]!0:soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(10,25)&!помещение
+						if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Туалет':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(10,25)
+						if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Спальная':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(50,200)
+						if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Учительская':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(200,500)
+						if $locname['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Бар':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(100,250)
+						if $locname['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Таверна':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(100,250)
+						if $locname['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Ночлежка':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(300,600)
+						if $locname['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Бордель':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(3000,5000)
+						if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Общая спальная':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(250,500)
+						if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Хозяйская спальная':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(25,50)
+						if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Сауна':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(1000,1750)
+						if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Комната отдыха':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(200,500)
+						if $locnameH['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>']='Общежитие':
+							soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(10,25)&!Общага в жилмассиве
+							!комната где негры тусуются
+							if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Спальная №1':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(50,150)
+						end
+						if $locnameH['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>']='Кинотеатр для взрослых':
+							soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(10,25)&!порностудия
+							if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Студия':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(250,500)
+						end
+						if $locnameH['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>']='Преисподняя':
+							soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(50,150)&!порностудия
+							if $locnameR['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']='Комната ВИП':soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(250,500)
+						end
+						if args[12]=1:soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(10,15)&!бонус для порта
+						if args[12]=2:soul_loc['<<args[10]>>,<<args[11]>>,<<args[12]>>,<<args[13]>>,<<args[14]>>']+=rand(10,15)&!бонус для блекбери
+					end	
+				if args[14]<10:args[14]+=1&jump'R'
+			if args[13]<10:args[13]+=1&jump'H'
+		if args[12]<10:args[12]+=1&jump'Z'
+	if args[11]<10:args[11]+=1&jump'Y'
+if args[10]<10:args[10]+=1&jump'X'

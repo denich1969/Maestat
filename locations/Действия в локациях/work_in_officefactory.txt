@@ -1,0 +1,7 @@
+﻿payment=0&walkwer_time=3
+:markworkinfacoff
+	nopee=1&time+=60&gs'stat'&if walkwer_time>0:gs'walker'&walkwer_time-=1
+	money[you]+=350&payment+=350&if fat[you]>=10:fat[you]-=1
+if hour<17:jump'markworkinfacoff'
+nopee=0&gs'stat'&'Вы разрабатываете проектировочную документацию для того, что бы у рабочих были чертежи и спецификации деталей, а так же полное описание процессов. '
+'И так монотонно до 17 часов. В конце дня вам дают <<payment/100>> шиллингов <<payment mod 100>> пенсов'&act'Отойти':gt 'preloc'

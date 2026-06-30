@@ -1,0 +1,19 @@
+﻿!проверка на телефонные звонки
+ring_ding=0
+ringdingdong=0
+if Xhome[you]=X[you] and Yhome[you]=Y[you] and Zhome[you]=Z[you] and Hhome[you]=H[you]:ringdingdong=1
+if husband[you]>0:
+	hus=husband[you]
+	if Xhome[hus]=X[you] and Yhome[hus]=Y[you] and Zhome[hus]=Z[you] and Hhome[hus]=H[you]:ringdingdong=1
+end
+if ringdingdong=1:
+     if boyfriend_num[you]>0:
+     bfnum=boyfriend_num[you]
+     !номер бойфренда
+         if dayboyfriendcall[bfnum]!daystart:
+         !бойфренд не звонил
+             if hour>=16 and hour<=20:ring_ding=1&'<b>ЗВЕНИТ ТЕЛЕФОННЫЙ ЗВОНОК</b>'&!активное время
+         end
+     end
+end
+gs'apart_phone'

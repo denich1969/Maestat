@@ -1,0 +1,15 @@
+﻿$d_view='pic/mob/157.jpg'&'<center><img src="<<$d_view>>" ></center>'&horny[npc]=0
+if mob_sleep[npc]>time:
+	'<<$nick[npc]>> медитирует'
+else
+	'<<$nick[npc]>> смотрит на вас - Что тебе нужно, дитя мое?'&act'<b>Уйти</b>':gt 'preloc'
+     if dayblagodat!daystart:
+		 act'Благослови меня':
+			 dayblagodat=daystart&health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]&if dick[you]>=1:manize[you]+=rand(3,6)
+             if corr[npc]>=100:manize[you]=0&corr[you]+=1&feminize[you]+=rand(3,5)
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> - Благословляю тебя, дитя мое.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+     else
+		'<<$nick[npc]>> грустно качает головой - за благословением приходи завтра'
+     end
+end

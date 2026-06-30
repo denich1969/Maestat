@@ -1,0 +1,6 @@
+﻿batrak[X]=i
+pre_class=rand(0,1)
+gs'male_gen'&total_batrak+=1
+homeX[i]=X&homeY[i]=Y&homeZ[i]=Z&homeH[i]=H
+ownerloc['<<X>>,<<Y>>,<<Z>>,<<H>>']=0
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=0

@@ -1,0 +1,4 @@
+﻿if inix=0:gs'walker'
+if inix=1:gs'sim_life'
+inix+=1
+if inix>=2:inix=0

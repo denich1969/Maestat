@@ -1,0 +1,72 @@
+﻿$loc[you]=$curloc
+loc_for_drop=0&gs'stat'&'<b><center>Гильдия Работорговцев</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+'Судя по интерьерам гильдия на подъеме и очень влиятельна'
+'За 10 искр можно переночевать в спальном помещении гильдии'
+gs'npconloc'&gs'item'
+if iskr[you]>=10 and roompayslvm!daystart and slaverhouse=0:act'Оплатить комнату':time+=5&iskr[you]-=10&roompayslvm=daystart&gt $curloc
+if roompayslvm=daystart or roompayslvm=daystart-1 and hour<8:'У вас оплачено койко место в общей комнате на сегодня'&gs'sleep'
+if dolgsmg>0:
+	'Вы должны <<dolgsmg>> искр гильдии работорговцев. Вам осталось <<dolgsmgday-romadaystart>> дней, что бы отдать долг.'
+	if iskr[you]>=dolgsmg:act'Отдать долг':time+=5&iskr[you]-=dolgsmg&dolgsmg=0&gt $curloc
+end
+if dolgsmg=0:
+	'Гильдия может дать вам в долг 1000 искр на 10 дней, вы обязаны выплатить гильдии 1100 за установленный срок, иначе станете рабом гильдии.'
+	act'Взять в долг 1000 искр на 10 дней':time+=5&iskr[you]+=1000&dolgsmg+=1100&dolgsmgday=daystart+10&gt $curloc
+end
+if hiredbull=0:
+	'Вы можете нанять быка, крепкого мужчину способного хоть весь день трахать рабыню. 100 искр за наем и 10 искр в день'
+	if iskr[you]>=110:act'Нанять быка':time+=5&iskr[you]-=100&hiredbull=1&gt $curloc
+end
+if pet_follower>0:
+	slave=pet_follower&'За 50 искр вы можете провести часовое воспитание рабыни у опытного тренера'
+	if iskr[you]>=50 and sl_energy_cur[slave]>0:
+		act'Тренировка послушания рабыни':
+			if sl_char[slave]=0:sl_obediance[slave]+=rand(10,15)
+			if sl_char[slave]=1:sl_obediance[slave]+=rand(5,10)
+			if sl_char[slave]=2:sl_obediance[slave]+=rand(1,5)
+			iskr[you]-=50&sl_energy_cur[slave]-=1&sl_emo[slave]-=1
+			time+=60&cls&gs'stat'&'<center><img src="pic/slave/guild/tren0.jpg" ></center>'&'Опытный тренер дрессирует вашу рабыню в течении часа заставляя ее быть послушной.'&act'...':gt $curloc
+		end
+		act'Тренировка похоти рабыни':
+			if sl_temper[slave]=0:sl_lust[slave]+=rand(1,5)
+			if sl_temper[slave]=1:sl_lust[slave]+=rand(5,10)
+			if sl_temper[slave]=2:sl_lust[slave]+=rand(10,15)
+			iskr[you]-=50&sl_energy_cur[slave]-=1&sl_emo[slave]+=1
+			time+=60&cls&gs'stat'&'<center><img src="pic/slave/guild/tren1.jpg" ></center>'&'Опытный тренер дрессирует вашу рабыню в течении часа доводя ее до оргазма.'&act'...':gt $curloc
+		end
+		act'Сексуальная тренировка рабыни':
+			sl_oral[slave]+=rand(5,10)&sl_anus[slave]+=rand(5,10)
+			if sl_temper[slave]=0:sl_lust[slave]+=rand(1,3)
+			if sl_temper[slave]=1:sl_lust[slave]+=rand(3,5)
+			if sl_temper[slave]=2:sl_lust[slave]+=rand(5,10)
+			if sl_char[slave]=0:sl_obediance[slave]+=rand(3,6)
+			if sl_char[slave]=1:sl_obediance[slave]+=rand(1,3)
+			if sl_char[slave]=2:sl_obediance[slave]+=rand(0,1)
+			iskr[you]-=50&sl_energy_cur[slave]-=1&sl_emo[slave]-=1
+			time+=60&cls&gs'stat'&'<center><img src="pic/slave/guild/tren2.jpg" ></center>'&'Тренера трахают группой вашу рабыню разрабатывая ее дырки.'&act'...':gt $curloc
+		end
+		act'Тренировка буккейка рабыни':
+			sl_oral[slave]+=rand(5,20)
+			if sl_temper[slave]=0:sl_lust[slave]+=rand(1,3)
+			if sl_temper[slave]=1:sl_lust[slave]+=rand(3,5)
+			if sl_temper[slave]=2:sl_lust[slave]+=rand(5,10)
+			if sl_char[slave]=0:sl_obediance[slave]+=rand(5,10)
+			if sl_char[slave]=1:sl_obediance[slave]+=rand(3,5)
+			if sl_char[slave]=2:sl_obediance[slave]+=rand(1,3)
+			iskr[you]-=50&sl_energy_cur[slave]-=1&sl_emo[slave]-=1
+			time+=60&cls&gs'stat'&'<center><img src="pic/slave/guild/bukkake.jpg" ></center>'&'Куча мужиков трахает вашу рабыню в рот и спускает ей на лицо.'&		act'...':gt $curloc
+		end
+		act'Тренировка золотого дождя для рабыни':
+			sl_piss[slave]+=rand(5,10)&sl_oral[slave]+=rand(5,10)
+			if sl_temper[slave]=0:sl_lust[slave]+=rand(1,3)
+			if sl_temper[slave]=1:sl_lust[slave]+=rand(3,5)
+			if sl_temper[slave]=2:sl_lust[slave]+=rand(5,10)
+			if sl_char[slave]=0:sl_obediance[slave]+=rand(5,10)
+			if sl_char[slave]=1:sl_obediance[slave]+=rand(3,5)
+			if sl_char[slave]=2:sl_obediance[slave]+=rand(1,3)
+			iskr[you]-=50&sl_energy_cur[slave]-=1&sl_emo[slave]-=1
+			time+=60&cls&gs'stat'&'<center><img src="pic/slave/guild/piss.jpg" ></center>'&'Вашу рабыню поставили на колени и вручили ей большую чашку. '
+			'Группа мужчин стала подходить и мочится рабыне на лицо и в рот, а остатки мочи стекали в чашку. Затем рабыню заставили пить мочу из чашки и облиться ей.'&act'...':gt $curloc
+		end
+	end
+end

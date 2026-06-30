@@ -1,0 +1,171 @@
+﻿act'Уйти':gt 'preloc'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+' Проверить <<$name[npc]>> <<$surname[npc]>>.'
+'Автодок способен заменить половые органы на органы противоположного пола'
+'Автодок способен восполнить ману'
+'Автодок способен установить нужный уровень феминности, мускулатуры, жира и рост'
+if lebeda_seed[npc]>0:
+    'Автодок пищит и показывает красную надпись у <<$name[npc]>> <<$surname[npc]>> "ЗАРАЖЕНИЕ НЕИЗВЕСТНЫМ ПАРАЗИТОМ"'
+	act'Проверить <<$name[npc]>> на паразитов':
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'У <<$name[npc]>> <<lebeda_seed[npc]>> спор неизвестных грибов которые паразитируют на нервной системе.'
+		if implant_seed[npc]=0:
+			 'У <<$name[npc]>> <<implant_seed[npc]>> имплантов. Автодок предлагает установить <<$name[npc]>> имплант, который будет наномашинами бороться с заражением паразитарными грибами.'
+			act'Установить имплант <<$name[npc]>>':
+				implant_seed[npc]=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы подключили имплант к автодоку и тот заработал на полную мощь'&act'Готово!':gt $curloc
+			end
+		end
+	end
+	if implant_seed[npc]=1:
+		'У <<$name[npc]>> есть имплант, предотвращающий заражение паразитами.'&'Вы можете удалить паразитов у <<$name[npc]>>.'
+		act'Удалить паразитов':lebeda_seed[npc]=0&cls&gs'stat'&'Вы подключили имплант к автодоку и тот заработал на полную мощь'&gt $curloc
+	end
+end
+if implant_seed[npc]=1:
+	 'У <<$name[npc]>> есть имплант, предотвращающий заражение паразитами.'
+	act'Удалить имплант у <<$name[npc]>>':
+		implant_seed[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы удалили имплант у <<$name[npc]>>'&act'Готово!':gt $curloc
+	end
+end
+if lebeda_seed[you]>0:
+     'Автодок пищит и показывает красную надпись у вас "ЗАРАЖЕНИЕ НЕИЗВЕСТНЫМ ПАРАЗИТОМ"'
+	act'Проверитьcя на паразитов':
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'У вас <<lebeda_seed[you]>> спор неизвестных грибов которые паразитируют на нервной системе.'
+		if implant_seed[you]=0:
+			'У вас <<implant_seed[you]>> имплантов. Автодок предлагает установить вам имплант, который будет наномашинами бороться с заражением паразитарными грибами.'
+			act'Установить имплант <<$name[npc]>>':
+				 if parasitQW=0:parasitQW=1&implant_seed[you]=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы подключили имплант к автодоку и тот заработал на полную мощь'
+				act'Готово!':gt $curloc
+			end
+		end
+	end
+	if implant_seed[you]=1:
+		'У вас есть имплант, предотвращающий заражение паразитами.'&'Вы можете удалить паразитов.'
+		act'...':gt $curloc
+		act'Удалить паразитов':lebeda_seed[you]=0&cls&gs'stat'&'Вы подключили имплант к автодоку и тот заработал на полную мощь'&gt $curloc
+	end
+end
+if implant_seed[you]=1:
+	'У вас <<implant_seed[you]>> имплантов, предотвращающих заражение паразитами.'
+	act'Удалить имплант':
+		if parasitQW=1:parasitQW=0&implant_seed[you]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы удалили свой имплант'&act'Готово!':gt $curloc
+	end
+end
+if mutation[npc]>0:
+	'Автодок фиксирует у <<$name[npc]>> опасные мутации и предлагает избавиться от них'
+	act'Избавить от мутаций <<$name[npc]>>':
+		 mutation[npc]=0&cls&gs'stat'&'Автодок рекомбинирует поврежденные хромосомы и избавляет <<$name[npc]>> от мутаций.'&act'Встать':gt 'preloc'
+	end
+end
+if child_on_hand[you]>0:
+	'Вы можете вырастить своего ребенка в автодоке до 18летнего уровня'
+	 act'Вырастить ребенка':
+		 npc=child_on_hand[you]&Xhome[npc]=Xhome[you]&Yhome[npc]=Yhome[you]&Zhome[npc]=Zhome[you]&Hhome[npc]=Hhome[you]&Rhome[npc]=Rhome[you]
+		 X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]&child_on_hand[you]=0&age[npc]=18
+	     if pol[npc]=0:
+			 face_pic[npc]=rand(1,400)&t_slot[npc]=49&l_slot[npc]=52&b_slot[npc]=24&magik[npc]=24&$history[npc]='Я рос в виртуальной реальности, хотя я не замечал этого. Ты была моя мать и там, хотя теперь я понимаю что это была лишь цифровая копия. Там все было как на самом деле, дом, школа.'
+	     else
+			 face_pic[npc]=rand(1,100)
+			 t_slot[npc]=86&l_slot[npc]=46&b_slot[npc]=11
+             ul_slot[npc]=14&ub_slot[npc]=2&ut_slot[npc]=2
+             lust[npc]=100&agro[npc]=0&bisex[npc]=1
+             magik[npc]=24&forhorn[npc]+=100&oral_fixation[npc]+=100
+             $history[npc]='Я росла в виртуальной реальности, хотя я не замечала этого. Ты была моя мать и там, хотя теперь я понимаю что это была лишь цифровая копия. Там все было как на самом деле, дом, школа.'
+	     end
+	     n_world[]=npc&ne_world[]=npc&e_world[]=npc&se_world[]=npc&s_world[]=npc
+	     cantwalk[npc]=0
+	     if Zhome[npc]=2:walkprog[npc]=27
+	     if Zhome[npc]=3:walkprog[npc]=26&work[npc]=100&klass_A+=1&klass[npc]=1
+         can_drive[npc]=you&know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&puppil[]=npc&my_puppil[npc]=1&total_puppil+=1
+		 cls&gs'stat'&'Автодок помещает вашего ребенка в капсулу, и через некоторое время из капсулы выходит уже ваш взрослый ребенок выращенный в виртуальной реальности.'&act'Встать':gt 'npc'
+	 end
+end
+if inseminate[npc]>0:
+     if pregnant_day[npc]<daystart:
+		'Проверить беременность <<$name[npc]>>'
+         act'Проверить беременность <<$name[npc]>>':
+			 father_npc_child=inseminate[npc]&cls&gs'stat'&'Отец ребенка <<$name[father_npc_child]>> <<$surname[father_npc_child]>>'
+			 '<<$name[npc]>> забеременела <<daystart-pregnant_day[npc]>> дней назад'
+			 '<<$name[npc]>> родит через <<9-(daystart-pregnant_day[npc])>> дней'&act'Встать':gt 'preloc'
+         end
+         if money[npc]>=0:
+			 act'Сделать аборт <<$name[npc]>>':
+				 inseminate[npc]=0&pregnant_day[npc]=0&money[npc]+=50000
+				 cls&gs'stat'&'Автодок вкалывает <<$name[npc]>> анестезию и роботизированное щупальце проникает вам во влагалище. Пара секунд и плод вытащили из вас.'&act'Встать':gt 'preloc'
+			 end
+         end
+     end
+     '<br>ДЕТИ ЭТО ЦВЕТЫ ЖИЗНИ!'&*nl 'Ускорить роды у <<$name[npc]>><br>' & !Jorge Блок ускорения родов
+	 act'Ускорить роды <<$name[npc]>>':pregnant_day[npc]=-9&gt'preloc'& !Jorge конец блока
+end
+if spiral[npc]=0 and vag[npc]>1 and inseminate[npc]=0 and magik_eggvag[you]=0:
+	'Поставить <<$name[npc]>> спираль для предотвращения беременности'
+     act'Установить спираль <<$name[npc]>>':
+		 spiral[npc]=1&cls&gs'stat'&' Множество металических и пластиковых манипуляторов умного механизма запорхали над <<$name[npc]>> и установили спираль.'&act'Отойти':gt 'preloc'
+     end
+end
+if spiral[npc]>0 and vag[npc]>1:
+	'Убрать у <<$name[npc]>> спираль'
+     act'Убрать спираль <<$name[npc]>>':
+		 spiral[npc]=0&cls&gs'stat'&'Множество металических и пластиковых манипуляторов умного механизма запорхали над <<$name[npc]>> и убрали спираль.'&act'Отойти':gt 'preloc'
+     end
+end
+'Сменить <<$name[npc]>> цвет кожи или изменить форму носа.'
+ act'Сменить цвет кожи <<$name[npc]>>':
+	 cls&gs'stat'&'<<$name[npc]>> раздевшись, легли в автодок, появился экран с запросом.'
+     act'Белая кожа':skin[npc]=0&gt 'preloc'
+     act'Светлая кожа':skin[npc]=1&gt 'preloc'
+     act'Загорелая кожа':skin[npc]=2&gt 'preloc'
+     act'Смуглая кожа':skin[npc]=3&gt 'preloc'
+     act'Кожа шоколадного цвета':skin[npc]=4&gt 'preloc'
+     act'Чёрнаая кожа':skin[npc]=5&gt 'preloc'
+     act'Иссиня-чёрнаая кожа':skin[npc]=6&gt 'preloc'
+ end
+ act'Сменить форму носа <<$name[npc]>>':
+	 cls&gs'stat'&'<<$name[npc]>> раздевшись, легли в автодок, появился экран с запросом.'
+     act'Обыкновенный нос':nose[npc]=0&gt 'preloc'
+     act'Маленький вздернутый носик':nose[npc]=1&gt 'preloc'
+     act'Утонченный, аристократический нос':nose[npc]=2&gt 'preloc'
+     act'Широкий нос':nose[npc]=3&gt 'preloc'
+     act'Горбатый нос':nose[npc]=4&gt 'preloc'
+end
+if dick[npc]>1 and ball[npc]<100 and ball[npc]>1:
+	'Усилить <<ball[npc]>> <<$name[npc]>> потенцию'
+	 act'Усилить потенцию <<$name[npc]>>':
+		 ball[npc]+=10&cls&gs'stat'&'<<$name[npc]>> раздевшись, легли в автодок, вам сделали укол и начались какие-то манипуляции.'&act'Встать':gt $curloc
+	 end
+end
+'Автодок может установить <<$name[npc]>> любой размер груди.'
+act'Установить размер груди <<$name[npc]>>':
+	saggy[npc]=0
+	cls&gs'stat'&'<<$name[npc]>> осталось только выбрать размер.'
+     act'0й размер.':cls&tits[npc]=0&gt 'preloc'
+     act'1й размер. Чашечка А':cls&tits[npc]=10&gt 'preloc'
+     act'2й размер. Чашечка В':cls&tits[npc]=14&gt 'preloc'
+     act'3й размер. Чашечка C':cls&tits[npc]=17&gt 'preloc'
+     act'4й размер. Чашечка D':cls&tits[npc]=19&gt 'preloc'
+     act'5й размер. Чашечка DD':cls&tits[npc]=21&saggy[npc]+=1&gt 'preloc'
+end
+'Автодок может установить <<$name[npc]>> импланты. В наличии повышающий рефлексы, увеличивающий силу удара, имплант увеличения здоровья.'
+act'Имплант на рефлексы <<$name[npc]>>':
+	implant_speed[npc]+=1&reflex[npc]+=1&cls&gs'stat'&act'Отойти':gt 'preloc'
+	'<<$name[npc]>> раздевшись, легли в автодок. Множество металических и пластиковых манипуляторов умного механизма запорхали над <<$name[npc]>> и установили имплант.'
+end
+act'Имплант на силу удара <<$name[npc]>>':
+	implant_power[npc]+=1&soulpower[npc]+=5&cls&gs'stat'&act'Отойти':gt 'preloc'
+	'<<$name[npc]>> раздевшись, легли в автодок. Множество металических и пластиковых манипуляторов умного механизма запорхали над <<$name[npc]>> и установили имплант.'
+end
+act'Имплант увеличения здоровья <<$name[npc]>>':
+	implant_vigor[npc]+=1&vital[npc]+=5&cls&gs'stat'&act'Отойти':gt 'preloc'
+	'<<$name[npc]>> раздевшись, легли в автодок. Множество металических и пластиковых манипуляторов умного механизма запорхали над <<$name[npc]>> и установили имплант.'
+end
+act'Сменить имя <<$name[npc]>>':
+	cls
+	$name[npc]=input("Дать <<$name[npc]>> имя")
+	$surname[npc]=input("Фамилия <<$name[npc]>>")
+	$nick[npc]=input("Дать ник <<$name[npc]>>")
+	$fullname[npc]=input("Полное имя <<$name[npc]>>")
+	mother[npc]=input("Мать <<$name[npc]>>")
+	father[npc]=input("Отец <<$name[npc]>>")
+	act'Принять имя':gt 'preloc'
+end
+if inseminate[npc]=0 and pol[npc]=1 and magik_eggvag[you]=0 and spiral[npc]=0:act'Осеменить <<$name[npc]>>':inseminate[npc]=input("Осеменить от - номер npc")&pregnant_day[npc]=daystart&gt 'preloc'
+if lebeda_seed[npc]=0:act'Заразить <<$name[npc]>> спорами':lebeda_seed[npc]+=100&gt 'preloc'

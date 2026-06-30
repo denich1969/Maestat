@@ -1,0 +1,11 @@
+﻿!{clr&item[ARGS[0]]-=1
+burden[you]-=item_burden[ARGS[0]]
+item_loc['<<ARGS[0]>>,<<$loc[you]>>']+=1&! Как сделать переменную с '<<$ARGS[1]>>'???Может вообще убрать указатели на тип одежды?
+gt 'preloc'&!gt 'world'}
+
+it = ARGS[0]
+clr
+item[it]-=1
+burden[you]-=item_burden[it]
+item_loc['<<it>>,<<$loc[you]>>']+=1
+gt 'preloc'

@@ -1,0 +1,51 @@
+﻿if in_home[npc]=1:
+	act'Поговорить':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - тут замечательное место.'&act'...':gt $loc[you]&!на маяке
+	end
+	act'Шитье':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - я могу кое что сшить.'&act'...':gt $loc[you]
+		act'Мужская одежда':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - я могу кое что сшить.'&act'...':gt $loc[you]
+			act'Простая белая рубашка':cls&item_t[9]+=1&gt $loc[you]
+			act'Простые штаны':cls&item_l[8]+=1&gt $loc[you]
+			act'Черные трусы':cls&item_ul[3]+=1&gt $loc[you]
+		end
+		act'Женская одежда':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - я могу кое что сшить.'&act'...':gt $loc[you]
+			act'Простая белая рубашка':cls&item_t[13]+=1&gt $loc[you]
+			act'Простая черная юбка':cls&item_l[11]+=1&gt $loc[you]
+			act'Белые трусы':cls&item_ul[2]+=1&gt $loc[you]
+		end
+	end
+	if top_slot[npc]!14:act'Одеться как горничная':cls&top_slot[npc]=14&low_slot[npc]=0&gt $loc[you]
+	if item[25]>0:
+		act'Предложить отпраздновать':
+			item[25]-=1&burden[you]-=item_burden[25]&alko[you]+=6&if lust[npc]<100:lust[npc]+=rand(5,15)
+			time+=120&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'Заняться сексом':gt'sex'
+			'<<$name[npc]>> напилась вискаря вместе с вами и начала вспоминать о старых временах, как она жила в деревне, о парнях которые за ней увивались.'&act'Уйти':gt $loc[you]
+		end
+	end
+else
+	act'Поговорить':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
+		'<<$name[npc]>> улыбается вам прикусив губу - Вытащи меня из этого ужасного места, а я тебя могу отблагодарить.'&if horny[you]>10:act'Заняться сексом':sexday[npc]=daystart&gt'sex'&!в деревне
+		if dick[you]>1 and sex_times['<<npc>>,<<you>>']=0:
+			act'Флиртовать':
+				horny[you]+=10&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы с похотливой улыбочкой вскинули бровь - И как же ты меня отблагодаришь?'&act'...':gt $loc[you]
+				'<<$name[npc]>> игриво проводит своей ладошкой по вашей ширинке - как только женщина может отблагодарить мужчину.'&act'Заняться сексом':sexday[npc]=daystart&gt'sex'
+			end
+		end
+	end
+	if sex_times['<<npc>>,<<you>>']>0 or vag[you]>0:
+		act'Предложить уйти на маяк':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
+			'<<$name[npc]>> кивает головой - Забери меня пожалуйста отсюда. Я что угодно сделаю, могу на маяке у вас убираться, готовить, шить одежду, да что угодно, только бы выбратся отсюда.'
+			if amulet[you]=22 and light>=1500:
+				act'Уйти вместе на маяк':
+					$loc[npc]='0,0,300,1,1'&$doing[npc]='осматривается'&in_home[npc]=1&hunter[npc]=0&m_slot[npc]=0&light-=1000
+					time+=5&cls&gs'stat'&gs'color'&'<center><img src="<<$d_view>>" ></center>'&'Вы девушку за руку и взяв амулет в другую руку переноситесь по лучу света на маяк.'&act'...':gt $loc[npc]
+				end
+			end
+		end
+	end
+end

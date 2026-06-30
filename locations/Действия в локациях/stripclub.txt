@@ -1,0 +1,38 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/misc/shest.jpg" ></center>'&'Шест для стриптиза.'
+if work[you]=25:'Вы должны <<money_dolg[blackwood]/100>> шиллингов мистеру Блэквеллу'
+gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'
+if work[you]=25:
+     if energy[you]>=20:
+		 act'<b>Танцевать стриптиз</b>':
+			 time+=60&cls&gs'stat'
+			 if total_man_on_loc>0:
+				 if corr[you]<50:corr[you]+=1
+				 dance[you]+=1&energy[you]-=20&money_dolg[blackwood]+=100
+				 if fat[you]>mus[you]:fat[you]-=1
+				 if mus[you]<1800:mus[you]+=1
+				 if ass[you]<42:
+					assrand=rand(1,100)
+					 if ass[you]<35 and assrand>=90:ass[you]+=1 
+					 if ass[you]>=35 and assrand>=99:ass[you]+=1
+				 end
+				if sexiness[you]>=50 and sexiness[you]<200:
+					 kreatstreep=rand(10,sexiness[you])&chai=total_npc_on_loc*kreatstreep&chai+=dance[you]&money[you]+=chai&total_strip_earn[you]+=chai&if chai=0:chai=1
+				end
+				gs'stat'&'<center><video src="pic/misc/strip<<rand(0,7)>>.webm" ></video></center>'&'Вы танцуете стриптиз возле шеста'
+				if sexiness[you]>=50 and sexiness[you]<200:
+					 if chai>=100:'Клиенты платят вам приблизительно <<chai/100>> шиллингов чаевых'
+					 if chai<100:'Клиенты презрительно швыряют вам <<chai>> пенсов чаевых'
+					if stamp_t[you]=0:
+						 money[you]+=10000&stamp_t[you]=rand(1,4)
+						 'У вас зажгло кожу на пояснице и там проступила татуировка под улюлюканье зрителей и кто то вам швырнул сотню с криком - город заклеймил тебя как шлюху!'
+					end
+				else
+					 'Клиенты на вас не обращают внимания'
+				end
+			else
+				 'Никого нет и вы попусту теряете время'
+			end
+			gs'walker'&act'Передохнуть':gs'walk_programm'&gs'walk_programm'&gt $curloc
+		 end 
+     end
+end

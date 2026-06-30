@@ -1,0 +1,110 @@
+﻿act'<b>Уйти</b>':gs'preloc'
+
+gs'coat_base'&gs'tz_base'&gs'tg_base'
+gs'hat_base'&gs'm_base'&gs'w_base'
+gs'top_base'&gs'low_base'&gs'boot_base'
+gs'ut_base'&gs'ul_base'&gs'ub_base'
+
+gs'stat'
+'<center><b>Шкаф</b></center>'
+if pol[you]=0:
+'<a href="exec:gt ''coat''"><b>Верхняя одежда</b></a>'
+'<a href="exec:gt ''tz''"><b>Пиджаки</b></a>'
+'<a href="exec:gt ''tg''"><b>Жилеты</b></a>'
+'<a href="exec:gt ''hat''"><b>Головные уборы</b></a>'
+'<a href="exec:gt ''top''"><b>Рубашки и футболки</b></a>'
+'<a href="exec:gt ''low''"><b>Брюки и джинсы</b></a>'
+'<a href="exec:gt ''boot''"><b>Обувь</b></a>'
+'<a href="exec:gt ''utop''"><b>Лифчики</b></a>'
+'<a href="exec:gt ''ulow''"><b>Трусы</b></a>'
+'<a href="exec:gt ''uboot''"><b>Носки</b></a>'
+end
+if pol[you]>0:
+'<a href="exec:gt ''coat''"><b>Верхняя одежда</b></a>'
+'<a href="exec:gt ''tz''"><b>Жакеты</b></a>'
+'<a href="exec:gt ''tg''"><b>Кардиганы</b></a>'
+'<a href="exec:gt ''hat''"><b>Головные уборы</b></a>'
+'<a href="exec:gt ''top''"><b>Платья и блузки</b></a>'
+'<a href="exec:gt ''low''"><b>Юбки, брюки, шорты</b></a>'
+'<a href="exec:gt ''boot''"><b>Обувь</b></a>'
+'<a href="exec:gt ''utop''"><b>Лифчики</b></a>'
+'<a href="exec:gt ''ulow''"><b>Трусики</b></a>'
+'<a href="exec:gt ''uboot''"><b>Чулки и колготки</b></a>'
+end
+''
+'На вас сейчас надето'
+if pol[you]>0:
+	'Сексуальность <<sexiness[you]>>'
+	if sexiness[you]=0:'Я выгляжу целомудренной как монашка'
+	if sexiness[you]>0 and sexiness[you]<=10:'Я выгляжу влекущей и цветущей'
+	if sexiness[you]>10 and sexiness[you]<=50:'Я выгляжу сексуально'
+	if sexiness[you]>50 and sexiness[you]<=90:'Я выгляжу распущенно'
+	if sexiness[you]>90:'Я выгляжу как конченная шлюха'
+end
+''
+$hats=''
+$tops=''
+$lows=''
+$boots=''
+if hat_slot[you]>0:
+hattemp=hat_slot[you]
+$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'
+$hats+='
+<a href="exec:dynamic $d_hat_view"><<$hat_name[hattemp]>></a>
+'
+
+end
+if t_slot[you]>0:
+toptemp=t_slot[you]
+$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'
+
+'<a href="exec:dynamic $d_top_view"><<$t_name[toptemp]>></a>
+<a href="exec:gt''t_remo'',<<toptemp>>"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>
+<<$t_sexy[toptemp]>>'
+if aristokrat_t[toptemp]>0:'Офисная одежда'
+if leather_t[toptemp]>0:'Непромокаемая одежд'
+if sport_t[toptemp]>0:'Спортивная одежда'
+
+end
+if l_slot[you]>0:
+lowtemp=l_slot[you]
+$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'
+'<a href="exec:dynamic $d_low_view"><<$l_name[lowtemp]>></a>
+<a href="exec:gt''l_remo'',<<lowtemp>>"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>
+<<$l_sexy[lowtemp]>>'
+if aristokrat_l[lowtemp]>0:'Офисная одежда'
+if leather_l[lowtemp]>0:'Непромокаемая одежд'
+if sport_l[lowtemp]>0:'Спортивная одежда'
+end
+if b_slot[you]>0:
+boottemp=b_slot[you]
+$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'
+'<a href="exec:dynamic $d_boot_view"><<$b_name[boottemp]>></a>
+<a href="exec:gt''b_remo'',<<boottemp>>"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>
+<<$b_sexy[boottemp]>>'
+if aristokrat_b[boottemp]>0:'Офисная обувь'
+if sport_b[boottemp]>0:'Спортивная обувь'
+end
+
+if ut_slot[you]>0:
+utoptemp=ut_slot[you]
+$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'
+'<a href="exec:dynamic $d_utop_view"><<$ut_name[utoptemp]>></a>'
+'<a href="exec:gt''ut_remo'',<<utoptemp>>"><img src="pic/clo/utop/<<utoptemp>>.jpg" ></a>'
+'<<$ut_sexy[utoptemp]>>'
+
+end
+if ul_slot[you]>0:
+ulowtemp=ul_slot[you]
+$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'
+'<a href="exec:dynamic $d_ulow_view"><<$ul_name[ulowtemp]>></a>'
+'<a href="exec:gt''ul_remo'',<<ulowtemp>>"><img src="pic/clo/ulow/<<ulowtemp>>.jpg" ></a>'
+'<<$ul_sexy[ulowtemp]>>'
+end
+if ub_slot[you]>0:
+uboottemp=ub_slot[you]
+$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'
+'<a href="exec:dynamic $d_uboot_view"><<$ub_name[uboottemp]>></a>'
+'<a href="exec:gt''ub_remo'',<<uboottemp>>"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
+'<<$ub_sexy[uboottemp]>>'
+end

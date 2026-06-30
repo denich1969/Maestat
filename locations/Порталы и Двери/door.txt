@@ -1,0 +1,39 @@
+﻿if args[0]=1:
+	!gt 'door'
+	if Z[you]=770 and once=0 and (you=prinsess or realdaystart>0):gs '771_world_gen'&gs '772_world_gen'&gs '773_world_gen'&once=1&X[you]=4&Y[you]=5&Z[you]=771&H[you]=0&R[you]=0
+	if Z[you]=771 and once=0 and realdaystart>0:gs'jungle_gen'&once=1&X[you]=0&Y[you]=0&Z[you]=770&H[you]=0&R[you]=0
+	once=0
+end
+if args[0]=2:
+	!gt 'door2'
+	if item[338]=0:
+		msg("На двери замок")
+	else
+		 if Z[you]=772 and once=0:once=1&X[you]=10&Y[you]=5&Z[you]=771
+		 if Z[you]=771 and once=0:once=1&X[you]=0&Y[you]=3&Z[you]=772
+		once=0
+	end
+end
+if args[0]=3:
+	!gt 'stairway'&Лестница на второй этаж
+	 if Z[you]=773 and once=0:once=1&X[you]=0&Y[you]=4&Z[you]=771
+	 if Z[you]=771 and once=0:once=1&X[you]=10&Y[you]=10&Z[you]=773
+	 once=0
+end
+if args[0]=4:
+	!gt 'mansion'
+	if item[59]>0:
+		if Z[you]=760 and once=0:once=1&X[you]=7&Y[you]=7&Z[you]=730
+		if Z[you]=730 and once=0:once=1&X[you]=0&Y[you]=3&Z[you]=760
+		once=0
+	else
+		knowpowerbarrier+=1
+		msg("Вас не пускает загадочная магия")&!загадочный особняк в наваждении
+	end
+end
+
+if Z[you]=770 and once=0 and (you=prinsess or realdaystart>0):gs '771_world_gen'&gs '772_world_gen'&gs '773_world_gen'&once=1&X[you]=4&Y[you]=5&Z[you]=771&H[you]=0&R[you]=0
+if Z[you]=771 and once=0 and realdaystart>0:gs'jungle_gen'&once=1&X[you]=0&Y[you]=0&Z[you]=770&H[you]=0&R[you]=0
+once=0
+gt'world'
+!gt'preloc'

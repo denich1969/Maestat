@@ -1,0 +1,20 @@
+﻿w=ARGS[0]
+
+dead[w]=2
+magik[you]=magik[w]
+num=npc
+gs'body'
+health[you]=healthmax[you]
+mana[you]=manamax[you]
+energy[you]=energymax[you]
+
+if sfera_amulet[you]>0:sfera_fiz=sfera_amulet[you]
+if master[you]>0:sfera_fiz=2000
+if mag_shild[you]>0:sfera_fiz+=mag_shild[you]
+if fire_defence[you]>0:firedef=fire_defence[you]
+if storm_defence[you]>0:storm_shild+=storm_defence[you]
+if godshand[you]>0:godhand_def=godshand[you]
+if evil_grass[you]>0:evilgrass=evil_grass[you]
+
+
+gt'fight'

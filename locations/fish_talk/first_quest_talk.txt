@@ -1,0 +1,37 @@
+﻿if recamendation[you]>0 and moonmaid=npc and beliver[you]!1:
+	 act'Рекомендации':
+	 cls
+	 gs'stat'
+	 '<center><img src="<<$d_view>>" ></center>'
+	     if beliver[you]=0:
+	     	  if myrealbody>0 and myrealbody!you:
+			 '<<$name[npc]>> кивает головой - Это не твое настоящее тело'
+			 act'<b>Уйти</b>':gt 'preloc'
+			 else
+			 '<<$name[npc]>> улыбается - Дому Шеларди могут служить только присягнувшие на верность дому Луны.'
+				 act'Присягнуть богине Луны':
+				 cls
+				 maidwork['<<you>>']=1
+				 beliver[you]=1
+				 key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
+				 $history[moongodes]='Я воплощение богини Луны, моя стихия тайны, заговоры и интриги, все что таится в темноте.'
+				 l_hand_t[you]=2
+				 t_slot[you]=41
+				 l_slot[you]=0
+				 b_slot[you]=9
+				 ut_slot[you]=1
+				 ul_slot[you]=1
+				 ub_slot[you]=4
+				 gs'stat'
+				 '<center><img src="<<$d_view>>" ></center>'
+				 'Вы произносите под диктовку клятву богине луны и на вашем плече вспыхивает клеймо принадлежности богине Луны. Ваша одежда покрывается дымкой и превращается в платье служанки.'
+				 act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 else
+		 '<<$name[npc]>> грустно качает головой - Извини, но дому Шеларди могут служить только склонившиеся перед богиней Луны.'
+		 end
+		 
+		 act'<b>Уйти</b>':gt 'preloc'
+	 end
+end

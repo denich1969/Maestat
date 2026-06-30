@@ -1,0 +1,37 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
+mob[i]=52&mobexp[i]=10&!номер моба для разговора
+
+!visualpol[i]=1&!видимый пол, не зависит от половых органов
+tipemobpic[i]=0&!номер типа фотки и фотки
+if prepol=0:
+	visualpol[i]=rand(1)
+else
+    if prepol=1:visualpol[i]=1
+    if prepol=2:visualpol[i]=0&picture[i]=rand(1,400)
+end
+prepol=0
+
+if visualpol[i]=1:
+	hcolrand=rand(1,100)&!ФОТКА каталог и диапазон цвета волос
+	if hcolrand<=40:hcol[i]=1&spec_face_pic[i]=1&face_pic[i]=rand(5,115)&$nick[i]='Девушка'&$nicksub[i]='девушкой'&$nicksube[i]='девушке'&$nicksubu[i]='девушку'
+	if hcolrand>40 and hcolrand<=70:hcol[i]=0&spec_face_pic[i]=0&face_pic[i]=rand(5,100)&$nick[i]='Брюнетка'&$nicksub[i]='брюнеткой'&$nicksube[i]='брюнетке'&$nicksubu[i]='брюнетку'
+	if hcolrand>70 and hcolrand<=90:hcol[i]=3&spec_face_pic[i]=3&face_pic[i]=rand(5,100)&$nick[i]='Блондинка'&$nicksub[i]='блондинкой'&$nicksube[i]='блондинке'&$nicksubu[i]='блондинку'
+	if hcolrand>90:hcol[i]=2&spec_face_pic[i]=2&face_pic[i]=rand(5,100)&$nick[i]='Рыжая девушка'&$nicksub[i]='рыжей девушкой'&$nicksube[i]='рыжей девушке'&$nicksubu[i]='рыжую девушку'
+end
+
+if visualpol[i]=0:$nick[i]='Фермер'&gs'man_name'&dick[i]=rand(12,28)&dickd[i]=rand(30,50)&ball[i]=rand(30,70)&vag[i]=0&gs'male_gen'&total_farmer+=1
+if visualpol[i]=1:$nick[i]='Фермерша'&gs'woman_name'&dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&gs'female_gen'&total_farmer+=1
+$name[i]=$genname&gs'surname'&$surname[i]=$gensurname
+
+mus[i]=rand(1200,2400)&reflex[i]=rand(30,50)
+healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=100&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+
+agro[i]=0&corr[i]=0
+
+pre_class=1
+
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
+notfast[i]=0&!если 1 то все удары героя попадают в нпс
+walkprog[i]=2&fight_prog[i]=1&!программа движения!программа боя
+ownerloc['<<X>>,<<Y>>,<<Z>>,<<H>>']=i

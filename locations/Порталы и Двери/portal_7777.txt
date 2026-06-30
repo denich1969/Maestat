@@ -1,0 +1,39 @@
+﻿gs'stat'
+if portal['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=7777:
+     if openportal['<<$loc[you]>>']=0:
+		'На портале нарисованы 7 рун'
+     else
+		'На портале нарисованы 7 рун, <<openportal[''<<$loc[you]>>'']>> рун светится'
+     end
+     if openportal['<<$loc[you]>>']>=7:
+		'Портал работает и готов перенести любого, у кого хватит сил что бы открыть портал'
+         if princess=you:
+			'Вы принцесса, это ваш мир который держится на вашей силе и вы не можете его покинуть.'
+         else
+			 if master[you]=0 and mana[you]>=10:act'Войти в портал':gt'gamewin'
+			 if mana[you]<10:'Вам не хватает магических сил на открытие портала.'
+			 if master[you]>=1:act'Войти в портал':X[you]=100&Y[you]=100&Z[you]=7777&gt'world'
+         end
+         if mana[you]<10:'Портал не открывается, вам не хватает магической силы, что бы открыть его'
+     else
+         if cooldownportal['<<$loc[you]>>']<time:
+			 if soul[you]>100:
+				 act'100 душ на окрытие руны':
+					 runeportal+=1&cooldownportal['<<$loc[you]>>']=time+60*5&openportal['<<$loc[you]>>']+=1&soul[you]-=100
+					 cls&gs'portalalarm'&gs'stat'&'Вы положили руки на руну и вложили в нее душу, руна от этого зажглась синим светом'
+					 act'...':gt $curloc
+				 end
+			 end
+			 if item[29]>0:
+				 act'Вставить рунный камень':
+					 runeportal+=1&cooldownportal['<<$loc[you]>>']=time+60*5&openportal['<<$loc[you]>>']+=1&item[29]-=1&burden[you]-=item_burden[29]
+					 cls&gs'portalalarm'&gs'stat'&'Вы поднесли рунный камень к порталу, и тот приклеился к поверхности портала и погрузился в нее, руна от этого зажглась синим светом'
+					 act'...':gt $curloc
+				 end
+			 end
+         else
+			'Портал пульсирует и пока ни как не реагирует на внешние воздействия.'
+         end
+     end
+end
+'Портал похожий на ворота.'&gs'Item'&*pl ''&gs 'npconloc'&act'Отойти':gt 'world'

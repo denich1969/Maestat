@@ -1,0 +1,234 @@
+﻿if nari=npc  and Z[you]=550:
+	$loc[nari]='4,2,404,5,0'&!дома
+	act'Поговорить':
+		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - тут так необычно'&act'...':gt 'preloc'
+	end
+else
+	act'Давай поговорим':
+		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - О чем хочешь поговорить?'
+		act'Поговорить о вечном риме':
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - вечный рим окружен туманом через который можно пройти только с помощью компаса. '
+			'Это такой артефакт, Механтер торгует ими, 15 тысяч искр. Город управляется советом великих домов. '&act'...':gt 'preloc'
+			'Дом Таурус, дом Серпис, дом Камира, дом Ворона и гильдия Работорговцев тоже очень сильна и представлена в городском совете. '
+			'С работой в Вечном Риме очень сложно, все низкоуровневые работы выполняют рабы, а гражданам либо бизнес, либо военное дело, либо рабовладение, большего тут вряд ли найдешь.'
+		end
+		act'Поговорить о рабах':
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Рабов можно тренировать самостоятельно, либо если взять с собой рабыню и отвести к тренерам. '
+			'Например в гильдию, или звероферму, то там за искры можно будет тренировать рабыню. Кстати в техносфере дома Серпент можно проводить операции на внешности. '
+			'Некрасивую рабыню в бордель не продаш даже если она в сексе будет очень хороша, из слабой рабыни не сделать пони, а из брезгливой туалет. Но главное, воспитать в рабыне покорность. '
+			'Кстати если воспитать пони, и купить сбрую и тележку на звероферме в квартале отверженных, то можно будет кататься на своей пони, а это гораздо быстрее.'&act'...':gt 'preloc'
+		end
+		act'Поговорить об охотниках на рабов':
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt 'preloc'
+			if slaverQW<7000:'<<$name[npc]>> - мой отец был охотник на рабов. У него был компас и оружие, он ходил в туманы и через них в другие миры, там воровал девиц и продавал их в рабство тут. '
+			if slaverQW>=7000:'<<$name[npc]>> - наш отец был охотник на рабов. У него был компас и оружие, он ходил в туманы и через них в другие миры, там воровал девиц и продавал их в рабство тут. '
+		end
+		if brother[nari]=you:
+			act'Поговорить об отце':
+				time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Папа пропал, и не забывай сестренка, у нас долг. '
+				'Мы должны полторы тысячи гильдии работорговцев. Который нужно заплатить, иначе нас самих сделают рабынями. '
+				'Я не знаю что делать, вся надежда на тебя, но я тебе буду помогать. '&act'...':gt 'preloc'
+			end
+			if strapon=0:
+				act'Воспитание рабыни':
+					time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумчиво - Рабыню нужно приучать к сексу. А мы с тобой девочки. Хмм. Нужно купить страпон. '
+					'Сходи в Некрополис, там в стальной розе должны продаваться страпоны.'&act'...':gt 'preloc'
+				end
+			end
+		end
+		act'Рабовладение':
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумчиво - можно покупать на аукционе не обученных рабынь, обучать их и продавать дороже. '
+			'Стальной розе требуются туалетные рабыни. На звероферме покупают пони. Салону Мадам Жофре требуются рабыни проститутки. Салону Эльвен лэйд требуются массажистки. '
+			'И не обязательно все тренировать самим. Можно брать рабыню в город и тренировать там ее у профи за искры. '
+			'Только боюсь вложения будут очень большие и будет трудно на продаже что то заработать. На крайний случай рабыню можно сдать на мясо, так хоть какие то искры отобьем.'&act'...':gt 'preloc'
+		end
+		act'Впрочем, давай позже':gt 'preloc'
+	end
+	act'Статистика':
+		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<slave_total>> рабынь было куплено'
+		if slave_meat>0:'<<slave_meat>> рабынь сдано на мясо'
+		if slave_whore>0:'<<slave_whore>> рабынь продано в шлюхи'
+		if slave_massage>0:'<<slave_massage>> рабынь продано в массажистки'
+		if slave_pony>0:'<<slave_pony>> рабынь было продано в пони'
+		if slave_toilet>0:'<<slave_toilet>> рабынь было продано в туалеты'
+		act'Впрочем, давай позже':gt 'preloc'
+	end
+	if pet_follower>0:
+		slave=pet_follower
+		if nari_stamina<5:
+			act'Воспитуй рабыню':
+				time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				if nari_stamina<3:'<<$name[npc]>> - что именно мне сделать?'
+				if nari_stamina>=3 and nari_stamina<5:'<<$name[npc]>> - фух, я устала, но может что и смогу.'
+				if nari_stamina=5:'<<$name[npc]>> - извини, я на сегодня все, устала, больше не могу.'
+				'Усталость <<nari_stamina>> из 5'&act'Впрочем, давай позже':gt 'preloc'
+				act'Выпори рабыню':
+					cls
+					if sl_char[slave]=0:
+						if sl_obediance[slave]<10:sl_obediance[slave]+=2
+						if sl_obediance[slave]<20:sl_obediance[slave]+=2
+						if sl_obediance[slave]<30:sl_obediance[slave]+=2
+						if sl_obediance[slave]<40:sl_obediance[slave]+=2
+						if sl_obediance[slave]<50:sl_obediance[slave]+=2
+						if sl_obediance[slave]<60:sl_obediance[slave]+=2
+						if sl_obediance[slave]<70:sl_obediance[slave]+=2
+						sl_obediance[slave]+=2
+						if will[you]>50:sl_obediance[slave]+=3
+						if will[you]>=100:sl_obediance[slave]+=5
+					end
+					if sl_char[slave]=1:
+						if sl_obediance[slave]<10:sl_obediance[slave]+=1
+						if sl_obediance[slave]<20:sl_obediance[slave]+=1
+						if sl_obediance[slave]<30:sl_obediance[slave]+=1
+						if sl_obediance[slave]<40:sl_obediance[slave]+=1
+						if sl_obediance[slave]<50:sl_obediance[slave]+=1
+						if sl_obediance[slave]<60:sl_obediance[slave]+=1
+						if sl_obediance[slave]<70:sl_obediance[slave]+=1
+						sl_obediance[slave]+=1
+						if will[you]>50:sl_obediance[slave]+=2
+						if will[you]>=100:sl_obediance[slave]+=3
+					end
+					if sl_char[slave]=2:
+						if sl_obediance[slave]<10:sl_obediance[slave]+=rand(0,1)
+						if sl_obediance[slave]<20:sl_obediance[slave]+=rand(0,1)
+						if sl_obediance[slave]<30:sl_obediance[slave]+=rand(0,1)
+						if sl_obediance[slave]<40:sl_obediance[slave]+=rand(0,1)
+						if sl_obediance[slave]<50:sl_obediance[slave]+=rand(0,1)
+						if sl_obediance[slave]<60:sl_obediance[slave]+=rand(0,1)
+						if sl_obediance[slave]<70:sl_obediance[slave]+=rand(0,1)
+						sl_obediance[slave]+=rand(0,1)
+						if will[you]>50:sl_obediance[slave]+=1
+						if will[you]>=100:sl_obediance[slave]+=2
+					end
+					sl_emo[slave]-=1
+					if sl_energy_cur[slave]>0:sl_energy_cur[slave]-=1
+					nari_stamina+=1&time+=60&gs'stat'&'<center><img src="pic/slave/porka.jpg" ></center>'
+					'<<$name[npc]>> взяла кнут и начала пороть рабыню. <<$sl_name[slave]>> сначала сдерживается, но в скоре уже в голос рыдает и умоляет прекратить порку.'&act'Уйти':gt 'preloc'
+				end
+				act'Пусть рабыня тебе отлижет':
+					cls
+					if sl_obediance[slave]+sl_lust[slave]>=50:
+						sl_oral[slave]+=1&sl_obediance[slave]+=1
+						if will[you]>50:sl_obediance[slave]+=2
+						if will[you]>=100:sl_obediance[slave]+=3
+						time+=60&gs'stat'&'<center><img src="pic/slave/bj/cunt.jpg" ></center>'
+						if sl_oral[slave]<10:
+							'<<$sl_name[slave]>> неумело лижет влагалище и <<$name[npc]>> с раскрасневшимся лицом смотрит на это'
+						else
+							'<<$sl_name[slave]>> умело отлизывает киску и <<$name[npc]>> постанывает прикрыв глаза'
+						end
+						nari_stamina+=1
+					else
+						'<center><img src="pic/slave/face/<<sl_hcol[slave]>>/<<sl_facepic[slave]>>.jpg" ></center>'&'<<$sl_name[slave]>> отказывается лизать '
+					end
+					act'Уйти':gt 'preloc'
+				end
+				if strapon>0:
+					act'Отстрапонь рабыню в рот':
+						cls
+						if sl_obediance[slave]+sl_lust[slave]>=50:
+							sl_sexpartner[slave]+=1&sl_oral[slave]+=1&sl_obediance[slave]+=1
+							if will[you]>50:sl_obediance[slave]+=2
+							if will[you]>=100:sl_obediance[slave]+=3
+							nari_stamina+=1&time+=60&gs'stat'&'<center><img src="pic/slave/bj/strapon0.jpg" ></center>'
+							if sl_oral[slave]<10:
+								'<<$sl_name[slave]>> неумело сосет страпон, а <<$name[npc]>> при каждом движении подается вперед и удерживает рабыню за голову'
+							else
+								'<<$sl_name[slave]>> умело отсасывает страпон, а <<$name[npc]>> при каждом движении подается вперед и удерживает рабыню за голову'
+							end
+						else
+							'<<$sl_name[slave]>> отказывается сосать страпон'
+						end
+						act'Уйти':gt 'preloc'
+					end
+					if sl_pol[slave]=0:
+						act'Отстрапонь рабыню':
+							sl_obediance[slave]+=1
+							if will[you]>50:sl_obediance[slave]+=2
+							if will[you]>=100:sl_obediance[slave]+=3
+							sl_lust[slave]+=1&nari_stamina+=1&time+=15&cls&gs'stat'&'<center><img src="pic/slave/sex/strapon0.jpg" ></center>'
+							'<<$name[npc]>> размашисто ебёт рабыню страпоном во влагалище, а <<$sl_name[slave]>> стонет когда страпон входит в ее лоно.'
+							if sl_lust[slave]<20:'Рабыня едва терпит'
+							if sl_lust[slave]>=20 and sl_lust[slave]<40:'Рабыня спокойно терпит пока вы ее ебёте'
+							if sl_lust[slave]>=40 and sl_lust[slave]<60:'Щеки рабыни порозовели и она постанывает от удовольствия'
+							if sl_lust[slave]>=60 and sl_lust[slave]<80:'Лицо рабыни покраснело и она с удовольствием подмахивает'
+							if sl_lust[slave]>=80:'Рабыня откровенно кайфует от секса и с энтузиазмом подмахивает'
+							act'Уйти':gt 'preloc'
+						end
+					end
+					act'Отстрапонь рабыню в зад':
+						cls
+						sl_obediance[slave]+=1
+						if will[you]>50:sl_obediance[slave]+=2
+						if will[you]>=100:sl_obediance[slave]+=3
+						sl_anus[slave]+=1&time+=60&gs'stat'&'<center><img src="pic/slave/sex/strapon_a0.jpg" ></center>'
+						'<<$sl_name[slave]>> крепко связана и не способна сопротивляться, <<$name[npc]>> смазывает ей анус подготавливая рабыню к сексу.'
+						if sl_anus[slave]<dickd[you]:
+							sl_obediance[slave]+=1&'Рабыня стонет от боли, ее попка слишком тугая и страпон причиняет ей боль'
+						else
+							sl_lust[slave]+=1
+							if sl_lust[slave]<20:'Рабыня сжимает зубы и стонет'
+							if sl_lust[slave]>=20 and sl_lust[slave]<40:'Рабыня спокойно терпит пока ее трахают в жопу страпоном'
+							if sl_lust[slave]>=40 and sl_lust[slave]<60:'Щеки рабыни порозовели и она постанывает от удовольствия'
+							if sl_lust[slave]>=60 and sl_lust[slave]<80:'Лицо рабыни покраснело и она с удовольствием подмахивает'
+							if sl_lust[slave]>=80:'Рабыня откровенно кайфует от секса и с энтузиазмом подмахивает'
+						end
+						nari_stamina+=1&act'Уйти':gt 'preloc'
+					end
+				end
+				act'Поссы рабыне в рот':
+					cls
+					if sl_obediance[slave]+sl_lust[slave]>=70:
+						if sl_char[slave]=0:
+							if sl_obediance[slave]<10:sl_obediance[slave]+=2
+							if sl_obediance[slave]<20:sl_obediance[slave]+=2
+							if sl_obediance[slave]<30:sl_obediance[slave]+=2
+							if sl_obediance[slave]<40:sl_obediance[slave]+=2
+							if sl_obediance[slave]<50:sl_obediance[slave]+=2
+							if sl_obediance[slave]<60:sl_obediance[slave]+=2
+							if sl_obediance[slave]<70:sl_obediance[slave]+=2
+							sl_obediance[slave]+=2
+							if will[you]>50:sl_obediance[slave]+=3
+							if will[you]>=100:sl_obediance[slave]+=5
+						end
+						if sl_char[slave]=1:
+							if sl_obediance[slave]<10:sl_obediance[slave]+=1
+							if sl_obediance[slave]<20:sl_obediance[slave]+=1
+							if sl_obediance[slave]<30:sl_obediance[slave]+=1
+							if sl_obediance[slave]<40:sl_obediance[slave]+=1
+							if sl_obediance[slave]<50:sl_obediance[slave]+=1
+							if sl_obediance[slave]<60:sl_obediance[slave]+=1
+							if sl_obediance[slave]<70:sl_obediance[slave]+=1
+							sl_obediance[slave]+=1
+							if will[you]>50:sl_obediance[slave]+=2
+							if will[you]>=100:sl_obediance[slave]+=3
+						end
+						if sl_char[slave]=2:
+							if sl_obediance[slave]<10:sl_obediance[slave]+=rand(0,1)
+							if sl_obediance[slave]<20:sl_obediance[slave]+=rand(0,1)
+							if sl_obediance[slave]<30:sl_obediance[slave]+=rand(0,1)
+							if sl_obediance[slave]<40:sl_obediance[slave]+=rand(0,1)
+							if sl_obediance[slave]<50:sl_obediance[slave]+=rand(0,1)
+							if sl_obediance[slave]<60:sl_obediance[slave]+=rand(0,1)
+							if sl_obediance[slave]<70:sl_obediance[slave]+=rand(0,1)
+							sl_obediance[slave]+=rand(0,1)
+							if will[you]>50:sl_obediance[slave]+=1
+							if will[you]>=100:sl_obediance[slave]+=2
+						end
+						sl_emo[slave]-=1
+						sl_piss[slave]+=rand(1,3)
+						time+=60&gs'stat'&'<center><img src="pic/slave/bj/pisslesb.jpg" ></center>'
+						'<<$name[npc]>> задирает подол и снимает трусы, затем подходит к рабыне и раздвигает ноги выпуская струю мочи в лицо рабыне'
+						if sl_piss[slave]<20:'Рабыня неохотно и морщась пьет мочу'
+						if sl_piss[slave]>=20 and sl_piss[slave]<50:'Рабыня покорно пьет мочу'
+						if sl_piss[slave]>=50 and sl_piss[slave]<70:'Рабыня охотно пьет мочу'
+						if sl_piss[slave]>=70:'Рабыня смакуя пьет мочу'
+					else
+						'<center><img src="pic/slave/bj/pissnolesb.jpg" ></center>'&'Рабыня отказывается пить мочу и прячет лицо'
+					end
+					nari_stamina+=1&act'Уйти':gt 'preloc'
+				end
+			end
+		end
+	end
+end

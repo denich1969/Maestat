@@ -1,0 +1,28 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'Полки с бельем'&!gs'Item'
+*pl''&!gs 'npconloc'
+act'Отойти':gt 'preloc'
+$utop_loc=''
+$ulow_loc=''
+$uboot_loc=''
+clo=1
+clomax=arrsize('$ut_name')
+newgenut=0
+if today_utgeneratar['<<$loc[you]>>']!daystart:today_utgeneratar['<<$loc[you]>>']=daystart&newgenut=1
+:markutoptheloc
+    if newgenut=1 and sexy_ut[clo]<60:uthere['<<clo>>,<<$loc[you]>>']=rand(0,1)
+    if uthere['<<clo>>,<<$loc[you]>>']>0:$utop_loc+='<a href="exec:gt''gotoutop'',<<clo>>"><img src="pic/clo/utop/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markutoptheloc'
+clo=1&clomax=arrsize('$ul_name')&newgenul=0
+if today_ulgeneratar['<<$loc[you]>>']!daystart:today_ulgeneratar['<<$loc[you]>>']=daystart&newgenul=1
+:markulowtheloc
+    if newgenul=1 and sexy_ul[clo]<60:ulhere['<<clo>>,<<$loc[you]>>']=rand(0,2)
+    if ulhere['<<clo>>,<<$loc[you]>>']>0:$ulow_loc+='<a href="exec:gt''gotoulow'',<<clo>>"><img src="pic/clo/ulow/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markulowtheloc'
+clo=1&clomax=arrsize('$ub_name')&newgenub=0
+if today_ubgeneratar['<<$loc[you]>>']!daystart:today_ubgeneratar['<<$loc[you]>>']=daystart&newgenub=1
+:markuboottheloc
+    if newgenub=1 and sexy_ub[clo]<60:ubhere['<<clo>>,<<$loc[you]>>']=rand(0,1)
+    if ubhere['<<clo>>,<<$loc[you]>>']>0:$uboot_loc+='<a href="exec:gt''gotouboot'',<<clo>>"><img src="pic/clo/uboot/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+clo+=1&if clo<clomax:jump'markuboottheloc'
+*pl''&'<<$utop_loc>>'&*pl''&'<<$ulow_loc>>'&*pl''&'<<$uboot_loc>>'

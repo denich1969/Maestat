@@ -1,0 +1,42 @@
+﻿if evil[you]<100:
+	 if friends[npc]>0:
+		gs'take_follower'
+		 act'Поболтать':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		     if dick[npc]=0 and vag[npc]=0:
+				'<<$name[npc]>> грустно вздыхает - Когда меня делал фермер, он не подумал о том, чтобы сделать мне член.'
+		         if item[31]>0:
+		         	 act'Давай приделаем тебе дилдо':
+						 dick[npc]=18&dickd[npc]=46&ball[npc]=100&vag[npc]=0&item[31]-=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы приделываете дилдо к паху страшилы'
+						 '<<$name[npc]>> осматривает себя - Ого! Я теперь могу чувствовать этой штукой!'&act'<b>Уйти</b>':gt 'preloc'
+					 end
+		         end
+		     else
+				'<<$name[npc]>> задумчиво говорит - Фу, как неудобно быть сделанным из мяса и костей! Вы должны спать, есть, и пить. Впрочем, у вас есть мозги, а за них можно терпеть всю эту кучу неудобств.'
+		         if sexiness[you]>0:horny[npc]+=sexiness[you]&'<<$name[npc]>> хихикает - Но у тебя очень соблазнительные выпуклости мяса и костей.'
+		     end
+			act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 	 act'Спросить про ворону':
+			 X[kaggikarr]=X[you]&Y[kaggikarr]=Y[you]&Z[kaggikarr]=Z[you]
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> показывает пальцем - А вот и моя подружка!'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+		 if dick[npc]>1:
+			 if horny[npc]>=50:
+				'<<$name[npc]>> трогает дилдо - Эта штука забавно чешется!'&act'Доставай свою штуку! Почешем!':friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+			 end
+		 end
+	 end
+	 if friends[npc]=0:
+		     if know['<<npc>>,<<you>>']=0:
+		     	 act'Ну как ты?':
+					 know['<<npc>>,<<you>>']+=1&friends['<<npc>>,<<you>>']=100&act'<b>Уйти</b>':gt 'preloc'
+					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> осматривает себя - замечательно! Я могу идти с тобой!'&gs'take_follower'&!позвать с собой персонажа
+				 end
+		    else
+		end
+	end
+else
+    '<<$name[npc]>> хмурится глядя на вас - Уходи!'
+end
+act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'

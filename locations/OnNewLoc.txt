@@ -1,0 +1,43 @@
+﻿!if CONFIG['ENABLE_sound']=0 and $curloc!'Start' and $curloc!'achtung':
+if CONFIG['ENABLE_sound']=0 and $curloc!'Start':CLOSE ALL
+if CONFIG['ENABLE_sound']=1:$counter = 'counter'&music_on=1&gs 'init_music'
+if CONFIG['IN_START_SCREEN'] = 0:
+	!Это для тех, кто не любит динамические цвета бэкграунда/шрифтов.
+	!Если CONFIG['ENABLE_STATIC_BACKGROUND_COLOR'] больше нуля - переназначаем дефолтный цвет бэкграунда.
+	if CONFIG['ENABLE_STATIC_BACKGROUND_COLOR']>0:
+		if CONFIG['STATIC_BACKGROUND_COLOR_RED'] ! CONFIG['STATIC_FONT_COLOR_RED'] or CONFIG['STATIC_BACKGROUND_COLOR_GREEN'] ! CONFIG['STATIC_FONT_COLOR_GREEN'] or CONFIG['TEMP_FONT_COLOR_BLUE'] ! CONFIG['STATIC_FONT_COLOR_BLUE']:BCOLOR=RGB(CONFIG['STATIC_BACKGROUND_COLOR_RED'], CONFIG['STATIC_BACKGROUND_COLOR_GREEN'], CONFIG['STATIC_BACKGROUND_COLOR_BLUE'])
+	end
+	!Если CONFIG['ENABLE_STATIC_FONT_COLOR'] больше нуля - переназначаем дефолтный цвет шрифтов.
+	if CONFIG['ENABLE_STATIC_FONT_COLOR']>0:FCOLOR=RGB(CONFIG['STATIC_FONT_COLOR_RED'], CONFIG['STATIC_FONT_COLOR_GREEN'], CONFIG['STATIC_FONT_COLOR_BLUE'])
+else
+	!Это для отключения автоприменения цветов бэкграунда/шрифтов на стартовом экране настроек.
+	!Создаём копию RGB переменных во время применения, чтобы автоматически обновлялись только те, которые были применены.
+	if CONFIG['APPLY_BACKGROUND_COLOR'] = 1:
+	   CONFIG['TEMP_BACKGROUND_COLOR_RED'] = CONFIG['STATIC_BACKGROUND_COLOR_RED']
+	   CONFIG['TEMP_BACKGROUND_COLOR_GREEN'] = CONFIG['STATIC_BACKGROUND_COLOR_GREEN']
+	   CONFIG['TEMP_BACKGROUND_COLOR_BLUE'] = CONFIG['STATIC_BACKGROUND_COLOR_BLUE']
+	   CONFIG['CAN_APPLY_BACKGROUND_COLOR'] = 1
+	end
+	if CONFIG['APPLY_FONT_COLOR'] = 1:
+	   CONFIG['TEMP_FONT_COLOR_RED'] = CONFIG['STATIC_FONT_COLOR_RED']
+	   CONFIG['TEMP_FONT_COLOR_GREEN'] = CONFIG['STATIC_FONT_COLOR_GREEN']
+	   CONFIG['TEMP_FONT_COLOR_BLUE'] = CONFIG['STATIC_FONT_COLOR_BLUE']
+	   CONFIG['CAN_APPLY_FONT_COLOR'] = 1
+	end
+	if CONFIG['CAN_APPLY_BACKGROUND_COLOR'] = 1 and CONFIG['ENABLE_STATIC_BACKGROUND_COLOR']>0:BCOLOR=RGB(CONFIG['TEMP_BACKGROUND_COLOR_RED'], CONFIG['TEMP_BACKGROUND_COLOR_GREEN'], CONFIG['TEMP_BACKGROUND_COLOR_BLUE'])
+	CONFIG['APPLY_BACKGROUND_COLOR'] = 0
+	if CONFIG['CAN_APPLY_FONT_COLOR'] = 1 and CONFIG['ENABLE_STATIC_FONT_COLOR']>0:FCOLOR=RGB(CONFIG['TEMP_FONT_COLOR_RED'], CONFIG['TEMP_FONT_COLOR_GREEN'], CONFIG['TEMP_FONT_COLOR_BLUE'])
+	CONFIG['APPLY_FONT_COLOR'] = 0
+end
+if CHEAT_MENU['IN_CHEAT_MENU']=1:BCOLOR=RGB(255,255,255) & FCOLOR=RGB(32,32,32)
+if $CONFIG["FONT_NAME"] ! '' and $CONFIG["FONT_NAME"] ! $FNAME:$FNAME = $CONFIG["FONT_NAME"]
+if $CONFIG['VIDEO_HEIGHT'] = '':$CONFIG['VIDEO_HEIGHT']='auto'
+if $CONFIG['VIDEO_WIDTH'] = '':$CONFIG['VIDEO_WIDTH']='500px'
+if $CONFIG['IMG_HEIGHT'] = '':$CONFIG['IMG_HEIGHT']='auto'
+if $CONFIG['IMG_WIDTH'] = '':$CONFIG['IMG_WIDTH']='500px'
+if CONFIG['UPDATE_CSS']=1:
+	$SETMAINDESCHEAD = ''
+	$SETMAINDESCHEAD = '<style>'+"video{width:<<$CONFIG['VIDEO_WIDTH']>>;height:<<$CONFIG['VIDEO_HEIGHT']>>}img{max-width:<<$CONFIG['IMG_WIDTH']>>;max-height:<<$CONFIG['IMG_HEIGHT']>>}" +'</style>'
+	CONFIG['UPDATE_CSS']=0
+end
+if UCASE($curloc)='START':'<script>const elem=document.querySelector("a.start-screen"),newElem=document.createElement("a");newElem.href="exec:JS_ENABLED=1 & gt''achtung''",newElem.innerHTML="<H2><u>Да, я совершеннолетний и хочу продолжить игру</u></H2>",newElem.classList.add("plain","start-screen"),elem&&elem.replaceWith(newElem);</script>'

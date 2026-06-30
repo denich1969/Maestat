@@ -1,0 +1,24 @@
+﻿clo=ARGS[0]
+if ban_t[you]=0:
+	if t_slot[you]=0:
+		item_t[clo]-=1
+		burden[you]-=item_t_burden[clo]
+		t_slot[you]=clo
+	else
+		clothednow=t_slot[you]
+		item_t[clothednow]+=1
+		burden[you]+=item_t_burden[clothednow]
+		item_t[clo]-=1
+		burden[you]-=item_t_burden[clo]
+		t_slot[you]=clo
+	end
+	 if long_t[clo]>0:
+	     if l_slot[you]>0:
+			 clothednow=l_slot[you]
+			 item_l[clothednow]+=1
+			 burden[you]+=item_l_burden[clothednow]
+			 l_slot[you]=0
+		 end
+	 end
+end
+gt'preloc'

@@ -1,0 +1,21 @@
+﻿!0-id       !1-значение     !2-доп бонус       !$log_data[]='DEBUG to_arouse '+args[1]       !для точности
+args[1]=args[1]*1000
+args[20]=args[2]&args[20]=(feminize[args[0]]+manize[args[0]])*5&!Процентныей бонус
+!if aphrodisiac[args[0]]>0 and aphrodisiac[args[0]]<=3:args[20]+=100*aphrodisiac[args[0]]
+!if aphrodisiac[args[0]]>3:args[20]+=350
+!$log_data[]='DEBUG args[20] '+args[20]
+args[1]+=args[1]*args[20]/100
+!$log_data[]='DEBUG args[1] '+args[1]
+!args[1]=(lust[args[0]]+50)*args[1]/150&!основной ограничитель
+args[1]=args[1]/1000&!возвращаем к исходному
+!функция с пределом (lust[args[0]]+200)
+!args[1]=(lust[args[0]]+200)*args[1]/(100+args[1]+temp_orgazm[args[0]]*25)
+!args[1]=(lust[args[0]]+200-(orgasm[args[0]]-time)/3)*args[1]/(100+args[1]+temp_orgazm[args[0]]*25)
+if (100+args[1]+temp_orgazm[args[0]]*25) > 0:
+	args[1]=(lust[args[0]]+200-(orgasm[args[0]]-time)/3)*args[1]/(100+args[1]+temp_orgazm[args[0]]*25)
+else
+	args[1]=(lust[args[0]]+200-(orgasm[args[0]]-time)/3)*args[1]
+end
+!$log_data[]='DEBUG lust '+lust[args[0]]
+result = args[1]
+!$log_data[]='DEBUG to_arouse result '+result

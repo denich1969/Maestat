@@ -1,0 +1,62 @@
+﻿$nameloc[you]=$curloc
+gs'stat'
+ act'Смотреть телевизор':
+	 energy[you]=energyMax[you]&time+=60&cls&gs'walker'&gs'stat'&'Вы располагаетесь поуютней на удобном диване и включаете телевизор.'&if pol[you]>0:'<center><img src="pic/misc/tv.jpg" ></center>'
+     if Z[you]>=1 and Z[you]<=5:
+		 if globalQW=7:'По телевизору идет передача, расхваливающая вас. Аналитики заявляют, что Богарт был ужасный правитель, но вот вы точно поднимете жилмассив с колен и лично позаботитесь о каждом жилмассивовском болване.'
+		 if globalQW=6:'По телевизору идет передача, расхваливающая вас. Аналитики заявляют, что местные болваны сделали культ личности из Джофри Ханта, а как показала история, на нем свет клином не сошелся. Но вы - человек скромный и заботящийся о благе народа, а не преступник и убийца, как Хант.'
+		 if globalQW=5:'По телевизору идет передача, посвященная Джофри Ханту. Диктор объясняет, что если не Хант, то больше некому, и Жилмассив в кольце врагов, готовящихся напасть на нас.'
+		 if globalQW=4:'По телевизору идет передача, посвященная Джофри Ханту. Он - всеобщий любимец, не чета алкашу и беспредельщику Богарту. Хант рассыпается в обещаниях и сулит жителям Жилмассива золотые горы.'
+		 if globalQW=3:'По телевизору идет передача, посвященная смерти Богарта. Аналитики спорят в студии, сам ли умер Борис Богарт или его кто-то убил, а также обдумывают кандитуры следующего правителя Жилмассива и все сходятся во мнении, что следующим должен быть Антей Богарт, сын великого Богарта и Богини Земли.'
+		 if globalQW<3:'По телевизору идет передача, где ведущие с аналитиками и экспертами восхваляют Богарта и его достижения.'
+	 elseif Z[you]>=770 and Z[you]<800:
+		 if gloow_power>0:'<<gloow_power>> сила Хмуров'
+		 'По телевизору показывают остров на котором растут джунгли и по джунглям бродит <<total_tentacle>> чудовищных клубков щупалец выискивающих своих жертв'
+		 'По острову бродят <<total_aborigen>> аборигенов'
+		 if total_slut>0:'Так же там <<total_slut>> несчастных шлюх которые будут рожать чудовищь пока не умрут'
+		 if total_witch>0:'<<total_witch>> ведьма'
+		 if total_client>0:'<<total_client>> клиентов'
+		 if total_whore>0:'<<total_whore>> проституток в отеле'
+		 if total_bellboy>0:'<<total_bellboy>> слуг'
+		 if total_girl>0:'<<total_girl>> обычных девушек'
+		 if total_freegirl>0:'<<total_freegirl>> девушек бродит по улицам города'
+		 if total_guarddog>0:'<<total_guarddog>> псов охраняет подвал'
+		 if total_bdsm>0:'<<total_bdsm>> доминатрикс'
+		 if total_pornacter>0:'<<total_pornacter>> порноактеров'
+		 if total_maid>0:'<<total_maid>> служанок'
+		 if total_guard>0:'<<total_guard>> стражей принцессы'
+		 if total_townman>0:'<<total_townman>> горожан мужчин'
+		 if total_towngirl>0:'<<total_towngirl>> горожанок'
+		 if total_elvenman>0:'<<total_elvenman>> эльфов'
+		 if total_elvenwoman>0:'<<total_elvenwoman>> эльфиек'
+		 if total_goblin>0:'<<total_goblin>> гоблинов'
+		 if total_succubus>0:'<<total_succubus>> суккубов'
+	 elseif Z[you]=9999:
+		'По острову бродят <<total_aborigen>> аборигенов'
+		if total_slut>0:'Так же там <<total_slut>> несчастных шлюх которые будут рожать чудовищь пока не умрут'
+		if total_witch>0:'<<total_witch>> ведьма'
+		if total_client>0:'<<total_client>> клиентов'
+		if total_whore>0:'<<total_whore>> проституток в отеле'
+		if total_bellboy>0:'<<total_bellboy>> слуг'
+		if total_girl>0:'<<total_girl>> обычных девушек'
+		if total_freegirl>0:'<<total_freegirl>> девушек бродит по улицам города'
+		act'Отдыхать на диване':
+			 energy[you]+=10
+			 time+=rand(40,120)&cls&gs'stat'&'Вы сидите на диване отдыхая'&if pol[you]>0:'<center><img src="pic/misc/divan.jpg" ></center>'
+			 act'...':gt $curloc
+		 end
+		gs'sport'
+		 if resus=1:
+			'Старинная маска демона злобно скалится со стены'&act'Перевернуть маску демона':resus=0&gt $curloc 
+		 else
+			'Старинная маска демона отвернута к стене'&act'Перевернуть маску демона':resus=1&gt $curloc 
+		 end
+	 else
+		'По телеку идет какая-то унылая передача.'
+	 end
+	act'Выключить':gt 'preloc'
+ 	act'Смотреть дальше':
+		 health[you]=healthmax[you]&time+=60&cls&gs'walker'&gs'stat'&'Вы смотрете телевизор еще час.'&act'Выключить':gt 'preloc'
+	 end
+end
+gs'Item'&*nl ''&gs 'npconloc'&act'Отойти':gt 'preloc'

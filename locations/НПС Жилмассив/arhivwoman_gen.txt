@@ -1,0 +1,25 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&arhivwoman=i
+lvl[i]=1&soul[i]=100&work[i]=5&subwork[i]=1
+master[i]=0&delusion[i]=0&magik[i]=2&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=63
+$name[i]='Лигия'&$surname[i]='Стованс'&$nick[i]='Утонченная блондинка'&$title[i]=''&$history[i]='Мой муж работает в Агентстве, а я на электростанции.'
+face[i]=100&gla[i]=3&glacol[i]=2&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=40&throat[i]=20&ass[i]=30&nip[i]=40&tits[i]=16
+rost[i]=172&fat[i]=1800&mus[i]=700&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=3
+age[i]=38&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=40&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&lust[i]=10&wantblackcock[i]=1&!характер
+	 girl[arhivman]+=1&guy[i]+=1
+	 sexpartner['<<i>>,<<arhivman>>']+=100&sexpartner['<<arhivman>>,<<i>>']+=100
+	 vagsex[i]+=100&avagsex[arhivman]+=100
+	 bj[i]+=100&abj[arhivman]+=100
+	 anal[i]+=100&aanal[arhivman]+=100
+	 sexpartner_num_m['<<i>>,<<guy[i]>>']=arhivman&sexpartner_num_f['<<arhivman>>,<<girl[arhivman]>>']=i
+     husband[i]=arhivman&husband[arhivman]=i
+!l_hand_t[i]=3&nose_p[i]=1
+t_slot[i]=rand(54,64)&l_slot[i]=rand(27,44)&b_slot[i]=rand(17,22)
+ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
+e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

@@ -1,0 +1,4 @@
+﻿gs'stat'&num=npc&gs'body'&gs'npcbase'
+act'<b>Уйти</b>':gt 'preloc'
+'<<money[npc]/100>> шиллингов и <<money[npc] mod 100>> пенсов'
+act'Сменить героя':you=npc&gt 'preloc'

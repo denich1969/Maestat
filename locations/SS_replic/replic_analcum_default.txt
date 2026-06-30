@@ -1,0 +1,18 @@
+﻿if $args[2]='before':
+	args[20]=arrsize('replic_analcum_default_before')&if whore=1:args[20]+=arrsize('replic_analcum_whore_before')&!реплики по умолчанию
+	args[21]=rand(args[20]-1)&if args[21]<arrsize('replic_analcum_default_before'):dynamic $replic_analcum_default_before[args[21]],args[0],args[1]&exit
+	args[21]-=arrsize('replic_analcum_default_before')
+	if whore=1:
+		if args[21]<arrsize('replic_analcum_whore_before'):dynamic $replic_analcum_whore_before[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_analcum_whore_before')
+	end	
+end
+if $args[2]='cum':
+	args[20]=arrsize('replic_analcum_default_cum')&if whore=1:args[20]+=arrsize('replic_analcum_whore_cum')&!реплики по умолчанию
+	args[21]=rand(args[20]-1)&if args[21]<arrsize('replic_analcum_default_cum'):dynamic $replic_analcum_default_cum[args[21]],args[0],args[1]&exit
+	args[21]-=arrsize('replic_analcum_default_cum')
+	if whore=1:
+		if args[21]<arrsize('replic_analcum_whore_cum'):dynamic $replic_analcum_whore_cum[args[21]],args[0],args[1]&exit
+		args[21]-=arrsize('replic_analcum_whore_cum')
+	end	
+end

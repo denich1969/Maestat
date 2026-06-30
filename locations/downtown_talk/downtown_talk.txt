@@ -1,0 +1,138 @@
+﻿if odri=npc:
+     if mabutaQW>=4 and odri_can_kill=0:
+		 if dead[merlin]=0:
+			 act'Что у тебя было с Мерлином?':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			     if friends['<<npc>>,<<you>>']>=70:
+					'<<$name[npc]>> хмурится - Я думала между нами любовь. Он величайший маг, я тоже стала великой ведьмой. '
+					'И тут я забеременела от него. Но он вместо того что бы радоваться, начал уговаривать меня убить ребенка. А потом пытался убить меня и я сбежала. '
+					'Я боюсь за своего сына. Мерлин ненавидит его и хочет убить.'
+					 act'Помоги мне убить Мерлина':
+						 odri_can_kill=1
+						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> хмурится - Ради своего сына я готова убить Мерлина. Напади на него, я помогу тебе в бою.'
+						 act'<b>Уйти</b>':gt 'preloc'
+					 end
+			     else
+					'<<$name[npc]>> усмехается - Все что между нами было, это дело только мое и Мерлина.'
+			     end
+				 act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+     end
+     if odri_can_kill=2 and dead[merlin]>0:
+		friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0
+		 act'Мерлин':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> хмурится - Я не хочу об этом говорить. Из-за тебя я своими руками убила свою любовь.'
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+     end
+end
+if soulmaster=npc:
+	 if autodocQW=10:
+		 act'<b>Договор жертвы</b>':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> посмотрел на вас внимательным взглядом - Ты понимаешь что из себя представляет такой договор? '
+			'Позволь объяснить. Это человек заключивший сделку с дьяволом. Это не просто бумажка, это договор составленный так, что владельцу договора принадлежит душа вполне живого человека. '
+			'Это очень ценная вещь. Сколько нужно приложить усилий, что бы человек согласился обменять свою душу на какие то материальные блага. Но назначение я прекрасно понимаю. '
+			'Пробой завесы. Можно было бы заменить этот договор ритуалом жертвоприношения Баал Зебубу, но с договором проще.'
+			 act'<b>Баал Зебуб?</b>':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> кивнул - Баал Зебуб как его иногда называют повелитель мух. '
+				'Древнее и могучее существо охраняющее границы города. Есть давний и нерушимый договор, что Баал пропускает в город, что не пропускает, и выпускать он может только Харон и его капитана. '
+				'Так вот лазейка проста, Баал не способен контролировать границу во время ритуала жертвоприношения. Кинте жертву в пасть Ваала, кинте мученицу львам, отомстит всевышний вам. '
+				'Только это место покинуто всевышним и отдано меньшим духам на владение и созидание. Тут нет бога, есть только лжебоги, демоны и чудовища. '
+				'Ну это все лирика, целиковые души это совсем другой уровень ценности нежели те обломки душ которыми обмениваются в городе.'
+				 act'<b>И чего ты хочешь за такой договор?</b>':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					if needsoulqw=0:needsoulqw=1000
+					'<<$name[npc]>> вальяжно улыбнулся - Я беру со всех разную цену.'
+				     if soul[you]>=100:
+						 if $gendername[you]='Мужчина':
+							'<<$name[npc]>> скучая говорит вам  - 1000 душ'
+						     if soul[you]>=1000:
+						     	 act'Согласиться':
+									 autodocQW=15
+									 soul[you]-=1000
+									 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> достает договор и забрав души отдает его вам.'
+									 act'<b>Уйти</b>':gt 'preloc'
+								 end
+						     end
+						 end
+						 if  $gendername[you]='Фембой' or $gendername[you]='Фунтари':
+							'<<$name[npc]>> смеется - Я чувствую запах влагалища идущий у тебя между ног. Как у юной девочки, аромат роз. '
+							'Давай мои девочки отлижут тебе и доведут тебя до такого оргазма какой ты даже себе не представляешь, и ты получишь договор.'
+						     act'Согласиться':
+								autodocQW=15
+								cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> достает договор и садится в кресло достав член и начинает его дрочить. К вам подходят две его помощницы.'
+								act'...':gt'soulmaster_cuntboy'
+						     end
+						 end
+						 if $gendername[you]='Шимейл' or $gendername[you]='Кунтбой':
+							if needsoulqw=0:needsoulqw=1000
+							'<<$name[npc]>> скучая говорит вам  - 1000 душ'
+						     if soul[you]>=1000:
+						     	 act'Согласиться':
+									 autodocQW=15
+									 soul[you]-=1000
+									 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> достает договор и забрав души отдает его вам.'
+									 act'<b>Уйти</b>':gt 'preloc'
+								 end
+						     end
+							 act'Просить скидку':
+								cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется - Ну если устроим оргию, то я тебе просто так отдам договор.'
+							 act'<b>Уйти</b>':gt 'preloc'
+							     act'Согласиться':
+									 autodocQW=15
+									 X[npc]=1&Y[npc]=3&Z[npc]=5&H[npc]=6&R[npc]=2
+									 X[soulmistress]=X[npc]&Y[soulmistress]=Y[npc]&Z[soulmistress]=Z[npc]&H[soulmistress]=H[npc]&R[soulmistress]=R[npc]
+									 X[soulslut]=X[npc]&Y[soulslut]=Y[npc]&Z[soulslut]=Z[npc]&H[soulslut]=H[npc]&R[soulslut]=R[npc]
+									 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+									 solo=0&horny[npc]=50&horny[soulmistress]=50&horny[soulslut]=50
+									 mob_sleep[npc]=0&mob_sleep[soulmistress]=0&mob_sleep[soulslut]=0
+									 pose[you]=4&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> достает договор и забрав души отдает его вам.'&act'Оргия':gt 'sex'
+								 end
+							 end
+						 end
+						 if $gendername[you]='Женщина':
+							if needsoulqw=0:needsoulqw=1000
+							'<<$name[npc]>> скучая говорит вам  - 1000 душ'
+						     if soul[you]>=1000:
+						     	 act'Согласиться':
+									 autodocQW=15&soul[you]-=1000&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> достает договор и забрав души отдает его вам.'&act'<b>Уйти</b>':gt 'preloc'
+								 end
+						     end
+							 act'Просить скидку':
+								cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется - Ну если устроим оргию, то я тебе просто так отдам договор.'&act'<b>Уйти</b>':gt 'preloc'
+							     act'Согласиться':
+									autodocQW=15
+									X[npc]=1&Y[npc]=3&Z[npc]=5&H[npc]=6&R[npc]=2
+									X[soulmistress]=X[npc]&Y[soulmistress]=Y[npc]&Z[soulmistress]=Z[npc]&H[soulmistress]=H[npc]&R[soulmistress]=R[npc]
+									X[soulslut]=X[npc]&Y[soulslut]=Y[npc]&Z[soulslut]=Z[npc]&H[soulslut]=H[npc]&R[soulslut]=R[npc]
+									X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+									solo=0&horny[npc]=50&horny[soulmistress]=50&horny[soulslut]=50
+									mob_sleep[npc]=0&mob_sleep[soulmistress]=0&mob_sleep[soulslut]=0
+									pose[you]=4&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> достает договор и забрав души отдает его вам.'&act'Оргия':gt 'sex'
+								 end
+							 end
+						 end
+                     else
+						'<<$name[npc]>> - У тебя даже нет и сотни душ, какие договоры с неполной душой? С тебя потребуется 1000 душ'
+                     end
+                     act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 end
+	 end
+	 if satansToyQWmoney=1:
+		 act'<b>Посыльный</b>':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> осматривает вас надменно - У меня есть дело, важное дело. А этим мудакам охотникам ничего нельзя поручить. Плачу я очень прилично, 10 штук и 5000 души'
+			 act'Что за дело?':
+				satansToyQWmoney=2&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>>  кивает головой - Мой бизнес - это договоры о продаже и покупке душ. '
+				'Иногда тут бывают неприятные ситуации. Пан Твердовский составил договор очень хитро, он пользуется силами, ему не принадлежащими, и отдаст свою душу, как только окажется в Риме. '
+				'Поэтому этот плут и сбежал в Маестат. Откуда тут взяться Риму? Так вот, я плачу 10 тысяч и 5000 души, а вы вернете мне душу пана Твердовского. Он - подручный Леона Брокка. '
+				'А Леон - это аватар Огня и аватар Блэкберри, потому я не хочу вступать с ним в прямую конфронтацию. '
+				'Вот твоя задача: отправить душу Войцеха Твердовского мне, для этого нужно, чтобы он оказался в Риме. Я надеюсь что хотя бы ваше агентство сможет выполнить эту задачу.'
+				act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+	 end
+end

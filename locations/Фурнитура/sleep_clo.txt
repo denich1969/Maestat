@@ -1,0 +1,30 @@
+﻿blockneed=1
+gs'drop_follower'
+:anothersleep
+time+=60&gs'stat'&gs'walker'
+if hour>=22 or hour<7:jump'anothersleep'
+makeup[you]=0&gs'stat'
+sleep[you]=0&energy[you]+=50&health[you]+=10
+if manamax[you]>0:mana[you]+=soul[you]/2
+if ballmax[you]>0:ball[you]=ballmax[you]
+if hunger[you]<2:hunger[you]=2
+if thirst[you]<2:thirst[you]=2
+if pisswasser[you]>80:pisswasser[you]=80
+gs'stat'&blockneed=0&'Вы легли спать и быстро уснули. Спать в одежде не очень удобно, но вам лень раздеваться.'&act'Встать':gt 'world'
+if inseminate[you]>0:
+	womenbrain[you]+=10&if pregnant_day[you]+9<daystart:gt'rodi'
+end
+if anal_egg_timer[you]<=0 and anal_egg[you]>0:gt'anal_egg_rodi'
+if magik_egganal_timer[you]<=0 and magik_egganal[you]>0:gt'magik_egganal_rodi'
+if vagina_egg[you]>0 and vagina_egg_timer[you]<=0:gt'vagina_egg_rodi'
+if magik_eggvag_timer[you]<=0 and magik_eggvag[you]>0:gt'magik_eggvag_rodi'
+if dagonegg>0:
+	'Ночью, вас охватило безумное возбуждение и спазмы, вы вспомнили, что глубинный монстр кончил в вас и оставил в нутри вашей утробы свои плоды... Пришло время выпустить их наружу...'
+	'<center><video src="pic/event/see/rody.webm" ></video></center>'		
+	horny[you]=100&dagongene+=dagonegg&vag[you]+=dagonegg
+	in=1
+	:egg
+	if in<=dagonegg:item[999]-=1&burden[you]-=item_burden[999]&item_loc['999,<<$loc[you]>>']+=1&in+=1&jump'egg'
+	dagonegg=0
+end
+if exp[you]>=expneed[you] and muggle[you]=0:delact'Встать'&act'Встать':gt'newlevel'

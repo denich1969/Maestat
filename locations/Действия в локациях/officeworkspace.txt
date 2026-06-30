@@ -1,0 +1,42 @@
+﻿$nameloc[you]=$curloc
+loc_for_drop=0
+if Z[you]=200 and R[you]=1 and BossmainQW>0:
+	gs'stat'&'Ваше рабочее место'&!'<center><img src="pic/loc/ras/car.jpg" ></center>'
+	gs'Item'&*pl ''&gs 'npconloc'&!act'Отойти':gt 'preloc'
+	if week<6:
+		 if hour>=7 and hour<=9:
+			 act'Работать':
+				 nopee=1&rubl[you]+=50000&time+=60*4&cls&gs'stat'&nopee=0&'Вы работаете свою работу, нудную, неинтересную, однообразную и тягомотную. Вам плятят тысячу рублей в день, но за обе части дня .'
+				 act'Отойти':gt 'preloc'
+			 end
+		 end
+		 if hour>13 and hour<=14:
+			if BossmainQW=1:
+				if day=5 and realdaystart>=7:
+					act 'Идти с отчётом к боссу':
+						Xwork=X[you]&Ywork=Y[you]&Zwork=Z[you]&Hwork=H[you]&Rwork=R[you]
+						X[you]=X[demonboss]&Y[you]=Y[demonboss]&Z[you]=Z[demonboss]&H[you]=H[demonboss]&R[you]=R[demonboss]&gt'world'&!gt 'preloc'
+					end
+				else
+					act'Работать':
+						energy[you]=1&rubl[you]+=50000&time+=60*4&cls&gs'stat'&gs'eat','extra'&'<center><img src="pic/loc/app/ofis.jpg" ></center>'&gs'stat'&if soul[you]>50:soul[you]-=1
+						'Вы весь день составляете сметы и пишите отчеты. Начальник отдела Рылов стоит над душой и постоянно придирается и отчитывает вас, не давая вам ни малейшей передышки. '
+						'Но все когда то кончается, приходит и к концу очередной день офисного ада с верховным демоном Борисом Евгеньевичем.'&act'Закончить работу':gt $curloc
+						if week>1 and  BossmainQW>3:gt'forced_qwest'
+					end
+				end
+			end
+		end
+	else
+		'Сейчас выходной день'
+	end
+	if master[you]=0 and realdaystart+100=101 and BossmainQW>7:
+		'Вы замечаете на своем рабочем месте листок бумаги с коряво нарисованной луной.'
+		act'Взять бумажку':
+			master[you]=1&cls&gs'stat'&'Бумажка растворяется в вашей руке и таинственный женский голос шепчет вам '
+			'- Ты станешь моим аватаром, аватаром Богини Луны. И твоя главная задача - сделать так, чтобы никто не смог собрать Маестат. В общем, разберёшься.'&act'Отойти':gt 'preloc'
+		 end
+	end
+	!gs'stat'&'<b><center>Офис</center></b>'&'<center><img src="pic/loc/app/ofis.jpg" ></center>'&pl ''
+end
+act'Уйти':gt 'preloc'&!gt 'street_work'

@@ -1,0 +1,3 @@
+﻿dom=ARGS[0]&sub=ARGS[1]&!feminize[sub]+=1 на всякий случай пока убрал - не уверен как это работает
+!пока только такая заглушка, как вариант можно заменить на pic/sex/lesbstrapondog/<<rand(0,11)>>.webm
+gs'stat'&'<center><video src="pic/sex/femdom/strapon.webm" ></video></center>'&'<<$name[dom]>> трахает девушку страпоном. <<$nick[sub]>> громко стонет пока ее дрючат'&act'Уйти':gt'preloc'

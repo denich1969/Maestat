@@ -1,0 +1,22 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Оружейная стойка'&gs'Item'&*pl ''&gs 'npconloc'&act'Отойти':gt 'preloc'
+if searshed['<<$loc[you]>>']=0:
+     act'Обыскать':
+		 searshed['<<$loc[you]>>']+=1&tiperand=rand(0,12)
+         if tiperand=0:tt=7&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=1:tt=8&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=2:tt=9&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=3:tt=7&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=4:tt=27&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=5:tt=31&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=6:tt=35&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=7:tt=40&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=8:tt=41&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=9:tt=42&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=10:tt=43&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=11:tt=44&item_loc['<<tt>>,<<$loc[you]>>']+=1
+         if tiperand=12:tt=45&item_loc['<<tt>>,<<$loc[you]>>']+=1
+		cls&gt'preloc'
+     end
+else
+	'Вы обыскивали'
+end

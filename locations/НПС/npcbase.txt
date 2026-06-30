@@ -1,0 +1,215 @@
+﻿visualpol[npc]=iif(face[npc]>=50 and ass[npc]>=20,1,0)
+if know['<<npc>>,<<you>>']=0:'<b><center><<$nick[npc]>></center></b>'
+if know['<<npc>>,<<you>>']>0 and $surname[npc]!'':'<b><center><<$name[npc]>> <<$surname[npc]>></center></b>'
+if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]='':'<b><center><<$name[npc]>></center></b>'
+if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]!'':'<b><center><<$title[npc]>> <<$name[npc]>></center></b>'
+if face_pic[npc]>0 or spec_face_pic[npc]>0:gs 'init_d_view', npc, 'd_view' & '<center><img src="<<$d_view>>"></center>'
+'<<$opis[npc]>>'
+if water_gem[npc]>0:'<b>На пальце перстень с переливающимся голубым камнем.</b>'
+if fire_gem[npc]>0:'<b>На пальце перстень с переливающимся алым камнем.</b>'
+if earth_gem[npc]>0:'<b>На пальце перстень с переливающимся коричневым камнем.</b>'
+if wind_gem[npc]>0:'<b>На пальце перстень с переливающимся прозрачным камнем.</b>'
+if soul_gem[npc]>0:'<b>На пальце перстень с переливающимся черным камнем.</b>'
+npcclo=l_slot[npc]
+if l_hand_t[npc]>0:'Татуировка на левой руке - <img src="pic/tattoo/l_hand_t_<<l_hand_t[npc]>>.jpg" >'
+if r_hand_t[npc]>0:'Татуировка на правой руке - <img src="pic/tattoo/r_hand_t_<<r_hand_t[npc]>>.jpg" >'
+if back_t[npc]>0:'Татуировка на спине - <img src="pic/tattoo/back_t_<<back_t[npc]>>.jpg" >'
+if stamp_t[npc]>0:'Татуировка на пояснице - <img src="pic/tattoo/stamp_t_<<stamp_t[npc]>>.jpg" >'
+if tits_t[npc]>0:'Татуировка на груди - <img src="pic/tattoo/tits_t_<<tits_t[npc]>>.jpg" >'
+if belly_t[npc]>0:'Татуировка на животе - <img src="pic/tattoo/belly_t_<<belly_t[npc]>>.jpg" >'
+if pubis_t[npc]>0:'Татуировка на лобке - <img src="pic/tattoo/pubis_<<pubis_t[npc]>>.jpg" >'
+if l_ass_t[npc]>0:'Татуировка на левой ягодице - <img src="pic/tattoo/l_ass_t_<<l_ass_t[npc]>>.jpg" >'
+if r_ass_t[npc]>0:'Татуировка на правой ягодице - <img src="pic/tattoo/r_ass_t_<<r_ass_t[npc]>>.jpg" >'
+if l_leg_t[npc]>0:'Татуировка на левой ноге - <img src="pic/tattoo/l_leg_t_<<l_leg_t[npc]>>.jpg" >'
+if r_leg_t[npc]>0:'Татуировка на правой ноге - <img src="pic/tattoo/r_leg_t_<<r_leg_t[npc]>>.jpg" >'
+maksex[npc]=0
+if makeup[npc]=1:maksex[npc]-=30
+if makeup[npc]=2:maksex[npc]=10
+if ut_slot[npc]>0:t_nude[npc]=0
+l_nude[npc]=1&!НИЗ
+if l_slot[npc]>0:l_nude[npc]=0
+if ul_slot[npc]>0:l_nude[npc]=0
+fullnude[npc]=0&if t_nude[npc]>0 and l_nude[npc]>0:fullnude[npc]=1
+sexiness[npc]=0
+tot_aristokrat[npc]=0
+if t_nude[npc]=0 and tit[npc]>0:sexiness[npc]+=tits[npc]/4
+if l_nude[npc]=0 and ass[npc]>=10:sexiness[npc]+=ass[npc]/4
+if h_slot[npc]>0:
+	hattemp=h_slot[npc]&sexiness[npc]+=sexy_h[hattemp]&if aristokrat_h[hattemp]>0:tot_aristokrat[npc]+=aristokrat_h[hattemp]
+end
+if t_slot[npc]>0:
+	toptemp=t_slot[npc]&if sheer_t[toptemp]>0:t_nude[npc]=1
+     if aristokrat_t[toptemp]>0:tot_aristokrat[npc]+=aristokrat_t[toptemp]
+	sexiness[npc]+=sexy_t[toptemp]
+end
+if l_slot[npc]>0:
+	lowtemp=l_slot[npc]&sexiness[npc]+=sexy_l[lowtemp]&if sheer_t_l[lowtemp]>0:l_nude[npc]=1
+     if aristokrat_l[lowtemp]>0:tot_aristokrat[npc]+=aristokrat_l[lowtemp]
+end
+if b_slot[npc]>0:
+	boottemp=b_slot[npc]&sexiness[npc]+=sexy_b[boottemp]&if aristokrat_b[boottemp]>0:tot_aristokrat[npc]+=aristokrat_b[boottemp]
+end
+if ut_slot[npc]>0 and t_slot[npc]=0:utoptemp=ut_slot[npc]&sexiness[npc]+=sexy_ut[utoptemp]
+if ul_slot[npc]>0 and l_slot[npc]=0:
+	canseeass[npc]=1
+     if t_slot[npc]>0:
+		 topsl=t_slot[npc]&if long_t[topsl]>0:canseeass[npc]=0
+     end
+     if canseeass[npc]=1:ulowtemp=ul_slot[npc]&sexiness[npc]+=sexy_ul[ulowtemp]
+end
+if ub_slot[npc]>0:
+	canseelegs[npc]=1
+     if t_slot[npc]>0:
+		topsl=t_slot[npc]&if long_t[topsl]>=4:canseelegs[npc]=0
+     end
+     if canseelegs[npc]=1:uboottemp=ub_slot[npc]&sexiness[npc]+=sexy_ub[uboottemp]
+end
+if cum_face[npc]>0:sexiness[npc]+=cum_face[npc]*10&!'Сперма на лице'
+if t_nude[npc]>0:sexiness[npc]+=tits[npc]*2
+if l_nude[npc]>0:sexiness[npc]+=ass[npc]
+if lips[npc]=1:sexiness[npc]+=5&!правка от romlevudri 
+if lips[npc]=2:sexiness[npc]+=10
+if lips[npc]=3:sexiness[npc]+=15
+if preskin[npc]=1:sexiness[npc]+=5
+if preskin[npc]=2:sexiness[npc]+=10
+if preskin[npc]=3:sexiness[npc]+=15
+if beard[npc]>=1 and sexiness[npc]>0:sexiness[npc]=sexiness[npc]-beard[npc]
+if sexiness[npc]<0:sexiness[npc]=0
+sexiness[npc]=sexiness[npc]+maksex[npc]
+if makeup[npc]=1 and sexiness[npc]>70 and h_slot[npc]=0:sexiness[npc]=70
+if makeup[npc]=1:'<b>Скромный макияж</b>'
+if makeup[npc]=2:'<b>Вызывающий макияж</b>'
+if forbidsex[npc]=1:' <b>Запрещено трахаться с кем попало.</b>'&!Выводим на экран проверку статуса
+if forbidsex[npc]!1:' <b>Может трахаться с кем хочет.</b>'&!отслеживаем состояние параметра
+if sexiness[npc]>0:'Сексуальность: <b><<sexiness[npc]>></b>'
+if sexiness[npc]=0 and pol[npc]>0:'Выглядит целомудренной как монашка'
+if sexiness[npc]>0 and sexiness[npc]<=10 and pol[npc]=0:'Выглядит как трап'
+if sexiness[npc]>0 and sexiness[npc]<=10 and pol[npc]>0:'Выглядит влекущей и цветущей'
+if sexiness[npc]>10 and sexiness[npc]<=40:'Выглядит красиво'
+if sexiness[npc]>40 and sexiness[npc]<=75:'Выглядит сексуально'
+if sexiness[npc]>75 and sexiness[npc]<=90:'Выглядит распущенно'
+if sexiness[npc]>90:'Выглядит как конченная шлюха'
+if cum_face[npc]>0 and husband[npc]!you:cum_face[npc]=0&'<b><<$name[npc]>> вытирает сперму с лица</b>'
+if peecover[npc]>time and husband[npc]!you:peecover[npc]=time&'<b><<$name[npc]>> Вытирает мочу с лица</b>'
+if creampie_cum[npc]>time and husband[npc]!you:creampie_cum[npc]=time&'<b><<$name[npc]>> Вытирает сперму с ляшек</b>'
+if frobidsex[npc]>=1:'<b>Действует запрет на секс с другими партнёрами</b>'
+if cum_face[npc]>0 and husband[npc]=you:'<b>От вашей жены изо рта пахнет спермой</b>'
+if peecover[npc]>time and husband[npc]=you:'<b>От вашей жены изо рта пахнет мочой</b>'
+if creampie_cum[npc]>time and husband[npc]=you:'<b>По ляшкам вашей жены стекает сперма</b>'
+if tot_aristokrat[npc]>0:
+'Аристократичность <<tot_aristokrat[npc]>>'
+     if tot_aristokrat[npc]<3:'Легкий налет аристократичности'
+     if tot_aristokrat[npc]>=3 and tot_aristokrat[npc]<6:'Аристократичный вид'
+     if tot_aristokrat[npc]>=6:'Утонченно гламурно аристократичный вид'
+end
+if inseminate[npc]>0:
+	!$d_view_preggo={view("pic/body/preggo<<rand(1,5)>>.webm")}
+	$d_view_preggo='<video src="pic/cum/<<cum_face[you]>>.webm" >'&fat=inseminate[npc]
+	 if Z[npc]<7:
+	'<a class="plain" href="exec:dynamic $d_view_preggo"><b><<$name[npc]>> беременна </a>.</b> Забеременела от <<$name[fat]>> <<$surname[fat]>> <<daystart-pregnant_day[npc]>> дней назад. Родить должна через <<9-(daystart-pregnant_day[npc])>> дней'
+    ! if pregnant_day[npc]<daystart:'<b><<$name[npc]>> беременна.</b>'
+    else
+    '<a class="plain" href="exec:dynamic $d_view_preggo"><b><<$name[npc]>> беременна </a>.</b> Забеременела от <<$name[fat]>> <<$surname[fat]>> <<daystart-pregnant_day[npc]>> дней назад. Родить должна через <<270-(daystart-pregnant_day[npc])>> дней'
+    end
+end
+if inseminate[npc]>0 and husband[npc]=you:'<<$name[npc]>>: - Дорогой, скоро у нас родится малыш и ты станешь отцом'
+if inseminate[npc]>0 and husband[npc]=you and inseminate[npc]<>you:
+	 act'Узнать о беременности':
+		 gt'cuckold_talk_inseminate'&act'Уйти':gt 'preloc'
+	 end
+end
+if m_slot[npc]>0:
+	mslo=m_slot[npc]
+	if item_w_holdtipe[mslo]=0:'<<$item_name[mslo]>> висит на поясе'
+	if item_w_holdtipe[mslo]=1:'<<$item_name[mslo]>>'
+end
+if w_slot[npc]>0:
+	wslo=w_slot[npc]
+	if item_w_holdtipe[wslo]=0:'<<$item_name[wslo]>> висит на поясе'
+	if item_w_holdtipe[wslo]=1:'<<$item_name[wslo]>>'
+end
+if sfera_amulet[npc]>0:'На руке одет напульсник с рунами'
+$fullnpc=''
+if h_slot[npc]>0:hattemp=h_slot[npc]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
+if t_slot[npc]>0:toptemp=t_slot[npc]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
+if l_slot[npc]>0:
+	lowtemp=l_slot[npc]
+	if l_tipe[lowtemp]=0:can_see_legs=1
+	$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'
+	$fullnpc+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
+end
+if l_slot[npc]=0:can_see_legs=1
+if ub_slot[npc]>0 and can_see_legs=1:
+	uboottemp=ub_slot[npc]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
+end
+if b_slot[npc]>0:boottemp=b_slot[npc]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
+'<<$fullnpc>>'
+if ut_slot[npc]>0 and (t_slot[npc]=0 or sheer[toptemp]=1) :
+	utoptemp=ut_slot[npc]
+	if sheer_t[utoptemp]=0:
+		$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'&'<a href="exec:dynamic $d_utop_view"><<$ut_name[utoptemp]>></a>'
+	else
+		'Через лифчик просвечиваются сиськи'
+	end
+end
+if (ul_slot[npc]>0 and l_slot[npc]=0 and t_slot[npc]=0) or (ul_slot[npc]>0 and l_slot[npc]=0 and t_slot[npc]>0 and (long_t[toptemp]=0 or sheer[toptemp]=1)):
+	ulowtemp=ul_slot[npc]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'&'<a href="exec:dynamic $d_ulow_view"><<$ul_name[ulowtemp]>></a>'
+end
+if (ul_slot[npc]=0 and l_slot[npc]=0 and t_slot[npc]=0) or (ul_slot[npc]=0 and l_slot[npc]=0 and t_slot[npc]>0 and (long_t[toptemp]=0 or sheer[toptemp]=1)):'Без трусиков'&*nl
+if master[you]>0:'Координаты дома <<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>'
+if master[you]>0 and master[npc]>0 and master[you]=master[npc]:'<<$name[npc]>> ваше воплощение'
+if master[you]>0 and master[npc]=1 and master[you]!master[npc]:'<<$name[npc]>> воплощение богини луны'
+if master[you]>0 and master[npc]=2 and master[you]!master[npc]:'<<$name[npc]>> воплощение бога моря'
+if master[you]>0 and master[npc]=3 and master[you]!master[npc]:'<<$name[npc]>> воплощение бога света'
+if master[you]>0 and master[npc]=4 and master[you]!master[npc]:'<<$name[npc]>> воплощение бога войны'
+if beliver[npc]=1 and master[you]>0 and delusion[npc]=0:'<<$name[npc]>> и душой и телом принадлежит богине луны'
+if delusion[npc]=1 and master[you]>0:'<<$name[npc]>> не настоящий человек, а тень богини луны'
+if deflorator[you]=npc:'<<$name[npc]>> дефлорировал вас'
+if deflorator[npc]=you:'<<$name[npc]>> была дефлорирована вами'
+if anal_deflorator[npc]=you:'<<$name[npc]>> распечатал вашу попку'
+if anal_deflorator[you]=npc:'Вы распечатали ее попку'
+if sexpartner['<<npc>>,<<you>>']>0 and sexpartner['<<you>>,<<npc>>']>0:
+	'<<$name[npc]>> и вы, занимались сексом вместе <<sexpartner[''<<npc>>,<<you>>'']>> раз'
+	!'<a href="exec:time+=5&gt ''sexsbros''">Тестовый сброс секс статистик</a>'
+     if bj_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<bj_mass[''<<npc>>,<<you>>'']>> раз давал вам в рот'
+     if bj_mass['<<npc>>,<<you>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<bj_mass[''<<npc>>,<<you>>'']>> раз давала вам в рот'
+     if bj_mass['<<you>>,<<npc>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<bj_mass[''<<you>>,<<npc>>'']>> раз сосал член у вас'
+     if bj_mass['<<you>>,<<npc>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<bj_mass[''<<you>>,<<npc>>'']>> раз сосала член у вас'
+     if vag_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<vag_mass[''<<npc>>,<<you>>'']>> раз трахал вас в пизду'
+     if vag_mass['<<npc>>,<<you>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<vag_mass[''<<npc>>,<<you>>'']>> раз трахала вас в пизду'
+     if vag_mass['<<you>>,<<npc>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<vag_mass[''<<you>>,<<npc>>'']>> раз давал вам в пизду'
+     if vag_mass['<<you>>,<<npc>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<vag_mass[''<<you>>,<<npc>>'']>> раз давала вам в пизду'
+     if anal_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<anal_mass[''<<npc>>,<<you>>'']>> раз ебал вас в жопу'
+     if anal_mass['<<npc>>,<<you>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<anal_mass[''<<npc>>,<<you>>'']>> раз ебала вас в жопу'
+     if anal_mass['<<you>>,<<npc>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<anal_mass[''<<you>>,<<npc>>'']>> раз давал вам в жопу'
+     if anal_mass['<<you>>,<<npc>>']>0 and visualpol[npc]>0:'<<$name[npc]>> <<anal_mass[''<<you>>,<<npc>>'']>> раз давала вам в жопу'
+     if piss_mass['<<npc>>,<<you>>']>0 and CONFIG['DISABLE_PEE']=0 and visualpol[npc]=0:'<<$name[npc]>> <<piss_mass[''<<npc>>,<<you>>'']>> раз ссал вам в рот'
+     if piss_mass['<<npc>>,<<you>>']>0 and CONFIG['DISABLE_PEE']=0 and visualpol[npc]>0:'<<$name[npc]>> <<piss_mass[''<<npc>>,<<you>>'']>> раз ссала вам в рот'
+     if piss_mass['<<you>>,<<npc>>']>0 and CONFIG['DISABLE_PEE']=0 and visualpol[npc]=0:'<<$name[npc]>> <<piss_mass[''<<you>>,<<npc>>'']>> раз получал в рот от вас мочу'
+     if piss_mass['<<you>>,<<npc>>']>0 and CONFIG['DISABLE_PEE']=0 and visualpol[npc]>0:'<<$name[npc]>> <<piss_mass[''<<you>>,<<npc>>'']>> раз получала в рот от вас мочу'
+end
+!if pass_pegging['<<you>>,<<npc>>']>0:'Она <<pass_pegging[''<<you>>,<<npc>>'']>> раз трахала вас в задницу страпоном'
+!if pee_onface['<<you>>,<<npc>>']>0:'Он <<pee_onface[''<<you>>,<<npc>>'']>> раз обоссал вас'
+!if pee_onface['<<npc>>,<<you>>']>0:'Вы <<pee_onface[''<<npc>>,<<you>>'']>> раз обоссали ее'
+!if a_jerk['<<npc>>,<<you>>']>0:'<<a_jerk[''<<npc>>,<<you>>'']>> раз дрочила вам'
+!if smell_of_cum[npc]>=time and smell_of_cum[npc]>0:'<b>Изо рта пахнет спермой</b>'
+!if smell_of_pee[npc]>=time and smell_of_pee[npc]>0:'<b>Пахнет мочой</b>'
+if sexpartner['<<npc>>,<<you>>']>0 and bj_mass['<<you>>,<<npc>>']>0 and anal_mass['<<you>>,<<npc>>']>0 and (piss_mass['<<you>>,<<npc>>']>0 or CONFIG['DISABLE_PEE']=1) and orgasm[npc]>0:
+	'<<$name[npc]>> ваша нижняя которую вы можете иметь как хотите'&if mysubslut[npc]=0:mysubslut[npc]=1
+end
+if know_whore['<<npc>>,<<you>>']>0:'Знает что вы шлюха'
+if rapist['<<you>>,<<npc>>']=0:
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=0 and husband[you]!npc:'<b>Любовник</b>'
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=1 and husband[you]!npc:'<b>Любовница</b>'
+else
+	if pol[npc]=0:'<b>Несчастный, которого вы изнасиловали</b>'
+	if pol[npc]=1:'<b>Несчастная, которую вы изнасиловали</b>'
+end
+if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=90:'<i>Лучший друг</i>'
+if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=90:'<i>Лучшая подруга</i>'
+if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=50 and friends['<<npc>>,<<you>>']<90:'<i>Друг</i>'
+if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=50 and friends['<<npc>>,<<you>>']<90:'<i>Подруга</i>'
+if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=10 and friends['<<npc>>,<<you>>']<50:'<i>Приятель</i>'
+if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=10 and friends['<<npc>>,<<you>>']<50:'<i>Приятельница</i>'
+if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10:'<i>Знакомый</i>'
+if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10:'<i>Знакомая</i>'

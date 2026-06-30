@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&ceeper=i
+lvl[i]=1&soul[i]=100&work[i]=0
+master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=0
+spec_face_pic[i]=5&face_pic[i]=154
+gs'female_gen'&$name[i]='Аэлита'&$surname[i]='Хранительница'
+face[i]=65&gla[i]=1&glacol[i]=1&lips[i]=1&nose[i]=3&scull[i]=1&cheeks[i]=0
+rost[i]=174&mus[i]=500&fat[i]=1500&skin[i]=1&preskin[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=0&ass[i]=30&nip[i]=45&tits[i]=15
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&cunthair[i]=10&hlong[i]=35&curl[i]=0&hcol[i]=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+age[i]=27&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=100&bisex[i]=1&agro[i]=0&&lust[i]=0&agro[i]=100&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&thenoob[i]=1&!характер
+can_bj[i]=0&can_anal[i]=0
+h_slot[i]=0
+c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
+t_slot[i]=4&l_slot[i]=3&b_slot[i]=6
+ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=2
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=1&!$loc[i]='home_9'
+lighthouse[]=i&!walkprog[i]=67&!npcii[i]=1
+fight_prog[i]=1&!программа боя

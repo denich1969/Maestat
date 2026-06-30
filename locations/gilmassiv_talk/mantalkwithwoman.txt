@@ -1,0 +1,46 @@
+﻿if money[you]>=500:
+     if mus[you]>=1000:
+		 act'Пригласить посидеть в кафе, 5 шиллингов':
+			 if extrovert[npc]=0:friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
+			 if extrovert[npc]=1:friends['<<npc>>,<<you>>']+=5&friends['<<you>>,<<npc>>']+=5
+			 if extrovert[npc]=2:friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10
+			 X[you]=2&Y[you]=0&Z[you]=3&H[you]=2&R[you]=0&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+			 energy[you]=energyMax[you]&money[you]-=500&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> идет вместе с вами в кафе и вы там сидите с кофе и салатиками и болтаете в непринужденной обстановке.'&act'<b>Уйти</b>':gt 'preloc'
+			 if item[100]>0:
+				 act'Подмешать возбудитель':
+					lust[npc]+=1&corr[npc]+=1&horny[npc]=50&item[100]-=1&burden[you]-=item_burden[100]
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы подливаете возбудитель в напиток девушке и видите как краснеют ее щеки.'&act'<b>Уйти</b>':gt 'preloc'
+				 end
+			 end
+		 end
+	 else
+		 act'Пригласить посидеть в кафе, 5 шиллингов':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется над вами - мелок ты еще.'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if money[you]>=10000:
+     if mus[you]>=1000:
+		 act'Пригласить посидеть в ресторане, 100 шиллингов':
+			 if extrovert[npc]=0:friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10
+			 if extrovert[npc]=1:friends['<<npc>>,<<you>>']+=50&friends['<<you>>,<<npc>>']+=50
+			 if extrovert[npc]=2:friends['<<npc>>,<<you>>']+=100&friends['<<you>>,<<npc>>']+=100
+			 X[you]=4&Y[you]=0&Z[you]=3&H[you]=1&R[you]=0&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
+			health[you]=healthmax[you]&energy[you]=energyMax[you]&if manamax[you]>0:mana[you]+=soul[you]
+			soul[you]+=1&fat[you]+=10
+			money[you]-=10000&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> идет вместе с вами в ресторан, где вы наслаждетесь изысканными блюдами.'
+			act'<b>Уйти</b>':gt 'preloc'
+			if item[100]>0:
+				act'Подмешать возбудитель':
+					lust[npc]+=1&corr[npc]+=1&horny[npc]=50&item[100]-=1&burden[you]-=item_burden[100]
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы подливаете возбудитель в напиток девушке и видите как краснеют ее щеки.'&act'<b>Уйти</b>':gt 'preloc'
+				end
+			end
+		end
+	else
+		act'Пригласить посидеть в ресторане, 100 шиллингов':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется над вами - мелок ты еще.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+end

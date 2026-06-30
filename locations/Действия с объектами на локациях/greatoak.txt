@@ -1,0 +1,113 @@
+﻿$nameloc[you]=$curloc
+gs'stat'&'<center><img src="pic/misc/oak.jpg" ></center>'&'Великий дуб. На его толстой и шершавой коре растут мхи и какие то грибы. Крона так высока и так густа, что в ней практически ничего не рассмотреть.'
+if rootgen=0:rootgen=1&gs'10_root'&!СИМБИОЗ ДЕРЕВА И ГРИБА МИКОРИЗА
+gs'Item'&*pl''&gs 'npconloc'&act'Отойти':gt 'preloc'
+if mushfairy[you]>0:
+	'Дуб откликается на ваше прикосновение'&	act'Отойти':gt 'preloc'
+	 if manamax[you]>0 and mana[you]<manamax[you]:act'Напитаться маной':cls&mana[you]=manamax[you]&gt $curloc
+	 act'Отправиться в корневище':
+		 horny[you]=0&X[you]=15&Y[you]=15&Z[you]=10&H[you]=1
+		 cls&gs'stat'&'Мицелий поселившийся в древе подхватывает вас и несет по своим немыслимым тропам к корневищу'&act'....':gt'preloc'
+	 end
+else
+	 if dead[lebeda]>0:
+		 act'Дотронуться до дуба':
+			cls&gs'stat'
+			 if lebeda_birdQW=1:
+				 'Голос Лебеды в голове хихикает - скучешь по корневищу?'&act'Отойти':gt 'preloc'
+				 if manamax[you]>0 and mana[you]<manamax[you]:act'Напитаться маной':cls&mana[you]=manamax[you]&gt $curloc
+			 else
+				 'Вы дотронулись до коры дуба и внезапно увидели, как напротив вашего носа на коре проступает кукиш.'
+				 act'Отойти':gt 'preloc'
+				 if beinroot=0:
+					 act'Дотронуться до кукиша':
+						 horny[you]=0&beinroot=1&GoToBlock=1&X[you]=15&Y[you]=15&Z[you]=10&H[you]=1
+						 cls&gs'stat'&'Рука из дерева внезапно хватает вас и в считанное мгновение затаскивает в дуб.'&act'Где это я?':gt'preloc'
+					 end
+				 end
+			 end
+		 end
+	 else
+		 if rememberme>0 and mlev[you]>=5:
+			'Великий дуб помнит ваш облик.'&!феи боятся рябины
+		     if soul[you]>100:
+				 act'Вспомнить тот день, когда вы впервые дотронулись до дуба (100 души)':
+					 soul[you]-=100
+					 i=you
+					 rem=0
+					 $name[i]=$name[rem]&$surname[i]=$surname[rem]
+					 spec_face_pic[i]=spec_face_pic[rem]&face_pic[i]=face_pic[rem]
+					 age[i]=age[rem]
+					 face[i]=face[rem]&gla[i]=gla[rem]&glacol[i]=glacol[rem]&nose[i]=nose[rem]&scull[i]=scull[rem]&cheeks[i]=cheeks[rem]&beard[i]=beard[rem]
+					 dick[i]=dick[rem]&dickd[i]=dickd[rem]&ball[i]=ball[rem]&vag[i]=vag[rem]&ass[i]=ass[rem]&tits[i]=tits[rem]&nip[i]=nip[rem]
+					 rost[i]=rost[rem]&fat[i]=fat[rem]&mus[i]=mus[rem]&skin[i]=skin[rem]
+					 face_hair[i]=face_hair[rem]&tit_hair_can[i]=tit_hair_can[rem]&tit_hair[i]=tit_hair[rem]&leg_hair_can[i]=leg_hair_can[rem]&leg_hair[i]=leg_hair[rem]&hlong[i]=hlong[rem]&hcol[i]=hcol[rem]
+					 l_hand_t[i]=l_hand_t[rem]&r_hand_t[i]=r_hand_t[rem]
+					 back_t[i]=back_t[rem]
+					 stamp_t[i]=stamp_t[rem]
+					 tits_t[i]=tits_t[rem]
+					 belly_t[i]=belly_t[rem]
+					 pubis_t[i]=pubis_t[rem]
+					 l_ass_t[i]=l_ass_t[rem]&r_ass_t[i]=r_ass_t[rem]
+					 l_leg_t[i]=l_leg_t[rem]&r_leg_t[i]=r_leg_t[rem]
+					 cls&gt'preloc'
+				 end
+			 end
+		 end
+		 if rememberme>0:
+			 act'Дотронуться до дуба':
+				cls&gs'stat'&'Великий дуб потеплел под вашим прикосновением, будто бы узнал вас.'
+				 act'Отойти':gt 'preloc'
+				 if manamax[you]>0 and mana[you]<manamax[you]:act'Напитаться маной':cls&mana[you]=manamax[you]&gt $curloc
+				 if visioner[you]>0: 
+					 act'Использовать дар':
+						cls&gs'stat'
+						 if visioner[you]>=20: 
+							 if firsttimepakdar=0:firsttimepakdar=1&magik[you]+=1
+							'Вы чувствуете потоки энергии жизни проходящие через Великий Дуб. Великий Дуб связан с другими мирами и через него потоками струится энергия.'
+							 if tipe_start=1:
+								 if MainQW[you]<20:MainQW[you]=20
+								 'Дуб связан со множеством миров, в том числе и с миром, откуда вы попали сюда.'
+							 end
+							 if visioner[you]>=30: 
+								 if oakfirst[you]=0:
+									 act'Подключиться к мировой энергии':
+										 oakfirst[you]=1&mana[you]=manamax[you]&magik[you]+=3
+										 cls&gs'stat'&'Вы чувствуете потоки и то, как они проходят сквозь вас и у вас увеличивается количество каналов магии сразу на три.'&act'Отойти':gt 'preloc'
+									 end
+								 end 
+							 end
+						 else
+							'У вас ничего не получается, энергия струится через дуб, но вы не можете понять ничего.'
+						 end
+						 act'Отойти':gt 'preloc'
+					 end
+				 end
+				 !act'Путешествовать':X[you]=5&Y[you]=5&Z[you]=10&gt'preloc'
+			 end
+		 end
+	 end
+end
+if rememberme=0 and visioner[you]>=10:
+	act'Дотронуться до дуба':
+		knowlanguage[you]+=1
+		rememberme=1
+		i=0
+		$name[i]=$name[you]&$surname[i]=$surname[you]
+		spec_face_pic[i]=spec_face_pic[you]&face_pic[i]=face_pic[you]
+		age[i]=age[you]
+		face[i]=face[you]&gla[i]=gla[you]&glacol[i]=glacol[you]&nose[i]=nose[you]&scull[i]=scull[you]&cheeks[i]=cheeks[you]&beard[i]=beard[you]
+		dick[i]=dick[you]&dickd[i]=dickd[you]&ball[i]=ball[you]&vag[i]=vag[you]&ass[i]=ass[you]&tits[i]=tits[you]&nip[i]=nip[you]
+		rost[i]=rost[you]&fat[i]=fat[you]&mus[i]=mus[you]&skin[i]=skin[you]
+		face_hair[i]=face_hair[you]&tit_hair_can[i]=tit_hair_can[you]&tit_hair[i]=tit_hair[you]&leg_hair_can[i]=leg_hair_can[you]&leg_hair[i]=leg_hair[you]&hlong[i]=hlong[you]&hcol[i]=hcol[you]
+		l_hand_t[i]=l_hand_t[you]&r_hand_t[i]=r_hand_t[you]
+		back_t[i]=back_t[you]
+		stamp_t[i]=stamp_t[you]
+		tits_t[i]=tits_t[you]
+		belly_t[i]=belly_t[you]
+		pubis_t[i]=pubis_t[you]
+		l_ass_t[i]=l_ass_t[you]&r_ass_t[i]=r_ass_t[you]
+		l_leg_t[i]=l_leg_t[you]&r_leg_t[i]=r_leg_t[you]
+		cls&gt'preloc'
+	end
+end

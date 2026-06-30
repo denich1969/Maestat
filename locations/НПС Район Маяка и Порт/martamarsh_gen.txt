@@ -1,0 +1,20 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&martamarsh=i
+lvl[i]=1&soul[i]=100
+master[i]=0&delusion[i]=0&magik[i]=26&beliver[i]=2&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=18
+$title[i]=''&$history[i]='Я из самого влиятельного в порту семейства Маршей. Наш род очень древний и тесно связан с нашим богом Дагоном. Мы всегда были его гласом.'
+$name[i]='Марта'&$surname[i]='Марш'&$nick[i]='Жгучая брюнетка со злым лицом'
+face[i]=70&gla[i]=0&glacol[i]=0&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=45&throat[i]=0&ass[i]=40&nip[i]=45&tits[i]=22
+rost[i]=170&fat[i]=2200&mus[i]=1000&skin[i]=2
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=0
+age[i]=30&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(60,90)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=2&lust[i]=100&wantblackcock[i]=1&!характер
+if lust[i]>=75 and agro[i]>=75:misstress[i]=1&total_misstress+=1
+!l_hand_t[i]=3
+t_slot[i]=40&l_slot[i]=9&b_slot[i]=14
+ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=7
+n_world[]=i&walkprog[i]=14
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

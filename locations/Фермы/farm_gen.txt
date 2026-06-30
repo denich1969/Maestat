@@ -1,0 +1,35 @@
+﻿X=0&Y=0&H=0&R=0&X=1011
+XfarmStart=1011&XfarmEnd=1020
+:markCreateFarm
+Y=0&H=0&&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+if X<1020:
+	$locname['<<$temploc>>']='Фермерские земли'&$locopis['<<$temploc>>']='Фермерские поля на которых с невероятной скоростью выростает урожай'
+	np['<<$temploc>>']=101
+	maxPositionH['<<X>>,<<Y>>,<<Z>>,']=3&!3 домов
+	black_block=0&gs'farm_build'
+end
+if X>=1020 and X<1050:
+	$locname['<<$temploc>>']='Джунгли'&$locopis['<<$temploc>>']='Дикие, жаркие и непролазные джунгли с очень влажной чавкающей почвой'
+	np['<<$temploc>>']=1020
+	maxPositionH['<<X>>,<<Y>>,<<Z>>,']=0
+end
+if X>=1050:
+	$locname['<<$temploc>>']='Болото'&$locopis['<<$temploc>>']='Деревья растут прямо из жаркого и душного болота в котором вязнут ноги'
+	np['<<$temploc>>']=1050
+	maxPositionH['<<X>>,<<Y>>,<<Z>>,']=0
+end
+!'if H<maxPositionH['<<X>>,<<Y>>,<<Z>>']:
+H+=1
+kvarnomer+=1
+jump'markKvarCreate'
+end
+if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>']:
+     if D<maxPositionD['<<X>>']:
+     D+=1
+     domnomer+=1
+     jump'markdcreate'
+     end
+end'
+!if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D>=maxPositionD['<<X>>']:
+     if X<1100:X+=1&jump'markCreateFarm'
+!end

@@ -1,0 +1,376 @@
+﻿$ARGS[0]= $UCASE($ARGS[0])
+!Это генератор описаний для разных параметров тела.
+!Принимает 2 аргумента:
+!ARGS[0] - имя параметра.
+!ARGS[1] - Индекс NPC.
+!Это нужно для получения текстовой интерпретации текущего значения параметра, для наглядности.
+pol[npc_index]=iif(face[npc_index]>=50 and ass[npc_index]>=20,1,0)
+!* ---------------------------------- FACE ---------------------------------- *!
+if $ARGS[0] = "FACE":
+  $ARGS['GENDER_COLOR'] = func('util_func', 'get_gender_color', ARGS[1])
+  if dagongene>110 and npc_index = you:
+    if ARGS[1]<=20:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Суровое лицо истмундца</font>'
+    if ARGS[1]>20 and ARGS[1]<=40:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Классическая физиономия истмундца</font>'
+    if ARGS[1]>40 and ARGS[1]<=60:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Смазливая харя истмундца</font>'
+    if ARGS[1]>60 and ARGS[1]<=80:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Женственная физиономия истмундки</font>'
+    if ARGS[1]>80:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Симпатичное лицо истмундской самки</font>'
+  else
+    if ARGS[1]<=20:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Мужественное лицо</font>'
+    if ARGS[1]>20 and ARGS[1]<=40:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Мужское лицо</font>'
+    if ARGS[1]>40 and ARGS[1]<=60:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Андрогинное лицо</font>'
+    if ARGS[1]>60 and ARGS[1]<=80:
+      if pol[npc_index]=0:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Женоподобное лицо</font>'
+      if pol[npc_index]=1:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Женское лицо</font>'
+    end
+    if ARGS[1]>80:
+      if pol[npc_index]=0:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Женственно-пидорское лицо</font>'
+      if pol[npc_index]=1:$RESULT = '<font color="<<$ARGS[''GENDER_COLOR'']>>">Красивое женское лицо</font>'
+    end
+  end
+end
+!* --------------------------------- РОДИНКА -------------------------------- *!
+if $ARGS[0] = "SOULDAR":
+  if ARGS[1]=0:$RESULT = 'Нет'
+  if ARGS[1]=1:$RESULT = 'Над губой'
+  if ARGS[1]=2:$RESULT = 'На носу'
+  if ARGS[1]=3:$RESULT = 'На щеке'
+end
+!* ---------------------------------- NOSE ---------------------------------- *!
+if $ARGS[0] = "NOSE":
+  if ARGS[1]=0:$RESULT = 'Обычный нос'
+  if ARGS[1]=1:$RESULT = 'Маленький вздернутый носик'
+  if ARGS[1]=2:$RESULT = 'Аристократический нос'
+  if ARGS[1]=3:$RESULT = 'Широкий нос'
+  if ARGS[1]=4:$RESULT = 'Горбатый нос'
+  if ARGS[1]=5:$RESULT = 'Крючковатый нос'
+end
+!* ------------------------------ ПИРСИНГ НОСА ------------------------------ *!
+if $ARGS[0] = "NOSE_P":
+  if ARGS[1]=0:$RESULT = 'Нет'
+  if ARGS[1]=1:$RESULT = 'Колечко'
+  if ARGS[1]=2:$RESULT = 'Большое кольцо'
+end
+!* ------------------------------- HAIR COLOR ------------------------------- *!
+if $ARGS[0] = "HCOL":
+  $ARGS['HAIR_COLOR']=func('util_func', 'get_hair_color', hcol[num])
+  if dagongene>110 and npc_index = you:
+    if ARGS[1]=0:$RESULT = 'Пепельно-темные'
+    if ARGS[1]=1:$RESULT = 'Бледно-русые'
+    if ARGS[1]=2:$RESULT = 'Бледно-рыжие'
+    if ARGS[1]=3:$RESULT = 'Бледные'
+    if ARGS[1]=4:$RESULT = 'Пыльно-синии'
+    if ARGS[1]=5:$RESULT = 'Бледно-красные'
+    if ARGS[1]=6:$RESULT = 'Седые'
+  else
+    if ARGS[1]=0:$RESULT = '<font color="<<$ARGS[''HAIR_COLOR'']>>">Черные</font>'
+    if ARGS[1]=1:$RESULT = '<font color="<<$ARGS[''HAIR_COLOR'']>>">Русые</font>'
+    if ARGS[1]=2:$RESULT = '<font color="<<$ARGS[''HAIR_COLOR'']>>">Рыжие</font>'
+    if ARGS[1]=3:$RESULT = '<font class="white-shadow" color="<<$ARGS[''HAIR_COLOR'']>>">Светлые</font>'
+    if ARGS[1]=4:$RESULT = '<font color="<<$ARGS[''HAIR_COLOR'']>>">Синии</font>'
+    if ARGS[1]=5:$RESULT = '<font color="<<$ARGS[''HAIR_COLOR'']>>">Красные</font>'
+    if ARGS[1]=6:$RESULT = '<font color="<<$ARGS[''HAIR_COLOR'']>>">Белые</font>'
+  end
+end
+!* ------------------------------ ДЛИННА ВОЛОС ------------------------------ *!
+if $ARGS[0] = "HLONG":
+  if ARGS[1]<=0:$RESULT='Лысина'
+  if ARGS[1]>0 and ARGS[1]<=25:$RESULT='Короткие волосы'
+  if ARGS[1]>25 and ARGS[1]<=50:$RESULT='До плеч'
+  if ARGS[1]>50 and ARGS[1]<=75:$RESULT='До лопаток'
+  if ARGS[1]>75:$RESULT='До поясницы'
+end
+!* ---------------------------------- TITS ---------------------------------- *!
+if $ARGS[0] = "TITS":
+if ARGS[1]<10:tit[npc_index]=0
+if ARGS[1]>=10 and ARGS[1]<14:tit[npc_index]=1
+if ARGS[1]>=14 and ARGS[1]<17:tit[npc_index]=2
+if ARGS[1]>=17 and ARGS[1]<19:tit[npc_index]=3
+if ARGS[1]>=19 and ARGS[1]<21:tit[npc_index]=4
+if ARGS[1]>=21 and ARGS[1]<23:tit[npc_index]=5
+if ARGS[1]>=23 and ARGS[1]<25:tit[npc_index]=6
+if ARGS[1]>=25:tit[npc_index]=7
+if tit[npc_index]=0:
+  if mus[npc_index]>=2000 and mus[npc_index]>fat[npc_index]:
+    $RESULT = 'Мускулистая грудь'
+  else
+    $RESULT = 'Плоская грудь'
+  end
+end
+if tit[npc_index]=1:$RESULT = 'Крошечная грудь'
+if tit[npc_index]=2:$RESULT = 'Маленькая грудь'
+if tit[npc_index]=3:$RESULT = 'Округлая грудь'
+if tit[npc_index]=4:$RESULT = 'Объемная грудь'
+if tit[npc_index]=5:$RESULT = 'Большая грудь'
+if tit[npc_index]>=6:$RESULT = 'Огромная грудь'
+end
+!* ------------------------------ РАЗМЕР СОСКОВ ----------------------------- *!
+if $ARGS[0] = "NIP":
+   if ARGS[1]<10:$RESULT = 'Крохотные соски'
+   if ARGS[1]>=10:$RESULT = 'Маленькие соски'
+   if ARGS[1]>=20:$RESULT = 'Крупные соски'
+   if ARGS[1]>=50:$RESULT = 'Огромные "как блюдца" соски'
+end
+!* ----------------------------- ПИРСИНГ СОСКОВ ----------------------------- *!
+if $ARGS[0] = "NIP_P":
+   if ARGS[1]=0:$RESULT = 'Нет'
+   if ARGS[1]=1:$RESULT = 'Штанги'
+   if ARGS[1]=2:$RESULT = 'Колечки'
+   if ARGS[1]=3:$RESULT = 'Огромные кольца'
+end
+!* ----------------------------------- ASS ---------------------------------- *!
+if $ARGS[0] = "ASS":
+  if ARGS[1]<5:$RESULT='Плоская мужская попа'
+  if ARGS[1]>=5 and ARGS[1]<10:$RESULT='Крохотная попа'
+  if ARGS[1]>=10 and ARGS[1]<15:$RESULT='Маленькая попа'
+  if ARGS[1]>=15 and ARGS[1]<20:$RESULT='Небольшая попа'
+  if ARGS[1]>=20 and ARGS[1]<25:$RESULT='Девичья попа'
+  if ARGS[1]>=25 and ARGS[1]<30:$RESULT='Женственная попа'
+  if ARGS[1]>=30 and ARGS[1]<35:$RESULT='Крупная попа'
+  if ARGS[1]>=35 and ARGS[1]<40:$RESULT='Большая попа'
+  if ARGS[1]>=40:$RESULT='Огромная попа'
+end
+!* ----------------------------- СОСТОЯНИЕ АНУСА ---------------------------- *!
+if $ARGS[0] = "ANUS":
+  if ARGS[1]=0:$RESULT='Девственный анус'
+  if ARGS[1]>0 and ARGS[1]<10:$RESULT='Анус в виде маленькой щелочки'
+  if ARGS[1]>=10 and ARGS[1]<20:$RESULT='Анус в виде звездочки'
+  if ARGS[1]>=20 and ARGS[1]<30:$RESULT='Рабочий анус в виде щелки'
+  if ARGS[1]>=30 and ARGS[1]<40:$RESULT='Раздолбанный анус в виде щели'
+  if ARGS[1]>=40:$RESULT='Не закрывающаяся дыра в жопе'
+end
+!* ---------------------------- СОСТОЯНИЕ ВАГИНЫ ---------------------------- *!
+if $ARGS[0] = "VAG":
+  if ARGS[1]=0:$RESULT='Нет'
+  if ARGS[1]=1:$RESULT='Девственое влагалище <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>1 and ARGS[1]<15:$RESULT='Свежераспечатанное влагалище <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>=15 and ARGS[1]<35:$RESULT='Разработанное влагалище <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>=35 and ARGS[1]<55:$RESULT='Эластичное влагалище <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>=55 and ARGS[1]<75:$RESULT='Раздолбанная дырка <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>=75 and ARGS[1]<90:$RESULT='Более раздолбанная дырка <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>=90 and ARGS[1]<110:$RESULT='Ещё более раздолбанная дырка <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>=110 and ARGS[1]<160:$RESULT='Это пиздец... <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+  if ARGS[1]>=160:$RESULT='Чёрная дыра, искривляющая пространство-время <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''vag'', 200 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+end
+!* ----------------------------- ЛОБКОВЫЕ ВОЛОСЫ ---------------------------- *!
+if $ARGS[0] = "CUNTHAIR":
+     if ARGS[1]<=0:$RESULT='Нет'
+     if ARGS[1]>0 and ARGS[1]<5:$RESULT='Щетина'
+     if ARGS[1]>=5:$RESULT='Заросли'
+end
+!* ------------------------------ РАЗМЕР ЧЛЕНА ------------------------------ *!
+if $ARGS[0] = "DICKSIZE":
+  if dick[npc_index]=0:$RESULT='<b>Нет</b>'
+  if dick[npc_index]>0:$RESULT='<b>Длинна: <<dick[npc_index]>>см Толщина: <<dickd[npc_index]/10>>,<<dickd[npc_index] mod 10>>см</b>'
+end
+!* ------------------------------- РАЗМЕР ЯИЦ ------------------------------- *!
+if $ARGS[0] = "BALL":
+if ARGS[1]=0:$RESULT='Нет'
+if ARGS[1]>=1 and ARGS[1]<25:$RESULT='Маленькие яйчишки <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''ball'', 100 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+if ARGS[1]>=25 and ARGS[1]<50:$RESULT='Среднего размера <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''ball'', 100 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+if ARGS[1]>=50 and ARGS[1]<75:$RESULT='Крупные яйца <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''ball'', 100 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+if ARGS[1]>=75:$RESULT='Огромные яйца <a class="plain" href="exec:gs ''util_func'',''SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT'',''ball'', 100 & gt $curloc"><font size=4 color="green">&#9998</font></a>'
+end
+!* -------------------------------- ЦВЕТ КОЖИ ------------------------------- *!
+if $ARGS[0] = "SKIN":
+  if ARGS[1]=0:$RESULT = '<font class="white-shadow" color="<<iif(ARGS[2]>0, "#202020", "#fff4eb")>>">Белая</font>'
+  if ARGS[1]=1:$RESULT = '<font class="white-shadow" color="<<iif(ARGS[2]>0, "#202020", "#F0D5B1")>>">Светлая</font>'
+  if ARGS[1]=2:$RESULT = '<font color="#E0AC69">Загорелая</font>'
+  if ARGS[1]=3:$RESULT = '<font color="#C68642">Смуглая</font>'
+  if ARGS[1]=4:$RESULT = '<font color="#8D5524">Шоколадная</font>'
+  if ARGS[1]=5:$RESULT = '<font color="#6D3B1F">Темная</font>'
+  if ARGS[1]=6:$RESULT = '<font color="#2C1B0D">Черная</font>'
+end
+!* ---------------------------- ТИП КОЖИ: preskin --------------------------- *!
+if $ARGS[0] = "PRESKIN":
+  if ARGS[1]=0:$RESULT='Обычная'
+  if ARGS[1]=1:$RESULT='Гладкая'
+  if ARGS[1]=2:$RESULT='Блестящая'
+  if ARGS[1]=3:$RESULT='Маслянистая'
+end
+!* ------------------------------- ФОРМА СКУЛ ------------------------------- *!
+if $ARGS[0] = "SCULL":
+  if ARGS[1]=0:$RESULT = 'Обычные скулы'
+  if ARGS[1]=1:$RESULT = 'Широкие скулы'
+end
+!* -------------------------------- ФОРМА ЩЁК ------------------------------- *!
+if $ARGS[0] = "CHEEKS":
+  if ARGS[1]=0:$RESULT = 'Обычные щеки'
+  if ARGS[1]=1:$RESULT = 'Пухлые щеки'
+end
+!* ------------------------------- РАЗМЕР ГУБ ------------------------------- *!
+if $ARGS[0] = "LIPS":
+  if ARGS[1]=0:$RESULT = 'Обычные губы'
+  if ARGS[1]=1:$RESULT = 'Пухленькие губы'
+  if ARGS[1]=2:$RESULT = 'Толстые губы'
+  if ARGS[1]=3:$RESULT = 'Огромные губы'
+end
+!* ------------------------------- РАЗМЕР ГЛАЗ ------------------------------ *!
+if $ARGS[0] = "GLA":
+  if ARGS[1]=0:$RESULT = 'Обычные глаза'
+  if ARGS[1]=1:$RESULT = 'Маленькие глаза'
+  if ARGS[1]=2:$RESULT = 'Раскосые глаза'
+  if ARGS[1]=3:$RESULT = 'Большие глаза'
+end
+!* -------------------------------- ЦВЕТ ГЛАЗ ------------------------------- *!
+if $ARGS[0] = "GLACOL":
+     $ARGS['EYE_COLOR']=func('util_func', 'get_eye_color', ARGS[1])
+  if ARGS[1]=0:$RESULT = '<font color="<<$ARGS[''EYE_COLOR'']>>">Черные</font>'
+  if ARGS[1]=1:$RESULT = '<font color="<<$ARGS[''EYE_COLOR'']>>">Карие</font>'
+  if ARGS[1]=2:$RESULT = '<font color="<<$ARGS[''EYE_COLOR'']>>">Серые</font>'
+  if ARGS[1]=3:$RESULT = '<font color="<<$ARGS[''EYE_COLOR'']>>">зеленые</font>'
+  if ARGS[1]=4:$RESULT = '<font color="<<$ARGS[''EYE_COLOR'']>>">Голубые</font>'
+  if ARGS[1]=5:$RESULT = '<font color="<<$ARGS[''EYE_COLOR'']>>">Красные</font>'
+  if ARGS[1]=6:$RESULT = '<font color="<<$ARGS[''EYE_COLOR'']>>">Желтые</font>'
+end
+!* ----------------------------- Описание члена ----------------------------- *!
+!Получить слово для члена.
+!Принимает 2 аргумента:
+!ARGS[1] : индекс цели.
+if $ARGS[0] = "GET_DICK_WORD":
+  !До 7ми см.
+  if dick[ARGS[1]]<=7:
+    $dick_size_word[] = 'микроскопическ' + '<<iif(ARGS[2]=0,"ий", "ого")>>'
+    $dick_size_word[] = 'крошечн' + '<<iif(ARGS[2]=0,"ый", "ого")>>'
+    $dick_size_word[] = 'бесполезн' + '<<iif(ARGS[2]=0,"ый", "ого")>>'
+    $dick_size_word[] = 'клитеро-подоб' + '<<iif(ARGS[2]=0,"ый", "ого")>>'
+  end
+  if dick[ARGS[1]]<=7:
+    $dick_desc_word[] = 'писюнчик' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'членчик' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'членик' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'член' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'отрост' + '<<iif(ARGS[2]=0,"ок", "ка")>>'
+    !$dick_desc_word[]='пиcюльк' + '<<iif(ARGS[2]=0,"а", "у")>>'
+  end
+  !До 18ти см.
+  if dick[ARGS[1]]>7 and dick[ARGS[1]]<=18:
+    !$dick_size_word[] = 'средн' + '<<iif(ARGS[2]=0,"ый", "ого")>>'
+    $dick_size_word[] = ''
+    $dick_size_word[] = 'невзрачн' + '<<iif(ARGS[2]=0,"ый", "ого")>>'
+  end
+  if dick[ARGS[1]]>7 and dick[ARGS[1]]<=18:
+    $dick_desc_word[] = 'член' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'болт' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'хуй' + '<<iif(ARGS[2]=0,"", "я")>>'
+  end
+  !До 25ти см.
+  if dick[ARGS[1]]>18:
+    $dick_size_word[] = 'больш' + '<<iif(ARGS[2]=0,"ой", "ого")>>'
+    $dick_size_word[] = 'массивн' + '<<iif(ARGS[2]=0,"ый", "ого")>>'
+    $dick_size_word[] = 'внушительн' + '<<iif(ARGS[2]=0,"ый", "ого")>>'
+  end
+  if dick[ARGS[1]]>18:
+    $dick_desc_word[] = 'член' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'болт' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'хуй' + '<<iif(ARGS[2]=0,"", "я")>>'
+    $dick_desc_word[] = 'елдак' + '<<iif(ARGS[2]=0,"", "а")>>'
+    $dick_desc_word[] = 'хер' + '<<iif(ARGS[2]=0,"", "а")>>'
+  end
+  ARGS['RNG'] = rand(0, ARRSIZE('$dick_size_word') - 1)
+  $RESULT = $dick_size_word[ARGS['RNG']]
+  if $RESULT ! '':$RESULT+= ' '
+  ARGS['RNG'] = rand(0, ARRSIZE('$dick_desc_word') - 1)
+  $RESULT += $dick_desc_word[ARGS['RNG']]
+  killvar '$dick_size_word'
+  killvar '$dick_desc_word'
+end
+if $ARGS[0] = "DICK_GEN_TEXT":
+  if ARGS[1] = you:
+     $ARGS['TARGET']='вы'
+  else
+     if pol[ARGS[1]]=0:$ARGS['TARGET']='он'
+     if pol[ARGS[1]]>0:$ARGS['TARGET']='она'
+  end
+  if vag[ARGS[1]]>0:$ARGS['GENTAIL']='киску'
+  if dick[ARGS[1]]>0:$ARGS['GENTAIL']=$func("get_stat_desc","get_dick_word", ARGS[1])
+  $RESULT = '<b>Свободной рукой <<$ARGS["TARGET"]>> яростно <<iif(ARGS[1]=you, "теребите", "теребит")>> <<iif(dick[ARGS[1]]>0, "свой", "свою")>> <<$ARGS["GENTAIL"]>> доводя себя до оргазма.</b>'
+end
+!Получить статус отношений между двумя NPC.
+!Аргументы:
+!ARGS[1] - Индекс NPC_1
+!ARGS[2] - Индекс NPC_2
+!ARGS[3] - Подежи: если 0 - именительный, если 1 - творительный.
+if $ARGS[0] = "GET_RELATIONS_TEXT":
+    if ARGS[1] ! 0 and ARGS[2] ! 0:
+      ARGS['IS_RELATED'] = func("util_func","check_relations_of_npc", ARGS[1], ARGS[2])
+      if pol[ARGS[1]]=0 and ARGS['IS_RELATED']=0:
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']=0:$RESULT='<<iif(ARGS[3]=0, "Не знакомы", "Незнакомцем")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>0:$RESULT='<<iif(ARGS[3]=0, "Знакомый", "Знакомым")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=10:$RESULT='<<iif(ARGS[3]=0, "Приятель", "Приятелем")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=50:$RESULT='<<iif(ARGS[3]=0, "Друг", "Другом")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=90:$RESULT='<<iif(ARGS[3]=0, "Лучший друг", "Лучшим другом")>>'
+      elseif pol[ARGS[1]]=1 and ARGS['IS_RELATED']=0:
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']=0:$RESULT='<<iif(ARGS[3]=0, "Не знакомы", "Незнакомкой")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>0:$RESULT='<<iif(ARGS[3]=0, "Знакомая", "Знакомой")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=10:$RESULT='<<iif(ARGS[3]=0, "Приятельница", "Приятельницей")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=50:$RESULT='<<iif(ARGS[3]=0, "Подруга", "Подругой")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=90:$RESULT='<<iif(ARGS[3]=0, "Лучшая подруга", "Лучшей подругой")>>'
+      else
+        if pol[ARGS[1]]=0:
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']=0:$RESULT='<<iif(ARGS[1]=you, "Индифферентны", "Индифферентен")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>0:$RESULT='<<iif(ARGS[1]=you, "Ровнодушны", "Ровнодушен")>>'
+        else
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']=0:$RESULT='<<iif(ARGS[1]=you, "Индифферентны", "Индифферентна")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>0:$RESULT='<<iif(ARGS[1]=you, "Ровнодушны", "Ровнодушна")>>'
+        end
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=10:$RESULT='Неплохо <<iif(ARGS[1]=you, "относитесь", "относится")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=50:$RESULT='Хорошо <<iif(ARGS[1]=you, "относитесь", "относится")>>'
+          if friends['<<ARGS[1]>>,<<ARGS[2]>>']>=90:$RESULT='Отлично <<iif(ARGS[1]=you, "относитесь", "относится")>>'
+      end
+    end
+end
+if $ARGS[0] = 'GET_BOYFRIEND_TEXT':
+   if ARGS[1] ! 0:$RESULT='в отношениях с <<$name[ARGS[2]]>> <<$surname[ARGS[2]]>>'
+end
+if $ARGS[0] = 'GET_MARRIED_TEXT':
+   if ARGS[1] ! 0:
+      if ARGS[1] ! you:
+         if pol[ARGS[1]]=0:$RESULT='женат на <<$name[ARGS[2]]>> <<$surname[ARGS[2]]>>'
+         if pol[ARGS[1]]>0:$RESULT='замужем за <<$name[ARGS[2]]>> <<$surname[ARGS[2]]>>'
+      else
+         if pol[ARGS[1]]=0:$RESULT='женаты на <<$name[ARGS[2]]>> <<$surname[ARGS[2]]>>'
+         if pol[ARGS[1]]>0:$RESULT='замужем за <<$name[ARGS[2]]>> <<$surname[ARGS[2]]>>'
+      end
+   end
+end
+if $ARGS[0] = 'GET_FATHER_TEXT':
+   if ARGS[1] ! 0:
+      if ARGS[1] ! you:
+         if father[ARGS[1]]>0:$RESULT='<<iif(pol[ARGS[1]]=0, "Его", "Её")>> отца зовут: <<$name[father[ARGS[1]]]>> <<$surname[father[ARGS[1]]]>>'
+      else
+         if father[ARGS[1]]>0:$RESULT='Вашего отца зовут: <<$name[father[ARGS[1]]]>> <<$surname[father[ARGS[1]]]>>'
+      end
+   end
+end
+if $ARGS[0] = 'GET_MOTHER_TEXT':
+   if ARGS[1] ! 0:
+      if ARGS[1] ! you:
+         if mother[ARGS[1]]>0:$RESULT='<<iif(pol[ARGS[1]]=0, "Его", "Её")>> мать зовут: <<$name[mother[ARGS[1]]]>> <<$surname[mother[ARGS[1]]]>>'
+      else
+         if mother[ARGS[1]]>0:$RESULT='Вашу мать зовут: <<$name[mother[ARGS[1]]]>> <<$surname[mother[ARGS[1]]]>>'
+      end
+   end
+end
+if $ARGS[0] = 'GET_FIRST_KID_TEXT':
+   if ARGS[1] ! 0:
+      if ARGS[1] = you:
+        if kid_first[ARGS[1]]>0:$RESULT='Ваш первый ребёнок, это: <<iif(pol[kid_first[ARGS[1]]]=0, "сын", "дочь")>> <<$name[kid_first[ARGS[1]]]>> <<$surname[kid_first[ARGS[1]]]>>'
+      else
+        if kid_first[ARGS[1]]>0:$RESULT='<<iif(pol[ARGS[1]]=0, "Его", "Её")>> первый ребёнок, это: <<iif(pol[kid_first[ARGS[1]]]=0, "сын", "дочь")>> <<$name[kid_first[ARGS[1]]]>> <<$surname[kid_first[ARGS[1]]]>>'
+      end
+   end
+end
+if $ARGS[0] = 'GET_SECOND_KID_TEXT':
+   if ARGS[1] ! 0:
+      if ARGS[1] = you:
+        if kid_second[ARGS[1]]>0:$RESULT='Ваш второй ребёнок, это: <<iif(pol[kid_second[ARGS[1]]]=0, "сын", "дочь")>> <<$name[kid_second[ARGS[1]]]>> <<$surname[kid_second[ARGS[1]]]>>'
+      else
+        if kid_second[ARGS[1]]>0:$RESULT='<<iif(pol[ARGS[1]]=0, "Его", "Её")>> второй ребёнок, это: <<iif(pol[kid_second[ARGS[1]]]=0, "сын", "дочь")>> <<$name[kid_second[ARGS[1]]]>> <<$surname[kid_second[ARGS[1]]]>>'
+      end
+   end
+end
+if $ARGS[0] = 'GET_BROTHER_TEXT':
+   if ARGS[1] ! 0:
+      $RESULT='<<iif(ARGS[1]=you, "являетесь", "является")>> <<iif(pol[ARGS[1]]=0, "братом", "сестрой")>>: <<$name[brother[ARGS[1]]]>> <<$surname[brother[ARGS[1]]]>>'
+   end
+end

@@ -1,0 +1,18 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&moonmaid=i
+lvl[i]=1&soul[i]=100
+beliver[i]=1&delusion[i]=1
+spec_face_pic[i]=5&face_pic[i]=4
+$name[i]='София'&$surname[i]='Рэй'&$nick[i]='Рыжая девушка с короткой стрижкой'&$title[i]=''&$history[i]='Я всего лишь служанка у почтенного семейства Шеларди.'
+face[i]=70&gla[i]=3&glacol[i]=2&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0
+dick[i]=23&dickd[i]=45&ball[i]=100&vag[i]=0&ass[i]=28&nip[i]=45&tits[i]=12&!Половые признаки (член, вагина, жопа, грудь)
+rost[i]=170&fat[i]=1000&mus[i]=800&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=20&curl[i]=1&hcol[i]=2
+age[i]=20&vital[i]=40&will[i]=50&reflex[i]=40
+pol[i]=3&gs'body'&total_generated_femboy+=1&!total_generated_shemale+=1
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+womenbrain[i]=50&bisex[i]=1&agro[i]=50&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=0&lust[i]=100&!характер
+l_hand_t[i]=2
+t_slot[i]=41&l_slot[i]=0&b_slot[i]=9
+ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=4
+walkprog[i]=16
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

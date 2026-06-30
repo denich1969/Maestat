@@ -1,0 +1,8 @@
+﻿if item[59]>0:
+	if Z[you]=760 and once=0:once=1&X[you]=7&Y[you]=7&Z[you]=730
+	if Z[you]=730 and once=0:once=1&X[you]=0&Y[you]=3&Z[you]=760
+	once=0
+else
+	knowpowerbarrier+=1&msg("Вас не пускает загадочная магия")
+end
+gt'world'

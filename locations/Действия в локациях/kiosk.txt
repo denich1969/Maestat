@@ -1,0 +1,39 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Торговый автомат'&gs'Item'&*pl ''&gs 'npconloc'&*pl ''&act'Уйти':gt 'preloc'
+if gulden[you]>=50:
+	'Бургер - 50 центов'&*nl'Пицца - 50 центов'&*nl'Кола - 50 центов'&*nl'Малый восстановитель выносливости - 500 гульденов'&*nl'Рунный камень - 500 гульденов'&*nl	'Малое лечение - 1000 гульденов'
+	 act'Купить бургер 50ц':
+		gulden[you]-=50&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'Вы заплатили деньги и купили бургер'&act'<b>Уйти</b>':gt 'preloc'
+	end
+	 act'Купить пиццу 50ц':
+		gulden[you]-=50&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'Вы заплатили деньги и купили пиццу'&act'<b>Уйти</b>':gt 'preloc'
+	end
+	 act'Купить колу 50ц':
+		gulden[you]-=50&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'Вы заплатили деньги и купили колу'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if gulden[you]>=50000:
+	 act'Купить малый восстановитель выносливости 500':
+		gulden[you]-=50000&item[49]+=1&burden[you]+=item_burden[49]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if gulden[you]>=50000 and runestonekiosk=0:
+	 act'Купить рунный камень':
+		gulden[you]-=50000&runestonekiosk=1&item[29]+=1&burden[you]+=item_burden[29]&cls&gs'stat'&'Вы заплатили деньги и купили рунный камень'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if gulden[you]>=100000:
+	 act'Купить малое лечение 1000':
+		gulden[you]-=100000&item[51]+=1&burden[you]+=item_burden[51]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if rubl[you]>=100:
+	 act'Купить бургер 100р':
+		rubl[you]-=100&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'Вы заплатили деньги и купили бургер'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить пиццу 100р':
+		rubl[you]-=100&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'Вы заплатили деньги и купили пиццу'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить колу 100р':
+		rubl[you]-=100&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'Вы заплатили деньги и купили колу'&act'<b>Уйти</b>':gt $curloc
+	 end
+end

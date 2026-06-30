@@ -1,0 +1,31 @@
+﻿$nameloc[you]=$curloc&gs'stat'&'Сундук.'&gs'Item'&*pl ''&gs 'npconloc'&act'Отойти':gt 'world'
+if searshed_chest['<<$loc[you]>>']=0:
+     act'Обыскать':
+		 searshed_chest['<<$loc[you]>>']+=1&tiperand=rand(0,21)
+         if tiperand=0:item_loc['23,<<$loc[you]>>']+=1
+         if tiperand=1:item_loc['22,<<$loc[you]>>']+=1
+         if tiperand=2:item_loc['27,<<$loc[you]>>']+=1
+         if tiperand=3:item_loc['28,<<$loc[you]>>']+=1
+         if tiperand=4:tt=rand(12,19)&item_loc_t['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=5:tt=rand(9,17)&item_loc_l['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=6:tt=rand(8,9)&item_loc_b['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=7:tt=rand(1,3)&item_loc_ut['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=8:tt=rand(1,4)&item_loc_ul['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=9:tt=rand(1,5)&item_loc_ub['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=10:tt=28&item_loc['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=11:tt=22&item_loc['<<tt>>,<<$loc[you]>>']+=rand(1,10)
+		 if tiperand=12:tt=23&item_loc['<<tt>>,<<$loc[you]>>']+=rand(1,10)
+		 if tiperand=13:tt=3&item_loc['<<tt>>,<<$loc[you]>>']+=rand(1,10)
+		 if tiperand=14:&tt=30&item_loc['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=15:tt=31&item_loc['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=16:tt=32&item_loc['<<tt>>,<<$loc[you]>>']+=rand(1,10)
+         if tiperand=17:tt=33&item_loc['<<tt>>,<<$loc[you]>>']+=rand(1,10)
+		 if tiperand=18:tt=34&item_loc['<<tt>>,<<$loc[you]>>']+=rand(1,10)
+		 if tiperand=19:tt=36&item_loc['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=20:tt=39&item_loc['<<tt>>,<<$loc[you]>>']+=1
+		 if tiperand=21:tt=10&item_loc['<<tt>>,<<$loc[you]>>']+=rand(1,20)
+		cls&gt'preloc'
+     end
+else
+	'Вы обыскивали этот сундук'
+end

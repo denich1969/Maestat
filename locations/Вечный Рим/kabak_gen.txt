@@ -1,0 +1,35 @@
+﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
+H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Таверна "Северный берег"'&maxPositionR['<<$templocH>>']=4&!ownerloc['<<$templocH>>']=you
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locname['<<$temploc>>']='Таверна'&$lname['<<$temploc>>']='Таверна'&$lname_go['<<$temploc>>']='в таверну'
+$locopis['<<$temploc>>']='Просторный зал в котором с легкостью разместится пара сотен человек обставлена простой но надежной мебелью, столы и лавки сколоченны из струганых, покрытых лаком досок. Стены трактира из камня и на них в качестве украшений висят картины и фотографии, чистый деревянный пол блестит свежей краской. На картинах развешенных по стенам изображен туманный город и корабли в бухте. В воздухе витают приятные и аппетитные ароматы с кухни.'
+np['<<$temploc>>']=65
+mirror['<<$temploc>>']=1&taberntable['<<$temploc>>']=1
+R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
+$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+$locopis['<<$temploc>>']='Большая кухня с различной кухонной утварью. Кухня велика и при этом тут древние котлы и чугунки находятся в перемешку с кофемашинами и мультиварками.'
+np['<<$temploc>>']=66
+mirror['<<$temploc>>']=0
+R=2&gs 'toilet_gen',5&!gs 'toilet_gen',уровень туалета
+R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Общая спальная'
+$locname['<<$temploc>>']='Общая спальная'&$lname['<<$temploc>>']='Общая спальная'&$lname_go['<<$temploc>>']='в спальную'
+$locopis['<<$temploc>>']='Большая комната с рядами однотипных деревянных кроватей'
+np['<<$temploc>>']=68
+mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=2
+Xtr=X&Ytr=Y&Ztr=Z&Htr=H&Rtr=R
+gs'negrec'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Хозяйская спальная'&lock['<<$temploc>>']=1
+$locname['<<$temploc>>']='Хозяйская спальная'&$lname['<<$temploc>>']='Хозяйская спальная'&$lname_go['<<$temploc>>']='в хозяйскую спальную'
+$locopis['<<$temploc>>']='Большая комната с рядами однотипных деревянных кроватей'
+np['<<$temploc>>']=68
+mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+gs'tabern_man_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'tabern_woman_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'tabern_elder_dot_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+gs'tabern_young_dot_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+husband[tabernman]=tabernwoman&husband[tabernwoman]=tabernman
+kid_first[tabernman]=elderdot&kid_first[tabernwoman]=elderdot
+kid_second[tabernman]=youngdot&kid_second[tabernwoman]=youngdot
+father[elderdot]=tabernman&mother[elderdot]=tabernwoman
+father[youngdot]=tabernman&mother[youngdot]=tabernwoman
+brother[youngdot]=elderdot&brother[elderdot]=youngdot

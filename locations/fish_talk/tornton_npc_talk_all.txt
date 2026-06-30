@@ -1,0 +1,123 @@
+﻿if bocmanQW=4:
+	act'Я от Боцмана':
+		 bocmanQW=5&canbuywhore_tornton=2000&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказываете что пришли от Семена Боцмана и тот заинтересован в покупке шлюх.'
+		 '<<$name[npc]>> важно кивает - Шлюхи это моя специальность. В порт постоянно прибывают все новые и новые люди. И в основном они становятся шлюхами. '
+		'Свеженькую шлюшку я могу продать за пару тысяч шиллингов. Покупать их просто. '
+		'Просто подходишь к шлюхе, узнаешь кто сутенер, и если сутенер я, то плати 2000, и шлюха твоя или твоего боцмана, дальнейшая ее судьба меня не интереует.'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if autodocQW=2:
+	act'Ты не знаешь как договориться с Капитаном?':
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы спрашиваете, как договориться с капитаном'
+		 '<<$name[npc]>>  - Спроси у Дидье Гальяно, он в трактире живет. Он частенько еще в порту ошивается.'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if power_wallQW[you]=70:
+	 '<<$name[npc]>> - Я слышал тебе нужны деньги, я могу дать тебе в долг 100 шиллингов. Отдашь через неделю 120 шиллингов и мы в расчете.'
+	 act'Взять в долг 100 шиллингов':
+		 money[you]+=10000&tornton_dolg[you]=tornton_dolg[you]+12000&tornton_dolg_day[you]=daystart+7
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> дает вам деньги'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if tornton_dolg[you]=0:
+	'<<$name[npc]>> - Если надо, то я могу дать тебе в долг 50 шиллингов. Отдаш через неделю 60 шиллингов и мы в расчете.'
+	 act'Взять в долг 50 шиллингов':
+		 money[you]+=5000&tornton_dolg[you]=6000&tornton_dolg_day[you]=daystart+7&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> дает вам 50 шиллингов'
+		 act'А можешь дать еще 50?':
+			cls&'<center><img src="<<$d_view>>" ></center>'&	'- В принципе могу, в сумме долг будет 120, но срок по прежнему неделя.'&act'<b>Уйти</b>':gt 'preloc'
+			act'Согласиться':money[you]+=5000&tornton_dolg[you]=12000&gt 'preloc'
+		 end
+		 act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if tornton_dolg[you]>0 and tornton_dolg_day[you]>=daystart:
+	 '<<$name[npc]>> - Твой долг <<tornton_dolg[you]/100>> шиллингов. Отдать тебе нужно его через <<tornton_dolg_day[you]-daystart>> дней'
+	 if money[you]>=tornton_dolg[you]:
+		 act'Вернуть долг':
+			money[you]-=tornton_dolg[you]&tornton_dolg[you]=0&tornton_dolg_day[you]=0
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> забирает у вас деньги'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if tornton_dolg[you]>0 and (tornton_dolg_day[you]-daystart)<3:
+	 act'Попросить отсрочку':
+		cls&'<center><img src="<<$d_view>>" ></center>'&otsr = (tornton_dolg[you]+(tornton_dolg[you]/3))/100
+		'<<$name[npc]>> - Отсрочку? Ну что же, я могу пойти тебе на встречу и готов отложить выплату долга еще на 3 дня, но долг вырастет до <<otsr>>. Ну как? Годится?'&act'<b>Уйти</b>':gt 'preloc'
+		 act'Согласиться на отсрочку':
+			 tornton_dolg[you]=tornton_dolg[you]+(tornton_dolg[you]/3)&tornton_dolg_day[you]+=3&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> - С тобой приятно иметь дело. Надеюсь, ты оправдаешь возложенные на тебя надежды. Хотя если и нет, я найду способ все уладить...'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+end
+if tornton_dolg[you]>0 and (tornton_dolg_day[you]-daystart)<3 and money[you]>(tornton_dolg[you]/2):
+	act'Попросить взять половину и увеличить срок':
+		cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Это интересное предложение. Ну что же, в таком случае я могу пойти тебе на встречу и готов отложить выплату долга еще на 3 дня.'
+		'Кто выплачивает долги - заслуживает доверия.'&act'<b>Уйти</b>':gt 'preloc'
+		 act'Отдать половину суммы':
+			 money[you]-=tornton_dolg[you]/2&tornton_dolg[you]=tornton_dolg[you]/2&tornton_dolg_day[you]+=3&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> - С тобой приятно иметь дело. Надеюсь, ты оправдаешь возложенные на тебя надежды. Хотя если и нет, я найду способ все уладить...'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	end
+end
+if tornton_dolg[you]>0 and tornton_dolg_day[you]<daystart:
+	 '<<$name[npc]>> - Не забывай, за тобой долг в <<tornton_dolg[you]/100>> шиллингов! Если не вернёшь как можно скорее, <b>жди последствий...</b>'
+	 if money[you]>=tornton_dolg[you]:
+		 act'Вернуть долг':
+			money[you]-=tornton_dolg[you]&tornton_dolg[you]=0&tornton_dolg_day[you]=0
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> забирает у вас деньги'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if pol[you]>0:
+	 if whoreboss[you]=0 and whore[you]=0 and sexiness[you]>0 and guy[you]>0 and vag[you]>1 and magik[you]=0:
+	 '<<$name[npc]>> - Эй малышка, такая конфетка как ты может прилично зарабатывать.'
+		 act'Прилично зарабатывать?':
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> - конечно, ублажать мужчин, получать за это деньги. К тому же можно будет ночевать в моем борделе. Соглашайся, это отличная сделка.'&act'<b>Уйти</b>':gt 'preloc'
+			 act'Согласиться':
+				npc=tornton&whoreboss[you]=npc&stamp_t[you]=rand(1,4)&t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=0
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> кидает вам кучу тряпок - Одень вот эту одежду.'
+				'Когда вы начинаете переодеваться ваш сутенер кладет вам руку на поясницу и вспыхивает резкая боль, после которой вы видите на своей нижней части спины татуировку'
+				'После вашего преображения в шлюху, сутенер с усмешкой говорит, а теперь надо тебя попользовать.'
+				 act'Дать':whore[you]+=1&last_sex[npc]=time+(60*5)&friends[npc]+=3&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+			 end
+		 end
+	 end
+	 if whoreboss[you]=npc:
+		 act 'Я могу как-то освободиться от твоего сутенерства?':
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			 '<<$name[npc]>> - Можно. Если я теряю шлюху, то должен получить компенсацию. Поэтому, если у тебя будет 1000 шиллингов для своего выкупа, то я готов тебя отпустить.'			 
+			 if dollevent!1:
+				 act'Послать его нахуй с такими запросами!':
+					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					 '<<$name[npc]>> - Ага, вот как ты заговорила, блядь неблагодарная. Нехочешь со мной дружить и приносить мне деньги? Я могу взять их и подругому!'
+					 'Торнтон медленно поднял руку и щелкнул пальцами и вы ощутили как ваше тело стало наполняться непонятной тяжесть и деревенеть...'
+					 act'<b>Что, за?...</b>':
+						 gt'eventdoll'&msg("Неожиданно вас словно метнуло в сторону и вы оказались там же, откуда прошли этот многодневный путь в виде секс-куклы. 
+														От пережитого у вас немного тряслись ноги, а воля ваша была сильно подломленной.")
+						 cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - С возвращением в мир живых, мразь. Я надеюсь ты получила достойный урок и больше не станешь трепать мне мои нервы?'
+						 'Вы поспешно замотали головой, едва поняли, что этот кошмар закончился.'
+						 '- Тогда я не намерен слышать от тебя подобной херни впредь. Долг твой я засичитаю с полученной прибыли. А теперь вали отсюда!'&act'<b>Уйти</b>':gt 'preloc'
+					 end
+				 end
+			 end
+			 if money[you]>=100000:act'Отдать деньги сутенеру ради свободы':whoreboss[you]=0&money[you]-=100000&gt 'preloc'		
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+	 if whoreboss[you]=npc and inseminate[you]>0 and jaloba!1:
+		 act 'Я забеременнела! Что мне теперь делать?!':
+			  jaloba=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+			 '<<$name[npc]>> - Да мне, если честно: похуй. Рожай и работай. Все равно ребенок в этом городе вырастет за пару минут и не будет требовать от тебя сисю. Все! Иди и работай!'
+		 end
+	 end
+	 if whoreboss[you]=npc and inseminate[you]>0 and jaloba=1 and spiralka!1:
+		 act 'Я забеременнела! Ты мне можешь помочь?':
+			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> закатывает глаза. - Исключительно ради того, чтобы ты работала лучше и не ныла мне тут как овца... '
+			'Иди к Марте как родишь, скажи, чтобы она тебе спираль поставила. Это, кстати, в 200 шиллингов тебе обойдется. Можно и в долг. Только кивни.'
+			 if money[you]>=20000:act'Оплатить спираль от Марты':money[you]-=20000&spiralka=1&gt 'preloc'						 
+			 act'Согласиться на спираль в долг':tornton_dolg[you]+=20000&tornton_dolg_day[you]+=14&spiralka=1&gt 'preloc'		 
+			 act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end

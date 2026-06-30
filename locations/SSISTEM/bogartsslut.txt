@@ -1,0 +1,33 @@
+﻿!TODO
+cls&gs'stat'&'<center><video src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'
+'Вы видите как <<$name[ddd]>> <<$surname[ddd]>> ебет в рот девушку. Вы стараетесь не шевелиться чтобы вас не заметили'&*nl
+if pol[you]=0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+if pol[you]=1:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+act'Дрочить':
+	 cls&gs'stat'&'<center><video src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'
+	'Вы смотрите как Богарт вгоняет свой член в ротик девушки'&*nl'<<$name[sss]>>  облизывает член и заглатывает его в рот'&*nl
+	 if pol[you]=0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+	 if pol[you]=1:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+	 act'...':
+		 horny[you]+=10&jerk[you]+=1&you_see_sex[sss]+=1&corr[sss]+=rand(2,8)
+		 cls&gs'stat'&'<center><video src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'&'Богарт ебет в ротик <<$name[sss]>>, а она жадно чавкает'&*nl
+		 if pol[you]=0:'<center><video src="pic/vids/podsm4.webm" ></video></center> Вас сзади обхватывают руки девушки и дрочат ваш член
+	Девушка шепчет вам - Нравится подсматривать за сексом?'
+		 if pol[you]=1:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+		 if horny[you]<100:
+			 cls&gs'stat'&'<center><video src="pic/sex/vag/dcum<<rand(0,2)>>.webm" ></video></center>'
+			 '<<$name[sss]>> поворачивает голову в вашу сторону, встает и садится киской на член'&*nl'<<$name[ddd]>> <<$surname[ddd]>> спускает в девушку, заливая ее матку своим семенем.'&*nl
+			 if pol[you]=0:'<center><video src="pic/vids/podsm4.webm" ></video></center> Одной рукой девушка сжимает ваше горло, второй дрочит ваш член<br>
+				- Извращенец, твоя <<$status[sss]>> скачет на хую а ты дрочишь<br>- Смотри как твоя <<$status[sss]>> принимает чужую сперму в матку и кончай от моей руку '
+			 if pol[you]=1:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+			 creampie_cum[sss]=time+360&act'<b>Уйти</b>':gt 'preloc'
+		else
+			 act'Кончить':
+				 horny[you]=0&cls&gs'stat'&'<center><video src="pic/sex/office/cum.webm" ></video></center>'
+				 'Вы смотрите как <<$name[sss]>> слизывает сперму с члена Богарта и вас начинает трясти от возбуждения'&*nl
+				 if pol[you]=0:'<center><video src="pic/vids/podsm4.webm" ></video></center> Девушка сжимает ваш... Вы кончаете...'
+				 if pol[you]=1:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'&act'<b>Уйти</b>':gt 'preloc'
+			 end
+		 end
+	 end
+end

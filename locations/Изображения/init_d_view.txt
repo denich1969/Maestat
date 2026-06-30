@@ -1,0 +1,36 @@
+﻿!Базовое назначение $d_view  &!Всегда легче иметь один блок кода в одном месте, копи-пастить этот блок когда в 25 разных местах.
+if ARGS[0] ! 0:
+	if mob[ARGS[0]]=0:
+		ARGS["INDEX"] = ARGS[0]&$ARGS["D_VIEW"] = $ARGS[1]&gs 'assign_portrait', ARGS["INDEX"]&!++ найти картинку лица ++
+		if face_pic[ARGS["INDEX"]]>0:
+			if spec_face_pic[ARGS["INDEX"]]>0 or (hcol[ARGS["INDEX"]]=0 and face[ARGS["INDEX"]]>=50):
+				if spec_face_pic[ARGS["INDEX"]]>=7:
+					dynamic '$<<$ARGS[1]>>="pic/face/<<spec_face_pic[ARGS[0]]>>/<<hairlong[ARGS[0]]>>_<<hcol[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+				elseif spec_face_pic[ARGS["INDEX"]]=6:
+					dynamic '$<<$ARGS[1]>>="pic/face/6/t<<face_tipe[ARGS[0]]>>/<<pic_hcol[ARGS[0]]>>/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+				else
+					dynamic '$<<$ARGS[1]>>="pic/face/<<spec_face_pic[ARGS[0]]>>/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+				end
+			else
+				if face[ARGS["INDEX"]]>=50 and skin[ARGS["INDEX"]]<4:dynamic '$<<$ARGS[1]>>="pic/face/<<hcol[ARGS[0]]>>/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+				if face[ARGS["INDEX"]]>=50 and skin[ARGS["INDEX"]]>=4 and (face_pic[ARGS["INDEX"]]=0 or face_pic[ARGS["INDEX"]]>20):
+					face_pic[ARGS["INDEX"]]=rand(1,20)
+					dynamic '$<<$ARGS[1]>>="pic/face/4/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+				else
+					dynamic '$<<$ARGS[1]>>="pic/face/4/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+				end
+				if face[ARGS["INDEX"]]<50 and skin[ARGS["INDEX"]]>=4 and face_pic[ARGS["INDEX"]]<70001 and face_pic[ARGS["INDEX"]]>70029:face_pic[ARGS["INDEX"]]=rand(70001,70029)
+				if face[ARGS["INDEX"]]<50:dynamic '$<<$ARGS[1]>>="pic/faceman/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+			end
+			if force_male_portrait[ARGS["INDEX"]]>0:dynamic '$<<$ARGS[1]>>="pic/faceman/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+			if force_fem_portrait[ARGS["INDEX"]]>0:dynamic '$<<$ARGS[1]>>="pic/face/<<spec_face_pic[ARGS[0]]>>/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+		end
+		!-- найти картинку лица --
+	else
+		if tipemobpic[ARGS[0]]=0:
+			if visualpol[ARGS[0]]=0:dynamic '$<<$ARGS[1]>>="pic/faceman/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+			if visualpol[ARGS[0]]>0:dynamic '$<<$ARGS[1]>>="pic/face/<<hcol[ARGS[0]]>>/<<face_pic[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+		end
+		if tipemobpic[ARGS[0]]=1:dynamic '$<<$ARGS[1]>>="pic/mob/<<picture[ARGS[0]]>>.jpg"', ARGS["INDEX"], $ARGS["D_VIEW"]
+	end
+end

@@ -1,0 +1,104 @@
+﻿!0 кто (если -1 значит дрочит)     !1 кого    !2-fin - финальный     !3-silent    !4-num     !daystart
+result=0&args[30] = 0&if args[4]=0:args[4]=200
+if args[0]>0 and sexpower[args[0]]=0 and args[2]=0:args[2]=1
+if throat[args[1]]<12:oral_deflorator[args[0]]+=1&throat[args[1]]=12
+if throat[args[1]]<dick[args[0]]:throat[args[1]]+=1
+if oral_fixation[args[1]]>0 and orgasm[args[1]]<time and horny[args[1]]<100:
+	if dick[args[0]]>0:args[30]+=oral_fixation[args[1]]*dick[args[0]]/26
+	if dick[args[0]]=0:args[30]+=oral_fixation[args[1]]
+	if oral_fixation[args[1]]>100:
+		if args[1]=you:"<b>Ощутив во рту мясистый, пульсирющий хуй, вы принялись его жадно обсасывать</b>"
+		if args[0]=you:"<b><<$name[npc]>> страстно обсасывает ваш ствол, с явным желанием</b>"
+	end	
+end
+if demon_dick[args[1]]>0:
+	if throat[args[1]]<dick[args[0]]:throat[args[1]]=dick[args[0]]
+	if dick[args[0]]>0:args[30]+=oral_fixation[args[1]]*dick[args[0]]/26/5
+	if dick[args[0]]=0:args[30]+=oral_fixation[args[1]]/6
+end
+args[30]+=corr[args[1]]/10
+if dick[args[0]]>0:args[30]+=oral_fixation[args[1]]*dick[args[0]]/26/15
+if dick[args[0]]=0:args[30]+=oral_fixation[args[1]]/20
+if args[2]=1 and oral_fixation[args[1]]>0:
+		if dick[args[0]]>0:args[30]+=oral_fixation[args[1]]*dick[args[0]]*2/26
+		if dick[args[0]]=0:args[30]+=oral_fixation[args[1]]*2
+end
+args[30]+=perk_dombj[args[0]]*10
+if demon_dick[args[0]]>0:args[30]+=demon_dick[args[0]]*5
+if demon_dick[args[1]]>0:args[30]+=demon_dick[args[1]]*5
+if grief=args[0]:args[30]+=25
+!если групповуха
+if solo=0:args[30]=args[30]*(corr[args[1]]+lust[args[1]])/200&!сильно режет накопления при низких параметрах
+horny[args[1]]+=func('to_arouse',args[1],args[30])
+if horny[args[1]]>200:oral_fixation[args[1]]+=1+temp_orgazm[args[1]]/3
+if horny[args[1]]>200:"<b>Глк-глк, Фаа!</b>"
+!дошла до предела и хотябы 1 рука свободна
+
+!рука свободна или там сидит девушка
+args[20]=(open_lhand[args[1]]=0 or (lhand>0 and vag[lhand]>0))&args[21]=(open_rhand[args[1]]=0 or (rhand>0 and vag[rhand]>0))
+if (horny[args[1]]>args[4] or args[2]=1 and horny[args[1]]>=100):
+	if (solo>0 or args[20] or args[21]):
+		result=1&'<<func("get_stat_desc", "dick_gen_text", args[1])>>'
+		if demon_dick[args[1]]>0:
+			if demon_dick[args[1]]>4 and dick[args[0]]>0:
+				args[50]=(dick[args[0]]<demon_dick[args[1]]*2)&args[51]=(dickd[args[0]]<demon_dick[args[1]]*4)
+				if args[50] or args[51]: "Вы чувтвуете как член увеличивается прямо у вас во рту от ваших флюидов"
+			end
+		end
+		if args[3]=0 and solo>0:
+			if temp_orgazm[args[1]]=0:
+				if args[1]=you:
+					'<b>Вы мычите с членом во рту и изгибаетесь в оргазме.</b>'
+				else
+					'<b><<$name[args[1]]>> изгибается в оргазме и мычит с членом во рту</b>'
+				end
+			else
+				if args[1]=you:
+					'<b>Мычите в непрерывном оргазме.</b>'
+				else
+					'<b><<$name[args[1]]>> мычит от непрерывного удовольвия</b>'
+				end
+			end	
+		end
+		if args[3]=0 and solo=0:
+			if temp_orgazm[args[1]]=0:
+				if args[1]=you:
+					'<b>Вы мычите с членом во рту от оргазма.</b>'
+				else
+					'<b><<$name[args[1]]>> изгибается в оргазме и мычит с членом во рту</b>'
+				end
+			else
+				if args[1]=you:
+					'<b>Вы стонете как шлюха от непрерывных оргазмов и сменяющих друг друга хуев.</b>'
+				else
+					'<b><<$name[args[1]]>> мычит от непрерывного удовольвия</b>'
+				end
+			end	
+		end
+		if oral_fixation[args[1]]<demon_dick[args[0]]*100:oral_fixation[args[1]]+=demon_dick[args[0]]
+		if oral_fixation[args[1]]<demon_dick[args[1]]*100:oral_fixation[args[1]]+=demon_dick[args[1]]
+		if temp_orgazm[args[1]]>0:temp_multiorgazm[args[1]]+=1
+		if solo=0:corr[args[1]]+=1
+		orgazms_oral['<<args[0]>>,<<args[1]>>']+=1&oral_fixation[args[1]]+=1+temp_orgazm[args[1]]&gs'orgasm_effect',args[0],args[1]
+	else
+		"Вам невыносимо хочеться кончить, но занятые руки не позволяют довести себя до точки"&if args[4]<=200:temp_orgazm[args[1]]=0
+	end
+else
+	if args[4]<=200:temp_orgazm[args[1]]=0
+end
+!if args[2]=1:temp_orgazm[args[1]]=0
+if args[2]=1:
+	temp_orgazm[args[1]]=0
+	if master[args[1]]>0 and fuckgiftday[args[1]]!daystart:
+		fuckgiftday[args[1]]=daystart&magik[args[0]]+=1
+		if args[0]=you:'Богиня одаривает вас каналом магии'
+		if args[1]=you:'Вы одаряете <<$name[args[0]]>> каналом магии'
+	end
+	if master[args[0]]>0 and fuckgiftday[args[0]]!daystart:
+		fuckgiftday[args[0]]=daystart&magik[args[1]]+=1
+		if args[1]=you:'Бог одаривает вас каналом магии'
+		if args[0]=you:'Вы одаряете <<$name[args[0]]>> каналом магии'
+	end
+end
+if args[0]>0:gs'effect',args[0]
+if args[1]>0 and args[0]!args[1]:gs'effect',args[1]

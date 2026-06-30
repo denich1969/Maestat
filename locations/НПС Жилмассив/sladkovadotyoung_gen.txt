@@ -1,0 +1,22 @@
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&sladkovamasha=i
+lvl[i]=1&soul[i]=100&work[i]=100&klass_A+=1&klass[i]=1
+master[i]=0&delusion[i]=0&muggle[i]=0&magik[i]=1&beliver[i]=0&whoreblockON[i]=0&inseminateON[i]=1
+spec_face_pic[i]=5&face_pic[i]=105
+$name[i]='Маша'&$surname[i]='Сладкова'&$nick[i]='Улыбчивая девушка'&$title[i]=''&$history[i]='Катька моя старшая сестра и она зануда.'
+face[i]=100&gla[i]=3&glacol[i]=2&nose[i]=0&lips[i]=1&scull[i]=0&cheeks[i]=1
+dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=40&throat[i]=20&ass[i]=35&nip[i]=40&tits[i]=16
+rost[i]=165&fat[i]=2000&mus[i]=600&skin[i]=1
+face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=70&curl[i]=0&hcol[i]=1
+age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+pol[i]=1&gs'body'&total_generated_female+=1
+womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=40&selfrespect[i]=1&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=0&lust[i]=60&wantblackcock[i]=1&!характер
+ !stamp_t[i]=1&r_leg_t[i]=1&! Прикид
+!l_hand_t[i]=3&nose_p[i]=1
+!l_ring[i]=147&amulet[i]=135&m_slot[i]=25   
+!t_slot[i]=31&l_slot[i]=47&b_slot[i]=19
+!ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
+t_slot[i]=104&l_slot[i]=99&b_slot[i]=52
+ut_slot[i]=20&ul_slot[i]=35&ub_slot[i]=22
+e_world[]=i&walkprog[i]=26&walkprog[i]=80&!Район и Программа поведения
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

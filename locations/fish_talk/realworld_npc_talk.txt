@@ -1,0 +1,16 @@
+﻿if master[you]>0 and rememberme>0:
+	 act'Отправить на харон':
+		 cls
+		 if pol[npc]=0:$history[npc]='Я недавно попал в этот странный город на корабле "Харон". Последнее, что я помню: кто-то подошел ко мне на улице.'
+		 if pol[npc]>0:$history[npc]='Я недавно попала в этот странный город на корабле "Харон". Последнее, что я помню: кто-то подошел ко мне на улице.'
+		 walkprog[npc]=31
+		 n_world[]=npc
+		 Xhome[npc]=3&Yhome[npc]=0&Zhome[npc]=1&Hhome[npc]=2&Rhome[npc]=0
+		 X[npc]=3&Y[npc]=0&Z[npc]=1&H[npc]=0&R[npc]=0
+		 $loc[i]='<<X[npc]>>,<<Y[npc]>>,<<Z[npc]>>,<<H[npc]>>,<<R[npc]>>'
+		 gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 'Вы кладете руку на плечо и смотрите в глаза - Ступай на "Харон".'&pl'<<$name[npc]>> моментально исчезает'
+		 act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if know['<<you>>,<<npc>>']>0:gs'npc_talk'

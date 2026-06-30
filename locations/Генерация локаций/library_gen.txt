@@ -1,0 +1,76 @@
+﻿!Образец вызова
+!gs 'library_gen',уровень библиотеки,тип библиотеки,'книга',номер книги1,номер книги2,номер книги3,номер книги4,номер книги5
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+$locnameR['<<$temploc>>']='Библиотека'
+$locname['<<$temploc>>']='Библиотека'
+$lname['<<$temploc>>']='Библиотека'
+$lname_go['<<$temploc>>']='в библиотеку'
+library['<<$temploc>>']=args[1]
+gs'item_base'
+if args[0]=0:
+	 !описание
+	$locopis['<<$temploc>>']='Чулан с книгами'
+	 !номер картинки
+	np['<<$temploc>>']=260
+	 !вещи в библиотеке
+	item_loc['70,<<$temploc>>']=1
+elseif  args[0]=1:
+	 !описание
+	$locopis['<<$temploc>>']='Небольшая библиотека с книжными полками'
+	 !номер картинки
+	np['<<$temploc>>']=44
+	 !вещи в библиотеке
+	item_loc['<<args[7]>>,<<$temploc>>']=1
+	item_loc['<<args[3]>>,<<$temploc>>']=1
+	item_loc['<<args[4]>>,<<$temploc>>']=1
+	item_loc['<<args[5]>>,<<$temploc>>']=1
+	item_loc['<<args[6]>>,<<$temploc>>']=1
+elseif  args[0]=2:
+	 !описание
+	$locopis['<<$temploc>>']='Библиотека с книжными полками, столом и креслом'
+	 !номер картинки
+	 !226 кабинет
+	np['<<$temploc>>']=179
+	 !вещи в библиотеке
+	 !вещи в библиотеке
+	item_loc['<<args[7]>>,<<$temploc>>']=1
+	item_loc['<<args[3]>>,<<$temploc>>']=1
+	item_loc['<<args[4]>>,<<$temploc>>']=1
+	item_loc['<<args[5]>>,<<$temploc>>']=1
+	item_loc['<<args[6]>>,<<$temploc>>']=1
+elseif  args[0]=3:
+	 !описание
+	$locopis['<<$temploc>>']='Просторная библиотека в особняке, лабиринт книжных шкафов набитых разными книгами'
+	 !номер картинки
+	np['<<$temploc>>']=177
+	 !вещи в библиотеке
+	item_loc['70,<<$temploc>>']=1
+	witchkotel['<<$temploc>>']=1
+	karta['<<$temploc>>']=1
+elseif  args[0]=4:
+	 !описание
+	$locopis['<<$temploc>>']='Читальный зал огромной общественной библиотеки'
+	 !номер картинки
+	np['<<$temploc>>']=196
+	 !вещи в библиотеке
+	item_loc['70,<<$temploc>>']=1
+	!witchkotel['<<$temploc>>']=1
+	karta['<<$temploc>>']=1
+elseif  args[0]=5:
+	 !описание
+	$locopis['<<$temploc>>']='Дворцовая библиотека'
+	 !номер картинки
+	np['<<$temploc>>']=355
+	 !вещи в библиотеке
+	item_loc['70,<<$temploc>>']=1
+	item_loc['<<$args[2]>>,<<$temploc>>']=1
+	item_loc['<<args[7]>>,<<$temploc>>']=1
+	item_loc['<<args[3]>>,<<$temploc>>']=1
+	item_loc['<<args[4]>>,<<$temploc>>']=1
+	item_loc['<<args[5]>>,<<$temploc>>']=1
+	item_loc['<<args[6]>>,<<$temploc>>']=1
+	karta['<<$temploc>>']=1
+end
+
+!включение биосферы на Лунной базе или космическом корабле
+if Z=200 or Z=777 or Z=7777: biospere['<<$temploc>>']=1

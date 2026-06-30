@@ -1,0 +1,23 @@
+﻿clo=ARGS[0]
+
+cantwear=0
+if pol_ul[clo]<2 and pol[you]!pol_ul[clo]:cantwear=1
+
+if cantwear=0:
+	if ul_slot[you]=0:
+	ul_wardrobe[clo]=0
+	ul_slot[you]=clo
+	else
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!снять					
+	clothednow=ul_slot[you]
+	ul_wardrobe[clothednow]=1
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!надеть
+	ul_wardrobe[clo]=0
+	ul_slot[you]=clo
+	end
+end
+if cantwear=1:
+msg("Нельзя надеть")
+end
+
+gt'wardrobe'

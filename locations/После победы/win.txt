@@ -1,0 +1,280 @@
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+busy[you]=0&in_fight=0&in_sex=0&if necromancerFight=1:necromancerFight=0
+win[you]+=1&Zgen=Z[you]&if soulMG[you]>0:soul[you]+=1
+soul[npc]-=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
+if mob[npc]=0:
+	mobexp[npc]=10&if mlev[npc]>0:mobexp[npc]=(mlev[npc]*mlev[npc])*10
+end
+exp[you]+=mobexp[npc]
+if beliver[you]=4:
+	exp[you]+=mobexp[npc]*3&if magik[you]>0:magik_exp[you]+=1
+end
+dom[you]+=1&loss[npc]+=1&horny[npc]=0&fightwinwer=0&cant_fight_run=0
+defenceV=0&sfera_psihV=0&sfera_fiz=0&defence_you=0&sfera_psih=0&fire_defence[you]=0&sfera_antigrav=0&clon=0
+$fightlog[you]+='<br>'
+$fightlog[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[you]>>-<<loss[you]>> vs <<$name[npc]>> <<$surname[npc]>>. <<win[npc]>>-<<loss[npc]>>'
+$fightlog[npc]+='<br>'
+$fightlog[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[npc]>>-<<loss[npc]>> vs <<$name[you]>> <<$surname[you]>>. <<win[you]>>-<<loss[you]>>'
+'<center><b>Победа!</b></center>'
+gs'gen_d_view'&'<center><img src="<<$d_view>>" ></center>'&!вывод картинки второстепенных НПС и мобов
+if magworld[Znow]>0:'Крохотная часть души проигравшего вам соперника теперь принадлежит вам'
+if fight_for_forbid = 1:
+	fight_for_forbid = 0&forbidsex[npc] = 1&dom[you]+=30&"Ладно...хорошо, я сделаю как ты скажешь - <<$name[npc]>> не решается поднять глаза, больше обращая внимания не свои травмы."
+	*pl "Не заставляй повторять меня снова, тварь - произносите вы с должной злостью и угрозой в голосе."&*pl "<<$name[npc]>> молча кивает"
+end
+act'Уйти':gt'preloc'
+!'if mob[npc]=2:
+	evil[you]+=10&health[npc]=healthmax[npc]&'<<$name[npc]>> стонет лежа на земле и умоляет о пощаде'&if visualpol[npc]=1:act'Трахнуть':corr[npc]+=10&evil[you]+=50&gt'justsex'
+end'
+portal_interferences=0
+if npc=techer and dilaminaFallQW=10 and dead[arhivson]=0:gt'loweringStatusDilamina'
+if npc=dukevalorama:gt'dukevalorama_win'
+if npc=spiro and uberSolderQW[you]=6:gt'spiro_win'
+if popescu=npc and vamireQW=2:gt'popescu_win'
+if npc=addboss and final_fightQW=1:gt'huntwin'
+if necromancer=npc and runemasterQW=6:gt'necromancer_win'
+if npc=runemaster and final_fightQW=1:gt'runemaster_win'
+if npc=merlin:	gt'merlin_win'
+if soulmaster=npc:gt'soulmaster_win'
+if lebeda=npc and portAvatarQW=2:gt'lebeda_win'
+if npc=brokk and brokk_attk=1:gt'brokk_win'
+if antey=npc:gt'antey_win'
+if sherif=npc:gt'sherif_win'
+if needtodie=npc:gt'needtodie_win'
+if npc=cromar and headhunterQW=1:gt'cromar_win'
+if npc=takemura and headhunterQW=20:gt'takemura_win'
+if elfmag=npc and operativQW=9:gt'elfmag_win'
+if negrec=npc and blackedGangQW=100:gt'negrec_win'
+if mob[npc]>=1 and mob[npc]!8:
+	act'Убить':
+		soul[you]+=soul[npc]&dead[npc]=2&!dead[npc]=num_npc
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Душа проигравшего вам соперника теперь принадлежит вам'&*pl'<<$name[npc]>> корчится в конвульсиях и умирает'&act'Уйти':gt'preloc'
+	end
+end
+if mob[npc]=0:
+	gt'agrowin'&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,4)&Y[npc]=rand(0,4)
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+	'<<$nick[npc]>> стонет лежа не земле'&!ШЕРИФ
+end
+if mob[npc]=1:
+	corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&!гопник
+     if runemasterQW>=1:
+		 magik_exp[you]+=1&mob[npc]=13&mobexp[npc]=50&create_police+=1&total_create_police+=1&picture[npc]=70&$nick[npc]='Полиционер'
+		 defence[npc]=200&fight_prog[npc]=18&healthmax[npc]+=200&health[npc]=healthmax[npc]&police_npc[]=npc&'Вы ставите на побитого гопника руну службы и тот обращается в полиционера'
+     else
+		 X[npc]=rand(0,5)&Y[npc]=rand(0,5)
+		 if H[npc]>0:H[npc]=0
+		 if R[npc]>0:R[npc]=0
+		 '<<$nick[npc]>> в панике убегает'
+	 end
+end
+if mob[npc]=2:
+	 if chiff=npc:
+		 dead[npc]=2&item_loc['29,<<$loc[you]>>']+=1&'У вождя аборигенов выпадает рунный камень'&! act'Убить': total_aborigen-=1&aborigen_killer+=1&gt'preloc'
+     else
+		'<<$nick[npc]>> в панике убегает'&!абориген
+	end
+	corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,5)&Y[npc]=rand(0,5)
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+end
+if mob[npc]=3:
+	corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,4)&Y[npc]=rand(0,4)&'<<$nick[npc]>> в панике убегает'
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+	ins_reit[you]+=1&winmoney=rand(10,500)&money[you]+=winmoney&'Вы находите <<winmoney/100>> шиллингов и <<winmoney mod 100>> пенсов'&!инсмутец
+end
+if mob[npc]=4:
+	corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,4)&Y[npc]=rand(0,4)&'<<$nick[npc]>> в панике убегает'&!гангстер
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+end
+if mob[npc]=5:
+     if trueform[npc]=1:dead[npc]=9&magik_exp[you]+=1&'<<$nick[npc]>> рыча проклятия исчезает в воняющем серой облаке и низвергается в ад'&!демон
+     if trueform[npc]=0:
+		 corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&X[npc]=rand(0,4)&Y[npc]=rand(0,4)
+		 if H[npc]>0:H[npc]=0
+		 if R[npc]>0:R[npc]=0
+		 health[npc]=healthmax[npc]&healthmax[npc]+=600&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&manamax[npc]=3200&mana[npc]=manamax[npc]
+		 minuron[npc]=rand(45,80)&maxuron[npc]=rand(125,160)&reflex[npc]=rand(60,80)
+		 mobexp[npc]=200&tipemobpic[npc]=1&picture[npc]=rand(71,75)&fight_prog[npc]=9&walkprog[npc]=29&!программы боя и движения
+		 $nick[npc]='Демон'&trueform[npc]=1&'<<$nick[npc]>> со зловещим хохотом исчезает в облаке серы и вы слышите шепот - мы еще встретимся!'
+		 dick[npc]+=10&dickd[npc]+=10&ball[npc]=100
+     end
+     if Z[npc]>700 and Z[npc]<800:dead[npc]=2&item_loc['29,<<$loc[you]>>']+=1&' У поверженного демона вылетает рунный камень.'&!act'Уйти':gt'preloc'
+end
+if mob[npc]=6:
+	corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,4)&Y[npc]=rand(0,4)&'<<$nick[npc]>> в панике убегает'&!жертва
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+end
+if mob[npc]=7:
+	corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,4)&Y[npc]=rand(0,4)&'<<$nick[npc]>> в панике убегает'&!госпожа
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+end
+if mob[npc]=8:
+     if war_marduk[you]>0:
+     	 X[npc]=2&Y[npc]=3&Z[npc]=1&H[npc]=0&R[npc]=0
+		 mardukenemy[you]+=1&dead[npc]=2&mardukshead[you]+=1&murderer[you]+=1&magik_exp[you]+=1&'Вы добиваете павшего приспешника Мардука.'&!дети мардука
+     else
+		 corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,4)&Y[npc]=rand(0,4)& '<<$nick[npc]>> в панике убегает'
+		 if H[npc]>0:H[npc]=0
+		 if R[npc]>0:R[npc]=0
+     end
+end
+if mob[npc]=9:dead[npc]=9&magik_exp[you]+=5&'<<$nick[npc]>> со злобным рыком, от которого идут трещины в ближайших стенах, умирает'&!дагон
+if mob[npc]=11:
+	 X[npc]=2&Y[npc]=3&Z[npc]=1&H[npc]=0&R[npc]=0&magik_exp[you]+=1&cavendish_enemy[you]+=1&dead[npc]=2&battlemagehead[you]+=1&murderer[you]+=1&'Боевой маг падает и умирает.'&!боевой маг
+end
+if mob[npc]=12:
+     if $nick[npc]='Хрупкая сестрица':
+		 fragile_sisters_kill+=1&mistreit[you]+=1&magik_exp[you]+=5&dead[npc]=9&!туманник
+		 '<<$nick[npc]>> с оглушительным воем растворяется в тумане, вам чудится что по туману предсмертный визг хрупкой сестрицы проносится эхом.'
+         if fragile_sisters_kill>=3 and fragile_sistersQW=0:gt'fragile_sisters_qwest'
+     else
+		 mistreit[you]+=1&magik_exp[you]+=1&dead[npc]=9&'<<$nick[npc]>> с оглушительным воем растворяется в тумане'
+     end
+end
+if mob[npc]=13:
+	corr[npc]-=10&horny[npc]=0&lostfight['<<npc>>,<<you>>']+=1&health[npc]=healthmax[npc]&energy[npc]=energymax[npc]&X[npc]=rand(0,4)&Y[npc]=rand(0,4)
+	if H[npc]>0:H[npc]=0
+	if R[npc]>0:R[npc]=0
+	'<<$nick[npc]>> в панике убегает с воплями, что у вас будут последствия'&!полиционер
+end
+if mob[npc]=14:total_tentacle-=1&magik_exp[you]+=1&dead[npc]=2&'<<$nick[npc]>> умирает в конвульсиях'&!тентакль
+if mob[npc]=15:magik_exp[you]+=1&dead[npc]=2&'Поверженный пес упал в агонии.'&act'Уйти':gt'preloc'&!пес в корневище
+if mob[npc]=16:magik_exp[you]+=1&dead[npc]=2&'<<$nick[npc]>> умирает в конвульсиях'&!леший
+if mob[npc]=17:
+	if Z[you]=770:
+		 if chiff=npc:
+			 aborigen_killer+=1&total_aborigen-=1&dead[npc]=2&item_loc['29,<<$loc[you]>>']+=1&'У вождя аборигенов выпадает рунный камень'&act'Убить':gt'preloc'
+		 else
+			'Абориген упал корчась от боли'&act'Убить':aborigen_killer+=1&total_aborigen-=1&gt'preloc'
+			 act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+			 act'Изнасиловать':mob[npc]=34&$nick[npc]='Сисси шлюха'&lowered[npc]=you&dead[npc]=0&gt'winslut'
+		 end
+	elseif Z[you]=100:
+		'<<$nick[npc]>> падает на землю'&gt'wilderwin'
+	else
+		'<<$nick[npc]>> падает на землю'&!gt'wilderwin'
+	end
+end
+if mob[npc]=21:
+	'Эльф упал на землю корчась от боли'&act'Убить':elvenman_killer+=1&total_elvenman-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':mob[npc]=34&$nick[npc]='Сисси шлюха'&lowered[npc]=you&dead[npc]=0&gt'winslut'
+end
+if mob[npc]=22:
+	cls&gs'stat'&'Эльфийка лежит на земле и умоляет не убивать ее.'&act'Убить':total_elvenwoman-=1&gt'preloc'
+     act'Уйти':
+		 if corr[npc]>=50:friends[npc]+=1
+		 corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     end
+     act'Изнасиловать':dead[npc]=0&gt'wingirl'
+end
+if mob[npc]=23:
+	cls&gs'stat'&!ХМУРЫ
+     if Z[npc]=7:
+		prisivgigademon+=1&if prisivgigademon=2:X=X[you]&Y=Y[you]&Z=Z[you]&gs'gigademon'&'Рядом с вами загорается на полу пентаграмма и в клубах серы из преисподни вылезает демон'
+		 '<<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>> умирая хрипит - Не может быть!'&act'Уйти':gt'preloc'
+     else
+		 firstgloom+=1&mobexp[npc]=100
+		 healthmax[npc]=2000&health[npc]=healthmax[npc]&minuron[npc]=20&maxuron[npc]=50&reflex[npc]=150
+		 X[npc]=3&Y[npc]=3&Z[npc]=7&item_loc['29,<<$loc[you]>>']+=1&item_loc['56,<<$loc[you]>>']+=1
+		 if vag[npc]>0:'У ведьмы выпал рунный камень'&*pl'Ведьма хохочет лежа на земле и исчезает.'&act'Уйти':dead[npc]=0&gt'preloc'
+		 if vag[npc]=0:'У колдуна выпал рунный камень'&*pl'Колдун усмехается лежа на земле и исчезает'&act'Уйти':dead[npc]=0&gt'preloc'
+     end
+end
+if mob[npc]=24:goblin_killer+=1&total_goblin-=1&'Гоблин упал бездыханный'&act'Уйти':gt'preloc'&!гоблин
+if mob[npc]=25:item_loc['29,<<$loc[you]>>']+=1&cls&gs'stat'&'У твари выпал рунный камень'&*pl'Тварь хохочет лежа на земле и исчезает.'&act'Уйти':dead[npc]=2&gt'preloc'
+if mob[npc]=26:item_loc['29,<<$loc[you]>>']+=1&cls&gs'stat'&'У твари выпал рунный камень'&*pl'Тварь хохочет лежа на земле и исчезает.'&act'Уйти':dead[npc]=2&gt'preloc'&!Суккуба
+if mob[npc]=27:item_loc['60,<<$loc[you]>>']+=1&cls&gs'stat'&'У демона выпал ключ'&'Демон злобно орет и проваливается в преисподнюю.'&act'Уйти':dead[npc]=2&gt'preloc'
+if mob[npc]=28:
+	item_loc['29,<<$loc[you]>>']+=1&'<<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>> стонет на земле - За что?'&act'Убить':total_mother-=1&gt'preloc'  
+     act'Изнасиловать':dead[npc]=0&gt'winslut'
+end
+if mob[npc]=29:item_loc['29,<<$loc[you]>>']+=1&cls&gs'stat'&'Маг корчась рухнул на землю и у него выпал рунный камень.'&act'Уйти':dead[npc]=1&gt'preloc'
+if mob[npc]=30:
+	item_loc['29,<<$loc[you]>>']+=1&'<<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>> стонет на земле - За что?'&act'Убить':total_swordmaster-=1&gt'preloc'
+     act'Изнасиловать':dead[npc]=0&gt'winslut'
+end
+if mob[npc]=33:
+	item_loc['29,<<$loc[you]>>']+=1&cls&gs'stat'&'У проигравшей ведьмы выпадает рунный камень'&*pl'Ведьма повержена и вы можете либо убить ее, либо изнасиловать и лишить ее свой силы.'&!джунгли
+     act'Убить':total_witch-=1&dead[npc]=2&gt'preloc'
+     act'Изнасиловать':dead[npc]=0&gt'winwitch'
+end
+if mob[npc]=34:
+	cls&gs'stat'&'Шлюха лежит на земле и умоляет не убивать ее.'&act'Убить':total_slut-=1&gt'preloc'&!Наваждение  Отель
+     act'Уйти':health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':dead[npc]=0&gt'winslut'
+end
+if mob[npc]=35:
+	gulden[you]+=rand(10000,30000)&'Клиент упал на пол корчась от боли'&act'Убить':clent_killer+=1&total_client-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':mob[npc]=34&$nick[npc]='Сисси шлюха'&lowered[npc]=you&dead[npc]=0&gt'winslut'
+end
+if mob[npc]=36:
+	'Шлюха лежит на земле и умоляет не убивать ее.'&act'Убить':total_whore-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':dead[npc]=0&gt'winslut'
+end
+if mob[npc]=37:
+	bellboy_killer+=1&total_bellboy-=1&if demonhunt=0:demonhunt+=1&gs'demon'&act'Уйти':gt'preloc'
+end
+if mob[npc]=38:
+	if bdsmnum=npc:item_loc['29,<<$loc[you]>>']+=1
+	total_bdsm-=1&item_loc['38,<<$loc[you]>>']+=1&cls&gs'stat'&'Госпожа повержена и вы можете либо убить ее, либо изнасиловать и сделать ее шлюхой.'
+	if bdsmnum=npc:*pl'У проигравшей госпожи выпадает рунный камень'
+     act'Убить':dead[npc]=2&gt'preloc'
+     act'Изнасиловать':total_whore+=1&dead[npc]=0&gt'winbdsm'
+end
+if mob[npc]=39: 
+	'Шлюха бывшая когда-то госпожой лежит на земле и умоляет не убивать ее.'&act'Убить':total_whore-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':dead[npc]=0&gt'winslut'
+end
+if mob[npc]=40:
+	cls&gs'stat'&'Девушка лежит на земле и умоляет не убивать ее.'&act'Убить':total_girl-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':dead[npc]=0&gt'wingirl'
+end
+if mob[npc]=42:total_shaman-=1&dead[npc]=2&item_loc['37,<<$loc[you]>>']+=1&'У убитого шамана выпадает его бубен, сам же шаман растворяется превращаясь в облачко'&act'Уйти':gt'preloc'
+if mob[npc]=43:total_guarddog-=1&'<<$nick[npc]>> умирает в конвульсиях'&act'Уйти':gt'preloc'&!пес
+if mob[npc]=44:
+	dead[npc]=2&item_loc['29,<<$loc[you]>>']+=1&item_loc['338,<<$loc[you]>>']+=1
+	'У поверженного чудовища вылетает рунный камень и ржавый ключ. Чудовище тает и превращается в лужу.'&act'Уйти':gt'preloc'
+end
+if mob[npc]=45:need_pornakter+=1&pornacter_killer+=1&total_pornacter-=1&item_loc['<<rand(49,51)>>,<<$loc[you]>>']+=1&act'Уйти':gt'preloc'
+if mob[npc]=46:
+	need_ohrana+=1&ohrana_killer+=1&total_ohrana-=1&item_loc['27,<<$loc[you]>>']+=1
+     if topohr=npc:
+		 dead[npc]=2&item_loc['29,<<$loc[you]>>']+=1&item_loc['38,<<$loc[you]>>']+=1&item_loc['9,<<$loc[you]>>']+=1&item_loc['10,<<$loc[you]>>']+=15
+		 'У начальника охраны выпадает рунный камень, ключи от подвала пистолет и патроны'
+     end
+     act'Уйти':gt'preloc'
+end
+if mob[npc]=47:
+	cls&gs'stat'&'Служанка лежит на земле и умоляет не убивать ее.'&act'Убить':total_maid-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':dead[npc]=0&gt'wingirl'
+end
+if mob[npc]=48:
+	'Стражник упал корчась от боли'&act'Убить':guard_killer+=1&total_guard-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':mob[npc]=34&$nick[npc]='Сисси шлюха'&lowered[npc]=you&dead[npc]=0&gt'winslut'
+end
+if mob[npc]=49:
+	gulden[you]+=rand(10000,30000)&'Горожанин упал корчась от боли'&act'Убить':townman_killer+=1&total_townman-=1&gt'preloc'
+     act'Уйти':corr[npc]=0&health[npc]=healthmax[npc]&dead[npc]=0&gt'preloc'
+     act'Изнасиловать':mob[npc]=34&$nick[npc]='Сисси шлюха'&lowered[npc]=you&dead[npc]=0&gt'winslut'
+end
+if mob[npc]=50:
+	cls&gs'stat'&'Горожанка лежит на земле и умоляет не убивать ее.'&act'Убить':total_towngirl-=1&gt'preloc'
+    act'Уйти':
+		if corr[npc]>=50:friends[npc]+=1
+		 corr[npc]=0&health[npc]=healthmax[npc]& dead[npc]=0&gt'preloc'
+    end
+    act'Изнасиловать':dead[npc]=0&gt'wingirl'
+end

@@ -1,0 +1,30 @@
+﻿if rand_man_gen=0:
+
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&rand_man=i
+	!hunter[i]=1
+	pol[i]=0 
+	gs'male_gen'
+	!face_npc[i]=1&face_pic[i]=8&!фотки
+	$name[i]='Незнакомец'&$surname[i]='Мужчина'
+
+
+	beard[i]=0 
+	mustage[i]=0
+
+	lips[i]=0
+
+
+	selrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2
+
+	!m_slot[i]=7&w_slot[i]=4&!шмот
+	h_slot[i]=rand(0,6)&c_slot[i]=rand(0,7)&tz_slot[i]=rand(0,4)
+	t_slot[i]=rand(1,3)&l_slot[i]=rand(1,9)&b_slot[i]=rand(1,8)
+	ul_slot[i]=1&&ub_slot[i]=1
+
+	cantvag[i]=1
+	can_bj[i]=0&can_anal[i]=0
+	gs'body_auto',i,'old_npc_once'
+	se_lighthouse[]=i&
+end
+!sex_times['<<you>>,<<i>>']=0&sex_times['<<i>>,<<you>>']=0
+!energy[rand_man]=energymax[rand_man]

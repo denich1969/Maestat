@@ -1,0 +1,220 @@
+﻿gs'stat'&gs'body'&gs'npcbase'&act'<b>Уйти</b>':gt 'preloc'
+!if know['<<npc>>,<<you>>']=0:$startext[npc]='<<$nick[npc]>>'
+!if know['<<npc>>,<<you>>']>0 and $surname[npc]!'':$startext[npc]='<<$name[npc]>> <<$surname[npc]>>'
+!if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]='':$startext[npc]='<<$name[npc]>>'
+!if know['<<npc>>,<<you>>']>0 and $surname[npc]='' and $title[npc]!'':$startext[npc]='<<$title[npc]>> <<$name[npc]>>'
+!if $slavename[npc]!'':$startext[npc]='<b><<$slavename[npc]>></b>'
+if $slavename[npc]='':'<b><<$name[npc]>> ваша рабыня</b>'
+if $slavename[npc]!'':'<b><<$slavename[npc]>> ваша рабыня</b>'
+if submission[npc]<=10:
+	'<<$name[npc]>> с усмешкой осматривает вас. Кажется она вас вообще не уважает и только формально признает вашу власть.'
+elseif submission[npc]>10 and submission[npc]<=40:
+	if pol[you]=0:'<<$name[npc]>> настороженно смотрит на вас - чего? А в смысле, чего надо? хмм... господин'
+	if pol[you]>0:'<<$name[npc]>> настороженно смотрит на вас - чего? А в смысле, чего надо? хмм... госпожа'
+elseif submission[npc]>40 and submission[npc]<=60:
+	if pol[you]=0:'<<$name[npc]>>  - что вам угодно? Господин'
+	if pol[you]>0:'<<$name[npc]>>  - что вам угодно? Госпожа'
+elseif submission[npc]>60:
+	if pol[you]=0:'<<$name[npc]>> покорно склонив голову говорит - господин, чем могу служить?'
+	if pol[you]>0:'<<$name[npc]>> покорно склонив голову говорит - госпожа, чем могу служить?'
+end
+if contact[npc]=0:
+	 act'Взять номер телефона':
+		 contact[npc]=you&my_contact[]=npc&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Диктует вам свои контакты.'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0):
+	act'Я хочу занятся с тобой сексом':
+		 if sluttySisQW=3 and npc=sister and you=brother:sistersex+=1
+		 friends[npc]+=1&gs'drop_follower'&gs'sexpower'&gt'justsex'&!corr[npc]-=10
+	end
+end
+if H[you]>0:act'<b>Заняться воспитанием</b>':cls&gt 'submission_session'
+if money[npc]>0:
+	 'У рабыни <<money[npc]/100>> шиллингов'
+	act'<i>Забрать деньги у рабыни <<money[npc]/100>> шиллингов</i>':
+		 money[you]+=money[npc]&money[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> отдает вам деньги'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+act'Разденься!':
+	 $loc[npc]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+	 if t_slot[npc]>0:
+		 clo=t_slot[npc]&if ban_h[npc]=0:&t_slot[npc]=0&item_loc_t['<<clo>>,<<$loc[npc]>>']+=1
+	end
+	if l_slot[npc]>0:
+		clo=l_slot[npc]&if ban_l[npc]=0:&item_loc_l['<<clo>>,<<$loc[npc]>>']+=1&l_slot[npc]=0
+	end
+	if b_slot[npc]>0:
+		clo=b_slot[npc]&if ban_b[npc]=0:&item_loc_b['<<clo>>,<<$loc[npc]>>']+=1&b_slot[npc]=0
+	end
+	if ut_slot[npc]>0:
+		clo=ut_slot[npc]&if ban_ut[npc]=0:&ut_slot[npc]=0&item_loc_ut['<<clo>>,<<$loc[npc]>>']+=1
+	end
+	if ul_slot[npc]>0:
+		clo=ul_slot[npc]&if ban_ul[npc]=0:&item_loc_ul['<<clo>>,<<$loc[npc]>>']+=1&ul_slot[npc]=0
+	end
+	if ub_slot[npc]>0:
+		clo=ub_slot[npc]&if ban_ub[npc]=0:&item_loc_ub['<<clo>>,<<$loc[npc]>>']+=1&ub_slot[npc]=0
+	end
+	gt'preloc'
+end
+gs'mynpc'
+if my_puppil[npc]>=1 and free_spirit>0 and Hhome[npc]>0 and Hhome[you]>0:
+	act'Перенестись в это тело':gt'free_spirit'& !you=npc
+	if myagent[npc]=0 and can_verbovka[you]=1:
+		act'<b>На документ, теперь ты мой агент</b>':
+			 agency_ud[npc]=1&myagent[npc]=you&if contact[npc]=0:contact[npc]=you&my_contact[]=npc
+			 cls&gt 'preloc'
+		end
+	end
+end
+act'<i>Дать кличку</i>':cls&$slavename[npc]=input("Введите кличку")&gt 'preloc'
+if $slavename[npc]!'':act'<i>Убрать кличку</i>':cls&$slavename[npc]=''&gt 'preloc'
+if mysubslut[npc]=0:mysubslut[npc]=1
+if mywhoreformoney[npc]=1:
+	'<<$name[npc]>> ваша шлюха работающая в кафе Рим'
+	 act'<i>Гуляй по округе, ищи клиентов</i>':
+		 mywhoreformoney[npc]=2&walkprog[npc]=76&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выслушивает ваши приказы и соглашается'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+	 if hotelowner>=1:
+		 act'<i>Иди в отель Мардук</i>':
+			 X=1&Y=1&Z=4&H=6&R=3&Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R&X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+			 walkprog[npc]=77&walkprog[npc]=76&mywhoreformoney[npc]=10
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выслушивает ваши приказы и соглашается'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if mywhoreformoney[npc]=2:
+	'<<$name[npc]>> ваша шлюха ищущая клиентов по району Жилмассив'
+	 act'<i>Иди в кафе Рим</i>':
+		 mywhoreformoney[npc]=1&walkprog[npc]=76&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выслушивает ваши приказы и соглашается'&act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if mywhoreformoney[npc]=10:
+	'<<$name[npc]>> ваша шлюха работающая в районе Аптауна'
+	 if saunakafeowner>=1:
+		 act'<i>Иди в кафе Рим</i>':
+			 X=2&Y=0&Z=3&H=2&R=3&Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R&X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+			 walkprog[npc]=76&mywhoreformoney[npc]=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выслушивает ваши приказы и соглашается'&act'<b>Уйти</b>':gt 'preloc'
+		 end
+	 end
+end
+if saunakafeowner>=1 and mywhoreformoney[npc]=0:
+	 act'<b>Ты будешь шлюхой в моем кафе Рим</b>':
+		 cls
+		 if mywhoreformoney[npc]=0:
+			 mywhoreformoney[npc]=1
+			 if thenoob[npc]=1:
+				$history[npc]='Я попала в этот город, доверилась тебе, а ты сделал из меня шлюху.'
+			 else
+				$history[npc]='Я думала что сумела приспособиться в этом городе, но доверилась тебе, а ты сделал из меня шлюху.'
+			 end
+		 end
+		 whore[npc]+=1
+		 whoreboss[npc]=you	 
+		 if stamp_t[npc]=0:stamp_t[npc]=rand(1,4)
+		 t_slot[npc]=rand(31,36)&l_slot[npc]=rand(15,22)&b_slot[npc]=rand(8,11)
+		 X=2&Y=0&Z=3&H=2&R=3
+		 gs'multi_world'
+		 Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R
+		 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+		 walkprog[npc]=76
+		 gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 'Вы объясняете рабыне, что она теперь будет вашей шлюхой в кафе Рим и будет вам зарабатывать деньги. <<$name[npc]>> вытирая слезы соглашается'
+		 act'<b>Уйти</b>':gt 'preloc'
+	 end
+end
+if hotelowner>=1 and mywhoreformoney[npc]=0:
+	 act'<b>Ты будешь шлюхой в моем отеле в Аптауне</b>':
+		 cls
+		 if mywhoreformoney[npc]=0:
+			mywhoreformoney[npc]=10
+			 if thenoob[npc]=1:
+				$history[npc]='Я попала в этот город, доверилась тебе, а ты сделал из меня шлюху.'
+			 else
+				$history[npc]='Я думала что сумела приспособиться в этом городе, но доверилась тебе, а ты сделал из меня шлюху.'
+			 end
+		 end
+		 whore[npc]+=1
+		 whoreboss[npc]=you
+		 if stamp_t[npc]=0:stamp_t[npc]=rand(1,4)
+		 t_slot[npc]=rand(31,36)&l_slot[npc]=rand(15,22)&b_slot[npc]=rand(8,11)
+		 X=1&Y=1&Z=4&H=6&R=3
+		 gs'multi_world'
+		 Xhome[npc]=X&Yhome[npc]=Y&Zhome[npc]=Z&Hhome[npc]=H&Rhome[npc]=R
+		 X[npc]=X&Y[npc]=Y&Z[npc]=Z&H[npc]=H&R[npc]=R
+		walkprog[npc]=77
+		 gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		 'Вы объясняете рабыне, что она теперь будет вашей шлюхой в кафе Рим и будет вам зарабатывать деньги. <<$name[npc]>> вытирая слезы соглашается'
+		 act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+gs'take_follower','раб'&!позвать с собой персонажа
+if follower[npc]=you and secfoll>0:
+	 if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and threfoll=0:
+		 if pol[you]>0 and total_npc_on_loc<=2:
+			 act'Устроить групповушку':
+				 gang[firstfoll]+=1&gang[secfoll]+=1
+				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+				 horny[firstfoll]=50&horny[secfoll]=50
+				 pose[you]=2
+				 solo=0
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'
+				 act'...':gs'drop_follower'&gt'sex'
+			 end
+		 end
+		 if pol[you]=0 and total_npc_on_loc<=2 and vag[firstfoll]>0 and vag[secfoll]>0 and mysubslut[firstfoll]>=1 and mysubslut[secfoll]>=1:
+			 act'Устроить групповушку':
+				 gang[firstfoll]+=1&gang[secfoll]+=1
+				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+				 horny[firstfoll]=50&horny[secfoll]=50
+				 pose[you]=2
+				 solo=0
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'
+				 act'...':first=firstfoll&second=secfoll&gs'drop_follower'&gs'sexpower'&gt'ffm'
+			 end
+		 end
+	 end
+	 if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and sexpartner['<<threfoll>>,<<you>>']>0:
+		 if pol[you]>0 and total_npc_on_loc<=3:
+			 act'Устроить групповушку':
+				 gang[firstfoll]+=1&gang[secfoll]+=1&gang[threfoll]+=1
+				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+				 if watch_you_slut['<<threfoll>>,<<you>>']=0:watch_you_slut['<<threfoll>>,<<you>>']=1
+				 horny[firstfoll]=50&horny[secfoll]=50&horny[threfoll]=50
+				 pose[you]=2
+				 solo=0
+				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[firstfoll]>>, <<$name[secfoll]>> и <<$name[threfoll]>> переглядываются и соглашаются на групповуху.'
+				 act'...':gs'drop_follower'&gt'sex'
+			 end
+		 end
+	 end
+end
+if vision_times[npc]>0:'<i>Вы видели воспоминания этого человека <<vision_times[npc]>> раз</i>'
+if knowaura[npc]>0:
+	 if magik[npc]=0:'Вы не чувствуете собственных магических сил у этого человека.'
+	 if mlev[npc]=9:'Божественная сила.'
+	 if mlev[npc]=8:'Сила вне категорий.'
+	 if mlev[npc]=7:'1я категория силы.'
+	 if mlev[npc]=6:'2я категория силы.'
+	 if mlev[npc]=5:'3я категория силы.'
+	 if mlev[npc]=4:'4я категория силы.'
+	 if mlev[npc]=3:'5я категория силы.'
+	 if mlev[npc]=2:'6я категория силы.'
+	 if mlev[npc]=1:'7я категория силы.'
+end
+if implant_seed[you]=1:
+	 if lebeda_seed[npc]>0:
+		know_seed[npc]=1
+		 if lebeda_seed[npc]<800:
+			'Ваш антигрибной имплант чувствует <b><<lebeda_seed[npc]>> спор паразитов</b> в человеке'
+		 else
+			 know_master_spore[npc]=1
+			 'Ваш антигрибной имплант зашкалило. Человек перед вами практически целиком состоит из колонии грибов.'
+		 end
+	 end
+end
+if pol[you]=0:act'<i>Выебать</i>':gt 'justsex'

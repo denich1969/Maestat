@@ -1,0 +1,95 @@
+﻿gs'stat'
+act'Уйти':gt'preloc'
+$invitem_h=''
+item_h_max=arrsize('$h_name')
+iteminv=1
+:markiteminvthul
+     if item_h[iteminv]>0 and $h_name[iteminv]!'':
+     !$invitem_h+='<br>'
+     !$invitem_h+="<<$h_name[iteminv]>> <<item_h[iteminv]>> шт"
+     !$invitem_h+=" <a href='exec: gs""item_npc_h"",<<iteminv>>'><b>Надеть</b></a>"
+     $invitem_h+='<a href="exec:gt''item_npc_h'',<<iteminv>>"><img src="pic/clo/hat/<<iteminv>>.jpg" ></a>'
+     end
+iteminv+=1
+if iteminv<=item_h_max:jump'markiteminvthul'
+$invitem_t=''
+item_t_max=arrsize('$t_name')
+iteminv=1
+:markiteminvtul
+     if item_t[iteminv]>0 and $t_name[iteminv]!'':
+     !$invitem_t+='<br>'
+     !$invitem_t+="<<$t_name[iteminv]>> <<$t_text[iteminv]>> <<item_t[iteminv]>> шт"
+     !$invitem_t+=" <a href='exec: gs""item_npc_t"",<<iteminv>>'><b>Надеть</b></a>"
+     $invitem_t+='<a href="exec:gt''item_npc_t'',<<iteminv>>"><img src="pic/clo/top/<<iteminv>>.jpg" ></a>'
+     end
+iteminv+=1
+if iteminv<=item_t_max:jump'markiteminvtul'
+$invitem_l=''
+item_l_max=arrsize('$l_name')
+iteminv=1
+:markiteminvlul
+     if item_l[iteminv]>0 and $l_name[iteminv]!'':
+     !$invitem_l+='<br>'
+     !$invitem_l+="<<$l_name[iteminv]>> <<$item_l_text[iteminv]>> <<item_l[iteminv]>> шт"
+     !$invitem_l+=" <a href='exec: gs""item_npc_l"",<<iteminv>>'><b>Надеть</b></a>"
+     $invitem_l+='<a href="exec:gt''item_npc_l'',<<iteminv>>"><img src="pic/clo/low/<<iteminv>>.jpg" ></a>'
+     end
+iteminv+=1
+if iteminv<=item_l_max:jump'markiteminvlul'
+$invitem_b=''
+item_b_max=arrsize('$b_name')
+iteminv=1
+:markiteminvbul
+     if item_b[iteminv]>0 and $b_name[iteminv]!'':
+     !$invitem_b+='<br>'
+     !$invitem_b+="<<$b_name[iteminv]>> <<$item_b_text[iteminv]>> <<item_b[iteminv]>> шт"
+     !$invitem_b+=" <a href='exec: gs""item_npc_b"",<<iteminv>>'><b>Надеть</b></a>"
+     $invitem_b+='<a href="exec:gt''item_npc_b'',<<iteminv>>"><img src="pic/clo/boot/<<iteminv>>.jpg" ></a>'
+     end
+iteminv+=1
+if iteminv<=item_b_max:jump'markiteminvbul'
+$invitem_ut=''
+item_ut_max=arrsize('$ut_name')
+iteminv=1
+:markiteminvutul
+     if item_ut[iteminv]>0 and $ut_name[iteminv]!'':
+     !$invitem_ut+='<br>'
+     !$invitem_ut+="<<$ut_name[iteminv]>> <<$item_ut_text[iteminv]>> <<item_ut[iteminv]>> шт"
+     !$invitem_ut+=" <a href='exec: gs""item_npc_ut"",<<iteminv>>'><b><Надеть</b></a>"
+     $invitem_ut+='<a href="exec:gt''item_npc_ut'',<<iteminv>>"><img src="pic/clo/utop/<<iteminv>>.jpg" ></a>'
+     end
+iteminv+=1
+if iteminv<=item_ut_max:jump'markiteminvutul'
+$invitem_ul=''
+item_ul_max=arrsize('$ul_name')
+iteminv=1
+:markiteminvulul
+     if item_ul[iteminv]>0 and $ul_name[iteminv]!'':
+     !$invitem_ul+='<br>'
+     !$invitem_ul+="<<$ul_name[iteminv]>> <<$item_ul_text[iteminv]>> <<item_ul[iteminv]>> шт"
+     !$invitem_ul+=" <a href='exec: gs""item_npc_ul"",<<iteminv>>'><b>Надеть</b></a>"
+     $invitem_ul+='<a href="exec:gt''item_npc_ul'',<<iteminv>>"><img src="pic/clo/ulow/<<iteminv>>.jpg" ></a>'
+     end
+iteminv+=1
+if iteminv<=item_ul_max:jump'markiteminvulul'
+$invitem_ub=''
+item_ub_max=arrsize('$ub_name')
+iteminv=1
+:markiteminvubul
+     if item_ub[iteminv]>0 and $ub_name[iteminv]!'':
+     !$invitem_ub+='<br>'
+     !$invitem_ub+="<<$ub_name[iteminv]>> <<$item_ub_text[iteminv]>> <<item_ub[iteminv]>> шт"
+     !$invitem_ub+=" <a href='exec: gs""item_npc_ub"",<<iteminv>>'><b>Надеть</b></a>"
+     $invitem_ub+='<a href="exec:gt''item_npc_ub'',<<iteminv>>"><img src="pic/clo/uboot/<<iteminv>>.jpg" ></a>'
+     end
+iteminv+=1
+if iteminv<=item_ub_max:jump'markiteminvubul'
+'<center><b>Одежда</b></center>'
+'<<$invitem_h>>'
+'<<$invitem_t>>'
+'<<$invitem_l>>'
+'<<$invitem_b>>'
+'<center><b>Нижнее белье</b></center>'
+'<<$invitem_ut>>'
+'<<$invitem_ul>>'
+'<<$invitem_ub>>'
