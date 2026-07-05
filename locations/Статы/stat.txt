@@ -23,20 +23,18 @@ if back_t[you]>=5 and back_t[you]<=10 and oncetattoostamin[you]=0:oncetattoostam
 if r_ass_t[you]=1:painslut[you]=healthmax[you]-health[you]
 if r_ass_t[you]=1 and healthmax[you]=health[you]:painslutreset[you]=0
 if r_ass_t[you]=1 and health[you]<healthmax[you] and painslut[you]>0 and magik[you]>0 and painslutreset[you]>0 and painslutreset[you]>health[you]:
-     painslutreset[you]=health[you]&mana[you]+=painslut[you]&horny[you]=100
+    painslutreset[you]=health[you]&mana[you]+=painslut[you]&horny[you]=100
 end
 if r_ass_t[you]=1 and health[you]<healthmax[you] and painslut[you]>0 and magik[you]>0 and painslutreset[you]=0:
-     painslutreset[you]=health[you]&mana[you]+=painslut[you]&horny[you]=100
+    painslutreset[you]=health[you]&mana[you]+=painslut[you]&horny[you]=100
 end
 if vag[you]>0 and magik[you]>0:
-     if orgasm_times[you]>=1 and chek_org[you]=0:chek_org[you]=orgasm_times[you]&magik_exp[you]+=1&orgasm_need[you]=chek_org[you]+5
-     if orgasm_times[you]=orgasm_need[you] and chek_org[you]<orgasm_times[you]:totalrostotexp[you]+=1&chek_org[you]=orgasm_times[you]&orgasm_need[you]+=5+totalrostotexp[you]&magik_exp[you]+=1
+    if orgasm_times[you]>=1 and chek_org[you]=0:chek_org[you]=orgasm_times[you]&magik_exp[you]+=1&orgasm_need[you]=chek_org[you]+5
+    if orgasm_times[you]=orgasm_need[you] and chek_org[you]<orgasm_times[you]:totalrostotexp[you]+=1&chek_org[you]=orgasm_times[you]&orgasm_need[you]+=5+totalrostotexp[you]&magik_exp[you]+=1
 end
 if dead[tbigg]>0 and dead[mgreen]>0 and dead[dlong]>0 and blackgangdead=0:blackgangdead=1
 if demon_slave[you]>=1 and l_leg_t[you]!4:l_leg_t[you]=4
-if demon_slave[you]>=1:
-     if dead[mrblood]>0 and dead[mrflesh]>0:demon_slave[you]=0&l_leg_t[you]=0
-end
+if demon_slave[you]>=1 and dead[mrblood]>0 and dead[mrflesh]>0:demon_slave[you]=0&l_leg_t[you]=0
 if BogartMedQW=17 and bangday<daystart:
 	BogartMedQW=18&daybigboom=daystart&dead[borisbogart]=2&knowRuneMasterQW=100&bogart_slut_reit[you]=100&afterBogartQW=6
 	 X=1&Y=1&Z=5&H=7&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Руины выставки искусств'
@@ -59,17 +57,11 @@ if BogartMedQW=17 and bangday<daystart:
 	 subwork[addkiller]=100&$history[addkiller]='Я - ученик Ханта и раньше исполнял роль убийцы в Агентстве. Теперь я - начальник Агентства.'
 end
 if earth_gem[addboss]=1 and husband[addboss]=0 and sexpartner['<<motherearth>>,<<addboss>>']=0:
-	girl[addboss]+=1&guy[motherearth]+=1
-	sexpartner['<<motherearth>>,<<addboss>>']+=1&sexpartner['<<addboss>>,<<motherearth>>']+=1
-	vagsex[motherearth]+=100&avagsex[addboss]+=1
-	sexpartner_num_m['<<motherearth>>,<<guy[motherearth]>>']=addboss&sexpartner_num_f['<<addboss>>,<<girl[addboss]>>']=motherearth
-	husband[addboss]=motherearth&husband[motherearth]=addboss
+	girl[addboss]+=1&guy[motherearth]+=1&sexpartner['<<motherearth>>,<<addboss>>']+=1&sexpartner['<<addboss>>,<<motherearth>>']+=1&vagsex[motherearth]+=100&avagsex[addboss]+=1
+	sexpartner_num_m['<<motherearth>>,<<guy[motherearth]>>']=addboss&sexpartner_num_f['<<addboss>>,<<girl[addboss]>>']=motherearth&husband[addboss]=motherearth&husband[motherearth]=addboss
 end
 if nosumrak=0:nosumrak=1&gs'11_sumrak'
-gs'qwest_timer'
-gs'rings_and_amulet'
-gs'postmortem'
-$d_reset_anus ={hotass[you]=0&gs'stat'}
+gs'qwest_timer'&gs'rings_and_amulet'&gs'postmortem'&$d_reset_anus ={hotass[you]=0&gs'stat'}
 !if demon_dick[you]>0 and dick[you]>0:dick[you]=30&dickd[you]=60&ball[you]=lust[you]
 if demon_dick[you]>0 and dick[you]>0 and horny[you]>50 and feromon[you]<3:feromon[you]+=3
 if CONFIG['ENABLE_advanced_menu']>0 and know['<<moonmaid>>,<<you>>']>0 and (X[moonmaid]!X[you] or Y[moonmaid]!Y[you] or Z[moonmaid]!Z[you] or H[moonmaid]!H[you] or R[moonmaid]!R[you]):
@@ -78,8 +70,7 @@ end
 if infinitmana[you]>0:mana[you]=manamax[you]
 if insmout_gang[you]>10 and vag[you]<1 and insmout_gangwhore=0:
 	msg("Истмунцы схватили вас и решили, что вы теперь часть этого порта, а зтем поволокли к Торнтону Маршу, чтобы продать вас ему... А Торнтон уже решит, что с вами делать.")
-	tornton_dolg[you]=0&tornton_dolg_day[you]=0&money[you]=0
-	insmout_gangwhore=1
+	tornton_dolg[you]=0&tornton_dolg_day[you]=0&money[you]=0&insmout_gangwhore=1
 	if face[you]<40:face[you]=40
 	ind=0&rndfem=rand(20,35)&feminize[you]+=rndfem
 	:again
@@ -90,8 +81,7 @@ if insmout_gang[you]>10 and vag[you]<1 and insmout_gangwhore=0:
 	hlong[you]=rand(60,100)
 	if mus[you]>1000:mus[you]=1000
 	tongue_p[you]=1&nip_p[you]=3&vag_pirs[you]=4&stamp_t[you]=5&vag_tipe[you]=2&pubis_t[you]=1
-	t_slot[you]=rand(31,36)&l_slot[you]=rand(45,51)&b_slot[you]=25
-	ut_slot[you]=0&ul_slot[you]=0&ub_slot[you]=7
+	t_slot[you]=rand(31,36)&l_slot[you]=rand(45,51)&b_slot[you]=25&ut_slot[you]=0&ul_slot[you]=0&ub_slot[you]=7
 	X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
 	solo=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
 end
@@ -149,11 +139,7 @@ if earth_gem[you]>0:avatar[you]+=1
 if wind_gem[you]>0:avatar[you]+=1
 if soul_gem[you]>0:avatar[you]+=1
 if water_gem[necromancer]>0 and fire_gem[mabuta]>0 and earth_gem[addboss]>0 and wind_gem[addkiller]>0 and soul_gem[you]>0:
-     if intheendQW=0:
-		 dead[necromancer]=2&dead[mabuta]=2&dead[addkiller]=2
-		 water_gem[addboss]=1&fire_gem[addboss]=1&wind_gem[addboss]=1
-		 intheendQW=1&gt'endqwest'
-     end
+     if intheendQW=0:dead[necromancer]=2&dead[mabuta]=2&dead[addkiller]=2&water_gem[addboss]=1&fire_gem[addboss]=1&wind_gem[addboss]=1&intheendQW=1&gt'endqwest'
 end
 if water_gem[you]>0 and fire_gem[you]>0 and earth_gem[you]>0 and wind_gem[you]>0 and soul_gem[you]>0 and key['<<you>>,2,1,4,1']=0:key['<<you>>,2,1,4,1']=1
 if globalQW!7 and earth_gem[you]>0:globalQW=7
@@ -165,9 +151,7 @@ if globalQW<5 and runemasterQW>=2:globalQW=5
 if blackberry_home[you]=0 and myrealbody!you and blackberry_home[myrealbody]=1 and myrealbody>0 and free_spirit>0:
 	blackberry_home[you]=1&key['<<you>>,<<XhomeBlack>>,<<YhomeBlack>>,<<ZhomeBlack>>,<<HhomeBlack>>']=1
 end
-if myrealbody!you and myrealbody>0 and free_spirit>0:
-     if ramsskill[myrealbody]>ramsskill[you]:ramsskill[you]=ramsskill[myrealbody]
-end
+if myrealbody!you and myrealbody>0 and free_spirit>0 and ramsskill[myrealbody]>ramsskill[you]:ramsskill[you]=ramsskill[myrealbody]
 if toxic_time[you]<time and drug_addict[you]>=5:
      if pain_timer[you]>time:
 		 health[you]=10&mana[you]=0
@@ -181,8 +165,7 @@ if tornton_dolg[you]>0 and tornton_dolg_day[you]<=daystart and rand(1,20)=7:
 		sluttyMomQW=3&pubis_t[you]=1&npc=tornton&whoreboss[you]=npc&vag_pirs[you]=4&vag_tipe[you]=2&dom[you]-=50&sutenerpayday[you]=daystart+14
 		lips[you]+=rand(1,2)&ass[you]=rand(10,30)&if ass[you]<20:ass[you]+=rand(5,10)&tits[you]=rand(10,21)&if nip[num]<=20:nip[num]+=rand(20,35)
 		hlong[you]=rand(60,100)
-		 l_slot[you]=rand(15,22)&t_slot[you]=rand(31,36)&b_slot[you]=rand(8,11)
-		 ut_slot[you]=0&ul_slot[you]=0
+		 l_slot[you]=rand(15,22)&t_slot[you]=rand(31,36)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=0
 		 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
 		 solo=0&i=father&! проклятье Марты на мужа
     	 if face[i]<40:face[i]+=30
@@ -194,9 +177,7 @@ if tornton_dolg[you]>0 and tornton_dolg_day[you]<=daystart and rand(1,20)=7:
     	pol[i]=1&$name[i]='Даниэлла'&npc=tornton&whoreboss[i]=npc
     	lips[i]+=rand(1,2)&ass[i]=rand(10,30)&tits[i]=rand(10,21)&nip_p[i]=3&if nip[i]<=30:nip[i]+=rand(25,40)
     	hlong[i]=rand(60,100)&if mus[i]>1000:mus[i]=1000
-    	tongue_p[i]=1&stamp_t[i]=5 
-    	 t_slot[i]=rand(31,36)&l_slot[i]=rand(15,22)&b_slot[i]=rand(8,11)
-    	 ut_slot[i]=0&ul_slot[i]=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
+    	tongue_p[i]=1&stamp_t[i]=5&t_slot[i]=rand(31,36)&l_slot[i]=rand(15,22)&b_slot[i]=rand(8,11)&ut_slot[i]=0&ul_slot[i]=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
 	else
 		 if dick[you]>1 and pol[you]=0:
 			 msg("Вас настигло проклятье Торнтона из-за вашего долга. У вас исчез член и на его месте появилась мохнатая девичья вагина. Ваш долг вырос вдвое, а срок составляет всего одну неделю, зато теперь у вас есть инструмент быстрого заработка. И лучше бы вам долг отдать...")
@@ -218,9 +199,8 @@ if tornton_dolg[you]>0 and tornton_dolg_day[you]<=daystart and rand(1,20)=6 and 
 		lips[you]+=rand(1,2)&ass[you]=rand(10,30)&tits[you]=rand(10,21)&nip_p[you]=3&if nip[you]<=30:nip[you]+=rand(25,40)
 		hlong[you]=rand(60,100)&if mus[you]>1000:mus[you]=1000
 		tongue_p[you]=1&stamp_t[you]=5 
-		 t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)
-		 ut_slot[you]=0&ul_slot[you]=0
-		 X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&solo=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
+		t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=0
+		X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&solo=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
      end
 end
 if spec_face_pic[you]=6:
@@ -241,27 +221,20 @@ if visioner[you]>=30 and treelvisioner[you]=0:treelvisioner[you]=1&magik[you]+=1
 if visioner[you]>=40 and sorlvisioner[you]=0:sorlvisioner[you]=1&magik[you]+=1
 if visioner[you]>=50 and fivlvisioner[you]=0:fivlvisioner[you]=1&magik[you]+=1
 if mutation[you]>=100:gt'dead'
-!saverules=0
-if master[you]>0:saverules=1
+saverules=0&if master[you]>0:saverules=1
 nosave=iif(saverules=0 and CONFIG['ENABLE_save'] = 0,1,0)
 view&clr&loc_for_drop=0
 if magik_exp[you]>=magik_exp_need[you] and magik[you]>0:magik[you]+=1&magik_exp[you]=0
 if ins_reit[you]>=12 and larkinQW[you]=0 and oncelarkinperaday!daystart and dead[sherif]=0:oncelarkinperaday=daystart&gt'larkin_qw'
 if ins_reit[you]>=13 and larkinQW[you]>0 and badlarkinperaday!daystart and dead[sherif]=0:badlarkinperaday=daystart&gt'bad_larkin_qw'
-gs'coat_base'&gs'tz_base'&gs'tg_base'
-gs'hat_base'&gs'm_base'&gs'w_base'
-gs'top_base'&gs'low_base'&gs'boot_base'
-gs'ut_base'&gs'ul_base'&gs'ub_base'
-!gs'mobbase'
+gs'coat_base'&gs'tz_base'&gs'tg_base'&gs'hat_base'&gs'm_base'&gs'w_base'&gs'top_base'&gs'low_base'&gs'boot_base'&gs'ut_base'&gs'ul_base'&gs'ub_base'&!gs'mobbase'
 gs'item_base'&gs'time'&Znow=Z[you]&num=you&gs'body'&gs'init'&gs'raznoe'
 if energy_fontan[you]=1 and H[you]=0:energy[you]=energymax[you]
 if hour=21 and busy[you]=0 and beliver[you]=2 and onceperaday!daystart:onceperaday=daystart&gt'dagon_portal'
- if bossQW=4:
-	 if Z[addboss]!3:
+ if bossQW=4 and Z[addboss]!3:
 		 Xhome[addboss]=Xboss&Yhome[addboss]=Yboss&Zhome[addboss]=Zboss&Hhome[addboss]=Hboss&Rhome[addboss]=Rboss
 		 X[addboss]=Xboss&Y[addboss]=Yboss&Z[addboss]=Zboss&H[addboss]=Hboss&R[addboss]=Rboss
-	 end
- end
+end
 !pl'<<totalpogonalo>>'
 if CONFIG['INIT_CONFIG'] = 0:gs'init_config'
 !* -------------------------------------------------------------------------- *!
@@ -291,15 +264,10 @@ p'<<func("generate_links", 1, 13)>>'
 !*                             ДОП-ОПИСАНИЕ:START                             *!
 !* -------------------------------------------------------------------------- *!
 forhorn[you]=0
-if child_on_hand[you]>0:
-	if in_fight=0 and in_sex=0 and busy[you]=0 and (UI_ELEMENT_STATE[0]=0 or CONFIG['UI_EDITOR'] = 1):
+if child_on_hand[you]>0 and in_fight=0 and in_sex=0 and busy[you]=0 and (UI_ELEMENT_STATE[0]=0 or CONFIG['UI_EDITOR'] = 1):
 	     pl'<a href="exec:gt''drop_child''"><b>У вас на руках ребенок</b></a>' + $func("generate_links", 0, 14)
-	end
 end
-if l_ass_t[you]=1 and (UI_ELEMENT_STATE[1]=0 or CONFIG['UI_EDITOR'] = 1):
-	health[you]=0
-	pl'<b>АДСКОЕ КЛЕЙМО УЖАСНО ЖЖЁТ.</b>' + $func("generate_links", 1, 14)
-end
+if l_ass_t[you]=1 and (UI_ELEMENT_STATE[1]=0 or CONFIG['UI_EDITOR'] = 1):health[you]=0&pl'<b>АДСКОЕ КЛЕЙМО УЖАСНО ЖЖЁТ.</b>' + $func("generate_links", 1, 14)
 if fishsmell[you]>0 and (UI_ELEMENT_STATE[2]=0 or CONFIG['UI_EDITOR'] = 1):pl'<b>ОТ ВАС ВОНЯЕТ РЫБОЙ.</b>' + $func("generate_links", 2, 14)
 if peecover[you]>0 and (UI_ELEMENT_STATE[3]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=50&pl'<b>ВЫ ОБОССАНЫ И ОБТЕКАЕТЕ.</b>' + $func("generate_links", 3, 14)
 if cum_face[you]>0:
@@ -308,10 +276,12 @@ if cum_face[you]>0:
          if in_fight=0 and in_sex=0 and busy[you]=0:
 			pl'<b><a href="exec:gt''cumeat''">СЪЕСТЬ СПЕРМУ С ЛИЦА</a></b>' + $func("generate_links", 4, 14)
          else
-			pl'<b><a href="exec:dynamic $d_cumface_view">НА ВАШЕМ ЛИЦЕ СПЕРМА.</a></b>' + $func("generate_links", 4, 14)
+			!pl'<b><a href="exec:dynamic $d_cumface_view">НА ВАШЕМ ЛИЦЕ СПЕРМА.</a></b>' + $func("generate_links", 4, 14)
+			pl'<b><<$d_cumface_view>>НА ВАШЕМ ЛИЦЕ СПЕРМА.</a></b>' + $func("generate_links", 4, 14)
          end
      else
-		pl'<b><a href="exec:dynamic $d_cumface_view">НА ВАШЕМ ЛИЦЕ СПЕРМА.</a></b>' + $func("generate_links", 4, 14)
+		!pl'<b><a href="exec:dynamic $d_cumface_view">НА ВАШЕМ ЛИЦЕ СПЕРМА.</a></b>' + $func("generate_links", 4, 14)
+		pl'<b><<$d_cumface_view>>НА ВАШЕМ ЛИЦЕ СПЕРМА.</a></b>' + $func("generate_links", 4, 14)
      end
 end
 if cum_face[you]=0 and spit_face[you]>0 and (UI_ELEMENT_STATE[5]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=50&pl'<b>НА ВАШЕМ ЛИЦЕ РАЗМАЗАНА СЛЮНА.</b>' + $func("generate_links", 5, 14)
@@ -329,16 +299,19 @@ if visout_panties[you]=1 and (UI_ELEMENT_STATE[8]=0 or CONFIG['UI_EDITOR'] = 1):
 	else
 		forhorn[you]+=10&$view_popag='<center><video src="pic/clo/nopant/skirt<<rand(1,8)>>.webm" ></video></center>'&!{view("pic/clo/nopant/skirt<<rand(1,8)>>.webm")}
 	end
-	pl'<b>ВЕТРОМ МОЖЕТ ПОДНЯТЬ ВАШУ ЮБКУ И ВСЕ УВИДЯТ, ЧТО ВЫ <a href="exec:dynamic $view_popag">БЕЗ ТРУСИКОВ</a>.</b>' + $func("generate_links", 8, 14)
+	!pl'<b>ВЕТРОМ МОЖЕТ ПОДНЯТЬ ВАШУ ЮБКУ И ВСЕ УВИДЯТ, ЧТО ВЫ <a href="exec:dynamic $view_popag">БЕЗ ТРУСИКОВ</a>.</b>' + $func("generate_links", 8, 14)
+	pl'<b>ВЕТРОМ МОЖЕТ ПОДНЯТЬ ВАШУ ЮБКУ И ВСЕ УВИДЯТ, ЧТО ВЫ <<$view_popag>>БЕЗ ТРУСИКОВ</a>.</b>' + $func("generate_links", 8, 14)
 end
 if visout_panties[you]=2 and (UI_ELEMENT_STATE[9]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=10&pl'<b>ВМЕСТО ТРУСИКОВ ВАШУ ПОПУ ОБТЯГИВАЕТ КОЖАННАЯ СБРУЯ.</b>' + $func("generate_links", 9, 14)
 if visout_panties[you]=3 and (UI_ELEMENT_STATE[88]=0 or CONFIG['UI_EDITOR'] = 1):
 	forhorn[you]+=25&$view_pant='<center><video src="pic/clo/nopant/pant<<rand(1,4)>>.webm" ></video></center>'&!{view("pic/clo/nopant/pant<<rand(1,4)>>.webm")}	
-	pl'<b>Сквозь прозрачную юбку видно <a href="exec:dynamic $view_pant"> трусики</a>.</b>' + $func("generate_links", 88, 14)
+	!pl'<b>Сквозь прозрачную юбку видно <a href="exec:dynamic $view_pant"> трусики</a>.</b>' + $func("generate_links", 88, 14)
+	pl'<b>Сквозь прозрачную юбку видно <<$view_pant>> трусики</a>.</b>' + $func("generate_links", 88, 14)
 end
 if visout_panties[you]=4 and (UI_ELEMENT_STATE[89]=0 or CONFIG['UI_EDITOR'] = 1):
 	forhorn[you]+=25&$view_nudepant='<center><video src="pic/clo/nopant/nudepant<<rand(1,3)>>.webm" ></video></center>'&!{view("pic/clo/nopant/nudepant<<rand(1,3)>>.webm")}	
-	pl'<b>Сквозь прозрачную юбку видно<a href="exec:dynamic $view_nudepant"> голую попу</a>.</b>' + $func("generate_links", 89, 14)
+	!pl'<b>Сквозь прозрачную юбку видно<a href="exec:dynamic $view_nudepant"> голую попу</a>.</b>' + $func("generate_links", 89, 14)
+	pl'<b>Сквозь прозрачную юбку видно<<$view_nudepant>> голую попу</a>.</b>' + $func("generate_links", 89, 14)
 end
 if visout_panties[you]=5 and (UI_ELEMENT_STATE[89]=0 or CONFIG['UI_EDITOR'] = 1):
 	forhorn[you]+=25&$view_nudepant='<center><video src="pic/clo/nopant/nudepant<<rand(1,3)>>.webm" ></video></center>'&!{view("pic/clo/nopant/nudepant<<rand(1,3)>>.webm")}	
@@ -353,20 +326,22 @@ if visible_nipple[you]=1 and (UI_ELEMENT_STATE[10]=0 or CONFIG['UI_EDITOR'] = 1)
 		else
 			$view_nipt='<center><video src="pic/clo/nopant/nip<<rand(1,3)>>.webm" ></video></center>'&!{view("pic/clo/nopant/nip<<rand(1,3)>>.webm")}
 		end
-		forhorn[you]+=10&pl'<b>У ВАС <a href="exec:dynamic $view_nipt">ТОРЧАТ СОСКИ</a> СКВОЗЬ ТКАНЬ.</b>' + $func("generate_links", 10, 14)
+		forhorn[you]+=10&!pl'<b>У ВАС <a href="exec:dynamic $view_nipt">ТОРЧАТ СОСКИ</a> СКВОЗЬ ТКАНЬ.</b>' + $func("generate_links", 10, 14)
+		pl'<b>У ВАС <<$view_nipt>>ТОРЧАТ СОСКИ</a> СКВОЗЬ ТКАНЬ.</b>' + $func("generate_links", 10, 14)
    end
 end
 !if visible_lift[you]=1 and (UI_ELEMENT_STATE[11]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=10&pl'<b>У ВАС ВИДНО ЛИФЧИК.</b>' + $func("generate_links", 11, 14)
 if visible_lift[you]=2 and (UI_ELEMENT_STATE[12]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=10&pl'<b>У ВАС ВИДНО КОЖАННУЮ СБРУЮ ОБТЯГИВАЮЩУЮ ГРУДЬ.</b>' + $func("generate_links", 12, 14)
 if t_nude[you]=1 and (UI_ELEMENT_STATE[15]=0 or CONFIG['UI_EDITOR'] = 1):
 	if visible_lift[you]=1:
-	if tit[you]<2:
-		$view_titg='<center><video src="pic/clo/nopant/ntitman.webm" ></video></center>'&!{view("pic/clo/nopant/ntitman.webm")}
-	else
-		$view_titg='<center><video src="pic/clo/nopant/ntit<<rand(1,7)>>.webm" ></video></center>'&!{view("pic/clo/nopant/ntit<<rand(1,7)>>.webm")}
-	end
-	forhorn[you]+=25
-	if tit[you]>2:pl'<b>У ВАС <a href="exec:dynamic $view_titg">НЕ ПРИКРЫТЫЙ ЛИФЧИК</a>.</b>' + $func("generate_links", 15, 14)
+		if tit[you]<2:
+			$view_titg='<center><video src="pic/clo/nopant/ntitman.webm" ></video></center>'&!{view("pic/clo/nopant/ntitman.webm")}
+		else
+			$view_titg='<center><video src="pic/clo/nopant/ntit<<rand(1,7)>>.webm" ></video></center>'&!{view("pic/clo/nopant/ntit<<rand(1,7)>>.webm")}
+		end
+		forhorn[you]+=25
+		!if tit[you]>2:pl'<b>У ВАС <a href="exec:dynamic $view_titg">НЕ ПРИКРЫТЫЙ ЛИФЧИК</a>.</b>' + $func("generate_links", 15, 14)
+		if tit[you]>2:pl'<b>У ВАС <<$view_titg>>НЕ ПРИКРЫТЫЙ ЛИФЧИК</a>.</b>' + $func("generate_links", 15, 14)
 	end
 	if visible_lift[you]=2 and (UI_ELEMENT_STATE[12]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=75&pl'<b>У ВАС ВИДНО КОЖАННУЮ СБРУЮ ОБТЯГИВАЮЩУЮ ГРУДЬ.</b>' + $func("generate_links", 12, 14)
 end
@@ -377,17 +352,20 @@ if t_nude[you]=2 and (UI_ELEMENT_STATE[15]=0 or CONFIG['UI_EDITOR'] = 1):
 		$view_titg='<center><video src="pic/clo/nopant/ntit<<rand(1,7)>>.webm" ></video></center>'&!{view("pic/clo/nopant/ntit<<rand(1,7)>>.webm")}
 	end
 	forhorn[you]+=50
-	if tit[you]>2:pl'<b>У ВАС <a href="exec:dynamic $view_titg">ОБНАЖЕННАЯ ГРУДЬ</a>.</b>' + $func("generate_links", 15, 14)
+	!if tit[you]>2:pl'<b>У ВАС <a href="exec:dynamic $view_titg">ОБНАЖЕННАЯ ГРУДЬ</a>.</b>' + $func("generate_links", 15, 14)
+	if tit[you]>2:pl'<b>У ВАС <<$view_titg>>ОБНАЖЕННАЯ ГРУДЬ</a>.</b>' + $func("generate_links", 15, 14)
 end
 !if l_nude>0:forhorn[you]+=50&pl'<b>У ВАС ГОЛАЯ ПОПА.</b>'
 if (l_nude[you]=4) and (UI_ELEMENT_STATE[16]=0 or CONFIG['UI_EDITOR'] = 1):
 	forhorn[you]+=50&$view_popa='<center><video src="pic/clo/nopant/0.webm" ></video></center>'&!{view("pic/clo/nopant/0.webm")}
-	pl'<a href="exec:dynamic $view_popa"><b>У ВАС ГОЛАЯ ПОПА.</b></a>' + $func("generate_links", 16, 14)
+	!pl'<a href="exec:dynamic $view_popa"><b>У ВАС ГОЛАЯ ПОПА.</b></a>' + $func("generate_links", 16, 14)
+	pl'<<$view_popa>><b>У ВАС ГОЛАЯ ПОПА.</b></a>' + $func("generate_links", 16, 14)
 end
 if (l_nude[you]=1 or l_nude[you]=2) and (UI_ELEMENT_STATE[16]=0 or CONFIG['UI_EDITOR'] = 1):
 	if visible_panties[you]=1:
 		forhorn[you]+=25&$view_popa='<center><video src="pic/clo/nopant/0.webm" ></video></center>'&!{view("pic/clo/nopant/0.webm")}
-		pl'<a href="exec:dynamic $view_popa"><b>НЕ ПРИКРЫТЫЕ ТРУСИКИ.</b></a>' + $func("generate_links", 16, 14)
+		!pl'<a href="exec:dynamic $view_popa"><b>НЕ ПРИКРЫТЫЕ ТРУСИКИ.</b></a>' + $func("generate_links", 16, 14)
+		pl'<<$view_popa>><b>НЕ ПРИКРЫТЫЕ ТРУСИКИ.</b></a>' + $func("generate_links", 16, 14)
 	end
 	if visible_panties[you]=2 and (UI_ELEMENT_STATE[14]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=75&pl'<b>ВМЕСТО ТРУСОВ У ВАС ВИДНА КОЖАННАЯ СБРУЯ ОБТЯГИВАЮЩУЮ ПОПУ.</b>' + $func("generate_links", 14, 14)
 end
@@ -557,8 +535,7 @@ if UI_ELEMENT_STATE[70]=0 or CONFIG['UI_EDITOR'] = 1:p'<hr>' + $func("generate_l
 if CONFIG['ENABLE_QUICK_CHEATS']=1:$sleeptext='<a class="plain" href="exec: sleep[you]=0 & gs ''stat''"><b>Сонливость</b></a>'
 if CONFIG['ENABLE_QUICK_CHEATS']!1:$sleeptext='<b><font color="#9370DB">С</font>онливость</b>'
 if demon_dick[you]>0:
-	!if thirst[you]>8 and demon_dick_stomath[you]>0:demon_dick_stomath[you]-=1&thirst[you]=0
-	!if thirst[you]>8 and soul[you]>0:soul[you]-=1&thirst[you]=0
+	!if thirst[you]>8 and demon_dick_stomath[you]>0:demon_dick_stomath[you]-=1&thirst[you]=0&!if thirst[you]>8 and soul[you]>0:soul[you]-=1&thirst[you]=0
 	thirst[you]=0&pisswasser[you]=25
 	if hunger[you]>6 and demon_dick_stomath[you]>0:demon_dick_stomath[you]-=1&hunger[you]=0
 	if hunger[you]>6 and soul[you]>0:soul[you]-=1&hunger[you]=0
@@ -703,25 +680,29 @@ if vag_tipe[you]!2:$view_horny='<center><video src="pic/event/wet<<rand(7)>>.web
 if CONFIG['ENABLE_QUICK_CHEATS']=1:$hornytext='<a class="plain" href="exec: horny[you]=0 & gs ''stat''"><b>Возбуждение</b></a>'
 if CONFIG['ENABLE_QUICK_CHEATS']!1:$hornytext='<b><font color="#db37e6">В</font>озбуждение</b>'
 if (UI_ELEMENT_STATE[44]=0 or CONFIG['UI_EDITOR'] = 1):
-		if horny[you]>20:
-			pl '<<$hornytext>>: <font color="<<func(''util_func'', ''get_arousal_color'')>>"><<horny[you]>></font>' + $func("generate_links", 44, 14)
-			if horny[you]>=100:
-				if UI_ELEMENT_STATE[68]=0 or CONFIG['UI_EDITOR'] = 1:pl $func ('scale.table',100,100,0,"ff69B4") + $func("generate_links", 68, 14)
-			else
-				if UI_ELEMENT_STATE[68]=0 or CONFIG['UI_EDITOR'] = 1:pl $func ('scale.table',horny[you],100,0,"ffC0CB") + $func("generate_links", 68, 14)
-			end
+	if horny[you]>20:
+		pl '<<$hornytext>>: <font color="<<func(''util_func'', ''get_arousal_color'')>>"><<horny[you]>></font>' + $func("generate_links", 44, 14)
+		if horny[you]>=100:
+			if UI_ELEMENT_STATE[68]=0 or CONFIG['UI_EDITOR'] = 1:pl $func ('scale.table',100,100,0,"ff69B4") + $func("generate_links", 68, 14)
+		else
+			if UI_ELEMENT_STATE[68]=0 or CONFIG['UI_EDITOR'] = 1:pl $func ('scale.table',horny[you],100,0,"ffC0CB") + $func("generate_links", 68, 14)
 		end
-		if horny[you]>=60 and vag[you]>0 and vag[you]<30 :pl'Внизу живота приятно зудит, как будто порхают бабочки. <a href="exec:dynamic $view_horny">А между ножками стало сыро... Вам хочется секса</a>' + $func("generate_links", 44, 14)
-		if horny[you]>=70 and vag[you]>30 and vag[you]<50 :pl'Вы чувствуете томление в промежности, <a href="exec:dynamic $view_horny"> и как все внизу влажно хлюпает... Вы представляете член внутри.</a>' + $func("generate_links", 44, 14)
-		if horny[you]>=60 and vag[you]>=50 and vag[you]<70:pl'Вы чувствуете, что <a href="exec:dynamic $view_horny"> ваша вагина мокро чавкает при ходьбе... Вы не перестаете думать о членах.</a>' + $func("generate_links", 44, 14)
-		if horny[you]>=50 and horny[you]<150 and vag[you]>=70:pl'Вы чувствуете гнетущую пустоту внутри себя,  <a href="exec:dynamic $view_horny">а ваша пизда течет, заливая ваши ляжки...  Вы уже можете думать только о заполняющих ваши дырки членах.</a>' + $func("generate_links", 44, 14)
-		if horny[you]>=150 and horny[you]>=70 and vag[you]>=70:pl'Из-за хочки у вас дрожат коленки,   <a href="exec:dynamic $view_horny">а ваша пизда припухла и открылась как жадный рот....  Вы шарите вокруг глазами в поисках члена.</a>' + $func("generate_links", 44, 14)
-		if horny[you]>=50 and dick[you]>1 and ball[you]>1 and womenbrain[you]<75:pl'У вас стоит член.' + $func("generate_links", 44, 14)
-		if horny[you]>=50 and dick[you]>1 and ball[you]>1 and womenbrain[you]>=100:pl'У вас вяло поднялся член, но вы хотиите чтобы трахнули именно вас.' + $func("generate_links", 44, 14)
-		if horny[you]>=50 and dick[you]<1 and vag[you]<1 and womenbrain[you]<100:pl'У вас периодически возникают мысли, о том, чтобы вас кто-нибудь трахнул в задницу.' + $func("generate_links", 44, 14)
-		if horny[you]>=50 and dick[you]<1 and vag[you]<1 and womenbrain[you]>=100:pl'Вы хотите секса, ваш анус от этих мыслей зудит и <a href="exec:dynamic $view_anus_gmih">сжимается...</a>' + $func("generate_links", 44, 14)
-		!=================================== Сексульаный голод
-			gs'hungrysex'
+	end
+	!if horny[you]>=60 and vag[you]>0 and vag[you]<30 :pl'Внизу живота приятно зудит, как будто порхают бабочки. <a href="exec:dynamic $view_horny">А между ножками стало сыро... Вам хочется секса</a>' + $func("generate_links", 44, 14)
+	!if horny[you]>=70 and vag[you]>30 and vag[you]<50 :pl'Вы чувствуете томление в промежности, <a href="exec:dynamic $view_horny"> и как все внизу влажно хлюпает... Вы представляете член внутри.</a>' + $func("generate_links", 44, 14)
+	!if horny[you]>=60 and vag[you]>=50 and vag[you]<70:pl'Вы чувствуете, что <a href="exec:dynamic $view_horny"> ваша вагина мокро чавкает при ходьбе... Вы не перестаете думать о членах.</a>' + $func("generate_links", 44, 14)
+	!if horny[you]>=50 and horny[you]<150 and vag[you]>=70:pl'Вы чувствуете гнетущую пустоту внутри себя,  <a href="exec:dynamic $view_horny">а ваша пизда течет, заливая ваши ляжки...  Вы уже можете думать только о заполняющих ваши дырки членах.</a>' + $func("generate_links", 44, 14)
+	!if horny[you]>=150 and horny[you]>=70 and vag[you]>=70:pl'Из-за хочки у вас дрожат коленки,   <a href="exec:dynamic $view_horny">а ваша пизда припухла и открылась, как жадный рот....  Вы шарите вокруг глазами в поисках члена.</a>' + $func("generate_links", 44, 14)
+	if horny[you]>=60 and vag[you]>0 and vag[you]<30 :pl'Внизу живота приятно зудит, как будто порхают бабочки. <<$view_horny>>. А между ножками стало сыро... Вам хочется секса</a>' + $func("generate_links", 44, 14)
+	if horny[you]>=70 and vag[you]>30 and vag[you]<50 :pl'Вы чувствуете томление в промежности, <<$view_horny>> и как все внизу влажно хлюпает... Вы представляете член внутри.</a>' + $func("generate_links", 44, 14)
+	if horny[you]>=60 and vag[you]>=50 and vag[you]<70:pl'Вы чувствуете, что <<$view_horny>> ваша вагина мокро чавкает при ходьбе... Вы не перестаете думать о членах.</a>' + $func("generate_links", 44, 14)
+	if horny[you]>=150 and horny[you]>=70 and vag[you]>=70:pl'Из-за хочки у вас дрожат коленки,   <<$view_horny>>а ваша пизда припухла и открылась, как жадный рот....  Вы шарите вокруг глазами в поисках члена.</a>' + $func("generate_links", 44, 14)
+	if horny[you]>=50 and dick[you]>1 and ball[you]>1 and womenbrain[you]<75:pl'У вас стоит член.' + $func("generate_links", 44, 14)
+	if horny[you]>=50 and dick[you]>1 and ball[you]>1 and womenbrain[you]>=100:pl'У вас вяло поднялся член, но вы хотиите чтобы трахнули именно вас.' + $func("generate_links", 44, 14)
+	if horny[you]>=50 and dick[you]<1 and vag[you]<1 and womenbrain[you]<100:pl'У вас периодически возникают мысли, о том, чтобы вас кто-нибудь трахнул в задницу.' + $func("generate_links", 44, 14)
+	if horny[you]>=50 and dick[you]<1 and vag[you]<1 and womenbrain[you]>=100:pl'Вы хотите секса, ваш анус от этих мыслей зудит и <a href="exec:dynamic $view_anus_gmih">сжимается...</a>' + $func("generate_links", 44, 14)
+	!=================================== Сексульаный голод
+		gs'hungrysex'
 		!=================================== Сексуальный голод
 		$view_anus_gmih='<video src="pic/event/gmih<<rand(0,6)>>.webm" >'&!{view("pic/event/gmih<<rand(0,6)>>.webm")}
 		if horny[you]<50 and dick[you]>1 and womenbrain[you]>60 and womenbrain[you]<100:pl'Странно, но вы хотите чтобы вас кто-нибудь трахнул, от чего попка непроизвольно <a href="exec:dynamic $view_anus_gmih">сжимается...</a>' + $func("generate_links", 44, 14)
@@ -738,16 +719,19 @@ end
 !* ------------------------------ БЕРЕМЕННОСТЬ ------------------------------ *!
 if inseminate[you]>0 and (UI_ELEMENT_STATE[46]=0 or CONFIG['UI_EDITOR'] = 1):
 	$d_view_pregnant='<video src="pic/event/view_pregnant1.webm" >'&!{view("pic/event/view_pregnant1.webm")}
-    if pregnant_day[you]<daystart:pl'<a href="exec:dynamic $d_view_pregnant"><b>Вы беременны.</b></a>' + $func("generate_links", 46, 14)
+    !if pregnant_day[you]<daystart:pl'<a href="exec:dynamic $d_view_pregnant"><b>Вы беременны.</b></a>' + $func("generate_links", 46, 14)
+    if pregnant_day[you]<daystart:pl'<<$d_view_pregnant>><b>Вы беременны.</b></a>' + $func("generate_links", 46, 14)
 end
 if anal_egg[you]>=1 and (UI_ELEMENT_STATE[47]=0 or CONFIG['UI_EDITOR'] = 1):
 	$d_view_egg_pregnant='<video src="pic/event/view_egg_pregnant.webm" >'&!{view("pic/event/view_egg_pregnant.webm")}
-	pl'<a href="exec:dynamic $d_view_egg_pregnant"><b>Внутри у вас яйцо, которое дозревает и ждет своего часа, чтобы родиться.</b></a> <<anal_egg_timer[you]>> часов до родов.' + $func("generate_links", 47, 14)
+	!pl'<a href="exec:dynamic $d_view_egg_pregnant"><b>Внутри у вас яйцо, которое дозревает и ждет своего часа, чтобы родиться.</b></a> <<anal_egg_timer[you]>> часов до родов.' + $func("generate_links", 47, 14)
+	pl'<<$d_view_egg_pregnant>><b>Внутри у вас яйцо, которое дозревает и ждет своего часа, чтобы родиться.</b></a> <<anal_egg_timer[you]>> часов до родов.' + $func("generate_links", 47, 14)
     if busy[you]=0 and anal_egg_timer[you]<=0:gt'anal_egg_rodi'
 end
 if vagina_egg[you]>=1 and (UI_ELEMENT_STATE[48]=0 or CONFIG['UI_EDITOR'] = 1):
 	$d_view_egg_pregnant='<video src="pic/event/view_egg_pregnant.webm" >'&!{view("pic/event/view_egg_pregnant.webm")}
-	pl'<a href="exec:dynamic $d_view_egg_pregnant"><b>Внутри у вас яйцо, которое дозревает и ждет своего часа, чтобы родиться.</b></a> <<vagina_egg_timer[you]>> часов до родов.' + $func("generate_links", 48, 14)
+	!pl'<a href="exec:dynamic $d_view_egg_pregnant"><b>Внутри у вас яйцо, которое дозревает и ждет своего часа, чтобы родиться.</b></a> <<vagina_egg_timer[you]>> часов до родов.' + $func("generate_links", 48, 14)
+	pl'<<$d_view_egg_pregnant>><b>Внутри у вас яйцо, которое дозревает и ждет своего часа, чтобы родиться.</b></a> <<vagina_egg_timer[you]>> часов до родов.' + $func("generate_links", 48, 14)
     if busy[you]=0 and vagina_egg_timer[you]<=0:gt'vagina_egg_rodi'
 end
 !* ---------------------------------ПЕРКИ-------------------------------- *!
@@ -826,12 +810,8 @@ if demon_dick[you]>0 and (UI_ELEMENT_STATE[90]=0 or CONFIG['UI_EDITOR'] = 1):
 end
 if demon_dick[you]>0  and (UI_ELEMENT_STATE[91]=0 or CONFIG['UI_EDITOR'] = 1):
 	if dick[you]>0:demon_dick_show[you]=1
-	if demon_dick_show[you]=1:
-		if pol[you]>0:pl'<a href="exec:demon_dick_show[you]=0&dynamic $d_show_dick & gs''stat''">Скрыть член</a>' + $func("generate_links", 91, 14)
-	end	
-	if demon_dick_show[you]=0:
-		pl'<a href="exec:demon_dick_show[you]=1&dynamic $d_show_dick & gs''stat''">Материализовать член</a>' + $func("generate_links", 91, 14)
-	end	
+	if demon_dick_show[you]=1 and pol[you]>0:pl'<a href="exec:demon_dick_show[you]=0&dynamic $d_show_dick & gs''stat''">Скрыть член</a>' + $func("generate_links", 91, 14)
+	if demon_dick_show[you]=0:pl'<a href="exec:demon_dick_show[you]=1&dynamic $d_show_dick & gs''stat''">Материализовать член</a>' + $func("generate_links", 91, 14)
 	dynamic $d_show_dick
 end
 !* -------------------------------------------------------------------------- *!

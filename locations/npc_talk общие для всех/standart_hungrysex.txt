@@ -11,7 +11,7 @@ if vag[you]>0:
 	if corr[you]>95:
 		$view_horny='<center><video src="pic/event/hungrysex0.webm" ></video></center>'&!{view("pic/event/hungrysex0.webm")}
 		if args[10]+2*60*24<time:
-			superslut[you]=1&pl 'Вы хотите трахаться! <a href="exec:dynamic $view_horny">Срочно!</a>'
+			superslut[you]=1&pl 'Вы хотите трахаться! <<$view_horny>>Срочно!</a>'&!pl 'Вы хотите трахаться! <a href="exec:dynamic $view_horny">Срочно!</a>'
 		else
 			superslut[you]=0
 		end
