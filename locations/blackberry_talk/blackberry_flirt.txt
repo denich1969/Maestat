@@ -1,5 +1,5 @@
 ﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
-if street_whore[npc]=1 and no (boyfriend_num[npc]=you and girlfriend_num[you]=npc):
+if street_whore[npc]=1 and no (boyfriend_num[npc]=you and girlfriend_num[you]=npc):  
 	'<<$name[npc]>> устало говорит - Я работаю.'
 else
 	 if black_repa[you]>0:
