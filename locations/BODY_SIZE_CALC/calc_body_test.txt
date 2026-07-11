@@ -26,9 +26,9 @@ $titk[args[0]]
 ""
 "Рекомендации "+musNorm*rost[args[0]]/1800
 if mus[1]<musNorm[1]:"Нужно набрать мышц <<musNorm[1]-mus[1]>>"
-if mus[1]>musNorm[1]:"Нужно сжеч мышцы <<mus[1]-musNorm[1]>>"
-if fat[1]<fatNorm[1]:"Нужно набрать жыр <<fatNorm[1]-fat[1]>>"
-if fat[1]>fatNorm[1]:"Нужно сжеч жыр <<fat[1]-fatNorm[1]>>"
+if mus[1]>musNorm[1]:"Нужно сжечь мышцы <<mus[1]-musNorm[1]>>"
+if fat[1]<fatNorm[1]:"Нужно набирать жир <<fatNorm[1]-fat[1]>>"
+if fat[1]>fatNorm[1]:"Нужно сжечь жир <<fat[1]-fatNorm[1]>>"
 ""
 "Талия тоньше эталона на <<waist_bonus[args[0]]>>%"
 "Попа больше эталона на <<ass_bonus[args[0]]>>%"
