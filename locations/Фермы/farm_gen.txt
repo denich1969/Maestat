@@ -12,6 +12,6 @@ end
 if X>=1050:
 	$locname['<<$temploc>>']='Болото'&$locopis['<<$temploc>>']='Деревья растут прямо из жаркого и душного болота в котором вязнут ноги'&np['<<$temploc>>']=1050&maxPositionH['<<X>>,<<Y>>,<<Z>>,']=0
 end
-!'if H<maxPositionH['<<X>>,<<Y>>,<<Z>>']:H+=1&kvarnomer+=1&jump'markKvarCreate'
-if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D<maxPositionD['<<X>>']:D+=1&domnomer+=1&jump'markdcreate'
+!if H<maxPositionH['<<X>>,<<Y>>,<<Z>>']:H+=1&kvarnomer+=1&jump'markKvarCreate'
+!if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D<maxPositionD['<<X>>']:D+=1&domnomer+=1&jump'markdcreate'
 !if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D>=maxPositionD['<<X>>'] and X<1100:X+=1&jump'markCreateFarm'
