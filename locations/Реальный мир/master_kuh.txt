@@ -1,8 +1,6 @@
 ﻿$thatloc[you]=$curloc&Z[you]=9999&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 kitchen['<<$temploc>>']=1&obed['<<$temploc>>']=1&gs'stat'&gs'Poser'&loc_for_drop=1
 '<center><b>Кухня</b></center>'&'<center><img src="pic/loc/room/master_kuh.jpg" ></center>'&*nl'Маленькая кухонька, на плите стоит горячая кастрюля с пельменями'
-!'<a href="exec:time+=1&gt ''mirror''">Зеркало</a>'
-!'<a href="exec:time+=1&gt ''wardrobe''">Шкаф</a>'
-!'<a href="exec:time+=1&gt ''bed''">Кровать</a>'
+!'<a href="exec:time+=1&gt ''mirror''">Зеркало</a>'&*nl'<a href="exec:time+=1&gt ''wardrobe''">Шкаф</a>'&*nl'<a href="exec:time+=1&gt ''bed''">Кровать</a>'
 if pose[you]=1:act'<b>Уйти</b>':time+=1&gt'master_korr'
 gs'item'&gs'npconloc'

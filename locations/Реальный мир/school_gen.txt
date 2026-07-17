@@ -1,30 +1,24 @@
 ﻿H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Школа'&maxPositionR['<<$templocH>>']=0
 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-$locname['<<$temploc>>']='Школьный двор'&$lname['<<$temploc>>']='школьный двор'&$lname_go['<<$temploc>>']='в школу'
+$locname['<<$temploc>>']='Школьный двор'&$lname['<<$temploc>>']='школьный двор'&$lname_go['<<$temploc>>']='в школу'&np['<<$temploc>>']=26
 $locopis['<<$temploc>>']='Обычный двор одноэтажной школы, окружённый забором, вдоль которого посажены деревья, со спортивной площадкой и площадью перед входом для проведения мероприятий.'
-np['<<$temploc>>']=26
 H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Вход в Школу'&maxPositionR['<<$templocH>>']=17
 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Коридор'
-$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='коридор'&$lname_go['<<$temploc>>']='в коридор'&$locopis['<<$temploc>>']='Школьный коридор'
-np['<<$temploc>>']=0
+$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='коридор'&$lname_go['<<$temploc>>']='в коридор'&$locopis['<<$temploc>>']='Школьный коридор'&np['<<$temploc>>']=0
 R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
 R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
-$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'&$locopis['<<$temploc>>']='Школьная столовая'
-np['<<$temploc>>']=0&gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Повар','Повариха')
+$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'&$locopis['<<$temploc>>']='Школьная столовая'&np['<<$temploc>>']=0
+gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Повар','Повариха')
 R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Библиотека'
-$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='Библиотека'&$lname_go['<<$temploc>>']='в библиотеку'&$locopis['<<$temploc>>']='Школьная библиотека'
-np['<<$temploc>>']=0
+$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='Библиотека'&$lname_go['<<$temploc>>']='в библиотеку'&$locopis['<<$temploc>>']='Школьная библиотека'&np['<<$temploc>>']=0
 gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Библиотекарь','Библиотекарша')
-R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Раздевалка'
+R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Раздевалка'&np['<<$temploc>>']=0
 $locname['<<$temploc>>']='Раздевалка'&$lname['<<$temploc>>']='Раздевалка'&$lname_go['<<$temploc>>']='в раздевалку'&$locopis['<<$temploc>>']='Раздевалка для переодевания к физкультуре'
-np['<<$temploc>>']=0
 R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Физкультурный зал'
-$locname['<<$temploc>>']='Физкультурный зал'&$lname['<<$temploc>>']='Физкультурный зал'&$lname_go['<<$temploc>>']='в физкультурный зал'&$locopis['<<$temploc>>']=''
-np['<<$temploc>>']=0
+$locname['<<$temploc>>']='Физкультурный зал'&$lname['<<$temploc>>']='Физкультурный зал'&$lname_go['<<$temploc>>']='в физкультурный зал'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0
 gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Физкультурник','Физкультурница')
 R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Учительская'
-$locname['<<$temploc>>']='Учительская'&$lname['<<$temploc>>']='Учительская'&$lname_go['<<$temploc>>']='в учительскую'&$locopis['<<$temploc>>']=''
-np['<<$temploc>>']=0
+$locname['<<$temploc>>']='Учительская'&$lname['<<$temploc>>']='Учительская'&$lname_go['<<$temploc>>']='в учительскую'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0
 gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Директор','Директриса')&ratio[i]=2&extrovert[i]=2
 gs'realworldhuman_gen'&$nick[i]='Завуч'&ratio[i]=2&extrovert[i]=2
 gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Математики','Математичка')&ratio[i]=2&extrovert[i]=2
@@ -36,6 +30,5 @@ gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Географ','Географи
 :markschool
 R+=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Класс'&numklass=R-7
 $locname['<<$temploc>>']='Класс'&$lname['<<$temploc>>']='Кабинет № <<numklass>>'&$lname_go['<<$temploc>>']='в кабинет № <<numklass>>'&killvar 'numklass'
-$locopis['<<$temploc>>']='Учебный класс с рядами парт и доской на стене'
-np['<<$temploc>>']=0
+$locopis['<<$temploc>>']='Учебный класс с рядами парт и доской на стене'&np['<<$temploc>>']=0
 if R<19:jump 'markschool'

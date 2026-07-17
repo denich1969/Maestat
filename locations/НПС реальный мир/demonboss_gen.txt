@@ -10,5 +10,5 @@ health[i]=healthmax[i]&ana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i
 age[i]=30&vital[i]=rand(60,90)&will[i]=10&reflex[i]=rand(50,70)&mustage[i]=0&pol[i]=0&gs'body'&total_generated_demon+=1
 womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=100&!характер
 h_slot[i]=0&c_slot[i]=0&tz_slot[i]=1&tg_slot[i]=1&t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&t_slot[i]=5&l_slot[i]=4&&b_slot[i]=rand(4,5)&ut_slot[i]=0&ul_slot[i]=4&ub_slot[i]=1&!l_hand_t[i]=2&r_hand_t[i]=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!$loc[i]='ofis'
-real_world[]=i&walkprog[i]=204&rude[i]=1&!in_home[i]=2&!$loc[i]='ofis'&npcii[i]=1&gs'male_gen'
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&real_world[]=i&walkprog[i]=204
+rude[i]=1&!$loc[i]='ofis'&!in_home[i]=2&!$loc[i]='ofis'&npcii[i]=1&gs'male_gen'

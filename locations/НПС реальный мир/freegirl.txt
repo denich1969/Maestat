@@ -32,5 +32,4 @@ if class[i]=2:t_slot[i]=rand(25,30)&b_slot[i]=rand(17,19)&l_slot[i]=rand(9,14)&i
 if misstress[i]=1:t_slot[i]=40&l_slot[i]=9&b_slot[i]=rand(14,16)
 if subslut[i]=1:vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&stamp_t[i]=rand(1,4)&t_slot[i]=rand(31,36)&l_slot[i]=rand(15,22)&b_slot[i]=rand(8,11)
 if femwhore[i]=1:vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&stamp_t[i]=rand(1,4)&t_slot[i]=rand(31,36)&l_slot[i]=rand(45,51)&b_slot[i]=rand(8,11)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-real_world[]=i&!walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&real_world[]=i&!walkprog[i]=26

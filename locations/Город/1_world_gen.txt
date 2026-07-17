@@ -56,9 +56,5 @@ np['<<$temploc>>']=0
 R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'&$locname['<<$temploc>>']='Спальная'&$locopis['<<$temploc>>']='Обстановка спальной'
 np['<<$temploc>>']=0&mir['<<$temploc>>']=1&bed['<<$temploc>>']=1
 if H<maxPositionH['<<X>>,<<Y>>,<<Z>>']:H+=1&kvarnomer+=1&jump'markKvarCreate'
-if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>']:
-    if D<maxPositionD['<<X>>']:D+=1&domnomer+=1&jump'markdcreate'
-end
-if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D>=maxPositionD['<<X>>']:
-    if X<1010:X+=1&jump'markCreateStreet'
-end
+if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D<maxPositionD['<<X>>']:D+=1&domnomer+=1&jump'markdcreate'
+if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D>=maxPositionD['<<X>>'] and X<1010:X+=1&jump'markCreateStreet'

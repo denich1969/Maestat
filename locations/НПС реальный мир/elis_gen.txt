@@ -11,6 +11,5 @@ age[i]=23&vital[i]=rand(60,90)&will[i]=10&reflex[i]=rand(50,70)&pol[i]=1&gs'body
 womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=0&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=1&lust[i]=10
 can_bj[i]=1&can_anal[i]=1
 h_slot[i]=0&w_slot[i]=0&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=13&&l_slot[i]=10&b_slot[i]=11&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=4
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!$loc[i]='vill_w_house'
-rude[i]=1!in_home[i]=2&&!$loc[i]='ofis'&gs'male_gen'
-real_world[]=i&walkprog[i]=203&!npcii[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&real_world[]=i&walkprog[i]=203
+rude[i]=1&!npcii[i]=1&!in_home[i]=2&&!$loc[i]='ofis'&gs'male_gen'&!$loc[i]='vill_w_house'

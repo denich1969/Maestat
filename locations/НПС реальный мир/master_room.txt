@@ -1,6 +1,5 @@
 ﻿$thatloc[you]=$curloc&Z[you]=210&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&tv['<<$temploc>>']=1
-gs'stat'&gs'Poser'&loc_for_drop=1
-'<center><b>Гостинная</b></center>'&'<center><img src="pic/loc/room/location.jpg" ></center>'&*nl'На стенах и полу уютные ковры'
+gs'stat'&gs'Poser'&loc_for_drop=1&'<center><b>Гостинная</b></center>'&'<center><img src="pic/loc/room/location.jpg" ></center>'&*nl'На стенах и полу уютные ковры'
 '<a href="exec:time+=1&gt ''mirror''">Зеркало</a>'&!*nl'<a href="exec:time+=1&gt ''wardrobe''">Шкаф</a>'&*nl'<a href="exec:time+=1&gt ''bed''">Кровать</a>'&!wardrobe
 $d_takebot={takeitem=2&item[takeitem]+=1&burden[you]+=item_burden[takeitem]&gt $loc[you]}
 if bottle_on_skaf=0:'За стеклом стенки стоит <a href="exec:time+=1&bottle_on_skaf=1&dynamic $d_takebot">бутылка</a>'

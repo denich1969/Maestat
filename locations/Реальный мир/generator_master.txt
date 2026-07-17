@@ -1,183 +1,115 @@
-﻿X=100&Y=100&Z=210&H=0&R=0&Xmax[Z]=110&Ymax[Z]=110
-$n_board[Z]='Стена'&$w_board[Z]='Стена'&&$e_board[Z]='Стена'&$s_board[Z]='Стена'
-magworld[Z]=0&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
+﻿X=100&Y=100&Z=210&H=0&R=0&Xmax[Z]=110&Ymax[Z]=110&$n_board[Z]='Стена'&$w_board[Z]='Стена'&&$e_board[Z]='Стена'&$s_board[Z]='Стена'
+	magworld[Z]=0&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Прихожая'&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$locopis['<<$temploc>>']='Узкий коридорчик из которого можно попасть на улицу или в комнаты'
-	np['<<$temploc>>']=514
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	!$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+    $locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$locopis['<<$temploc>>']='Узкий коридорчик из которого можно попасть на улицу или в комнаты'&np['<<$temploc>>']=514
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+	$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	mirror['<<$temploc>>']=1
-	master_portal['<<$temploc>>']=1
-	!item_loc['31,<<$temploc>>']=1
+	mirror['<<$temploc>>']=1&master_portal['<<$temploc>>']=1&!item_loc['31,<<$temploc>>']=1
 X=100&Y=101&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Узкий коридорчик соединяющий туалет, кухню и прихожую'
-	np['<<$temploc>>']=514
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
-	!$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Узкий коридорчик соединяющий туалет, кухню и прихожую'&np['<<$temploc>>']=514
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
 X=100&Y=102&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Кухня'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$locopis['<<$temploc>>']='Тесная кухонька'
-	np['<<$temploc>>']=515
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$locopis['<<$temploc>>']='Тесная кухонька'&np['<<$temploc>>']=515
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	can_drink['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&can_drink['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
 X=99&Y=101&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Туалет'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Совмещенный санузел'
-	np['<<$temploc>>']=516
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
-	!$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
-	$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Совмещенный санузел'&np['<<$temploc>>']=516
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&shower['<<$temploc>>']=1&toilet['<<$temploc>>']=1
 X=101&Y=100&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Узкий коридорчик соединяющий туалет, кухню и прихожую'
-	np['<<$temploc>>']=514
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	!$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Узкий коридорчик соединяющий туалет, кухню и прихожую'&np['<<$temploc>>']=514
+	$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
 X=101&Y=101&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Комната'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Маленькая комната'&$lname['<<$temploc>>']='Маленькая комната'&$locopis['<<$temploc>>']='Не большая комнатушка используемая как спальная'
-	np['<<$temploc>>']=517
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+    $locname['<<$temploc>>']='Маленькая комната'&$lname['<<$temploc>>']='Маленькая комната'&$locopis['<<$temploc>>']='Не большая комнатушка используемая как спальная'&np['<<$temploc>>']=517
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&paint['<<$temploc>>']=1&!can_drink['<<$temploc>>']=1
 X=102&Y=100&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Гостиная'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Гостинная'&$lname['<<$temploc>>']='Гостинная'&$locopis['<<$temploc>>']='Просторная и светлая гостинная'
-	np['<<$temploc>>']=518
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
-	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
-	$w_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+    $locname['<<$temploc>>']='Гостинная'&$lname['<<$temploc>>']='Гостинная'&$locopis['<<$temploc>>']='Просторная и светлая гостинная'&np['<<$temploc>>']=518
+	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	mirror['<<$temploc>>']=1&tv['<<$temploc>>']=1
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&mirror['<<$temploc>>']=1&tv['<<$temploc>>']=1
 X=99&Y=100&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Подъезд'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Подъезд'&$lname['<<$temploc>>']='Подъезд'&$locopis['<<$temploc>>']='Грязный подъезд '
-	np['<<$temploc>>']=7
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
-	!$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+    $locname['<<$temploc>>']='Подъезд'&$lname['<<$temploc>>']='Подъезд'&$locopis['<<$temploc>>']='Грязный подъезд '&np['<<$temploc>>']=7
+	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
 X=98&Y=100&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Двор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Двор'&$lname['<<$temploc>>']='Двор'&$locopis['<<$temploc>>']='Двор окруженный стенами многоэтажек'
-	np['<<$temploc>>']=520
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'
-	!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+    $locname['<<$temploc>>']='Двор'&$lname['<<$temploc>>']='Двор'&$locopis['<<$temploc>>']='Двор окруженный стенами многоэтажек'&np['<<$temploc>>']=520
+	$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
 X=97&Y=100&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Сквер'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Сквер'&$lname['<<$temploc>>']='Сквер'&$locopis['<<$temploc>>']='Тихий сквер сквозь который иногда ходят прохожие'
-	np['<<$temploc>>']=521
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
-	$n_wall['<<$temploc>>']='Забор'&$s_wall['<<$temploc>>']='Забор'
-	$w_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+    $locname['<<$temploc>>']='Сквер'&$lname['<<$temploc>>']='Сквер'&$locopis['<<$temploc>>']='Тихий сквер сквозь который иногда ходят прохожие'&np['<<$temploc>>']=521
+	$n_wall['<<$temploc>>']='Забор'&$s_wall['<<$temploc>>']='Забор'&$w_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
 X=98&Y=99&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улица'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''
-	np['<<$temploc>>']=rand(522,528)
-	$wall_name['<<$temploc>>']='Дом'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	$s_wall['<<$temploc>>']='Забор'&!$n_wall['<<$temploc>>']='Забор'
-	!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$wall_name['<<$temploc>>']='Дом'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=rand(522,528)
+	$s_wall['<<$temploc>>']='Забор'&!$n_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	gs'losgen'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&gs'losgen'
 X=99&Y=99&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 :marklevelgen
-    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''
-	np['<<$temploc>>']=rand(522,528)
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'
-	!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
+    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=rand(522,528)
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+	$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	gs'losgen'&if rand(1)=0:gs'freegirl'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&gs'losgen'&if rand(1)=0:gs'freegirl'
 X+=1&if X<110:jump'marklevelgen'
 X=99&Y=98&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 :marklevelgen2
-    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''
-	np['<<$temploc>>']=rand(522,528)
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	!$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'
-	!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
+    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=rand(522,528)
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+	!$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	gs'losgen'&if rand(1)=0:gs'freegirl'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&gs'losgen'&if rand(1)=0:gs'freegirl'
 X+=1&if X<110:jump'marklevelgen2'
 X=99&Y=97
 :marklevelgen3
-    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''
-	np['<<$temploc>>']=rand(522,528)
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	!$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'
-	!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
+    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=rand(522,528)
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+	!$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	gs'losgen'&if rand(1)=0:gs'freegirl'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&gs'losgen'&if rand(1)=0:gs'freegirl'
 X+=1&if X<110:jump'marklevelgen3'
 X=99&Y=96
 :marklevelgen4
-    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''
-	np['<<$temploc>>']=rand(522,528)
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	!$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'
-	!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
+    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=rand(522,528)
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+	!$n_wall['<<$temploc>>']='Забор'&!$s_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	gs'losgen'&if rand(1)=0:gs'freegirl'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&gs'losgen'&if rand(1)=0:gs'freegirl'
 X+=1&if X<110:jump'marklevelgen4'
 X=99&Y=95
 :marklevelgen5
-    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''
-	np['<<$temploc>>']=rand(522,528)
-	$wall_name['<<$temploc>>']='Комната'
-	n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
-	$s_wall['<<$temploc>>']='Забор'&!$n_wall['<<$temploc>>']='Забор'
-	!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
+    $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='Улица'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=rand(522,528)
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+	$s_wall['<<$temploc>>']='Забор'&!$n_wall['<<$temploc>>']='Забор'&!$e_wall['<<$temploc>>']='Забор'&!$w_wall['<<$temploc>>']='Забор'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Забор'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'
-	gs'losgen'&if rand(1)=0:gs'freegirl'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Забор'&gs'losgen'&if rand(1)=0:gs'freegirl'
 X+=1&if X<110:jump'marklevelgen5'

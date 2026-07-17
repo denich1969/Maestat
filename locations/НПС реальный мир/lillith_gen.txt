@@ -14,5 +14,5 @@ pol[i]=1&gs'body'&total_generated_female+=1
 womenbrain[i]=100&bisex[i]=1&agro[i]=150&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=100&corrupt[i]=5000&!характер
 can_bj[i]=1&can_anal[i]=1
 h_slot[i]=0&w_slot[i]=2&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=4&l_slot[i]=3&b_slot[i]=6&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=2
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2
-se_lighthouse[]=i&!walkprog[i]=304&!npcii[i]=1&!программа движения
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i
+in_home[i]=2&!walkprog[i]=304&!npcii[i]=1&!программа движения
