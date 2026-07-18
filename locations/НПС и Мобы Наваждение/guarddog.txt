@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&hoteldemon=i
-mob[i]=43&mobexp[i]=50
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&hoteldemon=i&lvl[i]=1&soul[i]=100&mob[i]=43&mobexp[i]=50
 tipemobpic[i]=1&picture[i]=115
 $nick[i]='Пес'&total_guarddog+=1
 !gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname
@@ -7,5 +6,4 @@ dick[i]=rand(21,28)&dickd[i]=rand(40,50)&ball[i]=rand(40,70)
 healthmax[i]=10*rand(60,100)&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(15,20)&maxuron[i]=rand(25,40)
 reflex[i]=rand(60,80)
 corr[i]=1000&agro[i]=rand(0,2)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-obsession_world[]=i&
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&

@@ -39,7 +39,7 @@ if Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=
 	act'Деревня':
 		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&!в деревне
 		'<<$name[npc]>> грустно вздыхает - Деревня вымирает, вокруг кишат бесы, пули их не убивают, они умеют задурить мозги. Мы как будто в осаде. '
-		'Уже даже сообщение с городом Нуатпа пропало, лесная дорога просто исчезла. Наверняка это какие то демонские штучки.'&act'...':gt $loc[you]
+		'Уже даже сообщение с городом Нуатпа пропало, лесная дорога просто исчезла. Наверняка это какие-то демонские штучки.'&act'...':gt $loc[you]
 	end
 	if npc=mech and Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=H[npc] and Rhome[npc]=R[npc]:
 		act'Предложить стать охотником маяка':

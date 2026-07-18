@@ -1,6 +1,3 @@
 ﻿if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
 msg "Вы получили <<price>> золотых монет"&!Продажа добычи Мяснику
-DELOBJ "Добыча"
-girl = 0
-money+= price
-GT "Butcher"
+DELOBJ "Добыча"&girl=0&money+=price&GT "Butcher"

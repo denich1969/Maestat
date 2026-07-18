@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&magus=i
-lvl[i]=1&soul[i]=100
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&magus=i&lvl[i]=1&soul[i]=100
 master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=100&beliver[i]=100&!Не имеет отношения к богине луны, иллюзия
 tipemobpic[i]=1&picture[i]=158
 $title[i]='Маг королевства'&$name[i]='Эльган'&$nick[i]='Маг. '
@@ -18,9 +17,7 @@ pol[i]=0&gs'body'&total_generated_male+=1&total_magus+=1&!minuron[i]=rand(10,20)
 forbidsex[i]=0&!присвоение отсутствия запрета
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=rand(0,1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=1&ratio[i]=2&brave[i]=2&lust[i]=0&corr[i]=0&!характер
 if lust[i]>=75 and agro[i]>=75:alfa[i]=1&total_alfa+=1
-t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)
-ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-obsession_world[]=i&
+t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&
 if you=princess:delusion[i]=0&corr[i]=0&agro[i]=1
 if you!princess:delusion[i]=1&mob[i]=29&mobexp[i]=100&corr[i]=100&agro[i]=rand(1,2)

@@ -91,9 +91,9 @@ if lust[w]>100:lust[w]=100
 if statist[w]=0 and soul[w]<20:soul[w]+=20
 if feminize[w]>0:
 	if statist[w]=1:
-	     gs'effect_feminize',w
+	    gs'effect_feminize',w
 	else
-	     feminize[w]=0
+	    feminize[w]=0
 	end
 end
 if manize[w]>0:
@@ -111,26 +111,24 @@ if rost[w]<100:rost[w]=rand(165,200)
 if mus[w]<100:mus[w]=rand(800,2000)
 if arhivson=w and loss[w]>0 and arhivson_once=0:arhivson_once=1&magik[w]+=1
 if vag[w]>0:
-	 misstress[w]=0&femwhore[w]=0&subslut[w]=0&ladyagressor[w]=0&halffemwhore[w]=0&halfsubslut[w]=0&prudeagressor[w]=0&totalprude[w]=0&lowprude[w]=0
-	 if w=lebeda:lust[w]=100&agro[w]=60
-	 if lust[w]>=75 and agro[w]>=75:misstress[w]=1&TOL[w]=9
-	 if lust[w]>=75 and agro[w]>=50 and agro[w]<75:femwhore[w]=1&TOL[w]=8
-	 if lust[w]>=75 and agro[w]<50:subslut[w]=1&TOL[w]=7
-	 if lust[w]>=50 and lust[w]<75 and agro[w]>=75:ladyagressor[w]=1&TOL[w]=6
-	 if lust[w]>=50 and lust[w]<75 and agro[w]>=50 and agro[w]<75:halffemwhore[w]=1&TOL[w]=5
-	 if lust[w]>=50 and lust[w]<75 and agro[w]<50:halfsubslut[w]=1&TOL[w]=4
-	 if lust[w]<50 and agro[w]>=75:prudeagressor[w]=1&TOL[w]=3
-	 if lust[w]<50 and agro[w]>=50 and agro[w]<75:totalprude[w]=1&TOL[w]=2
-	 if lust[w]<50 and agro[w]<50:lowprude[w]=1&TOL[w]=1
+	misstress[w]=0&femwhore[w]=0&subslut[w]=0&ladyagressor[w]=0&halffemwhore[w]=0&halfsubslut[w]=0&prudeagressor[w]=0&totalprude[w]=0&lowprude[w]=0
+	if w=lebeda:lust[w]=100&agro[w]=60
+	if lust[w]>=75 and agro[w]>=75:misstress[w]=1&TOL[w]=9
+	if lust[w]>=75 and agro[w]>=50 and agro[w]<75:femwhore[w]=1&TOL[w]=8
+	if lust[w]>=75 and agro[w]<50:subslut[w]=1&TOL[w]=7
+	if lust[w]>=50 and lust[w]<75 and agro[w]>=75:ladyagressor[w]=1&TOL[w]=6
+	if lust[w]>=50 and lust[w]<75 and agro[w]>=50 and agro[w]<75:halffemwhore[w]=1&TOL[w]=5
+	if lust[w]>=50 and lust[w]<75 and agro[w]<50:halfsubslut[w]=1&TOL[w]=4
+	if lust[w]<50 and agro[w]>=75:prudeagressor[w]=1&TOL[w]=3
+	if lust[w]<50 and agro[w]>=50 and agro[w]<75:totalprude[w]=1&TOL[w]=2
+	if lust[w]<50 and agro[w]<50:lowprude[w]=1&TOL[w]=1
 end
 if Zhome[w]=1 and win[w]>=20 and pol[w]=0 and statist[w]=1:
-	 $history[w]='Я так давал люлей инсмутцам, что меня выгнали из порта'
-	 some_hero[]=w&walkprog[w]=26&e_world[]=w&magik[w]+=1
-	 Xhome[w]=1&Yhome[w]=0&Zhome[w]=3&Hhome[w]=6&Rhome[w]=3
-	 X[w]=Xhome[w]&Y[w]=Yhome[w]&Z[w]=Zhome[w]&H[w]=Hhome[w]&R[w]=Rhome[w]
+	$history[w]='Я так давал люлей инсмутцам, что меня выгнали из порта'&some_hero[]=w&walkprog[w]=26&e_world[]=w&magik[w]+=1
+	Xhome[w]=1&Yhome[w]=0&Zhome[w]=3&Hhome[w]=6&Rhome[w]=3&X[w]=Xhome[w]&Y[w]=Yhome[w]&Z[w]=Zhome[w]&H[w]=Hhome[w]&R[w]=Rhome[w]
 end
 if reclo[w]>0 and reclo_timer[w]<time:
-	 reclo[w]-=1&reclo_timer[w]=time+60
+	reclo[w]-=1&reclo_timer[w]=time+60
 	if reclo[w]=0:
 	    if pol[w]=0:
 			if class[w]=0:t_slot[w]=rand(1,4)&l_slot[w]=rand(1,3)&b_slot[w]=rand(1,2)&!низший класс
@@ -141,9 +139,9 @@ if reclo[w]>0 and reclo_timer[w]<time:
 			if class[w]=1:t_slot[w]=rand(16,24)&tempclo=rand(0,2)&l_slot[w]=iif(tempclo=0,rand(9,14),iif(tempclo=1,rand(60,89),rand(27,44)))&b_slot[w]=rand(8,9)&!средний класс
 			if class[w]=2:t_slot[w]=rand(25,30)&l_slot[w]=iif(rand(0,1)=0,rand(9,14),rand(60,89))&b_slot[w]=rand(17,19)&!элитный класс
 			ut_slot[w]=rand(1,3)&ul_slot[w]=rand(1,4)&ub_slot[w]=rand(1,5)
-			 if lust[w]>=75 and agro[w]>=75:t_slot[w]=40&l_slot[w]=9&b_slot[w]=rand(14,16)
-			 if lust[w]>=75 and agro[w]>=50 and agro[w]<75:t_slot[w]=rand(31,36)&l_slot[w]=rand(45,51)&b_slot[w]=rand(8,11)
-			 if lust[w]>=75 and agro[w]<50:t_slot[w]=rand(31,36)&l_slot[w]=rand(45,51)&b_slot[w]=rand(8,11)
+			if lust[w]>=75 and agro[w]>=75:t_slot[w]=40&l_slot[w]=9&b_slot[w]=rand(14,16)
+			if lust[w]>=75 and agro[w]>=50 and agro[w]<75:t_slot[w]=rand(31,36)&l_slot[w]=rand(45,51)&b_slot[w]=rand(8,11)
+			if lust[w]>=75 and agro[w]<50:t_slot[w]=rand(31,36)&l_slot[w]=rand(45,51)&b_slot[w]=rand(8,11)
 	    end
 	end
 end
@@ -152,58 +150,58 @@ if weaponmaster[w]>1 and weaponmaster_timer[w]<time:
 end
 if weaponmaster[w]=0 and master[w]=0:
 	weaponmaster[w]=1
-     if magik[w]>=11:
-		 if m_slot[w]=0:m_slot[w]=116
-		 if w_slot[w]=0:w_slot[w]=110
-		 sfera_amulet[w]=1000
-     else
-		 if Z[w]=1:
-			 if m_slot[w]=0:
-				 tipew=rand(0,4)
-				 if tipew=0:m_slot[w]=27
-				 if tipew=1:m_slot[w]=40
-				 if tipew=2:m_slot[w]=46
-				 if tipew=3:m_slot[w]=47
-				 if tipew=4:m_slot[w]=48
-			 end
-		 end
-		 if Z[w]=2:
-			 if m_slot[w]=0:m_slot[w]=rand(41,45)
-			 if w_slot[w]=0:
-				 tipew=rand(0,4)
-				 if tipew=0:w_slot[w]=9
-				 if tipew=1:w_slot[w]=104
-				 if tipew=2:w_slot[w]=106
-				 if tipew=3:w_slot[w]=107
-				 if tipew=4:w_slot[w]=108
-			 end
-			 if mob[w]=0:
+    if magik[w]>=11:
+		if m_slot[w]=0:m_slot[w]=116
+		if w_slot[w]=0:w_slot[w]=110
+		sfera_amulet[w]=1000
+    else
+		if Z[w]=1:
+			if m_slot[w]=0:
+				tipew=rand(0,4)
+				if tipew=0:m_slot[w]=27
+				if tipew=1:m_slot[w]=40
+				if tipew=2:m_slot[w]=46
+				if tipew=3:m_slot[w]=47
+				if tipew=4:m_slot[w]=48
+			end
+		end
+		if Z[w]=2:
+			if m_slot[w]=0:m_slot[w]=rand(41,45)
+			if w_slot[w]=0:
+				tipew=rand(0,4)
+				if tipew=0:w_slot[w]=9
+				if tipew=1:w_slot[w]=104
+				if tipew=2:w_slot[w]=106
+				if tipew=3:w_slot[w]=107
+				if tipew=4:w_slot[w]=108
+			end
+			if mob[w]=0:
 				sfera_amulet[w]=iif(rand(1)=0,500,1000)
-			 else
+			else
 				if rand(1)=1:sfera_amulet[w]=500
-			 end
-		 end
-		 if Z[w]>=3 and Z[w]<=5:
-			 if m_slot[w]=0:m_slot[w]=rand(41,45)
-			 if w_slot[w]=0:
+			end
+		end
+		if Z[w]>=3 and Z[w]<=5:
+			if m_slot[w]=0:m_slot[w]=rand(41,45)
+			if w_slot[w]=0:
 				tipew=rand(0,10)
-				 if tipew>=7:
-					 tipew=rand(0,4)
-					 if tipew=0:w_slot[w]=9
-					 if tipew=1:w_slot[w]=104
-					 if tipew=2:w_slot[w]=106
-					 if tipew=3:w_slot[w]=107
-					 if tipew=4:w_slot[w]=108
-				 end
-			 end
-			 if mob[w]=0:
-				 sftemp=rand(0,10)
-				 if sftemp>=5 and sftemp<10:sfera_amulet[w]=500
-				 if sftemp=10:sfera_amulet[w]=1000
-			 else
-				 sftemp=rand(0,2)&if mob[w]=1:sftemp=0
-				 if sftemp=2:sfera_amulet[w]=500
-			 end
-		 end
-     end
+				if tipew>=7:
+					tipew=rand(0,4)
+					if tipew=0:w_slot[w]=9
+					if tipew=1:w_slot[w]=104
+					if tipew=2:w_slot[w]=106
+					if tipew=3:w_slot[w]=107
+					if tipew=4:w_slot[w]=108
+				end
+			end
+			if mob[w]=0:
+				sftemp=rand(0,10)
+				if sftemp>=5 and sftemp<10:sfera_amulet[w]=500
+				if sftemp=10:sfera_amulet[w]=1000
+			else
+				sftemp=rand(0,2)&if mob[w]=1:sftemp=0
+				if sftemp=2:sfera_amulet[w]=500
+			end
+		end
+    end
 end

@@ -1,92 +1,91 @@
 ﻿if blackedGangQW>=1 and blackedGangQW<100 and Z[you]=2:
-	 act'<b>Черная банда из жилмассива</b>':
+	act'<b>Черная банда из жилмассива</b>':
 		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-		 if runemaster=npc:
+		if runemaster=npc:
 			'<<$name[npc]>> - Я не знаю таких. Мало ли всяких бандитос и ганста рождает этот район? Они приходят и уходят без следа.'
-		     if knowRuneMasterQW>=1 and blackedGangQW=2:
-				 act'<b>У этих парней рунная магия</b>':
-					 blackedGangQW=3&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумался - Возможно. Но я не причастен к этой магии. Моя сила рун дана мне богиней. '
-					'Но регулярно находятся умники, что могут сами какие то руны создавать. Когда заходит дело о власти, то даже угроза тотального уничтожения всего живого не удерживает властолюбцев. '
+		    if knowRuneMasterQW>=1 and blackedGangQW=2:
+				act'<b>У этих парней рунная магия</b>':
+					blackedGangQW=3&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумался - Возможно. Но я не причастен к этой магии. Моя сила рун дана мне богиней. '
+					'Но регулярно находятся умники, что могут сами какие-то руны создавать. Когда заходит дело о власти, то даже угроза тотального уничтожения всего живого не удерживает властолюбцев. '
 					'И в данном случае я думаю есть реальная угроза городу. Если я ничего не заметил, то воздействие направлено и на меня. Остается последнее средство. Обратись к богине Луны. '
-					 act'<b>Уйти</b>':gt 'preloc'
-				 end
-		     end
-		 elseif mabuta=npc:
-			'<<$name[npc]>> - Тут постоянно какие то разборки. Но никого я не выдавливал специально из района. Не помню такого.'
-		 elseif brokk=npc:
-			'<<$name[npc]>> - Не могу вспомнить. И это явно не спроста. Возможно тут какое то божественное вмешательство.'
-		 elseif ares=npc:
-			 if blackedGangQW=1:blackedGangQW=2
-			 '<<$name[npc]>> - Очень скрытные твари. Они не в моем вкусе. Они как вирус, запустили свою руну которая их усиляет и бережет от чужих глаз. Это рунная магия детка. '
-			'И очень не хорошая, работает не с прямой силой, а с мозгами. Мне такое противно.'
-	     elseif pele=npc:
+					act'<b>Уйти</b>':gt 'preloc'
+				end
+		    end
+		elseif mabuta=npc:
+			'<<$name[npc]>> - Тут постоянно какие-то разборки. Но никого я не выдавливал специально из района. Не помню такого.'
+		elseif brokk=npc:
+			'<<$name[npc]>> - Не могу вспомнить. И это явно не спроста. Возможно тут какое-то божественное вмешательство.'
+		elseif ares=npc:
 			if blackedGangQW=1:blackedGangQW=2
-			'<<$name[npc]>> - Кто то очень не хочет что бы его обнаружили и при помощи рунной магии очень ловко скрывается.'
-	     elseif dj=npc:
+			'<<$name[npc]>> - Очень скрытные твари. Они не в моем вкусе. Они как вирус, запустили свою руну которая их усиляет и бережет от чужих глаз. Это рунная магия детка. '
+			'И очень не хорошая, работает не с прямой силой, а с мозгами. Мне такое противно.'
+	    elseif pele=npc:
+			if blackedGangQW=1:blackedGangQW=2
+			'<<$name[npc]>> - кто-то очень не хочет что бы его обнаружили и при помощи рунной магии очень ловко скрывается.'
+	    elseif dj=npc:
 			'<<$name[npc]>> - Помню этих ребят, они тут часто тусили. Потом свалили в жилмассив.'
-		 elseif merlin=npc:
+		elseif merlin=npc:
 			'<<$name[npc]>> - Странно, я когда о них подумал, у меня голова заболела и я никак не могу вспомнить кто это, хотя вроде как знаю.'
-	     elseif twardovski=npc:
+	    elseif twardovski=npc:
 			'<<$name[npc]>> - Вообще без понятия кто такие. Тут таких ганста пучок на пятачок. Хотя когда то этот район был спокойный и благополучный. Видимо бог войны так влияет.'
-	     else
+	    else
 			'<<$name[npc]>> - А кто это?'
-	     end
-		 if blackedGangQW=4 and visioner[you]>0 and mana[you]>=50 and master[npc]=0:
-			 act'Использовать дар':
-				 mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
-				 vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'
-			     if mabuta=npc:
-					 '<center><img src="pic/face/5/32.jpg" ></center>'
-					 'Вы разговариваете с черным магом - Да мои парни наснимали на камеру, как татуировщик торчит в круге камней. Нахера тебе нужна эта бредятина? Он там что то мычит и руками машет.'
-			     elseif brokk=npc:
-					 '<center><img src="pic/face/5/32.jpg" ></center>'&'Вы разговариваете с черным магом - Вот книга темной сути, а ты принес мне бронированный костюм из другого мира?'
-			     elseif merlin=npc:
-					 '<center><img src="pic/face/5/32.jpg" ></center>'&'Вы видите черного мага который что то колдует в круге камней.'
-			     else
-					 '<center><img src="<<$d_view>>" ></center>'&'Коснувшись руки, вас охватывает виденье.'&*nl'Какая то муть и вы понимаете, что ничего ценного в воспоминаниях про черную банду нет.'
-			     end
+	    end
+		if blackedGangQW=4 and visioner[you]>0 and mana[you]>=50 and master[npc]=0:
+			act'Использовать дар':
+				mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+				vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'
+			    if mabuta=npc:
+					'<center><img src="pic/face/5/32.jpg" ></center>'
+					'Вы разговариваете с черным магом - Да мои парни наснимали на камеру, как татуировщик торчит в круге камней. Нахера тебе нужна эта бредятина? Он там что то мычит и руками машет.'
+			    elseif brokk=npc:
+					'<center><img src="pic/face/5/32.jpg" ></center>'&'Вы разговариваете с черным магом - Вот книга темной сути, а ты принес мне бронированный костюм из другого мира?'
+			    elseif merlin=npc:
+					'<center><img src="pic/face/5/32.jpg" ></center>'&'Вы видите черного мага который что то колдует в круге камней.'
+			    else
+					'<center><img src="<<$d_view>>" ></center>'&'Коснувшись руки, вас охватывает виденье.'&*nl'Какая то муть и вы понимаете, что ничего ценного в воспоминаниях про черную банду нет.'
+			    end
 				act'<b>Уйти</b>':gt 'preloc'
 			 end
 	     end
 		act'<b>Уйти</b>':gt 'preloc'
 	 end
 end
-!if elfmag=npc:
 if bocman_work=1:
-     if brokk=npc:
-		 act'<b>Груз для Боцмана</b>':
-			 bocman_work=2&burden[you]+=1000&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> приносит вам ящик - Поставь тут роспись и забирай.'&
-			 act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
+    if brokk=npc:
+		act'<b>Груз для Боцмана</b>':
+			bocman_work=2&burden[you]+=1000&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> приносит вам ящик - Поставь тут роспись и забирай.'&
+			act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
 end
 if prophecyQW=1:
-     if runemaster=npc and pol[you]>0 and friends['<<npc>>,<<you>>']>=90:
-		 act'Помоги мне избавиться от договора ученика':
-			 time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'& !prophecyQW=2
-			 '<<$name[npc]>> - Если ты поклянешься сохранить баланс и когда соберешь все кольца, то раздашь их и оставишь себе только одно кольцо. Никто не должен получить Маестат и уничтожить баланс.'
-			 act'<b>Уйти</b>':gt 'preloc'
-			 act'Клятва':
-				 prophecyQW=2&techer_dogovor[you]=0&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-				 'Вы принесли клятву, что раздадите кольца силы районов и не взойдете на Маестат. В обмен Рунный маг разорвал вашу связь с Джофри.'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-     end
+    if runemaster=npc and pol[you]>0 and friends['<<npc>>,<<you>>']>=90:
+		act'Помоги мне избавиться от договора ученика':
+			time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'& !prophecyQW=2
+			'<<$name[npc]>> - Если ты поклянешься сохранить баланс и когда соберешь все кольца, то раздашь их и оставишь себе только одно кольцо. Никто не должен получить Маестат и уничтожить баланс.'
+			act'<b>Уйти</b>':gt 'preloc'
+			act'Клятва':
+				prophecyQW=2&techer_dogovor[you]=0&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'Вы принесли клятву, что раздадите кольца силы районов и не взойдете на Маестат. В обмен Рунный маг разорвал вашу связь с Джофри.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+    end
 end
 !if npc=merlin and mabutaQW>=2:act'<b>Драться</b>':canclon[npc]=3&cant_fight_run=1&gs'progcurse'&gt 'prefight'
 if npc=mabuta:
-     if dead[merlin]=2 and mabutaQW<50 and brokk_attk=0 and dead[addboss]=0 and dead[brokk]=0:
-		 act'Мерлин мертв':
-			 brokk_attk=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&! '<center><img src="pic/misc/exo.jpg" ></center>'&!mabutaQW=50&!merlindeadday=daystart
-			 '<<$name[npc]>> кивает - Чтобы стать аватаром, мне нужно лично убить Леона.'
-			 'Окно внезапно разбивается в дребезги и раздаются странные чавкающие звуки, <<$name[npc]>> хватается за грудь и падает на пол, по полу растекается кровь.'
-			 'Вы соображаете какие то секунды не понимая, что происходит, но до вас доходит, что по вам открыт огонь через окно.'
-			 'Хлопает портал и в комнате появляется Джофри он хватает Мабуту - Он еще жив, я его в автодок, это атаковал Брокк, смотри не убей его, притащи в полицию.'
-			 act'<b>Драться</b>':npc=brokk&gs'progcurse'&gt 'prefight'
-		 end
-     end
-     if mabutaQW=1:
-         act'<b>Я от Агентства</b>':
+    if dead[merlin]=2 and mabutaQW<50 and brokk_attk=0 and dead[addboss]=0 and dead[brokk]=0:
+		act'Мерлин мертв':
+			brokk_attk=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&! '<center><img src="pic/misc/exo.jpg" ></center>'&!mabutaQW=50&!merlindeadday=daystart
+			'<<$name[npc]>> кивает - Чтобы стать аватаром, мне нужно лично убить Леона.'
+			'Окно внезапно разбивается в дребезги и раздаются странные чавкающие звуки, <<$name[npc]>> хватается за грудь и падает на пол, по полу растекается кровь.'
+			'Вы соображаете какие-то секунды не понимая, что происходит, но до вас доходит, что по вам открыт огонь через окно.'
+			'Хлопает портал и в комнате появляется Джофри он хватает Мабуту - Он еще жив, я его в автодок, это атаковал Брокк, смотри не убей его, притащи в полицию.'
+			act'<b>Драться</b>':npc=brokk&gs'progcurse'&gt 'prefight'
+		end
+    end
+    if mabutaQW=1:
+        act'<b>Я от Агентства</b>':
 			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> осматривает вас и удовлетворившись осмотром, говорит - Город. Что ты думаешь об этом городе? '
 			'Я думаю, город - это суд Осириса. Сердце на одной чаше, а на другой перо богини справедливости Маат. И чтобы соединиться со светом и истиной, нужно чтобы сердце оказалось легче пера. '
 			'Вот взять меня. В прошлой жизни я был большой босс в городе, потом оказался тут и даже не понял момента. А в городе я встретил Олана, он работал на меня в прежней жизни и знаешь, что я узнал? '
@@ -98,97 +97,97 @@ if npc=mabuta:
 			'Я тут далеко не первый, кого сожрала война. Война - такая сука, она жрет людей. Так вот, у меня возникает буквально дежавю. '
 			'С одной стороны, союз с агентством и статус ученика Джофри повышает мои шансы в борьбе с Леоном, а с другой стороны... '
 			'Твою мать! Да все развивается по рельсам проложенным Аресом! Мы еще поднакачаемся и неизбежно влезем в войну с Леоном. А Леон не проигрывает. Вот талант у него такой, не проигрывать.'
-			 act'Расскажи про Леона':
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			act'Расскажи про Леона':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 				'<<$name[npc]>> - в прошлой жизни он был военачальником, и мне даже говорили, что он был императором, какой-то там Неополитанский Лев. Или Наполитанский, короче - хрен его знает. '
 				'Так вот, этот лев тут уже порвал с десяток крутых ребят. И магов, и банд. Арес так развлекается. '
 				'Находит дурака вроде меня, дает ему силу, и, видимо, сука, дрочит, глядя как его размазывает этот Неополитанский Лев. И не заблуждайся, что он не маг, а какой-то там производитель пива. '
 				'Этот хрен реально крутой. Я не видел его в бою, впрочем, как мне рассказывали, он как правило чужими силами обходится.'
-				 act'И что ты предлагаешь делать?':
-					 dominant_fucker=merlin&submissive_slut=odri&girl[dominant_fucker]+=1&guy[submissive_slut]+=1
-					 sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=100&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=100
-					 vagsex[submissive_slut]+=100&avagsex[dominant_fucker]+=100&anal[submissive_slut]+=100&aanal[dominant_fucker]+=100&bj[submissive_slut]+=100&abj[dominant_fucker]+=100
-					 sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
-					 mabutaQW=2&if magik[odri]<30:magik[odri]=30
-					 cls&gs'balinor_gen'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумался - Ну, для начала сто процентов нужно грохнуть его охранника, Мерлина. '
+				act'И что ты предлагаешь делать?':
+					dominant_fucker=merlin&submissive_slut=odri&girl[dominant_fucker]+=1&guy[submissive_slut]+=1
+					sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=100&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=100
+					vagsex[submissive_slut]+=100&avagsex[dominant_fucker]+=100&anal[submissive_slut]+=100&aanal[dominant_fucker]+=100&bj[submissive_slut]+=100&abj[dominant_fucker]+=100
+					sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+					mabutaQW=2&if magik[odri]<30:magik[odri]=30
+					cls&gs'balinor_gen'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумался - Ну, для начала сто процентов нужно грохнуть его охранника, Мерлина. '
 					'Это крутой колдун, но вроде ваше агентство и специализируется на крутых колдунах. Богарт, Лебеда, Обед Марш. С этим поляком, как его, Твердовским, тоже круто получилось. '
 					'Кроче, грохните Мерлина. И я понятия не имею как его убить.'&act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-		 end
-     end
-     if dead[merlin]=0 and mabutaQW=2:
-		 act'Как убить Мерлина?':
-			 if mabutaQW=2:mabutaQW=3
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумался - Я уже говорил, что понятия не имею, он чертовски крутой сукин сын. '
+				end
+			end
+		end
+    end
+    if dead[merlin]=0 and mabutaQW=2:
+		act'Как убить Мерлина?':
+			if mabutaQW=2:mabutaQW=3
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумался - Я уже говорил, что понятия не имею, он чертовски крутой сукин сын. '
 			'Маг вне категорий, да еще опытный и осторожный. Хотя слышал я от своих пацанов, что он влюблен в какую то ведьму. Но та его отшила. '
-			'Если хотите найти эту ведьму, сами в агентстве думайте как это сделать.'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
+			'Если хотите найти эту ведьму, сами в агенстве думайте как это сделать.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
 end
 if runemasterQW=2:
-     if runemaster=npc:
-         if pol[you]>0:
-			 act'Клеиться':
-				 time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+    if runemaster=npc:
+        if pol[you]>0:
+			act'Клеиться':
+				time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 				'Вы отчаянно клеите Пабло, намекая, что вы не против с ним выпить. Наконец-то он соображает и предлагает вам выпить вместе. До него все же дошло.'&act'<b>Уйти</b>':gt 'preloc'
-			     if empty_ball[npc]<time:
-					 act'<b>Выпить</b>':friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10&gt 'lust_drink'
-                 else
+			    if empty_ball[npc]<time:
+					act'<b>Выпить</b>':friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10&gt 'lust_drink'
+                else
 					'Пабло пожимает плечами - Да вроде и так хватит, я пока пас.'
-                 end
-			 end
-         end
-         if friends['<<npc>>,<<you>>']>=90:runemasterQW=3&'<<$name[npc]>> улыбается вам - <<$name[you]>>, я тебя так люблю!'&'<b>Кажется, вы выполнили задание.</b>'
-     end
+                end
+			end
+        end
+        if friends['<<npc>>,<<you>>']>=90:runemasterQW=3&'<<$name[npc]>> улыбается вам - <<$name[you]>>, я тебя так люблю!'&'<b>Кажется, вы выполнили задание.</b>'
+    end
 end
 if runemasterQW=4:
-     if runemaster=npc and pol[you]>0 and friends['<<npc>>,<<you>>']>=90:
-		 act'Руна защиты от смерти':
-			 runemasterQW=5&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			 'Вы завели разговор о древних рунах и сказали что хотели бы узнать руну защиты от смерти, чтобы смерть вам не грозила.'
-			 '<<$name[npc]>> смеется - <<$name[you]>>, ты такая милая! Руна защиты от смерти может защитить только при контакте с самой смертью и то, только место, закрытое руной. '
+    if runemaster=npc and pol[you]>0 and friends['<<npc>>,<<you>>']>=90:
+		act'Руна защиты от смерти':
+			runemasterQW=5&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'Вы завели разговор о древних рунах и сказали что хотели бы узнать руну защиты от смерти, чтобы смерть вам не грозила.'
+			'<<$name[npc]>> смеется - <<$name[you]>>, ты такая милая! Руна защиты от смерти может защитить только при контакте с самой смертью и то, только место, закрытое руной. '
 			'Это никак не спасет от урона или смерти по другим причинам.'
-			 'Вы надули губки - Ты просто не любишь меня и не хочешь из-за этого показать мне такую руну, ну или просто ничего не понимаешь в рунах.'
-			 '<<$name[npc]>> взял лист бумаги и начертил на нем руну - На, держи, эта руна защитит от контакта со смертью. '
+			'Вы надули губки - Ты просто не любишь меня и не хочешь из-за этого показать мне такую руну, ну или просто ничего не понимаешь в рунах.'
+			'<<$name[npc]>> взял лист бумаги и начертил на нем руну - На, держи, эта руна защитит от контакта со смертью. '
 			'Можешь повесить у себя на стене, так как никакого другого применения я для этой руны не вижу.'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
+		end
+    end
 end
 if BlackRoseQW[you]=14 and Z[npc]=2 and statist[npc]=1:
-     if friends['<<npc>>,<<you>>']>=50:
-         act'Купи взрывчатку для меня':
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказали, что вам нужна взрывчатка для того, чтобы глушить рыбу, но с Аресом вы не в ладах и просите купить вам взрывчатку.'
-			 '<<$name[npc]>> смеется - Ты это серьезно? Ну ладно, давай денег, куплю.'&act'<b>Уйти</b>':gt 'preloc'
-             if money[you]>=250000:
-                 act'Дать денег':
-					 money[you]-=250000&dinamite=1&needtodie=npc
-					 time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы сходили вместе к Аресу и не стали заходить в арсенал, а передали деньги.'&!BlackRoseQW[you]=15
-					 '<<$name[npc]>> выйдя из арсенала, передает вам коробку - Держи.'&act'<b>Уйти</b>':gt 'preloc'
-				 end
-             end
-         end
-     end
+    if friends['<<npc>>,<<you>>']>=50:
+        act'Купи взрывчатку для меня':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказали, что вам нужна взрывчатка для того, чтобы глушить рыбу, но с Аресом вы не в ладах и просите купить вам взрывчатку.'
+			'<<$name[npc]>> смеется - Ты это серьезно? Ну ладно, давай денег, куплю.'&act'<b>Уйти</b>':gt 'preloc'
+            if money[you]>=250000:
+                act'Дать денег':
+					money[you]-=250000&dinamite=1&needtodie=npc
+					time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы сходили вместе к Аресу и не стали заходить в арсенал, а передали деньги.'&!BlackRoseQW[you]=15
+					'<<$name[npc]>> выйдя из арсенала, передает вам коробку - Держи.'&act'<b>Уйти</b>':gt 'preloc'
+				end
+            end
+        end
+    end
 end
 !if BlackRoseQW[you]=15 and needtodie=npc:act'<b>Убить</b>':gs'progcurse'&gt 'prefight'
 !if BlackRoseQW[myrealbody]=14 and myrealbody>0 and myrealbody!you:
 if knowRuneMasterQW=7 and dinamite=0:
-     if ares=npc:
-		 if money[you]>=200000:
-			 act'Купить взрывчатку (Деньги тела)':
-				 knowkiller=you&money[you]-=200000&dinamite=1&needtodie=you&!BlackRoseQW[myrealbody]=16
-				 time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> с усмешкой - Думаешь кого-то подорвать? Ладно. Держи бомбу на дистанционном управлении.'
-				 act'Самоубиться':murderer[you]+=1&cls&gt 'dead'
-				 act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-		 if money[myrealbody]>=200000 and myrealbody>0 and myrealbody!you:
-			 act'Купить взрывчатку (Мои деньги)':
+    if ares=npc:
+		if money[you]>=200000:
+			act'Купить взрывчатку (Деньги тела)':
+				knowkiller=you&money[you]-=200000&dinamite=1&needtodie=you&!BlackRoseQW[myrealbody]=16
+				time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> с усмешкой - Думаешь кого-то подорвать? Ладно. Держи бомбу на дистанционном управлении.'
+				act'Самоубиться':murderer[you]+=1&cls&gt 'dead'
+				act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+		if money[myrealbody]>=200000 and myrealbody>0 and myrealbody!you:
+			act'Купить взрывчатку (Мои деньги)':
 				knowkiller=you&money[myrealbody]-=200000&dinamite=1&needtodie=you&!BlackRoseQW[myrealbody]=16
 				time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> с усмешкой - Думаешь кого-то подорвать? Ладно. Держи бомбу на дистанционном управлении.'
-			     act'Самоубиться':cls&murderer[you]+=1&gt 'dead'
-				 act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-     end
+			    act'Самоубиться':cls&murderer[you]+=1&gt 'dead'
+				act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+    end
 end

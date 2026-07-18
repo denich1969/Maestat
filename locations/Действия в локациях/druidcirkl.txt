@@ -1,6 +1,6 @@
 ﻿if magicwater!1 and magicwater!2 and magicwater!3 and magicwater!4: magicwater=1
 $nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/misc/stone.jpg" ></center>'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
-'На поляне круг из камней на которых выведены какие то руны. Из под камней бьют тонкие ключики и бегут в траве на юг.'&!алатырь камень
+'На поляне круг из камней на которых выведены какие-то руны. Из под камней бьют тонкие ключики и бегут в траве на юг.'&!алатырь камень
 if magik[you]>0 and thirst[you]>0:
 	  act'Выпить воды из родничка':
 		 health[you]=healthmax[you]&mana[you]=manamax[you]&if alatstone[you]=0:alatstone[you]=1&magik[you]+=1

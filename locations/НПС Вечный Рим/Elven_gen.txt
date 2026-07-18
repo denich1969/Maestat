@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&Elven=i
-lvl[i]=1&soul[i]=100&money[i]=5500
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&Elven=i&lvl[i]=1&soul[i]=100&money[i]=5500
 master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=1&!Нет наваждения
 spec_face_pic[i]=5&face_pic[i]=176
 $title[i]='Мадам'&$history[i]='Хозяйка салона красоты'
@@ -12,10 +11,5 @@ age[i]=50&vital[i]=40&will[i]=50&reflex[i]=40
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 pol[i]=1&gs'body'&total_generated_female+=1
 womenbrain[i]=100&bisex[i]=1&&lust[i]=10&agro[i]=0&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&thenoob[i]=1&!характер
-item[26]=0
-w_slot[i]=0
-t_slot[i]=16&l_slot[i]=0&b_slot[i]=13
-ut_slot[i]=0&ul_slot[i]=2&ub_slot[i]=0
-!X[i]=2&Y[i]=2&Z[i]=404&H[i]=2&R[i]=4
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-roma_world[]=i&walkprog[i]=105&fight_prog[i]=1&!программа движения!программа боя
+item[26]=0&w_slot[i]=0&t_slot[i]=16&l_slot[i]=0&b_slot[i]=13&ut_slot[i]=0&ul_slot[i]=2&ub_slot[i]=0&!X[i]=2&Y[i]=2&Z[i]=404&H[i]=2&R[i]=4
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&roma_world[]=i&walkprog[i]=105&fight_prog[i]=1

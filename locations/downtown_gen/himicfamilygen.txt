@@ -1,8 +1,3 @@
-﻿gs 'himic_gen'
-gs 'himicwife_gen'
-	 sexpartner['<<himicwife>>,<<himic>>']+=100&sexpartner['<<himic>>,<<himicwife>>']+=100
-	 vagsex[himicwife]+=100&avagsex[himic]+=100
-	 bj[himicwife]+=100&abj[himic]+=100
-	 anal[himicwife]+=100&aanal[himic]+=100
-	 sexpartner_num_m['<<himicwife>>,<<himic>>']=himic&sexpartner_num_f['<<himic>>,<<himicwife>>']=himicwife
-     husband[himicwife]=himic&husband[himic]=himicwife
+﻿gs 'himic_gen'&gs 'himicwife_gen'&	 sexpartner['<<himicwife>>,<<himic>>']+=100&sexpartner['<<himic>>,<<himicwife>>']+=100&vagsex[himicwife]+=100&avagsex[himic]+=100
+bj[himicwife]+=100&abj[himic]+=100&anal[himicwife]+=100&aanal[himic]+=100&sexpartner_num_m['<<himicwife>>,<<himic>>']=himic&sexpartner_num_f['<<himic>>,<<himicwife>>']=himicwife
+husband[himicwife]=himic&husband[himic]=himicwife

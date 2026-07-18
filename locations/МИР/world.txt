@@ -255,7 +255,7 @@ if karta['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0)
 if paint['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''paint''">Картина на стене</a>'
 if moonqwportret['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''moonqwportret''">Портрет лунной королевы</a>'
 if mostwood['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''mostwood''">Толстое бревно лежащее через расщелину</a>'
-if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']>0:'<a href="exec:time+=5&gt ''sumrak''">Вьющиеся тени в которых угадываются какие то фигуры</a>'
+if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']>0:'<a href="exec:time+=5&gt ''sumrak''">Вьющиеся тени в которых угадываются какие-то фигуры</a>'
 if pereval['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''pereval''">Горный перевал</a>'
 if towngate['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''towngate''">Городские врата</a>'
 if castlegate['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''castlegate''">Ворота замка</a>'

@@ -1,64 +1,62 @@
 ﻿sub=1
- :marktotalsubwolker
-	 if sub!you and dead[sub]=0 and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub and mob_busy[sub]=0 and follower[you]!sub:
-	     if mob[w]=14:
-	     !ТЕНТАКЛЬ
-	         if mob[sub]>1:
-				 if vag[sub]>0 and agro[sub]<2:
+:marktotalsubwolker
+	if sub!you and dead[sub]=0 and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub and mob_busy[sub]=0 and follower[you]!sub:
+	    if mob[w]=14:
+	    !ТЕНТАКЛЬ
+	        if mob[sub]>1:
+				if vag[sub]>0 and agro[sub]<2:
 					rander=rand(1,100)
-					 if rander>=70:
-					     if mob[sub]=30 and corr[sub]<100 or mob[sub]=28 and corr[sub]<100:
+					if rander>=70:
+					    if mob[sub]=30 and corr[sub]<100 or mob[sub]=28 and corr[sub]<100:
 							dead[w]=1&killtent[sub]+=1&corr[sub]+=rand(5,10)&!ВОИТЕЛЬНИЦА И СВЯТАЯ МАТЬ УБИВАЕТ ТЕНТАКЛЯ
-					     else
-							 healthmax[w]+=50&health[w]=healthmax[w]&reflex[w]+=1&mob_busy[w]=1&mob_busy[sub]=2&corr[sub]+=rand(10,50)&!тентакль насилует девицу
-							 if slutegg[sub]=0 and total_tentacle<25:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=time+60&slutegg[sub]=50&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=time+60&horny[sub]=0&!оплодотворяет
-							 if mob[sub]=40 or mob[sub]=36:
-								 pastjustgirl[sub]=1&horny[sub]=0&total_slut+=1&total_girl-=1
-								 cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&slutegg[sub]=50
-								 mob[sub]=40&mobexp[sub]=5&!тентакль
-								 $title[sub]='Шлюха'&dick[sub]=0&dickd[sub]=0&ball[sub]=0&vag[sub]=40
-								 healthmax[sub]=10*rand(10,20)&health[sub]=healthmax[sub]&energymax[sub]=100&energy[sub]=energymax[sub]&manamax[sub]=0&mana[sub]=manamax[sub]
-								 minuron[sub]=rand(3,6)&maxuron[sub]=rand(8,15)&reflex[sub]=rand(30,40)&picture[sub]=rand(104,111)
-							 end
-						 end
-					 end
-				 end
-				 if dick[sub]>1:
+					    else
+							healthmax[w]+=50&health[w]=healthmax[w]&reflex[w]+=1&mob_busy[w]=1&mob_busy[sub]=2&corr[sub]+=rand(10,50)&!тентакль насилует девицу
+							if slutegg[sub]=0 and total_tentacle<25:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=time+60&slutegg[sub]=50&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=time+60&horny[sub]=0&!оплодотворяет
+							if mob[sub]=40 or mob[sub]=36:
+								pastjustgirl[sub]=1&horny[sub]=0&total_slut+=1&total_girl-=1&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&slutegg[sub]=50&mob[sub]=40&mobexp[sub]=5&!тентакль
+								$title[sub]='Шлюха'&dick[sub]=0&dickd[sub]=0&ball[sub]=0&vag[sub]=40
+								healthmax[sub]=10*rand(10,20)&health[sub]=healthmax[sub]&energymax[sub]=100&energy[sub]=energymax[sub]&manamax[sub]=0&mana[sub]=manamax[sub]
+								minuron[sub]=rand(3,6)&maxuron[sub]=rand(8,15)&reflex[sub]=rand(30,40)&picture[sub]=rand(104,111)
+							end
+						end
+					end
+				end
+				if dick[sub]>1:
 					corr[sub]+=rand(5,10)& !тентакль корумпирует мужиков
-				     if (mob[sub]=29 and corr[sub]<100) or (mob[sub]=48 and corr[sub]<100):dead[w]=1&killtent[sub]+=1&!МАГ И СТРАЖНИК УБИВАЮТ ТЕНТАКЛЯ
-				     if mob[sub]=14:
-					     if rand(1,100)>=70:
-							 healthmax[w]+=50&health[w]=healthmax[w]&reflex[w]+=1&mob_busy[w]=1&mob_busy[sub]=2&corr[sub]+=rand(10,50)&!тентакль насилует СИССИ
-							 if slutegg[sub]=0 and total_tentacle<25:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=time+60&slutegg[sub]=50&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>0,0']=time+60&horny[sub]=0&!оплодотворяет
-						 end
-				     end
-				 end
-	         end
-	     end
-	     if mob[w]>1:
-			 raperage[w]=0
-			 if agro[w]=2 and corr[w]>=20:raperage[w]=1
-			 if agro[w]=2 and horny[w]>=20:raperage[w]=1
-			 if agro[w]=1 and horny[w]>=50 and corr[w]>=50:raperage[w]=1
-			 if agro[w]=0 and horny[w]>=50 and corr[w]>=100:raperage[w]=1
-	         if dick[w]>1 and mob[sub]>1 and raperage[w]>0:gs'rapefield'&!развращен и есть член нападает
-	         if mob[w]=58:
-	             if Z[w]=2:
-					 if vag[sub]>0 and agro[sub]<2:cage['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=2&cage_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=sub&dead[sub]=3&!ДОМИНАТРИКС(58) сажает девушку  в клетку в подвале
-				 end
-				 if rand(1,100)>=70 and agro[sub]<2:mob_busy[w]=1&mob_busy[sub]=2&under_sub[w]=sub&corr[sub]+=rand(10,50)&horny[w]=0&horny[sub]=0&!напала и доминирует
-	         end
-	         if mob[w]=23:
-				 if vag[sub]>0 and birdtimer[sub]<time and agro[sub]<2 and total_goblin<40:timesgoblinbird[sub]+=1&birdtimer[sub]=time+250&X=Z[w]&Y=Y[w]&Z=Z[w]&gs'goblin'
-				 if corr[sub]<100:gloow_power+=1&corr[sub]=100&!ХМУРЫ
-			 end
-	         if mob[w]=25 and corr[sub]=0:healthmax[w]+=100&health[w]=healthmax[w]&minuron[w]+=1&maxuron[w]+=2&reflex[w]+=1&succub_win[w]+=1&succubus_slut[sub]=w&corr[sub]=100&!СУККУБ 
-	     end
+				    if (mob[sub]=29 and corr[sub]<100) or (mob[sub]=48 and corr[sub]<100):dead[w]=1&killtent[sub]+=1&!МАГ И СТРАЖНИК УБИВАЮТ ТЕНТАКЛЯ
+				    if mob[sub]=14:
+					    if rand(1,100)>=70:
+							healthmax[w]+=50&health[w]=healthmax[w]&reflex[w]+=1&mob_busy[w]=1&mob_busy[sub]=2&corr[sub]+=rand(10,50)&!тентакль насилует СИССИ
+							if slutegg[sub]=0 and total_tentacle<25:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=time+60&slutegg[sub]=50&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>0,0']=time+60&horny[sub]=0&!оплодотворяет
+						end
+				    end
+				end
+	        end
+	    end
+	    if mob[w]>1:
+			raperage[w]=0
+			if agro[w]=2 and corr[w]>=20:raperage[w]=1
+			if agro[w]=2 and horny[w]>=20:raperage[w]=1
+			if agro[w]=1 and horny[w]>=50 and corr[w]>=50:raperage[w]=1
+			if agro[w]=0 and horny[w]>=50 and corr[w]>=100:raperage[w]=1
+	        if dick[w]>1 and mob[sub]>1 and raperage[w]>0:gs'rapefield'&!развращен и есть член нападает
+	        if mob[w]=58:
+	            if Z[w]=2:
+					if vag[sub]>0 and agro[sub]<2:cage['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=2&cage_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0']=sub&dead[sub]=3&!ДОМИНАТРИКС(58) сажает девушку  в клетку в подвале
+				end
+				if rand(1,100)>=70 and agro[sub]<2:mob_busy[w]=1&mob_busy[sub]=2&under_sub[w]=sub&corr[sub]+=rand(10,50)&horny[w]=0&horny[sub]=0&!напала и доминирует
+	        end
+	        if mob[w]=23:
+				if vag[sub]>0 and birdtimer[sub]<time and agro[sub]<2 and total_goblin<40:timesgoblinbird[sub]+=1&birdtimer[sub]=time+250&X=Z[w]&Y=Y[w]&Z=Z[w]&gs'goblin'
+				if corr[sub]<100:gloow_power+=1&corr[sub]=100&!ХМУРЫ
+			end
+	        if mob[w]=25 and corr[sub]=0:healthmax[w]+=100&health[w]=healthmax[w]&minuron[w]+=1&maxuron[w]+=2&reflex[w]+=1&succub_win[w]+=1&succubus_slut[sub]=w&corr[sub]=100&!СУККУБ 
+	    end
 	 end
-	 if mob[w]=42: 
-		 if sub!you and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub:
-		     if dead[sub]=1 or dead[sub]=3:dead[sub]=0&health[sub]=healthmax[sub]&buben_miracle+=1&healthmax[w]+=10&health[w]=healthmax[w]&!ШАМАН АБОРИГЕНОВ ОЖИВЛЯЕТ МЕРТВЕЦОВ
-		 end
-		 if corr[sub]=0:corr[sub]=100
-	 end
+	if mob[w]=42: 
+		if sub!you and Z[w]=Z[sub] and X[w]=X[sub] and Y[w]=Y[sub] and mob_busy[w]=0 and w!sub:
+		    if dead[sub]=1 or dead[sub]=3:dead[sub]=0&health[sub]=healthmax[sub]&buben_miracle+=1&healthmax[w]+=10&health[w]=healthmax[w]&!ШАМАН АБОРИГЕНОВ ОЖИВЛЯЕТ МЕРТВЕЦОВ
+		end
+		if corr[sub]=0:corr[sub]=100
+	end
 sub+=1&if sub<=npcmax:jump'marktotalsubwolker'

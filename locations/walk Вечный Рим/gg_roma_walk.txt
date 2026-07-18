@@ -1,34 +1,21 @@
 ﻿if $loc[you]='4,2,404,1,1':
 	act'Сидеть на кресле час':
-		energy[you]=energyMax[you]
-		time+=60&cls&gs'walker'&gs'stat'&'Вы сидите на старом деревянном стуле уставившись в стену.'
-		 if exp[you]>=expneed[you] and muggle[you]=0:gt'newlevel'
-		 act'Встать':gt 'world'
+		energy[you]=energyMax[you]&time+=60&cls&gs'walker'&gs'stat'&'Вы сидите на старом деревянном стуле уставившись в стену.'&act'Встать':gt 'world'
+		if exp[you]>=expneed[you] and muggle[you]=0:gt'newlevel'
 	end
 end
 !if $loc[you]='2,2,404,2,2':gs 'Butcher_talk'
-!if $loc[you]='2,2,404,3,4':gs 'slaverhouse'
+!if $loc[you]='2,2,404,3,4':gs 'slaverhouse'&! Тут переделать, чтобы работало
 if $loc[you]='2,2,404,3,2':
-	! Тут переделать, чтобы работало
 	if item[2]>0 and (burden[you]-item_burden[2]+item_burden[3])<=burdenmax[you]:
-		act'Налить бутылку воды':
-			item[2]-=1&burden[you]-=item_burden[2]
-			item[3]+=1&burden[you]+=item_burden[3]
-			time+=5&gt $curloc
-		end
+		act'Налить бутылку воды':item[2]-=1&burden[you]-=item_burden[2]&item[3]+=1&burden[you]+=item_burden[3]&time+=5&gt $curloc
 	end
 	if shouse_food_raw>=10 and shouse_food<=0:shouse_food_raw-=10&shouse_food+=10
 	if item_loc['98,<<$loc[you]>>']>0:
-		here_food['<<$loc[you]>>']=item_loc['98,<<$loc[you]>>']
-		item_loc['98,<<$loc[you]>>']=0
-		gt'world'
+		here_food['<<$loc[you]>>']=item_loc['98,<<$loc[you]>>']&item_loc['98,<<$loc[you]>>']=0&gt'world'
 		if hunger[you]>1:
 			'На столе накрыто и вас ожидает горячая еда'
-			act'Поесть':
-				energy[you]=energyMax[you]
-				fat[you]+=25&if vag[you]>0:fat[you]+=25
-				time+=15&cls&gs'eat'&here_food['<<$loc[you]>>']-=1&gs'stat'&'Вы сели за стол и поели.'&act'...':gt $curloc
-			end
+			act'Поесть':energy[you]=energyMax[you]&fat[you]+=25&if vag[you]>0:fat[you]+=25&time+=15&cls&gs'eat'&here_food['<<$loc[you]>>']-=1&gs'stat'&'Вы сели за стол и поели.'&gt $curloc
 		end
 	end
 end 

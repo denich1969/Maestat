@@ -1,99 +1,52 @@
-﻿$loc[you]=$curloc
-gs'stat'
-loc_for_drop=0
-'<b><center>Звероферма</center></b>'
-!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-''
-gs'npconloc'
-gs'item'
-
-!act'Уйти':gt'rome_zoo'
-
+﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Звероферма</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+nl&gs'npconloc'&gs'item'&!act'Уйти':gt'rome_zoo'
 if hour>=8 and hour<=20:
 	if pet_follower>0:
 	slave=pet_follower
 		act'Сколько вы заплатите за рабыню?':
-		cls
-		gs'stat'
+		cls&gs'stat'
 			if sl_age[slave]<30:
 				if sl_stren[slave]>=60:
 					if sl_obediance[slave]>=80 and sl_pony[slave]>=20:
-					summa=sl_obediance[slave]*20
-					summa=summa+sl_pony[slave]*20
-					summa=summa+sl_stren[slave]*20
-					'Фермер оценил рабыню - Я ее могу взять за <<summa>> искр'
+						summa=sl_obediance[slave]*20&summa=summa+sl_pony[slave]*20&summa=summa+sl_stren[slave]*20&'Фермер оценил рабыню - Я ее могу взять за <<summa>> искр'
 						act'Продать':
-						cls
-						pet_tipe=0
-						iskr[you]+=summa
-						pet_follower=0
-						$loc_slave[slave]='zoofarm'
-						owner[slave]=3
-						slave_pony+=1
-						gs'stat'
-						'Вы продали рабыню в пони'
-						act'Уйти':gt $curloc
+							cls&pet_tipe=0&iskr[you]+=summa&pet_follower=0&$loc_slave[slave]='zoofarm'&owner[slave]=3&slave_pony+=1&gs'stat'&'Вы продали рабыню в пони'&act'Уйти':gt $curloc
 						end 
 					else
-					'Фермер попробовал покомандовать рабыней, что бы она изобразила пони и сморщился - она никуда не годится.'
-					if sl_obediance[slave]<80:'Рабыня слишком не покорная'
-					if sl_pony[slave]<20:'Рабыня слишком плохо обучена как пони'
+						'Фермер попробовал покомандовать рабыней, что бы она изобразила пони и сморщился - она никуда не годится.'
+						if sl_obediance[slave]<80:'Рабыня слишком не покорная'
+						if sl_pony[slave]<20:'Рабыня слишком плохо обучена как пони'
 					end
 				else
-				'Фермер отказывается - она слишком слабая для пони'
+					'Фермер отказывается - она слишком слабая для пони'
 				end
 			else
-			'Фермер - Она слишком старая, я беру рабынь только до 30 лет'
+				'Фермер - Она слишком старая, я беру рабынь только до 30 лет'
 			end
-		act'Уйти':gt $curloc
+			act'Уйти':gt $curloc
 		end
-		
-		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if iskr[you]>=100 and sl_energy_cur[slave]>0:
 			act'Тренировать рабыне навыки пони 100 искр':
-			cls
-			if sl_char[slave]=0:sl_obediance[slave]+=rand(10,15)
-			if sl_char[slave]=1:sl_obediance[slave]+=rand(5,10)
-			if sl_char[slave]=2:sl_obediance[slave]+=rand(1,5)
-			sl_pony[slave]+=rand(5,10)
-			sl_stren[slave]+=rand(3,8)
-			iskr[you]-=100
-			time+=60
-			sl_energy_cur[slave]-=1
-			sl_emo[slave]-=1
-			gs'stat'
-			'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
-			'Тренер одел вашу рабыню в упряж пони и начал ее гонять'
-			act'...':gt $curloc
+				if sl_char[slave]=0:sl_obediance[slave]+=rand(10,15)
+				if sl_char[slave]=1:sl_obediance[slave]+=rand(5,10)
+				if sl_char[slave]=2:sl_obediance[slave]+=rand(1,5)
+				sl_pony[slave]+=rand(5,10)&sl_stren[slave]+=rand(3,8)&iskr[you]-=100&time+=60&sl_energy_cur[slave]-=1&sl_emo[slave]-=1&cls&gs'stat'&'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
+				'Тренер одел вашу рабыню в упряж пони и начал ее гонять'&act'...':gt $curloc
 			end
 		end
-		
 		if ponysbru=0:
 			if iskr[you]>=1000:
 				act'Купить сбрую пони 1000 искр':
-				cls
-				ponysbru=1
-				iskr[you]-=1000
-				time+=60
-				gs'stat'
-				'Вы купили сбрую пони, чтобы тренировать рабыню дома'
-				act'...':gt $curloc
+					ponysbru=1&iskr[you]-=1000&time+=60&cls&gs'stat'&'Вы купили сбрую пони, чтобы тренировать рабыню дома'&act'...':gt $curloc
 				end
 			end
 		end
 		if ponysbru>0 and ponicart=0:
 			if iskr[you]>=2000:
 				act'Купить тележку пони 2000 искр':
-				cls
-				ponicart=1
-				iskr[you]-=2000
-				time+=60
-				gs'stat'
-				'Вы купили тележку в которую можно запрягать пони'
-				act'...':gt $curloc
+					ponicart=1&iskr[you]-=2000&time+=60&cls&gs'stat'&'Вы купили тележку в которую можно запрягать пони'&act'...':gt $curloc
 				end
 			end
-		
 		end
 	end
 end

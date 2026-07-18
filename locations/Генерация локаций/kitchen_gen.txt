@@ -1,5 +1,5 @@
 ﻿!Образец вызова: gs 'kitchen_gen',уровень кухни,'еда или кухонные принадлежности',номер предмета
-$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'&$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='в кухню'?gs'item_base'
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'&$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='в кухню'&gs'item_base'
 if args[0]=0:
 	$locopis['<<$temploc>>']=''&!описание
 	if args[1]='':np['<<$temploc>>']=3&!номер картинки

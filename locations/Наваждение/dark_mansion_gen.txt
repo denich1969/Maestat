@@ -1,15 +1,11 @@
-﻿X=0&Y=0&Z=730&H=0&R=0
-$n_board[Z]='Стена'&$w_board[Z]='Стена'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
-temper[Z]=2&oxigen[Z]=1
+﻿X=0&Y=0&Z=730&H=0&R=0&$n_board[Z]='Стена'&$w_board[Z]='Стена'&$e_board[Z]='Стена'&$s_board[Z]='Стена'&temper[Z]=2&oxigen[Z]=1
 :markgenmansion
-	H=0&	R=0
-	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	 $locname['<<$temploc>>']='Особняк'&$lname['<<$temploc>>']='Особняк'&$locopis['<<$temploc>>']='Заброшенный и покинутый особняк'
-	 np['<<$temploc>>']=rand(588,595)
-	 if X=0 and Y=3:mansion['<<$temploc>>']=1
-	 tipemob=rand(0,2)
-	 if tipemob=0:gs'goblin'
-	 if tipemob=1:gs'succubus'
-	 if tipemob=2:gs'illitid'
+	H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	$locname['<<$temploc>>']='Особняк'&$lname['<<$temploc>>']='Особняк'&$locopis['<<$temploc>>']='Заброшенный и покинутый особняк'&np['<<$temploc>>']=rand(588,595)
+	if X=0 and Y=3:mansion['<<$temploc>>']=1
+	tipemob=rand(0,2)
+	if tipemob=0:gs'goblin'
+	if tipemob=1:gs'succubus'
+	if tipemob=2:gs'illitid'
 X+=1&if X<=6:jump'markgenmansion'
 X=0&Y+=1&if Y<=6:jump'markgenmansion'

@@ -1,8 +1,5 @@
-﻿$loc[you]=$curloc
-loc_for_drop=0&gs'stat'&'<b><center>Гильдия Работорговцев</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-'Судя по интерьерам гильдия на подъеме и очень влиятельна'
-'За 10 искр можно переночевать в спальном помещении гильдии'
-gs'npconloc'&gs'item'
+﻿$loc[you]=$curloc&loc_for_drop=0&gs'stat'&'<b><center>Гильдия Работорговцев</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+'Судя по интерьерам гильдия на подъеме и очень влиятельна'&*nl'За 10 искр можно переночевать в спальном помещении гильдии'&gs'npconloc'&gs'item'
 if iskr[you]>=10 and roompayslvm!daystart and slaverhouse=0:act'Оплатить комнату':time+=5&iskr[you]-=10&roompayslvm=daystart&gt $curloc
 if roompayslvm=daystart or roompayslvm=daystart-1 and hour<8:'У вас оплачено койко место в общей комнате на сегодня'&gs'sleep'
 if dolgsmg>0:

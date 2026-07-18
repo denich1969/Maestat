@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i
-mob[i]=51&mobexp[i]=10
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i&lvl[i]=1&soul[i]=100&mob[i]=51&mobexp[i]=10
 tipemobpic[i]=1&picture[i]=200
 $nick[i]='Тентакль'&total_tentacle+=1
 txtrand=rand(0,11)
@@ -18,5 +17,4 @@ if txtrand=11:$name[i]='Синий'&picture[i]=211
 healthmax[i]=10*rand(30,60)&health[i]=healthmax[i]&energymax[i]=1000&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(5,10)&maxuron[i]=rand(15,30)
 reflex[i]=rand(20,60)
 corr[i]=1000
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-obsession_world[]=i&
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&

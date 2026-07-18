@@ -4,25 +4,20 @@ if mob_sleep[npc]>time:
 else
     if you_slut[npc]>0:
 		if h_slot[you]=2 and corr[npc]<50:
-			'<<$nick[npc]>> кланяется вам - Какие будут приказания, ваше величество?'
+			'<<$nick[npc]>> кланяется вам - Какие будут приказания, ваше величество?'&gs'take_follower'
 			act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 			act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-			gs'take_follower'
 		else
-			'<<$nick[npc]>> презрительно смотрит на вас'
-		    if corr[npc]<100:
-				act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
-			end
+			'<<$nick[npc]>> презрительно смотрит на вас'&if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 			dynamic $d_fear
 		end
     else
 		if corr[npc]<100:
 			horny[npc]=0
 			if h_slot[you]=2:
-				'<<$nick[npc]>> кланяется вам - Какие будут приказания, ваше величество?'
+				'<<$nick[npc]>> кланяется вам - Какие будут приказания, ваше величество?'&gs'take_follower'&!позвать с собой персонажа
 				act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 				act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-				gs'take_follower'&!позвать с собой персонажа
 			else
 				if friends[npc]=0:'<<$nick[npc]>> хмурится - Проваливай!'
 				if friends[npc]=1:'<<$nick[npc]>> улыбается - Привет!'

@@ -1,8 +1,1 @@
-﻿clo=ARGS[0]
-
-l_wardrobe[clo]=1
-l_slot[you]=0
-
-cum_skirt[you]=0
-
-gt'wardrobe'
+﻿clo=ARGS[0]&l_wardrobe[clo]=1&l_slot[you]=0&cum_skirt[you]=0&gt'wardrobe'

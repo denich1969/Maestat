@@ -1,6 +1,6 @@
 ﻿if follower[npc]>0:
 	if follower[npc]=you:'Следует за вами'
-	if follower[npc]!you:'Следует за кем то'     
+	if follower[npc]!you:'Следует за кем-то'     
 	if sex_follow[you]=npc:
 		if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0) and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
 			if gender[npc]>0:

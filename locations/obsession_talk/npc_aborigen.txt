@@ -20,10 +20,10 @@
 							if total_npc_on_loc=1:
 								'Абориген заговорщицки вам подмигивает - Крошка, если будешь ласкова со мной, я дам тебе лекарство или дубинку. 
 								Ты понимаешь? Тебе нужно всего лишь встать на колени и сделать мне приятно.'
-								 act'Я хочу за секс лекарство':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['28,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
-								 act'Я хочу за секс зелье выносливости':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['50,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
-								 if m_slot[you]=0:act'Я хочу за секс дубинку':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['27,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
-								 if fight_skill[you]<100:act'Научи меня драться, а я тебя отблагодарю':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&fight_skill[you]+=25&pose[you]=2&gt'sex'
+								act'Я хочу за секс лекарство':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['28,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
+								act'Я хочу за секс зелье выносливости':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['50,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
+								if m_slot[you]=0:act'Я хочу за секс дубинку':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['27,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
+								if fight_skill[you]<100:act'Научи меня драться, а я тебя отблагодарю':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&fight_skill[you]+=25&pose[you]=2&gt'sex'
 							end
 						end
 						act'<b>Уйти</b>':gt 'preloc'
@@ -31,8 +31,8 @@
 					act'Спросить совета':
 						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&timestxt=rand(1,4)
 						if timestxt=1:
-							 if knowlist=0:knowlist=1
-							 'Абориген важно заметил что на болотах растет такой куст, чьи листья полностью восстанавливают здоровье.'
+							if knowlist=0:knowlist=1
+							'Абориген важно заметил что на болотах растет такой куст, чьи листья полностью восстанавливают здоровье.'
 						end
 						if timestxt=2:
 							if kolknow=0:kolknow=1
@@ -50,53 +50,51 @@
 				end
 			end
 		else
-			 'Абориген злобно скалится - ты убивать моего брата! Я делать из тебя шлюху!'
-			 dynamic $d_fear
+			'Абориген злобно скалится - ты убивать моего брата! Я делать из тебя шлюху!'
+			dynamic $d_fear
 		end
 	end
 elseif Z[you]=100:
 	if r_leg_t[you]=1 and skin[i]>3 and skin[i]<7:horny[npc]=50&'<<$nick[npc]>> смотрит на татуировку шлюхи для черных'
 	if (horny[npc]>=50 and sexiness[you]>20 and horny[you]>50) or (tornton_dolg[you]>0 and rand(1,5)=3):
 		'<<$nick[npc]>> похотливо осматривает вас - Эй, сучка, давай ебаться!'
-		 act'Я тебе дам, только будь нежнее':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+		act'Я тебе дам, только будь нежнее':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
 	else
-		 if pol[you]=0 and sexiness[you]=0:
-			 '<<$nick[npc]>> агрессивно выкрикивает - Эй ты! Уходи!'&act'<b>Уйти</b>':gt 'preloc'
-		 else
-			 horny[npc]+=sexiness[you]/4&'<<$nick[npc]>> похотливо пялится на вас - Отличная задница!'
-			 act'Кокетливо улыбнуться':
-				 horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент'
-				 womenbrain[you]+=1&!statistics_flirt[you]+=1
-				 if horny[npc]>=50:
-					'<<$nick[npc]>> ухмыляется вашему кокетству. - Ну чего тогда, сученька, может доставим друг другу удовольствие?'
-					act'А почему бы и нет?':solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
-				 end
-				 act'<b>Уйти</b>':gt 'preloc'
-			 end
-			 act'<b>Уйти</b>':gt 'preloc'
-		 end
-		 if know['<<npc>>,<<you>>']=0:
-			 act'Познакомиться':
-				 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 else
-			 if pol[you]>0:
-				 if dom[you]>=dom[npc]:
-					 act'Надменно фыркнуть':
-						know['<<you>>,<<npc>>']+=1
-						 gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> улыбается. - А ты дерзкая Цаца. Меня <<$name[npc]>> <<$surname[npc]>> зовут. Будем знакомы!'
-						 act'<b>Уйти</b>':gt 'preloc'
-					 end
-				 end
-				 if dom[you]<dom[npc]:
-					 act'Надменно фыркнуть':
-						 gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> скривился. - А ты чего такая дерзкая, тварь! Упала, мразь, на колени и соси прощение!'
-						 if alko[you]<=10:act'<b>Драться</b>':gt 'prefight'
-						 act'На колени':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-					 end
-				 end
-			 else
+		if pol[you]=0 and sexiness[you]=0:
+			'<<$nick[npc]>> агрессивно выкрикивает - Эй ты! Уходи!'&act'<b>Уйти</b>':gt 'preloc'
+		else
+			horny[npc]+=sexiness[you]/4&'<<$nick[npc]>> похотливо пялится на вас - Отличная задница!'
+			act'Кокетливо улыбнуться':
+				horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент'
+				womenbrain[you]+=1&!statistics_flirt[you]+=1
+				if horny[npc]>=50:
+					'<<$nick[npc]>> ухмыляется вашему кокетству. - Ну чего тогда, сученька, может доставим друг другу удовольствие?'&act'А почему бы и нет?':solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
+				end
+				act'<b>Уйти</b>':gt 'preloc'
+			end
+			act'<b>Уйти</b>':gt 'preloc'
+		end
+		if know['<<npc>>,<<you>>']=0:
+			act'Познакомиться':
+				know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		else
+			if pol[you]>0:
+				if dom[you]>=dom[npc]:
+					act'Надменно фыркнуть':
+						know['<<you>>,<<npc>>']+=1&act'<b>Уйти</b>':gt 'preloc'
+						gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> улыбается. - А ты дерзкая Цаца. Меня <<$name[npc]>> <<$surname[npc]>> зовут. Будем знакомы!'
+					end
+				end
+				if dom[you]<dom[npc]:
+					act'Надменно фыркнуть':
+						gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> скривился. - А ты чего такая дерзкая, тварь! Упала, мразь, на колени и соси прощение!'
+						if alko[you]<=10:act'<b>Драться</b>':gt 'prefight'
+						act'На колени':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+					end
+				end
+			else
 				if dom[you]>=dom[npc]:
 					act'Послать его на хер':
 						know['<<you>>,<<npc>>']+=1&gs'stat'&'<center><img src="<<$d_view>>" ></center>'

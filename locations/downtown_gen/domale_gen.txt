@@ -1,35 +1,8 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
-lvl[i]=1&soul[i]=100
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100
 master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
 male_pic+=1&if male_pic>400:male_pic=1
 face_pic[i]=male_pic&!присвоение фотки
-$title[i]='Мужчина из даунтауна'
-!{natiorand=rand(1,100)&if natiorand<=70:tipename=9
-if natiorand>70:tipename=rand(0,8)
-if pretipename>0:tipename=pretipename
-if tipename=0:
-	gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname
-elseif tipename=1:
-	gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname
-elseif tipename=2:
-	gs'manname_srb'&$name[i]=$genname&gs'surname_srb'&$surname[i]=$gensurname
-elseif tipename=3:
-	gs'manname_noh'&$name[i]=$genname&gs'surname_noh'&$surname[i]=$gensurname
-elseif tipename=4:
-	gs'manname_ara'&$name[i]=$genname&gs'surname_ara'&$surname[i]=$gensurname
-elseif tipename=5:
-	gs'manname_sa'&$name[i]=$genname&gs'surname_sa'&$surname[i]=$gensurname
-elseif tipename=6:
-	gs'manname_ukr'&$name[i]=$genname&gs'surname_ukr'&$surname[i]=$gensurname
-elseif tipename=7:
-	gs'manname_az'&$name[i]=$genname&gs'surname_az'&$surname[i]=$gensurname
-elseif tipename=8:
-	gs'manname_rom'&$name[i]=$genname&gs'surname_rom'&$surname[i]=$gensurname
-elseif tipename=9:
-	gs'man_name'&$name[i]=$genname&gs'surname'&	$surname[i]=$gensurname
-end
-nation[i]=tipename&pretipename=0}
-gs'name_nations',rand(9),0,i
+$title[i]='Мужчина из даунтауна'&gs'name_nations',rand(9),0,i
 face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=rand(21,28)&dickd[i]=rand(30,55)&ball[i]=rand(30,100)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 dicklongrand=rand(1,100)
@@ -45,11 +18,10 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_male+=1
 bisex[i]=0&agro[i]=rand(10,100)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&!характер
 if lust[i]>=75 and agro[i]>=75:alfa[i]=1&total_alfa+=1
-class[i]=pre_class
+class[i]=pre_class&ul_slot[i]=5
 if class[i]=0:t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&!низший класс
 if class[i]=1:t_slot[i]=rand(5,7)&l_slot[i]=rand(4,5)&b_slot[i]=rand(2,3)&!средний класс
 if class[i]=2:t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&!элитный класс
-ul_slot[i]=5
 Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if you=princess and Z[i]=750:delusion[i]=0&mob[i]=19&mobexp[i]=10&corr[i]=0&agro[i]=0
 if you!princess and Z[i]=750:delusion[i]=1&mob[i]=19&mobexp[i]=10&corr[i]=100&agro[i]=rand(1,2)

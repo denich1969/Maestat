@@ -2,38 +2,38 @@
 cls&gs'stat'&'<center> <<$title[npc]>></center>'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> обнимает вас.'
 if dick[you]>1:
 	avagsex[you]+=1&manize[you]+=1
-     act'Дать в рот':
-		 abj[you]+=1&health[you]+=50&cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'
-	     act'Кончить в рот':
-			 horny[you]=0&cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)&'<<$name[npc]>> открыла ротик принимая сперму в рот'&act'Уйти':gt 'preloc'
-		 end
-     end
-     if vag[npc]>0:
-		 act'Оттрахать':
-			 avagsex[you]+=1&energy[you]+=100&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
+    act'Дать в рот':
+		abj[you]+=1&health[you]+=50&cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'
+	    act'Кончить в рот':
+			horny[you]=0&cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)&'<<$name[npc]>> открыла ротик принимая сперму в рот'&act'Уйти':gt 'preloc'
+		end
+    end
+    if vag[npc]>0:
+		act'Оттрахать':
+			avagsex[you]+=1&energy[you]+=100&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
 			'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет когда вы ее трахаете'
-			 act'Кончить внутрь':
-				 horny[you]=0&cls&gs'stat'&$func('get_images', 'vag_cream_mis', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей внутрь'&act'Уйти':gt 'preloc'
-			 end
-			 act'Кончить в рот':
-				 horny[you]=0&cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)&'Вы достали член из горячего влагалища и кончили в ей в рот, <<$name[npc]>> покорно сглатывает сперму'&act'Уйти':gt 'preloc'
-			 end
-		 end
-     end
-     act'Трахнуть в жопу':
-		 aanal[you]+=1&if manamax[you]>0:mana[you]+=soul[you]
-		 cls&gs'stat'&$func('get_images', 'anal_fuck_dog', npc, you)&'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'
-	 	 act'Кончить внутрь':
-			 horny[you]=0&cls&gs'stat'&$func('get_images', 'anal_cream_dog', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей в задницу'&act'Уйти':gt 'preloc'
-		 end
-	 	 act'Кончить в рот':
-			 horny[you]=0&cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)&'Вы достали член из растраханной задницы и <<$name[npc]>> открыла рот, что бы вы могли туда кончить.'&act'Уйти':gt 'preloc'
-		 end
-     end
+			act'Кончить внутрь':
+				horny[you]=0&cls&gs'stat'&$func('get_images', 'vag_cream_mis', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей внутрь'&act'Уйти':gt 'preloc'
+			end
+			act'Кончить в рот':
+				horny[you]=0&cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)&'Вы достали член из горячего влагалища и кончили в ей в рот, <<$name[npc]>> покорно сглатывает сперму'&act'Уйти':gt 'preloc'
+			end
+		end
+    end
+    act'Трахнуть в жопу':
+		aanal[you]+=1&if manamax[you]>0:mana[you]+=soul[you]
+		cls&gs'stat'&$func('get_images', 'anal_fuck_dog', npc, you)&'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'
+	 	act'Кончить внутрь':
+			horny[you]=0&cls&gs'stat'&$func('get_images', 'anal_cream_dog', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей в задницу'&act'Уйти':gt 'preloc'
+		end
+	 	act'Кончить в рот':
+			horny[you]=0&cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)&'Вы достали член из растраханной задницы и <<$name[npc]>> открыла рот, что бы вы могли туда кончить.'&act'Уйти':gt 'preloc'
+		end
+    end
 else
 	lesb[you]+=1
-     act'Заставить отлизать':
-		 lesb[you]+=1&horny[you]=0&health[you]+=50&energy[you]+=100&if manamax[you]>0:mana[you]+=soul[you]
-		 cls&gs'stat'&'<center><video autoplay loop src="pic/sex/rape/cunt.webm" ></video></center>'&'Вы сели на лицо и заставили ее отлизать у вас, вскоре вы кончили.'&act'Уйти':gt 'preloc'
-	 end
+    act'Заставить отлизать':
+		lesb[you]+=1&horny[you]=0&health[you]+=50&energy[you]+=100&if manamax[you]>0:mana[you]+=soul[you]
+		cls&gs'stat'&'<center><video autoplay loop src="pic/sex/rape/cunt.webm" ></video></center>'&'Вы сели на лицо и заставили ее отлизать у вас, вскоре вы кончили.'&act'Уйти':gt 'preloc'
+	end
 end

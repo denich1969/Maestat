@@ -1,14 +1,12 @@
-﻿!$d_view='pic/mob/tentacle.jpg'
-!'<center><img src="<<$d_view>>" ></center>'
- if mob_sleep[npc]>time:
+﻿!$d_view='pic/mob/tentacle.jpg'&'<center><img src="<<$d_view>>" ></center>'
+if mob_sleep[npc]>time:
 	'Чудовище свернулось в комок и похоже спит'
- else
+else
 	'Клубок переплетающихся щупалец агрессивно шипит и наступает на вас'
- end
- if mob_sleep[npc]<=time:
-	 act'Сдаться':
-		 mob_sleep[npc]=time+60
-		 healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
-		 win[npc]+=1&cls&'Чудовищный комок щупалец опутывает ваше тело сжимая в объятиях'&act'Нееет!!!':tentakl=0&gt'tentrape'
-	 end
- end
+end
+if mob_sleep[npc]<=time:
+	act'Сдаться':
+		mob_sleep[npc]=time+60&healthmax[npc]=healthmax[npc]+10&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1
+		win[npc]+=1&cls&'Чудовищный комок щупалец опутывает ваше тело сжимая в объятиях'&act'Нееет!!!':tentakl=0&gt'tentrape'
+	end
+end

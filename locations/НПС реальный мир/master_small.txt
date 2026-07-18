@@ -1,5 +1,5 @@
 ﻿$thatloc[you]=$curloc&Z[you]=210&gs'stat'&gs'Poser'&loc_for_drop=1
 '<center><b>Маленькая комната</b></center>'&'<center><img src="pic/loc/room/master_small.jpg" ></center>'&*nl'Маленькая и уютная комната с удобной кроватью и кое какой мебелью'
-'<a href="exec:time+=1&gt ''mirror''">Зеркало</a>'&*nl!'<a href="exec:time+=1&gt ''wardrobe''">Шкаф</a>'&!*nl'<a href="exec:time+=1&gt ''bed''">Кровать</a>'
+'<a href="exec:time+=1&gt ''mirror''">Зеркало</a>'&*nl&'<a href="exec:time+=1&gt ''wardrobe''">Шкаф</a>'&*nl'<a href="exec:time+=1&gt ''bed''">Кровать</a>'
 if pose[you]=1:act'<b>Уйти</b>':time+=1&gt'master_korr'
 gs'item'&gs'npconloc'

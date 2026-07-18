@@ -3,50 +3,41 @@
 	if mob_sleep[npc]>time:
 		'<<$nick[npc]>> дремлет'
 	else
-		 if you_slut[npc]>0:
+		if you_slut[npc]>0:
 			'<<$nick[npc]>> презрительно смотрит на вас'
-			 if corr[npc]<100:
-				 act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
-			 end
-			 if whore[you]>0 and corr[npc]<100:
-				 if horny[you]>=50:
-					'<<$nick[npc]>> выглядит возбужденным'
-					 act'Предложить секс за 100 гульденов':corr[npc]-=10&solo=npc&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
-				 else
-					''
-				 end
-			 end
+			if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+			if whore[you]>0 and corr[npc]<100 and horny[you]>=50:
+				'<<$nick[npc]>> выглядит возбужденным'&act'Предложить секс за 100 гульденов':corr[npc]-=10&solo=npc&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
+			end
 			dynamic $d_fear
 		else
 			if corr[npc]<100:
 				if h_slot[you]=24:
-					 '<<$nick[npc]>> уважительно кланеется - Ваше величество!'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
-					 if princess=you and nalog[npc]<princessdaystart:act'Собрать налоги':nalog[npc]=daystart+1&gulden[you]+=3000&horny[npc]-=30&gt 'preloc'
+					'<<$nick[npc]>> уважительно кланеется - Ваше величество!'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+					if princess=you and nalog[npc]<princessdaystart:act'Собрать налоги':nalog[npc]=daystart+1&gulden[you]+=3000&horny[npc]-=30&gt 'preloc'
 				else
 					if horny[npc]>=50:
-						'<<$nick[npc]>> ухмыляется вам - Детка, ты работаешь? Даю 100 гульденов.'
-						 act'Секс за 100 гульденов':corr[npc]-=10&solo=npc&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
-						 if corr[npc]<20:act'Отвали':horny[npc]=0&gt 'preloc'
+						'<<$nick[npc]>> ухмыляется вам - Детка, ты работаешь? Даю 100 гульденов.'&act'Секс за 100 гульденов':corr[npc]-=10&solo=npc&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
+						if corr[npc]<20:act'Отвали':horny[npc]=0&gt 'preloc'
 						dynamic $d_fear
 					else
 						'<<$nick[npc]>> смотрит на вас - Здравствуйте!'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 						act'Слухи':
-							 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-							 text=rand(0,8)
-							 if text=0 and princess!you:'<<$nick[npc]>> - Поговаривают принцесса пропала.'
-							 if text=0 and princess=you:'<<$nick[npc]>> - У нас отличное маленькое королевство.'
-							 if text=1 and princess!you:'<<$nick[npc]>> - Поговаривают любой кто оденет диадему принцессы станет принцессой.'
-							 if text=1 and  princess=you:'<<$nick[npc]>> - Поговаривают диадема принцессы магическая.'
-							 if text=2 and princess!you:'<<$nick[npc]>> - Поговаривают Хмуры напустили чудовищ на окрестные земли.'
-							 if text=2 and  princess=you:'<<$nick[npc]>> - У нас красивый город на берегу моря.'
-							 if text=3:'<<$nick[npc]>> - В порту несколько раз видели чудовищ выбирающихся из моря.'
-							 if text=4:'<<$nick[npc]>> - Стражники сильные и тренированные, они никого не пускают в дворец.'
-							 if text=5:'<<$nick[npc]>> - В лесу живут эльфы и у них нет домов, они предпочитают жить под открытым небом.'
-							 if text=6:'<<$nick[npc]>> - Колючки в лесу можно вырубать только топором.'
-							 if text=7:'<<$nick[npc]>> - Говорят рунными камнями можно открыть какой то портал.'
-							 if text=8 and  princess!you:'<<$nick[npc]>> - Хмуры хотят захватить королевство, они привели с собой гоблинов.'
-							 if text=8 and  princess=you:'<<$nick[npc]>> - За городом раскинулся эльфийский лес.'
-							 act'<b>Уйти</b>':gt 'preloc'
+							text=rand(0,8)&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+							if text=0 and princess!you:'<<$nick[npc]>> - Поговаривают принцесса пропала.'
+							if text=0 and princess=you:'<<$nick[npc]>> - У нас отличное маленькое королевство.'
+							if text=1 and princess!you:'<<$nick[npc]>> - Поговаривают любой кто оденет диадему принцессы станет принцессой.'
+							if text=1 and  princess=you:'<<$nick[npc]>> - Поговаривают диадема принцессы магическая.'
+							if text=2 and princess!you:'<<$nick[npc]>> - Поговаривают Хмуры напустили чудовищ на окрестные земли.'
+							if text=2 and  princess=you:'<<$nick[npc]>> - У нас красивый город на берегу моря.'
+							if text=3:'<<$nick[npc]>> - В порту несколько раз видели чудовищ выбирающихся из моря.'
+							if text=4:'<<$nick[npc]>> - Стражники сильные и тренированные, они никого не пускают в дворец.'
+							if text=5:'<<$nick[npc]>> - В лесу живут эльфы и у них нет домов, они предпочитают жить под открытым небом.'
+							if text=6:'<<$nick[npc]>> - Колючки в лесу можно вырубать только топором.'
+							if text=7:'<<$nick[npc]>> - Говорят рунными камнями можно открыть какой то портал.'
+							if text=8 and  princess!you:'<<$nick[npc]>> - Хмуры хотят захватить королевство, они привели с собой гоблинов.'
+							if text=8 and  princess=you:'<<$nick[npc]>> - За городом раскинулся эльфийский лес.'
+							act'<b>Уйти</b>':gt 'preloc'
 						end
 					end
 				end

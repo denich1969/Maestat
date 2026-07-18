@@ -1,18 +1,18 @@
 ﻿$downwork={
 	if rand(1,100)>=40:
-		 if pol[i]>0:
-			 if lust[i]>=75 and agro[i]<75:
-				 downwhore[i]=1&work[i]=30&$nick[i]='Шлюха'
-			 else
-				 workrand=rand(1,100)&if workrand<=70:work[i]=50
-				 if workrand>70 and workrand<98:work[i]=51
-				 if workrand>=98:work[i]=52
-			 end
-		 else
-			 workrand=rand(1,100)&if workrand<=70:work[i]=50
-			 if workrand>70 and workrand<98:work[i]=51
-			 if workrand>=98:work[i]=52
-		 end
+		if pol[i]>0:
+			if lust[i]>=75 and agro[i]<75:
+				downwhore[i]=1&work[i]=30&$nick[i]='Шлюха'
+			else
+				workrand=rand(1,100)&if workrand<=70:work[i]=50
+				if workrand>70 and workrand<98:work[i]=51
+				if workrand>=98:work[i]=52
+			end
+		else
+			workrand=rand(1,100)&if workrand<=70:work[i]=50
+			if workrand>70 and workrand<98:work[i]=51
+			if workrand>=98:work[i]=52
+		end
 	end
 }
 tipe=rand(0,3)&!0 - одиночка, 1 - семья, 2 - семья с одним ребёнком, 3 - семья с двумя детьмя

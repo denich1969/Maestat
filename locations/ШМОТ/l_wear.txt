@@ -1,30 +1,14 @@
-﻿clo=ARGS[0]
-cantwear=0
+﻿clo=ARGS[0]&cantwear=0
 if t_slot[you]>0:
-tempslot=t_slot[you]
-     if long_t[tempslot]>0 and pol_t[tempslot]>0:
-     cantwear=1
-     end
+	tempslot=t_slot[you]&if long_t[tempslot]>0 and pol_t[tempslot]>0:cantwear=1
 end
 if pol_l[clo]<2 and pol[you]!pol_l[clo]:cantwear=1
-
 if cantwear=0:
-	 if l_slot[you]=0:
-	 l_wardrobe[clo]=0
-	 l_slot[you]=clo
-	 cum_skirt[you]=0
-	 else
-	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!снять					
-	 clothednow=l_slot[you]
-	 l_wardrobe[clothednow]=1
-	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!надеть
-	 l_wardrobe[clo]=0
-	 l_slot[you]=clo
-	 cum_skirt[you]=0
-	 end
+	if l_slot[you]=0:
+		l_wardrobe[clo]=0&l_slot[you]=clo&cum_skirt[you]=0
+	else			
+		clothednow=l_slot[you]&l_wardrobe[clothednow]=1&l_wardrobe[clo]=0&l_slot[you]=clo&cum_skirt[you]=0&!снять и поместить в шкаф одежду !убрать из шкафа и надеть одежду
+	end
 end
-if cantwear=1:
-msg("Нельзя надеть")
-end
-
+if cantwear=1:msg("Нельзя надеть")
 gt'wardrobe'

@@ -92,101 +92,101 @@ if sluttySisQW>5 and npc=sister:
 	end
 end
 if inseminate[you]>0 and pregnant_day[you]<daystart and inseminate[you]=npc and husband[you]!npc:
-     if boyfriend_num[you]=npc:
-		 act'Ты - отец моего будущего ребенка':
-			 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			 if friends['<<npc>>,<<you>>']>=100:
-				 if husband[you]=0:
+    if boyfriend_num[you]=npc:
+		act'Ты - отец моего будущего ребенка':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			if friends['<<npc>>,<<you>>']>=100:
+				if husband[you]=0:
 					'<<$name[npc]>> - Любимая, давай распишемся и станем мужем и женой.'
-					 act'Расписаться':
-						 husband[you]=npc&husband[npc]=you&key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
-						 can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
-						 $locnameH['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']+=' (Жилье мужа)'
-						 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> и вы расписались и стали мужем и женой.'&act'<b>Уйти</b>':gt 'preloc'
-					 end
-					 act'Да пошел ты! Дай денег на аборт!':
-						 money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-						 '<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
-					 end
-				 else
-					 if husband[you]=npc:
-						 '<<$name[npc]>> - Ну, так рожай.'&act'<b>Уйти</b>':gt 'preloc'
-					 else
+					act'Расписаться':
+						husband[you]=npc&husband[npc]=you&key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
+						can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
+						$locnameH['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']+=' (Жилье мужа)'
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> и вы расписались и стали мужем и женой.'&act'<b>Уйти</b>':gt 'preloc'
+					end
+					act'Да пошел ты! Дай денег на аборт!':
+						money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
+					end
+				else
+					if husband[you]=npc:
+						'<<$name[npc]>> - Ну, так рожай.'&act'<b>Уйти</b>':gt 'preloc'
+					else
 						'<<$name[npc]>> - Эй! Я не хочу ребенка, давай я тебе дам денег на аборт.'
-						 act'Взять деньги':
-							 money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
-							 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
-						 end
-					 end
-				 end
-			 else
+						act'Взять деньги':
+							money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
+							time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
+						end
+					end
+				end
+			else
 				'<<$name[npc]>> - Эй! Я не хочу ребенка, давай я тебе дам денег на аборт.'
-				 act'Взять деньги':
-					 money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					 '<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-		 end
-	 else
-	 	 act'Ты отец моего будущего ребенка':
-			 if npc=sister:
+				act'Взять деньги':
+					money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
+				end
+			end
+		end
+	else
+	 	act'Ты отец моего будущего ребенка':
+			if npc=sister:
 				time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется - Какой отец? Я девочка, а отец твоего будущего ребенка это ты и твой идиотизм, еблан. Уйди с глаз!'
-				 act'<b>Уйти</b>':gt 'preloc'
-			 else
+				act'<b>Уйти</b>':gt 'preloc'
+			else
 				time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется - Придется тебе стать матерью-одиночкой.'&act'<b>Уйти</b>':gt 'preloc'
 			end
-		 end
-	 end
+		end
+	end
 end
 if magik[you]>0 and mana[you]>=10:
 	act'Изучить ауру 10 маны':
-		 knowaura[npc]+=1&mana[you]-=10&time+=5&cls&gs'stat'
-		 if magik[npc]=0:'Вы не чувствуете собственных магических сил у этого человека.'
-		 if mlev[npc]=9:'Божественная сила.'
-		 if mlev[npc]=8:'Сила вне категорий.'
-		 if mlev[npc]=7:'1я категория силы.'
-		 if mlev[npc]=6:'2я категория силы.'
-		 if mlev[npc]=5:'3я категория силы.'
-		 if mlev[npc]=4:'4я категория силы.'
-		 if mlev[npc]=3:'5я категория силы.'
-		 if mlev[npc]=2:'6я категория силы.'
-		 if mlev[npc]=1:'7я категория силы.'
-		 if magik[npc]>0:'Количество каналов магии <<magik[npc]>>.'
-		 if mana[npc]>0:'Объем маны <<mana[npc]>>.'
-		 '<<soul[npc]>> единиц души.'
-		 if lust[npc]<25:'Похоть в ауре не заметна.'
-		 if lust[npc]>=25 and lust[npc]<50:'Похоть в ауре едва заметна.'
-		 if lust[npc]>=50 and lust[npc]<75:'Похоть в ауре довольно заметна.'
-		 if lust[npc]>=75:'Похоть в ауре преобладает над всем остальным.'
-		 if oral_fixation[npc]>10 and oral_fixation[npc]<=40:'Заметен образ потенциальной вафлёрши'
-		 if oral_fixation[npc]>40 and oral_fixation[npc]<=80:'Отчетлевый образ вафлёрши'
-		 if oral_fixation[npc]>80:'Ясный образ вафлёрши'
-		 if anal_fixation[npc]>10 and anal_fixation[npc]<=40:'Заметен образ начинающей анальщицы'
-		 if anal_fixation[npc]>40 and anal_fixation[npc]<=80:'Отчетлевый образ желания анала'
-		 if anal_fixation[npc]>80:'Ясный образ анальной шлюшки'
-		 if agro[npc]<25:'Агрессивности в ауре не заметно.'
-		 if agro[npc]>=25 and agro[npc]<50:'Агрессивность в ауре довольно слаба.'
-		 if agro[npc]>=50 and agro[npc]<75:'Агрессивность в ауре преобладает.'
-		 if agro[npc]>=75:'В ауре яркой огненной полосой пролегает высокая агрессивность.'
-		 '<<npc>> номер согласно Пифагорейской метафизики.'
-		 'Тентура мысли <<walkprog[npc]>>.'
-		 if cuckold[npc]=1:'Куколд.'
-		 if mob_busy[npc]>0:'Мысли чем-то сильно заняты.'
-		 if cantwalk[npc]>0:'Чего-то ждет.'
-		 if cantwalk_num=npc:'Ждет вас.'
-		 'Координаты дома <<Xhome[npc]>> <<Yhome[npc]>> <<Zhome[npc]>> <<Hhome[npc]>> <<Rhome[npc]>>'
-		 if statist[npc]=1:'Судьба неопределена.'
-		 if guy[npc]>0 and pol[npc]=0:'У него было <<guy[npc]>> парней'
-		 if guy[npc]>0 and pol[npc]>0:'У нее было <<guy[npc]>> парней'
-		 if girl[npc]>0 and pol[npc]=0:'У него было <<girl[npc]>> девушек'
-		 if girl[npc]>0 and pol[npc]>0:'У нее было <<girl[npc]>> девушек'
-		 if inseminate[npc]>0 and master[you]>0:
-			 fat=inseminate[npc]
-			 '<b><<$name[npc]>> беременна.</b> Отец <<$name[fat]>> <<$surname[fat]>>. Родить должна через <<9-(daystart-pregnant_day[npc])>> дней'
+		knowaura[npc]+=1&mana[you]-=10&time+=5&cls&gs'stat'
+		if magik[npc]=0:'Вы не чувствуете собственных магических сил у этого человека.'
+		if mlev[npc]=9:'Божественная сила.'
+		if mlev[npc]=8:'Сила вне категорий.'
+		if mlev[npc]=7:'1я категория силы.'
+		if mlev[npc]=6:'2я категория силы.'
+		if mlev[npc]=5:'3я категория силы.'
+		if mlev[npc]=4:'4я категория силы.'
+		if mlev[npc]=3:'5я категория силы.'
+		if mlev[npc]=2:'6я категория силы.'
+		if mlev[npc]=1:'7я категория силы.'
+		if magik[npc]>0:'Количество каналов магии <<magik[npc]>>.'
+		if mana[npc]>0:'Объем маны <<mana[npc]>>.'
+		'<<soul[npc]>> единиц души.'
+		if lust[npc]<25:'Похоть в ауре не заметна.'
+		if lust[npc]>=25 and lust[npc]<50:'Похоть в ауре едва заметна.'
+		if lust[npc]>=50 and lust[npc]<75:'Похоть в ауре довольно заметна.'
+		if lust[npc]>=75:'Похоть в ауре преобладает над всем остальным.'
+		if oral_fixation[npc]>10 and oral_fixation[npc]<=40:'Заметен образ потенциальной вафлёрши'
+		if oral_fixation[npc]>40 and oral_fixation[npc]<=80:'Отчетлевый образ вафлёрши'
+		if oral_fixation[npc]>80:'Ясный образ вафлёрши'
+		if anal_fixation[npc]>10 and anal_fixation[npc]<=40:'Заметен образ начинающей анальщицы'
+		if anal_fixation[npc]>40 and anal_fixation[npc]<=80:'Отчетлевый образ желания анала'
+		if anal_fixation[npc]>80:'Ясный образ анальной шлюшки'
+		if agro[npc]<25:'Агрессивности в ауре не заметно.'
+		if agro[npc]>=25 and agro[npc]<50:'Агрессивность в ауре довольно слаба.'
+		if agro[npc]>=50 and agro[npc]<75:'Агрессивность в ауре преобладает.'
+		if agro[npc]>=75:'В ауре яркой огненной полосой пролегает высокая агрессивность.'
+		'<<npc>> номер согласно Пифагорейской метафизики.'
+		'Тентура мысли <<walkprog[npc]>>.'
+		if cuckold[npc]=1:'Куколд.'
+		if mob_busy[npc]>0:'Мысли чем-то сильно заняты.'
+		if cantwalk[npc]>0:'Чего-то ждет.'
+		if cantwalk_num=npc:'Ждет вас.'
+		'Координаты дома <<Xhome[npc]>> <<Yhome[npc]>> <<Zhome[npc]>> <<Hhome[npc]>> <<Rhome[npc]>>'
+		if statist[npc]=1:'Судьба неопределена.'
+		if guy[npc]>0 and pol[npc]=0:'У него было <<guy[npc]>> парней'
+		if guy[npc]>0 and pol[npc]>0:'У нее было <<guy[npc]>> парней'
+		if girl[npc]>0 and pol[npc]=0:'У него было <<girl[npc]>> девушек'
+		if girl[npc]>0 and pol[npc]>0:'У нее было <<girl[npc]>> девушек'
+		if inseminate[npc]>0 and master[you]>0:
+			fat=inseminate[npc]
+			'<b><<$name[npc]>> беременна.</b> Отец <<$name[fat]>> <<$surname[fat]>>. Родить должна через <<9-(daystart-pregnant_day[npc])>> дней'
 		end
-		 'Побед <<win[npc]>>'&*nl'Поражений <<loss[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+		'Побед <<win[npc]>>'&*nl'Поражений <<loss[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
         if master[you]>0:act'Посмотреть секс партнеров':gt'whos_sex_partner'
-     end
+    end
 end
 if contact[npc]=0 and master[npc]=0:
 	cantakecontact=0
@@ -195,11 +195,11 @@ if contact[npc]=0 and master[npc]=0:
 	if father[you]=npc:cantakecontact=0
 	if mother[you]=npc:cantakecontact=0
 	if brother[you]=npc:cantakecontact=0
-     if cantakecontact=1:
-     	 act'Взять номер телефона':
-			 contact[npc]=you&my_contact[]=npc&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Диктует вам свои контакты.'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
+    if cantakecontact=1:
+     	act'Взять номер телефона':
+			contact[npc]=you&my_contact[]=npc&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Диктует вам свои контакты.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
 end
 gs'standart_talk'
 if dick[you]>1 and pol[npc]>0 and brother[you]!npc and father[you]!npc and mother[you]!npc:
@@ -236,7 +236,7 @@ if dick[you]>1 and pol[npc]>0 and brother[you]!npc and father[you]!npc and mothe
 						end
 					else
 					    if npc=germiona:
-							'<<$name[npc]>> закатывает глаза - Мой муж влиятельный человек и ему не понравится, что со мной кто то флиртует.'
+							'<<$name[npc]>> закатывает глаза - Мой муж влиятельный человек и ему не понравится, что со мной кто-то флиртует.'
 					        if vision_times[npc]>0 and germionaQW=0:
 					            act'Рассказать о видении':
 									germionaQW=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказываете что у вас есть дар, вы можете видеть важные эпизоды жизни человека его глазами.'
@@ -314,20 +314,20 @@ if dick[you]>1 and pol[npc]>0 and brother[you]!npc and father[you]!npc and mothe
 				end
 			end
 			act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-	 if freeflirt=1:
-		 !бойфренд
-		 act'Флиртовать':
-			 time+=5&cls&gs'stat'&gs 'init_d_view', bfnum, 'd_viewnpc'
+		end
+	end
+	if freeflirt=1:
+		!бойфренд
+		act'Флиртовать':
+			time+=5&cls&gs'stat'&gs 'init_d_view', bfnum, 'd_viewnpc'
 			'<center><img src="<<$d_viewnpc>>" ></center>'&'Только вы собрались флиртовать, как к вам подошел <<$name[bfnum]>> <<$surname[bfnum]>> - Эй, я её парень.'&act'<b>Уйти</b>':gt 'preloc'
-		 	 if statist[bfnum]=1:
-				 act'<b>Драться</b>':
-					 npc=bfnum&Z=Z[you]&agro_crime[Z]+=1&you_agro[npc]+=1&isenemy['<<npc>>,<<you>>']=npc&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&gs'progcurse'&gt 'prefight'
-				 end
-			 end
-		 end
-	 end
+		 	if statist[bfnum]=1:
+				act'<b>Драться</b>':
+					npc=bfnum&Z=Z[you]&agro_crime[Z]+=1&you_agro[npc]+=1&isenemy['<<npc>>,<<you>>']=npc&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&gs'progcurse'&gt 'prefight'
+				end
+			end
+		end
+	end
 	if freeflirt=2:
 		!муж
 		act'Флиртовать':
@@ -343,9 +343,7 @@ if dick[you]>1 and pol[npc]>0 and brother[you]!npc and father[you]!npc and mothe
 end
 	if friends['<<npc>>,<<you>>']>=5 and father[you]!npc and mother[you]!npc and husband[npc]!you:
 		act'Расскажи с кем у тебя было':
-			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			rasskaz=0
-		    if extrovert[npc]=2:rasskaz=1
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&rasskaz=0&if extrovert[npc]=2:rasskaz=1
 		    if extrovert[npc]=1:
 		        if pol[npc]=0:
 		            if friends['<<npc>>,<<you>>']>=10:rasskaz=1
@@ -370,27 +368,22 @@ end
 		    end
 		end
 	end
-	 !'if you_see_sex[npc]>0 or you_see_bj[npc]>0:
-	 !видела как сосет или дает на улице
-	     if pol[you]=0 and pol[npc]>0:
-	         if nextdoorgirl[npc]=1:
-	             act'Я видел, как тебя ебали':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выглядит подавленной и нервничает.'
-					 act'<b>Уйти</b>':gt 'preloc'
-				     if horny[you]>=50 and dick[you]>1 and whore[npc]=0:
-				         if Z[npc]=1:
-			                 act'Прогуляться к пакгаузу':
-			                 agro[npc]-=10
-			                 lust[npc]+=5
-			                 if selfrespect[npc]>0:selfrespect[npc]-=1
-                             gt'man_go_to_ruin' 
-                             end
-			             end 
-			         end
-				 end
-	         end 
-	     end
-	 end	 '
+	!'if you_see_sex[npc]>0 or you_see_bj[npc]>0:
+		!видела как сосет или дает на улице
+	    if pol[you]=0 and pol[npc]>0:
+	        if nextdoorgirl[npc]=1:
+	            act'Я видел, как тебя ебали':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выглядит подавленной и нервничает.'&act'<b>Уйти</b>':gt 'preloc'
+				    if horny[you]>=50 and dick[you]>1 and whore[npc]=0 and :Z[npc]=1
+			            act'Прогуляться к пакгаузу':
+							agro[npc]-=10&lust[npc]+=5&if selfrespect[npc]>0:selfrespect[npc]-=1
+							gt'man_go_to_ruin' 
+                        end
+			        end
+				end
+	        end 
+	    end
+	end	 '
 	if npc=mother:
 		if sistermest=1:
 			act'<b>Пожаловаться на сестру за то, что она сделала</b>':

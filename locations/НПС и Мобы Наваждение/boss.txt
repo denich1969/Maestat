@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i&boss=i
-lvl[i]=5&soul[i]=1000&mob[i]=64&mobexp[i]=50
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i&boss=i&lvl[i]=5&soul[i]=1000&mob[i]=64&mobexp[i]=50
 tipemobpic[i]=1&picture[i]=126
 $name[i]='Роглод'&$nick[i]='Хозяин подземелья'&total_boss+=1
 dick[i]=rand(21,28)&dickd[i]=rand(40,50)&ball[i]=rand(40,70)
@@ -8,5 +7,4 @@ face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]
 healthmax[i]=1000&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(30,60)&maxuron[i]=rand(60,100)
 reflex[i]=rand(100,120)
 agro[i]=2&corr[i]=1000
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-obsession_world[]=i&
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&

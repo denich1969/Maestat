@@ -1,46 +1,29 @@
-﻿X=0&Y=0&Z=11&H=0&R=0
-$n_board[Z]='Тень'&$w_board[Z]='Тень'&$e_board[Z]='Тень'&$s_board[Z]='Тень'
-Xmax[Z]=10&Ymax[Z]=10
+﻿X=0&Y=0&Z=11&H=0&R=0&Xmax[Z]=10&Ymax[Z]=10&$n_board[Z]='Тень'&$w_board[Z]='Тень'&$e_board[Z]='Тень'&$s_board[Z]='Тень'
 magworld[Z]=100&badworld[Z]=0&oxigen[Z]=1&temper[Z]=1&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 :markgenworldSumrak
 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if X=0 or X=Xmax[Z] or Y=0 or Y=Ymax[Z]:$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&d_border_way['<<$temploc>>']=11
 if X=0 and Y=0:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!даунтаун
-	 $locname['<<$temploc>>']='Тень даунтауна'&$lname['<<$temploc>>']='Тень даунтауна'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
-	 sumrak['<<$temploc>>']=5
+	$locname['<<$temploc>>']='Тень даунтауна'&$lname['<<$temploc>>']='Тень даунтауна'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0&sumrak['<<$temploc>>']=5
 elseif X=1 and Y=0:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!аптаун
-	 $locname['<<$temploc>>']='Тень аптауна'&$lname['<<$temploc>>']='Тень аптауна'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
-	 sumrak['<<$temploc>>']=4
+	$locname['<<$temploc>>']='Тень аптауна'&$lname['<<$temploc>>']='Тень аптауна'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0&sumrak['<<$temploc>>']=4
 elseif X=0 and Y=1:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!море
-	 $locname['<<$temploc>>']='Тень моря'&$lname['<<$temploc>>']='Тень моря'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
-	 sumrak['<<$temploc>>']=10
+	$locname['<<$temploc>>']='Тень моря'&$lname['<<$temploc>>']='Тень моря'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0&sumrak['<<$temploc>>']=10
 elseif X=1 and Y=1:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!жилмассив
-	 $locname['<<$temploc>>']='Тень жилмассива'&$lname['<<$temploc>>']='Тень жилмассива'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
-	 sumrak['<<$temploc>>']=3
+	$locname['<<$temploc>>']='Тень жилмассива'&$lname['<<$temploc>>']='Тень жилмассива'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0&sumrak['<<$temploc>>']=3
 elseif X=0 and Y=2:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!порт
-	 $locname['<<$temploc>>']='Тень порта'&$lname['<<$temploc>>']='Тень порта'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
-	 sumrak['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Тень порта'&$lname['<<$temploc>>']='Тень порта'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0&sumrak['<<$temploc>>']=1
 elseif X=1 and Y=2:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!черн
-	 $locname['<<$temploc>>']='Тень Блэкберри'&$lname['<<$temploc>>']='Тень Блэкберри'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
-	 sumrak['<<$temploc>>']=2
+	$locname['<<$temploc>>']='Тень Блэкберри'&$lname['<<$temploc>>']='Тень Блэкберри'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0&sumrak['<<$temploc>>']=2
 else
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	 $locname['<<$temploc>>']='Тень'&$lname['<<$temploc>>']='Тень'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
-	 sumrak['<<$temploc>>']=10
+	$locname['<<$temploc>>']='Тень'&$lname['<<$temploc>>']='Тень'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0&sumrak['<<$temploc>>']=10
 end
-shadow_npc['<<$temploc>>']=1
-X+=1&if X<=Xmax[Z]:jump'markgenworldSumrak'
+shadow_npc['<<$temploc>>']=1&X+=1&if X<=Xmax[Z]:jump'markgenworldSumrak'
 X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldSumrak'

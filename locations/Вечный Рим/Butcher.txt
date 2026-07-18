@@ -1,5 +1,4 @@
-﻿$MAINDESC_BACKIMAGE = 'butcher.jpg'&!ЛАВКА МЯСНИКА
- "<<$content>>/butchery/shop3.jpg"&CLR&close all
+﻿$MAINDESC_BACKIMAGE = 'butcher.jpg'& "<<$content>>/butchery/shop3.jpg"&CLR&close all&!ЛАВКА МЯСНИКА
 if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/butcher_knife.mp3",Громкость_эффектов
 ACT 'Говорить с мясником': GT "Butcher_talk"
 IF OBJ "Добыча":

@@ -40,5 +40,4 @@ IF time < 4:
 		GT "Camp"
 	END
 END
-ACT "Свернуть лагерь":GT "Woods" 
-GS "!Counter"
+GS "!Counter"&ACT "Свернуть лагерь":GT "Woods" 

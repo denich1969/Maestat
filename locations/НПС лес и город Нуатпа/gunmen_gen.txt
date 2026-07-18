@@ -1,7 +1,5 @@
 ﻿if gun_men=0:
-	i=npcmaxnum+1&npcmaxnum+=1&num=i&human[]=i&gun_men=i
-	lvl[i]=1&soul[i]=100
-	mechanic[i]=1
+	i=npcmaxnum+1&npcmaxnum+=1&num=i&human[]=i&gun_men=i&lvl[i]=1&soul[i]=100&mechanic[i]=1
 	spec_face_pic[i]=5&face_pic[i]=173&!face_npc[i]=1&face_pic[i]=23
 	$name[i]='Артур'&$surname[i]='Флейм'
 	face[i]=10&gla[i]=0&glacol[i]=4&nose[i]=3&lips[i]=0
@@ -10,17 +8,10 @@
 	face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=6&beard[i]=10 
 	age[i]=35&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=0
 	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
-	pol[i]=0&gs'body'&total_generated_male+=1&gs'male_gen'
-
+	pol[i]=0&gs'body'&total_generated_male+=1&gs'male_gen'&!gs'body_auto',i,'old_npc_once'
 	womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=100&selrespect[i]=2&positiv[i]=0&extrovert[i]=2&ratio[i]=1&brave[i]=2&lust[i]=100
-	gs'body_auto',i,'old_npc_once'
-	h_slot[i]=0&m_slot[i]=6&w_slot[i]=6
-	c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
-	t_slot[i]=3&l_slot[i]=2&b_slot[i]=3
-	ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=1
-
+	h_slot[i]=0&m_slot[i]=6&w_slot[i]=6&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=3&l_slot[i]=2&b_slot[i]=3&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=1
 	can_bj[i]=0&can_anal[i]=0&cantvag[i]=1
-	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2&!$loc[i]='gunman_home'
-	se_lighthouse[]=i&!npcii[i]=1
-	
+	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0
+	!in_home[i]=2&!$loc[i]='gunman_home'&!npcii[i]=1
 end

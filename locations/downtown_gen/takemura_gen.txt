@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&takemura=i
-lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&takemura=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0
 master[i]=0&delusion[i]=0&magik[i]=34&beliver[i]=0
 spec_face_pic[i]=5&face_pic[i]=96
 $name[i]='Горо'&$surname[i]='Такемура'&$nick[i]='Азиатский охотник'&$title[i]=''&$history[i]='Я охотник из коллегии охотников.'
@@ -11,8 +10,5 @@ age[i]=50&vital[i]=700&will[i]=50&reflex[i]=400
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80&!Урон в бою
 pol[i]=0&gs'body'&total_generated_male+=1
 bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=0&extrovert[i]=0&ratio[i]=1&brave[i]=2&lust[i]=100&!характер
-h_slot[i]=0&m_slot[i]=103
-t_slot[i]=rand(76,82)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)
-ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-s_world[]=i&walkprog[i]=30
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+h_slot[i]=0&m_slot[i]=103&t_slot[i]=rand(76,82)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&s_world[]=i&walkprog[i]=30

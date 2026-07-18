@@ -2,39 +2,39 @@
 if mob_sleep[npc]>time:
 	'Слуга дремлет'
 else
-	 if horny[npc]<50:
-		 'Слуга предлагает вам услуги бара и кухни.'&*nl'За 50 гульденов можно купить бургер, пиццу или колу.'
-		 if runestonebellboy=0:'За 500 гульденов я могу продать рунный камень'
-		 act'<b>Уйти</b>':gt 'preloc'
-	     if gulden[you]>=5000:
-			 act'Купить бургер':
-				 gulden[you]-=5000&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили бургер'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-			 act'Купить пиццу':
-				 gulden[you]-=5000&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили пиццу'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-			 act'Купить колу':
-				 gulden[you]-=5000&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили колу'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-		 if gulden[you]>=50000 and runestonebellboy=0:
-			 act'Купить рунный камень':
-				 gulden[you]-=50000&runestonebellboy=1&item[29]+=1&burden[you]+=item_burden[29]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили рунный камень'
-				 act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-		 if gulden[you]>=1000:
-			 act'Дать на чай 10 гульденов':
-				 cooled[npc]+=5&gulden[you]-=1000&horny[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы дали на чай слуге'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-	 else
+	if horny[npc]<50:
+		'Слуга предлагает вам услуги бара и кухни.'&*nl'За 50 гульденов можно купить бургер, пиццу или колу.'
+		if runestonebellboy=0:'За 500 гульденов я могу продать рунный камень'
+		act'<b>Уйти</b>':gt 'preloc'
+	    if gulden[you]>=5000:
+			act'Купить бургер':
+				gulden[you]-=5000&item[32]+=1&burden[you]+=item_burden[32]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили бургер'&act'<b>Уйти</b>':gt 'preloc'
+			end
+			act'Купить пиццу':
+				gulden[you]-=5000&item[33]+=1&burden[you]+=item_burden[33]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили пиццу'&act'<b>Уйти</b>':gt 'preloc'
+			end
+			act'Купить колу':
+				gulden[you]-=5000&item[34]+=1&burden[you]+=item_burden[34]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили колу'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+		if gulden[you]>=50000 and runestonebellboy=0:
+			act'Купить рунный камень':
+				gulden[you]-=50000&runestonebellboy=1&item[29]+=1&burden[you]+=item_burden[29]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы заплатили деньги слуге и купили рунный камень'
+				act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+		if gulden[you]>=1000:
+			act'Дать на чай 10 гульденов':
+				cooled[npc]+=5&gulden[you]-=1000&horny[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы дали на чай слуге'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+	else
 		'Слуга с покрасневшим лицом смотрит на вас - Ты должна быть наказана, грязная шлюха. А потом я вышвырну тебя из отеля.'
-	 	 if gulden[you]>=10000:
-			 act'Дать взятку 100 гульденов':
-				 cooled[npc]+=10&gulden[you]-=10000&horny[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы дали слуге денег что бы он отстал от вас'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-		 dynamic $d_fear
-	 end
+	 	if gulden[you]>=10000:
+			act'Дать взятку 100 гульденов':
+				cooled[npc]+=10&gulden[you]-=10000&horny[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы дали слуге денег что бы он отстал от вас'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+		dynamic $d_fear
+	end
 end

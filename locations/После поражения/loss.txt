@@ -250,7 +250,7 @@ if mob[npc]=24:
 end
 if mob[npc]=25:
 	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Суккуба
-	'<<$nick[npc]>> читает какое то богохульное заклинание'&act'...':gt'succubuswin'
+	'<<$nick[npc]>> читает какое-то богохульное заклинание'&act'...':gt'succubuswin'
 end
 if mob[npc]=26:
 	healthmax[npc]=healthmax[npc]+100&health[npc]=healthmax[npc]&minuron[npc]+=rand(2,5)&maxuron[npc]=rand(5,10)&reflex[npc]+=1&!Иллитид

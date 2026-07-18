@@ -12,28 +12,28 @@ act'Идти в туалет':
 	'Устроившись по удобнее, что бы не плюхнутся задом на пол туалета вы взялись за бедра парня и взяли его член в рот. '
 	'Привычными движениями вы начали сосать хуй стараясь при этом покрепче его сжимать губами и не издавать звуков. '
 	'Хотя иногда громкие сосущие звуки непроизвольно вырывались из вашего рта под усмешки Томми.'
-	 if magik[you]>magik[npc]:
-	     'Вы чувствуете какое то заклятие на члене Томми, это заклятие явно заставляет вас кайфовать от отсоса.'
+	if magik[you]>magik[npc]:
+	    'Вы чувствуете какое-то заклятие на члене Томми, это заклятие явно заставляет вас кайфовать от отсоса.'
 		act'Сосать блокируя магию':
-			 empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'&!oral_fixation[you]+=10
-			 'Томми кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
-			 if tommyblow[you]=1 or tommyblow[you]>=5:'Томми заправляя член в штаны грустно вздохнул - Ну вот, <<tommyblow[you]>> раз ты мне уже отсосала. Хотя ты явно разгадала мой маленький трюк.'
-			 if tommyblow[you]>1 and tommyblow[you]<5:'Томми заправляя член в штаны грустно вздохнул - Ну вот, <<tommyblow[you]>> раза ты мне уже отсосала. Хотя ты явно разгадала мой маленький трюк.'
-			 'Томми пожал плечами - Я просто хочу что бы ты начала ловить кайф от минета и все. Но если ты сбиваешь мою магию, то ладно. Твое право.'
-			 if dilamina_lezdomQW[you]=1 and tommyblow[you]>=10:
-				 dilamina_lezdomQW[you]=2&'Томми достал смартфон и ухмыльнувшись удалил там что то - Ты отработала свое. Можешь быть свободна.'&!oral_fixation[you]+=10
-			 end
-			 act'Встать':gt'preloc'
-		 end
+			empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'&!oral_fixation[you]+=10
+			'Томми кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
+			if tommyblow[you]=1 or tommyblow[you]>=5:'Томми заправляя член в штаны грустно вздохнул - Ну вот, <<tommyblow[you]>> раз ты мне уже отсосала. Хотя ты явно разгадала мой маленький трюк.'
+			if tommyblow[you]>1 and tommyblow[you]<5:'Томми заправляя член в штаны грустно вздохнул - Ну вот, <<tommyblow[you]>> раза ты мне уже отсосала. Хотя ты явно разгадала мой маленький трюк.'
+			'Томми пожал плечами - Я просто хочу что бы ты начала ловить кайф от минета и все. Но если ты сбиваешь мою магию, то ладно. Твое право.'
+			if dilamina_lezdomQW[you]=1 and tommyblow[you]>=10:
+				dilamina_lezdomQW[you]=2&'Томми достал смартфон и ухмыльнувшись удалил там что то - Ты отработала свое. Можешь быть свободна.'&!oral_fixation[you]+=10
+			end
+			act'Встать':gt'preloc'
+		end
 	end
 	act'Сосать':
-		 empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&oral_fixation[you]+=10&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'
-		 'Томми кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
-		 if tommyblow[you]=1 or tommyblow[you]>=5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раз ты мне уже отсосала.'
-		 if tommyblow[you]>1 and tommyblow[you]<5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раза ты мне уже отсосала.'
-		 if dilamina_lezdomQW[you]=1 and tommyblow[you]>=10:
+		empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&oral_fixation[you]+=10&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'
+		'Томми кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
+		if tommyblow[you]=1 or tommyblow[you]>=5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раз ты мне уже отсосала.'
+		if tommyblow[you]>1 and tommyblow[you]<5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раза ты мне уже отсосала.'
+		if dilamina_lezdomQW[you]=1 and tommyblow[you]>=10:
 			dilamina_lezdomQW[you]=2&oral_fixation[you]+=10&'Томми достал смартфон и ухмыльнувшись удалил там что то - Ты отработала свое. Можешь быть свободна.'
-		 end
-		 act'Встать':gt'preloc'
-	 end
+		end
+		act'Встать':gt'preloc'
+	end
 end

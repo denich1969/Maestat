@@ -1,55 +1,33 @@
-﻿ddd=args[0]
-sss=args[1]
-!if know['<<args[0]>>,<<you>>']=0:$startext[args[0]]='<<$nick[args[0]]>>'
-!if know['<<args[0]>>,<<you>>']>0 and $surname[args[0]]!'':$startext[args[0]]='<<$name[args[0]]>> <<$surname[args[0]]>>'
-!if know['<<args[0]>>,<<you>>']>0 and $surname[args[0]]='' and $title[args[0]]='':$startext[args[0]]='<<$name[args[0]]>>'
-!if know['<<args[0]>>,<<you>>']>0 and $surname[args[0]]='' and $title[args[0]]!'':$startext[args[0]]='<<$title[args[0]]>> <<$name[args[0]]>>'
-!'<<$startext[args[0]]>>'
+﻿ddd=args[0]&sss=args[1]
 if know['<<args[0]>>,<<you>>']=0:$massnpc_name_ddd='<<$nick[args[0]]>>'
 if know['<<args[0]>>,<<you>>']>0 and $surname[args[0]]!'':$massnpc_name_ddd='<<$name[args[0]]>> <<$surname[args[0]]>>'
 if know['<<args[0]>>,<<you>>']>0 and $surname[args[0]]='' and $title[args[0]]='':$massnpc_name_ddd='<<$name[args[0]]>>'
 if know['<<args[0]>>,<<you>>']>0 and $surname[args[0]]='' and $title[args[0]]!'':$massnpc_name_ddd='<<$title[args[0]]>> <<$name[args[0]]>>'
 '<<$massnpc_name_ddd>>'
 if mob[args[0]]>0:
-	 if tipemobpic[args[0]]=0  and face_pic[args[0]]>0:
-		 if visualpol[args[0]]=0:$d_viewddd='pic/faceman/<<face_pic[args[0]]>>.jpg'
-		 if visualpol[args[0]]>0:$d_viewddd='pic/face/<<hcol[args[0]]>>/<<face_pic[args[0]]>>.jpg'
-	 end
-	 if tipemobpic[args[0]]=1:$d_viewddd='pic/mob/<<picture[args[0]]>>.jpg'
+	if tipemobpic[args[0]]=0  and face_pic[args[0]]>0:
+		if visualpol[args[0]]=0:$d_viewddd='pic/faceman/<<face_pic[args[0]]>>.jpg'
+		if visualpol[args[0]]>0:$d_viewddd='pic/face/<<hcol[args[0]]>>/<<face_pic[args[0]]>>.jpg'
+	end
+	if tipemobpic[args[0]]=1:$d_viewddd='pic/mob/<<picture[args[0]]>>.jpg'
 else
 	gs 'init_d_view', args[0], 'd_viewddd'
 end
 '<center><img src="<<$d_viewddd>>" ></center>'
-!if know['<<args[1]>>,<<you>>']=0:$startext[args[1]]='<<$nick[args[1]]>>'
-!if know['<<args[1]>>,<<you>>']>0 and $surname[args[1]]!'':$startext[args[1]]='<<$name[sss]>> <<$surname[args[1]]>>'
-!if know['<<args[1]>>,<<you>>']>0 and $surname[args[1]]='' and $title[args[1]]='':$startext[args[1]]='<<$name[args[1]]>>'
-!if know['<<args[1]>>,<<you>>']>0 and $surname[args[1]]='' and $title[args[1]]!'':$startext[args[1]]='<<$title[args[1]]>> <<$name[args[1]]>>'
-!'<<$startext[sss]>>'
 if know['<<args[1]>>,<<you>>']=0:$massnpc_name_sss='<<$nick[args[1]]>>'
 if know['<<args[1]>>,<<you>>']>0 and $surname[args[1]]!'':$massnpc_name_sss='<<$name[sss]>> <<$surname[args[1]]>>'
 if know['<<args[1]>>,<<you>>']>0 and $surname[args[1]]='' and $title[args[1]]='':$massnpc_name_sss='<<$name[args[1]]>>'
 if know['<<args[1]>>,<<you>>']>0 and $surname[args[1]]='' and $title[args[1]]!'':$massnpc_name_sss='<<$title[args[1]]>> <<$name[args[1]]>>'
 '<<$massnpc_name_sss>>'
 if mob[args[1]]>0:
-	 if tipemobpic[args[1]]=0  and face_pic[args[0]]>0:
-		 if visualpol[args[1]]=0:$d_viewsss='pic/faceman/<<face_pic[args[1]]>>.jpg'
-		 if visualpol[args[1]]>0:$d_viewsss='pic/face/<<hcol[args[1]]>>/<<face_pic[args[1]]>>.jpg'
-	 end
-	 if tipemobpic[args[1]]=1:$d_viewsss='pic/mob/<<picture[args[1]]>>.jpg'
+	if tipemobpic[args[1]]=0  and face_pic[args[0]]>0:
+		if visualpol[args[1]]=0:$d_viewsss='pic/faceman/<<face_pic[args[1]]>>.jpg'
+		if visualpol[args[1]]>0:$d_viewsss='pic/face/<<hcol[args[1]]>>/<<face_pic[args[1]]>>.jpg'
+	end
+	if tipemobpic[args[1]]=1:$d_viewsss='pic/mob/<<picture[args[1]]>>.jpg'
 else
 	gs 'init_d_view', args[1], 'd_viewsss'
 end
-'<center><img src="<<$d_viewsss>>" ></center>'
-act'<b>Уйти</b>':gt 'preloc'
-!act'<<$startext[args[0]]>> (1)':
-act'<<$massnpc_name_ddd>> (1)':
-	action_tipe[args[0]]=0&action_tipe[args[1]]=0
-	under_sub[args[0]]=0&under_sub[args[1]]=0
-	mob_busy[args[0]]=0&mob_busy[args[1]]=0&npc=args[0]&gt 'npc'
-end
-!act'<<$startext[sss]>> (2)':
-act'<<$massnpc_name_sss>> (2)':
-	action_tipe[args[0]]=0&action_tipe[args[1]]=0
-	under_sub[args[0]]=0&under_sub[args[1]]=0
-	mob_busy[args[0]]=0&mob_busy[args[1]]=0&npc=args[1]&gt 'npc'
-end
+'<center><img src="<<$d_viewsss>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+act'<<$massnpc_name_ddd>> (1)':action_tipe[args[0]]=0&action_tipe[args[1]]=0&under_sub[args[0]]=0&under_sub[args[1]]=0&mob_busy[args[0]]=0&mob_busy[args[1]]=0&npc=args[0]&gt 'npc'
+act'<<$massnpc_name_sss>> (2)':action_tipe[args[0]]=0&action_tipe[args[1]]=0&under_sub[args[0]]=0&under_sub[args[1]]=0&mob_busy[args[0]]=0&mob_busy[args[1]]=0&npc=args[1]&gt 'npc'

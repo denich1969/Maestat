@@ -1,22 +1,3 @@
-﻿gs'stat'
-'Лабораторное оборудование'
-
-	 
-gs'Item'
-''
-gs 'npconloc'
-
-act'Уйти':gt 'preloc'
-if knowsitokQW>0:
-'Используя рунный камень и бумагу вы можете написать свиток открывания силового поля'
-end
-if item[29]>0 and item[12]>0 and knowsitokQW>0:
-	 act'Написать свиток':
-	 item_loc['59,<<$loc[you]>>']+=1
-	 item[29]-=1
-	 burden[you]-=item_burden[29]
-	 item[12]-=1
-	 burden[you]-=item_burden[12]
-	 gt 'preloc'
-	 end
-end
+﻿gs'stat'&'Лабораторное оборудование'&gs'Item'&''&gs 'npconloc'&act'Уйти':gt 'preloc'
+if knowsitokQW>0:'Используя рунный камень и бумагу вы можете написать свиток открывания силового поля'
+if item[29]>0 and item[12]>0 and knowsitokQW>0:act'Написать свиток':item_loc['59,<<$loc[you]>>']+=1&item[29]-=1&burden[you]-=item_burden[29]&item[12]-=1&burden[you]-=item_burden[12]&gt 'preloc'

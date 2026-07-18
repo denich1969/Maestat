@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lerch=i
-lvl[i]=1&soul[i]=100&hunter[i]=0
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lerch=i&lvl[i]=1&soul[i]=100&hunter[i]=0
 master[i]=0&delusion[i]=0&beliver[i]=0&magik[i]=0
 spec_face_pic[i]=5&face_pic[i]=162&!face_npc[i]=1&face_pic[i]=19&!фотки!'<center><img src="pic/npc/19.jpg" ></center>'
 $name[i]='Лерч'&$surname[i]=''&$doing[i]='стоит столбом'
@@ -11,10 +10,6 @@ age[i]=45&vital[i]=300&will[i]=100&reflex[i]=100&mustage[i]=0
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 pol[i]=0&gs'body'&total_generated_male+=1&gs'male_gen'
 womenbrain[i]=0&bisex[i]=0&agro[i]=0&selrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=0
-h_slot[i]=0&m_slot[i]=0&w_slot[i]=0&!шмот
-c_slot[i]=0&tz_slot[i]=2&tg_slot[i]=1
-t_slot[i]=8&l_slot[i]=4&b_slot[i]=5
-ut_slot[i]=0&ul_slot[i]=3&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2
-roma_world[]=i&walkprog[i]=0&!местность и программа движения
-se_lighthouse[]=i&!на маяке ????????
+h_slot[i]=0&m_slot[i]=0&w_slot[i]=0&c_slot[i]=0&tz_slot[i]=2&tg_slot[i]=1&t_slot[i]=8&l_slot[i]=4&b_slot[i]=5&ut_slot[i]=0&ul_slot[i]=3&ub_slot[i]=0&!шмот
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&walkprog[i]=0&!программа движения
+!in_home[i]=2&!на маяке ????????&!roma_world[]=i

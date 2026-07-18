@@ -1,59 +1,45 @@
-﻿mag_reflex[you]=0
-mag_shild[you]=0
-electro_resist[you]=0
-shoker[you]=0
+﻿mag_reflex[you]=0&mag_shild[you]=0&electro_resist[you]=0&shoker[you]=0
 if amulet[you]>0:
-     if amulet[you]=22:
-     !амулет тропы света (тут надо написать код)
-     end
-     if amulet[you]=132:electro_resist[you]+=20
-     if amulet[you]=133:electro_resist[you]+=40
-     if amulet[you]=134:electro_resist[you]+=60
-     if amulet[you]=135:electro_resist[you]+=80
+    if amulet[you]=22:
+    !амулет тропы света (тут надо написать код)
+    end
+    if amulet[you]=132:electro_resist[you]+=20
+    if amulet[you]=133:electro_resist[you]+=40
+    if amulet[you]=134:electro_resist[you]+=60
+    if amulet[you]=135:electro_resist[you]+=80
 end
-manareload[you]=0
-waterring[you]=0
+manareload[you]=0&waterring[you]=0
 if l_ring[npc]=148 and dom[npc]<100:dom[npc]=100&last_fuck_time[npc]=0
 if l_ring[npc]=148 and agro[npc]<100:agro[npc]=100&last_fuck_time[npc]=0
 if l_ring[you]=148 and dom[you]<100:dom[you]=100&last_fuck_time[you]=0
 if l_ring[you]=148 and agro[you]<100:agro[you]=100&last_fuck_time[you]=0
 if l_ring[you]>0:
-     if l_ring[you]=118:waterring[you]=1
-     if l_ring[you]=119 and horny[you]<80:horny[you]=80&last_fuck_time[you]=0
-     if l_ring[you]=120:manareload[you]+=5
-     if l_ring[you]=121:mag_reflex[you]+=20
-     if l_ring[you]=122:manareload[you]+=25
-     if l_ring[you]=131:mag_shild[you]+=500
-     if l_ring[you]=136:electro_resist[you]+=10
-     if l_ring[you]=137:
-     mag_shild[you]+=2000
-     lectro_resist[you]+=60
-     mag_reflex[you]+=10
-     manareload[you]+=25
-     end
-     if l_ring[you]=139:shoker[you]=1
-     if l_ring[you]=147:Ring_Ancient_God[you]=1
+    if l_ring[you]=118:waterring[you]=1
+    if l_ring[you]=119 and horny[you]<80:horny[you]=80&last_fuck_time[you]=0
+    if l_ring[you]=120:manareload[you]+=5
+    if l_ring[you]=121:mag_reflex[you]+=20
+    if l_ring[you]=122:manareload[you]+=25
+    if l_ring[you]=131:mag_shild[you]+=500
+    if l_ring[you]=136:electro_resist[you]+=10
+    if l_ring[you]=137:mag_shild[you]+=2000&lectro_resist[you]+=60&mag_reflex[you]+=10&manareload[you]+=25
+    if l_ring[you]=139:shoker[you]=1
+    if l_ring[you]=147:Ring_Ancient_God[you]=1
 end
 if r_ring[npc]=148 and dom[npc]<100:dom[npc]=100&last_fuck_time[npc]=0
 if r_ring[npc]=148 and agro[npc]<100:agro[npc]=100&last_fuck_time[npc]=0
 if r_ring[you]=148 and dom[you]<100:dom[you]=100&last_fuck_time[you]=0
 if r_ring[you]=148 and agro[you]<100:agro[you]=100&last_fuck_time[you]=0
 if r_ring[you]>0:
-     if r_ring[you]=118:waterring[you]=1
-     if r_ring[you]=119 and horny[you]<80:horny[you]=80&last_fuck_time[you]=0
-     if r_ring[you]=120:manareload[you]+=5
-     if r_ring[you]=121:mag_reflex[you]+=20
-     if r_ring[you]=122:manareload[you]+=25
-     if r_ring[you]=131:mag_shild[you]+=500
-     if r_ring[you]=136:electro_resist[you]+=10
-     if r_ring[you]=137:
-     mag_shild[you]+=2000
-     lectro_resist[you]+=60
-     mag_reflex[you]+=10
-     manareload[you]+=25
-     end
-     if r_ring[you]=139:shoker[you]=1
-     if r_ring[you]=147:Ring_Ancient_God[you]=1
+    if r_ring[you]=118:waterring[you]=1
+    if r_ring[you]=119 and horny[you]<80:horny[you]=80&last_fuck_time[you]=0
+    if r_ring[you]=120:manareload[you]+=5
+    if r_ring[you]=121:mag_reflex[you]+=20
+    if r_ring[you]=122:manareload[you]+=25
+    if r_ring[you]=131:mag_shild[you]+=500
+    if r_ring[you]=136:electro_resist[you]+=10
+    if r_ring[you]=137:mag_shild[you]+=2000&lectro_resist[you]+=60&mag_reflex[you]+=10&manareload[you]+=25
+    if r_ring[you]=139:shoker[you]=1
+    if r_ring[you]=147:Ring_Ancient_God[you]=1
 end
 if t_slot[you]=47:electro_resist[you]+=5
 if t_slot[you]=53:electro_resist[you]+=5

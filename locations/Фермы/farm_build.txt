@@ -1,4 +1,4 @@
-﻿Y=1&Z=120&H=0&R=0maxPositionH['<<X>>,<<Y>>,<<Z>>']=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Фермерский дом семьи <<$farmname>>'
+﻿Y=1&Z=120&H=0&R=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Фермерский дом семьи <<$farmname>>'
 pre_class=1&gs'fermerman_gen'&$farmname=$gensurname
 $temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Фермерский дом'&$locopis['<<$temploc>>']='Жилой фермерский дом'&np['<<$temploc>>']=0
 H=1&$locnameH['<<$templocH>>']='Туалет'

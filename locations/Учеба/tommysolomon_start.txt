@@ -13,7 +13,7 @@ act'Ха-ха, волшебный член':
 	act'Можно попробовать':
 		npc=tommysolomon&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/0.webm" ></video></center>'&'Вы присоединились к Маше и поцеловали член.'
 	    if magik[you]>magik[npc]:
-			'Вы прикоснулись губами к члену и сразу поняли, что тут какое то заклятие. Если продолжить минетить, то магия сделает так, что вам это действительно понравиться.'
+			'Вы прикоснулись губами к члену и сразу поняли, что тут какое-то заклятие. Если продолжить минетить, то магия сделает так, что вам это действительно понравиться.'
 			act'Вскочить':
 				dilamina_lezdomQW_sw[you]=2&dom[you]+=5&corr[you]-=10&magik[you]+=1&cls&gs'stat'&'<center><img src="pic/face/5/140.jpg" ></center>'
 				'Вы отпихнули этого недоделанного мага от себя и вскочили - Слышишь, урод, ты реально думал что я не почувствую твою магию? '
@@ -26,24 +26,24 @@ act'Ха-ха, волшебный член':
 					    if magik[you]>=15:
 							'Томми покорно встал на колени - Пожалуйста, прости меня!'
 					        act'Выпороть ремнем':
-								 dilamina_lezdomQW_sw[you]=3&dom[you]+=10&agro[npc]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/porka.webm" ></video></center>'
+								dilamina_lezdomQW_sw[you]=3&dom[you]+=10&agro[npc]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/porka.webm" ></video></center>'
 								'Вы спустили штаны с Томми и вынув его ремень из брюк начали пороть его пока рука не устала, а парень не начал всхлипывать и стонать от боли.'&act'Уйти':gt'preloc'
 					        end
 					        act'Обоссать':
-								 dilamina_lezdomQW_sw[you]=4&dom[you]+=10&agro[npc]=0&pee[you]+=1&drinkpee[npc]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/piss.webm" ></video></center>'
-								 'Подняв ногу вы начали мочиться на лицо Томми, тот попытался увернуться, но вы его крепко схватили за нос заставив открыть рот и нассали ему полный рот'&act'Уйти':gt'preloc'
-					         end
-					     else
+								dilamina_lezdomQW_sw[you]=4&dom[you]+=10&agro[npc]=0&pee[you]+=1&drinkpee[npc]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/piss.webm" ></video></center>'
+								'Подняв ногу вы начали мочиться на лицо Томми, тот попытался увернуться, но вы его крепко схватили за нос заставив открыть рот и нассали ему полный рот'&act'Уйти':gt'preloc'
+					        end
+					    else
 							'Томми молча отступил назад застегивая ширинку - Еще раз простите, я откланяюсь.'
-					     end
+					    end
 						act'Уйти':gt'preloc'
-					 end
-			     end
-			 end
-	     else
+					end
+			    end
+			end
+	    else
 			'Вам действительно понравилось ощущать губами член и вы с энтузиазмом целуетесь с Машей через стоячий член.'
-	     end
-		 act'Сосать':
+	    end
+		act'Сосать':
 			dilamina_lezdomQW[you]=1&tommysolomon_day_blow=daystart&corr[you]+=5&cls&gs'add_sex_stat', you, npc
 			horny[npc]=0&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
 			$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой хуй вместе с Машей'

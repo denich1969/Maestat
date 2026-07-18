@@ -10,7 +10,7 @@ else
 			'<<$nick[npc]>> презрительно смотрит на вас'&dynamic $d_fear
 		end
     else
-		 if corr[npc]<100:
+		if corr[npc]<100:
 			horny[npc]=0
 			if h_slot[you]=12:
 				'<<$nick[npc]>> кланяется вам - Какие будут приказания, ваше величество?'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
