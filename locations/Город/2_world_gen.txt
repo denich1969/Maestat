@@ -1,5 +1,4 @@
-﻿X=0&Y=0&Z=520&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5
-$n_board[Z]='Аптаун'&$w_board[Z]='Море'&$e_board[Z]='Парк'&$s_board[Z]='Порт'
+﻿X=0&Y=0&Z=520&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5&$n_board[Z]='Аптаун'&$w_board[Z]='Море'&$e_board[Z]='Парк'&$s_board[Z]='Порт'
 magworld[Z]=100&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 :markgenworldTwo
 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
@@ -7,143 +6,105 @@ if Y=Ymax[Z] and X>0 and X<5:d_border_way['<<$temploc>>']=3
 if Y=0 and X>0 and X<5:d_border_way['<<$temploc>>']=6
 if X=Xmax[Z] and Y>0 and Y<5:d_border_way['<<$temploc>>']=4
 if X=3 and Y=3:
-     $locname['<<$temploc>>']='Центральная площадь Башни времени'&$lname['<<$temploc>>']='Центральная площадь Башни времени'
-	 $locopis['<<$temploc>>']='Старинные здания окружают мощеную черным кирпичом площадь.'
-	 np['<<$temploc>>']=53
-	 under['<<X>>,<<Y>>,<<Z>>,0,0']=1&!власти
+    $locname['<<$temploc>>']='Центральная площадь Башни времени'&$lname['<<$temploc>>']='Центральная площадь Башни времени'
+	$locopis['<<$temploc>>']='Старинные здания окружают мощеную черным кирпичом площадь.'&np['<<$temploc>>']=53&under['<<X>>,<<Y>>,<<Z>>,0,0']=1&!власти
 elseif X=3 and Y=4:
-     $locname['<<$temploc>>']='Улица Путь старого короля'&$lname['<<$temploc>>']='Улица Путь старого короля'
-	 $locopis['<<$temploc>>']='Есть старинная легенда, что именно этой улицей ушел древний король, создатель города.'
-	 np['<<$temploc>>']=54
+    $locname['<<$temploc>>']='Улица Путь старого короля'&$lname['<<$temploc>>']='Улица Путь старого короля'
+	$locopis['<<$temploc>>']='Есть старинная легенда, что именно этой улицей ушел древний король, создатель города.'&np['<<$temploc>>']=54
 elseif X=3 and Y=5:
-     $locname['<<$temploc>>']='Улица Путь старого короля'&$lname['<<$temploc>>']='Улица Путь старого короля'
-	 $locopis['<<$temploc>>']='Есть старинная легенда, что именно этой улицей ушел древний король, создатель города.'
-	 np['<<$temploc>>']=55
+    $locname['<<$temploc>>']='Улица Путь старого короля'&$lname['<<$temploc>>']='Улица Путь старого короля'
+	$locopis['<<$temploc>>']='Есть старинная легенда, что именно этой улицей ушел древний король, создатель города.'&np['<<$temploc>>']=55
 elseif X=2 and Y=3:
-     $locname['<<$temploc>>']='Кривой проулок'&$lname['<<$temploc>>']='Кривой проулок'
-	 $locopis['<<$temploc>>']='Искривленный как карма предателя, проулок ведущий от центральной площади к церкви Иуды.'
-	 np['<<$temploc>>']=56
+    $locname['<<$temploc>>']='Кривой проулок'&$lname['<<$temploc>>']='Кривой проулок'
+	$locopis['<<$temploc>>']='Искривленный как карма предателя, проулок ведущий от центральной площади к церкви Иуды.'&np['<<$temploc>>']=56
 elseif X=1 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-     $locname['<<$temploc>>']='Церковь святого Иуды'&$lname['<<$temploc>>']='Церковь святого Иуды'
-	 $locopis['<<$temploc>>']='Единственная церковь, устоявшая в городе и продолжающая принимать прихожан.'
-	 np['<<$temploc>>']=57
-     H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Церковь'&!ownerloc['<<$templocH>>']=you
-     R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Церковь'&$lname['<<$temploc>>']='Церковь'&$lname_go['<<$temploc>>']='в церковь'
-     $locopis['<<$temploc>>']='Старинная церковь, до сих пор принимающая прихожан.'
-     np['<<$temploc>>']=98
-     gs'jude_gen'
-     H=0&R=0
+    $locname['<<$temploc>>']='Церковь святого Иуды'&$lname['<<$temploc>>']='Церковь святого Иуды'
+	$locopis['<<$temploc>>']='Единственная церковь, устоявшая в городе и продолжающая принимать прихожан.'&np['<<$temploc>>']=57
+    H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Церковь'&!ownerloc['<<$templocH>>']=you
+    R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Церковь'&$lname['<<$temploc>>']='Церковь'&$lname_go['<<$temploc>>']='в церковь'
+    $locopis['<<$temploc>>']='Старинная церковь, до сих пор принимающая прихожан.'&np['<<$temploc>>']=98&gs'jude_gen'&H=0&R=0
 elseif X=4 and Y=3:
-     $locname['<<$temploc>>']='Улица Сладких булочек'&$lname['<<$temploc>>']='Улица Сладких булочек'
-	 $locopis['<<$temploc>>']='Когда-то в старину тут пекли сладкие и сдобные булочки, рецепт которых давно утерян в веках.'
-	 np['<<$temploc>>']=58
+    $locname['<<$temploc>>']='Улица Сладких булочек'&$lname['<<$temploc>>']='Улица Сладких булочек'
+	$locopis['<<$temploc>>']='Когда-то в старину тут пекли сладкие и сдобные булочки, рецепт которых давно утерян в веках.'&np['<<$temploc>>']=58
 elseif X=5 and Y=3:
-     $locname['<<$temploc>>']='Аллея Художников'&$lname['<<$temploc>>']='Аллея Художников'
-	 $locopis['<<$temploc>>']='В этом месте, находящимся на границе Парка и Старого города, была мастерская художников.'
-	 np['<<$temploc>>']=59
+    $locname['<<$temploc>>']='Аллея Художников'&$lname['<<$temploc>>']='Аллея Художников'
+	$locopis['<<$temploc>>']='В этом месте, находящимся на границе Парка и Старого города, была мастерская художников.'&np['<<$temploc>>']=59
 elseif X=1 and Y=0:
-     $locname['<<$temploc>>']='Улица Монеток'&$lname['<<$temploc>>']='Улица Монеток'
-	 $locopis['<<$temploc>>']='Мрачные старинные дома на границе с Портом.'
-	 np['<<$temploc>>']=60
+    $locname['<<$temploc>>']='Улица Монеток'&$lname['<<$temploc>>']='Улица Монеток'
+	$locopis['<<$temploc>>']='Мрачные старинные дома на границе с Портом.'&np['<<$temploc>>']=60
 elseif X=2 and Y=0:
-     $locname['<<$temploc>>']='Улица Ведра гвоздей'&$lname['<<$temploc>>']='Улица Ведра гвоздей'
-	 $locopis['<<$temploc>>']='Мрачные старинные дома на границе с Портом.'
-	 np['<<$temploc>>']=61
+    $locname['<<$temploc>>']='Улица Ведра гвоздей'&$lname['<<$temploc>>']='Улица Ведра гвоздей'
+	$locopis['<<$temploc>>']='Мрачные старинные дома на границе с Портом.'&np['<<$temploc>>']=61
 elseif X=3 and Y=0:
-     $locname['<<$temploc>>']='Проулок нечистого'&$lname['<<$temploc>>']='Проулок нечистого'
-	 $locopis['<<$temploc>>']='Мрачные лабиринты дворов.'
-	 np['<<$temploc>>']=62
-	 gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'
+    $locname['<<$temploc>>']='Проулок нечистого'&$lname['<<$temploc>>']='Проулок нечистого'
+	$locopis['<<$temploc>>']='Мрачные лабиринты дворов.'&np['<<$temploc>>']=62&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'
 elseif X=4 and Y=0:
-     $locname['<<$temploc>>']='Проулок охотников'&$lname['<<$temploc>>']='Проулок охотников'
-	 $locopis['<<$temploc>>']='Мрачные лабиринты дворов.'
-	 np['<<$temploc>>']=63
+    $locname['<<$temploc>>']='Проулок охотников'&$lname['<<$temploc>>']='Проулок охотников'
+	$locopis['<<$temploc>>']='Мрачные лабиринты дворов.'&np['<<$temploc>>']=63
 elseif X=5 and Y=0:
-     $locname['<<$temploc>>']='Проулок вознесения'&$lname['<<$temploc>>']='Проулок вознесения'
-	 $locopis['<<$temploc>>']='Мрачные лабиринты дворов.'
-	 np['<<$temploc>>']=64
+    $locname['<<$temploc>>']='Проулок вознесения'&$lname['<<$temploc>>']='Проулок вознесения'
+	$locopis['<<$temploc>>']='Мрачные лабиринты дворов.'&np['<<$temploc>>']=64
 elseif X=1 and Y=1:
-     $locname['<<$temploc>>']='Улица Могила героя'&$lname['<<$temploc>>']='Улица Могила героя'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'
-	 np['<<$temploc>>']=65
+    $locname['<<$temploc>>']='Улица Могила героя'&$lname['<<$temploc>>']='Улица Могила героя'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'&np['<<$temploc>>']=65
 elseif X=2 and Y=1:
-     $locname['<<$temploc>>']='Улица Призрачного причастия'&$lname['<<$temploc>>']='Улица Призрачного причастия'
-	 $locopis['<<$temploc>>']='Улица со старинными домами, скрывающими множество тайн.'
-	 np['<<$temploc>>']=66
+    $locname['<<$temploc>>']='Улица Призрачного причастия'&$lname['<<$temploc>>']='Улица Призрачного причастия'
+	$locopis['<<$temploc>>']='Улица со старинными домами, скрывающими множество тайн.'&np['<<$temploc>>']=66
 elseif X=3 and Y=1:
-     $locname['<<$temploc>>']='Улица Верхняя'&$lname['<<$temploc>>']='Улица Верхняя'
-	 $locopis['<<$temploc>>']='Узкая улочка, где между серых стен домов трудно разойтись встречным прохожим.'
-	 np['<<$temploc>>']=67
+    $locname['<<$temploc>>']='Улица Верхняя'&$lname['<<$temploc>>']='Улица Верхняя'
+	$locopis['<<$temploc>>']='Узкая улочка, где между серых стен домов трудно разойтись встречным прохожим.'&np['<<$temploc>>']=67
 elseif X=4 and Y=1:
-     $locname['<<$temploc>>']='Улица Опаленной юности'&$lname['<<$temploc>>']='Улица Опаленной юности'
-	 $locopis['<<$temploc>>']='Одна из первейших улиц города, на которой в старину были регулярные разборки.'
-	 np['<<$temploc>>']=68
+    $locname['<<$temploc>>']='Улица Опаленной юности'&$lname['<<$temploc>>']='Улица Опаленной юности'
+	$locopis['<<$temploc>>']='Одна из первейших улиц города, на которой в старину были регулярные разборки.'&np['<<$temploc>>']=68
 elseif X=5 and Y=1:
-     $locname['<<$temploc>>']='Назадовский тупик'&$lname['<<$temploc>>']='Назадовский тупик'
-	 $locopis['<<$temploc>>']='Тупичок между кирпичными стенами старинных домов.'
-	 np['<<$temploc>>']=69
+    $locname['<<$temploc>>']='Назадовский тупик'&$lname['<<$temploc>>']='Назадовский тупик'
+	$locopis['<<$temploc>>']='Тупичок между кирпичными стенами старинных домов.'&np['<<$temploc>>']=69
 elseif X=1 and Y=2:
-     $locname['<<$temploc>>']='Улица Воспоминаний'&$lname['<<$temploc>>']='Улица Воспоминаний'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'
-	 np['<<$temploc>>']=70
+    $locname['<<$temploc>>']='Улица Воспоминаний'&$lname['<<$temploc>>']='Улица Воспоминаний'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'&np['<<$temploc>>']=70
 elseif X=2 and Y=2:
-     $locname['<<$temploc>>']='Проезд Соломенной сторожки'&$lname['<<$temploc>>']='Проезд Соломенной сторожки'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'
-	 np['<<$temploc>>']=71
+    $locname['<<$temploc>>']='Проезд Соломенной сторожки'&$lname['<<$temploc>>']='Проезд Соломенной сторожки'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'&np['<<$temploc>>']=71
 elseif X=3 and Y=2:
-     $locname['<<$temploc>>']='Улица Колокольная'&$lname['<<$temploc>>']='Улица Колокольная'
-	 $locopis['<<$temploc>>']='На улице в качестве памятника стоит колокол.'
-	 np['<<$temploc>>']=72
+    $locname['<<$temploc>>']='Улица Колокольная'&$lname['<<$temploc>>']='Улица Колокольная'
+	$locopis['<<$temploc>>']='На улице в качестве памятника стоит колокол.'&np['<<$temploc>>']=72
 elseif X=4 and Y=2:
-     $locname['<<$temploc>>']='Улица Провинциальная'&$lname['<<$temploc>>']='Улица Провинциальная'
-	 $locopis['<<$temploc>>']='Когда-то тут распологались дешёвые ночлежки для понаехавших провинциалов.'
-	 np['<<$temploc>>']=73
+    $locname['<<$temploc>>']='Улица Провинциальная'&$lname['<<$temploc>>']='Улица Провинциальная'
+	$locopis['<<$temploc>>']='Когда-то тут распологались дешёвые ночлежки для понаехавших провинциалов.'&np['<<$temploc>>']=73
 elseif X=5 and Y=2:
-     $locname['<<$temploc>>']='Улица Павших чебурашек'&$lname['<<$temploc>>']='Улица Павших чебурашек'
-	 $locopis['<<$temploc>>']='Мощеная камнем мостовая веет седой стариной и жуткими тайнами, которые лучше не знать, чтобы не повредиться рассудком.'
-	 np['<<$temploc>>']=74
-	 gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'
+    $locname['<<$temploc>>']='Улица Павших чебурашек'&$lname['<<$temploc>>']='Улица Павших чебурашек'
+	$locopis['<<$temploc>>']='Мощеная камнем мостовая веет седой стариной и жуткими тайнами, которые лучше не знать, чтобы не повредиться рассудком.'&np['<<$temploc>>']=74
+	gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'&gs'psihogang_gen'
 elseif X=1 and Y=4:
-     $locname['<<$temploc>>']='Проулок Старого дерева'&$lname['<<$temploc>>']='Проулок Старого дерева'
-	 $locopis['<<$temploc>>']='Мощеная камнем улочка и забор, огораживающий старое высохшее дерево.'
-	 np['<<$temploc>>']=75
+    $locname['<<$temploc>>']='Проулок Старого дерева'&$lname['<<$temploc>>']='Проулок Старого дерева'
+	$locopis['<<$temploc>>']='Мощеная камнем улочка и забор, огораживающий старое высохшее дерево.'&np['<<$temploc>>']=75
 elseif X=2 and Y=4:
-     $locname['<<$temploc>>']='Улица Золотой холм'&$lname['<<$temploc>>']='Улица Золотой холм'
-	 $locopis['<<$temploc>>']='На большом наклоне стоят утопающие в зелени уютные особнячки.'
-	 np['<<$temploc>>']=76
+    $locname['<<$temploc>>']='Улица Золотой холм'&$lname['<<$temploc>>']='Улица Золотой холм'
+	$locopis['<<$temploc>>']='На большом наклоне стоят утопающие в зелени уютные особнячки.'&np['<<$temploc>>']=76
 elseif X=1 and Y=5:
-     $locname['<<$temploc>>']='Улица Пешеходная'&$lname['<<$temploc>>']='Улица Пешеходная'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'
-	 np['<<$temploc>>']=77
+    $locname['<<$temploc>>']='Улица Пешеходная'&$lname['<<$temploc>>']='Улица Пешеходная'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий.'&np['<<$temploc>>']=77
 elseif X=2 and Y=5:
-     $locname['<<$temploc>>']='Проулок Безлошадный'&$lname['<<$temploc>>']='Проулок Безлошадный'
-	 $locopis['<<$temploc>>']='Тесный закуток между старинных зданий'
-	 np['<<$temploc>>']=78
+    $locname['<<$temploc>>']='Проулок Безлошадный'&$lname['<<$temploc>>']='Проулок Безлошадный'
+	$locopis['<<$temploc>>']='Тесный закуток между старинных зданий'&np['<<$temploc>>']=78
 elseif X=4 and Y=4:
-     $locname['<<$temploc>>']='Улица Зеленая'&$lname['<<$temploc>>']='Улица Зеленая'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий, на которых растет плющ.'
-	 np['<<$temploc>>']=79
+    $locname['<<$temploc>>']='Улица Зеленая'&$lname['<<$temploc>>']='Улица Зеленая'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий, на которых растет плющ.'&np['<<$temploc>>']=79
 elseif X=5 and Y=4:
-     $locname['<<$temploc>>']='Улица Вина из одуванчиков'&$lname['<<$temploc>>']='Улица Вина из одуванчиков'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий, утопающих в зелени.'
-	 np['<<$temploc>>']=80
+    $locname['<<$temploc>>']='Улица Вина из одуванчиков'&$lname['<<$temploc>>']='Улица Вина из одуванчиков'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий, утопающих в зелени.'&np['<<$temploc>>']=80
 elseif X=4 and Y=5:
-     $locname['<<$temploc>>']='Улица Черных птиц'&$lname['<<$temploc>>']='Улица Черных птиц'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий, утопающих в зелени.'
-	 np['<<$temploc>>']=81
+    $locname['<<$temploc>>']='Улица Черных птиц'&$lname['<<$temploc>>']='Улица Черных птиц'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий, утопающих в зелени.'&np['<<$temploc>>']=81
 elseif X=5 and Y=5:
-     $locname['<<$temploc>>']='Улица Потерянной принцессы'&$lname['<<$temploc>>']='Улица Потерянной принцессы'
-	 $locopis['<<$temploc>>']='Узкая улочка между старинных зданий, утопающих в зелени.'
-	 np['<<$temploc>>']=82
+    $locname['<<$temploc>>']='Улица Потерянной принцессы'&$lname['<<$temploc>>']='Улица Потерянной принцессы'
+	$locopis['<<$temploc>>']='Узкая улочка между старинных зданий, утопающих в зелени.'&np['<<$temploc>>']=82
 elseif X=0:
-     $locname['<<$temploc>>']='Набережная'&$lname['<<$temploc>>']='Набережная'
-	 $locopis['<<$temploc>>']='Изящная и старинная набережная, омываемая изумрудным морем.'
-	 np['<<$temploc>>']=52
+    $locname['<<$temploc>>']='Набережная'&$lname['<<$temploc>>']='Набережная'
+	$locopis['<<$temploc>>']='Изящная и старинная набережная, омываемая изумрудным морем.'&np['<<$temploc>>']=52
 else
-     $locname['<<$temploc>>']='Даунтаун'&$lname['<<$temploc>>']='Даунтаун'&$locopis['<<$temploc>>']=''
-	 np['<<$temploc>>']=0
+    $locname['<<$temploc>>']='Даунтаун'&$lname['<<$temploc>>']='Даунтаун'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0
 end
 peoplegenrand=rand(2)&pre_class=rand(2)
 if peoplegenrand=0:gs'male_gen'&downworld[]=i

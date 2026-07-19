@@ -1,7 +1,7 @@
 ﻿tits[you]+=1&ass[you]+=rand(1,3)&if dick[you]>5:dick[you]-=1
 face[you]+=rand(1,5)&if fat[you]>1000:fat[you]-=5
 magik_egganal[you]=0&magik_egganal_timer[you]=24&soul[you]-=5&anal[you]+=1&anus[you]+=1&horny[you]+=50&hotass[you]+=5&feminize[you]+=1
-gs'stat'&'<center><video src="pic/event/egganal.webm" ></video></center>'&'Вас скручивает боль от толчков внутри вашего ануса. Вы закусываете губу от боли и на глазах выступают слезы.'
+gs'stat'&'<center><video autoplay loop src="pic/event/egganal.webm" ></video></center>'&'Вас скручивает боль от толчков внутри вашего ануса. Вы закусываете губу от боли и на глазах выступают слезы.'
 act'Отдать яйцо':
 	money[you]+=10000&cls&gs'stat'&'<center><img src="pic/face/5/18.jpg" ></center>'&'Вы отдаете яйцо. Марта бросает вам 100 шиллингов'
 	 'Марта - Нужны будут деньги - приходи, повторим процедуру'&act'Уйти':gt 'preloc'

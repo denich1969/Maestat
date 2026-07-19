@@ -2,7 +2,7 @@
 if you=mother:
 	'<center><img src="pic/event/shower/<<rand(0,5)>>.jpg" ></center>'
 else
-	'<center><video src="pic/misc/shower.webm" ></video></center>'
+	'<center><video autoplay loop src="pic/misc/shower.webm" ></video></center>'
 end
 'Вы моетесь в душе и вдруг чувствуете сквозняк. Посмотрев на дверь, вы замечаете там щелку, в которую кто-то подглядывает.'
 horny[you]+=10&corr[you]+=rand(0,1)&act'Уйти':gt 'preloc'

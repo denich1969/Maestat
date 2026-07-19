@@ -1,55 +1,52 @@
 ﻿$d_glory_finish={
-	 act'Глотать':
-		 cum_face[you]+=1&glory[you]+=1&dom[you]-=1&cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете глотая сперму.'&!soul[you]-=1
-	 	 if oral_fixation[you]>=1000:
-			 'Едва вы дотрагиваетесь себе между ног, как тут же кончаете.'
-			 if func('oralslut',-1,you,1)=1:horny[you]=0
-		 else
-			 if func('oralslut',-1,you)=1:horny[you]=0
-		 end
-		 temp_orgazm[you]=0&money[you]+=500&'За отсос вы заработали 5 шиллингов.'&act'Встать':gt 'preloc'
+	act'Глотать':
+		cum_face[you]+=1&glory[you]+=1&dom[you]-=1&cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете глотая сперму.'&!soul[you]-=1
+	 	if oral_fixation[you]>=1000:
+			'Едва вы дотрагиваетесь себе между ног, как тут же кончаете.'
+			if func('oralslut',-1,you,1)=1:horny[you]=0
+		else
+			if func('oralslut',-1,you)=1:horny[you]=0
+		end
+		temp_orgazm[you]=0&money[you]+=500&'За отсос вы заработали 5 шиллингов.'&act'Встать':gt 'preloc'
 	 end
 }
-$nameloc[you]=$curloc
-gs'stat'&if bimboporn>0:'<center><img src="pic/sex/pornpic/bimbo.jpg" ></center>'&'В кабинке встроен телевизор где идет порнуха, в стене видны дырки.'
+$nameloc[you]=$curloc&gs'stat'&if bimboporn>0:'<center><img src="pic/sex/pornpic/bimbo.jpg" ></center>'&'В кабинке встроен телевизор где идет порнуха, в стене видны дырки.'&act'Уйти':gt 'preloc'
 'В объявлении написано что в глорихол не влияет на душу и тут можно безопасно развлекаться без потери или приобретения души.'&if bimboporn>0:'Увидев порнуху вы узнали там себя'
-act'Уйти':gt 'preloc'
 if energy[you]>=50 and pose[you]=2:
 	$func('get_images', 'glory_dick')&'Из дыры показался член'
 	act'Взять в рот':
-		energy[you]-=50&bj[you]+=1&oral_fixation[you]+=1&corr[you]+=1&$global_npc_log[you]+='<br>'
-		 $global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала член в глорихоле.'
+		energy[you]-=50&bj[you]+=1&oral_fixation[you]+=1&corr[you]+=1&$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала член в глорихоле.'
 		time+=15&cls&gs'stat'&$func('get_images', 'glory_blow', you)&'Вы встаете на колени и из дыры показывается член, вы берете его в рот и начинаете сосать.'
-		 if oral_fixation[you]>=100:horny[you]+=50&'Вас возбуждает мужской прибор в вашем рту.'
-		 dynamic $d_glory_finish
-		 act'Глубокий минет':
-			 if throat[you]<10:throat[you]=10
-			 throat[you]+=1&cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)&'Вы заглатываете член в горло и сосете его на всю длину.'&dynamic $d_glory_finish
-		 end
+		if oral_fixation[you]>=100:horny[you]+=50&'Вас возбуждает мужской прибор в вашем рту.'
+		dynamic $d_glory_finish
+		act'Глубокий минет':
+			if throat[you]<10:throat[you]=10
+			throat[you]+=1&cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)&'Вы заглатываете член в горло и сосете его на всю длину.'&dynamic $d_glory_finish
+		end
 	end
 end
 if money[you]>=100:
-	 act'Заплатить шиллинг и смотреть порно':
-		 money[you]-=100&horny[you]=100
-		 cls&gs'stat'&'<center><video src="pic/sex/group/dp/dpb<<rand(0,20)>>.webm" ></video></center>'&'Вы смотрите порнуху по телевизору и это вас возбуждает.'&act'Встать':gt 'preloc'
-	 end
+	act'Заплатить шиллинг и смотреть порно':
+		money[you]-=100&horny[you]=100
+		cls&gs'stat'&'<center><video autoplay loop src="pic/sex/group/dp/dpb<<rand(0,20)>>.webm" ></video></center>'&'Вы смотрите порнуху по телевизору и это вас возбуждает.'&act'Встать':gt 'preloc'
+	end
 end
 if rand(1,10)>=7 and dick[you]>3 and vag[you]<=0 and ball[you]>2 and horny[you]>=50 and pose[you]=1:
-     act'Засунуть член в дыру':
-		 energy[you]-=30&bj[you]+=1&time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&'Вы засовываете член в дыру и внезапно прилипаете к дыре. '
+    act'Засунуть член в дыру':
+		energy[you]-=30&bj[you]+=1&time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&'Вы засовываете член в дыру и внезапно прилипаете к дыре. '
 		'А из магического символа напротив вашего лица вылезает член и попадает вам в рот. Вы тут же понимаете, что у вас во рту ваш собственный член. '
 		'И вы никак не можете освободиться. Постепенно вы начинаете сосать свой член и входите во вкус, заглатывая все глубже и глубже.'
-		 act'Кончать':
-			 cum_face[you]+=1&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(2,5)&oral_fixation[you]+=1
-			 cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth')&'Вы кончили себе в рот и проглотили сперму, ощущая при этом, как нечто внутри вас вздрогнуло и повернулось в сторону женственности. '
+		act'Кончать':
+			cum_face[you]+=1&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(2,5)&oral_fixation[you]+=1
+			cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth')&'Вы кончили себе в рот и проглотили сперму, ощущая при этом, как нечто внутри вас вздрогнуло и повернулось в сторону женственности. '
 			'После этого магическая сила, не дающая вам отлипнуть от стены, исчезла.'&act'Встать':gt 'world'
-		 end
-	 end
+		end
+	end
  else
-	 if dick[you]>3 and vag[you]<=0 and ball[you]>1 and horny[you]>=50 and pose[you]=1:
-		 act'Засунуть член в дыру':
-			 abj[you]+=1&horny[you]=0&feminize[you]-=1&lastsex=time&time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&act'Уйти':dinama+=1&gt 'world'
-			 'Вы засовываете член в дыру, и чувствуете, как горячий рот незнакомой шлюхи обхватывает ваш член и начинает сосать будто пылесосом. Вскоре вы разряжаетесь в рот шлюхе.'&!soul[you]+=1			 
-		 end
-	 end
+	if dick[you]>3 and vag[you]<=0 and ball[you]>1 and horny[you]>=50 and pose[you]=1:
+		act'Засунуть член в дыру':
+			abj[you]+=1&horny[you]=0&feminize[you]-=1&lastsex=time&time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&act'Уйти':dinama+=1&gt 'world'
+			'Вы засовываете член в дыру, и чувствуете, как горячий рот незнакомой шлюхи обхватывает ваш член и начинает сосать будто пылесосом. Вскоре вы разряжаетесь в рот шлюхе.'&!soul[you]+=1			 
+		end
+	end
 end

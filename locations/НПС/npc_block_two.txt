@@ -1,6 +1,6 @@
 ﻿if follower[npc]>0:
 	if follower[npc]=you:'Следует за вами'
-	if follower[npc]!you:'Следует за кем то'     
+	if follower[npc]!you:'Следует за кем-то'     
 	if sex_follow[you]=npc:
 		if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0) and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
 			if gender[npc]>0:
@@ -77,7 +77,7 @@
 					if dom[you]<dom[npc] or agro[you]<agro[npc]:
 						cls&'<<$name[npc]>> - О нет, дорогая моя, Это ты мне вылизывать будешь!'
 						last_sex[npc]=time+(60*5)&friends[npc]+=1&dom[you]-=rand(3,6)&cuntlick[you]+=1&horny[you]=99&health[you]+=50&energy[you]+=100&!if manamax[you]>0:mana[you]+=soul[you]
-						lust[npc]+=1&gs'stat'&'<center><video src="pic/sex/lesb/<<rand(0,5)>>.webm" ></video></center>'
+						lust[npc]+=1&gs'stat'&'<center><video autoplay loop src="pic/sex/lesb/<<rand(0,5)>>.webm" ></video></center>'
 						'<<$name[npc]>> стонет когда вы вылизываете ее мокрое и горячее влагалище и вскоре девушка кончает содрогаясь в оргазме.'&act'Уйти':gt 'after_lesb_sex'
 					else
 						gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&gt'justsex'

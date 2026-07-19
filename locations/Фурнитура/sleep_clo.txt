@@ -20,7 +20,7 @@ if vagina_egg[you]>0 and vagina_egg_timer[you]<=0:gt'vagina_egg_rodi'
 if magik_eggvag_timer[you]<=0 and magik_eggvag[you]>0:gt'magik_eggvag_rodi'
 if dagonegg>0:
 	'Ночью, вас охватило безумное возбуждение и спазмы, вы вспомнили, что глубинный монстр кончил в вас и оставил в нутри вашей утробы свои плоды... Пришло время выпустить их наружу...'
-	'<center><video src="pic/event/see/rody.webm" ></video></center>'		
+	'<center><video autoplay loop src="pic/event/see/rody.webm" ></video></center>'		
 	horny[you]=100&dagongene+=dagonegg&vag[you]+=dagonegg
 	in=1
 	:egg

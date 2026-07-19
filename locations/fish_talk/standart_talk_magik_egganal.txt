@@ -13,12 +13,12 @@ act'Идти с Мартой':
 	gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Только вы зашли к ней домой она достает маленькую коробочку, от которой исходит необычный свет.'
 	 '<<$name[npc]>> Показывая пальцем на коробочку - Встань раком я введу в тебя яйцо'
 	 act'Втать раком':
-		friends['<<npc>>,<<you>>']+=100&friends['<<you>>,<<npc>>']+=100&cls&gs'stat'&'<center><video src="pic/event/eggmagik.webm" ></video></center>'
+		friends['<<npc>>,<<you>>']+=100&friends['<<you>>,<<npc>>']+=100&cls&gs'stat'&'<center><video autoplay loop src="pic/event/eggmagik.webm" ></video></center>'
 		'Вы встаете раком и Марта, смазав руки какой-то смазкой пихает пальцы вам в попу, растягивая ее'
 		 '<<$name[npc]>> - Расслабь попу'
 		 act'Расслабить попу':
 			magik_egganal[you]=1&magik_egganal_timer[you]=24&anal[you]+=1&anus[you]+=1&horny[you]+=50&friends[npc]+=1
-			cls&gs'stat'&'<center><video src="pic/event/egganal.webm" ></video></center>'&'Марта достает из коробочки яйцо и пихает вам в зад'
+			cls&gs'stat'&'<center><video autoplay loop src="pic/event/egganal.webm" ></video></center>'&'Марта достает из коробочки яйцо и пихает вам в зад'
 			 '<<$name[npc]>> смеется - Вот и все а ты боялась, только юбочка помялась да животик потолстел'
 			 act'...':
 				time+=30&cls& gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Внутри себя вы чувствуете пульсирующее яйцо, от которого исходит необычная магия'

@@ -1,20 +1,17 @@
-﻿$nameloc[you]=$curloc&cloint=0&gs'stat'&'Душевая'&gs'Item'&*nl&gs 'npconloc'
-if fullnude[you]=1:'Вы полностью обнажены'
-if fullnude[you]=0:'Вы в одежде'
-act'Уйти':gt 'preloc'
+﻿$nameloc[you]=$curloc&cloint=0&gs'stat'&'Душевая'&gs'Item'&*nl&gs 'npconloc'&$iif(fullnude[you]=1,'Вы полностью обнажены',$iif(fullnude[you]=2,'Вы в одежде',''))&act'Уйти':gt 'preloc'
 if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-	 if energized[you]<4:
-		 if fullnude[you]=1:
-			 if item[17]>0 or item[18]>0 or item[19]>0:'У вас есть мыло чтобы помыться'
-			 if item[17]>0 or item[18]>0 or item[19]>0:
-				 act'Мыться':
-					 energy[you]+=10&energized[you]+=6&status_tipe[you]=1&status_time[you]=time+120
-					 cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0&peecover[you]=0&fishsmell[you]=0
-					 time+=30&cls&gs'rashod_mila'&gs'stat'&'Вы полчаса моетесь в душе.'
-					 if pol[you]>0 and vag[you]>0:'<center><video src="pic/misc/shower_f_<<rand(0,3)>>.webm" ></video></center>'
-					 if pol[you]>0 and dick[you]>0:'<center><video src="pic/misc/shower_s_<<rand(0,3)>>.webm" ></video></center>'
-					 if pol[you]=0 and dick[you]>0:'<center><video src="pic/misc/shower_m_<<rand(0,1)>>.webm" ></video></center>'
-					 if insmouth_loc_num>0 and X[you]=3 and Y[you]=1 and Z[you]=1 and H[you]=1 and pol[you]>0:
+	if energized[you]<4:
+		if fullnude[you]=1:
+			if item[17]>0 or item[18]>0 or item[19]>0:'У вас есть мыло чтобы помыться'
+			if item[17]>0 or item[18]>0 or item[19]>0:
+				act'Мыться':
+					energy[you]+=10&energized[you]+=6&status_tipe[you]=1&status_time[you]=time+120
+					cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0&peecover[you]=0&fishsmell[you]=0
+					time+=30&cls&gs'rashod_mila'&gs'stat'&'Вы полчаса моетесь в душе.'
+					if pol[you]>0 and vag[you]>0:'<center><video autoplay loop src="pic/misc/shower_f_<<rand(0,3)>>.webm" ></video></center>'
+					if pol[you]>0 and dick[you]>0:'<center><video autoplay loop src="pic/misc/shower_s_<<rand(0,3)>>.webm" ></video></center>'
+					if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/misc/shower_m_<<rand(0,1)>>.webm" ></video></center>'
+					if insmouth_loc_num>0 and X[you]=3 and Y[you]=1 and Z[you]=1 and H[you]=1 and pol[you]>0:
 						if rand(1,6)=3 and horny[you]>70:							 
 							 :loop
 								if item_loc_l['<<cloint>>,<<$loc[you]>>']>0:item_loc_l['<<cloint>>,<<$loc[you]>>']=0							
@@ -23,98 +20,98 @@ if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG[
 								if item_loc_ul['<<cloint>>,<<$loc[you]>>']>0:item_loc_ul['<<cloint>>,<<$loc[you]>>']=0
 							cloint+=1&if cloint<100:jump 'loop'
 							'Вам послышалось, что кто-то снаружи трогает выши вещи... Однако это могло и показаться из-за шума воды.'						 
-						 else
+						else
 							cloint=0
-						 end
-						 if rand(1,3)=2:gt'shower_ins'
-					 end
-					 if X[you]=3 and Y[you]=1 and Z[you]=3 and H[you]=1 and vag[you]>0:
-					     if X[brother]=3 and Y[brother]=1 and Z[brother]=3 and H[brother]=1 and dead[brother]=0 and onceperadaybrotherperv!daystart:onceperadaybrotherperv=daystart&gt'shower_broperv'
-					 end
-					 act'...':gt $curloc
-					 if cloint>0:
+						end
+						if rand(1,3)=2:gt'shower_ins'
+					end
+					if X[you]=3 and Y[you]=1 and Z[you]=3 and H[you]=1 and vag[you]>0:
+					    if X[brother]=3 and Y[brother]=1 and Z[brother]=3 and H[brother]=1 and dead[brother]=0 and onceperadaybrotherperv!daystart:onceperadaybrotherperv=daystart&gt'shower_broperv'
+					end
+					act'...':gt $curloc
+					if cloint>0:
 						msg('Похоже вашу одежду и часть денег кто-то украл... точнее не украл, а заменил...')&money[you]-=iif((money[you]/10)>5000,5000,money[you]/10)
 						item_loc_l['<<rand(87,89)>>,<<$loc[you]>>']=1&item_loc_t['<<rand(31,34)>>,<<$loc[you]>>']=1&item_loc_b['<<rand(17,22)>>,<<$loc[you]>>']=1&cloint=0
-					 end
-					 if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
-						 act'Тереть клитор':
-							 jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/shower.webm" ></video></center>'
-							 'Вы направили тугую струю на низ живота и немного на лепестки влагалища, начав тереть ладошкой клитор и оргазм не заставил себя ждать.'&act'Встать':gt $curloc
-						 end
-					 end
-				 end
-			 else
+					end
+					if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
+						act'Тереть клитор':
+							jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/shower.webm" ></video></center>'
+							'Вы направили тугую струю на низ живота и немного на лепестки влагалища, начав тереть ладошкой клитор и оргазм не заставил себя ждать.'&act'Встать':gt $curloc
+						end
+					end
+				end
+			else
 				'У вас нет мыла, чтобы мыться под душем.'
-			 end
-		 else
+			end
+		else
 			'Моются голыми, вам нужно раздеться догола.'
-			 act'Раздеться догола':
-				 if h_slot[you]>0:
+			act'Раздеться догола':
+				if h_slot[you]>0:
 					clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$loc[you]>>']+=1&h_slot[you]=0
-				 end
-				  !{if m_slot[you]>0:
+				end
+				 !{if m_slot[you]>0:
 					clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$loc[you]>>']+=1&m_slot[you]=0
-				 end
-				  if w_slot[you]>0:
+				end
+				 if w_slot[you]>0:
 					clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$loc[you]>>']+=1&w_slot[you]=0
-				 end}
-				 if c_slot[you]>0:
+				end}
+				if c_slot[you]>0:
 					clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$loc[you]>>']+=1&c_slot[you]=0
-				 end
-				  if tz_slot[you]>0:
+				end
+				 if tz_slot[you]>0:
 					clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$loc[you]>>']+=1&tz_slot[you]=0
-				 end
-				  if tg_slot[you]>0:
+				end
+				if tg_slot[you]>0:
 					clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$loc[you]>>']+=1&tg_slot[you]=0
-				 end
-				 if t_slot[you]>0:
+				end
+				if t_slot[you]>0:
 					clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
-				 end
-				 if l_slot[you]>0:
+				end
+				if l_slot[you]>0:
 					clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
-				 end
-				 if b_slot[you]>0:
+				end
+				if b_slot[you]>0:
 					clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
-				 end
-				 if ut_slot[you]>0:
+				end
+				if ut_slot[you]>0:
 					clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$loc[you]>>']+=1&ut_slot[you]=0
-				 end
-				 if ul_slot[you]>0:
+				end
+				if ul_slot[you]>0:
 					clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
-				 end
-				 if ub_slot[you]>0:
+				end
+				if ub_slot[you]>0:
 					clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
-				 end
+				end
 				gt $curloc
 			end
-		 end
-	 end
-	 if beard[you]>=1 and item[14]>0:
-		 act'Бриться':
-			 beard[you]=-1&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]
-			 time+=15&cls&gs'stat'&!if pol[you]>0:'<center><video src="pic/misc/shower.webm" ></video></center>'
-			 'Вы 15 минут бреете бороду в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
-		 end
-	 end
-	 if leg_hair[you]>0 and pol[you]>0 and item[14]>0:
-		 act'Брить ноги':
-			 leg_hair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]
-			 time+=15&cls&gs'stat'& '<center><video src="pic/misc/leg<<rand(1,3)>>.webm" ></video></center>'
-			 'Вы 15 минут бреете ноги в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
-		 end
-	 end
-	 if tit_hair[you]>0 and pol[you]>0 and item[14]>0:
-		 act'Брить грудь':
-			 tit_hair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]&time+=15&cls&gs'stat'&!'<center><img src="pic/misc/leg.jpg" ></center>'
-			 'Вы 15 минут бреете грудь в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
-		 end
-	 end
-	 if cunthair[you]>0 and item[14]>0 and vag[you]>0:
-		 act'Брить лобок':
-			 cunthair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]
-			 time+=15&cls&gs'stat'&'<center><video src="pic/misc/cunt_shave<<rand(0,3)>>.webm" ></video></center>'
-			 'Вы 15 минут бреете лобок в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
-		 end
-	 end
-	 if spit_face[you]>0:act'Умыть лицо':spit_face[you]=0&time+=5&cls&gs'stat'&gt 'preloc'
+		end
+	end
+	if beard[you]>=1 and item[14]>0:
+		act'Бриться':
+			beard[you]=-1&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]
+			time+=15&cls&gs'stat'&!if pol[you]>0:'<center><video autoplay loop src="pic/misc/shower.webm" ></video></center>'
+			'Вы 15 минут бреете бороду в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
+		end
+	end
+	if leg_hair[you]>0 and pol[you]>0 and item[14]>0:
+		act'Брить ноги':
+			leg_hair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]
+			time+=15&cls&gs'stat'& '<center><video autoplay loop src="pic/misc/leg<<rand(1,3)>>.webm" ></video></center>'
+			'Вы 15 минут бреете ноги в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
+		end
+	end
+	if tit_hair[you]>0 and pol[you]>0 and item[14]>0:
+		act'Брить грудь':
+			tit_hair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]&time+=15&cls&gs'stat'&!'<center><img src="pic/misc/leg.jpg" ></center>'
+			'Вы 15 минут бреете грудь в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
+		end
+	end
+	if cunthair[you]>0 and item[14]>0 and vag[you]>0:
+		act'Брить лобок':
+			cunthair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]
+			time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/cunt_shave<<rand(0,3)>>.webm" ></video></center>'
+			'Вы 15 минут бреете лобок в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
+		end
+	end
+	if spit_face[you]>0:act'Умыть лицо':spit_face[you]=0&time+=5&cls&gs'stat'&gt 'preloc'
 end

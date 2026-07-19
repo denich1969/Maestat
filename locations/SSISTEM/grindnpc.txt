@@ -1,4 +1,4 @@
-﻿gs'stat'&'<center><video src="pic/sex/public/foreplay<<rand(0,23)>>.webm" ></video></center>'
+﻿gs'stat'&'<center><video autoplay loop src="pic/sex/public/foreplay<<rand(0,23)>>.webm" ></video></center>'
 '<<$name[dom]>> <<$surname[dom]>> мацает девушку и говорит скабрезности, а <<$name[sub]>> <<$surname[sub]>> отчаянно краснеет.'&act'Уйти':gt'preloc'
 if boyfriend_num[you]=dom:
 	'Ваш парень щупает какую то тупую овцу!'

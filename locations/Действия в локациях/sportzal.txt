@@ -14,9 +14,9 @@ if can_do_sport[you]=1:
 			 end
 			 time+=30&cls&gs'stat'
 			if pol[you]>0:
-				 '<center><video src="pic/misc/squat<<rand(0,4)>>.webm" ></video></center>'&'Взяв штангу вы начали выполнять упражнения развивая силу.'
+				 '<center><video autoplay loop src="pic/misc/squat<<rand(0,4)>>.webm" ></video></center>'&'Взяв штангу вы начали выполнять упражнения развивая силу.'
 			else
-				 '<center><video src="pic/misc/squatmen.webm" ></video></center>'&'Взяв штангу вы начали выполнять упражнения развивая силу.'
+				 '<center><video autoplay loop src="pic/misc/squatmen.webm" ></video></center>'&'Взяв штангу вы начали выполнять упражнения развивая силу.'
 			end
 			act'...':gt $curloc
 		end
@@ -26,9 +26,9 @@ if can_do_sport[you]=1:
 			 energy[you]-=50&sportiv[you]+=1&if fat[you]>10:fat[you]-=5&!mus[you]+=1
 			 time+=30&cls&gs'stat'
 			 if pol[you]>0:
-				 '<center><video src="pic/misc/situps.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+				 '<center><video autoplay loop src="pic/misc/situps.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
 			else
-				 '<center><video src="pic/misc/situpsmen.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+				 '<center><video autoplay loop src="pic/misc/situpsmen.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
 			end
 			 act'...':gt $curloc
 		end

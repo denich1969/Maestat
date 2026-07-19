@@ -1,4 +1,4 @@
-﻿gs'stat'&'<center><img src="pic/face/5/49.jpg" ></center>'&'Диламина ведет урок и вдруг в дверь после стука кто то входит.'
+﻿gs'stat'&'<center><img src="pic/face/5/49.jpg" ></center>'&'Диламина ведет урок и вдруг в дверь после стука кто-то входит.'
 act'Посмотреть':
 	t_slot[techer]=87&l_slot[techer]=90&b_slot[techer]=10&know['<<arhivman>>,<<you>>']+=1&know['<<you>>,<<arhivman>>']+=1&!arhivman
 	cls&gs'stat'&'<center><img src="pic/face/5/62.jpg" ></center>'&'Мужчина представляется - меня зовут Абрахам Стованс, и вы сломали ребра моему сыну Эдварду.'

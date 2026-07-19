@@ -1,5 +1,4 @@
 ﻿gs'farmer'
 if visualpol[i]=0:$nick[i]='Фермерский сын'
 if visualpol[i]=1:$nick[i]='Фермерская дочка'
-$surname[i]=$temsur
-father[i]=tman&mother[i]=twoman
+$surname[i]=$temsur&father[i]=tman&mother[i]=twoman

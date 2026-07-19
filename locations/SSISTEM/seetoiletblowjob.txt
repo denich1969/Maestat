@@ -1,15 +1,15 @@
-﻿gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'&!you_see_bj[sss]+=1&you_see_fucker[ddd]+=1
+﻿gs'stat'&'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'&!you_see_bj[sss]+=1&you_see_fucker[ddd]+=1
 '<<$name[sss]>> <<$surname[sss]>> влажно чавкая сосет член, а <<$name[ddd]>> <<$surname[ddd]>> блаженствует разглядывая лицо девушки.'&act'Уйти':gt'preloc'
 cangopre=1
 if sss=sister and ddd=borisbogart:
      if you=brother:
 		 act'Подглядывать':
-			 cls&gs'stat'&'<center><video src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'
+			 cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'
 			 'Богарт внезапно вынул хуй изо рта вашей сестры и стал ссать ей в рот, а та набирала полный рот мочи и проглатывала.'
 			 act'Подглядывать':
-				 action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0
-				 cls&gs'stat'&'<center><video src="pic/sex/degraded/cum_toilet.webm" ></video></center>'&'Богарт сует вашу сестру лицом в унитаз и кончает ей на лицо, а затем окунает в унитаз и смывает воду.'
-				 act'Уйти':gt'preloc'
+				action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0
+				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
+				'Богарт сует вашу сестру лицом в унитаз и кончает ей на лицо, а затем окунает в унитаз и смывает воду.'&act'Уйти':gt'preloc'
 			 end
 		 end
          if sluttySisQW=0:sluttySisQW=1

@@ -2,8 +2,8 @@
 total_npc_on_loc=0&insmouth_loc_num=0&tent_want=0&slut_want=0
 :marknpclocpashfss
 if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] and i!you and dead[i]=0 and i!npc and $name[i]!'':
-     total_npc_on_loc+=1
-     if mob_busy[i]=0:
+    total_npc_on_loc+=1
+    if mob_busy[i]=0:
 		$doing[i]=''
         if mob_sleep[i]>time:$doing[i]+=' пребывает в задумчивости'
 		if mob_busy[i]>0:$doing[i]+=' пребывает в задумчивости'
@@ -31,7 +31,7 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 		     watch_you_slut['<<i>>,<<you>>']+=1
 	    end
 	    if pol[you]>0 and dick[i]>1:$npc_loc+=' <a href="exec:solo=0&horny[i]=50&gt ''sex''">подмигнуть</a>'
-	 end
+	end
 end
 i+=1&if i<=npcmax:jump'marknpclocpashfss'
 *pl '<<$npc_loc>>'

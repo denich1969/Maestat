@@ -165,7 +165,7 @@ end
 if dancefloor['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
      if pol[you]>0:
 		 act'Тверк':
-			 horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><video src="pic/misc/twerk<<rand(0,17)>>.webm" ></video></center>'
+			 horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/twerk<<rand(0,17)>>.webm" ></video></center>'
 			 'Вы устроили зажигательный тверк и <<$name[npc]>> оказался впечатлен - Йо сучка! Какая ты горячая!'&womenbrain[you]+=2&act'<b>Уйти</b>':gt 'preloc'
 		     if rand(1,10)>=7:
 				'Парень щелкает пару раз себя пальцем по носу - Детка, хочешь пыльцы фей?'

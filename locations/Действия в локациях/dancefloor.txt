@@ -2,6 +2,6 @@
 if energy[you]>=20:
 	 act'Танцевать':
 		 energy[you]-=10&if fat[you]>10:fat[you]-=1&!mus[you]+=1
-		 sportiv[you]+=1&time+=30&cls&gs'stat'&if pol[you]>0:'<center><video src="pic/misc/dance<<rand(0,10)>>.webm" ></video></center>'&'Вы танцуете под оглушающую музыку.'&act'...':gt $curloc
+		 sportiv[you]+=1&time+=30&cls&gs'stat'&if pol[you]>0:'<center><video autoplay loop src="pic/misc/dance<<rand(0,10)>>.webm" ></video></center>'&'Вы танцуете под оглушающую музыку.'&act'...':gt $curloc
 	 end
 end

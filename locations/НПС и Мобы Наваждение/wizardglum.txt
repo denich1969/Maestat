@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&grimglum=i
-lvl[i]=5&soul[i]=1000&mob[i]=23&mobexp[i]=50&work[i]=0
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&grimglum=i&lvl[i]=5&soul[i]=1000&mob[i]=23&mobexp[i]=50&work[i]=0
 master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=0
 tipemobpic[i]=1&picture[i]=152
 $nick[i]='Колдун'&$name[i]='Грим'&$surname[i]='Хмур'
@@ -11,5 +10,4 @@ healthmax[i]=1000&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]
 age[i]=30&vital[i]=40&will[i]=50&reflex[i]=120
 pol[i]=0&gs'body'&total_generated_male+=1&total_witch+=1
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=2&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=0&brave[i]=0&lust[i]=10&corr[i]=1000&!характер
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-obsession_world[]=i&
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&

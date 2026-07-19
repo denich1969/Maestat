@@ -9,7 +9,7 @@ if sexpartner['<<npc>>,<<you>>']=0:
 end
 sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1
 if zoo=0:
-	'<center><video src="pic/sex/zoo/<<rand(0,6)>>.webm" ></video></center>'
+	'<center><video autoplay loop src="pic/sex/zoo/<<rand(0,6)>>.webm" ></video></center>'
 else
 	'<center><img src="pic/sex/zoo/wolf.jpg" ></center>'
 end

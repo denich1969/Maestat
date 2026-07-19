@@ -19,7 +19,7 @@ if sexpower[you]>0:
 		if vag[npc]>=161:'Шлюшью зияющую пиздень <<$name[npc]>>;'
 	end
 	if anus[npc]>0:
-		if anus[npc]=1:'Девственный анус'
+		if anus[npc]=1:'Девственный анус'&$anus_txt[npc]='Девственный анус'
 		if anus[npc]>=2 and anus[npc]<10:'Анус в виде маленькой щелочки'
 		if anus[npc]>=10 and anus[npc]<20:'Анус в виде звездочки'
 		if anus[npc]>=20 and anus[npc]<30:'Рабочий анус в виде щелки'
@@ -51,12 +51,12 @@ if sexpower[you]>0:
 					horny[npc]+=5&cls&gs'stat'
 					if pol[you]=0:
                          if skin[you]>4:
-                             '<center><video src="pic/sex/poser/tits_suckb<<rand(0,1)>>.webm" ></video></center>'
+                             '<center><video autoplay loop src="pic/sex/poser/tits_suckb<<rand(0,1)>>.webm" ></video></center>'
                          else
-                             '<center><video src="pic/sex/poser/tits_suck<<rand(0,10)>>.webm" ></video></center>'
+                             '<center><video autoplay loop src="pic/sex/poser/tits_suck<<rand(0,10)>>.webm" ></video></center>'
                          end
                     end
-					if pol[you]>0:'<center><video src="pic/sex/poser/tits_suck_lesb<<rand(0,18)>>.webm" ></video></center>'
+					if pol[you]>0:'<center><video autoplay loop src="pic/sex/poser/tits_suck_lesb<<rand(0,18)>>.webm" ></video></center>'
 					$text='желанные губы'
 					if tit[npc]<=1:$text='крошечную остренькую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
 					if tit[npc]=2:$text='маленькую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
@@ -95,9 +95,9 @@ if sexpower[you]>0:
 					if sexpower[you]>1:sexpower[you]-=1
 					cls&gs'stat'
 					if skin[you]>4:
-						'<center><video src="pic/sex/degraded/throatfingeringbbc.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/degraded/throatfingeringbbc.webm" ></video></center>'
 					else
-						'<center><video src="pic/sex/degraded/throatfingering<<rand(0,8)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/degraded/throatfingering<<rand(0,8)>>.webm" ></video></center>'
 					end
 					if agro[npc]<=20:
 						'<<$name[npc]>> спокойно позволяет вам запихивать пальцы в рот.'&if slave[npc]=you:submission[npc]+=1
@@ -174,10 +174,10 @@ if sexpower[you]>0:
 							gs'stat'&'<<$name[npc]>> отодвигает вас - Мне неприятно, хватит.'&act'Уйти':gt 'activ_sex'
 						else
 							if pol[you]=0:
-								'<center><video src="pic/sex/femdom/cuniman<<rand(0,1)>>.webm" ></video></center>'
+								'<center><video autoplay loop src="pic/sex/femdom/cuniman<<rand(0,1)>>.webm" ></video></center>'
 								if whore[npc]>0:'Вы лижете пизду шлюхе, в которой побывало немеренное колличество хуев... Словно сами их отсасываете...'&corr[you]+=1
 							else
-								'<center><video src="pic/sex/femdom/cunilesb<<rand(0,1)>>.webm" ></video></center>'
+								'<center><video autoplay loop src="pic/sex/femdom/cunilesb<<rand(0,1)>>.webm" ></video></center>'
 							end
 							'Вы находите кнопочку клитора и начинаете ее лизать, попутно всасывая в свой рот лепестки губ ее влагалища.'
 							gs'fuck_oral_lick_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
@@ -238,7 +238,7 @@ if sexpower[you]>0:
 							cls&gs'can_varian_sex',you,npc&gs'stat'
 							if candoanal[npc]>0:
 								if slave[npc]=you:submission[npc]+=1
-								anus[npc]+=1&anal_gape[npc]=1&'<center><video src="pic/sex/fisting/<<rand(0,5)>>.webm" ></video></center>'
+								anus[npc]+=1&anal_gape[npc]=1&'<center><video autoplay loop src="pic/sex/fisting/<<rand(0,5)>>.webm" ></video></center>'
 								if agro[npc]<=20:'<<$name[npc]>> спокойно позволяет вам запихивать пальцы в свою задницу.'
 								if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> терпит, когда вы пихаете ей пальцы в зад.'
 								if agro[npc]>=50:'<<$name[npc]>> старается убрать вашу руку, когда вы пихаете ей пальцы в зад.'
@@ -283,9 +283,9 @@ if sexpower[you]>0:
 					gs'stat'&'<<$name[npc]>> отодвигает вас - Мне неприятно, хватит.'&act'Уйти':gt 'activ_sex'
 				else
 					if pol[you]=0:
-						'<center><video src="pic/sex/lickstandman/<<rand(0,4)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/lickstandman/<<rand(0,4)>>.webm" ></video></center>'
 					else
-						'<center><video src="pic/sex/lickstandwoman/<<rand(0,1)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/lickstandwoman/<<rand(0,1)>>.webm" ></video></center>'
 					end
 					'<<$name[npc]>> чуть раздвигает ноги и пододвигает вам к лицу свою киску. Вы находите кнопочку клитора и начинаете ее лизать, попутно всасывая в свой рот лепестки губ ее влагалища.'
 					gs'fuck_oral_lick_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
@@ -302,9 +302,9 @@ if sexpower[you]>0:
 				if sexpower[you]>1:sexpower[you]-=1
 				agro[npc]+=1&cls&gs'stat'
 				if pol[you]=0:
-					'<center><video src="pic/sex/pegging/0.<<rand(0,4)>>.webm" ></video></center>'
+					'<center><video autoplay loop src="pic/sex/pegging/0.<<rand(0,4)>>.webm" ></video></center>'
 				else
-					'<center><video src="pic/sex/pegging/1.0.webm" ></video></center>'
+					'<center><video autoplay loop src="pic/sex/pegging/1.0.webm" ></video></center>'
 				end
 				'Вы сосете страпон и <<$name[npc]>> смотрит на вас сверху.'&gs'fuck_oral',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
 			end
@@ -321,12 +321,12 @@ if sexpower[you]>0:
 				else
 					if pol[you]=0:
 						if skin[you]>4:
-					         '<center><video src="pic/sex/facesitman/b.webm" ></video></center>'
+					         '<center><video autoplay loop src="pic/sex/facesitman/b.webm" ></video></center>'
 					     else
-						     '<center><video src="pic/sex/facesitman/<<rand(0,25)>>.webm" ></video></center>'
+						     '<center><video autoplay loop src="pic/sex/facesitman/<<rand(0,25)>>.webm" ></video></center>'
 						 end
 					else
-						'<center><video src="pic/sex/facesitwoman/<<rand(0,16)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/facesitwoman/<<rand(0,16)>>.webm" ></video></center>'
 					end
 					'<<$name[npc]>> садится вам на лицо своей киской. Вы находите кнопочку клитора и начинаете ее лизать, попутно всасывая в свой рот лепестки губ ее влагалища.'
 					gs'fuck_oral_lick_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
@@ -344,12 +344,12 @@ if sexpower[you]>0:
 					gs'stat'
 					if pol[you]=0:
 						if skin[you]>4:
-					         '<center><video src="pic/sex/facesitman/b.webm" ></video></center>'
+					         '<center><video autoplay loop src="pic/sex/facesitman/b.webm" ></video></center>'
 					     else
-						     '<center><video src="pic/sex/facesitman/<<rand(0,25)>>.webm" ></video></center>'
+						     '<center><video autoplay loop src="pic/sex/facesitman/<<rand(0,25)>>.webm" ></video></center>'
 						 end
 					else
-						'<center><video src="pic/sex/facesitwoman/<<rand(0,16)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/facesitwoman/<<rand(0,16)>>.webm" ></video></center>'
 					end
 					'<<$name[npc]>> садится вам на лицо своей попкой. Вы проталкиваете язык в ее анус, облизывая стенки задницы .'
 					'<<$name[npc]>> прыгает на вашем языке как на члене, лаская пальчиками клитор'
@@ -371,8 +371,8 @@ if sexpower[you]>0:
 		if dick[npc]<=1 and agro[npc]>=50:
 			act'Пеггинг':
 				sexpower[you]-=1&agro[npc]+=1&cls&gs'stat'
-				if pol[you]=0:'<center><video src="pic/sex/pegging/5.<<rand(0,3)>>.webm" ></video></center>'
-				if pol[you]>0:'<center><video src="pic/sex/lesbanalmiss/<<rand(0,1)>>.webm" ></video></center>'
+				if pol[you]=0:'<center><video autoplay loop src="pic/sex/pegging/5.<<rand(0,3)>>.webm" ></video></center>'
+				if pol[you]>0:'<center><video autoplay loop src="pic/sex/lesbanalmiss/<<rand(0,1)>>.webm" ></video></center>'
 				'<<$name[npc]>> упирается страпоном вам в попу и медленно вводит его внутрь.'
 				if 40>anus[you]:'Вам очень больно и вы стонете, упрашивая девушку помедленнее.'&!anus[you]+=3
 				if 40<=anus[you]:'Вы стонете, когда девушка дрючит вас страпоном в задницу.'
@@ -381,7 +381,7 @@ if sexpower[you]>0:
 					act'Уйти':gt 'activ_sex'
 				else
 					act'Кончить':
-						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cum_face[you]+=1&cls&'<center><video src="pic/sex/pegging/self_cum0.webm" ></video></center>'
+						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cum_face[you]+=1&cls&'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'
 						if manamax[you]>0:mana[you]+=soul[you]
 						gs'stat'&'<<$name[npc]>> задирает ваш зад вверх и додрачивает ваш член. Вся ваша сперма извергается вам на лицо.'&act'Уйти':gt 'after_activ_sex'
 					end
@@ -395,12 +395,12 @@ if sexpower[you]>0:
 				agro[npc]-=1&cls&gs'stat'
 				if pol[you]=0:
 					if skin[you]>4:
-						'<center><video src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'
 					else
-						'<center><video src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'
 					end
 				else
-					!'<center><video src="pic/sex/lesbanalmiss/<<rand(0,1)>>.webm" ></video></center>'
+					!'<center><video autoplay loop src="pic/sex/lesbanalmiss/<<rand(0,1)>>.webm" ></video></center>'
 				end
 				if lust[npc]<20:'<<$name[npc]>> неохотно лижет вам задницу.'
 				if lust[npc]>=20 and lust[npc]<60:'<<$name[npc]>> старательно лижет вам задницу.'
@@ -440,8 +440,8 @@ if sexpower[you]>0:
 		if dick[npc]<=1 and agro[npc]>=50:
 			act'Пеггинг':
 				sexpower[you]-=1&agro[npc]+=1&cls&gs'stat'
-				if pol[you]=0:'<center><video src="pic/sex/pegging/7.<<rand(0,6)>>.webm" ></video></center>'
-				if pol[you]>0:'<center><video src="pic/sex/lesbanal/<<rand(0,3)>>.webm" ></video></center>'
+				if pol[you]=0:'<center><video autoplay loop src="pic/sex/pegging/7.<<rand(0,6)>>.webm" ></video></center>'
+				if pol[you]>0:'<center><video autoplay loop src="pic/sex/lesbanal/<<rand(0,3)>>.webm" ></video></center>'
 				'<<$name[npc]>> упирается страпоном вам в попу и медленно вводит его внутрь.'
 				if anus[you]<40:'Вам очень больно и вы стонете, упрашивая девушку помедленнее.'
 				if anus[you]>=40:'Вы стонете, когда девушка дрючит вас страпоном в задницу.'
@@ -450,7 +450,8 @@ if sexpower[you]>0:
 					act'...':gt 'activ_sex'
 				else
 					act'Кончить':
-						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/dog_cum0.webm" ></video></center>'&'Вы кончаете, а <<$name[npc]>> смеется над вами.'
+						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cls&gs'stat'
+						'<center><video autoplay loop src="pic/sex/pegging/dog_cum0.webm" ></video></center>'&'Вы кончаете, а <<$name[npc]>> смеется над вами.'
 						gs'fuck_cum_anus',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
 					end
 				end
@@ -460,9 +461,9 @@ if sexpower[you]>0:
 			act'Фингеринг':
 				sexpower[you]-=1&agro[npc]+=1&cls&gs'stat'
 				if pol[you]=0:
-					'<center><video src="pic/sex/pegging/finger<<rand(0,1)>>.webm" ></video></center>'
+					'<center><video autoplay loop src="pic/sex/pegging/finger<<rand(0,1)>>.webm" ></video></center>'
 				else
-					!'<center><video src="pic/sex/lesbanal/<<rand(0,3)>>.webm" ></video></center>'
+					!'<center><video autoplay loop src="pic/sex/lesbanal/<<rand(0,3)>>.webm" ></video></center>'
 				end
 				'<<$name[npc]>> пихает вам в зад пальцы.'&!anus[you]+=rand(1,5)
 				gs'fuck_anal_fisting',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
@@ -470,7 +471,8 @@ if sexpower[you]>0:
 					act'Уйти':gt 'activ_sex'
 				else
 					act'Кончить':
-						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cls&gs'stat'&'<center><video src="pic/sex/pegging/dog_cum0.webm" ></video></center>'&'Вы кончаете, а <<$name[npc]>> смеется над вами.'
+						womenbrain[you]+=1&horny[you]=0&agro[npc]+=1&cls&gs'stat'
+						'<center><video autoplay loop src="pic/sex/pegging/dog_cum0.webm" ></video></center>'&'Вы кончаете, а <<$name[npc]>> смеется над вами.'
 						if face[you]<80:feminize[you]-=1&gs'fuck_cum_anus',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'after_activ_sex'
 					end
 				end
@@ -503,9 +505,9 @@ else
 				if horny[npc]>100:piss_fixation[npc]+=1
 				gs'stat'
 				if skin[you]>4 and skin[you]<7:
-					'<center><video src="pic/sex/bj/pee/piss<<rand(0,6)>>.webm" ></video></center>'
+					'<center><video autoplay loop src="pic/sex/bj/pee/piss<<rand(0,6)>>.webm" ></video></center>'
 				else
-					'<center><video src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'
+					'<center><video autoplay loop src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'
 				end
 				if piss_fixation[npc]>(agro[npc]/10):
 					'<<$name[npc]>> послушно открывает ротик и вы ссыте ей в рот, а девушка с удовольствием проглатывает вашу мочу.'
@@ -527,7 +529,7 @@ else
 		if oral_fixation[npc]>(agro[npc]/10):
 			'<<$name[npc]>> с готовностью открыла ротик, принимая сперму в рот.'&gs'fuck_cum_oral',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
 			act'...':
-				cls&gs'stat'&'<center><video src="pic/sex/degraded/cumplay_swallow<<rand(0,12)>>.webm" ></video></center>'
+				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/cumplay_swallow<<rand(0,12)>>.webm" ></video></center>'
 				'Она с удовольствием играет со спермой и все проглатывает, а затем чистит ваш член язычком.'&act'Уйти':gt 'after_activ_sex'
 				dynamic $d_sexsistem_piss
 			end
@@ -543,11 +545,11 @@ else
 						agro[npc]+=1&dom[you]-=3&corr[you]+=5&face[you]+=2&oral_fixation[you]+=1&cls&gs'stat'
 						if face[you]<40:
 						     if skin[you]>4:
-                                 '<center><video src="pic/sex/femdom/man_swapb<<rand(0,1)>>.webm" ></video></center>'
+                                 '<center><video autoplay loop src="pic/sex/femdom/man_swapb<<rand(0,1)>>.webm" ></video></center>'
 						     else
-						         '<center><video src="pic/sex/femdom/man_swap<<rand(0,18)>>.webm" ></video></center>'
+						         '<center><video autoplay loop src="pic/sex/femdom/man_swap<<rand(0,18)>>.webm" ></video></center>'
 						     end
-							if face[you]>=40:'<center><video src="pic/sex/femdom/swap0.webm" ></video></center>'
+							if face[you]>=40:'<center><video autoplay loop src="pic/sex/femdom/swap0.webm" ></video></center>'
 							'Она целует вас в губы и вы чувствуете вкус собственной спермы.'
 						end
 						act'Уйти':gt 'after_activ_sex'

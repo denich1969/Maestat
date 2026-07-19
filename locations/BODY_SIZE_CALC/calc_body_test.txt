@@ -19,58 +19,22 @@ if breast_b[args[0]]>=breastSizeDD and breast_b[args[0]]<breastSizeE:$titk[args[
 if breast_b[args[0]]>=breastSizeE:$titk[args[0]]='Огромные, безразмерая грудь'&$titk_s[args[0]]='огромная безразмерная грудь'&$titk_f[args[0]]='огромную безразмерную грудь'&titpic[args[0]]=7
 ""
 ""
-'Грудь-талия-бедра: <<breast[args[0]]>>(<<breast[args[0]]-rib[args[0]]>>)-<<waist[args[0]]>>-<<hips[args[0]]>>'
-$titk[args[0]]
-"Вес (гр) <<weigth[1]>>"
-""
-""
+'Грудь-талия-бедра: <<breast[args[0]]>>(<<breast[args[0]]-rib[args[0]]>>)-<<waist[args[0]]>>-<<hips[args[0]]>>'&*nl $titk[args[0]]&*nl"Вес (гр) <<weigth[1]>>"&*nl""&*nl""
 "Рекомендации "+musNorm*rost[args[0]]/1800
-if mus[1]<musNorm[1]:"Нужно набрать мышц <<musNorm[1]-mus[1]>>"
-if mus[1]>musNorm[1]:"Нужно сжечь мышцы <<mus[1]-musNorm[1]>>"
-if fat[1]<fatNorm[1]:"Нужно набирать жир <<fatNorm[1]-fat[1]>>"
-if fat[1]>fatNorm[1]:"Нужно сжечь жир <<fat[1]-fatNorm[1]>>"
-""
-"Талия тоньше эталона на <<waist_bonus[args[0]]>>%"
-"Попа больше эталона на <<ass_bonus[args[0]]>>%"
-"Отношение груди к торсу больше на <<waist_bonus[args[0]]>>%"
-gs'body',1
+$iif(mus[1]<musNorm[1],"Нужно набрать мышц <<musNorm[1]-mus[1]>>",$iif(mus[1]>musNorm[1],"Нужно сжечь мышцы <<mus[1]-musNorm[1]>>",''))
+$iif(fat[1]<fatNorm[1],"Нужно набирать жир <<fatNorm[1]-fat[1]>>",$iif(fat[1]>fatNorm[1],"Нужно сжечь жир <<fat[1]-fatNorm[1]>>",''))&*nl""
+"Талия тоньше эталона на <<waist_bonus[args[0]]>>%"&*nl"Попа больше эталона на <<ass_bonus[args[0]]>>%"&*nl"Отношение груди к торсу больше на <<waist_bonus[args[0]]>>%"&gs'body',1
 if total_sexy[you]>0:'Сексуальность <<total_sexy[you]>>'
 if total_sexy[you]>0 and total_sexy[you]<5:'Я выгляжу скромно'
 if total_sexy[you]>=5 and total_sexy[you]<10:'Я выгляжу сексуально'
 if total_sexy[you]>=10 and total_sexy[you]<25:'Я выгляжу распутно'
 if total_sexy[you]>=25 and total_sexy[you]<35:'Я выгляжу как доступная девка'
 if total_sexy[you]>=35:'Я выгляжу как шлюха'
-"sexy_point "+sexy_point[you]
-"tits_point "+tits_point[you]/15
-"ass_point "+ass_point[you]/15
-"beautiful_point "+beautiful_point[you]
-"clothe_sexy_point "+clothe_sexy_point[you]
-"total_sexy "+total_sexy[you]
+"sexy_point "+sexy_point[you]&*nl"tits_point "+tits_point[you]/15&*nl"ass_point "+ass_point[you]/15
+"beautiful_point "+beautiful_point[you]&*nl"clothe_sexy_point "+clothe_sexy_point[you]&*nl"total_sexy "+total_sexy[you]
 ""
-"waist_bonus "+waist_bonus[you]
-"ass_bonus "+ass_bonus[you]
-"tits_bonus "+tits_bonus[you]
-"tors_bonus "+tors_bonus[you]
-"waist_baza "+waist_baza[you]
-"Пол "+pol[1]
-"Лицо "+face[1]
-act'Автоподбор':
-	gs'body_auto',1&
-	gt curloc
-end	
-act'Девочка':
-	pol[1]=1
-	forced_pol[num]=1
-	fem[1]=femMax
-	tits[1]=titsMax
-	ass[1]=assMax
-	gt curloc
-end	
-act'Мальчик':
-	pol[1]=0
-	forced_pol[num]=0
-	fem[1]=0
-	tits[1]=0
-	ass[1]=0
-	gt curloc
-end
+"waist_bonus "+waist_bonus[you]&*nl"ass_bonus "+ass_bonus[you]&*nl"tits_bonus "+tits_bonus[you]&*nl"tors_bonus "+tors_bonus[you]&*nl"waist_baza "+waist_baza[you]
+"Пол "+pol[1]&*nl"Лицо "+face[1]
+act'Автоподбор':gs'body_auto',1&gt curloc
+act'Девочка':pol[1]=1&forced_pol[num]=1&fem[1]=femMax&tits[1]=titsMax&ass[1]=assMax&gt curloc
+act'Мальчик':pol[1]=0&forced_pol[num]=0&fem[1]=0&tits[1]=0&ass[1]=0&gt curloc

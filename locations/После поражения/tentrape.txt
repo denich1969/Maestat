@@ -1,5 +1,5 @@
 ﻿gs'stat'&tentaklbist[you]+=1&feminize[you]+=5&gs'soulcraft',5&tentaklcurse[you]+=1
-'<center><video src="pic/sex/rape/tent.webm" ></video></center>'&'Чудовищные щупальца скрутили вас так, что вы не можете двигаться. '
+'<center><video autoplay loop src="pic/sex/rape/tent.webm" ></video></center>'&'Чудовищные щупальца скрутили вас так, что вы не можете двигаться. '
 if tentakl=0:
      if l_slot[you]=0:
 		tentakl=1&gt $curloc
@@ -34,7 +34,7 @@ if tentakl=2:
 			'<<$nick[npc]>> разочарованное рычит чувствуя внутри вас другое яйцо и выдергивает свой черный отросток пачкая вас своей слизью, которая обильно обливает ваши ляжки'
 		end
 	else
-		gs'soulcraft',10&t_anal[you]+=1&t_bj[you]+=1&gs'stat'&'<center><video src="pic/sex/rape/tent.webm" ></video></center>'
+		gs'soulcraft',10&t_anal[you]+=1&t_bj[you]+=1&gs'stat'&'<center><video autoplay loop src="pic/sex/rape/tent.webm" ></video></center>'
 		'Чудовищные щупальца скрутили вас так, что вы не можете двигаться и одно толстое щупальце уперлось вам в попку. Оно истекает слизью и шевелясь обмазывает вас. '
 		'Затем щупальце находит ваш анус и исторгнув еще ком слизи начинает медленно и сильно входить в ваш зад. '&anal[you]+=1&anus[you]+=5
 		'Вам больно, но <<$nick[npc]>> не обращает внимания на ваши стоны, всё глубже и глубже вгоняя щупальце.'
@@ -47,7 +47,7 @@ if tentakl=2:
 		else
 			'<<$nick[npc]>>, чувствуя в вашей заднице другое яйцо, выдергивает щупальце пачкая вас своей слизью'
 			horny[you]=100&tentacle[you]+=1&feminize[you]+=rand(3,6)&cum['<<$loc[you]>>']=time+120
-			 gs'soulcraft',5&t_bj[you]+=1&gs'stat'&'<center><video src="pic/sex/rape/tent_blow.webm" ></video></center>'
+			 gs'soulcraft',5&t_bj[you]+=1&gs'stat'&'<center><video autoplay loop src="pic/sex/rape/tent_blow.webm" ></video></center>'
 			 'Щупальца скрутили вас и словно обнюхали, после чего щупальце с силой вторглось в ваш рот и начало накачивать вас своей слизью. Вы чувствуете что теряете часть своей души'
 			 act'Фууу':tentakl=10&gt $curloc
 		end

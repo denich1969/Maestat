@@ -21,7 +21,7 @@ if whoreboss[you]!npc and blacked[you]>30 and blackedgreen=0 and r_leg_t[you]=0:
 			     cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 				'Митч надевает на вас поводок, достает свой член и говорит - Теперь я твой хозяин, вставай на колени белая соска и поцелуй мой черный хуй.'
 			     act'Хорошо':
-			         cls&'<center><video src="pic/sex/bbc/before_blow11.webm" ></video></center>'
+			         cls&'<center><video autoplay loop src="pic/sex/bbc/before_blow11.webm" ></video></center>'
 			         'Вы встаете на коленки, страстно целуете большой вонючий черный член и облизываете хуй до самого его основания, тем самым признавая своего нового господина.' 
 			         'Одновременно с этим у вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
                      act'Обслужить':r_leg_t[you]=1&dom[you]-=5&agro[you]-=5&blacked[you]+=5&whore[you]+=1&lowered_status['<<npc>>,<<you>>']+=10&gt'fem_sex_start'
@@ -42,12 +42,12 @@ if whoreboss[you]!npc and blacked[you]>30 and blackedgreen=0 and r_leg_t[you]=0:
 			     '- Ладно, Блядина, с этого момента ты будешь звать меня Господин и платить мне 30 шиллингов за то, чтобы пососать мои черные яйца. Быстро встала на колени и начала дрочить, белая хуесоска.'
 			    if money[you]>=3000:
                     act'Отдать деньги и встать на колени':
-			            money[you]-=3000&blacked[you]+=1&horny[you]+=50&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video src="pic/sex/bj/handbbc<<rand(0,23)>>.webm" ></video></center>'
+			            money[you]-=3000&blacked[you]+=1&horny[you]+=50&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video autoplay loop src="pic/sex/bj/handbbc<<rand(0,23)>>.webm" ></video></center>'
 			            'Вы встали на колени перед черным членом и начали надрачивать его своими ручками. Вы чувствуете себя униженной, но мощь большого черного хуя заставляет вашу киску мокнуть. '
 			            'Митч неожиданно крикнул - Быстро начала сосать мои яйца, ёбанная чернильница.'
 			            act'Да, Господин!':
 			                blackedgreen=1&blacked[you]+=1&dom[you]-=1&corr[you]+=1&lowered_status['<<npc>>,<<you>>']+=5
-			                cls&'<center><video src="pic/sex/bbc/suckballs<<rand(0,20)>>.webm" ></video></center>'
+			                cls&'<center><video autoplay loop src="pic/sex/bbc/suckballs<<rand(0,20)>>.webm" ></video></center>'
 			                'По команде, вы страстно набросились на черные потные яйца, во рту появился соленый и горьковатый вкус.' 
                             'Вы сочно сосете их, облизываете и играетесь ро рту с шариками, как последняя блядина.'
                             'Вздыхая он говорит - Хороший пёсик, надеюсь ты поняла, где твоё место, белоснежка. А теперь проваливай, до следующего раза.'&act'Спасибо, Господин.':gt'preloc'
@@ -60,7 +60,7 @@ if whoreboss[you]!npc and blacked[you]>30 and blackedgreen=0 and r_leg_t[you]=0:
 			        '- В следующий раз найди денег или тебе конец.'&*pl'- Давай живее, приступай!'
 			        act'Ладно':
 			            blackedgreen=1&dom[you]-=5&corr[you]+=3&agro[you]-=5&blacked[you]+=3&lowered_status['<<npc>>,<<you>>']+=10
-			            cls&'<center><video src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'
+			            cls&'<center><video autoplay loop src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'
 			            'Хныкая себе под нос вы опускаетесь на колени. Митч снимает штаны и от едкого запаха вы становитесь покорнее.'
 			            'Вы увлеченно и старательно вылизыете черное очко, как будто от вашего достоинства уже ничего не осталось.'&*pl'- Всё! Заканчивай и уёбывай, белая жополизка.'&act'Уйти':gt'preloc'
 			        end
@@ -73,7 +73,7 @@ if whoreboss[you]!npc and blacked[you]>30 and blackedgreen=0 and r_leg_t[you]=0:
 			        cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 			        'Митч надевает на вас поводок, достает свой член и говорит - Теперь я твой хозяин, вставай на колени белая соска и поцелуй мой черный хуй.'
 			        act'Хорошо':
-			            cls&'<center><video src="pic/sex/bbc/before_blow11.webm" ></video></center>'
+			            cls&'<center><video autoplay loop src="pic/sex/bbc/before_blow11.webm" ></video></center>'
 			            'Вы встаете на коленки, страстно целуете большой вонючий черный член и облизываете хуй до самого его основания, тем самым признавая своего нового господина.' 
 			            'Одновременно с этим у вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
                         act'Обслужить':r_leg_t[you]=1&dom[you]-=5&agro[you]-=5&blacked[you]+=5&whore[you]+=1&lowered_status['<<npc>>,<<you>>']+=10&gt'fem_sex_start'
@@ -102,7 +102,7 @@ if whoreboss[you]!npc and blackedgreen=0 and r_leg_t[you]=1:
 			     cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 			     'Митч надевает на вас поводок, достает свой член и говорит - Теперь я твой хозяин, вставай на колени белая соска и поцелуй мой черный хуй.'
 			     act'Хорошо':
-			         cls&'<center><video src="pic/sex/bbc/before_blow11.webm" ></video></center>'
+			         cls&'<center><video autoplay loop src="pic/sex/bbc/before_blow11.webm" ></video></center>'
 			         'Вы встаете на коленки, страстно целуете большой вонючий черный член и облизываете хуй до самого его основания, тем самым признавая своего нового господина.' 
                      act'Обслужить':dom[you]-=5&agro[you]-=5&blacked[you]+=5&whore[you]+=1&lowered_status['<<npc>>,<<you>>']+=10&gt'fem_sex_start'
 				 end
@@ -122,12 +122,12 @@ if whoreboss[you]!npc and blackedgreen=0 and r_leg_t[you]=1:
 			    '- Ладно, Блядина, с этого момента ты будешь звать меня Господин и платить мне 30 шиллингов за то, чтобы пососать мои черные яйца. Быстро встала на колени и начала дрочить, белая хуесоска.'
 			    if money[you]>=3000:
                     act'Отдать деньги и встать на колени':
-			            money[you]-=3000&blacked[you]+=1&horny[you]+=50&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video src="pic/sex/bj/handbbc<<rand(0,23)>>.webm" ></video></center>'
+			            money[you]-=3000&blacked[you]+=1&horny[you]+=50&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video autoplay loop src="pic/sex/bj/handbbc<<rand(0,23)>>.webm" ></video></center>'
 			            'Вы встали на колени перед черным членом и начали надрачивать его своими ручками. Вы чувствуете себя униженной, но мощь большого черного хуя заставляет вашу киску мокнуть. '
 			            'Митч неожиданно крикнул - Быстро начала сосать мои яйца, ёбанная чернильница.'
 			            act'Да, Господин!':
 			                blackedgreen=1&blacked[you]+=1&dom[you]-=1&corr[you]+=1&lowered_status['<<npc>>,<<you>>']+=5
-			                cls&'<center><video src="pic/sex/bbc/suckballs<<rand(0,20)>>.webm" ></video></center>'
+			                cls&'<center><video autoplay loop src="pic/sex/bbc/suckballs<<rand(0,20)>>.webm" ></video></center>'
 			                'По команде, вы страстно набросились на черные потные яйца, во рту появился соленый и горьковатый вкус.' 
                             'Вы сочно сосете их, облизываете и играетесь ро рту с шариками, как последняя блядина.'
                             'Вздыхая он говорит - Хороший пёсик, надеюсь ты поняла, где твоё место, белоснежка. А теперь проваливай, до следующего раза.'&act'Спасибо, Господин.':gt'preloc'
@@ -140,7 +140,7 @@ if whoreboss[you]!npc and blackedgreen=0 and r_leg_t[you]=1:
 			        '- В следующий раз найди денег или тебе конец.'&*pl'- Давай живее, приступай!'
 			        act'Ладно':
 			            blackedgreen=1&dom[you]-=5&corr[you]+=3&agro[you]-=5&blacked[you]+=3&lowered_status['<<npc>>,<<you>>']+=10
-			            cls&'<center><video src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'
+			            cls&'<center><video autoplay loop src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'
 			            'Хныкая себе под нос вы опускаетесь на колени. Митч снимает штаны и от едкого запаха вы становитесь покорнее.'
 			            'Вы увлеченно и старательно вылизыете черное очко, как будто от вашего достоинства уже ничего не осталось.'&*pl'- Всё! Заканчивай и уёбывай, белая жополизка.'&act'Уйти':gt'preloc'
 			        end
@@ -153,7 +153,7 @@ if whoreboss[you]!npc and blackedgreen=0 and r_leg_t[you]=1:
 			        cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 			        'Митч надевает на вас поводок, достает свой член и говорит - Теперь я твой хозяин, вставай на колени белая соска и поцелуй мой черный хуй.'
 			        act'Хорошо':
-			            cls&'<center><video src="pic/sex/bbc/before_blow11.webm" ></video></center>'
+			            cls&'<center><video autoplay loop src="pic/sex/bbc/before_blow11.webm" ></video></center>'
 			            'Вы встаете на коленки, страстно целуете большой вонючий черный член и облизываете хуй до самого его основания, тем самым признавая своего нового господина.' 
                         act'Обслужить':dom[you]-=5&agro[you]-=5&blacked[you]+=5&whore[you]+=1&lowered_status['<<npc>>,<<you>>']+=10&gt'fem_sex_start'
 				    end
@@ -175,11 +175,11 @@ $d_mgreen={
 	end
 	 if money[you]>=3000:
         act'Отдать деньги и встать на колени':
-			money[you]-=3000&blacked[you]+=1&horny[you]+=50&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video src="pic/sex/bj/handbbc<<rand(0,23)>>.webm" ></video></center>'
+			money[you]-=3000&blacked[you]+=1&horny[you]+=50&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video autoplay loop src="pic/sex/bj/handbbc<<rand(0,23)>>.webm" ></video></center>'
 			'Вы встали на колени перед черным членом и начали надрачивать его своими ручками. Мощь большого черного хуя заставляет вашу киску мокнуть. '
 			'Митч неожиданно крикнул - Быстро начала сосать мои яйца, ёбанная чернильница.'
 			act'Да, Господин!':
-			    blacked[you]+=1&dom[you]-=1&corr[you]+=1&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video src="pic/sex/bbc/suckballs<<rand(0,20)>>.webm" ></video></center>'
+			    blacked[you]+=1&dom[you]-=1&corr[you]+=1&lowered_status['<<npc>>,<<you>>']+=5&cls&'<center><video autoplay loop src="pic/sex/bbc/suckballs<<rand(0,20)>>.webm" ></video></center>'
 			    'По команде, вы страстно набросились на черные потные яйца, во рту появился соленый и горьковатый вкус.' 
                 'Вы сочно сосете их, облизываете и играетесь ро рту с шариками, как последняя блядина.'
                 'Вздыхая он говорит - Хороший пёсик, я рад что ты поняла, что твое место на коленях, белоснежка. А теперь проваливай, до следующего раза.'&act'Спасибо, Господин.':gt'preloc'
@@ -194,7 +194,7 @@ $d_mgreen={
 		        'Митч надевает на вас поводок, достает свой член и говорит - Теперь я твой хозяин, вставай на колени белая соска и поцелуй мой черный хуй.'
 		        act'Хорошо':
 		            cls
-		            '<center><video src="pic/sex/bbc/before_blow11.webm" ></video></center>'
+		            '<center><video autoplay loop src="pic/sex/bbc/before_blow11.webm" ></video></center>'
 		            'Вы встаете на коленки, страстно целуете большой вонючий черный член и облизываете хуй до самого его основания, тем самым признавая своего нового господина.' 
 		            if r_leg_t[you]=0:'Одновременно с этим у вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
                     act'Обслужить':

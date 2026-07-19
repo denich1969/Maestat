@@ -66,9 +66,10 @@ ACT 'Продолжить игру тем же персонажем':
 	!GS 'Change_Object_Count', "<u>Мясо", 0
 	!GS 'Change_Object_Count', "Девчатина", 0
 	!DELOBJ 'Добыча'
-	X[you]=3&Y[you]=3&Z[you]=404&H[you]=1&R[you]=0
-	if CONFIG['ENABLE_sound']=1:play '<<$contentS>>/Rome/heartbeat.mp3',Громкость_эффектов
-	msg 'Вы просыпаетесь в канаве у обочины. На теле ни царапинки. Вокруг раздается шум улочек Вечного Рима.'
+	if Z[you]=404:X[you]=3&Y[you]=3&Z[you]=404&H[you]=1&R[you]=0&msg 'Вы очнулись в канаве у обочины. На теле ни царапинки. Вокруг раздается шум улочек Вечного Рима.'
+	if Z[you]=200:X[you]=rand(0,5)&Y[you]=0&Z[you]=404&H[you]=0&R[you]=0&msg 'Вы очнулись  на берегу реки. На теле ни царапинки. Рядом раздается шум городских улиц.'
+	if CONFIG['ENABLE_sound']=1 and Z[you]=404:play '<<$contentS>>/Rome/heartbeat.mp3',Громкость_эффектов
+	
 	gt'world'
 END
 ACT 'Закончить игру':CLOSE ALL&KILLALL&SHOWINPUT 0&SHOWOBJS 0&SHOWSTAT 0&SHOWACTS 0&$MAINDESC_BACKIMAGE = ''&$backimage = 'the_end_bg.jpg'

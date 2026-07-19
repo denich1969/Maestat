@@ -1,43 +1,40 @@
 ﻿$d_glory_finish={
-	 act'Глотать':
-		 cum_face[you]+=1&glory[you]+=1&dom[you]-=1&!soul[you]-=1
-	     if frank_viscontiQW=5:
+	act'Глотать':
+		cum_face[you]+=1&glory[you]+=1&dom[you]-=1&!soul[you]-=1
+	    if frank_viscontiQW=5:
 			 visc_glory+=1&if visc_glory>=10:frank_viscontiQW=6
-	     end
-		 cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете, глотая сперму.'
-		 if gloryhole['<<$loc[you]>>']=2:money[you]+=rand(10,50)&'После этого из дыры вам кинули несколько монет.'
-		 if oral_fixation[you]>=1000:
-			 'Едва вы дотрагиваетесь себе между ног, как тут же кончаете.'&if func('oralslut',-1,you,1)=1:horny[you]=0
-		 else
-			 if func('oralslut',-1,you)=1:horny[you]=0
-		 end
-		 temp_orgazm[you]=0
-		 if frank_viscontiQW=5:
+	    end
+		cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете, глотая сперму.'
+		if gloryhole['<<$loc[you]>>']=2:money[you]+=rand(10,50)&'После этого из дыры вам кинули несколько монет.'
+		if oral_fixation[you]>=1000:
+			'Едва вы дотрагиваетесь себе между ног, как тут же кончаете.'&if func('oralslut',-1,you,1)=1:horny[you]=0
+		else
+			if func('oralslut',-1,you)=1:horny[you]=0
+		end
+		temp_orgazm[you]=0
+		if frank_viscontiQW=5:
 			act'Ждать следующий':gt'gloryhole'
-		 else
+		else
 			act'Встать':gt 'preloc'
-		 end
-	 end
+		end
+	end
 }
 if CONFIG['DISABLE_position']=1 and $worldloc[you] ! '':$worldloc[you] = ''&pose = 1
-$nameloc[you]=$curloc
-gs'stat'&!gs'Item'&gs 'npconloc'
+$nameloc[you]=$curloc&gs'stat'&!gs'Item'&gs 'npconloc'
 if frank_viscontiQW!5:act'Отойти':gt 'preloc'
 if frank_viscontiQW=5:
-	 if CONFIG['DISABLE_position']=0:pose[you]=2
-     act'Отдохнуть':energy[you]+=50&time+=5&cls&gt $curloc
-     act'Отдохнуть 15 минут':energy[you]+=150&time+=15&cls&gs'stat'&gs'stat'&gt $curloc
-     act'Отдохнуть 30 минут':energy[you]+=250&time+=30&cls&gs'stat'&gs'stat'&gs'stat'&gt $curloc
+	if CONFIG['DISABLE_position']=0:pose[you]=2
+    act'Отдохнуть':energy[you]+=50&time+=5&cls&gt $curloc
+    act'Отдохнуть 15 минут':energy[you]+=150&time+=15&cls&gs'stat'&gs'stat'&gt $curloc
+    act'Отдохнуть 30 минут':energy[you]+=250&time+=30&cls&gs'stat'&gs'stat'&gs'stat'&gt $curloc
 end
 if energy[you]>=50 and ((pose[you]=2 and CONFIG['DISABLE_position']=0) or (pose=2 and CONFIG['DISABLE_position']=1)):
 	$func('get_images', 'glory_dick', you)&'Из дыры показался член'
 	act'Взять в рот':
-		energy[you]-=50&bj[you]+=1&oral_fixation[you]+=1&corr[you]+=1
-		$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала член в глорихоле.'
+		energy[you]-=50&bj[you]+=1&oral_fixation[you]+=1&corr[you]+=1&$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала член в глорихоле.'
 		time+=15&cls&gs'stat'&$func('get_images', 'glory_blow', you)&'Вы встаете на колени и из дыры показывается член, вы берете его в рот и начинаете сосать.'
-		 if oral_fixation[you]>=100:horny[you]+=50&'Вас возбуждает мужской прибор в вашем рту.'
-		 dynamic $d_glory_finish
-		 act'Глубокий минет':cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)&'Вы заглатываете член в горло и сосете его на всю длину.'&dynamic $d_glory_finish
+		if oral_fixation[you]>=100:horny[you]+=50&'Вас возбуждает мужской прибор в вашем рту.'
+		dynamic $d_glory_finish&act'Глубокий минет':cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)&'Вы заглатываете член в горло и сосете его на всю длину.'&dynamic $d_glory_finish
 	end
 end
 if dick[you]>1 and ball[you]>1 and horny[you]>=50 and energy[you]>=50 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (pose=1 and CONFIG['DISABLE_position']=1)):
@@ -48,20 +45,18 @@ if dick[you]>1 and ball[you]>1 and horny[you]>=50 and energy[you]>=50 and ((pose
 			'Из магического символа напротив вашего лица вылезает член и попадает вам в рот. Вы тут же понимаете, что у вас во рту ваш собственный член. И вы никак не можете освободиться. '
 			'Постепенно вы начинаете сосать свой член и входите во вкус, заглатывая все глубже и глубже.'
 			act'Кончать':
-				 cum_face[you]+=1&glory[you]+=1&horny[you]=0&act'Встать':gt 'world'
-				 cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Вы кончили себе в рот и проглотили сперму. После этого магическая сила, не дающая вам отлипнуть от стены, исчезла.'
+				cum_face[you]+=1&glory[you]+=1&horny[you]=0&act'Встать':gt 'world'
+				cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Вы кончили себе в рот и проглотили сперму. После этого магическая сила, не дающая вам отлипнуть от стены, исчезла.'
 			end
 		end
 	else
 		act'Засунуть член в дыру':
-			abj[you]+=1&horny[you]=0&!soul[you]+=1
-			 time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&act'Уйти':dinama+=1&gt 'world'
-			 'Вы засовываете член в дыру, и чувствуете, как горячий рот незнакомой шлюхи обхватывает ваш член и начинает сосать будто пылесосом. Вскоре вы разряжаетесь в рот шлюхе.'
-		 end
-	 end
+			abj[you]+=1&horny[you]=0&time+=15&cls&gs'stat'&$func('get_images', 'glory_blow')&act'Уйти':dinama+=1&gt 'world'
+			'Вы засовываете член в дыру, и чувствуете, как горячий рот незнакомой шлюхи обхватывает ваш член и начинает сосать будто пылесосом. Вскоре вы разряжаетесь в рот шлюхе.'
+		end
+	end
 end
-'Дыра в стене, а на уровне вашего лица над дырой начертан какой-то магический знак.'
-if glory[you]>0:'На стене маркером написано - <<$name[you]>> хуесоска и <<glory[you]>> чёрточек.'
+'Дыра в стене, а на уровне вашего лица над дырой начертан какой-то магический знак.'&if glory[you]>0:'На стене маркером написано - <<$name[you]>> хуесоска и <<glory[you]>> чёрточек.'
 if CONFIG['DISABLE_position']=1:
 	if pose = 2:
 		act 'Подняться':pose = 1&gt $curloc

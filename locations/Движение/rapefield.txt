@@ -1,30 +1,30 @@
 ﻿if vag[sub]>0 and agro[sub]<2:
-	 if rand(1,100)>=70:
-		 if mob[sub]=30 and corr[sub]<100 or mob[sub]=28 and corr[sub]<100:
-			 if corr[w]>=1000:
-				 dead[w]=1&killbeast[sub]+=1&corr[sub]+=rand(10,50)&!ВОИТЕЛЬНИЦА И СВЯТАЯ МАТЬ  УБИВАЮТ ЧУДОВИЩ
-			 else
+	if rand(1,100)>=70:
+		if mob[sub]=30 and corr[sub]<100 or mob[sub]=28 and corr[sub]<100:
+			if corr[w]>=1000:
+				dead[w]=1&killbeast[sub]+=1&corr[sub]+=rand(10,50)&!ВОИТЕЛЬНИЦА И СВЯТАЯ МАТЬ  УБИВАЮТ ЧУДОВИЩ
+			else
 				corr[w]=0&corr[sub]+=rand(10,30)&!или УСПОКАИВАЮТ
-			 end 
-		 else
-			 fucked[sub]+=1&fucker[w]+=1&mob_busy[w]=1&mob_busy[sub]=2&under_sub[w]=sub&corr[sub]+=rand(10,50)&horny[w]=0&horny[sub]=0&!напал и насилует
-			 if slutborn[sub]=0 and total_aborigen<25 and mob[w]=2:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&slutborntipe[sub]=1&slutborn[sub]=50&horny[w]=0&horny[sub]=0&!абориген
-			 if slutborn[sub]=0 and total_goblin<40 and mob[w]=24:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&slutborntipe[sub]=2&slutborn[sub]=50&horny[w]=0&horny[sub]=0&!гоблин
-			 if mob[sub]=10:
-				 if mob[w]=2 or mob[w]=24:
-					 pastjustgirl[sub]=2&horny[sub]=0&horny[w]=0&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&!абориген или гоблин
-					 total_slut+=1&total_girl-=1&slutborn[sub]=50&mob[sub]=4&mobexp[sub]=5&$title[sub]='Шлюха'&tipemobpic[sub]=1&picture[sub]=rand(104,111)
-					 dick[sub]=0&dickd[sub]=0&ball[sub]=0&vag[sub]=40
-					 healthmax[sub]=10*rand(10,20)&health[sub]=healthmax[sub]&energymax[sub]=100&energy[sub]=energymax[sub]&manamax[sub]=0&mana[sub]=manamax[sub]
-					 minuron[sub]=rand(3,6)&maxuron[sub]=rand(8,15)&reflex[sub]=rand(30,40)
-				 end
-				 if mob[w]=5 or mob[w]=15:
-					 horny[sub]=0&horny[w]=0&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&!клиент или порноактер
-					 pastjustgirl[sub]=5&whoremaker[w]+=1&total_whore+=1&total_girl-=1&mob[sub]=6&mobexp[sub]=5&$title[sub]='Проститутка'&dick[sub]=0&dickd[sub]=0&ball[sub]=0&vag[sub]=40
-					 healthmax[sub]=10*rand(10,20)&health[sub]=healthmax[sub]&energymax[sub]=100&energy[sub]=energymax[sub]&manamax[sub]=0&mana[sub]=manamax[sub]
-					 minuron[sub]=rand(3,6)&maxuron[sub]=rand(8,15)&reflex[sub]=rand(30,40)
-				 end
-			 end
-		 end
-	 end
- end
+			end 
+		else
+			fucked[sub]+=1&fucker[w]+=1&mob_busy[w]=1&mob_busy[sub]=2&under_sub[w]=sub&corr[sub]+=rand(10,50)&horny[w]=0&horny[sub]=0&!напал и насилует
+			if slutborn[sub]=0 and total_aborigen<25 and mob[w]=2:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&slutborntipe[sub]=1&slutborn[sub]=50&horny[w]=0&horny[sub]=0&!абориген
+			if slutborn[sub]=0 and total_goblin<40 and mob[w]=24:cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&slutborntipe[sub]=2&slutborn[sub]=50&horny[w]=0&horny[sub]=0&!гоблин
+			if mob[sub]=10:
+				if mob[w]=2 or mob[w]=24:
+					pastjustgirl[sub]=2&horny[sub]=0&horny[w]=0&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&!абориген или гоблин
+					total_slut+=1&total_girl-=1&slutborn[sub]=50&mob[sub]=4&mobexp[sub]=5&$title[sub]='Шлюха'&tipemobpic[sub]=1&picture[sub]=rand(104,111)
+					dick[sub]=0&dickd[sub]=0&ball[sub]=0&vag[sub]=40
+					healthmax[sub]=10*rand(10,20)&health[sub]=healthmax[sub]&energymax[sub]=100&energy[sub]=energymax[sub]&manamax[sub]=0&mana[sub]=manamax[sub]
+					minuron[sub]=rand(3,6)&maxuron[sub]=rand(8,15)&reflex[sub]=rand(30,40)
+				end
+				if mob[w]=5 or mob[w]=15:
+					horny[sub]=0&horny[w]=0&cum['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=time+60&!клиент или порноактер
+					pastjustgirl[sub]=5&whoremaker[w]+=1&total_whore+=1&total_girl-=1&mob[sub]=6&mobexp[sub]=5&$title[sub]='Проститутка'&dick[sub]=0&dickd[sub]=0&ball[sub]=0&vag[sub]=40
+					healthmax[sub]=10*rand(10,20)&health[sub]=healthmax[sub]&energymax[sub]=100&energy[sub]=energymax[sub]&manamax[sub]=0&mana[sub]=manamax[sub]
+					minuron[sub]=rand(3,6)&maxuron[sub]=rand(8,15)&reflex[sub]=rand(30,40)
+				end
+			end
+		end
+	end
+end

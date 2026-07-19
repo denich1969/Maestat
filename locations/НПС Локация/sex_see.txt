@@ -1,74 +1,69 @@
 ﻿cls&gs'stat'
 if (dick[you]>0 or vag[you]>0) and  womenbrain[you]>30:
 	if skin[ddd]>3 and skin[ddd]<7:
-		'<center><video src="pic/sex/bbc/dog/dog<<rand(0,40)>>.webm" ></video></center>'
+		'<center><video autoplay loop src="pic/sex/bbc/dog/dog<<rand(0,40)>>.webm" ></video></center>'
 		'Вы видите как <<$name[dom]>> <<$surname[dom]>> ебет девушку. Вы стараетесь не шевелиться чтобы вас не заметили'&*nl
-		if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
-		if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+		if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+		if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
 	else
-		'<center><video src="pic/sex/vag/d<<rand(0,32)>>.webm" ></video></center>'&'Вы видите как <<$name[ddd]>> <<$surname[ddd]>> ебет девушку. Вы стараетесь не шевелиться чтобы вас не заметили'&*nl
-		if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
-		if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+		'<center><video autoplay loop src="pic/sex/vag/d<<rand(0,32)>>.webm" ></video></center>'
+		'Вы видите как <<$name[ddd]>> <<$surname[ddd]>> ебет девушку. Вы стараетесь не шевелиться чтобы вас не заметили'&*nl
+		if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+		if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
 	end
 	act'Дрочить':
 		cls&gs'stat'
 		if skin[ddd]>3 and skin[ddd]<7:
-			'<center><video src="pic/sex/bbc/miss/getto_pussy_l<<rand(0,55)>>.webm" ></video></center>'&'Вы смотрите как <<$name[ddd]>> вгоняет свой здоровенный член в вагину девушки'
-			 '<<$name[sss]>> двигается навстречу, подмахивая в такт. Своими ножками она обхватывает ебаря, скрещивая их за его спиной'
-			 '<<$name[ddd]>> вгоняет член в вагину до упора и замирает. Его член начинает пульсировать'&*nl
-			 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
-			 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+			'<center><video autoplay loop src="pic/sex/bbc/miss/getto_pussy_l<<rand(0,55)>>.webm" ></video></center>'&'Вы смотрите как <<$name[ddd]>> вгоняет свой здоровенный член в вагину девушки'
+			'<<$name[sss]>> двигается навстречу, подмахивая в такт. Своими ножками она обхватывает ебаря, скрещивая их за его спиной'
+			'<<$name[ddd]>> вгоняет член в вагину до упора и замирает. Его член начинает пульсировать'&*nl
+			if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+			if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
 		else
-			'<center><video src="pic/sex/vag/m<<rand(0,42)>>.webm" ></video></center>'&'Вы смотрите как <<$name[ddd]>> вгоняет свой здоровенный член в вагину девушки'
-			 '<<$name[sss]>> двигается навстречу, подмахивая в такт. Своими ножками она обхватывает ебаря, скрещивая их за его спиной'
-			 '<<$name[ddd]>> вгоняет член в вагину до упора и замирает. Его член начинает пульсировать'&*nl
-			 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
-			 if pol[you]=1:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+			'<center><video autoplay loop src="pic/sex/vag/m<<rand(0,42)>>.webm" ></video></center>'&'Вы смотрите как <<$name[ddd]>> вгоняет свой здоровенный член в вагину девушки'
+			'<<$name[sss]>> двигается навстречу, подмахивая в такт. Своими ножками она обхватывает ебаря, скрещивая их за его спиной'
+			'<<$name[ddd]>> вгоняет член в вагину до упора и замирает. Его член начинает пульсировать'&*nl
+			if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+			if pol[you]=1:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
 		end
 		act'...':
-			 horny[you]+=10&jerk[you]+=1&!vag[sss]+=1&vagsex[sss]+=1&avagsex[ddd]+=1
-			 cls&gs'stat'
-			 if skin[ddd]>3 and skin[ddd]<7:
-				 '<center><video src="pic/sex/bbc/miss/cum<<rand(0,11)>>.webm" ></video></center>'&'<<$name[ddd]>> спускает сперму в девушку, заливая ее киску своим семенем'
-				 '<<$name[sss]>> изгибается в оргазме и громко стонет, ее киска пульсирует на члене'&*nl 'Половые губки девушки плотко сжимают член, не давая сперме вылиться'
-				 'Головка члена упирается в матку и его семя затекает внутрь'&*nl
-				 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
-				 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
-			 else
-				 '<center><video src="pic/sex/vag/d<<rand(0,14)>>.webm" ></video></center>'&'<<$name[ddd]>> спускает сперму в девушку, заливая ее киску своим семенем'
-				 '<<$name[sss]>> изгибается в оргазме и громко стонет, ее киска пульсирует на члене'&*nl'Половые губки девушки плотко сжимают член, не давая сперме вылиться'
-				 'Головка члена упирается в матку и его семя затекает внутрь'&*nl
-				 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
-				 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
-				 creampie_cum[sss]=time+360
-				 you_see_sex[sss]+=1
-				 corr[sss]+=rand(2,8)
-			 end
-			 if horny[you]<100:
-				 cls&gs'stat'&'<center><video src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&'В девушку кончает какой-то хуй, а она стонет и принимет сперму в матку, и вас это заводит'
-				 '<<$name[ddd]>> <<$surname[ddd]>> спускает в девушку'&*nl
-				 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
-				 if pol[you]=1:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+			horny[you]+=10&jerk[you]+=1&!vag[sss]+=1&vagsex[sss]+=1&avagsex[ddd]+=1
+			cls&gs'stat'
+			if skin[ddd]>3 and skin[ddd]<7:
+				'<center><video autoplay loop src="pic/sex/bbc/miss/cum<<rand(0,11)>>.webm" ></video></center>'&'<<$name[ddd]>> спускает сперму в девушку, заливая ее киску своим семенем'
+				'<<$name[sss]>> изгибается в оргазме и громко стонет, ее киска пульсирует на члене'&*nl 'Половые губки девушки плотко сжимают член, не давая сперме вылиться'
+				'Головка члена упирается в матку и его семя затекает внутрь'&*nl
+				if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+				if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+			else
+				'<center><video autoplay loop src="pic/sex/vag/d<<rand(0,14)>>.webm" ></video></center>'&'<<$name[ddd]>> спускает сперму в девушку, заливая ее киску своим семенем'
+				'<<$name[sss]>> изгибается в оргазме и громко стонет, ее киска пульсирует на члене'&*nl'Половые губки девушки плотко сжимают член, не давая сперме вылиться'
+				'Головка члена упирается в матку и его семя затекает внутрь'&*nl
+				if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+				if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
+				creampie_cum[sss]=time+360
+				you_see_sex[sss]+=1
+				corr[sss]+=rand(2,8)
+			end
+			if horny[you]<100:
+				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&'В девушку кончает какой-то хуй, а она стонет и принимет сперму в матку, и вас это заводит'
+				'<<$name[ddd]>> <<$surname[ddd]>> спускает в девушку'&*nl
+				if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
+				if pol[you]=1:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
 				act'<b>Уйти</b>':gt 'preloc'
-			 else
-				 act'Кончить':
-					 horny[you]=0
-					 cls&gs'stat'&'<center><video src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&*nl&! 'Вы видите как из киски девушки вытекает сперма и вас трясет от возбуждения'
-					 if girlfriend_num[you]=sss:
-						'Вы видите как из киски вашей девушки вытекает сперма другого самца и вас трясет от возбуждения'
-						dom[sss]+=rand(1,3)
-						vag[sss]+=rand(1,dick[ddd]/3)
-						dom[you]-=rand(1,3)
+			else
+				act'Кончить':
+					horny[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&*nl&! 'Из киски девушки вытекает сперма и вас трясет от возбуждения'
+					if girlfriend_num[you]=sss:
+						'Вы видите как из киски вашей девушки вытекает сперма другого самца и вас трясет от возбуждения'&dom[sss]+=rand(1,3)&vag[sss]+=rand(1,dick[ddd]/3)&dom[you]-=rand(1,3)
 					else
 						'Вы видите как из киски девушки вытекает сперма и вас трясет от возбуждения'
 					end
-					 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Ваш член начинает пульсировать... Вы кончаете...'
-					 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'
-					 act'<b>Уйти</b>':gt 'preloc'
+					if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Ваш член начинает пульсировать... Вы кончаете...'
+					if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'
+					act'<b>Уйти</b>':gt 'preloc'
 				 end
-				if girlfriend_num[you]=sss:
-					act'<b>Остановиться и разобраться с этой шлюхой позже</b>':gt 'preloc'
-				end
+				if girlfriend_num[you]=sss:act'<b>Остановиться и разобраться с этой шлюхой позже</b>':gt 'preloc'
 			end
 		end
 	end
@@ -92,6 +87,4 @@ elseif  pol[you]>0 and vag[you]=0 and dick[you]>0 and  womenbrain[you]>30:
 	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется приключений на свою задницу.  '
 	act'<b>Уйти</b>':gt 'preloc'
 end
-"статус запрета у мужчины равен <<forbidsex[ddd]>>"
-"статус запрета у женщины равен <<forbidsex[sss]>>"
-act'<b>Уйти</b>':gt 'preloc'
+"статус запрета у мужчины равен <<forbidsex[ddd]>>"&*nl"статус запрета у женщины равен <<forbidsex[sss]>>"&act'<b>Уйти</b>':gt 'preloc'

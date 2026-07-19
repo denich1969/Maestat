@@ -1,4 +1,4 @@
-﻿gs'stat'&'Вы моетесь в душе, смывая с себя назойливый рыбный запах, вдруг в душ вваливается инсмутец.'&if pol[you]>0:'<center><video src="pic/misc/shower.webm" ></video></center>'
+﻿gs'stat'&'Вы моетесь в душе, смывая с себя назойливый рыбный запах, вдруг в душ вваливается инсмутец.'&if pol[you]>0:'<center><video autoplay loop src="pic/misc/shower.webm" ></video></center>'
 npc=insmouth_loc_num
 act'Эй!':
 	if tipemobpic[npc]=1:'<center><img src="pic/mob/<<picture[npc]>>.jpg" ></center>'

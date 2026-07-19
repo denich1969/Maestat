@@ -45,7 +45,7 @@ else
 			if demon_dick_queen[npc]=0 and demon_dick_sub[npc]>25:
 				if soul[you]-soul[npc]*2>=soul[npc]*3+1000:
 					act'Сломать разум':
-						soul[you]-=soul[npc]*2&soul[npc]+=soul[npc]*2&demon_dick_queen[npc]=you&cla&"Вы вливаете в нее свою душу, отмечая свою метку на ее душе"&gs'stat'&act'Готово!':gt'npc'
+						soul[you]-=soul[npc]*2&soul[npc]+=soul[npc]*2&demon_dick_queen[npc]=you&cla&"Вы вливаете в нее свою душу, отмечая свою метку на её душе"&gs'stat'&act'Готово!':gt'npc'
 					end
 				else
 					"Вашей силы души не хватит для подчинения и контроля"

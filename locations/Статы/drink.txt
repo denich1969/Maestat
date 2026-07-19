@@ -1,7 +1,6 @@
 ﻿if $args[1]='':
 	if demon_dick[you]=0:
-		thirst[you]=0
-		energy[you]+=20
+		thirst[you]=0&energy[you]+=20
 	else
 		!msg('Из-за вашей природы вы не нуждаетесь в воде, ')
 	end
@@ -17,22 +16,22 @@ else
 		if $args[1]='veksel' and veksel[you]>=args[0]:veksel-=args[0]&$valuta='векселях'
 		if $args[2]='пиво':item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&
 		if $args[2]='виски':item[231]+=1&burden[you]+=item_burden[231]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'
-		 act'<b>Уйти</b>':gt 'preloc'
-	 end
-	 if item[63]>0:
-         act 'Потягивать пиво.':
-			gs 'pivoV'&item[63]-=1&burden[you]-=item_burden[63]
+		act'<b>Уйти</b>':gt 'preloc'
+	end
+	if item[63]>0:
+        act 'Потягивать пиво.':
+			gs 'pivoV',you&item[63]-=1&burden[you]-=item_burden[63]
 			if pol>0:
 				'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(1,6)>>.jpg"></center>'
 			else
 				'<center><img <<$set_imgh>> src="pic/loc/eventloc/beer.jpg"></center>'
 			end
 			'На столе стоит пинта пива.'&'Вы не спеша потягиваете прохладное пиво из кружки, минут за пятнадцать вы опустошили кружку пива.'&act 'Поставить пустую кружку.':gt $CURLOC
-         end 
-	 end
+        end 
+	end
 	if item[231]>0:
 		act 'Пить виски':
-			gs 'ViskiV'&item[231]-=1&burden[you]-=item_burden[231]
+			gs 'ViskiV',you&item[231]-=1&burden[you]-=item_burden[231]
 			if pol>0:
 				'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(7,9)>>.jpg"></center>'
 			else

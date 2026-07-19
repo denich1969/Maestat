@@ -1,7 +1,5 @@
-﻿$MAINDESC_BACKIMAGE = ''
-*CLR&'<div id="header_right">Фарид</div>'&'<div id="bg"><img src = farid.jpg"></div>'&!РАЗГОВОР С ФАРИДОМ-РАБОТОРГОВЦЕМ
-CLR&close all
-if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/market.mp3",Громкость_эффектов
+﻿$MAINDESC_BACKIMAGE = ''&*CLR&'<div id="header_right">Фарид</div>'&'<div id="bg"><img src = farid.jpg"></div>'&!РАЗГОВОР С ФАРИДОМ-РАБОТОРГОВЦЕМ
+CLR&close all&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/market.mp3",Громкость_эффектов
 IF sex = 1:
 	'<div id="text"><p>Увидев вас, Фарид широко улыбается и раскрывает обьятья.</p><p>— <<$name>>, свет моих очей! Твой лик освещает эту площадь ярче тысячи солнц! Чем Фарид может услужить тебе, о Незабвенная?</p></div>'
 else

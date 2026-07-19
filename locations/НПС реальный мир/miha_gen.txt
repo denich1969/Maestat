@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&miha=i
-lvl[i]=1&soul[i]=100
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&miha=i&lvl[i]=1&soul[i]=100
 master[i]=0&delusion[i]=0&magik[i]=0&mage[i]=0&beliver[i]=0&!Не имеет отношения к богине луны и наваждению
 spec_face_pic[i]=5&face_pic[i]=165&!face_npc[i]=1&face_pic[i]=9
 $name[i]='Михаил'&$surname[i]='Баранов'&$doing[i]=''
@@ -10,9 +9,6 @@ face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]
 health[i]=healthmax[i]&mana[i]=manamax[i]&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 age[i]=27&vital[i]=rand(60,90)&will[i]=10&reflex[i]=rand(50,70)&mustage[i]=0&pol[i]=0&gs'body'&total_generated_male+=1&!gs'male_gen'
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=40&selrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=10
-h_slot[i]=0
-c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
-t_slot[i]=10&l_slot[i]=1&b_slot[i]=1
-ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&!in_home[i]=2&!$loc[i]='vill_w_house'&!$loc[i]='markQWQ'
-real_world[]=i&walkprog[i]=201&rude[i]=1&!npcii[i]=1
+h_slot[i]=0&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=10&l_slot[i]=1&b_slot[i]=1&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&real_world[]=i&walkprog[i]=201
+rude[i]=1&!in_home[i]=2&!$loc[i]='vill_w_house'&!$loc[i]='markQWQ'&!npcii[i]=1

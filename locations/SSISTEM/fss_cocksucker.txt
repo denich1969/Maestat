@@ -25,9 +25,9 @@ if sexpower[npc]>0:
 			act'Сосать':
 				cls&gs'stat'
 				if skin[npc]>3 and skin[npc]<7:
-					blacked[you]+=1&'<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$name[npc]>> неожиданно харкает вам в лицо'
+					blacked[you]+=1&'<center><video autoplay loop src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$name[npc]>> неожиданно харкает вам в лицо'
 				else
-					'<center><video src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'&'<<$name[npc]>> неожиданно харкает вам в лицо'
+					'<center><video autoplay loop src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'&'<<$name[npc]>> неожиданно харкает вам в лицо'
 				end
 				gs'fuck_oral_spit',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_cocksucker'
 			end

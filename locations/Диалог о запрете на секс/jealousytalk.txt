@@ -1,6 +1,6 @@
 ﻿if forbidsex[npc]=0 and (dom[you]>60 or (dom[you]>20 and husband[you]=npc and husband[npc]=you) or (dom[you]>40 and (boyfriend_num[npc]=you or girlfriend_num[npc]=you))) and friends['<<you>>,<<npc>>']>70:act'<b>Запретить трахаться с кем попало</b>':gs'stat'&gs'forbidsexsystem'
 if forbidsex[npc]>=1:
-	 act'<b>Ебись с кем хочешь</b>':
-		 forbidsex[npc]=0&cla&gs'stat'&act "Спасибо, не хочу тебя обманывать!":gt 'preloc'
-	 end
+	act'<b>Ебись с кем хочешь</b>':
+		forbidsex[npc]=0&cla&gs'stat'&act "Спасибо, не хочу тебя обманывать!":gt 'preloc'
+	end
 end	

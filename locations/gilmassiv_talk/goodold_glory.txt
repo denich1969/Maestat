@@ -1,41 +1,45 @@
 ﻿gs'stat'&'<center><img src="pic/loc/237.jpg" ></center>'&'Согласно записке я в правильном месте. Теперь стало понятно, что значит средняя кабинка.'
 act'Войти в кабинку':
-	dayofglory=daystart&pisswasser[you]=0&cls&gs'stat'&'<center><video src="pic/misc/fempee0.webm" ></video></center>'&'Ну раз уж вы все равно в кабинке туалета, то почему бы не воспользоваться? '
+	dayofglory=daystart&pisswasser[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/fempee0.webm" ></video></center>'
+	'Ну раз уж вы все равно в кабинке туалета, то почему бы не воспользоваться? '
 	'Вы садитесь на унитаз и писаете. Внезапно вы слышите чавкающие звуки из соседней кабинки и замечаете дыру в стене туалета.'
 	act'Заглянуть':
 		oral_fixation[serena]+=100&girl[mrblood]+=1&guy[serena]+=1&!serena
 		sexpartner['<<serena>>,<<mrblood>>']+=5&sexpartner['<<mrblood>>,<<serena>>']+=5
 		bj[serena]+=5&abj[mrblood]+=5&sexpartner_num_m['<<serena>>,<<guy[serena]>>']=mrblood&sexpartner_num_f['<<mrblood>>,<<girl[mrblood]>>']=serena
-		horny[you]=100&cls&gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,6)>>.webm" ></video></center>'
+		horny[you]=100&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,6)>>.webm" ></video></center>'
 		'В соседней с вами кабинке девушка делает минет парню с большим эррегированным членом. Ее губы влажно скользят по блестящему от слюней стволу покрытому венами.'
 		'Волна мощного возбуждения сметает всякие остатки приличия и вам безудержно хочется потрогать себя снизу'
 		act'Потрогать':
-			jerk[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/solo/toilet.webm" ></video></center>'
+			jerk[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/toilet.webm" ></video></center>'
 			'Вы трогаете себя внизу и это так приятно что из вас вылетает струйка мочи, а вы в голос стоните не в силах сдержаться.'
 			'Вы видите как сквозь дырку в стене просовывается стоячий член жаждущий ласки.'
 			act'Потрогать':
 				cls&gs'stat'&'<center><img src="pic/event/book/cock.jpg" ></center>'&'Вы трогаете стоячий хуй торчащий из дыры в стене и тот подрагивает. С другой стороны тоже просовывается член. '
 				'А затем еще и еще. Один даже через дыру в двери. Из стен торчат четыре стоячих хуя и пока они не отдадут вам свои сливки, вы отсюда не выйдете.'
 				 act'Взять в рот':
-					bj[you]+=1&time+=30&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
+					bj[you]+=1&time+=30&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
 					'Вы встаете на колени и целуете член. Из за стены нетерпеливый голос хлещет вас - соси быстрее шлюха!'
 					'Открыв рот вы послушно берете горячую головку внутрь и начинаете сосать'&*pl 'Из за стены доносится - хорошо сосет, настоящая вафлёрша.'
 					act'Глотать':
-						cum_face[you]+=1&glory[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'&'Член начинает кончать вам в рот, а вы сосете, глотая сперму.'
+						cum_face[you]+=1&glory[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'
+						'Член начинает кончать вам в рот, а вы сосете, глотая сперму.'
 						act'Взять в рот второй':
-							bj[you]+=1&time+=30&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'&'Убрав губы от опадающего члена с головки которого сочится белая капелька спермы вы обвафленными губами целуете следующий дрожащий в нетерпении хуй и начинаете увлеченно его сосать'&*pl
+							bj[you]+=1&time+=30&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
+							'Убрав губы от опадающего члена с головки которого сочится белая капелька спермы, '
+							'вы обвафленными губами целуете следующий дрожащий в нетерпении хуй и начинаете увлеченно его сосать'
 							'Из за стены доносится - да, вот так. Скоро ты получишь все, что тебе причитается.'
 							act'Глотать':
 								cum_face[you]+=1&glory[you]+=1
-								cls&gs'stat'&'<center><video src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'&'Член начинает кончать вам в рот, а вы сосёте, глотая сперму.'
+								cls&gs'stat'&'<center><video autoplay loop src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'&'Член начинает кончать вам в рот, а вы сосёте, глотая сперму.'
 								act'Взять в рот третий':
-									bj[you]+=1&time+=30&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
+									bj[you]+=1&time+=30&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
 									'Сглотнув вторую порцию едкой спермы вы погрузили в рот третий член и начали полировать своими рабочими губами.'&*pl'Из за стены доносится - Я гляжу тебе понравилось сосать хуи.'
 									act'Глотать':
 										cum_face[you]+=1&glory[you]+=1
-										cls&gs'stat'&'<center><video src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'&'Член начинает кончать вам в рот, а вы сосёте, глотая сперму.'
+										cls&gs'stat'&'<center><video autoplay loop src="pic/sex/gloryhole/cum<<rand(0,19)>>.webm" ></video></center>'&'Член начинает кончать вам в рот, а вы сосёте, глотая сперму.'
 										act'Взять в рот четвертый':
-											bj[you]+=1&time+=30&cls&gs'stat'&'<center><video src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
+											bj[you]+=1&time+=30&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/gloryhole/<<rand(0,21)>>.webm" ></video></center>'
 											'Проглотив и третью порцию струхни вы натруженными губами прикоснулись к четвертому члену'&*pl'Из за стены доносится - соси живее ротанка.'
 											'Послушавшись приказа вы начали неистово сосать член буквально тыкаясь носом в туалетную стенку и едва не касаясь губами стенки кабинки.'
 											act'Глотать':

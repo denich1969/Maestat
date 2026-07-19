@@ -97,7 +97,7 @@ if butcher =1:
 		"<center><H1>Лавка мясника</H1></center><TABLE><TR> <TD><img src = 'content/butchery/avto.jpg'></TD><TD>"
 		"- Конечно же нет, у нас широко применяется автоматика, мы ведь и армейские пайки выпускаем, пойдем покажу. Вот это автоматический забойщик, может обезглавить до 1000 тушек в час."
 		Wait 1000&CLA&*CLR&"<BR>Тут у нас полуавтоматический цех потрошения. Опытные забойщики производят забой и нарезают тушки на куски."
-		"<center><H1>Лавка мясника</H1></center><TABLE><TR> <TD><video src = 'content/butchery/avto1.webm'></TD><TD>"
+		"<center><H1>Лавка мясника</H1></center><TABLE><TR> <TD><video autoplay loop src = 'content/butchery/avto1.webm'></TD><TD>"
 		Wait 1000&CLA&*CLR&MSG "- Тут женщин моют и мажут приправой перед грилем. Да, их жарят живыми, так мясо сочнее. Как ты заметил они без голеней и предплечий, эти части идут на собачий корм."
 		"<center><H1>Лавка мясника</H1></center><TABLE><TR> <TD><img src = 'content/butchery/avto2.jpg'></TD><TD>"
 		Wait 1000&CLA&*CLR&MSG "- Тут  в гриль загружают сырое мясо, и достают готовое."

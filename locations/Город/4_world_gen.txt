@@ -1,13 +1,11 @@
-﻿X=0&Y=0&Z=540&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5
-$n_board[Z]='Трущобы'&$w_board[Z]='Даунтаун'&$e_board[Z]='Запретная территория'&$s_board[Z]='Спальный район'
+﻿X=0&Y=0&Z=540&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5&$n_board[Z]='Трущобы'&$w_board[Z]='Даунтаун'&$e_board[Z]='Запретная территория'&$s_board[Z]='Спальный район'
 magworld[Z]=100&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 :markgenworldFour
 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if Y=Ymax[Z] and X>0 and X<5:d_border_way['<<$temploc>>']=5
 if Y=0 and X>0 and X<5:d_border_way['<<$temploc>>']=7
 if X=0 and Y>0 and Y<5:d_border_way['<<$temploc>>']=2
-$locname['<<$temploc>>']='Парк'&$lname['<<$temploc>>']='Парк'&$locopis['<<$temploc>>']='Высокие деревья и кусты заполоняют все пространство вокруг ухоженных дорожек'
-np['<<$temploc>>']=46
+$locname['<<$temploc>>']='Парк'&$lname['<<$temploc>>']='Парк'&$locopis['<<$temploc>>']='Высокие деревья и кусты заполоняют все пространство вокруг ухоженных дорожек'&np['<<$temploc>>']=46
 peoplegenrand=rand(2)&pre_class=rand(2)
 if peoplegenrand=0:gs'male_gen'&parkworld[]=i
 if peoplegenrand=1:gs'female_gen'&parkworld[]=i

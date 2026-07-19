@@ -71,14 +71,14 @@ act'<<$textsea>>':
 							face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=rand(60,100)
 							cls&'Едва ваше тело преобразилось, как вы оказались в каком-то подводном помещении, где на вас буквальро сразу набросился какой-то монстр состоящий сплошь из щупалец...'
 							'Вы ничего не могли поделать, вам соатвалось только подчиниться и принимать дары Дагона такими, какими они по факту были...'
-							'<center><video src="pic/event/see/act.webm" ></video></center>'
+							'<center><video autoplay loop src="pic/event/see/act.webm" ></video></center>'
 							act'Принимать в себя дар Дагона':
 								vag[i]+=rand(3,9)&anus[i]+=rand(3,9)&throat[you]+=rand(3,9)&horny[i]=0
 								time+=15&cls&'Насилие длилось недолго, несмотря на то, что все ваши отверстия были заняты неугомонным созданием глубины.'
-								'Монстр в конце-концов кончил в ваши отверстия...'&'<center><video src="pic/event/see/cumdagon5.webm" ></video></center>'
+								'Монстр в конце-концов кончил в ваши отверстия...'&'<center><video autoplay loop src="pic/event/see/cumdagon5.webm" ></video></center>'
 								act'Выпустить семя':
 									cls&'Едва вы оказались на полу, как из вас хлынул фонтан из семени Дагонского монстра, в этот же момент вас сотряс сильнейший в вашей жизни оргазм...'
-									'<center><video src="pic/event/see/cumdagon1.webm" ></video></center>'
+									'<center><video autoplay loop src="pic/event/see/cumdagon1.webm" ></video></center>'
 									act'Осмотреться':
 										cls&'Едва вы повернули голову, то едва не захелбнулись...'
 										'Вы оказлись на воде, плывущей на спине вдоль берега... А все что произошло с вами, уже казалось просто страшным сном с прекрасным оргазмом в конце.'
@@ -91,14 +91,14 @@ act'<<$textsea>>':
 					if vag[you]>0:
 						'Русалка поцеловала вас и почти мгновенно перенесла вас в какое-то подводное помещение, где на вас буквальро сразу набросился какой-то монстр состоящий сплошь из щупалец...'
 						'Вы ничего не могли поделать, вам соатвалось только подчиниться и принимать дары Дагона такими, какими они по факту были...'
-						'<center><video src="pic/event/see/act.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/event/see/act.webm" ></video></center>'
 						act'Принимать в себя дар Дагона':
 							lastsex=time&vag[i]+=rand(3,9)&anus[i]+=rand(3,9)&throat[you]+=rand(3,9)&horny[i]=0
 							time+=15&cls&'Насилие длилось недолго, несмотря на то, что все ваши отверстия были заняты неугомонным созданием глубины.'
-							'Монстр в конце-концов кончил в ваши отверстия...'&'<center><video src="pic/event/see/cumdagon2.webm" ></video></center>'&
+							'Монстр в конце-концов кончил в ваши отверстия...'&'<center><video autoplay loop src="pic/event/see/cumdagon2.webm" ></video></center>'&
 							act'Выпустить семя':
 								cls&'Едва вы оказались на полу, как из вас хлынул фонтан из семени Дагонского монстра, в этот же момент вас сотряс сильнейший в вашей жизни оргазм...'
-								'<center><video src="pic/event/see/cumdagon1.webm" ></video></center>'
+								'<center><video autoplay loop src="pic/event/see/cumdagon1.webm" ></video></center>'
 								act'Осмотреться':
 									cls&'Едва вы повернули голову, то едва не захелбнулись...'
 									'Вы оказлись на воде, плывущей на спине вдоль берега... А все что произошло с вами, уже казалось просто страшным сном с прекрасным оргазмом в конце.'
@@ -118,10 +118,10 @@ act'<<$textsea>>':
 				if rand(1,4)=3:
 					'Едва вокруг стало холодно и темно, как вы ощутил мертвую хватку морского создания, с которым сразу же и слислись в глубинной страсти совокупления...'
 					'Только в этот раз что-то изменилось, вместо того, чтобы заполнитьваше нутро своим семенем со всех сторон, лишь два щупальца скользнули в вашу задницу...'
-					time+=15&'<center><video src="pic/event/see/dagonanal<<rand(1,2)>>.webm" ></video></center>'
+					time+=15&'<center><video autoplay loop src="pic/event/see/dagonanal<<rand(1,2)>>.webm" ></video></center>'
 					act'Кончить':
 						cls&'Как и в прошлый раз, морскому монстру хватило 10 минут, чтобы наполнить ваши кишки своим семенем, после чего интерес к вам был потерян...'
-						'<center><video src="pic/event/see/analcum<<rand(1,3)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/event/see/analcum<<rand(1,3)>>.webm" ></video></center>'
 						vag[you]+=rand(2,6)&anus[you]+=rand(2,6)&throat[you]+=rand(2,6)						
 						act'Вернуться':
 							cls&'<center><img src="pic/event/see/end1.jpg" ></center>'&'Едва вы повернули голову, то едва не захелбнулись...'
@@ -130,10 +130,10 @@ act'<<$textsea>>':
 					end
 				else
 					dagonegg=rand(1,3)&'Едва вокруг стало холодно и темно, как вы ощутил мертвую хватку морского создания, с которым сразу же и слислись в глубинной страсти совокупления...'
-					time+=15&'<center><video src="pic/event/see/act<<rand(2,4)>>.webm" ></video></center>'
+					time+=15&'<center><video autoplay loop src="pic/event/see/act<<rand(2,4)>>.webm" ></video></center>'
 					act'Кончить':
 						cls&'Как и в прошлый раз, морскому монстру хватило 10 минут, чтобы наполнить ваши внутренности своим семенем, после чего интерес к вам был потерян...'
-						'<center><video src="pic/event/see/cumdagon<<rand(1,10)>>.webm" ></video></center>'
+						'<center><video autoplay loop src="pic/event/see/cumdagon<<rand(1,10)>>.webm" ></video></center>'
 						vag[you]+=rand(2,6)&anus[you]+=rand(2,6)&throat[you]+=rand(2,6)
 						act'Вернуться':
 							cls&'<center><img src="pic/event/see/end1.jpg" ></center>'&'Едва вы повернули голову, то едва не захелбнулись...'

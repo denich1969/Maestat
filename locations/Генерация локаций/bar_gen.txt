@@ -1,8 +1,6 @@
 ﻿!Образец вызова: !gs 'bar_gen',уровень бара,тип бара ,'предмет',номер предмета1,номер предмета2,номер предмета3,номер предмета4,номер предмета5
 H=args[0]&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=$args[1]
-R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Бар'
-bartable['<<$temploc>>']=args[4]
-gs'item_base'
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Бар'&bartable['<<$temploc>>']=args[4]&gs'item_base'
 if args[0]=0:
 	$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
 	$locopis['<<$temploc>>']='Грязный и провонявший сыростью и рыбой дрянной бар'&!описание
@@ -14,7 +12,7 @@ elseif  args[0]=1:
 	np['<<$temploc>>']=85&!номер картинки
 	!item_loc['70,<<$temploc>>']=1&!вещи в баре
 elseif  args[0]=2:
-$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
+	$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
 	$locopis['<<$temploc>>']='Обычный бар'&!описание
 	np['<<$temploc>>']=85&!номер картинки
 	item_loc['<<args[7]>>,<<$temploc>>']=1&item_loc['<<args[3]>>,<<$temploc>>']=1&item_loc['<<args[4]>>,<<$temploc>>']=1&item_loc['<<args[5]>>,<<$temploc>>']=1&item_loc['<<args[6]>>,<<$temploc>>']=1
@@ -30,7 +28,7 @@ $locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$
 	np['<<$temploc>>']=85&!номер картинки
 	!item_loc['<<args[7]>>,<<$temploc>>']=1&item_loc['<<args[3]>>,<<$temploc>>']=1&item_loc['<<args[4]>>,<<$temploc>>']=1&tem_loc['<<args[5]>>,<<$temploc>>']=1&item_loc['<<args[6]>>,<<$temploc>>']=1
 elseif  args[0]=5:
-$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
+	$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$lname_go['<<$temploc>>']='в бар'
 	$locopis['<<$temploc>>']='Шикарный бар'&!описание
 	np['<<$temploc>>']=85&!номер картинки
 	!item_loc['70,<<$temploc>>']=1&item_loc['<<$args[2]>>,<<$temploc>>']=1&item_loc['<<args[3]>>,<<$temploc>>']=1&!вещи в баре

@@ -1,3 +1,4 @@
 ﻿dom=ARGS[0]&sub=ARGS[1]&!feminize[sub]+=1 на всякий случай пока убрал - не уверен как это работает
 !пока только такая заглушка, как вариант можно заменить на pic/sex/pegging/7.<<rand(0,6)>>.webm
-gs'stat'&'<center><video src="pic/sex/femdom/femdom_strapon0.webm" ></video></center>'&'<<$name[dom]>> трахает задницу парня страпоном. <<$nick[sub]>> громко стонет пока его дрючат'&act'Уйти':gt'preloc'
+gs'stat'&'<center><video autoplay loop src="pic/sex/femdom/femdom_strapon0.webm" ></video></center>'&'<<$name[dom]>> трахает задницу парня страпоном. <<$nick[sub]>> громко стонет пока его дрючат'
+act'Уйти':gt'preloc'

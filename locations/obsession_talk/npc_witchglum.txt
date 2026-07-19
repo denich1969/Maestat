@@ -1,7 +1,1 @@
-﻿$d_view='pic/mob/151.jpg'
-'<center><img src="<<$d_view>>" ></center>'
-if mob_sleep[npc]>time:
-	'<<$nick[npc]>> читает гримуар'
-else
-	'<<$nick[npc]>> читает гримуар глядя на вас'
-end
+﻿$d_view='pic/mob/151.jpg'&'<center><img src="<<$d_view>>" ></center>'&$iif(mob_sleep[npc]>time,'<<$nick[npc]>> читает гримуар','<<$nick[npc]>> читает гримуар глядя на вас')

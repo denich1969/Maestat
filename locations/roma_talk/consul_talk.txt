@@ -1,7 +1,5 @@
-﻿$BACKIMAGE = 0
-CLR&PL "В кошельке: <<money>> з.м."&close all
-if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//market.mp3",Громкость_эффектов
-IF sex = 1:
+﻿$BACKIMAGE=0&CLR&PL "В кошельке: <<money>> з.м."&close all&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//market.mp3",Громкость_эффектов
+IF sex=1:
 	"Увидев вас, мужчина хмурится, ногой грубо отталкивает девушку и садится более ровно. <BR>- Приветствую в Сенате сэр, что я могу для вас сделать?"
  else
 	"Увидев вас, мужчина хмурится, ногой грубо отталкивает девушку и садится более ровно. <BR>- Приветствую в Сенате сэр, что я могу для вас сделать?"
@@ -15,12 +13,10 @@ ACT "Купить дом":
 		MSG "У вас уже есть уютный дом. Куда больше?"
 	else
 		IF iskr[you] < 500:
-			  msg "К сожалению, у Вас не хватает денег."
+			msg "К сожалению, у Вас не хватает денег."
 		else 
-			  iskr[you] -=500
-			  roma_home[you]=1
-			  if CONFIG['ENABLE_sound']=1:play "/<<$content>>/Rome/money.mp3"
-			  msg "Спасибо за покупку!"
+			iskr[you] -=500&roma_home[you]=1&if CONFIG['ENABLE_sound']=1:play "/<<$content>>/Rome/money.mp3"
+			msg "Спасибо за покупку!"
 		end
 	end
 END

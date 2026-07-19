@@ -1,4 +1,4 @@
-﻿gs'stat'&'<center><video src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'
+﻿gs'stat'&'<center><video autoplay loop src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'
 '<<$name[sss]>> <<$surname[sss]>> влажно чавкая сосет член, а <<$name[ddd]>> <<$surname[ddd]>> блаженствует разглядывая лицо девушки.'&!you_see_bj[sss]+=1&you_see_fucker[ddd]+=1
 cangopre=1
 if sss=sister and ddd=borisbogart  and $loc[sss]=$loc[ddd]:

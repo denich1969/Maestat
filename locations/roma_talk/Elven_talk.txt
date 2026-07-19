@@ -1,8 +1,7 @@
-﻿$loc[you]=$curloc
-gs'stat'&loc_for_drop=0&'<b><center>Салон Elven laid</center></b>'&*pl ''&'Салон красоты где предлагают полный спектр услуг'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-gs'npconloc'&*pl ''&gs'item'&!act'Уйти': GT "preloc"
+﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Салон Elven laid</center></b>'&*pl ''&'Салон красоты где предлагают полный спектр услуг'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+gs'npconloc'&*pl ''&gs'item'&act'Уйти': GT "preloc"
 if pet_follower>0:
-slave=pet_follower
+	slave=pet_follower
 	if sl_skin[slave]=0:
 		'За 100 искр вы можете улучшить кожу у рабыни косметологическими процедурами'
 		if iskr[you]>=100:act'Улучшить кожу рабыни':sl_skin[slave]=1&iskr[you]-=100&cls&gs'stat'&'Вашей рабыне улучшили кожу'&act'...':gt $curloc

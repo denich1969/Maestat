@@ -1,81 +1,59 @@
-﻿X=0&Y=0&Z=780&Xmax[Z]=1&Ymax[Z]=1&H=0&R=0
-$n_board[Z]='Стена'&$w_board[Z]='Стена'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
+﻿X=0&Y=0&Z=780&Xmax[Z]=1&Ymax[Z]=1&H=0&R=0&$n_board[Z]='Стена'&$w_board[Z]='Стена'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
 magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 :markgenworld771
-maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
-H=0&R=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&R=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if X=0 and Y=0:
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=0&$locnameH['<<$templocH>>']='Холл'
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=0&$locnameH['<<$templocH>>']='Холл'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Холл'
-	 $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 	door['<<$temploc>>']=1&!Xdoor['<<$temploc>>']=0&Ydoor['<<$temploc>>']=0&Zdoor['<<$temploc>>']=770
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=0&$locnameH['<<$templocH>>']='Холл'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Ресепшн'
-     $locname['<<$temploc>>']='Ресепшн'&$lname['<<$temploc>>']='Ресепшн'&$locopis['<<$temploc>>']='Стойка у входа, у которой регистрируются посетители'
-	 np['<<$temploc>>']=513
+    $locname['<<$temploc>>']='Ресепшн'&$lname['<<$temploc>>']='Ресепшн'&$locopis['<<$temploc>>']='Стойка у входа, у которой регистрируются посетители'&np['<<$temploc>>']=513
 	gs'domale_gen'&recepboy=i&$title[i]='Работник отеля'&$nick[i]='Слуга на ресепшине'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 elseif X=0 and Y=1:
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=0&$locnameH['<<$templocH>>']='Левый коридор'
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=0&$locnameH['<<$templocH>>']='Левый коридор'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Коридор'
-	$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	np['<<$temploc>>']=511
+	$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=511
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=17&$locnameH['<<$templocH>>']='Жилая зона'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Жилая зона'
-    $locname['<<$temploc>>']='Комнаты'&$lname['<<$temploc>>']='Номера'&$locopis['<<$temploc>>']='Гостинничный коридор с комнатами по обеим сторонам'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комнаты'&$lname['<<$temploc>>']='Номера'&$locopis['<<$temploc>>']='Гостинничный коридор с комнатами по обеим сторонам'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 	:markgenroom
-	 R=+1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R>>'
-     $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
-	 if R<5:gs'bdsmdom'&gs'randclo'
-	 if R>=5 and R<11:gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
-	 if R>=11:gs'justgirl'&gs'randclo'
-	 item_loc['31,<<$temploc>>']=1&item_loc['35,<<$temploc>>']=1&item_loc['29,<<$temploc>>']=1
-	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
+	R=+1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R>>'
+    $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&if R<5:gs'bdsmdom'&gs'randclo'
+	if R>=5 and R<11:gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	if R>=11:gs'justgirl'&gs'randclo'
+	item_loc['31,<<$temploc>>']=1&item_loc['35,<<$temploc>>']=1&item_loc['29,<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
 	if R<18:jump 'markgenroom'
 elseif X=1 and Y=1:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=0&$locnameH['<<$templocH>>']='Правый коридор'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Коридор'
-    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-    np['<<$temploc>>']=511
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=511
     H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=17&$locnameH['<<$templocH>>']='Жилая зона'
     R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Жилая зона'
-    $locname['<<$temploc>>']='Комнаты'&$lname['<<$temploc>>']='Номера'&$locopis['<<$temploc>>']='Гостинничный коридор с комнатами по обеим сторонам'
-	np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комнаты'&$lname['<<$temploc>>']='Номера'&$locopis['<<$temploc>>']='Гостинничный коридор с комнатами по обеим сторонам'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 	:markgenroom
-	 R=+1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R+17>>'
-     $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
-	 if R<5:gs'justgirl'&gs'randclo'
-	 if R>=5 and R<15:gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)&gs'randclo'
-	 if R>=15: gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
-	item_loc['31,<<$temploc>>']=1&item_loc['35,<<$temploc>>']=1&item_loc['29,<<$temploc>>']=1
-	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
+	R=+1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R+17>>'
+    $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&if R<5:gs'justgirl'&gs'randclo'
+	if R>=5 and R<15:gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)&gs'randclo'
+	if R>=15: gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
+	item_loc['31,<<$temploc>>']=1&item_loc['35,<<$temploc>>']=1&item_loc['29,<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
 	if R<18:jump 'markgenroom'
 elseif X=1 and Y=1:
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=1&$locnameH['<<$templocH>>']='Правый коридор'
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=1&$locnameH['<<$templocH>>']='Правый коридор'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Зона отдыха'
-    $locname['<<$temploc>>']='Зона отдыха'&$lname['<<$temploc>>']='Зона отдыха'&$locopis['<<$temploc>>']='Просторная зона отдыха'
-	np['<<$temploc>>']=511
-	stairway['<<$temploc>>']=1
+    $locname['<<$temploc>>']='Зона отдыха'&$lname['<<$temploc>>']='Зона отдыха'&$locopis['<<$temploc>>']='Просторная зона отдыха'&np['<<$temploc>>']=511&stairway['<<$temploc>>']=1
 	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-    $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'
-	np['<<$temploc>>']=1
-	item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
+    $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'&np['<<$temploc>>']=1
+	item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&kiosk['<<$temploc>>']=1
     gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
-	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
-	kiosk['<<$temploc>>']=1
 end
 X+=1&if X<=Xmax[Z]:jump'markgenworld771'
 X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworld771'

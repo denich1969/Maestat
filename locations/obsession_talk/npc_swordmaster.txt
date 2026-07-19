@@ -2,41 +2,40 @@
 if mob_sleep[npc]>time:
 	'<<$nick[npc]>> медитирует'
 else
-     if corr[npc]<100:
+    if corr[npc]<100:
 		'<<$nick[npc]>> удивленно поднимает бровь - чего тебе?'
-		 act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
-		 if sword_skill[you]=0:
+		act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+		if sword_skill[you]=0:
 			'<<$nick[npc]>> - за 500 гульденов я могу научить тебя сильному удару'
-			 if gulden[you]>=50000:
-				 act'Выучить сильный удар':
-					 gulden[you]-=50000&sword_skill[you]+=1&cls&gs'stat'&'Вы отдали деньги и <<$nick[npc]>> показала вам как нужно бить сильный удар оружием.'&act'...':gt $curloc
-				 end
-			 end
-		 end
-		 if fight_skill[you]<100:
+			if gulden[you]>=50000:
+				act'Выучить сильный удар':
+					gulden[you]-=50000&sword_skill[you]+=1&cls&gs'stat'&'Вы отдали деньги и <<$nick[npc]>> показала вам как нужно бить сильный удар оружием.'&act'...':gt $curloc
+				end
+			end
+		end
+		if fight_skill[you]<100:
 			'<<$nick[npc]>> - за 150 гульденов я могу научить тебя базовой технике боя'
-			 if gulden[you]>=15000:
-				 act'Выучить базовую технику':
-					 gulden[you]-=15000&fight_skill[you]=100&cls&gs'stat'&'Вы отдали деньги и <<$nick[npc]>> показала вам базовую технику боя.'&act'...':gt $curloc
-				 end
-			 end
-		 end
-		 if friends[npc]=0:
-			 act'Флиртовать':
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы флиртуете с девушкой и <<$nick[npc]>> улыбается.'
-				 act'...':gt $curloc
-			     if reflex[npc]<=reflex[you]:
+			if gulden[you]>=15000:
+				act'Выучить базовую технику':
+					gulden[you]-=15000&fight_skill[you]=100&cls&gs'stat'&'Вы отдали деньги и <<$nick[npc]>> показала вам базовую технику боя.'&act'...':gt $curloc
+				end
+			end
+		end
+		if friends[npc]=0:
+			act'Флиртовать':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы флиртуете с девушкой и <<$nick[npc]>> улыбается.'&act'...':gt $curloc
+			    if reflex[npc]<=reflex[you]:
 					'<<$name[npc]>> пытается отвесить вам леща, но вы ловите ее руку. <<$nick[npc]>> удивленно смотрит на вас - Вау! Не плохо, тебе удалось меня впечатлить.'
-					 act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&gt'justasex'
-				 else
+					act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&gt'justasex'
+				else
 					'<<$name[npc]>> не уловимым движением отвешивает вам подзатыльник - Иди гуляй!'
-				 end
-			 end
-		 end
-     else
+				end
+			end
+		end
+    else
 		'<<$nick[npc]>> похотливо стонет - Детка, я такая горячая, не хочешь попробовать на вкус?'&dynamic $d_fear
-     end
-     if friends[npc]>0 and corr[npc]<100:
+    end
+    if friends[npc]>0 and corr[npc]<100:
 		gs'take_follower'&if horny[you]>=50:act'Я хочу занятся с тобой сексом':corr[npc]-=10&friends[npc]+=1&gt'justasex'
-     end
+    end
 end

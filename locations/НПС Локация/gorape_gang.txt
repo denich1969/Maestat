@@ -1,13 +1,13 @@
 ﻿sss=ARGS[0]&horny[you]+=50&gs'stat'
 if vag[sss]>0:
 	if action_tipe[sss]>=668:
-		 '<center><video src="pic/sex/rape/gang_dpt<<rand(0,4)>>.webm" ></video></center>'
+		 '<center><video autoplay loop src="pic/sex/rape/gang_dpt<<rand(0,4)>>.webm" ></video></center>'
 	else
-		 '<center><video src="pic/sex/rape/forced_sr<<rand(0,1)>>.webm" ></video></center>'
+		 '<center><video autoplay loop src="pic/sex/rape/forced_sr<<rand(0,1)>>.webm" ></video></center>'
 	end
 	w=sss&feminize[sss]+=1&gs'effect_feminize',sss&'<<$name[sss]>> <<$surname[sss]>> стонет когда ее ебут во все дыры'&you_see_sex[sss]+=1&corr[sss]+=rand(2,8)
 else
-	 w=sss&feminize[sss]+=1&gs'effect_feminize',sss&'<center><video src="pic/sex/rape/shemale_gang<<rand(0,18)>>.webm" ></video></center>'
+	 w=sss&feminize[sss]+=1&gs'effect_feminize',sss&'<center><video autoplay loop src="pic/sex/rape/shemale_gang<<rand(0,18)>>.webm" ></video></center>'
 	 if pol[sss]=0:'<<$name[sss]>> <<$surname[sss]>> стонет когда его пускают по кругу'
 	 if pol[sss]>0:'<<$name[sss]>> <<$surname[sss]>> стонет когда ее дрючат хором'
 	 you_see_anal[sss]+=1

@@ -135,5 +135,5 @@ pol[i]=0&gs'body'&total_generated_male+=1&!minuron[i]=rand(5,10)&maxuron[i]=rand
 forbidsex[i]=0&!присвоение отсутствия запрета
 womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(0,1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&corr[i]=rand(10,100)
 Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-if Z[i]<=10:e_world[]=i&walkprog[i]=25&!Район и программа движения
-if Z[i]<300 and Z[i]>=200:real_world[]=i&walkprog[i]=25&!Район и программа движения
+if Z<=10:e_world[]=i&walkprog[i]=25&!Район и программа движения
+if Z<300 and Z>=200:real_world[]=i&walkprog[i]=25&!Район и программа движения

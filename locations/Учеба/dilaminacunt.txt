@@ -47,12 +47,12 @@ act'Отлизать':
 						if anus[you]<15:varlm=1
 						if anus[you]<25 and anus[you]<=35:varlm=2
 						if anus[you]>35:varlm=3
-						face[you]+=1&you_dirty_slut[npc]+=5&anus[you]+=3&horny[you]=0&'<center><video src="pic/sex/pegging/fingering<<varlm>>.webm" ></video></center>'
+						face[you]+=1&you_dirty_slut[npc]+=5&anus[you]+=3&horny[you]=0&'<center><video autoplay loop src="pic/sex/pegging/fingering<<varlm>>.webm" ></video></center>'
 						if varlm=1:
 							'Диламина Стянула с вас одежду, схватила стоящий член и став яростно его надрачивать, '
 							'второй рукой она активно совала пальцы вам в зад, доставляя сомнительное удовольствие, от которого вы тем не менее быстро дошли до своего пика.'								
 							act'Кончить':
-								cls&cum_face[you]+=Ball[you]/10&corr[you]+=1&bj[you]+=1&'<center><video src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
+								cls&cum_face[you]+=Ball[you]/10&corr[you]+=1&bj[you]+=1&'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
 								'Когда вы были готовы кончить, Диламина закинула ваши ноги вверх и стала выдрачивать вашу сперму вам же на лицо и рот, хотя вы в уже были в нерване, сам факт вас слегка шокировал.'
 							end	
 						else
@@ -61,8 +61,8 @@ act'Отлизать':
 								'второй рукой она активно совала пальцы вам в зад, доставляя специфическое удовольствие, от которого вы легко дошли до своего пика.'
 								act'Кончить':
 									cls&'Когда вы были готовы кончить, Диламина отпустила ваш член и закинула ваши ноги вверх, став выдрачивать вашу сперму вам же на лицо и рот. '
-									'Хотя вы в уже были в нерване, сам факт вас слегка возбудил.'
-									cum_face[you]+=Ball[you]/10&horny[you]+=rand(10,30)&corr[you]+=1&bj[you]+=1&'<center><video src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
+									'Хотя вы в уже были в нерване, сам факт вас слегка возбудил.'&cum_face[you]+=Ball[you]/10&horny[you]+=rand(10,30)&corr[you]+=1&bj[you]+=1
+									'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
 								end	
 							else
 								'Диламина Стянула с вас одежду, схватила стоящий член и стала яростно аккуратно его надрачивать, одновременно погружая в ваш анус свою кисть, '
@@ -70,25 +70,26 @@ act'Отлизать':
 								act'Кончить':
 									cls&'Когда вы были готовы кончить, Диламина отпустила ваш член и закинула ваши ноги вверх. Вы уже покорно отрыли свой рот в ожидании порции собственной спермы, готовые ловить ее.'
 									cum_face[you]+=Ball[you]/10&horny[you]+=rand(30,55)&corr[you]+=2&bj[you]+=1&you_dirty_slut[npc]+=5
-									'<center><video src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
+									'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
 								end	
 							end
 						end
 					else
 						 drinkpee[you]+=1&pee[npc]+=1&peecover[you]+=2&piss_mass['<<npc>>,<<you>>']+=1&horny[you]+=rand(30,55)
 						 if drinkpee[you]=0:
-							 '<center><video src="pic/sex/lesb/pee1.webm" ></video></center>'&'<<$name[npc]>> начинает ссать вам на лицо. Вы сгораете от стыда, получив впервые в жизни порцию мочи на лицо.'
+							'<center><video autoplay loop src="pic/sex/lesb/pee1.webm" ></video></center>'
+							'<<$name[npc]>> начинает ссать вам на лицо. Вы сгораете от стыда, получив впервые в жизни порцию мочи на лицо.'
 						 end
 						 if drinkpee[you]>0 and drinkpee[you]<=3:
-							 '<center><video src="pic/sex/lesb/pee1.webm" ></video></center>'&'<<$name[npc]>> начинает ссать вам на лицо. '
+							 '<center><video autoplay loop src="pic/sex/lesb/pee1.webm" ></video></center>'&'<<$name[npc]>> начинает ссать вам на лицо. '
 							'Вам уже ссали на лицо и вы покорно открываете рот, но вкус настолько ужасен и происходящее настолько унизительно, что вы едва сдерживаетесь, чтобы не разрыдаться.'
 						 end
 						 if drinkpee[you]>3 and drinkpee[you]<=6:
-							 '<center><video src="pic/sex/lesb/pee2.webm" ></video></center>'&you_dirty_slut[npc]+=5
+							 '<center><video autoplay loop src="pic/sex/lesb/pee2.webm" ></video></center>'&you_dirty_slut[npc]+=5
 							 '<<$name[npc]>> начинает ссать вам на лицо. Вам не привыкать быть писсуаром и вы привычно открываете рот для струи мочи.'
 						 end
 						 if drinkpee[you]>6:
-							 '<center><video src="pic/sex/lesb/pee2.webm" ></video></center>'
+							 '<center><video autoplay loop src="pic/sex/lesb/pee2.webm" ></video></center>'
 							 '<<$name[npc]>> начинает ссать вам на лицо. Вы довольно открываете рот и глотаете мочу, поигрывая с ней.'&you_dirty_slut[npc]+=5
 						 end
 						 act'Встать и одется':gt 'preloc'

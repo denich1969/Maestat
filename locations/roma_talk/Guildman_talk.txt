@@ -11,15 +11,13 @@ if hour>=9 and hour<=21 and coliseumfightday!daystart:
 	end
 end
 if slaverQW=1:
-	cls&gs'stat'&	'<center><img src="pic/npc/20.jpg" ></center>'&'После победы в колизее вы идете по его коридорам и видите девушку умоляющую какого то важного представителя гильдии работорговцев. '
+	cls&gs'stat'&	'<center><img src="pic/npc/20.jpg" ></center>'&'После победы в колизее вы идете по его коридорам и видите девушку умоляющую какого-то важного представителя гильдии работорговцев. '
 	'Судя по всему девушке дали заказ на воспитание рабынь, а она не справилась и сейчас из за этог осама в тяжелом положении. '
 	'Гильдеец сказал, что даст ей последний шанс, после чего ее саму продадут в рабыни, что бы покрыть ее долги, после чего ушел. Девушка увидела вас - Я видела ваш бой в колизее. Отличная победа.'
 	act'Поговорить':
-		i=npcmaxnum+1&npcmaxnum+=1
-		dolgsmg+=1500&dolgsmgday=daystart+20
+		i=npcmaxnum+1&npcmaxnum+=1&dolgsmg+=1500&dolgsmgday=daystart+20
 		know['<<nari>>,<<you>>']=1&friends['<<nari>>,<<you>>']=100&!sexpartner['<<nari>>,<<you>>']=1&!lover[nari]=you&!if pl[you]=0:boyfriend[nari]=you
-		slaverQW=2&slaverhouse=1&slave=slavemaxnum+1&slavemaxnum+=1&gs'slavegen'&!??????????????????
-		slave_total+=1&iskr[you]+=500
+		slaverQW=2&slaverhouse=1&slave=slavemaxnum+1&slavemaxnum+=1&gs'slavegen'&slave_total+=1&iskr[you]+=500
 		cls&gs'nari_gen'&gs'stat'&'<center><img src="pic/npc/20.jpg" ></center>'&'Вы поболтали с девушкой и выяснили, что она дочь охотника на рабов, который пропал без вести в других мирах. '
 		'И теперь ей самой приходится вести дела, а девушки в вечном риме существа второго сорта, да и работу тут найти можно только связанную с рабовладением. '
 		'Вот она и подписала контракт на работу в качестве тренера рабов. Но у нее ничего не получается. И в результате, она еще должна гильдии осталась. '
@@ -28,8 +26,7 @@ if slaverQW=1:
 		'Вы задумываетесь над предложением и девушка взяв вас под локоток провожает до своего домика. '
 		'Вы обговариваете условия сделки и пришедший юрист заключает контракт. '
 		'Нари становится вашей конкубиной, вы можете пользоваться ей и ее имуществом, но не можете продать ее в рабство или продать ее дом. '
-		'Так же ее долг в 1500 искр теперь нужно выплатить вам за 20 дней.'
-		act'Осмотреться':gt'slaverhouse'&!??????????????????
+		'Так же ее долг в 1500 искр теперь нужно выплатить вам за 20 дней.'&act'Осмотреться':gt'slaverhouse'
 	end
 	exit
 end
@@ -38,16 +35,12 @@ if hour>=8 and hour<=20:
 		slave=pet_follower
 		if iskr[you]>=5 and sl_energy_cur[slave]>0:
 			act'Тренировать физическую силу рабыни 5 искр':
-				sl_stren[slave]+=rand(5,10)&iskr[you]-=5&sl_energy_cur[slave]-=1
-				time+=60&cls&gs'stat'&!'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
-				'Вашу рабыню тренирует профессионал и через час рабыня уже вся взмокашая от пота'
-				act'...':gt $curloc
+				sl_stren[slave]+=rand(5,10)&iskr[you]-=5&sl_energy_cur[slave]-=1&time+=60&cls&gs'stat'&!'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
+				'Вашу рабыню тренирует профессионал и через час рабыня уже вся взмокашая от пота'&act'...':gt $curloc
 			end
 			act'Заставлять бегать рабыню 5 искр':
-				sl_stren[slave]+=rand(1,3)&sl_fat[slave]-=rand(5,10)&iskr[you]-=5&sl_energy_cur[slave]-=1
-				time+=60&cls&gs'stat'&!'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
-				'Вы заплатили 10 искр и вашу рабыню стали гонять по беговой дорожке целый час'
-				act'...':gt $curloc
+				sl_stren[slave]+=rand(1,3)&sl_fat[slave]-=rand(5,10)&iskr[you]-=5&sl_energy_cur[slave]-=1&time+=60&cls&gs'stat'&!'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
+				'Вы заплатили 10 искр и вашу рабыню стали гонять по беговой дорожке целый час'&act'...':gt $curloc
 			end
 		end
 	end
@@ -55,13 +48,13 @@ if hour>=8 and hour<=20:
 		if energy[you]>=50:
 			act'Силовые упражнения 5 искр':
 				energy[you]-=50&sportiv[you]+=5&mus[you]+=50&iskr[you]-=5&time+=60&cls&gs'stat'&'Под руководством опытного тренера вы упражняетесь с железом.'&act'...':gt $curloc
-				if pol[you]>0:'<center><video src="pic/misc/squat.webm" ></center>'
+				if pol[you]>0:'<center><video autoplay loop src="pic/misc/squat.webm" ></center>'
 			end
 		end
 		if energy[you]>=50:
 			act'Кардиотренировка 5 искр':
 				if fat[you]>100:fat[you]-=100
-				energy[you]-=50&sportiv[you]+=5&iskr[you]-=5&time+=60&cls&gs'stat'&'Опытный тренер гоняет вас по беговой дорожке'&!if pol[you]>0:'<center><video src="pic/misc/situps.webm" ></center>'
+				energy[you]-=50&sportiv[you]+=5&iskr[you]-=5&time+=60&cls&gs'stat'&'Опытный тренер гоняет вас по беговой дорожке'&!if pol[you]>0:'<center><video autoplay loop src="pic/misc/situps.webm" ></center>'
 				act'...':gt $curloc
 			end
 		end

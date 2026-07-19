@@ -1,13 +1,10 @@
 ﻿cls&cla&delact '<i>Отдохнуть 5 минут</i>'&delact '<i>Отдохнуть ....</i>'&gs'stat'&'<center><b>Сквер</b></center>'&'<center><img src="pic/loc/21.jpg" ></center>'
 'Вы идете через улицу и вдруг спорткар на бешанной скорости сбивает вас, шансов выжить нет.'&cla
 act'Очнуться':
-	rubl[you]=0
-	 time+=1&energy[you]=energymax[you]
-	gs'100_paradise_gen'&gs'7777_moon_gen'&!Реальный мир, пляж, луна
+	rubl[you]=0&time+=1&energy[you]=energymax[you]&gs'100_paradise_gen'&gs'7777_moon_gen'&!Реальный мир, пляж, луна
 	gs'1_nord_gen'&gs'2_nord_east_gen'&gs'3_river_gen'&gs'4_suid_west_gen'&gs'5_suid_gen'&!Город
 	if add_soul_pick=1:gs'add_soul'&killvar('add_soul_pick')
 	cls&daystart=1&gt'prestory'
-	! $loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
-	!gt'world'
+	! $loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&gt'world'
 end
 !gs'item'&*pl''&gs'npconloc'

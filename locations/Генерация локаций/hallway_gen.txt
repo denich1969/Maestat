@@ -1,58 +1,22 @@
-﻿!Образец вызова
-!gs 'hallway_gen',уровень прихожей, 'одежда или обувь',номер предмета
-$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-$locnameR['<<$temploc>>']=''
-$locname['<<$temploc>>']='Прихожая'
-$lname['<<$temploc>>']='Прихожая'
-$lname_go['<<$temploc>>']='в прихожую'
-gs'coat_base'&gs'tz_base'&gs'tg_base'
-gs'hat_base'&gs'm_base'&gs'w_base'
-gs'top_base'&gs'low_base'&gs'boot_base'
-gs'ut_base'&gs'ul_base'&gs'ub_base'
+﻿!Образец вызова; gs 'hallway_gen',уровень прихожей, 'одежда или обувь',номер предмета
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']=''&$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='Прихожая'&$lname_go['<<$temploc>>']='в прихожую'
+gs'coat_base'&gs'tz_base'&gs'tg_base'&gs'hat_base'&gs'm_base'&gs'w_base'&gs'top_base'&gs'low_base'&gs'boot_base'&gs'ut_base'&gs'ul_base'&gs'ub_base'
 if args[0]=0:
-	 !описание
-	$locopis['<<$temploc>>']=''
-	 !номер картинки
-	np['<<$temploc>>']=2
-	telephone['<<$temploc>>']=0
-	mirror['<<$temploc>>']=0
+	$locopis['<<$temploc>>']=''&!описание
+	np['<<$temploc>>']=2&telephone['<<$temploc>>']=0&mirror['<<$temploc>>']=0&!номер картинки и разрешения
 elseif  args[0]=1:
-	 !описание
-	$locopis['<<$temploc>>']='Тесная прихожая, в которой ничего нет'
-	 !номер картинки
-	np['<<$temploc>>']=2
-	telephone['<<$temploc>>']=1
-	mirror['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Тесная прихожая, в которой ничего нет'&!описание
+	np['<<$temploc>>']=2&telephone['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!номер картинки и разрешения
 elseif  args[0]=2:
-	 !описание
-	$locopis['<<$temploc>>']='Просторная прихожая, в которой есть одежда'
-	 !номер картинки
-	np['<<$temploc>>']=2
-	telephone['<<$temploc>>']=1
-	mirror['<<$temploc>>']=1
-	!одежда в прихожей
-	item_loc_h['rand(10),<<$temploc>>']=rand(1)
-	item_loc_t['rand(10),<<$temploc>>']=rand(1)
-	item_loc_l['rand(10),<<$temploc>>']=rand(1)
-	item_loc_b['rand(10),<<$temploc>>']=rand(1)
-	item_loc_ut['rand(10),<<$temploc>>']=rand(1)
-	item_loc_ul['rand(10),<<$temploc>>']=rand(1)
-	item_loc_ub['rand(10),<<$temploc>>']=rand(1)
+	$locopis['<<$temploc>>']='Просторная прихожая, в которой есть одежда'&!описание
+	np['<<$temploc>>']=2&telephone['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!номер картинки и разрешения
+	item_loc_h['rand(10),<<$temploc>>']=rand(1)&item_loc_t['rand(10),<<$temploc>>']=rand(1)&item_loc_l['rand(10),<<$temploc>>']=rand(1)&item_loc_b['rand(10),<<$temploc>>']=rand(1)
+	item_loc_ut['rand(10),<<$temploc>>']=rand(1)&item_loc_ul['rand(10),<<$temploc>>']=rand(1)&item_loc_ub['rand(10),<<$temploc>>']=rand(1)&!одежда в прихожей
 elseif  args[0]=3:
-	 !описание
-	$locopis['<<$temploc>>']='Шикарный вестибюль, в которой есть гардероб с одеждой'
-	 !номер картинки
-	np['<<$temploc>>']=2
-	telephone['<<$temploc>>']=1
-	mirror['<<$temploc>>']=1
-	!одежда в прихожей
-	item_loc_h['rand(10),<<$temploc>>']=rand(1)
-	item_loc_t['rand(10),<<$temploc>>']=rand(1)
-	item_loc_l['rand(10),<<$temploc>>']=rand(1)
-	item_loc_b['rand(10),<<$temploc>>']=rand(1)
-	item_loc_ut['rand(10),<<$temploc>>']=rand(1)
-	item_loc_ul['rand(10),<<$temploc>>']=rand(1)
-	item_loc_ub['rand(10),<<$temploc>>']=rand(1)
+	$locopis['<<$temploc>>']='Шикарный вестибюль, в которой есть гардероб с одеждой'&!описание
+	np['<<$temploc>>']=2&telephone['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!номер картинки и разрешения
+	item_loc_h['rand(10),<<$temploc>>']=rand(1)&item_loc_t['rand(10),<<$temploc>>']=rand(1)&item_loc_l['rand(10),<<$temploc>>']=rand(1)&item_loc_b['rand(10),<<$temploc>>']=rand(1)
+	item_loc_ut['rand(10),<<$temploc>>']=rand(1)&item_loc_ul['rand(10),<<$temploc>>']=rand(1)&item_loc_ub['rand(10),<<$temploc>>']=rand(1)&!одежда в прихожей
 	!temp=1
 	!:markclomark
 	!if $h_name[temp]!'':item_loc_h['<<temp>>,<<$temploc>>']=1
@@ -65,13 +29,9 @@ elseif  args[0]=3:
 	!temp+=1
 	!if temp<=100:jump'markclomark'
 elseif  args[0]=4:
-	$locname['<<$temploc>>']='Муравейник'
-	$lname['<<$temploc>>']='Муравейник'
-	$lname_go['<<$temploc>>']='в муравейник'
+	$locname['<<$temploc>>']='Муравейник'&$lname['<<$temploc>>']='Муравейник'&$lname_go['<<$temploc>>']='в муравейник'
 	$locopis['<<$temploc>>']='Раздолбанная мебель, ободранные обои и прокуренный потолок.'
-	np['<<$temploc>>']=103
-	mirror['<<$temploc>>']=1
+	np['<<$temploc>>']=103&mirror['<<$temploc>>']=1
 end
 !family_pod['<<$temploc>>']=1
-!включение биосферы на Лунной базе или космическом корабле
-if Z=1: biospere['<<$temploc>>']=1
+if Z=1: biospere['<<$temploc>>']=1&!включение биосферы на Лунной базе или космическом корабле

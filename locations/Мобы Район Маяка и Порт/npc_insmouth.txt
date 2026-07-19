@@ -1,24 +1,25 @@
 ﻿if dagonknight=npc and mana[you]>0:'Вокруг инсмутца темная аура глубины'
 if larkinQW[you]>=1 and insmundface!1:
 	if total_npc_on_loc>10 and rand(1,10)=6:
-		 horny[npc]=70&mob_sleep[npc]=time+60&'<<$title[npc]>> усмехнулся. - Тут много свидетелей, а Шериф тебе запретил нас бить. Посмотрим, что ты теперь будешь делать, тварь!'&blockEv=time
-		 if money[you]>=2500:
+		horny[npc]=70&mob_sleep[npc]=time+60&'<<$title[npc]>> усмехнулся. - Тут много свидетелей, а Шериф тебе запретил нас бить. Посмотрим, что ты теперь будешь делать, тварь!'&blockEv=time
+		if money[you]>=2500:
 			act'Предложить 25 шиллингов и разойтись миром':
 				'<<$title[npc]>> усмехнулся уже дружелюбнее. - Мне нравиться твое предложение, но это лишь временно решение. Слишком уж сильно ты сам раздражаешь...'
 				money[you]-=2500&horny[npc]=0&blockEv=time-5&mob_sleep[npc]=time+120&gt 'preloc'
 			end
-		 end
+		end
 	else
 		horny[npc]=0&mob_sleep[npc]=time+60&'<<$title[npc]>> склонился почтительно и забулькал суетливо - Простите великодушно, не хотел вставать у вас на пути!'&act'<b>Уйти</b>':gt 'preloc'
 	end
 else
 	if horny[npc]>=70 and sexiness[you]>0:
 		if (power[npc]>(power[you]+(power[npc]/4))) and dick[npc]>1 and face[you]>60 and ass[you]>=15 and rand(1,5)=3:
-			cls&'<center><video src="pic/event/matc1.webm" ></video></center>'&'<<$title[npc]>> схватил вас в свои объятья и без стесения начал лапать вас за задницу.'&'- Ну что, сучка, нравиться тебе?'
+			cls&'<center><video autoplay loop src="pic/event/matc1.webm" ></video></center>'
+			'<<$title[npc]>> схватил вас в свои объятья и без стесения начал лапать вас за задницу.'&*nl'- Ну что, сучка, нравиться тебе?'
 			if dom[you]<30 and horny[you]>50 and womenbrain[you]>60:
 				act'Перестань, пожалуйста':
 					horny[you]+=rand(1,10)
-					time+=10&cls&'<center><video src="pic/event/matc1.webm" ></video></center>'&'<<$title[npc]>> ухмыльнулся.'&'- Какая цаца. Не ломайся, вставай на колени и сделай что нужно.'
+					time+=10&cls&'<center><video autoplay loop src="pic/event/matc1.webm" ></video></center>'&'<<$title[npc]>> ухмыльнулся.'&'- Какая цаца. Не ломайся, вставай на колени и сделай что нужно.'
 					act'Прекрати!':
 						if corr[you]<40:
 							cls&'<<$title[npc]>> оскалился похабно, но руки свои убрал с вашей задницы.'&'- Ну и вали, тварь...'&dom[you]+=1&womenbrain[you]-=1&act'<b>Уйти</b>':gt 'preloc'
@@ -60,36 +61,36 @@ else
 									'<<$name[npc]>> осмотрел вас и снисходительно предлагает вам за секс <<sexiness[you]/3>> шиллингов.'
 									if X[you]=3 and Y[you]=0 and Z[you]=1 and H[you]=3:
 										 act'Дать прямо тут':
-											 whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
-											 solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-										 end
+											whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
+											solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+										end
 									end
-									 act'Пошли к тебе':
-										 whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
-										 gt'go_to_npc_home'
-									 end
+									act'Пошли к тебе':
+										whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
+										gt'go_to_npc_home'
+									end
 									act'Могу отсосать':
-									     know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/4*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/4*100/2
-									     solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1
-									      cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'&gs'block_quick', 'give_bj'
-								     end
-									 if Z[you]=1:
-										 act'Пошли в укромное место':
-											 whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
-											 gt'go_to_ruin'
-										 end
-									 end
+									    know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/4*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/4*100/2
+									    solo=npc&horny[npc]=50&pose[you]=2&whore[you]+=1
+									    cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'&gs'block_quick', 'give_bj'
+								    end
+									if Z[you]=1:
+										act'Пошли в укромное место':
+											whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
+											gt'go_to_ruin'
+										end
+									end
 									if whoreboss[you]=tornton:
 										if X[you]=3 and Y[you]=0 and Z[you]=1 and H[you]=3:
 											act'Дать':
-												 know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
-												 solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-											 end
+												know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
+												solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+											end
 										else
-											 act'Пошли в бордель':
-												 whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
-												 gt'go_to_bordel'
-											 end
+											act'Пошли в бордель':
+												whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
+												gt'go_to_bordel'
+											end
 										end
 									end
 								end
@@ -99,160 +100,144 @@ else
 					end
 				end
 			end
-		 end
-		 if beliver[you]=2:
+		end
+		if beliver[you]=2:
 			'<<$title[npc]>> булькает похотливо и тянет к вам длинные и мускулистый руки покрытые струпьями - Сестра, я хочу совокупиться с тобой.'
-			 $istmtalk1=$iif(insmundface=1,"Конечно, пойдем к тебе","Пошли к тебе")&act'<<$istmtalk1>>':gt'go_to_npc_home'
-			 if X[you]=1 and Y[you]=1 and Z[you]=1 and H[you]=1:
-				 if R[you]=2:
-					 act'Давай тут':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'&!трактир
-				 else
-					 act'Пошли в туалет':R[npc]=2&R[you]=2&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-				 end
-			 end
-			 !if Z[you]=1:act'Пошли в укромное место':gt'go_to_ruin'
-			 $istmtalk2=$iif(insmundface=1,"Конечно, давай только уединимся где-нибудь","Пошли в укромное место")&if Z[you]=1:soul[you]+=1&act'<<$istmtalk2>>':gt'go_to_ruin'
-			 if horny[you]<60 and insmundface!1:
-				 act'Отказать':
-					 horny[npc]=0&mob_sleep[npc]=time+60&cls&'<<$title[npc]>> разочарованно булькнул'&act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-		 else
-			 if insmundface=1:
+			$istmtalk1=$iif(insmundface=1,"Конечно, пойдем к тебе","Пошли к тебе")&act'<<$istmtalk1>>':gt'go_to_npc_home'
+			if X[you]=1 and Y[you]=1 and Z[you]=1 and H[you]=1:
+				if R[you]=2:
+					act'Давай тут':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'&!трактир
+				else
+					act'Пошли в туалет':R[npc]=2&R[you]=2&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+				end
+			end
+			!if Z[you]=1:act'Пошли в укромное место':gt'go_to_ruin'
+			$istmtalk2=$iif(insmundface=1,"Конечно, давай только уединимся где-нибудь","Пошли в укромное место")&if Z[you]=1:soul[you]+=1&act'<<$istmtalk2>>':gt'go_to_ruin'
+			if horny[you]<60 and insmundface!1:
+				act'Отказать':
+					horny[npc]=0&mob_sleep[npc]=time+60&cls&'<<$title[npc]>> разочарованно булькнул'&act'<b>Уйти</b>':gt 'preloc'
+				end
+			end
+		else
+			if insmundface=1:
 				'<<$title[npc]>> булькает похотливо и тянет к вам длинные и мускулистый руки покрытые струпьями - Какая нетраханная самочка, пошли со мной, я тебя хорошенько вытрахаю!'
-			 else
+			else
 				'<<$title[npc]>> булькает угрожающе и тянет к вам длинные и мускулистый руки покрытые струпьями - Сучка, давай ебаться!'
-			 end
-			 if horny[you]<200 and insmundface!1:
-					 act'Отказать':
-						cls
-						if rand(1,3)=1:
-							 if medusa_pouder_timer[you]=0:horny[you]+=50
-							medusa_pouder_timer[you]=10&cunthair[you]=-5&' - Отведай пыльцу медузы, будешь сговорчивее, скверная сучка'
-							 '<<$title[npc]>> едва заметным ловким движением высыпал вам в трусики какойто порошок.'
-							 if vag[you]>0:
-								' Вы почувствовали жжение и зуд в промежности, а ваши клитор и половые губы тут же налились теплом'
-								act'<b>Вы ощущаете жар и непреодолимое желание оплодотворения своей горячей пизды!</b>':pose[you]=2&gt'sex'
-								if horny[you]<=100:act'<b>Ой!</b>':gt 'preloc'
-							else
-								' Вы почувствовали жжение и зуд в промежности, а ваши член и яйца тут же налились теплом и тяжестью'&act'<b>Ай, блять!</b>':gt 'preloc'
-							end      
+			end
+			if horny[you]<200 and insmundface!1:
+				act'Отказать':
+					cls
+					if rand(1,3)=1:
+						if medusa_pouder_timer[you]=0:horny[you]+=50
+						medusa_pouder_timer[you]=10&cunthair[you]=-5&' - Отведай пыльцу медузы, будешь сговорчивее, скверная сучка'
+						'<<$title[npc]>> едва заметным ловким движением высыпал вам в трусики какойто порошок.'
+						if vag[you]>0:
+							' Вы почувствовали жжение и зуд в промежности, а ваши клитор и половые губы тут же налились теплом'
+							act'<b>Вы ощущаете жар и непреодолимое желание оплодотворения своей горячей пизды!</b>':pose[you]=2&gt'sex'
+							if horny[you]<=100:act'<b>Ой!</b>':gt 'preloc'
 						else
-							 horny[npc]=0&mob_sleep[npc]=time+60&'<<$nick[npc]>> разочарованно булькнул'&act'<b>Уйти</b>':gt 'preloc'
-						end
-					 end
-			 end
-			 if whoreboss[you]=tornton:
+							' Вы почувствовали жжение и зуд в промежности, а ваши член и яйца тут же налились теплом и тяжестью'&act'<b>Ай, блять!</b>':gt 'preloc'
+						end      
+					else
+						horny[npc]=0&mob_sleep[npc]=time+60&'<<$nick[npc]>> разочарованно булькнул'&act'<b>Уйти</b>':gt 'preloc'
+					end
+				end
+			end
+			if whoreboss[you]=tornton:
 				 act'За деньги да':
-					 whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
-					 gt'go_to_bordel'
-				 end
-			 end
-			 act'Звать на помощь':
-				 cls&gs'stat'
-				 nohelp=0
-				 i=tabernman&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Трактирщик потупился и занялся протиркой стакана усиленно делая вид что он ничего не замечает'
-				 i=tabernwoman&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Трактирщица охнула - Опять инсмутцы безобразят'
-				 i=elderdot&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Старшая дочь трактирщика фыркнула - Докрутилась задницей!'
-				 i=youngdot&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Младшая дочь трактирщика ойкнула - Что тут происходит?'
-				 i=fisherman&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&fisherman_help[you]+=1&'Рыбак гаркнул - Эй ты, урод, отвали от нее!'
-				 i=godoflight&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&godoflight_help[you]+=1&'Смотритель маяка кашлянул и его глаза и волосы засияли изнутри '
-				 i=zelladay&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&zelladay_help[you]+=1&'Дочка смотрителя маяка толкнула в плечо инсмутца - Отвали от нее урод!'
-				 i=obedmarsh&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Викарий храма Дагона - Ты должна принять свою судьбу шлюхи для глубинного народа!'
-				 i=sherif&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&sherif_help[you]+=1&'Шериф поправляя кабуру говорит - Эй, парень, отвали от нее!'
-				 i=tornton&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Владелец борделя усмехается - Шлюха не должна верещать распугивая окружающих. Но ничего, еще научишся как быть ласковее.'
-				 i=martamarsh&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Марта Марш брезгливо морщится - Эти шлюхи никогда не могут постоять за себя.'
-				 i=manmoon&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&manmoon_help[you]+=1&'Беловолосый мужчина прикрикнул - Эй, урод, а ну прекрати приставать к девушке!'
-				 i=moongodes&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&moongodes_help[you]+=1&'Селена мелодично сказала - Рыбомордый, исчезни!'
-				 i=moonmaid&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&moonmaid_help[you]+=1&'Служанка грозно зашипела - Если не прекратишь, я нажалуюсь хозяйке и твою тушу потом выловят в бухте, другие рыбомордые уроды.'
-				 i=captain&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Капитан философски замечает - Каждый должен принять свою судьбу. И тебе следует смириться с тем, что ты шлюха.'
-				 i=sallivan&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&sallivan_help[you]+=1&'Саливан грозно прикрикнул - А ну ка прекратить немедленно!'
-				 i=lagerta&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Лагерта устало вздохнула - Опять рыбомордые насилуют какую то шлюху из внешнего мира. Ну и местечко этот порт.'
-				 i=billharding&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&billharding_help[you]+=1&'Билл Хардинг грозно прикрикнул - Что тут творится? А ну ка отстань от нее!'
-				 i=AldousHarding&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Альдус замечает - Тебе дорогуша нужно научится постоять за себя.'
-				 if boyfriend_num[you]>0:
-					 i=boyfriend_num[you]
-					 if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&'<<$name[i]>> - А ну отвалил и поживее.'
-				 end
-				 if nohelp=0:
+					whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)&money[you]+=sexiness[you]/3*100&if whoreboss[you]>0:sutenerpay[you]+=sexiness[you]/3*100/2
+					gt'go_to_bordel'
+				end
+			end
+			act'Звать на помощь':
+				cls&gs'stat'
+				nohelp=0
+				i=tabernman&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Трактирщик потупился и занялся протиркой стакана усиленно делая вид что он ничего не замечает'
+				i=tabernwoman&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Трактирщица охнула - Опять инсмутцы безобразят'
+				i=elderdot&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Старшая дочь трактирщика фыркнула - Докрутилась задницей!'
+				i=youngdot&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Младшая дочь трактирщика ойкнула - Что тут происходит?'
+				i=fisherman&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&fisherman_help[you]+=1&'Рыбак гаркнул - Эй ты, урод, отвали от нее!'
+				i=godoflight&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&godoflight_help[you]+=1&'Смотритель маяка кашлянул и его глаза и волосы засияли изнутри '
+				i=zelladay&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&zelladay_help[you]+=1&'Дочка смотрителя маяка толкнула в плечо инсмутца - Отвали от нее урод!'
+				i=obedmarsh&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Викарий храма Дагона - Ты должна принять свою судьбу шлюхи для глубинного народа!'
+				i=sherif&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&sherif_help[you]+=1&'Шериф поправляя кабуру говорит - Эй, парень, отвали от нее!'
+				i=tornton&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Владелец борделя усмехается - Шлюха не должна верещать распугивая окружающих. Но ничего, еще научишся как быть ласковее.'
+				i=martamarsh&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Марта Марш брезгливо морщится - Эти шлюхи никогда не могут постоять за себя.'
+				i=manmoon&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&manmoon_help[you]+=1&'Беловолосый мужчина прикрикнул - Эй, урод, а ну прекрати приставать к девушке!'
+				i=moongodes&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&moongodes_help[you]+=1&'Селена мелодично сказала - Рыбомордый, исчезни!'
+				i=moonmaid&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&moonmaid_help[you]+=1&'Служанка грозно зашипела - Если не прекратишь, я нажалуюсь хозяйке и твою тушу потом выловят в бухте, другие рыбомордые уроды.'
+				i=captain&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Капитан философски замечает - Каждый должен принять свою судьбу. И тебе следует смириться с тем, что ты шлюха.'
+				i=sallivan&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&sallivan_help[you]+=1&'Саливан грозно прикрикнул - А ну ка прекратить немедленно!'
+				i=lagerta&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Лагерта устало вздохнула - Опять рыбомордые насилуют какую то шлюху из внешнего мира. Ну и местечко этот порт.'
+				i=billharding&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&billharding_help[you]+=1&'Билл Хардинг грозно прикрикнул - Что тут творится? А ну ка отстань от нее!'
+				i=AldousHarding&if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:'Альдус замечает - Тебе дорогуша нужно научится постоять за себя.'
+				if boyfriend_num[you]>0:
+					i=boyfriend_num[you]
+					if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:nohelp=1&'<<$name[i]>> - А ну отвалил и поживее.'
+				end
+				if nohelp=0:
 					'<<$title[npc]>> злобно булькает - Никто тебе не поможет, шлюха!'&act'<b>Драться</b>':gt 'prefight'
-				 else
-					 horny[npc]=0&mob_sleep[npc]=time+60&'<<$title[npc]>> фыркнул - Тебе повезло, шлюха!'&act'<b>Уйти</b>':gt 'preloc'
+				else
+					horny[npc]=0&mob_sleep[npc]=time+60&'<<$title[npc]>> фыркнул - Тебе повезло, шлюха!'&act'<b>Уйти</b>':gt 'preloc'
+				end
+			end
+			$istmtalk3=$iif(insmundface=1,"Конечно, пошли к тебе","Пошли к тебе")&act'<<$istmtalk3>>':gt'go_to_npc_home'
+			if X[you]=1 and Y[you]=1 and Z[you]=1 and H[you]=1:
+				if R[you]=2:
+					act'Давай тут':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'&!трактир
+				else
+					act'Пошли в туалет':R[npc]=2&R[you]=2&solo=npc&horny[npc]=50& pose[you]=2&gt'sex'
 				 end
-			 end
-			 $istmtalk3=$iif(insmundface=1,"Конечно, пошли к тебе","Пошли к тебе")&act'<<$istmtalk3>>':gt'go_to_npc_home'
-			 if X[you]=1 and Y[you]=1 and Z[you]=1 and H[you]=1:
-				 if R[you]=2:
-					 act'Давай тут':solo=npc&horny[npc]=50&pose[you]=2&gt'sex'&!трактир
-				 else
-					 act'Пошли в туалет':R[npc]=2&R[you]=2&solo=npc&horny[npc]=50& pose[you]=2&gt'sex'
-				 end
-			 end
-			 $istmtalk4=$iif(insmundface=1,"Конечно, давай только уединимся где-нибудь","Пошли в укромное место")&if Z[you]=1:act'<<$istmtalk4>>':gt'go_to_ruin'
-			 !if item[67]>0:''&!селедка
-		 end
+			end
+			$istmtalk4=$iif(insmundface=1,"Конечно, давай только уединимся где-нибудь","Пошли в укромное место")&if Z[you]=1:act'<<$istmtalk4>>':gt'go_to_ruin'
+			!if item[67]>0:''&!селедка
+		end
 	else
-		 if pol[you]=0 and sexiness[you]<=0:
-		     if slutmaker[npc]>0 and insmundface!1:
+		if pol[you]=0 and sexiness[you]<=0:
+		    if slutmaker[npc]>0 and insmundface!1:
 				'<<$title[npc]>> агрессивно булькает - Я умею делал новых шлюх во славу Дагона, могу и тебя обратить'
-		     else
-				 if insmundface!1:
-						'<<$title[npc]>> агрессивно булькает - Эй ты! Уходи!'
-				 else
-						'<<$title[npc]>> агрессивно булькает - Чего ты тут делаешь? Уходи! Без тебя тошно.'
-				 end
-			 end
-			 act'<b>Уйти</b>':gt 'preloc'
-		 else
-			 horny[npc]+=sexiness[you]/4
-			 if insmundface!1:
-				 $horntext[0]='Классная жопа!'
-				 $horntext[1]='Отличные сиськи!'
-				 $horntext[2]='Вах, какая Шлюшка!'
-				 $horntext[3]='Какие упругие ляжки!'
-				 $horntext[4]='Я бы тебя трахнул!'
-				 $horntext[5]='Класный ротик!'
-				 $horntext[6]='Неплохая сучка!'
-				 $horntext[7]='Вот бы поставить тебя на коленки!'
-				 $horntext[8]='Ух! Какая самка!'
-				 $horntext[9]='Вот бы выебать тебя!'
-				 $horntext[10]='Хуй дыбом от тебя!'
-			 else
-				 $horntext[0]='Сладкая самочка!'
-				 $horntext[1]='Отличные сиськи!'
-				 $horntext[2]='Смотришься как шлюха. Мне нравится!'
-				 $horntext[3]='У этой самки отличные ножки, интересно, что скрыто между ними?'
-				 $horntext[4]='Я бы тебя оплодотворил!'
-				 $horntext[5]='Самка, ты не тоскуешь по настоящей сперме в своих дырках? Я могу тебе помочь с этим!'
-			 end
-			 rander=rand(0,5)
-			 if fishsmell[you]>0:horny[npc]+=20
-			 if fishsmell[you]=0 and beliver[you]!2:'<<$title[npc]>> выпучив зенки, пялится на вас не мигая - <<$horntext[rander]>>'
-			 if fishsmell[you]=0 and beliver[you]=2:'<<$title[npc]>> выпучив зенки, пялится на вас не мигая - Сестра, у тебя отличное тело для спаривания, ты сможешь выносить много икры во славу нашего бога Дагона.'
-			 if fishsmell[you]>0:'<<$title[npc]>> раздувает ноздри, втягивая аромат рыбы - Какой от тебя восхитительный запах.'
-			 if insmout_gang[you]>0 and beliver[you]=0:'<<$title[npc]>> хлопает вам по заднице: Ты - настоящая инсмутская шлюха! Обратись к Обеду Маршу, он позаботится о тебе.'
-			 if slutmaker[npc]>0:'<<$title[npc]>> возбужденно булькает - Я умею делать новых шлюх во славу Дагона'
-			 act'<b>Уйти</b>':gt 'preloc'
-			 act'Кокетливо улыбнуться':
-				 horny[npc]+=sexiness[you]/2&! statistics_flirt[you]+=1
-				 cls&gs'stat'& '<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент.'&womenbrain[you]+=1&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-		 if know['<<npc>>,<<you>>']=0:
-			 act'Познакомиться':
-				 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 else
-			 act'Расскажи о себе':
-				 know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> булькает - Я из рассы глубоководного народа, почитателей морских богов.'
-				 if dagongene<=80:
+		    else
+				$iif(insmundface!1,'<<$title[npc]>> агрессивно булькает - Эй ты! Уходи!','<<$title[npc]>> агрессивно булькает - Чего ты тут делаешь? Уходи! Без тебя тошно.')
+			end
+			act'<b>Уйти</b>':gt 'preloc'
+		else
+			horny[npc]+=sexiness[you]/4
+			if insmundface!1:
+				$horntext[0]='Классная жопа!'&$horntext[1]='Отличные сиськи!'&$horntext[2]='Вах, какая Шлюшка!'&$horntext[3]='Какие упругие ляжки!'&$horntext[4]='Я бы тебя трахнул!'&$horntext[5]='Класный ротик!'
+				$horntext[6]='Неплохая сучка!'&$horntext[7]='Вот бы поставить тебя на коленки!'&$horntext[8]='Ух! Какая самка!'&$horntext[9]='Вот бы выебать тебя!'&$horntext[10]='Хуй дыбом от тебя!'
+			else
+				$horntext[0]='Сладкая самочка!'&$horntext[1]='Отличные сиськи!'&$horntext[2]='Смотришься как шлюха. Мне нравится!'
+				$horntext[3]='У этой самки отличные ножки, интересно, что скрыто между ними?'&$horntext[4]='Я бы тебя оплодотворил!'
+				$horntext[5]='Самка, ты не тоскуешь по настоящей сперме в своих дырках? Я могу тебе помочь с этим!'
+			end
+			rander=rand(0,5)
+			if fishsmell[you]>0:horny[npc]+=20
+			if fishsmell[you]=0 and beliver[you]!2:'<<$title[npc]>> выпучив зенки, пялится на вас не мигая - <<$horntext[rander]>>'
+			if fishsmell[you]=0 and beliver[you]=2:'<<$title[npc]>> выпучив зенки, пялится на вас не мигая - Сестра, у тебя отличное тело для спаривания, ты сможешь выносить много икры во славу нашего бога Дагона.'
+			if fishsmell[you]>0:'<<$title[npc]>> раздувает ноздри, втягивая аромат рыбы - Какой от тебя восхитительный запах.'
+			if insmout_gang[you]>0 and beliver[you]=0:'<<$title[npc]>> хлопает вам по заднице: Ты - настоящая инсмутская шлюха! Обратись к Обеду Маршу, он позаботится о тебе.'
+			if slutmaker[npc]>0:'<<$title[npc]>> возбужденно булькает - Я умею делать новых шлюх во славу Дагона'
+			act'<b>Уйти</b>':gt 'preloc'
+			act'Кокетливо улыбнуться':
+				horny[npc]+=sexiness[you]/2&! statistics_flirt[you]+=1
+				cls&gs'stat'& '<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент.'&womenbrain[you]+=1&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+		if know['<<npc>>,<<you>>']=0:
+			act'Познакомиться':
+				know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		else
+			act'Расскажи о себе':
+				know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> булькает - Я из рассы глубоководного народа, почитателей морских богов.'
+				if dagongene<=80:
 					'<<$name[npc]>> <<$surname[npc]>> булькает. - Я из рассы глубоководного народа, почитателей морских богов. Ты хочешь узнать о нашем боге?'
-				 else
+				else
 					'<<$name[npc]>> <<$surname[npc]>> булькает. - Я из рассы глубоководного народа, почитателей морских богов. Да и в тебе я чувствую его присутствие.'
-				 end
-				 if dagongene<=80:
+				end
+				if dagongene<=80:
 					act'Да, расскажи о морских богах':
 						cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно воодушевился, кашлянул и зарядил целую речь, которую он явно не сам придумал:'
 						rnddial=rand(1,3)
@@ -262,10 +247,10 @@ else
 						if dagongene<=90:dagongene+=rand(5,10)
 						know['<<npc>>,<<you>>']+=5&know['<<you>>,<<npc>>']+=5&act'<b>Уйти</b>':gt 'preloc'
 					end
-				 end
-				 act'<b>Уйти</b>': gt 'preloc'
-			 end
-		 end
+				end
+				act'<b>Уйти</b>': gt 'preloc'
+			end
+		end
 	end
 end
 if horny[you]>180 and medusa_pouder_timer[you]>0 and vag[you]>0 and insmundface!1:

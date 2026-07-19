@@ -1,8 +1,9 @@
 ﻿horny[you]+=50&gs'stat'
 if dom=tiler and massage['<<$loc[you]>>']>0:
-	'<center><video src="pic/sex/massage/sex<<rand(0,3)>>.webm" ></video></center>'&'<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> массирует её и трахает.'
+	'<center><video autoplay loop src="pic/sex/massage/sex<<rand(0,3)>>.webm" ></video></center>'
+	'<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> массирует её и трахает.'
 elseif femas=sub and massage['<<$loc[you]>>']>0:
-	'<center><video src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'&
+	'<center><video autoplay loop src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
 	'<<$name[sub]>> <<$surname[sub]>> дрочит член и <<$name[dom]>> <<$surname[dom]>> наслаждается умелыми руками массажистки.'
 else
 	 face[sub]+=1

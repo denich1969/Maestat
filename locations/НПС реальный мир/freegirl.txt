@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
-lvl[i]=1&soul[i]=100&mob[i]=11&mobexp[i]=10
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&mob[i]=11&mobexp[i]=10
 master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1
 $title[i]='Свободная девушка'&gs'ru_woman_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname_f
 face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
@@ -26,20 +25,11 @@ end
 if lust[i]>=75 and agro[i]>=75:misstress[i]=1&total_misstress+=1
 if lust[i]>=75 and agro[i]>=50 and agro[i]<75:femwhore[i]=1&total_femwhore+=1
 if lust[i]>=75 and agro[i]<50:subslut[i]=1&total_subslut+=1&!Конец характер
-class[i]=pre_class
+class[i]=pre_class&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
 if class[i]=0:t_slot[i]=rand(12,16)&l_slot[i]=rand(23,26)&b_slot[i]=13&if rand(1)=1:b_slot[i]=rand(2,3)&!низший класс
-if class[i]=1:
-	t_slot[i]=rand(16,24)&!средний класс
-	tempclo=rand(0,2)
-	if tempclo=0:l_slot[i]=rand(9,14)
-	if tempclo=1:l_slot[i]=rand(60,89)
-	if tempclo=2:l_slot[i]=rand(27,44)
-	b_slot[i]=rand(8,9)
-end
+if class[i]=1:t_slot[i]=rand(16,24)&tempclo=rand(2)&l_slot[i]=iif(tempclo=0,rand(9,14),iif(tempclo=1,rand(60,89),rand(27,44)))&b_slot[i]=rand(8,9)&!средний класс
 if class[i]=2:t_slot[i]=rand(25,30)&b_slot[i]=rand(17,19)&l_slot[i]=rand(9,14)&if rand(1)=1:l_slot[i]=rand(60,89)&!элитный класс
-ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
 if misstress[i]=1:t_slot[i]=40&l_slot[i]=9&b_slot[i]=rand(14,16)
 if subslut[i]=1:vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&stamp_t[i]=rand(1,4)&t_slot[i]=rand(31,36)&l_slot[i]=rand(15,22)&b_slot[i]=rand(8,11)
 if femwhore[i]=1:vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&stamp_t[i]=rand(1,4)&t_slot[i]=rand(31,36)&l_slot[i]=rand(45,51)&b_slot[i]=rand(8,11)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-real_world[]=i&!walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&real_world[]=i&!walkprog[i]=26

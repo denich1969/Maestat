@@ -1,63 +1,49 @@
-﻿$nameloc[you]=$curloc
-gs'stat'
-act'Отойти':gt 'preloc'
+﻿$nameloc[you]=$curloc&gs'stat'&act'Отойти':gt 'preloc'
 if scarecrow['<<$loc[you]>>']=100:
-	'<center><img src="pic/mob/2.jpg" ></center>'
-	'Пугало вдруг подмигивает вам'
-     if straQW=0:
-		 act'Познакомиться':
-			 if straQW=0:straQW=1
-			 cls&gs'stat'&'<center><img src="pic/mob/2.jpg" ></center>'
-			 'Пугало приветливо здоровается с вами и сообщает, что его зовут Страшила.'
-			 act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-	 if straQW=1:
-	 	 act'Поговорить':
-			 cls&gs'stat'&'<center><img src="pic/mob/2.jpg" ></center>'
-			 'Страшила рассказывает что его недавно сделал фермер и ему скучно в поле, тут можно болтать только с воронами.'
-			 act'<b>Уйти</b>':gt 'preloc'
-		     act'Снять с шеста':
-				 scarecrow['<<$loc[you]>>']=0
-				 straQW=2
-				 gs'scarecrowgen'
-				 gt 'preloc'
-			 end
-		 end
-	 end
+	'<center><img src="pic/mob/2.jpg" ></center>'&	'Пугало вдруг подмигивает вам'
+    if straQW=0:
+		act'Познакомиться':
+			if straQW=0:straQW=1
+			cls&gs'stat'&'<center><img src="pic/mob/2.jpg" ></center>'&'Пугало приветливо здоровается с вами и сообщает, что его зовут Страшила.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+	if straQW=1:
+	 	act'Поговорить':
+			cls&gs'stat'&'<center><img src="pic/mob/2.jpg" ></center>'&'Страшила рассказывает что его недавно сделал фермер и ему скучно в поле, тут можно болтать только с воронами.'&act'<b>Уйти</b>':gt 'preloc'
+		    act'Снять с шеста':scarecrow['<<$loc[you]>>']=0&straQW=2&gs'scarecrowgen'&gt 'preloc'
+		end
+	end
 else
 	'<center><img src="pic/loc/ras/scarecrow.jpg" ></center>'&'На палке торчит пугало.'
 	if searshed_scarecrow['<<$loc[you]>>']=0:
-		 act'Обыскать':
-			 searshed_scarecrow['<<$loc[you]>>']+=1
-			 tiperand=rand(0,21)
-			 if tiperand=0:item_loc['23,<<$loc[you]>>']+=1
-			 if tiperand=1:item_loc['22,<<$loc[you]>>']+=1
-			 if tiperand=2:item_loc['27,<<$loc[you]>>']+=1
-			 if tiperand=3:item_loc['28,<<$loc[you]>>']+=1
-			 if tiperand=4:item_loc_t['<<rand(12,19)>>,<<$loc[you]>>']+=1
-			 if tiperand=5:item_loc_l['<<rand(9,17)>>,<<$loc[you]>>']+=1
-			 if tiperand=6:item_loc_b['<<rand(8,9)>>,<<$loc[you]>>']+=1
-			 if tiperand=7:item_loc_ut['<<rand(1,3)>>,<<$loc[you]>>']+=1
-			 if tiperand=8:item_loc_ul['<<rand(1,4)>>,<<$loc[you]>>']+=1
-			 if tiperand=9:item_loc_ub['<<rand(1,5)>>,<<$loc[you]>>']+=1
-			 if tiperand=10:item_loc['<<28>>,<<$loc[you]>>']+=1
-			 if tiperand=11:item_loc['<<22>>,<<$loc[you]>>']+=rand(1,10)
-			 if tiperand=12:item_loc['<<23>>,<<$loc[you]>>']+=rand(1,10)
-			 if tiperand=13:item_loc['<<3>>,<<$loc[you]>>']+=rand(1,10)
-			 if tiperand=14:item_loc['<<30>>,<<$loc[you]>>']+=1
-			 if tiperand=15:item_loc['<<31>>,<<$loc[you]>>']+=1
-			 if tiperand=16:item_loc['<<32>>,<<$loc[you]>>']+=rand(1,10)
-			 if tiperand=17:item_loc['<<33>>,<<$loc[you]>>']+=rand(1,10)
-			 if tiperand=18:item_loc['<<34>>,<<$loc[you]>>']+=rand(1,10)
-			 if tiperand=19:item_loc['<<36>>,<<$loc[you]>>']+=1
-			 if tiperand=20:item_loc['<<39>>,<<$loc[you]>>']+=1
-			 if tiperand=21:item_loc['<<10>>,<<$loc[you]>>']+=rand(1,20)
+		act'Обыскать':
+			searshed_scarecrow['<<$loc[you]>>']+=1&tiperand=rand(0,21)
+			if tiperand=0:item_loc['23,<<$loc[you]>>']+=1
+			if tiperand=1:item_loc['22,<<$loc[you]>>']+=1
+			if tiperand=2:item_loc['27,<<$loc[you]>>']+=1
+			if tiperand=3:item_loc['28,<<$loc[you]>>']+=1
+			if tiperand=4:item_loc_t['<<rand(12,19)>>,<<$loc[you]>>']+=1
+			if tiperand=5:item_loc_l['<<rand(9,17)>>,<<$loc[you]>>']+=1
+			if tiperand=6:item_loc_b['<<rand(8,9)>>,<<$loc[you]>>']+=1
+			if tiperand=7:item_loc_ut['<<rand(1,3)>>,<<$loc[you]>>']+=1
+			if tiperand=8:item_loc_ul['<<rand(1,4)>>,<<$loc[you]>>']+=1
+			if tiperand=9:item_loc_ub['<<rand(1,5)>>,<<$loc[you]>>']+=1
+			if tiperand=10:item_loc['<<28>>,<<$loc[you]>>']+=1
+			if tiperand=11:item_loc['<<22>>,<<$loc[you]>>']+=rand(1,10)
+			if tiperand=12:item_loc['<<23>>,<<$loc[you]>>']+=rand(1,10)
+			if tiperand=13:item_loc['<<3>>,<<$loc[you]>>']+=rand(1,10)
+			if tiperand=14:item_loc['<<30>>,<<$loc[you]>>']+=1
+			if tiperand=15:item_loc['<<31>>,<<$loc[you]>>']+=1
+			if tiperand=16:item_loc['<<32>>,<<$loc[you]>>']+=rand(1,10)
+			if tiperand=17:item_loc['<<33>>,<<$loc[you]>>']+=rand(1,10)
+			if tiperand=18:item_loc['<<34>>,<<$loc[you]>>']+=rand(1,10)
+			if tiperand=19:item_loc['<<36>>,<<$loc[you]>>']+=1
+			if tiperand=20:item_loc['<<39>>,<<$loc[you]>>']+=1
+			if tiperand=21:item_loc['<<10>>,<<$loc[you]>>']+=rand(1,20)
 			cls&gt'preloc'
 		 end
 	else
 		'Вы обыскивали это пугало'
 	end
 end
-gs'Item'&*nl ''
-gs 'npconloc'
+gs'Item'&*nl&gs 'npconloc'

@@ -3,14 +3,14 @@ cuntsextipe=rand(0,3)&if justanothergirl=1:cuntsextipe=0
 if peeblock=1 and cuntsextipe=3:cuntsextipe=0
 if cuntsextipe=0:
      if vag[you_blow]>0 and cunt_cum[you_blow]>time:
-		 cum_face[you]+=1&'<center><video src="pic/sex/lesb/slut<<rand(0, 0)>>>>.webm" ></video></center>'
+		 cum_face[you]+=1&'<center><video autoplay loop src="pic/sex/lesb/slut<<rand(0, 0)>>>>.webm" ></video></center>'
 		 '<<$nick[you_blow]>> хватает вас за волосы и тыкает носом в свою растраханную пизду из которой сочится сперма нескольких мужчин. '
 		'Вы начинаете облизывать ее манду перемазанную спермой и слизывать мужское семя.'
 		 act'...':
 			 if vag[you]>0:open_vag[you]=1&open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&gt 'sex'
 		 end
      else
-		'<center><video src="pic/sex/lesb/<<rand(0,2)>>.webm" ></video></center>'&'<<$nick[you_blow]>> хватает вас за волосы и тыкает носом в свою мокрую киску. '
+		'<center><video autoplay loop src="pic/sex/lesb/<<rand(0,2)>>.webm" ></video></center>'&'<<$nick[you_blow]>> хватает вас за волосы и тыкает носом в свою мокрую киску. '
 		'Осторожно высунув язык вы облизываете горячую щель. Вы лижите влагалище своим язычком упираясь в лобок носиком и ощущая вкус вагинальной смазки обильно текущей из киски'
      end
 	 if horny[you_blow]>100:horny[you_blow]=0&mob_sleep[you_blow]=time+60&'<<$name[you_blow]>> содрогается в оргазме'&lesb[you]+=1&gs'vagslut',you,you_blow,1
@@ -19,7 +19,7 @@ if cuntsextipe=0:
 	     act'Открыть рот':
 			 piss_mass['<<you_blow>>,<<you>>']+=1&drinkpee[you]+=1&peecover[you]+=2&cum_face[you]=0&spit_face[you]=0&pissonloc['<<$loc[you]>>']=time+250
 			 if magworld[Znow]>0:gs'soulcraft',10
-			 target_soul=4&nnn=you_blow&cls&gs'stat'&'<center><video src="pic/sex/lesb/pee<<rand(0,2)>>.webm" ></video></center>'&!gs'souleater_n'
+			 target_soul=4&nnn=you_blow&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/lesb/pee<<rand(0,2)>>.webm" ></video></center>'&!gs'souleater_n'
 			 '<<$nick[you_blow]>> начинает ссать в ваш открытый рот наполняя его теплой и терпкой мочей. Вы судорожно глотаете и получаете струю на лицо.'
 	     	 act'...':
 				 if vag[you]>0:open_vag[you]=1
@@ -35,7 +35,7 @@ if cuntsextipe=0:
 	 end
 end
 if cuntsextipe=1:
-	'<center><video src="pic/sex/lesb/hard0.webm" ></video></center>'&'Вы тщательно вылизываете госпоже ее истекающую киску своим язычком, '
+	'<center><video autoplay loop src="pic/sex/lesb/hard0.webm" ></video></center>'&'Вы тщательно вылизываете госпоже ее истекающую киску своим язычком, '
 	'госпожа смачно харкает себе на киску так, что бы вам пришлось слизывать ее плевок, а затем отвешивает вам несколько звонких пощечин.'
 	 act'...':
 		 if vag[you]>0:open_vag[you]=1
@@ -43,7 +43,8 @@ if cuntsextipe=1:
 	 end
 end
 if cuntsextipe=2:
-	 '<center><video src="pic/sex/lesb/bj<<rand(0,1)>>.webm" ></video></center>'&'<<$name[you_blow]>> одевает страпон и схватив вас за волосы начинает трахать вас в рот страпоном'&gs'oralslut',you_blow,you
+	'<center><video autoplay loop src="pic/sex/lesb/bj<<rand(0,1)>>.webm" ></video></center>'
+	'<<$name[you_blow]>> одевает страпон и схватив вас за волосы начинает трахать вас в рот страпоном'&gs'oralslut',you_blow,you
 	 act'...':
 		 if vag[you]>0:open_vag[you]=1
 		 open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&gt 'sex'
@@ -51,20 +52,21 @@ if cuntsextipe=2:
 end
 if cuntsextipe=3:
      if open_rhand[you]=0 or CONFIG['DISABLE_PEE']=1:
-		 '<center><video src="pic/sex/lesb/forceblow<<rand(0, 0)>>>>.webm" ></video></center>'&'<<$name[you_blow]>> села на корточки и стала заставлять вас сосать член'&gs'oralslut',rhand,you
+		 '<center><video autoplay loop src="pic/sex/lesb/forceblow<<rand(0, 0)>>>>.webm" ></video></center>'&'<<$name[you_blow]>> села на корточки и стала заставлять вас сосать член'&gs'oralslut',rhand,you
 		 act'...':
 			 if vag[you]>0:open_vag[you]=1
 			 open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&gt 'sex'
 		 end
      else
-		 '<center><video src="pic/sex/lesb/<<rand(0,2)>>.webm" ></video></center>'&'Вы лижите влагалище своим язычком упираясь в лобок носиком и ощущая вкус вагинальной смазки обильно текущей из киски'
+		'<center><video autoplay loop src="pic/sex/lesb/<<rand(0,2)>>.webm" ></video></center>'
+		'Вы лижите влагалище своим язычком упираясь в лобок носиком и ощущая вкус вагинальной смазки обильно текущей из киски'
 		 if horny[you_blow]>100:horny[you_blow]=0&mob_sleep[you_blow]=time+60&'<<$name[you_blow]>> содрогается в оргазме'&lesb[you]+=1&gs'vagslut',you,you_blow,1 
 		'<<$name[you_blow]>> приказывает вам открыть рот'
 	     act'Открыть рот':
 			 piss_mass['<<you_blow>>,<<you>>']+=1&drinkpee[you]+=1&peecover[you]+=2&cum_face[you]=0&spit_face[you]=0&pissonloc['<<$loc[you]>>']=time+250
 			 if lebeda_seed[you]>0:lebeda_seed[you_blow]+=1
 			 if lebeda_seed[you_blow]>0:lebeda_seed[you]+=1
-			 cls&gs'stat'&'<center><video src="pic/sex/lesb/pee<<rand(0,2)>>.webm" ></video></center>'
+			 cls&gs'stat'&'<center><video autoplay loop src="pic/sex/lesb/pee<<rand(0,2)>>.webm" ></video></center>'
 			 '<<$nick[you_blow]>> начинает ссать в ваш открытый рот наполняя его теплой и терпкой мочей. Вы судорожно глотаете и получаете струю на лицо.'
 	     	 act'...':
 				 if vag[you]>0:open_vag[you]=1

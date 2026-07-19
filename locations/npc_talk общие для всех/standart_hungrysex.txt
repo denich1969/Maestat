@@ -9,9 +9,9 @@ if vag[you]>0:
 	if corr[you]>=50 and corr[you]<70 and args[10]+6*60*24<time:superslut[you]=1&pl 'Вы хотите секса, причем уже давно'
 	if corr[you]>=70 and corr[you]<95 and args[10]+4*60*24<time:superslut[you]=1&pl 'Желание чтобы вас кто-нибудь поимел, заметно сильно вас нервирует'
 	if corr[you]>95:
-		$view_horny='<center><video src="pic/event/hungrysex0.webm" ></video></center>'&!{view("pic/event/hungrysex0.webm")}
+		$view_horny='<center><video autoplay loop src="pic/event/hungrysex0.webm" ></video></center>'
 		if args[10]+2*60*24<time:
-			superslut[you]=1&pl 'Вы хотите трахаться! <<$view_horny>>Срочно!</a>'&!pl 'Вы хотите трахаться! <a href="exec:dynamic $view_horny">Срочно!</a>'
+			superslut[you]=1&pl 'Вы хотите трахаться! <a href="exec: $view_horny">Срочно!</a>'
 		else
 			superslut[you]=0
 		end

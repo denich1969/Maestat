@@ -1,6 +1,6 @@
 ﻿X=2&Y=0&Z=3&H=2&R=2&X[sladkovamasha]=X&Y[sladkovamasha]=Y&Z[sladkovamasha]=Z&H[sladkovamasha]=H&R[sladkovamasha]=R
 X[tommysolomon]=X&Y[tommysolomon]=Y&Z[tommysolomon]=Z&H[tommysolomon]=H&R[tommysolomon]=R
-gs'stat'&'<center><video src="pic/event/sweet/talk.webm" ></video></center>'&'Войдя в комнату вы увидели Сладкову Машу сосущую хуй. '
+gs'stat'&'<center><video autoplay loop src="pic/event/sweet/talk.webm" ></video></center>'&'Войдя в комнату вы увидели Сладкову Машу сосущую хуй. '
 'Увидев вас она оторвалась от отсоса и начала с вами говорить, при этом липкая слюна свисала от ее губ до члена - Привет <<$name[you]>>, присоединяйся, будет весело. '
 'Ты не поверишь, но у Томми по настоящему волшебный хуек. Возьмешь в рот и не сможешь оторваться.'
 gs'add_sex_stat',tommysolomon,sladkovamasha&horny[tommysolomon]=0&soul[sladkovamasha]-=1&my_last_fucker[sladkovamasha]=tommysolomon&last_fuck_time[sladkovamasha]=time
@@ -11,9 +11,9 @@ bj_mass['<<tommysolomon>>,<<sladkovamasha>>']+=1&bj[sladkovamasha]+=1&abj[tommys
 act'Ха-ха, волшебный член':
 	cls&gs'stat'&'<center><img src="pic/face/5/140.jpg" ></center>'&'Томми улыбнулся - Девочкам нравится, попробуй, ничего страшного не случится.'
 	act'Можно попробовать':
-		npc=tommysolomon&time+=15&cls&gs'stat'&'<center><video src="pic/event/sweet/0.webm" ></video></center>'&'Вы присоединились к Маше и поцеловали член.'
+		npc=tommysolomon&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/0.webm" ></video></center>'&'Вы присоединились к Маше и поцеловали член.'
 	    if magik[you]>magik[npc]:
-			'Вы прикоснулись губами к члену и сразу поняли, что тут какое то заклятие. Если продолжить минетить, то магия сделает так, что вам это действительно понравиться.'
+			'Вы прикоснулись губами к члену и сразу поняли, что тут какое-то заклятие. Если продолжить минетить, то магия сделает так, что вам это действительно понравиться.'
 			act'Вскочить':
 				dilamina_lezdomQW_sw[you]=2&dom[you]+=5&corr[you]-=10&magik[you]+=1&cls&gs'stat'&'<center><img src="pic/face/5/140.jpg" ></center>'
 				'Вы отпихнули этого недоделанного мага от себя и вскочили - Слышишь, урод, ты реально думал что я не почувствую твою магию? '
@@ -26,48 +26,48 @@ act'Ха-ха, волшебный член':
 					    if magik[you]>=15:
 							'Томми покорно встал на колени - Пожалуйста, прости меня!'
 					        act'Выпороть ремнем':
-								 dilamina_lezdomQW_sw[you]=3&dom[you]+=10&agro[npc]=0&cls&gs'stat'&'<center><video src="pic/event/sweet/porka.webm" ></video></center>'
+								dilamina_lezdomQW_sw[you]=3&dom[you]+=10&agro[npc]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/porka.webm" ></video></center>'
 								'Вы спустили штаны с Томми и вынув его ремень из брюк начали пороть его пока рука не устала, а парень не начал всхлипывать и стонать от боли.'&act'Уйти':gt'preloc'
 					        end
 					        act'Обоссать':
-								 dilamina_lezdomQW_sw[you]=4&dom[you]+=10&agro[npc]=0&pee[you]+=1&drinkpee[npc]+=1&cls&gs'stat'&'<center><video src="pic/event/sweet/piss.webm" ></video></center>'
-								 'Подняв ногу вы начали мочиться на лицо Томми, тот попытался увернуться, но вы его крепко схватили за нос заставив открыть рот и нассали ему полный рот'&act'Уйти':gt'preloc'
-					         end
-					     else
+								dilamina_lezdomQW_sw[you]=4&dom[you]+=10&agro[npc]=0&pee[you]+=1&drinkpee[npc]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/piss.webm" ></video></center>'
+								'Подняв ногу вы начали мочиться на лицо Томми, тот попытался увернуться, но вы его крепко схватили за нос заставив открыть рот и нассали ему полный рот'&act'Уйти':gt'preloc'
+					        end
+					    else
 							'Томми молча отступил назад застегивая ширинку - Еще раз простите, я откланяюсь.'
-					     end
+					    end
 						act'Уйти':gt'preloc'
-					 end
-			     end
-			 end
-	     else
+					end
+			    end
+			end
+	    else
 			'Вам действительно понравилось ощущать губами член и вы с энтузиазмом целуетесь с Машей через стоячий член.'
-	     end
-		 act'Сосать':
+	    end
+		act'Сосать':
 			dilamina_lezdomQW[you]=1&tommysolomon_day_blow=daystart&corr[you]+=5&cls&gs'add_sex_stat', you, npc
 			horny[npc]=0&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
 			$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой хуй вместе с Машей'
 			$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала хуй Томми Соломону вместе с Машей Сладковой.'
 			sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1
-			bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1&empty_ball[npc]=time+(60*10)&oral_fixation[you]+=10&gs'stat'&'<center><video src="pic/event/sweet/1.webm" ></video></center>'
+			bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1&empty_ball[npc]=time+(60*10)&oral_fixation[you]+=10&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/1.webm" ></video></center>'
 			'Это так восхитительно, что вы начали увлеченно сосать и даже не заметили как Маша выпрямилась и стала целоваться с Томми пока вы ему отсасываете член.'
 			act'Сосать':
-				horny[you]+=100&cls&gs'stat'&'<center><video src="pic/event/sweet/2.webm" ></video></center>'
+				horny[you]+=100&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/2.webm" ></video></center>'
 				'Пониженная шлюха Маша взяв вас за волосы стала вас натягивать ртом на хуй, а вы вместо протеста только сильнее начали ловить кайф'
 				act'Сосать':
-					cls&gs'stat'&'<center><video src="pic/event/sweet/3.webm" ></video></center>'
+					cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/3.webm" ></video></center>'
 					'Вы продолжили сосать и Маша воодушевившись еще сильнее схватила вас за волосы и стала натягивать на хуй приговаривая - Давай шлюха, соси хуй!'
 					act'Сосать':
-						cls&gs'stat'&'<center><video src="pic/event/sweet/4.webm" ></video></center>'
+						cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/4.webm" ></video></center>'
 						'Случайно открыв глаза вы увидели, что Томми с ухмылочкой снимает вас на телефон, но вы уже практически на грани оргазма и почти перестали соображать.'
 						act'Сосать':
-							cls&gs'stat'&'<center><video src="pic/event/sweet/5.webm" ></video></center>'&'Маша взяла член в руки и стала его надрачивать вам на лицо '
+							cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/5.webm" ></video></center>'&'Маша взяла член в руки и стала его надрачивать вам на лицо '
 							'пока из члена не стали брызгать струи спермы вам на лицо. Ее нежная ручка залезла вам между ног и стала тереть клитор, от чего вас резко накрыл оргазм.'
 							act'Кончать':
-								cum_face[you]=rand(1,5)&horny[you]=0&cls&gs'stat'&'<center><video src="pic/event/sweet/6.webm" ></video></center>'
+								cum_face[you]=rand(1,5)&horny[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/6.webm" ></video></center>'
 								'Приходя в сознание после мощного оргазма вы с трудом осознали, что все это было снято на видео. Томми усмехнулся и выключив видео убрал телефон в карман.'
 								 act'Эй! Удали видео!':
-									cls&gs'stat'&'<center><video src="pic/event/sweet/7.webm" ></video></center>'&'Томми услышав ваше требование усмехнулся - А то что? Нападешь? Изобьеш? Бесполезно. '
+									cls&gs'stat'&'<center><video autoplay loop src="pic/event/sweet/7.webm" ></video></center>'&'Томми услышав ваше требование усмехнулся - А то что? Нападешь? Изобьеш? Бесполезно. '
 									'Ты только наоборот в последствии привлеешь внимание, и весь город посмотрит видос как ты жадно сосешь хуй и кончаешь от спермы на лице. '
 									'В общем давай договоримся, ты мне делаешь десять минетов, а я удалю запись.'&act'Ладно, уговорил':gt'preloc'
 								end

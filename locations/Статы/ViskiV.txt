@@ -1,1 +1,1 @@
-﻿cla&*clr&time+=15&alko[you]+=5&horny[you]+=10&mana[you]+=20&wipo[you]+=20
+﻿cla&*clr&time+=15&alko[args[0]]+=5&horny[args[0]]+=10&mana[args[0]]+=20&wipo[args[0]]+=20

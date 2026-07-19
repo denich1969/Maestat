@@ -1,33 +1,29 @@
 ﻿$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!Образец вызова: gs 'catering_gen',уровень общепита ,'предметы',номер предмета,характеристика общепита
-library['<<$temploc>>']=args[4]
-gs'item_base'
+tavern['<<$temploc>>']=args[4]&gs'item_base'
 if args[0]=0:
 	$locnameR['<<$temploc>>']='Кафе'
 	$locname['<<$temploc>>']='Кафе'&$lname['<<$temploc>>']='Кафе'&$lname_go['<<$temploc>>']='в кафе'&$locopis['<<$temploc>>']='Чулан с книгами'&!описание
 	np['<<$temploc>>']=260&!номер картинки
-	item_loc['70,<<$temploc>>']=1&!вещи в библиотеке
+	item_loc['70,<<$temploc>>']=1&!вещи в 
 elseif  args[0]=1:
-	$locopis['<<$temploc>>']='Небольшая библиотека с книжными полками'&!описание
+	$locopis['<<$temploc>>']=''&!описание
 	np['<<$temploc>>']=44&!номер картинки
-	item_loc['70,<<$temploc>>']=1&!вещи в библиотеке
+	item_loc['70,<<$temploc>>']=1&!вещи в 
 elseif  args[0]=2:
-	$locopis['<<$temploc>>']='Библиотека с книжными полками, столом и креслом'&!описание
+	$locopis['<<$temploc>>']=''&!описание
 	np['<<$temploc>>']=179&!номер картинки!226 кабинет
-	item_loc['70,<<$temploc>>']=1&!вещи в библиотеке
+	item_loc['70,<<$temploc>>']=1&!вещи в 
 elseif  args[0]=3:
 	$locopis['<<$temploc>>']='Просторная библиотека в особняке, лабиринт книжных шкафов набитых разными книгами'&!описание
 	np['<<$temploc>>']=177&!номер картинки
-	item_loc['70,<<$temploc>>']=1&!вещи в библиотеке
-	witchkotel['<<$temploc>>']=1&karta['<<$temploc>>']=1
+	item_loc['70,<<$temploc>>']=1&!вещи в 
 elseif  args[0]=4:
 	$locopis['<<$temploc>>']='Читальный зал огромной общественной библиотеки'&!описание
 	np['<<$temploc>>']=196&!номер картинки
-	item_loc['70,<<$temploc>>']=1&!вещи в библиотеке
-	karta['<<$temploc>>']=1&!witchkotel['<<$temploc>>']=1
+	item_loc['70,<<$temploc>>']=1&!вещи в
 elseif  args[0]=5:
 	$locopis['<<$temploc>>']='Дворцовая библиотека'&!описание
 	np['<<$temploc>>']=355&!номер картинки
-	item_loc['70,<<$temploc>>']=1&item_loc['<<$args[2]>>,<<$temploc>>']=1&item_loc['<<args[3]>>,<<$temploc>>']=1&!вещи в библиотеке
-	karta['<<$temploc>>']=1
+	item_loc['70,<<$temploc>>']=1&item_loc['<<$args[2]>>,<<$temploc>>']=1&item_loc['<<args[3]>>,<<$temploc>>']=1&!вещи в 
 end
 if Z=200 or Z=777 or Z=7777: biospere['<<$temploc>>']=1&!включение биосферы на Лунной базе или космическом корабле

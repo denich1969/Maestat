@@ -1,7 +1,5 @@
-﻿!'национальность <<nation[npc]>>'
-if CONFIG['ENABLE_CHEATS']>0:
-	cur_fr = friends['<<npc>>,<<you>>']
-	'Текущие отношения с НПС в значениях: <<cur_fr>>; уникальный номер НПС <<npc>>'
+﻿if CONFIG['ENABLE_CHEATS']>0:
+	cur_fr = friends['<<npc>>,<<you>>']&'Текущие отношения с НПС в значениях: <<cur_fr>>; уникальный номер НПС <<npc>>'&!'национальность <<nation[npc]>>'
 	'Не рекомендую менять отношения с теми у кого  не заложены отношения, к примеру боги. С сюжетными НПС, отношения менять аккуратно, может привести к поломке'
 	'<a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_RELATIONS'', you, npc & gt $curloc">Установить</a> отношения'
 	if know_whore['<<npc>>,<<you>>']>0:'Вы не хотите, что бы непис знал что ты шлюха, <a href="exec:know_whore[''<<npc>>,<<you>>'']=0 & gt $curloc">СТЕРЕТЬ ПАМЯТЬ</a>'
@@ -10,17 +8,11 @@ if master[you]>0:know_about_gods=1
 if friends['<<npc>>,<<you>>']>=10 and pol[npc]=0 and pol[you]>0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and blok_bf[npc]=0:gs'bf_otn'
 if friends['<<npc>>,<<you>>']>=10 and pol[npc]>1 and pol[you]=0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and blok_bf[npc]=0:gs'bf_otn'
 if win[npc]>0 or loss[npc]>0:
-	 act'Расскажи о своих драках':
-		 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-		 'Побед <<win[npc]>>'
-		 'Поражений <<loss[npc]>>'
-		 '<<$fightlog[npc]>>'
-		 act'<b>Уйти</b>':gt 'preloc'
-	 end
+	act'Расскажи о своих драках':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Побед <<win[npc]>>'&*nl'Поражений <<loss[npc]>>'&*nl'<<$fightlog[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+	end
 end
-if follower[npc]=you or follower[you]=npc:
-	act'<b>Прекращай за мной ходить</b>':gs'drop_follower'&gt 'preloc'
-end
+if follower[npc]=you or follower[you]=npc:act'<b>Прекращай за мной ходить</b>':gs'drop_follower'&gt 'preloc'
 if NewWhoreYou=1:
 	if WhoreToOneDayEnd<=daystart and npc=WhoreWife:
 		act'Смотри во что меня превратило!':
@@ -28,21 +20,20 @@ if NewWhoreYou=1:
 			cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас и не узнает, но потом понимание к ней наконец приходит. - Вау! Ты действительно выглядишь как шлюха! '
 			'Это невероятно! Ты уже успела поразвлечься или планиреушь? Как ты в целом?'
 			act'Я пока ничего не понимаю':
-				cls&'<center><img src="<<$d_view>>" ></center>'
-				'<<$name[npc]>> смотрит на вас. - А ты не теряйся - начинай жизнь шлюхи, мы же этого хотели - чтобы ты меня понял. Вот и не теряй времени.'
-				act'<b>Я попробую</b>':gt 'preloc'
+				cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас. '
+				'- А ты не теряйся - начинай жизнь шлюхи, мы же этого хотели - чтобы ты меня понял. Вот и не теряй времени.'&act'<b>Я попробую</b>':gt 'preloc'
 			end
 		end
 	end	
 end
 if NewWhoreYou=2:
 	if WhoreToOneDayEnd<daystart and npc=WhoreWife:
-			act'Я не понимаю, почему я не вернулся обратно?!':
-				cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас удивленно. - А куда обратно? Мы говорили, что бы ты меня понял хоть на день. И вот - твое время началось. '
-				'Учись и понимай в шкуре той, кому жизнь не улыбнулась уже давно, придрок. Теперь ты в моей шкуре, но в отличие от меня у тебя сутернер - это я! Так что иди и работай своей пиздой!'
-				act'<b>Сука!</b>':gt 'preloc'
-			end
+		act'Я не понимаю, почему я не вернулся обратно?!':
+			cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас удивленно. - А куда обратно? Мы говорили, что бы ты меня понял хоть на день. И вот - твое время началось. '
+			'Учись и понимай в шкуре той, кому жизнь не улыбнулась уже давно, придрок. Теперь ты в моей шкуре, но в отличие от меня у тебя сутернер - это я! Так что иди и работай своей пиздой!'
+			act'<b>Сука!</b>':gt 'preloc'
 		end
+	end
 end
 if sluttySisQW>5 and npc=sister:
 	if sluttySisQW=6:
@@ -66,11 +57,11 @@ if sluttySisQW>5 and npc=sister:
 	end
 	if sluttySisQW=8 and bogart_office_slut[you]>0:
 		act'<b>Слушай...</b>':
-			cls&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> усмехается - <<$name[you]>>, только не говори, что тоже открыла свой милый ротик перед болтом Богарта. По роже твоей бесстыжей вижу, что этот так. Ну и что ты теперь скажешь? Может, теперь мне тебя сфоткать за этим занятием и шантажировать?'
+			cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> усмехается - <<$name[you]>>, только не говори, что тоже открыла свой милый ротик перед болтом Богарта. '
+			'По роже твоей бесстыжей вижу, что этот так. Ну и что ты теперь скажешь? Может, теперь мне тебя сфоткать за этим занятием и шантажировать?'
 			act'Света, не надо... Я все поняла!':
-				cls&'<center><img src="<<$d_view>>" ></center>'
-				'<<$name[npc]>> фыркает - Поняла она... Ротанка и блядина ты, такая же как и твоя сестра. Две дуры, любительницы подзаработать. В общем, я думаю ты урок усвоила, но вернуть тебе утраченное не могу. Я все собранное потратила на Ведьму, чтобы ты стал такой прелестной шлюшкой.'&sluttySisQW+=1&act'...':gt 'preloc'
+				cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> фыркает - Поняла она... Ротанка и блядина ты, такая же как и твоя сестра. Две дуры, любительницы подзаработать. '
+				'В общем, я думаю ты урок усвоила, но вернуть тебе утраченное не могу. Я все собранное потратила на Ведьму, чтобы ты стал такой прелестной шлюшкой.'&sluttySisQW+=1&act'...':gt 'preloc'
 			end
 		end
 	end
@@ -101,101 +92,101 @@ if sluttySisQW>5 and npc=sister:
 	end
 end
 if inseminate[you]>0 and pregnant_day[you]<daystart and inseminate[you]=npc and husband[you]!npc:
-     if boyfriend_num[you]=npc:
-		 act'Ты - отец моего будущего ребенка':
-			 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			 if friends['<<npc>>,<<you>>']>=100:
-				 if husband[you]=0:
+    if boyfriend_num[you]=npc:
+		act'Ты - отец моего будущего ребенка':
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			if friends['<<npc>>,<<you>>']>=100:
+				if husband[you]=0:
 					'<<$name[npc]>> - Любимая, давай распишемся и станем мужем и женой.'
-					 act'Расписаться':
-						 husband[you]=npc&husband[npc]=you&key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
-						 can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
-						 $locnameH['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']+=' (Жилье мужа)'
-						 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> и вы расписались и стали мужем и женой.'&act'<b>Уйти</b>':gt 'preloc'
-					 end
-					 act'Да пошел ты! Дай денег на аборт!':
-						 money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-						 '<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
-					 end
-				 else
-					 if husband[you]=npc:
-						 '<<$name[npc]>> - Ну, так рожай.'&act'<b>Уйти</b>':gt 'preloc'
-					 else
+					act'Расписаться':
+						husband[you]=npc&husband[npc]=you&key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
+						can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
+						$locnameH['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']+=' (Жилье мужа)'
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> и вы расписались и стали мужем и женой.'&act'<b>Уйти</b>':gt 'preloc'
+					end
+					act'Да пошел ты! Дай денег на аборт!':
+						money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
+					end
+				else
+					if husband[you]=npc:
+						'<<$name[npc]>> - Ну, так рожай.'&act'<b>Уйти</b>':gt 'preloc'
+					else
 						'<<$name[npc]>> - Эй! Я не хочу ребенка, давай я тебе дам денег на аборт.'
-						 act'Взять деньги':
-							 money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
-							 time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
-						 end
-					 end
-				 end
-			 else
+						act'Взять деньги':
+							money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you
+							time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
+						end
+					end
+				end
+			else
 				'<<$name[npc]>> - Эй! Я не хочу ребенка, давай я тебе дам денег на аборт.'
-				 act'Взять деньги':
-					 money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					 '<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-		 end
-	 else
-	 	 act'Ты отец моего будущего ребенка':
-			 if npc=sister:
+				act'Взять деньги':
+					money[you]+=50000&boyfriend_num[you]=0&girlfriend_num[npc]=0&ex_boyfriend[npc]=you&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> - На деньги и давай расстанемся.'&act'<b>Уйти</b>':gt 'preloc'
+				end
+			end
+		end
+	else
+	 	act'Ты отец моего будущего ребенка':
+			if npc=sister:
 				time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется - Какой отец? Я девочка, а отец твоего будущего ребенка это ты и твой идиотизм, еблан. Уйди с глаз!'
-				 act'<b>Уйти</b>':gt 'preloc'
-			 else
+				act'<b>Уйти</b>':gt 'preloc'
+			else
 				time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смеется - Придется тебе стать матерью-одиночкой.'&act'<b>Уйти</b>':gt 'preloc'
 			end
-		 end
-	 end
+		end
+	end
 end
 if magik[you]>0 and mana[you]>=10:
 	act'Изучить ауру 10 маны':
-		 knowaura[npc]+=1&mana[you]-=10&time+=5&cls&gs'stat'
-		 if magik[npc]=0:'Вы не чувствуете собственных магических сил у этого человека.'
-		 if mlev[npc]=9:'Божественная сила.'
-		 if mlev[npc]=8:'Сила вне категорий.'
-		 if mlev[npc]=7:'1я категория силы.'
-		 if mlev[npc]=6:'2я категория силы.'
-		 if mlev[npc]=5:'3я категория силы.'
-		 if mlev[npc]=4:'4я категория силы.'
-		 if mlev[npc]=3:'5я категория силы.'
-		 if mlev[npc]=2:'6я категория силы.'
-		 if mlev[npc]=1:'7я категория силы.'
-		 if magik[npc]>0:'Количество каналов магии <<magik[npc]>>.'
-		 if mana[npc]>0:'Объем маны <<mana[npc]>>.'
-		 '<<soul[npc]>> единиц души.'
-		 if lust[npc]<25:'Похоть в ауре не заметна.'
-		 if lust[npc]>=25 and lust[npc]<50:'Похоть в ауре едва заметна.'
-		 if lust[npc]>=50 and lust[npc]<75:'Похоть в ауре довольно заметна.'
-		 if lust[npc]>=75:'Похоть в ауре преобладает над всем остальным.'
-		 if oral_fixation[npc]>10 and oral_fixation[npc]<=40:'Заметен образ потенциальной вафлёрши'
-		 if oral_fixation[npc]>40 and oral_fixation[npc]<=80:'Отчетлевый образ вафлёрши'
-		 if oral_fixation[npc]>80:'Ясный образ вафлёрши'
-		 if anal_fixation[npc]>10 and anal_fixation[npc]<=40:'Заметен образ начинающей анальщицы'
-		 if anal_fixation[npc]>40 and anal_fixation[npc]<=80:'Отчетлевый образ желания анала'
-		 if anal_fixation[npc]>80:'Ясный образ анальной шлюшки'
-		 if agro[npc]<25:'Агрессивности в ауре не заметно.'
-		 if agro[npc]>=25 and agro[npc]<50:'Агрессивность в ауре довольно слаба.'
-		 if agro[npc]>=50 and agro[npc]<75:'Агрессивность в ауре преобладает.'
-		 if agro[npc]>=75:'В ауре яркой огненной полосой пролегает высокая агрессивность.'
-		 '<<npc>> номер согласно Пифагорейской метафизики.'
-		 'Тентура мысли <<walkprog[npc]>>.'
-		 if cuckold[npc]=1:'Куколд.'
-		 if mob_busy[npc]>0:'Мысли чем-то сильно заняты.'
-		 if cantwalk[npc]>0:'Чего-то ждет.'
-		 if cantwalk_num=npc:'Ждет вас.'
-		 'Координаты дома <<Xhome[npc]>> <<Yhome[npc]>> <<Zhome[npc]>> <<Hhome[npc]>> <<Rhome[npc]>>'
-		 if statist[npc]=1:'Судьба неопределена.'
-		 if guy[npc]>0 and pol[npc]=0:'У него было <<guy[npc]>> парней'
-		 if guy[npc]>0 and pol[npc]>0:'У нее было <<guy[npc]>> парней'
-		 if girl[npc]>0 and pol[npc]=0:'У него было <<girl[npc]>> девушек'
-		 if girl[npc]>0 and pol[npc]>0:'У нее было <<girl[npc]>> девушек'
-		 if inseminate[npc]>0 and master[you]>0:
-			 fat=inseminate[npc]
-			 '<b><<$name[npc]>> беременна.</b> Отец <<$name[fat]>> <<$surname[fat]>>. Родить должна через <<9-(daystart-pregnant_day[npc])>> дней'
+		knowaura[npc]+=1&mana[you]-=10&time+=5&cls&gs'stat'
+		if magik[npc]=0:'Вы не чувствуете собственных магических сил у этого человека.'
+		if mlev[npc]=9:'Божественная сила.'
+		if mlev[npc]=8:'Сила вне категорий.'
+		if mlev[npc]=7:'1я категория силы.'
+		if mlev[npc]=6:'2я категория силы.'
+		if mlev[npc]=5:'3я категория силы.'
+		if mlev[npc]=4:'4я категория силы.'
+		if mlev[npc]=3:'5я категория силы.'
+		if mlev[npc]=2:'6я категория силы.'
+		if mlev[npc]=1:'7я категория силы.'
+		if magik[npc]>0:'Количество каналов магии <<magik[npc]>>.'
+		if mana[npc]>0:'Объем маны <<mana[npc]>>.'
+		'<<soul[npc]>> единиц души.'
+		if lust[npc]<25:'Похоть в ауре не заметна.'
+		if lust[npc]>=25 and lust[npc]<50:'Похоть в ауре едва заметна.'
+		if lust[npc]>=50 and lust[npc]<75:'Похоть в ауре довольно заметна.'
+		if lust[npc]>=75:'Похоть в ауре преобладает над всем остальным.'
+		if oral_fixation[npc]>10 and oral_fixation[npc]<=40:'Заметен образ потенциальной вафлёрши'
+		if oral_fixation[npc]>40 and oral_fixation[npc]<=80:'Отчетлевый образ вафлёрши'
+		if oral_fixation[npc]>80:'Ясный образ вафлёрши'
+		if anal_fixation[npc]>10 and anal_fixation[npc]<=40:'Заметен образ начинающей анальщицы'
+		if anal_fixation[npc]>40 and anal_fixation[npc]<=80:'Отчетлевый образ желания анала'
+		if anal_fixation[npc]>80:'Ясный образ анальной шлюшки'
+		if agro[npc]<25:'Агрессивности в ауре не заметно.'
+		if agro[npc]>=25 and agro[npc]<50:'Агрессивность в ауре довольно слаба.'
+		if agro[npc]>=50 and agro[npc]<75:'Агрессивность в ауре преобладает.'
+		if agro[npc]>=75:'В ауре яркой огненной полосой пролегает высокая агрессивность.'
+		'<<npc>> номер согласно Пифагорейской метафизики.'
+		'Тентура мысли <<walkprog[npc]>>.'
+		if cuckold[npc]=1:'Куколд.'
+		if mob_busy[npc]>0:'Мысли чем-то сильно заняты.'
+		if cantwalk[npc]>0:'Чего-то ждет.'
+		if cantwalk_num=npc:'Ждет вас.'
+		'Координаты дома <<Xhome[npc]>> <<Yhome[npc]>> <<Zhome[npc]>> <<Hhome[npc]>> <<Rhome[npc]>>'
+		if statist[npc]=1:'Судьба неопределена.'
+		if guy[npc]>0 and pol[npc]=0:'У него было <<guy[npc]>> парней'
+		if guy[npc]>0 and pol[npc]>0:'У нее было <<guy[npc]>> парней'
+		if girl[npc]>0 and pol[npc]=0:'У него было <<girl[npc]>> девушек'
+		if girl[npc]>0 and pol[npc]>0:'У нее было <<girl[npc]>> девушек'
+		if inseminate[npc]>0 and master[you]>0:
+			fat=inseminate[npc]
+			'<b><<$name[npc]>> беременна.</b> Отец <<$name[fat]>> <<$surname[fat]>>. Родить должна через <<9-(daystart-pregnant_day[npc])>> дней'
 		end
-		 'Побед <<win[npc]>>'&*nl'Поражений <<loss[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
+		'Побед <<win[npc]>>'&*nl'Поражений <<loss[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
         if master[you]>0:act'Посмотреть секс партнеров':gt'whos_sex_partner'
-     end
+    end
 end
 if contact[npc]=0 and master[npc]=0:
 	cantakecontact=0
@@ -204,74 +195,71 @@ if contact[npc]=0 and master[npc]=0:
 	if father[you]=npc:cantakecontact=0
 	if mother[you]=npc:cantakecontact=0
 	if brother[you]=npc:cantakecontact=0
-     if cantakecontact=1:
-     	 act'Взять номер телефона':
-			 contact[npc]=you&my_contact[]=npc&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Диктует вам свои контакты.'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
+    if cantakecontact=1:
+     	act'Взять номер телефона':
+			contact[npc]=you&my_contact[]=npc&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Диктует вам свои контакты.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
 end
 gs'standart_talk'
 if dick[you]>1 and pol[npc]>0 and brother[you]!npc and father[you]!npc and mother[you]!npc:
-	 freeflirt=0
-	 if boyfriend_num[npc]!you and boyfriend_num[npc]>0:
-		 bfnum=boyfriend_num[npc]
-	     if X[npc]=X[bfnum] and Y[npc]=Y[bfnum] and Z[npc]=Z[bfnum] and H[npc]=H[bfnum] and R[npc]=R[bfnum] and dead[bfnum]=0:freeflirt=1
-	 end
-	 if husband[npc]!you and husband[npc]>0:
-		 bfnum=husband[npc]
-	     if X[npc]=X[bfnum] and Y[npc]=Y[bfnum] and Z[npc]=Z[bfnum] and H[npc]=H[bfnum] and R[npc]=R[bfnum] and dead[bfnum]=0:freeflirt=2
-	 end
-	 !if freeflirt>0 and scear_me[npc]>0:
-	 if freeflirt>0 and scear['<<npc>>,<<you>>']>0:freeflirt=0
-	 if freeflirt=0:
-		 act'Флиртовать':
+	freeflirt=0
+	if boyfriend_num[npc]!you and boyfriend_num[npc]>0:
+		bfnum=boyfriend_num[npc]&if X[npc]=X[bfnum] and Y[npc]=Y[bfnum] and Z[npc]=Z[bfnum] and H[npc]=H[bfnum] and R[npc]=R[bfnum] and dead[bfnum]=0:freeflirt=1
+	end
+	if husband[npc]!you and husband[npc]>0:
+		bfnum=husband[npc]&if X[npc]=X[bfnum] and Y[npc]=Y[bfnum] and Z[npc]=Z[bfnum] and H[npc]=H[bfnum] and R[npc]=R[bfnum] and dead[bfnum]=0:freeflirt=2
+	end
+	if freeflirt>0 and scear['<<npc>>,<<you>>']>0:freeflirt=0
+	if freeflirt=0:
+		act'Флиртовать':
 		    times_talk_day['<<npc>>,<<you>>']+=1&ctrl=0&horny[you]+=10
-			 if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
-			 if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
-			 if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
+			if ratio[npc]=0 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=3
+			if ratio[npc]=1 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=2
+			if ratio[npc]=2 and feromon[you]>0:feromon[you]-=1&flirt_point[npc]+=1
 			time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			 if orgasm[npc]>0:
-				 ctrl=1&!нпс кончал с гг
+			if orgasm[npc]>0:
+				ctrl=1&!нпс кончал с гг
 				if horny[npc]>=50:
-					 '<<$name[npc]>> улыбается. - О! Ты снова хочешь довести меня до экстаза? Я - за!'&gs'take_follower'
+					'<<$name[npc]>> улыбается. - О! Ты снова хочешь довести меня до экстаза? Я - за!'&gs'take_follower'
 				else
 					'<<$name[npc]>> улыбается. - Я все понимаю, нам было приятно вместе, но сейчас я не в настроении. Прости.'
 				end
-			 end
-			 if ctrl=0 or ctrl=1:
+			end
+			if ctrl=0 or ctrl=1:
 				if (pol[you]=0 and mus[you]/10+face[you]>=120) or (pol[you]>0 and attraction[you]>40) or demon_dick[you]>0:
-					 if master[npc]>0:
-						 if husband[you]=npc:
-							 horny[you]+=40&horny[npc]+=10&lust[npc]+=rand(1)&'<<$name[npc]>> улыбается вам.'&if horny[you]>=50 and dick[you]>1:gs'take_follower'
-						 else
+					if master[npc]>0:
+						if husband[you]=npc:
+							horny[you]+=40&horny[npc]+=10&lust[npc]+=rand(1)&'<<$name[npc]>> улыбается вам.'&if horny[you]>=50 and dick[you]>1:gs'take_follower'
+						else
 							'<<$name[npc]>> окидывает вас ледяным взглядом - Даже не думай.'
-						 end
-					 else
-					     if npc=germiona:
-							'<<$name[npc]>> закатывает глаза - Мой муж влиятельный человек и ему не понравится, что со мной кто то флиртует.'
-					         if vision_times[npc]>0 and germionaQW=0:
-					             act'Рассказать о видении':
-									 germionaQW=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказываете что у вас есть дар, вы можете видеть важные эпизоды жизни человека его глазами.'
-									 '<<$name[npc]>> краснеет как рак - И что вы видели у меня?'&*nl 'Вы галантно улыбнулись - Ваше увлечение, которое вы не можете реализовать с мужем.'
-									 '<<$name[npc]>> потупилась и пожала плечами - Он нанял детектива, чтобы тот не спускал с меня глаз.'&*nl'Вы ухмыльнулись - Детектива можно устранить.'
-									 '<<$name[npc]>> отмахнулась - и Леланд посадит меня под замок и не будет спускать с меня глаз. Нет уж, детектив не должен пострадать.'
-									 'Подумав вы спросили - А может его подкупить? Или девицу подсунуть? Или напоить, он выглядит как алкаш.'
-									 '<<$name[npc]>> засмеялась - Вряд ли его можно подкупить. Не думаю, что он сильно увлечен амурными похождениями, да и перепить этого алкаша сложно. '
+						end
+					else
+					    if npc=germiona:
+							'<<$name[npc]>> закатывает глаза - Мой муж влиятельный человек и ему не понравится, что со мной кто-то флиртует.'
+					        if vision_times[npc]>0 and germionaQW=0:
+					            act'Рассказать о видении':
+									germionaQW=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказываете что у вас есть дар, вы можете видеть важные эпизоды жизни человека его глазами.'
+									'<<$name[npc]>> краснеет как рак - И что вы видели у меня?'&*nl 'Вы галантно улыбнулись - Ваше увлечение, которое вы не можете реализовать с мужем.'
+									'<<$name[npc]>> потупилась и пожала плечами - Он нанял детектива, чтобы тот не спускал с меня глаз.'&*nl'Вы ухмыльнулись - Детектива можно устранить.'
+									'<<$name[npc]>> отмахнулась - и Леланд посадит меня под замок и не будет спускать с меня глаз. Нет уж, детектив не должен пострадать.'
+									'Подумав вы спросили - А может его подкупить? Или девицу подсунуть? Или напоить, он выглядит как алкаш.'
+									'<<$name[npc]>> засмеялась - Вряд ли его можно подкупить. Не думаю, что он сильно увлечен амурными похождениями, да и перепить этого алкаша сложно. '
 									'Хотя, если с ним подружиться, то можно будет подлить какого-нибудь зелья. Мне совершенно неожиданно пришла в голову идея. '
 									'Я в местных зельях не очень понимаю, хотя тут есть свои специалисты. Думаю, тетушка Лебеда великолепно разбирается в ведьмовском искусстве. Нужно испросить совета у нее.'
-									 act'<b>Уйти</b>':gt 'preloc'
-					             end
-					         end
-					     else
-							 if Z[npc]=1:gt'port_flirt'
-							 if Z[npc]=2:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'blackberry_flirt'
-							 if Z[npc]=3:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'gilmassive_flirt'
-							 if Z[npc]=4:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'uptown_flirt'
-							 if Z[npc]=5:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'downtown_flirt'
-							 if Z[npc]=200:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'gilmassive_flirt'
-						 end
-					 end
-				 else
+									act'<b>Уйти</b>':gt 'preloc'
+					            end
+					        end
+					    else
+							if Z[npc]=1:gt'port_flirt'
+							if Z[npc]=2:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'blackberry_flirt'
+							if Z[npc]=3:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'gilmassive_flirt'
+							if Z[npc]=4:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'uptown_flirt'
+							if Z[npc]=5:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'downtown_flirt'
+							if Z[npc]=200:'<<$name[npc]>> смотрит на вас скептически - Вот еще.'&gt'gilmassive_flirt'
+						end
+					end
+				else
 					if npc=lebeda and lebedaflirt!1 and lebedaflirt!2 and lebedaflirt!3 and dick[you]>5:
 						cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> окидывает вас насмешливым взглядом - Какой ты милый. Ты серьезно ко мне клеишься?'
 						act'Ну... Да. А почему нет? Ты такая красивая...':
@@ -326,83 +314,76 @@ if dick[you]>1 and pol[npc]>0 and brother[you]!npc and father[you]!npc and mothe
 				end
 			end
 			act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-	 if freeflirt=1:
-		 !бойфренд
-		 act'Флиртовать':
-			 time+=5&cls&gs'stat'&gs 'init_d_view', bfnum, 'd_viewnpc'
+		end
+	end
+	if freeflirt=1:
+		!бойфренд
+		act'Флиртовать':
+			time+=5&cls&gs'stat'&gs 'init_d_view', bfnum, 'd_viewnpc'
 			'<center><img src="<<$d_viewnpc>>" ></center>'&'Только вы собрались флиртовать, как к вам подошел <<$name[bfnum]>> <<$surname[bfnum]>> - Эй, я её парень.'&act'<b>Уйти</b>':gt 'preloc'
-		 	 if statist[bfnum]=1:
-				 act'<b>Драться</b>':
-					 npc=bfnum&Z=Z[you]&agro_crime[Z]+=1&you_agro[npc]+=1&isenemy['<<npc>>,<<you>>']=npc&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&gs'progcurse'&gt 'prefight'
-				 end
-			 end
-		 end
-	 end
-	 if freeflirt=2:
-		 !муж
-		 act'Флиртовать':
+		 	if statist[bfnum]=1:
+				act'<b>Драться</b>':
+					npc=bfnum&Z=Z[you]&agro_crime[Z]+=1&you_agro[npc]+=1&isenemy['<<npc>>,<<you>>']=npc&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&gs'progcurse'&gt 'prefight'
+				end
+			end
+		end
+	end
+	if freeflirt=2:
+		!муж
+		act'Флиртовать':
 			time+=5&cls&gs'stat'&gs 'init_d_view', bfnum, 'd_viewnpc'&'<center><img src="<<$d_viewnpc>>" ></center>'
 			'Только вы собрались флиртовать, как к вам подошел <<$name[bfnum]>> <<$surname[bfnum]>> - Эй, я ее муж.'&act'<b>Уйти</b>':gt 'preloc'
-			 if statist[bfnum]=1:
-				 act'<b>Драться</b>':
-					 npc=bfnum&Z=Z[you]&agro_crime[Z]+=1&you_agro[npc]+=1&isenemy['<<npc>>,<<you>>']=npc&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&gs'progcurse'&gt 'prefight'
-				 end
-			 end
-		 end
-	 end
+			if statist[bfnum]=1:
+				act'<b>Драться</b>':
+					npc=bfnum&Z=Z[you]&agro_crime[Z]+=1&you_agro[npc]+=1&isenemy['<<npc>>,<<you>>']=npc&friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&gs'progcurse'&gt 'prefight'
+				end
+			end
+		end
+	end
 end
-	 if friends['<<npc>>,<<you>>']>=5 and father[you]!npc and mother[you]!npc and husband[npc]!you:
-		 act'Расскажи с кем у тебя было':
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			 rasskaz=0
-		     if extrovert[npc]=2:rasskaz=1
-		     if extrovert[npc]=1:
-		         if pol[npc]=0:
-		             if friends['<<npc>>,<<you>>']>=10:rasskaz=1
-		         else
-		             if friends['<<npc>>,<<you>>']>=20:rasskaz=1
-		         end
+	if friends['<<npc>>,<<you>>']>=5 and father[you]!npc and mother[you]!npc and husband[npc]!you:
+		act'Расскажи с кем у тебя было':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&rasskaz=0&if extrovert[npc]=2:rasskaz=1
+		    if extrovert[npc]=1:
+		        if pol[npc]=0:
+		            if friends['<<npc>>,<<you>>']>=10:rasskaz=1
+		        else
+		            if friends['<<npc>>,<<you>>']>=20:rasskaz=1
+		        end
 		     end
-		     if extrovert[npc]=0:
-		         if pol[npc]=0:
-		             if friends['<<npc>>,<<you>>']>=25:rasskaz=1
-		         else
-		             if friends['<<npc>>,<<you>>']>=50:rasskaz=1
-		         end
-		     end
-		     if you=father and npc=frank_visconti:rasskaz=0
-		     if slave[npc]=you:rasskaz=1
-		     if mysubslut[npc]>=1:rasskaz=1
-		     if rasskaz=0:
-				 '<<$name[npc]>> смотрит на вас скептически - А больше тебе ничего не надо?'&act'<b>Уйти</b>':gt 'preloc'
-		     else
+		    if extrovert[npc]=0:
+		        if pol[npc]=0:
+		            if friends['<<npc>>,<<you>>']>=25:rasskaz=1
+		        else
+		            if friends['<<npc>>,<<you>>']>=50:rasskaz=1
+		        end
+		    end
+		    if you=father and npc=frank_visconti:rasskaz=0
+		    if slave[npc]=you:rasskaz=1
+		    if mysubslut[npc]>=1:rasskaz=1
+		    if rasskaz=0:
+				'<<$name[npc]>> смотрит на вас скептически - А больше тебе ничего не надо?'&act'<b>Уйти</b>':gt 'preloc'
+		    else
 				gt 'whos_sex_partner'
-		     end
-		 end
-	 end
-	 !'if you_see_sex[npc]>0 or you_see_bj[npc]>0:
-	 !видела как сосет или дает на улице
-	     if pol[you]=0 and pol[npc]>0:
-	         if nextdoorgirl[npc]=1:
-	             act'Я видел, как тебя ебали':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выглядит подавленной и нервничает.'
-					 act'<b>Уйти</b>':gt 'preloc'
-				     if horny[you]>=50 and dick[you]>1 and whore[npc]=0:
-				         if Z[npc]=1:
-			                 act'Прогуляться к пакгаузу':
-			                 agro[npc]-=10
-			                 lust[npc]+=5
-			                 if selfrespect[npc]>0:selfrespect[npc]-=1
-                             gt'man_go_to_ruin' 
-                             end
-			             end 
-			         end
-				 end
-	         end 
-	     end
-	 end	 '
+		    end
+		end
+	end
+	!'if you_see_sex[npc]>0 or you_see_bj[npc]>0:
+		!видела как сосет или дает на улице
+	    if pol[you]=0 and pol[npc]>0:
+	        if nextdoorgirl[npc]=1:
+	            act'Я видел, как тебя ебали':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> выглядит подавленной и нервничает.'&act'<b>Уйти</b>':gt 'preloc'
+				    if horny[you]>=50 and dick[you]>1 and whore[npc]=0 and :Z[npc]=1
+			            act'Прогуляться к пакгаузу':
+							agro[npc]-=10&lust[npc]+=5&if selfrespect[npc]>0:selfrespect[npc]-=1
+							gt'man_go_to_ruin' 
+                        end
+			        end
+				end
+	        end 
+	    end
+	end	 '
 	if npc=mother:
 		if sistermest=1:
 			act'<b>Пожаловаться на сестру за то, что она сделала</b>':
@@ -416,8 +397,8 @@ end
 				end
 			end
 		 end
-	 end
-	 if npc=father:
+	end
+	if npc=father:
 		if sistermest=1:
 			act'<b>Пожаловаться на сестру за то, что она сделала</b>':
 				time+=3&cls&'<center><img src="<<$d_view>>" ></center>'
@@ -431,38 +412,38 @@ end
 				end
 			end
 		 end
-	 end
-	 if brother[you]=npc or father[you]=npc or mother[you]=npc:
-	     if mother[you]=npc:
-	         if husband[npc]!you:
-				 act'Дай денег':
+	end
+	if brother[you]=npc or father[you]=npc or mother[you]=npc:
+	    if mother[you]=npc:
+	        if husband[npc]!you:
+				act'Дай денег':
 					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					 if mothergivemoneyday!daystart:
+					if mothergivemoneyday!daystart:
 						mothergivemoneyday=daystart&money[you]+=100&'<<$name[npc]>> - На шиллинг.'
-					 else
+					else
 						'<<$name[npc]>> - Я тебе уже давала сегодня деньги.'
 						if pol[you]>0 and restoran_work[you]=0:'<<$name[npc]>> - устройся в ресторан официанткой, там неплохой доход и работы несколько часов вечером, когда народ в ресторане ужинает.'
-					 end
+					end
 					act'<b>Уйти</b>':gt 'preloc'
 				 end
-			 end
-			 if poisonkomod=1:
+			end
+			if poisonkomod=1:
 				act'<b>Спросить про странную бутылочку в комоде в гостиной</b>':
 					time+=3&cls&'<center><img src="<<$d_view>>" ></center>'
 					'<<$name[npc]>> - только не говори, что ты это догадался выпить! В порту такой дрянью пользуются истмунцы, чтобы делать себе секс-рабынь. '
 					'Не знаю зачем отец такое прихватил вообще и почему спрятал в доме, но я это с ним обсужу отдельно. А ты не трогай ничего подобного, а лучше выбрасывай сразу. Понял?'
 					poisonkomod=2&act'<b>Кивнуть и отойти</b>':gt 'preloc'
 				end
-			 end
-			 if sistermest=1:
+			end
+			if sistermest=1:
 				act'<b>Пожаловаться на сестру за то, что она сделала</b>':
 					time+=3&cls&'<center><img src="<<$d_view>>" ></center>'
 					'<<$name[npc]>> - Даже не начинай этот разговор, новая доча. Мне твоя сестренка все уже рассказала и за то, как ты с ней поступил и как сам довел себя до подобного состояния. '
 					'Так что она поступила вполне гуманно. Лично я поддерживаю ее решение.' 
 					'Если ты так поступил с родной сестрой, то посмотри, как нам женщинам живется в этом проклятом мире, понял?!'&sistermest=2&act'<b>Кивнуть и отойти</b>':gt 'preloc'
 				end
-			 end
-			 if sisteregg=1:
+			end
+			if sisteregg=1:
 				act'<b>Спросить про странное яйцо в комоде в гостиной</b>':
 					time+=3&cls&'<center><img src="<<$d_view>>" ></center>'
 					'<<$name[npc]>> - только не говори, что ты решила его съесть или даже трогать! Я не знаю, зачем я это взяла, но когда твой отец спасал меня из истмунда, я нашла его у себя в кармане. '
@@ -470,38 +451,38 @@ end
 					'Тамошняя ведьма использует такие вот яйца, чтобы помогать своему брату делать шлюх. Поэтому я даже представить не могу, что случиться с тобой, если ты с ним что-то сделаешь. '
 					'Даже не трогай его, я сама его выкину. Поняла?'&eggsister=1&act'<b>Кивнуть</b>':gt 'preloc'
 				end
-			 end
-			 if item[100]>0 and H[you]>0 and you=brother:
-				 act'Принести чай с подмешанным возбудителем':
-					 lust[npc]+=1&corr[npc]+=1&horny[npc]=100&item[100]-=1&burden[you]-=item_burden[100]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					 'Вы подливаете возбудитель в чай и приносите маме, она пьет чай и вы видите как краснеют ее щеки.'
-					 X[npc]=3&Y[npc]=1&Z[npc]=3&H[npc]=1&R[npc]=2&walker_cooldown[npc]=time+15&act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-	     end
-	 end
-	 if boyfriend_num[you]=0 and girlfriend_num[npc]=0 and friends['<<npc>>,<<you>>']>=50 and pol[npc]=0 and pol[you]>0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and ex_boyfriend[npc]=0 and master[npc]=0:
-		 act'Предложить встречаться':
-			 if shame_tattoo[you]>0:knowshame[npc]=shame_tattoo[you]&do_ask_bf[npc]=1&boyfriend_num[you]=npc&girlfriend_num[npc]=you&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался и согласился.'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-	 if boyfriend_num[you]=0 and girlfriend_num[npc]=0 and boyfriend_num[npc]=0 and girlfriend_num[you]=0 and friends['<<npc>>,<<you>>']>=50 and pol[npc]>0 and husband[npc]=0 and brother[npc]!you and ex_boyfriend[npc]=0:
-		 act'Предложить встречаться':
-			 if  master[npc]=0:
-				 do_ask_bf[npc]=1&boyfriend_num[npc]=you&girlfriend_num[you]=npc&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовалась и согласилась.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+			if item[100]>0 and H[you]>0 and you=brother:
+				act'Принести чай с подмешанным возбудителем':
+					lust[npc]+=1&corr[npc]+=1&horny[npc]=100&item[100]-=1&burden[you]-=item_burden[100]&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'Вы подливаете возбудитель в чай и приносите маме, она пьет чай и вы видите как краснеют ее щеки.'
+					X[npc]=3&Y[npc]=1&Z[npc]=3&H[npc]=1&R[npc]=2&walker_cooldown[npc]=time+15&act'<b>Уйти</b>':gt 'preloc'
+				end
+			end
+	    end
+	end
+	if boyfriend_num[you]=0 and girlfriend_num[npc]=0 and friends['<<npc>>,<<you>>']>=50 and pol[npc]=0 and pol[you]>0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and ex_boyfriend[npc]=0 and master[npc]=0:
+		act'Предложить встречаться':
+			if shame_tattoo[you]>0:knowshame[npc]=shame_tattoo[you]&do_ask_bf[npc]=1&boyfriend_num[you]=npc&girlfriend_num[npc]=you&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался и согласился.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+	if boyfriend_num[you]=0 and girlfriend_num[npc]=0 and boyfriend_num[npc]=0 and girlfriend_num[you]=0 and friends['<<npc>>,<<you>>']>=50 and pol[npc]>0 and husband[npc]=0 and brother[npc]!you and ex_boyfriend[npc]=0:
+		act'Предложить встречаться':
+			if  master[npc]=0:
+				do_ask_bf[npc]=1&boyfriend_num[npc]=you&girlfriend_num[you]=npc&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовалась и согласилась.'&act'<b>Уйти</b>':gt 'preloc'
 			else
 				cls&'<center><img src="<<$d_view>>" ></center>'&'Смотрит на вас с удивлением.'&*nl'- Ты же понимаешь, что я проститутка... И все равно хочешь стать моим парнем?'
 				act'Да, ты мне нравишься':
 					do_ask_bf[npc]=1&boyfriend_num[npc]=you&girlfriend_num[you]=npc&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
-					 gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовалась и согласилась.'&act'<b>Уйти</b>':gt 'preloc'
+					gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовалась и согласилась.'&act'<b>Уйти</b>':gt 'preloc'
 				end
 				act'<b>Одуматься</b>':gt 'preloc'
 			end
 		end
-	 end
-	 if (boyfriend_num[npc]=you and girlfriend_num[you]=npc) or (husband[npc]=you and husband[you]=npc):
+	end
+	if (boyfriend_num[npc]=you and girlfriend_num[you]=npc) or (husband[npc]=you and husband[you]=npc):
 		if (you_see_sex[npc]>0 or you_see_bj[npc]>0) and dom[npc]<85:
 			act'Ты мне изменяешь!':
 				cls&'<center><img src="<<$d_view>>" ></center>'
@@ -523,7 +504,7 @@ end
 					act'Я знал, что ты шлюха, но думал, что ты с этим покончишь!':
 						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> смотрит на вас спокойно. - Я не отвечаю, за твои домыслы. Я ничего подобного тебе не обещала и не собиралась. '
 						'Ты знал кем я работаю и знаешь, как дорого от этого откупиться. Так какие ко мне претензии?'
-						 if WhoreToOneDay!npc:
+						if WhoreToOneDay!npc:
 							act'Меня это не устраивает':
 								cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> пожимает плечами. - Я не знаю, что тебе на это сказать. '
 								'Хочешь - разведемся, но я думала, что наше желание пожениться было чем-то большим, чем просто проверка на верность двух любящих людей. '
@@ -550,179 +531,173 @@ end
 					friends['<<npc>>,<<you>>']=0&friends['<<you>>,<<npc>>']=0&boyfriend_num[npc]=0&girlfriend_num[you]=0
 					if husband[npc]=you and husband[you]=npc:
 						husband[npc]=0&husband[you]=0&cls&gs'stat'&'Мы разводимся.'
-						 if HhomeLast[npc]>0:
-							 Xhome[npc]=XhomeLast[npc]&Yhome[npc]=YhomeLast[npc]&Zhome[npc]=ZhomeLast[npc]&Hhome[npc]=HhomeLast[npc]&Rhome[npc]=RhomeLast[npc]
-							 '<<$name[npc]>> злится на вас - Я немедленно ухожу от тебя!'
-						 else
-							 key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=0&'<<$name[npc]>> злится на вас - Убирайся из моего дома!'
-						 end
+						if HhomeLast[npc]>0:
+							Xhome[npc]=XhomeLast[npc]&Yhome[npc]=YhomeLast[npc]&Zhome[npc]=ZhomeLast[npc]&Hhome[npc]=HhomeLast[npc]&Rhome[npc]=RhomeLast[npc]
+							'<<$name[npc]>> злится на вас - Я немедленно ухожу от тебя!'
+						else
+							key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=0&'<<$name[npc]>> злится на вас - Убирайся из моего дома!'
+						end
 					else
 						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> злится на вас. '
 						if pol[you]=0:'- Ну и пошел ты на хуй! Пидор ебанный!'
 						if pol[you]>0:'- Иди на хуй! Шалава!'
 					end
-					 agro[npc]+=40&ex_boyfriend[npc]=you&act'<b>Уйти</b>':gt 'preloc'
-				 end
+					agro[npc]+=40&ex_boyfriend[npc]=you&act'<b>Уйти</b>':gt 'preloc'
+				end
 				act'<b>Простить на этот раз</b>':agro[npc]+=10&horny[npc]+=50&dom[npc]+=rand(10,20)&you_see_sex[npc]=0&you_see_bj[npc]=0&gt 'preloc'
 			end
 		end
-	 end
-	 !'if spyson=npc:act'Телепорт к другу':X[you]=X[arhivson]&Y[you]=Y[arhivson]&Z[you]=Z[arhivson]&H[you]=H[arhivson]&R[you]=R[arhivson]&cls&gt 'preloc'	 '
-	 if pol[npc]>0 and sexpartner['<<npc>>,<<you>>']>0 and (womenbrain[you]<99 or demon_dick[you]>0):
-	     act'Поговорить о сексе':
-			 horny[you]+=50
-		     if extrovert[npc]=2:lust[npc]+=3
-		     if extrovert[npc]=1:lust[npc]+=2
-		     if extrovert[npc]=0:lust[npc]+=1
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-		     if extrovert[npc]=2:'<<$name[npc]>> болтает с вами о сексе.'
-		     if extrovert[npc]=1:'<<$name[npc]>> слушает ваши рассказы о сексе и порой включается в разговор.'
-		     if extrovert[npc]=0:'<<$name[npc]>> краснеет и молчит, слушая ваши рассказы о сексе.'
-			 act'<b>Уйти</b>':gt 'preloc'
-			 act'Что у тебя самого крутого было в сексе?':
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы спрашиваете, что самое крутое было у девушки в сексе.'
-				 if $sexmemory[npc]!'':
+	end
+	!'if spyson=npc:act'Телепорт к другу':X[you]=X[arhivson]&Y[you]=Y[arhivson]&Z[you]=Z[arhivson]&H[you]=H[arhivson]&R[you]=R[arhivson]&cls&gt 'preloc'	 '
+	if pol[npc]>0 and sexpartner['<<npc>>,<<you>>']>0 and (womenbrain[you]<99 or demon_dick[you]>0):
+	    act'Поговорить о сексе':
+			horny[you]+=50
+		    if extrovert[npc]=2:lust[npc]+=3
+		    if extrovert[npc]=1:lust[npc]+=2
+		    if extrovert[npc]=0:lust[npc]+=1
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		    if extrovert[npc]=2:'<<$name[npc]>> болтает с вами о сексе.'
+		    if extrovert[npc]=1:'<<$name[npc]>> слушает ваши рассказы о сексе и порой включается в разговор.'
+		    if extrovert[npc]=0:'<<$name[npc]>> краснеет и молчит, слушая ваши рассказы о сексе.'
+			act'<b>Уйти</b>':gt 'preloc'
+			act'Что у тебя самого крутого было в сексе?':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы спрашиваете, что самое крутое было у девушки в сексе.'
+				if $sexmemory[npc]!'':
 					'<<$name[npc]>> смущается - <<$sexmemory[npc]>>'
-				 else
-					 if gang[npc]>0:
+				else
+					if gang[npc]>0:
 						'<<$name[npc]>> смущается - Ну, наверное групповой секс.'
-					 else
-						 if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:
+					else
+						if drinkpee[npc]>0 and CONFIG['DISABLE_PEE']=0:
 							'<<$name[npc]>> смущается - Ну, наверное когда мне писали на лицо.'
-						 else
-							 if anal[npc]>0:
+						else
+							if anal[npc]>0:
 								'<<$name[npc]>> смущается - Ну, наверное анальный секс.'
-							 else
-								 if bj[npc]>0:
+							else
+								if bj[npc]>0:
 									'<<$name[npc]>> смущается - Ну, наверное минет.'
-								 else
+								else
 									'<<$name[npc]>> пожимает плечами - Ничего не было интересного.'
-								 end
-							 end
-						 end
-					 end
-				 end
-			 act'<b>Уйти</b>':gt 'preloc'
-		 end
-	     if dontwannablow[npc]>0 and daytalk_dontwannablow[npc]!daystart:
-			 act'Почему ты не хочешь сосать?':
-				 daytalk_dontwannablow[npc]=daystart&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> морщится - Ну не хочу и все. Противно.'&act'<b>Уйти</b>':gt 'preloc'
-				 act'Уговаривать':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы уговариваете девушку отсосать у вас член.'
-				     if selfrespect[npc]=2:
-						 oral_fixation[npc]+=1&'<<$name[npc]>> хихикает - Ну ладно, попробую.'
-				     else
-						 '<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
-					 act'<b>Уйти</b>':gt 'preloc'
-				 end
-				 act'Настаивать':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы давите на девушку, чтобы она отсосала у вас член.'
-				     if selfrespect[npc]=0 or brave[npc]=0:
+								end
+							end
+						end
+					end
+				end
+			act'<b>Уйти</b>':gt 'preloc'
+		end
+	    if dontwannablow[npc]>0 and daytalk_dontwannablow[npc]!daystart:
+			act'Почему ты не хочешь сосать?':
+				daytalk_dontwannablow[npc]=daystart&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> морщится - Ну не хочу и все. Противно.'&act'<b>Уйти</b>':gt 'preloc'
+				act'Уговаривать':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы уговариваете девушку отсосать у вас член.'
+				    if selfrespect[npc]=2:
+						oral_fixation[npc]+=1&'<<$name[npc]>> хихикает - Ну ладно, попробую.'
+				    else
+						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
+				    end
+					act'<b>Уйти</b>':gt 'preloc'
+				end
+				act'Настаивать':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы давите на девушку, чтобы она отсосала у вас член.'
+				    if selfrespect[npc]=0 or brave[npc]=0:
 						oral_fixation[npc]+=1&'<<$name[npc]>> кивает - Ну ладно, попробую.'
-				     else
+				    else
 						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
-					 act'<b>Уйти</b>':gt 'preloc'
-				 end
-				 act'Шутливо уговаривать':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы прикалываетесь, объясняя, что в сосании хуев нет ничего позорного.'
-				     if positiv[npc]=2 or selfrespect[npc]=1 and brave[npc]>0:
-						 oral_fixation[npc]+=1&'<<$name[npc]>> смеется - Ну ладно, попробую.'
-				     else
-						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
+				    end
 					act'<b>Уйти</b>':gt 'preloc'
-				 end
-				 act'Логически обосновать':
+				end
+				act'Шутливо уговаривать':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы прикалываетесь, объясняя, что в сосании хуев нет ничего позорного.'
+				    if positiv[npc]=2 or selfrespect[npc]=1 and brave[npc]>0:
+						oral_fixation[npc]+=1&'<<$name[npc]>> смеется - Ну ладно, попробую.'
+				    else
+						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
+				    end
+					act'<b>Уйти</b>':gt 'preloc'
+				end
+				act'Логически обосновать':
 					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы объясняете, что сосание хуев полезно для отношений и ничего страшного в этом нет.'
-				     if ratio[npc]=2:
-						 oral_fixation[npc]+=1&'<<$name[npc]>> кивает - Ну ладно, попробую.'
-				     else
+				    if ratio[npc]=2:
+						oral_fixation[npc]+=1&'<<$name[npc]>> кивает - Ну ладно, попробую.'
+				    else
 						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
+				    end
 					act'<b>Уйти</b>':gt 'preloc'
 				 end
-			 end
-	     end
-	     if dontwannablow[npc]>0 and daytalk_dontwannablow[npc]=daystart:
-			 act'Почему ты не хочешь сосать?':
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> возмущается - Хватит уже! Не хочу и все!'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-	     end
-	     if dontwannaanal[npc]>0 and daytalk_dontwannaanal[npc]!daystart:
-			 act'Почему ты не даешь в попу?':
-				 daytalk_dontwannaanal[npc]=daystart&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> морщится - Ну не хочу и все. Противно и больно.'&act'<b>Уйти</b>':gt 'preloc'
-				 act'Уговаривать':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы уговариваете девушку дать в попу.'
-				     if selfrespect[npc]=2:
-						 anal_fixation[npc]+=1&'<<$name[npc]>> хихикает - Ну ладно, попробую.'
-				     else
+			end
+	    end
+	    if dontwannablow[npc]>0 and daytalk_dontwannablow[npc]=daystart:
+			act'Почему ты не хочешь сосать?':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> возмущается - Хватит уже! Не хочу и все!'&act'<b>Уйти</b>':gt 'preloc'
+			end
+	    end
+	    if dontwannaanal[npc]>0 and daytalk_dontwannaanal[npc]!daystart:
+			act'Почему ты не даешь в попу?':
+				daytalk_dontwannaanal[npc]=daystart&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> морщится - Ну не хочу и все. Противно и больно.'&act'<b>Уйти</b>':gt 'preloc'
+				act'Уговаривать':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы уговариваете девушку дать в попу.'
+				    if selfrespect[npc]=2:
+						anal_fixation[npc]+=1&'<<$name[npc]>> хихикает - Ну ладно, попробую.'
+				    else
 						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
+				    end
 					act'<b>Уйти</b>':gt 'preloc'
-				 end
-				 act'Настаивать':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы давите на девушку, чтобы она дала вам в попу.'
-				     if selfrespect[npc]=0 or brave[npc]=0:
-						 anal_fixation[npc]+=1&'<<$name[npc]>> кивает - Ну ладно, попробую.'
-				     else
+				end
+				act'Настаивать':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы давите на девушку, чтобы она дала вам в попу.'
+				    if selfrespect[npc]=0 or brave[npc]=0:
+						anal_fixation[npc]+=1&'<<$name[npc]>> кивает - Ну ладно, попробую.'
+				    else
 						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
+				    end
 					act'<b>Уйти</b>':gt 'preloc'
-				 end
-				 act'Шутливо уговаривать':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы прикалываетесь объясняя, что в содомии нет ничего зазорного. Да и вообще - потом даже нравиться будет: не оторвать.'
-				     if positiv[npc]=2 or selfrespect[npc]=1 and brave[npc]>0:
-						 anal_fixation[npc]+=1&'<<$name[npc]>> смеется - Ну ладно, попробую.'
-				     else
+				end
+				act'Шутливо уговаривать':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы прикалываетесь объясняя, что в содомии нет ничего зазорного. Да и вообще - потом даже нравиться будет: не оторвать.'
+				    if positiv[npc]=2 or selfrespect[npc]=1 and brave[npc]>0:
+						anal_fixation[npc]+=1&'<<$name[npc]>> смеется - Ну ладно, попробую.'
+				    else
 						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
+				    end
 					act'<b>Уйти</b>':gt 'preloc'
-				 end
-				 act'Логически обосновать':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы объясняете, что анальный секс даже полезен для стенок прямой кишки и является хорошей профилактикой геморроя.'
-				     if ratio[npc]=2:
-						 anal_fixation[npc]+=1&'<<$name[npc]>> кивает - Ну ладно, попробую.'
-				     else
+				end
+				act'Логически обосновать':
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы объясняете, что анальный секс даже полезен для стенок прямой кишки и является хорошей профилактикой геморроя.'
+				    if ratio[npc]=2:
+						anal_fixation[npc]+=1&'<<$name[npc]>> кивает - Ну ладно, попробую.'
+				    else
 						'<<$name[npc]>> возмущается - Отстань от меня со своими глупостями!'
-				     end
+				    end
 					act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-	     end
-	     if dontwannaanal[npc]>0 and daytalk_dontwannaanal[npc]=daystart:
-			 act'Почему ты не даешь в попу?':
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> возмущается - Хватит уже! Не хочу и все! Это грязно, противно и больно!'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-	     end
-	 end
+				end
+			end
+	    end
+	    if dontwannaanal[npc]>0 and daytalk_dontwannaanal[npc]=daystart:
+			act'Почему ты не даешь в попу?':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> возмущается - Хватит уже! Не хочу и все! Это грязно, противно и больно!'&act'<b>Уйти</b>':gt 'preloc'
+			end
+	    end
+	end
 end
 if friends['<<npc>>,<<you>>']>=50 and pol[npc]>0 and pol[you]>0:
-     if sexpartner['<<npc>>,<<you>>']=0 and total_npc_on_loc<=1:
-		 act'А ты пробовала с девочками?':
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-		     if master[npc]=0:
-				 if lesb[npc]=0:
-					'<<$name[npc]>> смущается - Нет.'
-				 else
-					'<<$name[npc]>> смущается - Пробовала.'
-				 end
-				act'Обнять':gt 'justsex'
-		     else
+    if sexpartner['<<npc>>,<<you>>']=0 and total_npc_on_loc<=1:
+		act'А ты пробовала с девочками?':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		    if master[npc]=0:
+				$iif(lesb[npc]=0,'<<$name[npc]>> смущается - Нет.','<<$name[npc]>> смущается - Пробовала.')&act'Обнять':gt 'justsex'
+		    else
 				'<<$name[npc]>> смотрит на вас скептически - Отвали.'
-		     end
-		     act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end 
+		    end
+		    act'<b>Уйти</b>':gt 'preloc'
+		end
+    end 
 end
 if myagent[npc]=you:gs'mynpc'
 if agency_ud[you]>=1 and statist[npc]=1 and mob[npc]=0 and friends['<<npc>>,<<you>>']>=50 and can_verbovka[you]>0:gs'verbovka'
 if work[npc]=7:gs'agency_talk'
 if npc=sallivan:gs'npc_sallivan_talk'&! Позиция добалвения новых вариантов диалога с НПС
 if slave[npc]>0:gs'slave_talk'
-gs'qwest_talk'
-gs'newmainqwest_talk'
+gs'qwest_talk'&gs'newmainqwest_talk'
 if (girlfriend_num[npc]=you or boyfriend_num[npc]=you or husband[npc]=you or wife[npc]=you or mother[npc]=you or father[npc]=you or friends['<<npc>>,<<you>>']>=50 or sexpartner['<<npc>>,<<you>>']>0)  and dom[you]>dom[npc]: gs 'jealousytalk'&!23112024 перенёс сюда
 gs'port_talk'&gs'blackberry_talk'&gs'gilmassiv_talk'&gs'uptown_talk'&gs'downtown_talk'
 if mother[you]!npc and brother[you]!npc and master[npc]=0:
@@ -734,55 +709,38 @@ if mother[you]!npc and brother[you]!npc and master[npc]=0:
 	if pol[you]=0 and pol[npc]>0:gs'mantalkwithwoman_simple'
 end
 if husband[npc]=you:gs'husbands_talk'
-if husband[npc]>0 and husband[npc]!you:
-	hfg=husband[npc]
-	if pol[hfg]=0:'<b>Муж <<$name[hfg]>> <<$surname[hfg]>></b>'
-	if pol[hfg]>0:'<b>Жена <<$name[hfg]>> <<$surname[hfg]>></b>'
-end
-if kid_first[npc]>0:
-	kfi=kid_first[npc]
-     if pol[kfi]=0:'<b>Старший сын <<$name[kfi]>> <<$surname[kfi]>></b>'
-     if pol[kfi]>0:'<b>Старшая дочь <<$name[kfi]>> <<$surname[kfi]>></b>'
-end
-if kid_second[npc]>0:
-	ksi=kid_second[npc]
-     if pol[ksi]=0:'<b>Второй ребёнок. Сын <<$name[ksi]>> <<$surname[ksi]>></b>'
-     if pol[ksi]>0:'<b>Второй ребёнок. Дочь <<$name[ksi]>> <<$surname[ksi]>></b>'
-end
+if husband[npc]>0 and husband[npc]!you:hfg=husband[npc]&$iif(pol[hfg]=0,'<b>Муж <<$name[hfg]>> <<$surname[hfg]>></b>','<b>Жена <<$name[hfg]>> <<$surname[hfg]>></b>')
+if kid_first[npc]>0:kfi=kid_first[npc]&$iif(pol[kfi]=0,'<b>Старший сын <<$name[kfi]>> <<$surname[kfi]>></b>','<b>Старшая дочь <<$name[kfi]>> <<$surname[kfi]>></b>')
+if kid_second[npc]>0:ksi=kid_second[npc]&$iif(pol[ksi]=0,'<b>Второй ребёнок. Сын <<$name[ksi]>> <<$surname[ksi]>></b>','<b>Второй ребёнок. Дочь <<$name[ksi]>> <<$surname[ksi]>></b>')
 if kid_num[npc]>0:
 	ksi=kid_num[npc]
-     if pol[ksi]=0:'<b><<childii[ksi]>>-й ребёнок, котррого родила <<$name[hfg]>>. Сын <<$name[ksi]>> <<$surname[ksi]>></b>'
-     if pol[ksi]>0:'<b><<childii[ksi]>>-й ребёнок, котррого родила <<$name[hfg]>>. Дочь <<$name[ksi]>> <<$surname[ksi]>></b>'
+    if pol[ksi]=0:'<b><<childii[ksi]>>-й ребёнок, котррого родила <<$name[hfg]>>. Сын <<$name[ksi]>> <<$surname[ksi]>></b>'
+    if pol[ksi]>0:'<b><<childii[ksi]>>-й ребёнок, котррого родила <<$name[hfg]>>. Дочь <<$name[ksi]>> <<$surname[ksi]>></b>'
 end
 if father[npc]>0:fatnn=father[npc]&'<b>Отец <<$name[fatnn]>> <<$surname[fatnn]>></b>'
 if mother[npc]>0:motn=mother[npc]&'<b>Мать <<$name[motn]>> <<$surname[motn]>></b>'
-if brother[npc]>0:
-	brothn=brother[npc]
-     if pol[brothn]=0:'<b>Брат <<$name[brothn]>> <<$surname[brothn]>></b>'
-     if pol[brothn]>0:'<b>Сестра <<$name[brothn]>> <<$surname[brothn]>></b>'
-end
+if brother[npc]>0:brothn=brother[npc]&$iif(pol[brothn]=0,'<b>Брат <<$name[brothn]>> <<$surname[brothn]>></b>','<b>Сестра <<$name[brothn]>> <<$surname[brothn]>></b>')
 if girlfriend_num[npc]!you and girlfriend_num[npc]>0:
-	gfg=girlfriend_num[npc]
-	'<b>У него есть девушка <<$name[gfg]>> <<$surname[gfg]>></b>'
-     if boyfriend_num[you]=0 and friends['<<npc>>,<<you>>']>=70 and pol[npc]=0 and pol[you]>0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and ex_boyfriend[npc]=0:
-		 act'Брось свою мымру и давай встречаться':
-			 if shame_tattoo[you]>0:knowshame[npc]=shame_tattoo[you]
-			 boyfriend_num[gfg]=0&ex_girlfriend['<<npc>>,<<gfg>>']=1&girlfriend_num[npc]=0&girlfriend_num[npc]=0&do_ask_bf[npc]=1&boyfriend_num[you]=npc&girlfriend_num[npc]=you
-			 friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался и согласился.'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
+	gfg=girlfriend_num[npc]&'<b>У него есть девушка <<$name[gfg]>> <<$surname[gfg]>></b>'
+    if boyfriend_num[you]=0 and friends['<<npc>>,<<you>>']>=70 and pol[npc]=0 and pol[you]>0 and husband[npc]=0 and brother[npc]!you and Zhome[npc]=Zhome[you] and ex_boyfriend[npc]=0:
+		act'Брось свою мымру и давай встречаться':
+			if shame_tattoo[you]>0:knowshame[npc]=shame_tattoo[you]
+			boyfriend_num[gfg]=0&ex_girlfriend['<<npc>>,<<gfg>>']=1&girlfriend_num[npc]=0&girlfriend_num[npc]=0&do_ask_bf[npc]=1&boyfriend_num[you]=npc&girlfriend_num[npc]=you
+			friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> заметно обрадовался и согласился.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
 end
 gs'dar_talk'
 if item[95]>0 and master[npc]=0:
-	 act'Использовать приворотное зелье':
-		 item[95]-=1&burden[you]-=item_burden[95]&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
-		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы открываете флакончик и дуете так, чтобы флюиды попали на объект приворота.'
-		 '<<$name[npc]>> краснеет - Что это за аромат?'&act'<b>Уйти</b>':gt 'preloc'
-	 end
+	act'Использовать приворотное зелье':
+		item[95]-=1&burden[you]-=item_burden[95]&friends['<<npc>>,<<you>>']=100&friends['<<you>>,<<npc>>']=100
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы открываете флакончик и дуете так, чтобы флюиды попали на объект приворота.'
+		'<<$name[npc]>> краснеет - Что это за аромат?'&act'<b>Уйти</b>':gt 'preloc'
+	end
 end
 if thenoob[npc]>0 and nosmartphone[npc]=0 and item[26]=0 and money[you]>=1000:
-	 act'Купить смартфон`10ш':
-		 nosmartphone[npc]=1&money[you]-=1000&money[npc]+=1000&item[26]+=1&burden[you]+=item_burden[26]&cls&gs'stat'&'Вы купили смартфон'&act'<b>Уйти</b>':gt 'preloc'
-	 end
+	act'Купить смартфон`10ш':
+		nosmartphone[npc]=1&money[you]-=1000&money[npc]+=1000&item[26]+=1&burden[you]+=item_burden[26]&cls&gs'stat'&'Вы купили смартфон'&act'<b>Уйти</b>':gt 'preloc'
+	end
 end

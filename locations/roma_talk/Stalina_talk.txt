@@ -1,76 +1,37 @@
-﻿$loc[you]=$curloc
-gs'stat'
-loc_for_drop=0
-'<b><center>Студия Стальная Роза</center></b>'
-!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-'В студии предлагают любое оборудование для содержания рабынь, клетки, цепи и прочее.'
-gs'npconloc'
-gs'item'
-
+﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Студия Стальная Роза</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+'В студии предлагают любое оборудование для содержания рабынь, клетки, цепи и прочее.'&gs'npconloc'&gs'item'
 if strapon=0:
-'Продается набор страпонов за 100 искр'
+	'Продается набор страпонов за 100 искр'
 	if iskr[you]>=100:
-		act'Купить страпоны за 100 искр':
-		iskr[you]-=100
-		strapon=1
-		gt $curloc
-		end
+		act'Купить страпоны за 100 искр':iskr[you]-=100&strapon=1&gt $curloc
 	end
 end
-
 if sexmachine=0:
-'Продается секс машина за 2000 искр'
+	'Продается секс машина за 2000 искр'
 	if iskr[you]>=2000:
-		act'Купить сексмашину за 2000 искр':
-		iskr[you]-=2000
-		sexmachine=1
-		gt $curloc
-		end
+		act'Купить сексмашину за 2000 искр':iskr[you]-=2000&sexmachine=1&gt $curloc
 	end
 end
-
 if sexhook=0:
-'Продается крюк и сбруя для разработки анала за 1000 искр'
+	'Продается крюк и сбруя для разработки анала за 1000 искр'
 	if iskr[you]>=1000:
-		act'Купить крюк за 1000 искр':
-		iskr[you]-=1000
-		sexhook=1
-		gt $curloc
-		end
+		act'Купить крюк за 1000 искр':iskr[you]-=1000&sexhook=1&gt $curloc
 	end
 end
-
 if pet_follower>0:
-'Хозяйка смотрит на вашу рабыню оценивающе - нам нужны туалетные рабыни'
+	'Хозяйка смотрит на вашу рабыню оценивающе - нам нужны туалетные рабыни'
 	act'Сколько вы заплатите за рабыню?':
-	cls
-	slave=pet_follower
-	gs'stat'
+		slave=pet_follower&cls&gs'stat'
 		if sl_obediance[slave]>=80 and sl_piss[slave]>=20:
-		summa=sl_obediance[slave]*20
-		summa=summa+sl_piss[slave]*100
-		'Хозяйка помочившись в рот рабыне говорит - Я ее могу взять за <<summa>> искр'
+			summa=sl_obediance[slave]*20&summa=summa+sl_piss[slave]*100&'Хозяйка помочившись в рот рабыне говорит - Я ее могу взять за <<summa>> искр'
 			act'Продать':
-			cls
-			pet_tipe=0
-			iskr[you]+=summa
-			pet_follower=0
-			$loc_slave[slave]='steelrose'
-			owner[slave]=4
-			slave_toilet+=1
-			gs'stat'
-			'Вы продали рабыню в писсуары'
-			act'Уйти':gt $curloc
+				pet_tipe=0&iskr[you]+=summa&pet_follower=0&$loc_slave[slave]='steelrose'&owner[slave]=4&slave_toilet+=1&cls&gs'stat'&'Вы продали рабыню в писсуары'&act'Уйти':gt $curloc
 			end 
 		else
-		'Хозяка - она плохо воспитана и никуда не годится.'
-		if sl_obediance[slave]<80:'Рабыня слишком непокорная'
-		if sl_piss[slave]<20:'Рабыня не очень любит пить мочу'
+			'Хозяка - она плохо воспитана и никуда не годится.'
+			if sl_obediance[slave]<80:'Рабыня слишком непокорная'
+			if sl_piss[slave]<20:'Рабыня не очень любит пить мочу'
 		end
-	act'Уйти':gt $curloc
+		act'Уйти':gt $curloc
 	end
 end
-
-
-
-

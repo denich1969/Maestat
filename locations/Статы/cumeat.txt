@@ -10,7 +10,7 @@ if demon_dick[you]>0:
 else	
 	gs'eat'
 end
-cum_face[you]=0&gs'stat'&'<center><video src="pic/sex/solo/cumeat<<rand(0,5)>>.webm" ></video></center>'
+cum_face[you]=0&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/cumeat<<rand(0,5)>>.webm" ></video></center>'
 cummeatfrase=rand(1,6)
 if cummeatfrase=1:pl 'Вы пальцами стираете сперму и облизываете пальцы, до тех пор, пока лицо не становится чистым на вид.'
 if cummeatfrase=2:pl 'Ты с нетерпением слизываешь всю сперму со своего лица и, наконец, ощущаешь этот солоноватый долгожданный вкус кончи.'

@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&soulmistress=i
-lvl[i]=1&soul[i]=666&work[i]=52&subwork[i]=50
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&soulmistress=i&lvl[i]=1&soul[i]=666&work[i]=52&subwork[i]=50
 master[i]=0&delusion[i]=0&&magik[i]=19&beliver[i]=13
 spec_face_pic[i]=5&face_pic[i]=79
 $title[i]=''&$history[i]='Я служу Эосфору, владельцу общества торговли душами.'
@@ -12,16 +11,7 @@ age[i]=20&vital[i]=40&will[i]=50&reflex[i]=40
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 pol[i]=1&gs'body'&total_generated_female+=1
 bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=2&lust[i]=100&!характер
-!l_hand_t[i]=3
-t_slot[i]=83&l_slot[i]=12&b_slot[i]=10
-ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=0
-	 girl[soulmaster]+=1&guy[i]+=1
-	 sexpartner['<<i>>,<<soulmaster>>']+=100&sexpartner['<<soulmaster>>,<<i>>']+=100
-	 vagsex[i]+=100&avagsex[soulmaster]+=100
-	 bj[i]+=100&abj[soulmaster]+=100
-	 anal[i]+=100&aanal[soulmaster]+=100
-	 sexpartner_num_m['<<i>>,<<guy[i]>>']=soulmaster&sexpartner_num_f['<<soulmaster>>,<<girl[soulmaster]>>']=i
-     husband[i]=soulmaster&husband[soulmaster]=i
-!oral_fixation[i]=30
-s_world[]=i&walkprog[i]=30
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+t_slot[i]=83&l_slot[i]=12&b_slot[i]=10&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=0&!l_hand_t[i]=3
+girl[soulmaster]+=1&guy[i]+=1&sexpartner['<<i>>,<<soulmaster>>']+=100&sexpartner['<<soulmaster>>,<<i>>']+=100&vagsex[i]+=100&avagsex[soulmaster]+=100&bj[i]+=100&abj[soulmaster]+=100
+anal[i]+=100&aanal[soulmaster]+=100&sexpartner_num_m['<<i>>,<<guy[i]>>']=soulmaster&sexpartner_num_f['<<soulmaster>>,<<girl[soulmaster]>>']=i&husband[i]=soulmaster&husband[soulmaster]=i
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&s_world[]=i&walkprog[i]=30

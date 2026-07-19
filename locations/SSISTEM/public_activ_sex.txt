@@ -9,9 +9,9 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 		act'Навалить на клыка':
 			sexpower[you]-=1&temp_blow+=1&cls&gs'stat'
 			if skin[you]>4:
-				'<center><video src="pic/sex/public/bbc_blow<<rand(0,21)>>.webm" ></video></center>'
+				'<center><video autoplay loop src="pic/sex/public/bbc_blow<<rand(0,21)>>.webm" ></video></center>'
 		    else
-				'<center><video src="pic/sex/public/blow<<rand(0,27)>>.webm" ></video></center>'
+				'<center><video autoplay loop src="pic/sex/public/blow<<rand(0,27)>>.webm" ></video></center>'
 			end
 			$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
 			if bj[npc]<10:
@@ -40,15 +40,15 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 				temp_vag+=1&sexpower[you]-=1&cls&gs'stat'
 				if skin[you]>4 and skin[you]<7:
 				    if rand(1)=1:
-				         '<center><video src="pic/sex/public/bbc_p<<rand(0,12)>>.webm" ></video></center>'
+				         '<center><video autoplay loop src="pic/sex/public/bbc_p<<rand(0,12)>>.webm" ></video></center>'
 				    else
-				        '<center><video src="pic/sex/public/bbc_s<<rand(1,16)>>.webm" ></video></center>'
+				        '<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(1,16)>>.webm" ></video></center>'
 				    end
 				 else
 				    if rand(1)=1:
-				         '<center><video src="pic/sex/public/p<<rand(0,20)>>.webm" ></video></center>'
+				         '<center><video autoplay loop src="pic/sex/public/p<<rand(0,20)>>.webm" ></video></center>'
 				    else
-				        '<center><video src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
+				        '<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
 				    end
 				end
 				'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет когда вы ее трахаете'
@@ -67,10 +67,10 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 					act'Залить в глотку феминизатор':
 						item[79]-=1&burden[you]-=item_burden[79]&cls&gs'stat'&feminize[npc]+=5&if agro[npc]>20:agro[npc]-=1
 						if skin[you]>4:
-						    '<center><video src="pic/sex/vag_fem_bbc<<rand(0,6)>>.webm" ></center>'
+						    '<center><video autoplay loop src="pic/sex/vag_fem_bbc<<rand(0,6)>>.webm" ></center>'
 						    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 						else
-						    '<center><video src="pic/sex/vag_fem<<rand(0,13)>>.webm" ></center>'
+						    '<center><video autoplay loop src="pic/sex/vag_fem<<rand(0,13)>>.webm" ></center>'
 						    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 						end
 						act'Далее':gt 'activ_sex'
@@ -89,22 +89,22 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 				temp_anal+=1&sexpower[you]-=1&cls&gs'stat'
 				if skin[you]>4:
 				    if dick[npc]>0:
-				        '<center><video src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>'
+				        '<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>'
 				    else
 				        if rand(1)=1:
-				            '<center><video src="pic/sex/public/bbc_a<<rand(0,7)>>.webm" ></video></center>'
+				            '<center><video autoplay loop src="pic/sex/public/bbc_a<<rand(0,7)>>.webm" ></video></center>'
 				        else
-				            '<center><video src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>'
+				            '<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>'
 				        end
 				    end
 				else
 				    if dick[npc]>0:
-				        '<center><video src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
+				        '<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
 				    else
 				        if rand(1)=1:
-				            '<center><video src="pic/sex/public/a<<rand(0,4)>>.webm" ></video></center>'
+				            '<center><video autoplay loop src="pic/sex/public/a<<rand(0,4)>>.webm" ></video></center>'
 				        else
-				            '<center><video src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
+				            '<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
 				        end
 				    end
 				end
@@ -125,10 +125,10 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 						item[79]-=1&burden[you]-=item_burden[79]&cls&gs'stat'&feminize[npc]+=5
 						if agro[npc]>20:agro[npc]-=1
 						if skin[you]>4:
-							'<center><video src="pic/sex/anal_fem_bbc<<rand(0,16)>>.webm" ></center>'
+							'<center><video autoplay loop src="pic/sex/anal_fem_bbc<<rand(0,16)>>.webm" ></center>'
 							'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 				        else
-				            '<center><video src="pic/sex/anal_fem<<rand(0,21)>>.webm" ></center>'
+				            '<center><video autoplay loop src="pic/sex/anal_fem<<rand(0,21)>>.webm" ></center>'
 				            'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 				           end
 						act'Далее':gt 'activ_sex'

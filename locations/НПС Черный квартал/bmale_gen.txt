@@ -1,36 +1,6 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
-lvl[i]=1&soul[i]=100
-master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
-!face_pic[i]=70001&male_pic+=1&if male_pic>70029:male_pic=70001
-face_pic[i]=rand(70001,70029)&!присвоение фотки
-!{natiorand=rand(1,100)&if natiorand<=70:tipename=0
-if natiorand>70:tipename=rand(1,9)
-if pretipename>0:tipename=pretipename
-if tipename=9:
-gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname
-elseif tipename=0:
-	gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname
-elseif tipename=1:
-	gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname
-elseif tipename=2:
-	gs'manname_srb'&$name[i]=$genname&gs'surname_srb'&$surname[i]=$gensurname
-elseif tipename=3:
-	gs'manname_noh'&$name[i]=$genname&gs'surname_noh'&$surname[i]=$gensurname
-elseif tipename=4:
-	gs'manname_ara'&$name[i]=$genname&gs'surname_ara'&$surname[i]=$gensurname
-elseif tipename=5:
-	gs'manname_sa'&$name[i]=$genname&gs'surname_sa'&$surname[i]=$gensurname
-elseif tipename=6:
-	gs'manname_ukr'&$name[i]=$genname&gs'surname_ukr'&$surname[i]=$gensurname
-elseif tipename=7:
-	gs'manname_az'&$name[i]=$genname&gs'surname_az'&$surname[i]=$gensurname
-elseif tipename=8:
-	gs'manname_rom'&$name[i]=$genname&gs'surname_rom'&$surname[i]=$gensurname
-elseif tipename=9:
-	gs'man_name'&$name[i]=$genname&gs'surname'&	$surname[i]=$gensurname
-end
-nation[i]=tipename&pretipename=0}
-$title[i]='Негр из чёрного квартала'&gs'name_nations',rand(1,9),0,i
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+face_pic[i]=rand(70001,70029)&!присвоение фотки!face_pic[i]=70001&male_pic+=1&if male_pic>70029:male_pic=70001
+$title[i]='Житель чёрного квартала'&gs'name_nations',10,0,i
 face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=rand(18,30)&dickd[i]=rand(40,55)&ball[i]=rand(70,100)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(800,2400)&skin[i]=rand(4,6)

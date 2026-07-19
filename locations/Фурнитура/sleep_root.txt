@@ -31,12 +31,14 @@ if $npc_loc='' and total_npc_on_loc=0:
 			 jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'
 			if dick[you]>5:
 			    if skin[you]>4:
-					'<center><video src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'&'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
+					'<center><video autoplay loop src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'
+					'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
 				else
-				    '<center><video src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'&'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
+				    '<center><video autoplay loop src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'
+					'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
 				end
 			else
-				 '<center><video src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
+				 '<center><video autoplay loop src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
 				 'Вы теребите пальчиками свой крошечный членик длинной <<dick[you]>> сантиметров и практически моментально ваш бесполезный отросток кончает маленькой капелькой семени.'
 			end
 			if insmouth_loc_num>0:
@@ -49,7 +51,7 @@ if $npc_loc='' and total_npc_on_loc=0:
 	 end
 	 if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
 		 act'Тереть клитор':
-			 jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/shlik<<rand(0,6)>>.webm" ></video></center>'
+			 jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/shlik<<rand(0,6)>>.webm" ></video></center>'
 			 'Вы раздвигаете ножки и начинаете теперить свою мокренькую пизденку, иногда похлопывая лапошкой по своей пизде у вас начинают трястись ноги и закатываться глаза'
 			 cumfrase=rand(1,4)
 			 if cumfrase=1:'<b>Ах-ах, Ах-ах, Ах-ах.</b>'

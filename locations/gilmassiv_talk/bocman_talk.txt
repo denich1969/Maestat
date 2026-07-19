@@ -1,7 +1,7 @@
 ﻿gs'stat'&npc=bocman&$d_view='pic/face/5/58.jpg'&'<center><img src="<<$d_view>>" ></center>'
 if whoreboss[you]!npc:
 	'Мужчина сплюнул глядя на вас презрительно - Я Боцман, за меня пацаны скажут, а я за пацанов скажу, про тебя прошел прогон, что ты опущенная шлюха. '
-	'А раз ты шлюха, то ты вещь и должна принадлежать кому то. У тебя должен быть хозяин. И раз уж ты бесхозная, то я заявляю свои права на тебя. Ты согласна?'
+	'А раз ты шлюха, то ты вещь и должна принадлежать кому-то. У тебя должен быть хозяин. И раз уж ты бесхозная, то я заявляю свои права на тебя. Ты согласна?'
 	 if work[you]=25:
 		 act'Я работаю стриптизершей на мистера Блэквуда':
 			 street_subQW[you]=100&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Боцман сплевывает - Понятно'&act'<b>Уйти</b>':gt 'preloc'
@@ -43,7 +43,7 @@ elseif whoreboss[you]=npc and you=mother:
 		'Сутенёр протянул вам сбрую с поводком. Что же, видимо, выбора у вас опять особо нет, как и всегда.' &*nl'- И шмотьё своё блядское скидывай.'
 	end
 	act '«Скинуть блядское шмотьё» и надеть сбрую':
-		cls&'<center><video src="pic/event/bocmanpimp1.webm" ></center>'
+		cls&'<center><video autoplay loop src="pic/event/bocmanpimp1.webm" ></center>'
 		 letherslut[you]=1&horny[npc]=50&pose[you]=2&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
 		 if t_slot[you]>0:
 			 clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
@@ -80,7 +80,7 @@ elseif whoreboss[you]=npc and you=mother:
 			'- А теперь пойдём на прогулку, сученька, - усмехнулся он, потянув за поводок.'
 		end
 		act 'Идти на прогулку':
-			 time+=10&cls&'<center><video src="pic/event/bocmanpimp2.jpg" ></center>'&'<center><img src="<<$d_view>>" ></center>'
+			 time+=10&cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'&'<center><img src="<<$d_view>>" ></center>'
 			if bocmanpimpwalk = 0: 
 				'Люди на улице тут же обратили внимание на голую девушку, которую ведёт на поводке местный криминальный авторитет.' 
 				'Кто-то фотографировал, кто-то отпускал грязные комментарии:' 

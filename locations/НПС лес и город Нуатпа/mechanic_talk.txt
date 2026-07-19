@@ -1,9 +1,8 @@
 ﻿'<<$name[npc]>> спокойно осматривает вас'
 if Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=H[npc] and Rhome[npc]=R[npc] and $loc[npc]!'0,0,300,1,1':
 	act'Деревня':
-		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-		'<<$name[npc]>> тут мало осталось жителей, бесы житья не дают. Нападают, людей воруют. Тут всегда был торговый пост, люди торговали с гоблинами, но после нашествия демонов торговля сошла на нет. Я местный механик, но из за бесей мне некогда заниматься своим ремеслом.'
-		act'...':gt $loc[you]
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> тут мало осталось жителей, бесы житья не дают. Нападают, людей воруют. '&act'...':gt $loc[you]
+		'Тут всегда был торговый пост, люди торговали с гоблинами, но после нашествия демонов торговля сошла на нет. Я местный механик, но из за бесей мне некогда заниматься своим ремеслом.'
 	end
 	if talk_about_magik>0 and wagikWandQW=0:
 		act'Волшебная палочка':
@@ -28,20 +27,14 @@ if Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=
 			'- Ничего себе. Я не думал что у тебя получится. Я теперь даже начинаю верить в охотников, потому думаю мое место должно быть на маяке, что бы помогать охотникам.'&act'...':gt $loc[you]
 			if amulet[you]=22 and light>=1500:
 				act'Уйти вместе на маяк':
-				$loc[npc]='0,0,300,1,1'
-				$doing[npc]='осматривается'
-				in_home[npc]=1
-				light-=1000
-				time+=5&cls&gs'stat'&gs'color'&'<center><img src="<<$d_view>>" ></center>'
-				'Вы берете механика за руку и взяв амулет в другую руку переноситесь по лучу света на маяк.'
-				act'...':gt $loc[npc]
+					$loc[npc]='0,0,300,1,1'&$doing[npc]='осматривается'&in_home[npc]=1&light-=1000&time+=5&cls&gs'stat'&gs'color'&'<center><img src="<<$d_view>>" ></center>'
+					'Вы берете механика за руку и взяв амулет в другую руку переноситесь по лучу света на маяк.'&act'...':gt $loc[npc]
 				end
 			end
 			if amulet[you]=22 and light<1500:
 				act'Уйти вместе на маяк':
 					time+=5&cls&gs'stat'&gs'color'&'<center><img src="<<$d_view>>" ></center>'
-					'Вы берете механика за руку и взяв амулет в другую руку пытаетесь его активировать, но маяк слишком слаб и не может перенести вас.'
-					act'...':gt $loc[you]
+					'Вы берете механика за руку и взяв амулет в другую руку пытаетесь его активировать, но маяк слишком слаб и не может перенести вас.'&act'...':gt $loc[you]
 				end
 			end
 		end
@@ -49,22 +42,17 @@ if Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=
 end
 if Xhome[npc]=X[npc] and $loc[npc]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>' and $loc[npc]='0,0,300,1,1':
 	act'Поболтать':
-		time+=rand(5,15)&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-		'<<$name[npc]>> - На маяке отличная мастерская и отличная библиотека.'
-		act'...':gt $loc[you]
+		time+=rand(5,15)&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - На маяке отличная мастерская и отличная библиотека.'&act'...':gt $loc[you]
 	end
 	if vag[you]>1 and horny[you]>=20:
 		act'Флиртовать':
-			time+=rand(5,15)&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> усмехается - Какая у нас тут маленькая, игривая охотница. Детка, хочешь поохотится на мой член?'
-			act'...':gt $loc[you]
-			act'Заняться сексом':gt'sex'
+			time+=rand(5,15)&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
+			'<<$name[npc]>> усмехается - Какая у нас тут маленькая, игривая охотница. Детка, хочешь поохотится на мой член?'&act'Заняться сексом':gt'sex'
 		end
 	end
 	if m_slot[you]>=1 and m_slot[you]<6:
 		act'Показать саблю':
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&!РАБОТА
-			'<<$name[npc]>> осматривает саблю - что бы саблю усовершенствовать нужно звездный металл'
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> осматривает саблю - что бы саблю усовершенствовать нужно звездный металл'&!РАБОТА
 			if m_slot[you]=1:'<<$name[npc]>> задумчиво говорит - тут хватит одного куска звездного металла'
 			if m_slot[you]=2:'<<$name[npc]>> задумчиво говорит - тут нужно два куска звездного металла'
 			if m_slot[you]=3:'<<$name[npc]>> задумчиво говорит - тут нужно три куска звездного металла'
@@ -72,42 +60,26 @@ if Xhome[npc]=X[npc] and $loc[npc]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>
 			if m_slot[you]=5:'<<$name[npc]>> задумчиво говорит - я думаю это предел, уже невозможно никак улучшить оружие.'
 			if item[30]>=1 and m_slot[you]=1:
 				act'Заточить саблю':
-					item[30]-=1
-					burden[you]-=item_burden[30]
-					m_slot[you]=2
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=1&burden[you]-=item_burden[30]&m_slot[you]=2&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			if item[30]>=2 and m_slot[you]=2:
 				act'Заточить саблю':
-					item[30]-=2
-					burden[you]-=item_burden[30]*2
-					m_slot[you]=3
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=2&burden[you]-=item_burden[30]*2&m_slot[you]=3&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			if item[30]>=3 and m_slot[you]=3:
 				act'Заточить саблю':
-					item[30]-=3
-					burden[you]-=item_burden[30]*3
-					m_slot[you]=4
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=3&burden[you]-=item_burden[30]*3&m_slot[you]=4&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			if item[30]>=5 and m_slot[you]=4:
 				act'Заточить саблю':
-					item[30]-=5
-					burden[you]-=item_burden[30]*5
-					m_slot[you]=5
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=5&burden[you]-=item_burden[30]*5&m_slot[you]=5&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает вашу саблю, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			act'...':gt $loc[you]
@@ -115,8 +87,7 @@ if Xhome[npc]=X[npc] and $loc[npc]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>
 	end
 	if m_slot[you]>=8 and m_slot[you]<=12:
 		act'Показать рапиру королевского охотника':
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> осматривает оружие - что бы усовершенствовать нужно звездный металл'
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> осматривает оружие - что бы усовершенствовать нужно звездный металл'
 			if m_slot[you]=8:'<<$name[npc]>> задумчиво говорит - тут хватит одного куска звездного металла'
 			if m_slot[you]=9:'<<$name[npc]>> задумчиво говорит - тут нужно два куска звездного металла'
 			if m_slot[you]=10:'<<$name[npc]>> задумчиво говорит - тут нужно три куска звездного металла'
@@ -124,42 +95,26 @@ if Xhome[npc]=X[npc] and $loc[npc]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>
 			if m_slot[you]=12:'<<$name[npc]>> задумчиво говорит - я думаю это предел, уже невозможно никак улучшить оружие.'
 			if item[30]>=1 and m_slot[you]=8:
 				act'Заточить':
-					item[30]-=1
-					burden[you]-=item_burden[30]
-					m_slot[you]=9
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=1&burden[you]-=item_burden[30]&m_slot[you]=9&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			if item[30]>=2 and m_slot[you]=9:
 				act'Заточить':
-					item[30]-=2
-					burden[you]-=item_burden[30]*2
-					m_slot[you]=10
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=2&burden[you]-=item_burden[30]*2&m_slot[you]=10&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			if item[30]>=3 and m_slot[you]=10:
 				act'Заточить':
-					item[30]-=3
-					burden[you]-=item_burden[30]*3
-					m_slot[you]=11
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=3&burden[you]-=item_burden[30]*3&m_slot[you]=11&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			if item[30]>=5 and m_slot[you]=11:
 				act'Заточить ':
-					item[30]-=5
-					burden[you]-=item_burden[30]*5
-					m_slot[you]=12
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'
-					act'...':gt $loc[you]
+					item[30]-=5&burden[you]-=item_burden[30]*5&m_slot[you]=12&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					'<<$name[npc]>> укрепляет и затачивает ваше оружие, а затем отдает ее вам.'&act'...':gt $loc[you]
 				end
 			end
 			act'...':gt $loc[you]
@@ -167,69 +122,45 @@ if Xhome[npc]=X[npc] and $loc[npc]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>
 	end
 	if m_slot[you]=0:
 		act'Просить саблю':
-			m_slot[you]=1
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> дает вам саблю охотника.'
-			act'...':gt $loc[you]
+			m_slot[you]=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> дает вам саблю охотника.'&act'...':gt $loc[you]
 		end
 	end
 	if w_slot[you]=0:
 		act'Просить пищаль':
-			w_slot[you]=1
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> дает вам пищаль охотника.'
-			act'...':gt $loc[you]
+			w_slot[you]=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> дает вам пищаль охотника.'&act'...':gt $loc[you]
 		end
 		act'Просить волшебную палочку':
-			w_slot[you]=2
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> дает вам волшебную палочку.'
-			act'...':gt $loc[you]
+			w_slot[you]=2&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> дает вам волшебную палочку.'&act'...':gt $loc[you]
 		end
 	end
 	if collar[you]>=1:
 		act'Просить снять с вас ошейник':
-			collar[you]=0
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> берет инструмент и быстро снимает с вас ошейник.'
-			act'...':gt $loc[you]
+			collar[you]=0&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> берет инструмент и быстро снимает с вас ошейник.'&act'...':gt $loc[you]
 		end
 	end
 	if lillQW>=1 and lillQW<=2 and lillblood=0:
 		act'Рассказать о бое с Лиллит':
-			lillblood=1
-			lillbloodday=daystart
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'Вы рассказываете что бились с демоницей Лиллит. <<$name[npc]>> задумчиво говорит - У тебя же должны были сохранится ее образцы крови.'
-			'<<$name[npc]>> берет пробы крови демоницы и говорит вам - Я попробую сделать что то, что сдержит ее силу. К примеру ошейник, если сработает, то такой ошейник не даст демонице применять демоническую силу.'
-			act'...':gt $loc[you]
+			lillblood=1&lillbloodday=daystart&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказываете что бились с демоницей Лиллит. <<$name[npc]>> задумчиво говорит '
+			'- У тебя же должны были сохранится ее образцы крови.'&*nl'<<$name[npc]>> берет пробы крови демоницы и говорит вам '
+			'- Я попробую сделать что то, что сдержит ее силу. К примеру ошейник, если сработает, то такой ошейник не даст демонице применять демоническую силу.'&act'...':gt $loc[you]
 		end
 	end 
 	if lillbloodday<daystart and lillblood=1:
 		act'Спросить об ошейнике для Лиллит':
-			lillblood=2
-			item[44]+=1
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> дает вам массивный ошейник - Если его одеть на Лиллит, она будет не опаснее девченки.'
-			act'...':gt $loc[you]
+			lillblood=2&item[44]+=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			'<<$name[npc]>> дает вам массивный ошейник - Если его одеть на Лиллит, она будет не опаснее девченки.'&act'...':gt $loc[you]
 		end
 	end
 	if lillblood=2 and item[44]=0 and lillQW<100 :
 		act'Сделай еще ошейник для Лиллит':
-			item[44]+=1
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> дает вам массивный ошейник - Куда ты их умудряешся девать?'
-			act'...':gt $loc[you]
+			item[44]+=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> дает вам массивный ошейник - Куда ты их умудряешся девать?'&act'...':gt $loc[you]
 		end
 	end
 	if a_anal['<<lillith>>,<<you>>']+a_bj['<<lillith>>,<<you>>']>1 and lillQW>=100 :
 		act'Сделай кляп пожалуйста...':
-			item[49]+=1
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			item[49]+=1&time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
 			'<<$name[npc]>> тебе зачем? для Лилит, что-ли? Неужели она балтает без передыху, я не замечал за ней такого с тех пор как она здесь...'
-			"Ну да... со мной она вечно... болтает... В общем сделай и все!"
-			"Странно посмотрел на вас и соорудил кляп, который застегиваеться на замок и руками без инструментов его не снять"
-			act'...':gt $loc[you]
+			"Ну да... со мной она вечно... болтает... В общем сделай и все!"&*nl"Странно посмотрел на вас и соорудил кляп, который застегиваеться на замок и руками без инструментов его не снять"
 		end
 	end	
 end

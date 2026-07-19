@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&belinda=i
-lvl[i]=1&soul[i]=700&!work[i]=26&subwork[i]=100
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&belinda=i&lvl[i]=1&soul[i]=700&!work[i]=26&subwork[i]=100
 master[i]=0&delusion[i]=0&magik[i]=0&mage[i]=0&!beliver[i]=100&lebeda_seed[i]=1
 spec_face_pic[i]=5&face_pic[i]=155&!фото
 $name[i]='Белинда'&$surname[i]='Велиган'&$nick[i]='Рыжая девушка'&$title[i]=''&$history[i]=''
@@ -10,10 +9,6 @@ face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&h
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1
 womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=0&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=10&!характер
-can_bj[i]=0&can_anal[i]=0
-w_slot[i]=0&!l_hand_t[i]=3&nose_p[i]=1
-h_slot[i]=0&ct_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
-t_slot[i]=15&l_slot[i]=0&b_slot[i]=6
-ut_slot[i]=10&ul_slot[i]=2&ub_slot[i]=5
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2&!$loc[i]='fv_tavern'
-lighthouse[]=i&!walkprog[i]=67&!npcii[i]=1
+h_slot[i]=0&ct_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=15&l_slot[i]=0&b_slot[i]=6&ut_slot[i]=10&ul_slot[i]=2&ub_slot[i]=5&w_slot[i]=0&!l_hand_t[i]=3&nose_p[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&lighthouse[]=i&!walkprog[i]=67
+!in_home[i]=2&!$loc[i]='fv_tavern'&!npcii[i]=1

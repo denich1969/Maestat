@@ -2,8 +2,7 @@
 act'Идти за женой':
 	X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
 	X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
-	cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-	'Пройдя за женой, вы посмотрели на нее'&*nl'<<$name[you]>> - Любимая, я видел как тебя ебали. Так от кого ты залетела?'
+	cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Пройдя за женой, вы посмотрели на нее'&*nl'<<$name[you]>> - Любимая, я видел как тебя ебали. Так от кого ты залетела?'
 	'Ваша жена, опустив глаза и краснея - Я точно не уверена, но вроде от <<$name[fat]>> <<$surname[fat]>>'
 	act'Развод':husband[npc]=0&husband[you]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[you]>> - Я немедленно ухожу от тебя!'&act'Уйти':gt 'preloc'
 	'<<$name[you]>> - И давно ты мне изменяешь?'
@@ -20,8 +19,7 @@ act'Идти за женой':
 				act'Ждать':
 					cuckold[you]=npc&cuckold[npc]=you&cancuck=1&if inseminate[npc]>0:fat=inseminate[npc]
 					X[fat]=Xhome[npc]&Y[fat]=Yhome[npc]&Z[fat]=Zhome[npc]&H[fat]=Hhome[npc]&R[fat]=Rhome[npc]
-					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[fat]>> <<$surname[fat]>> не заставил себя долго ждать видимо ему самому было интересно-каково это-ебать жену на глазах мужа'
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[fat]>> <<$surname[fat]>> не заставил себя долго ждать видимо ему самому было интересно-каково это-ебать жену на глазах мужа'
 					'Войдя в комнату, <<$name[fat]>> подошел к вашей жене, приобнял ее и уверенно поцеловал, при этом одна рука опустилась и начала гладить ее попу'
 					'<<$name[you]>>, видя вашу неловкость, отстранилась от своего любовника, и подойдя к вам, толкнула вас в кресло, склонилась над вами и поцеловала вас в губы'
 					'Руки вашей жены начали расстегивать ширинку ваших брюк, повернув голову, она кивнула любовнику'
@@ -29,30 +27,26 @@ act'Идти за женой':
 						friends['<<fat>>,<<you>>']+=100&friends['<<fat>>,<<npc>>']+=100&friends['<<you>>,<<npc>>']+=100
 						know['<<fat>>,<<you>>']+=1&know['<<fat>>,<<npc>>']+=1&know['<<you>>,<<npc>>']+=1
 						cls&gs'stat'
-						'<center><video src="pic/sex/bj/suck0.webm" ></video></center>'&'<<$name[fat]>>, подойдя к вашей жене, взял ее за бедра и начал тереться о ее попку'
+						'<center><video autoplay loop src="pic/sex/bj/suck0.webm" ></video></center>'&'<<$name[fat]>>, подойдя к вашей жене, взял ее за бедра и начал тереться о ее попку'
 						'<<$name[npc]>> вдруг встала на колени, приспустила его брюки, взяла одной рукой член, начала надрачивать, второй трогая его яйца'
 						'Увиденное вас сильно возбудило, член буквально выскочил из ваших брюк'&*nl'Жена, увидев это, слегка улыбнулась и спросила - Муж, тебя это возбуждает?'
 						'<<$name[you]>> - Дддааа'&*nl'<<$name[npc]>> взяла член своего любовника и начала сосать, смотря вам в глаза, опустила руку и начала гладить свою киску'
 						act'Смотреть':
-							bj[npc]+=1&abj[you]+=1
-							cls&gs'stat'&'<center><video src="pic/sex/group/spitroast/vd1.webm" ></video></center>'
+							bj[npc]+=1&abj[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/group/spitroast/vd1.webm" ></video></center>'
 							'Посасывая член, <<$name[npc]>> начала трахать себя пальчиками в киску, второй рукой взяла ваш член и сжала головку'
 							'Увидев что любовник скоро кончит, <<$name[npc]>> встала на коленки, взяла ваш член в ротик и начала сосать, шлепнув себя по попке'
 							'<<$name[fat]>> встал на колени, надрачивая член приподнял юбку вашей жены и резко вогнал член в киску, начал долбить ее'
 							act'...':
 								vag[npc]+=1&vagsex[npc]+=1&avagsex[fat]+=1&horny[npc]=0&horny[fat]=0&horny[you]=0&cuckold[you]=1&cum_face[npc]=time+60&creampie_cum[npc]=time+60
-								cls&gs'stat'&'<center><video src="pic/sex/group/spitroast/vd7.webm" ></video></center>'&'Ваша жена начала стонать с вашим хуем во рту, вы чуствуете как она сжимает его губами'
+								cls&gs'stat'&'<center><video autoplay loop src="pic/sex/group/spitroast/vd7.webm" ></video></center>'&'Ваша жена начала стонать с вашим хуем во рту, вы чуствуете как она сжимает его губами'
 								'<<$name[fat]>> застонал и начал кончать в киску вашей жены'&*nl	'<<$name[you]>> - Я сейчас кончу'&*nl'<<$name[npc]>> - Кончай любимый'
 								'<<$name[npc]>> еще сильнее сжала член губками'
 								act'Кончить':
 									cls
-									$global_npc_log[fat]+='<br>'
-									$global_npc_log[fat]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> дала мне на глазах у мужа.'
-									$global_npc_log[npc]+='<br>'
-									$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я отсосала мужу и <<$name[fat]>> <<$surname[fat]>> трахнул меня в киску.'
-									$global_npc_log[you]+='<br>'
-									$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Моя жена отсосала мне и <<$name[fat]>> <<$surname[fat]>> выебал ее.'
-									gs'stat'&'<center><video src="pic/sex/group/spitroast/vd8.webm" ></video></center>'&'Вы начали кончать в ротик вашей жены, спуская в нее свою сперму'
+									$global_npc_log[fat]+='<br>'&$global_npc_log[fat]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> дала мне на глазах у мужа.'
+									$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я отсосала мужу и <<$name[fat]>> <<$surname[fat]>> трахнул меня в киску.'
+									$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Моя жена отсосала мне и <<$name[fat]>> <<$surname[fat]>> выебал ее.'
+									gs'stat'&'<center><video autoplay loop src="pic/sex/group/spitroast/vd8.webm" ></video></center>'&'Вы начали кончать в ротик вашей жены, спуская в нее свою сперму'
 									'<<$name[npc]>> приподнялась, села вам на коленки, и поцеловала в губы, вы почувствовали вкус собственной спермы'&*nl'<<$name[npc]>> Любимый, я еще не кончила...'
 									act'Удовлетворить жену':cls&gs'drop_follower'&gs'sexpower'&gt'justsex'
 								end

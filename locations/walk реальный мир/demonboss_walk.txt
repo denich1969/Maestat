@@ -2,8 +2,8 @@
 if mob_sleep[w]>=time and mob_busy[w]>0:
 	$think[w]='zzzzz в отключке'&if mob_busy[w]>0:mob_sleep[w]=time+60&mob_busy[w]=0
 else
-     if hour>=22 or hour<=6:
-		 $doing[w]='спит'
+    if hour>=22 or hour<=6:
+		$doing[w]='спит'
 	else
 		if demonbosssubwork=0:
 			$doing[w]='смотрит на вас с плохо скрываемым презрением'&$loc[w]='1,1,200,1,2'&!$loc[w]='ofis'

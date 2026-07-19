@@ -3,58 +3,60 @@ if X[you]=X[runemaster] and Y[you]=Y[runemaster] and Z[you]=Z[runemaster] and H[
 	if money[you]>=1000:
 		 if tongue_p[you]=0:
 			 act'Штанга в язык':
-				 money[you]-=1000&tongue_p[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_ton.webm" ></video></center>'&'Вам прокололи язык и вставили туда штангу'&act'...':gt $curloc
+				 money[you]-=1000&tongue_p[you]=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_ton.webm" ></video></center>'&'Вам прокололи язык и вставили туда штангу'&act'...':gt $curloc
 			 end
 		 end
 		 if nose_p[you]=0:
 			 act'Колечко в нос':
-				 money[you]-=1000&nose_p[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_nose.webm" ></video></center>'&'Вам прокололи нос и вставили туда колечко'&act'...':gt $curloc
+				 money[you]-=1000&nose_p[you]=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_nose.webm" ></video></center>'&'Вам прокололи нос и вставили туда колечко'&act'...':gt $curloc
 			 end
 		 end
 		 if nose_p[you]=1:
 			 act'Большое кольцо в нос':
-				 money[you]-=1000&nose_p[you]=2&item[287]+=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_nose.webm" ></video></center>'&'Вам прокололи нос и вставили туда большое кольцо'
+				 money[you]-=1000&nose_p[you]=2&item[287]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_nose.webm" ></video></center>'&'Вам прокололи нос и вставили туда большое кольцо'
 				 act'...':gt $curloc
 			 end
 		 end
 		 if nip_p[you]<3:
 			 if nip_p[you]!1:
 				 act'Штангу в соски':
-					 money[you]-=1000&nip_p[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_tits.webm" ></video></center>'&'Вам прокололи соски и вставили туда штангу'&act'...':gt $curloc
+					 money[you]-=1000&nip_p[you]=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_tits.webm" ></video></center>'&'Вам прокололи соски и вставили туда штангу'&act'...':gt $curloc
 				 end
 			 end
 			 if nip_p[you]!2:
 				 act'Кольца в соски':
-					 money[you]-=1000&nip_p[you]=2&item[289]+=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_tits.webm" ></video></center>'&'Вам прокололи соски и вставили туда колечки'&act'...':gt $curloc
+					 money[you]-=1000&nip_p[you]=2&item[289]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_tits.webm" ></video></center>'
+					'Вам прокололи соски и вставили туда колечки'&act'...':gt $curloc
 				 end
 			 end
 			 if nip_p[you]!3:
 				 act'Огромные кольца в соски':
-					 money[you]-=1000&nip_p[you]=3&item[290]+=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_tits.webm" ></video></center>'&'Вам прокололи соски и вставили туда огромные кольца'
-					 act'...':gt $curloc
+					 money[you]-=1000&nip_p[you]=3&item[290]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_tits.webm" ></video></center>'
+					'Вам прокололи соски и вставили туда огромные кольца'&act'...':gt $curloc
 				 end
 			 end
 		 end
 		 if vag_pirs[you]<3 and vag[you]>0:
 			 if vag_pirs[you]!1:
 				 act'Штангу в клитор':
-					 money[you]-=1000&vag_pirs[you]=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></video></center>'&'Вам прокололи клитор и вставили туда штангу'&act'...':gt $curloc
+					 money[you]-=1000&vag_pirs[you]=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_clit.webm" ></video></center>'&'Вам прокололи клитор и вставили туда штангу'&act'...':gt $curloc
 				 end
 			 end
 			 if vag_pirs[you]!2:
 				 act'Кольцо в клитор':
-					 money[you]-=1000&vag_pirs[you]=2&item[292]+=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></video></center>'&'Вам прокололи клитор и вставили туда колечки'&act'...':gt $curloc
+					money[you]-=1000&vag_pirs[you]=2&item[292]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_clit.webm" ></video></center>'
+					'Вам прокололи клитор и вставили туда колечки'&act'...':gt $curloc
 				 end
 			 end
 			 if vag_pirs[you]!3:
 				 act'Пирсинг всей промежности':
 					 money[you]-=1000&vag_pirs[you]=3&item[293]+=1&!act'Огромное кольцо в клитор':
-					 cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></video></center>'&'Вам прокололи клитор и половые губы и вставили туда пирсинг'&act'...':gt $curloc
+					 cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_clit.webm" ></video></center>'&'Вам прокололи клитор и половые губы и вставили туда пирсинг'&act'...':gt $curloc
 				 end
 			 end
 			  if vag_pirs[you]!4:
 				act'Повесить на клитор колокольчик':
-					 money[you]-=1000&vag_pirs[you]=4&item[294]+=1&cls&gs'stat'&'<center><video src="pic/misc/pirs_clit.webm" ></video></center>'
+					 money[you]-=1000&vag_pirs[you]=4&item[294]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_clit.webm" ></video></center>'
 					 'Вам прокололи клитор и внели в него кольцо с прицепленным колокольчиком'&act'...':gt $curloc
 				 end
 			 end

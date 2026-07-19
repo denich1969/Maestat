@@ -1,95 +1,71 @@
 ﻿if pose[you]=1:act'<b>Уйти</b>':time+=1&gt'master_korr'
 gs'item'&gs'npconloc'
 if pose[you]=1:
-	 if energized[you]<4:
-	     if item[17]>0 or item[18]>0 or item[19]>0:
-			 act'Мыться':
-				 energy[you]+=10&energized[you]+=6
-				 status_tipe[you]=1&status_time[you]=time+120
-				 time+=60&cls&gs'rashod_mila'&gs'stat'&'Вы целый час моетесь в белоснежной ванне.'
-				 if pol[you]>0:'<center><video src="pic/misc/shower.webm" ></center>'
-				 act'...':gt $curloc
-				 if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
-					 act'Тереть клитор':
-						 jerk[you]+=1&horny[you]=0&energy[you]+=5
-						 time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/shower.webm" ></center>'
-						 'Вы направили тугую струю на низ живота и немного на лепестки влагалища, начав тереть ладошкой клитор и оргазм не заставил себя ждать.'
-						 act'Встать':gt $curloc
-					 end
-				 end
-			 end
-		 end
-	 end
-	 if thirst[you]>0:act'Пить':openinv=0&time+=5&cls&gs'drink'&gs'walker'&gt $curloc
-	 if item[2]>0 and (burden[you]-item_burden[2]+item_burden[3])<=burdenmax[you]:
-		 act'Налить бутылку воды':
-			 item[2]-=1&burden[you]-=item_burden[2]
-			 item[3]+=1&burden[you]+=item_burden[3]
-			 time+=5&gs'walker'&gt $curloc
-		 end
-	 end
-	 if cum_face[you]>0:
-		 act'Стереть сперму с лица':
-			 time+=5&cls&gs'stat'& 'Вы старательно отчистили лицо от следов спермы'
-			 if cum_face[you]<6:'<center><img src="pic/1/cum/face<<cum_face[you]>>.jpg" ></center>'
-			 if cum_face[you]>=6:'<center><img src="pic/1/cum/face6.jpg" ></center>'
-			 act'<b>Уйти</b>':cum_face[you]=0&gt 'world'
-		 end
-	 end
-	 if cum_clo[you]>0:
-		 act'Стереть сперму с одежды':
-			 cum_clo[you]=0
-			 time+=5&cls&gs'stat'&'<center><img src="pic/1/cum/skirt.jpg" ></center>'&'Вы старательно отчистили юбку от следов спермы'
-			 act'<b>Уйти</b>':gt 'world'
-		 end
-	 end
-	 if beard[you]>=1 and item[14]>0:
-		 act'Бриться':
-			 beard[you]=-1
-			 item[14]-=1&burden[you]-=item_burden[14]
-			 item[15]+=1&burden[you]+=item_burden[15]
-			 time+=15&cls&gs'stat'& 'Вы 15 минут бреете бороду в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&!if pol[you]>0:'<center><video src="pic/misc/shower.webm" ></center>'
-			 act'...':gt $curloc
-		 end
-	 end
-	 if leg_hair[you]>0 and pol[you]>0 and item[14]>0:
-		 act'Брить ноги':
-			 leg_hair[you]=-5
-			 item[14]-=1&burden[you]-=item_burden[14]
-			 item[15]+=1&burden[you]+=item_burden[15]
-			 time+=15&cls&gs'stat'&'<center><img src="pic/misc/leg.jpg" ></center>'
-			 'Вы 15 минут бреете ноги в ванной. После использования станка лезвие затупилось и вы его выбрасываете'
-			 act'...':gt $curloc
-		 end
-	 end
-	 if tit_hair[you]>0 and pol[you]>0 and item[14]>0:
-		 act'Брить грудь':
-			 tit_hair[you]=-5
-			 item[14]-=1&burden[you]-=item_burden[14]
-			 item[15]+=1&burden[you]+=item_burden[15]
-			 time+=15&cls&gs'stat'&'Вы 15 минут бреете грудь в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&!'<center><img src="pic/misc/leg.jpg" ></center>'
-			 act'...':gt $curloc
-		 end
-	 end
+	if energized[you]<4:
+	    if item[17]>0 or item[18]>0 or item[19]>0:
+			act'Мыться':
+				energy[you]+=10&energized[you]+=6&status_tipe[you]=1&status_time[you]=time+120&time+=60&cls&gs'rashod_mila'&gs'stat'&'Вы целый час моетесь в белоснежной ванне.'&act'...':gt $curloc
+				if pol[you]>0:'<center><video autoplay loop src="pic/misc/shower.webm" ></center>'
+				if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
+					act'Тереть клитор':
+						jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/shower.webm" ></center>'
+						'Вы направили тугую струю на низ живота и немного на лепестки влагалища, начав тереть ладошкой клитор и оргазм не заставил себя ждать.'&act'Встать':gt $curloc
+					end
+				end
+			end
+		end
+	end
+	if thirst[you]>0:act'Пить':openinv=0&time+=5&cls&gs'drink'&gs'walker'&gt $curloc
+	if item[2]>0 and (burden[you]-item_burden[2]+item_burden[3])<=burdenmax[you]:
+		act'Налить бутылку воды':item[2]-=1&burden[you]-=item_burden[2]&item[3]+=1&burden[you]+=item_burden[3]&time+=5&gs'walker'&gt $curloc
+	end
+	if cum_face[you]>0:
+		act'Стереть сперму с лица':
+			time+=5&cls&gs'stat'& 'Вы старательно отчистили лицо от следов спермы'&act'<b>Уйти</b>':cum_face[you]=0&gt 'world'
+			if cum_face[you]<6:'<center><img src="pic/1/cum/face<<cum_face[you]>>.jpg" ></center>'
+			if cum_face[you]>=6:'<center><img src="pic/1/cum/face6.jpg" ></center>'
+		end
+	end
+	if cum_clo[you]>0:
+		act'Стереть сперму с одежды':
+			cum_clo[you]=0&time+=5&cls&gs'stat'&'<center><img src="pic/1/cum/skirt.jpg" ></center>'&'Вы старательно отчистили юбку от следов спермы'&act'<b>Уйти</b>':gt 'world'
+		end
+	end
+	if beard[you]>=1 and item[14]>0:
+		act'Бриться':
+			beard[you]=-1&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]&!if pol[you]>0:'<center><video autoplay loop src="pic/misc/shower.webm" ></center>'
+			time+=15&cls&gs'stat'& 'Вы 15 минут бреете бороду в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
+		end
+	end
+	if leg_hair[you]>0 and pol[you]>0 and item[14]>0:
+		act'Брить ноги':
+			leg_hair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]&time+=15&cls&gs'stat'&'<center><img src="pic/misc/leg.jpg" ></center>'
+			'Вы 15 минут бреете ноги в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
+		end
+	end
+	if tit_hair[you]>0 and pol[you]>0 and item[14]>0:
+		act'Брить грудь':
+			tit_hair[you]=-5&item[14]-=1&burden[you]-=item_burden[14]&item[15]+=1&burden[you]+=item_burden[15]&!'<center><img src="pic/misc/leg.jpg" ></center>'
+			time+=15&cls&gs'stat'&'Вы 15 минут бреете грудь в ванной. После использования станка лезвие затупилось и вы его выбрасываете'&act'...':gt $curloc
+		end
+	end
 	if $npc_loc='':
-		 if horny[you]>=50 and energy[you]>=5 and dick[you]>1 and ball[you]>1:
-			 act'Дрочить член':
-				 jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'
-				 if dick[you]>5:
-					 '<center><video src="pic/sex/solo/wank.webm" ></center>'
-					 'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
-				 else
-					 '<center><video src="pic/sex/solo/wank0.webm" ></center>'
-					 'Вы теребите пальчиками свой крошечный членик длинной <<dick[you]>> сантиметров и практически моментально ваш бесполезный отросток кончает маленькой капелькой семени.'
-				 end
-				act'Встать':gt $curloc
+		if horny[you]>=50 and energy[you]>=5 and dick[you]>1 and ball[you]>1:
+			act'Дрочить член':
+				jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'&act'Встать':gt $curloc
+				if dick[you]>5:
+					'<center><video autoplay loop src="pic/sex/solo/wank.webm" ></center>'&'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
+				else
+					'<center><video autoplay loop src="pic/sex/solo/wank0.webm" ></center>'
+					'Вы теребите пальчиками свой крошечный членик длинной <<dick[you]>> сантиметров и практически моментально ваш бесполезный отросток кончает маленькой капелькой семени.'
+				end
 			 end
-		 end
-		 if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
-			 act'Тереть клитор':
-				 jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video src="pic/sex/solo/shlik.webm" ></center>'
-				 'Нащупав горошину клитора, вы начали ее теребить и через некоторое время вас охватил оргазм.'&act'Встать':gt $curloc
-			 end
-		 end
+		end
+		if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
+			act'Тереть клитор':
+				jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/shlik.webm" ></center>'
+				'Нащупав горошину клитора, вы начали ее теребить и через некоторое время вас охватил оргазм.'&act'Встать':gt $curloc
+			end
+		end
 	end	
 end

@@ -9,15 +9,15 @@ else
 	 else
         if skin[ddd]>3 and skin[ddd]<7:
              if dick[sss]>1:
-	             '<center><video src="pic/sex/degraded/badfit_s<<rand(0,20)>>.webm" ></video></center>'
+	             '<center><video autoplay loop src="pic/sex/degraded/badfit_s<<rand(0,20)>>.webm" ></video></center>'
 	         else
-	             '<center><video src="pic/sex/degraded/blackbull<<rand(0,30)>>.webm" ></video></center>'
+	             '<center><video autoplay loop src="pic/sex/degraded/blackbull<<rand(0,30)>>.webm" ></video></center>'
 	         end
 	    else
 	         if dick[sss]>1:
-	             '<center><video src="pic/sex/degraded/fuckeds<<rand(0,4)>>.webm" ></video></center>'
+	             '<center><video autoplay loop src="pic/sex/degraded/fuckeds<<rand(0,4)>>.webm" ></video></center>'
 	         else
-	             '<center><video src="pic/sex/degraded/fucked<<rand(0,41)>>.webm" ></video></center>'
+	             '<center><video autoplay loop src="pic/sex/degraded/fucked<<rand(0,41)>>.webm" ></video></center>'
 	         end
 	    end
 	     '<<$name[sss]>> <<$surname[sss]>> стонет когда <<$name[ddd]>> <<$surname[ddd]>> долбит ее'

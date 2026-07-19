@@ -1,12 +1,10 @@
 ﻿!rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
 if mob_sleep[w]>=time and mob_busy[w]>0:
-	$think[w]='zzzzz в отключке'
-	if mob_busy[w]=1:mob_sleep[w]=time+60
-	mob_busy[w]=0
+	$think[w]='zzzzz в отключке'&if mob_busy[w]>0:mob_sleep[w]=time+60&mob_busy[w]=0
 else
     if hour>=22 or hour<=6:
-		 X[w]=Xhome[w]&Y[w]=Yhome[w]&Z[w]=Zhome[w]&H[w]=Hhome[w]&R[w]=Rhome[w]&in_home[w]=1&!спит дома
-		 $loc[w]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>'
+		X[w]=Xhome[w]&Y[w]=Yhome[w]&Z[w]=Zhome[w]&H[w]=Hhome[w]&R[w]=Rhome[w]&in_home[w]=1&!спит дома
+		$loc[w]='<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>'
 	elseif hour>=18 or hour<22:
 		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
 			in_home[w]=1&$doing[w]=''&!$loc[w]=''

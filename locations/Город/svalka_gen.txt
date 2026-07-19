@@ -1,23 +1,12 @@
-﻿X=0&Y=0&Z=1000&H=0&R=0
-X=1000
-XsvalkaStart=1000
-XsvalkaEnd=900
+﻿X=0&Y=0&Z=1000&H=0&R=0&X=1000&XsvalkaStart=1000&XsvalkaEnd=900
 :markCreateSavalka
 Y=0&H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if X>=980:
-	$locname['<<$temploc>>']='Свалка'
-	$locopis['<<$temploc>>']='Горы гниющего мусора и бесполезного хлама'
-	np['<<$temploc>>']=999
-	maxPositionD['<<X>>']=0&!0 домов
+	$locname['<<$temploc>>']='Свалка'&$locopis['<<$temploc>>']='Горы гниющего мусора и бесполезного хлама'&np['<<$temploc>>']=999&maxPositionD['<<X>>']=0&!0 домов
 else
-	$locname['<<$temploc>>']='Руины'
-	$locopis['<<$temploc>>']='Руины города, дома стоят с выбитыми окнами и практически все разрушены'
-	np['<<$temploc>>']=rand(1,4)
-	maxPositionD['<<X>>']=0&!10 домов
+	$locname['<<$temploc>>']='Руины'&$locopis['<<$temploc>>']='Руины города, дома стоят с выбитыми окнами и практически все разрушены'&np['<<$temploc>>']=rand(1,4)&maxPositionD['<<X>>']=0&!10 домов
 end
-!'if H<maxPositionH['<<X>>,<<Y>>,<<Z>>']:H+=1&kvarnomer+=1&jump'markKvarCreate'
-if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>']:
-     if D<maxPositionD['<<X>>']:D+=1&domnomer+=1&jump'markdcreate'
-end'
+!if H<maxPositionH['<<X>>,<<Y>>,<<Z>>']:H+=1&kvarnomer+=1&jump'markKvarCreate'
+!if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D<maxPositionD['<<X>>']:D+=1&domnomer+=1&jump'markdcreate'
 !if H>=maxPositionH['<<X>>,<<Y>>,<<Z>>'] and D>=maxPositionD['<<X>>']:
-if X>900:X-=1&jump'markCreateSavalka'
+!if X>900:X-=1&jump'markCreateSavalka'

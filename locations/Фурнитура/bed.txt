@@ -58,7 +58,7 @@ act'Спать':
 	:anothersleep
 		time+=60&gs'stat'&gs'walker'
 	if hour>=22 or hour<7:jump'anothersleep'
-	if blockneed=1 and pol[you]>0:'<center><video src="pic/event\sleepclo.webm" ></center>'&wait 500
+	if blockneed=1 and pol[you]>0:'<center><video autoplay loop src="pic/event\sleepclo.webm" ></center>'&wait 500
 	if blockneed=1 and pol[you]=0:'<center><img src="pic/event/sleepmclo.jpg" ></center>'&wait 500
 	if vag[you]>0 and blockneed=2:
 		if inseminate[you]>0:

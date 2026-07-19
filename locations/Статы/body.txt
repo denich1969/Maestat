@@ -6,18 +6,18 @@ if face[num]>=50 and ass[num]>=20:
 	pol[num]=1&!100% вариант для pol[num]=1 (Т.е. дефолт)
 else
 	pol[num]=0&!далее  идут исключения.
-   if face[num]>=80:pol[num]=1& !Вариант для "Фембоев" и женщин с маленькой задницей, но с превликательным, женственным лицом.
-   if vag[num]>0 and face[num]>20 and dick[num]=0:pol[num]=1& !Вариант для "Страшных-тёток", т.е. наличие женских половых органов, но с низким значением лица.
+	if face[num]>=80:pol[num]=1& !Вариант для "Фембоев" и женщин с маленькой задницей, но с превликательным, женственным лицом.
+	if vag[num]>0 and face[num]>20 and dick[num]=0:pol[num]=1& !Вариант для "Страшных-тёток", т.е. наличие женских половых органов, но с низким значением лица.
 end
 if pol[num]=0:
-     if dick[num]>0 and vag[num]=0:gender[num]=0&$gendername[num]='Мужчина'
-     if vag[num]>0 and dick[num]>0 and tit[num]<4:gender[num]=2&$gendername[num]='Кунтбой'
-     if vag[num]>0 and dick[num]>0 and tit[num]>3:gender[num]=5&$gendername[num]='Фембой'
+    if dick[num]>0 and vag[num]=0:gender[num]=0&$gendername[num]='Мужчина'
+    if vag[num]>0 and dick[num]>0 and tit[num]<4:gender[num]=2&$gendername[num]='Кунтбой'
+    if vag[num]>0 and dick[num]>0 and tit[num]>3:gender[num]=5&$gendername[num]='Фембой'
 end
 if pol[num]=1:
-     if dick[num]>0 and vag[num]>0 and tit[num]<4:gender[num]=3&$gendername[num]='Шимейл'
-     if dick[num]>0 and vag[num]>0 and tit[num]>3:gender[num]=4&$gendername[num]='Фунтари'
-     if vag[num]>0 and dick[num]=0:gender[num]=1&$gendername[num]='Женщина'
+    if dick[num]>0 and vag[num]>0 and tit[num]<4:gender[num]=3&$gendername[num]='Шимейл'
+    if dick[num]>0 and vag[num]>0 and tit[num]>3:gender[num]=4&$gendername[num]='Фунтари'
+    if vag[num]>0 and dick[num]=0:gender[num]=1&$gendername[num]='Женщина'
 end
 !* ---------------------------------- ЛИЦО ---------------------------------- *!
 if face[num]<0:face[num]=0
@@ -131,9 +131,9 @@ if mutation[num]>=75:$hlong[num]+=', сквозь волосы торчат пр
 hairlong[num]=iif(hlong[num]<=25,0,1)
 if beard[num]<=0 and mustage[num]>0:mustage[num]=0
 if mustage[num]=0:
-	 if beard[num]>=1 and beard[num]<=25:$face[num]+=', на лице короткая <<$hcola[num]>> щетина'
-	 if beard[num]>25 and beard[num]<=75:$face[num]+=', на лице окладистая <<$hcola[num]>> борода'
-	 if beard[num]>75:$face[num]+=', лицо закрывает длинная <<$hcola[num]>> борода'
+	if beard[num]>=1 and beard[num]<=25:$face[num]+=', на лице короткая <<$hcola[num]>> щетина'
+	if beard[num]>25 and beard[num]<=75:$face[num]+=', на лице окладистая <<$hcola[num]>> борода'
+	if beard[num]>75:$face[num]+=', лицо закрывает длинная <<$hcola[num]>> борода'
 else
 	$face[num]+=', на лице усы'
 end
@@ -172,33 +172,33 @@ weigth[num]=(rost[num]*50/180)+(2*args[100]+mus[num]*4)/320+tit[num]/2&waist[num
 if demon_dick[num]>0:waist[num]-=demon_dick[num]/2
 breast[num]=waist[num]+4+tits[num]*3/2&hips[num]=waist[num]+1+ass[num]&fp_temp=fat[num]/100&biceps[num]=(rost[num]/10)+(fat[num]/1000)+(mus[num]/100)&$bodybuild[num]=''
 if mus[num]>fat[num]:
-     if mus[num]>=5000:$bodybuild[num]='Тело с огромными мышцами.'&bodypic[num]=iif(pol[num]>0,11,11)
-     if mus[num]<5000 and mus[num]>=3000:$bodybuild[num]='Тело с большими мышцами.'&bodypic[num]=iif(pol[num]>0,10,10)
-     if mus[num]<3000 and mus[num]>=2000:$bodybuild[num]='Мускулистое тело.'&bodypic[num]=iif(pol[num]>0,9,9)
-     if mus[num]<2000 and mus[num]>=1500:$bodybuild[num]='Атлетичное тело.'&bodypic[num]=iif(pol[num]>0,8,8)
-     if mus[num]<1500 and mus[num]>=800:$bodybuild[num]='Худое тело с выделяющимися мышцами.'&bodypic[num]=iif(pol[num]>0,7,7)
-     if mus[num]<800:$bodybuild[num]='Тощее костистое тело.'&bodypic[num]=iif(pol[num]>0,6,6)
+    if mus[num]>=5000:$bodybuild[num]='Тело с огромными мышцами.'&bodypic[num]=iif(pol[num]>0,11,11)
+    if mus[num]<5000 and mus[num]>=3000:$bodybuild[num]='Тело с большими мышцами.'&bodypic[num]=iif(pol[num]>0,10,10)
+    if mus[num]<3000 and mus[num]>=2000:$bodybuild[num]='Мускулистое тело.'&bodypic[num]=iif(pol[num]>0,9,9)
+    if mus[num]<2000 and mus[num]>=1500:$bodybuild[num]='Атлетичное тело.'&bodypic[num]=iif(pol[num]>0,8,8)
+    if mus[num]<1500 and mus[num]>=800:$bodybuild[num]='Худое тело с выделяющимися мышцами.'&bodypic[num]=iif(pol[num]>0,7,7)
+    if mus[num]<800:$bodybuild[num]='Тощее костистое тело.'&bodypic[num]=iif(pol[num]>0,6,6)
 else
-     if fat[num]>=3000:$bodybuild[num]='Рыхлое, жирное тело'&bodypic[num]=iif(pol[num]>0,5,5)
-     if fat[num]<3000 and fat[num]>=2500:$bodybuild[num]='Жирное тело.'&bodypic[num]=iif(pol[num]>0,4,4)
-     if fat[num]<2500 and fat[num]>=2000:$bodybuild[num]='Пухлое тело.'&bodypic[num]=iif(pol[num]>0,3,3)
-     if fat[num]<2000 and fat[num]>=1500:$bodybuild[num]=$iif(pol[num]>0,'Формастое тело.','Жирноватое тело.')&bodypic[num]=iif(pol[num]>0,2,2)
-     if fat[num]<1500 and fat[num]>=800:$bodybuild[num]=$iif(pol[num]>0,'Стройное тело.','Мягкое тело без видимой мускулатуры.')&bodypic[num]=iif(pol[num]>0,1,1)
-     if fat[num]<800:$bodybuild[num]='Худощавое тело, на котором не заметно мускулатуры.'&bodypic[num]=iif(pol[num]>0,0,0)
+    if fat[num]>=3000:$bodybuild[num]='Рыхлое, жирное тело'&bodypic[num]=iif(pol[num]>0,5,5)
+    if fat[num]<3000 and fat[num]>=2500:$bodybuild[num]='Жирное тело.'&bodypic[num]=iif(pol[num]>0,4,4)
+    if fat[num]<2500 and fat[num]>=2000:$bodybuild[num]='Пухлое тело.'&bodypic[num]=iif(pol[num]>0,3,3)
+    if fat[num]<2000 and fat[num]>=1500:$bodybuild[num]=$iif(pol[num]>0,'Формастое тело.','Жирноватое тело.')&bodypic[num]=iif(pol[num]>0,2,2)
+    if fat[num]<1500 and fat[num]>=800:$bodybuild[num]=$iif(pol[num]>0,'Стройное тело.','Мягкое тело без видимой мускулатуры.')&bodypic[num]=iif(pol[num]>0,1,1)
+    if fat[num]<800:$bodybuild[num]='Худощавое тело, на котором не заметно мускулатуры.'&bodypic[num]=iif(pol[num]>0,0,0)
 end
 if skin[num]>=4:
 	if mus[num]>fat[num]:
-		 if mus[num]>=3000:$bodybuild[num]='Тело с огромными мышцами.'&bodypic[num]=iif(pol[num]>0,53,34)
-		 if mus[num]<3000 and mus[num]>=2000:$bodybuild[num]='Мускулистое тело.'&bodypic[num]=iif(pol[num]>0,52,33)
-		 if mus[num]<2000 and mus[num]>=1500:$bodybuild[num]='Атлетичное тело.'&bodypic[num]=iif(pol[num]>0,51,32)
-		 if mus[num]<1500 and mus[num]>=800:$bodybuild[num]='Худощавое тело с выделяющимися мышцами.'&bodypic[num]=iif(pol[num]>0,50,31)
+		if mus[num]>=3000:$bodybuild[num]='Тело с огромными мышцами.'&bodypic[num]=iif(pol[num]>0,53,34)
+		if mus[num]<3000 and mus[num]>=2000:$bodybuild[num]='Мускулистое тело.'&bodypic[num]=iif(pol[num]>0,52,33)
+		if mus[num]<2000 and mus[num]>=1500:$bodybuild[num]='Атлетичное тело.'&bodypic[num]=iif(pol[num]>0,51,32)
+		if mus[num]<1500 and mus[num]>=800:$bodybuild[num]='Худощавое тело с выделяющимися мышцами.'&bodypic[num]=iif(pol[num]>0,50,31)
 	else
-		 if fat[num]>=3000:$bodybuild[num]='Рыхлое, жирное тело.'&bodypic[num]=iif(pol[num]>0,53,35)
-		 if fat[num]<3000 and fat[num]>=2500:$bodybuild[num]='Жирное тело.'&bodypic[num]=iif(pol[num]>0,52,36)
-		 if fat[num]<2500 and fat[num]>=2000:$bodybuild[num]='Пухлое тело.'&bodypic[num]=iif(pol[num]>0,51,37)
-		 if fat[num]<2000 and fat[num]>=1500:$bodybuild[num]=$iif(pol[num]>0,'Формастое тело.','Жирноватое тело.')&bodypic[num]=iif(pol[num]>0,51,38)
-		 if fat[num]<1500 and fat[num]>=800:$bodybuild[num]=$iif(pol[num]>0,'Стройное тело.','Мягкое тело без видимой мускулатуры.')&bodypic[num]=iif(pol[num]>0,50,39)
-		 if fat[num]<800:$bodybuild[num]='Худощавое тело, на котором не заметно мускулатуры.'&bodypic[num]=iif(pol[num]>0,50,39)
+		if fat[num]>=3000:$bodybuild[num]='Рыхлое, жирное тело.'&bodypic[num]=iif(pol[num]>0,53,35)
+		if fat[num]<3000 and fat[num]>=2500:$bodybuild[num]='Жирное тело.'&bodypic[num]=iif(pol[num]>0,52,36)
+		if fat[num]<2500 and fat[num]>=2000:$bodybuild[num]='Пухлое тело.'&bodypic[num]=iif(pol[num]>0,51,37)
+		if fat[num]<2000 and fat[num]>=1500:$bodybuild[num]=$iif(pol[num]>0,'Формастое тело.','Жирноватое тело.')&bodypic[num]=iif(pol[num]>0,51,38)
+		if fat[num]<1500 and fat[num]>=800:$bodybuild[num]=$iif(pol[num]>0,'Стройное тело.','Мягкое тело без видимой мускулатуры.')&bodypic[num]=iif(pol[num]>0,50,39)
+		if fat[num]<800:$bodybuild[num]='Худощавое тело, на котором не заметно мускулатуры.'&bodypic[num]=iif(pol[num]>0,50,39)
 	end
 end
 $d_bodyview={
@@ -247,15 +247,14 @@ if tit[num]>0:$full_tits[num]='<a class="plain" href="exec:dynamic $d_titsview">
 tslottemp=t_slot[num]
 if invis_t[tslottemp]=1 and t_slot[num]>0 and ut_slot[num]=0:
 	if tit[num]=0:$tits[num]=$iif(mus[num]>=2000 and mus[num]>fat[num],'Мускулистая грудь с <<$nip[num]>>','Плоская грудь с <<$nip[num]>>')
-	!if tit[num]=0:$tits[num]='Плоская грудь с <<$nip[num]>>'
-	 if tit[num]=1:$tits[num]='Крошечная остренькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
-	 if tit[num]=2:$tits[num]='Маленькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
-	 if tit[num]=3:$tits[num]='Округлая грудь <<tit[num]>>го размера с <<$nip[num]>>'
-	 if tit[num]=4:$tits[num]='Объемная грудь <<tit[num]>>го размера с <<$nip[num]>>'
-	 if tit[num]=5:$tits[num]='Большая грудь <<tit[num]>>го размера с <<$nip[num]>>'
-	 if tit[num]>=6:$tits[num]='Огромная грудь <<tit[num]>>го размера с <<$nip[num]>>'
-	 if tit_hair[num]>0:$tits[num]+=', на груди растут волосы'
-	 if tit_hair[num]<=0:$tits[num]+=', грудь гладкая и блестящая, без единого волоска'
+	if tit[num]=1:$tits[num]='Крошечная остренькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tit[num]=2:$tits[num]='Маленькая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tit[num]=3:$tits[num]='Округлая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tit[num]=4:$tits[num]='Объемная грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tit[num]=5:$tits[num]='Большая грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tit[num]>=6:$tits[num]='Огромная грудь <<tit[num]>>го размера с <<$nip[num]>>'
+	if tit_hair[num]>0:$tits[num]+=', на груди растут волосы'
+	if tit_hair[num]<=0:$tits[num]+=', грудь гладкая и блестящая, без единого волоска'
 end
 if tit[num]>0:$tits[num]='<a class="plain" href="exec:dynamic $d_titsview"><<$tits[num]>></a>'
 $d_assview=$iif(dagongene>110 and num=you,{view("pic/body/istmAss<<assnum>>.jpg")},{view("pic/body/ass<<$colorSkin>><<assnum>>.jpg")})
@@ -303,31 +302,30 @@ if ball[num]>=75:$ball[num]='огромные яйца'
 if dick[num]=1 and ball[num]=1:$genital[num]='Между ног лишь треугольный шрам от отрезанных половых органов и дырочка, через которую евнух писает.'
 if dick[num]=1 and ball[num]>1:$genital[num]='Между ног шрам от отрезанного члена, ниже которого висят <<$ball[num]>>.'
 if dick[num]>1 and ball[num]>1:
-     if horny[num]>=20:
+    if horny[num]>=20:
 		$genital[num]='Между ног <<$dicktipe[num]>> длиной <<dick[num]>> сантиметров и толщиной <<dickd[num]/10>>,<<dickd[num] mod 10>> сантиметров, ниже которого висят <<$ball[num]>>'
-     else
+    else
 		$genital[num]='Между ног вялый член <<dick[num]/4>> сантиметров и толщиной <<dickd[num]/20>>,<<dickd[num] mod 20>> сантиметров, ниже которого висят <<$ball[num]>>'
-     end
+    end
 end
 if vag[num]>0:
-     if cunthair[num]<=0:vag_tipe[num]=0
-     if cunthair[num]>0 and cunthair[num]<5:vag_tipe[num]=1
-     if cunthair[num]>=5:vag_tipe[num]=2
-	 if $genital[num]='':
-		 $d_pussytype={view("pic/vag/type<<vag_tipe[num]>>.jpg")}
-		 $tatooyesno = "."
-		 if pubis_t[num]>0:$tatooyesno=', с набитой татуировкой.>'
-         if vag_tipe[num]=0:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">гладко-выбритое</a> влагалище<<$tatooyesno>>'
-         if vag_tipe[num]=1:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">покрытое небольщшими волосиками</a> влагалище<<$tatooyesno>>'
-         if vag_tipe[num]=2:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">скрытое волосами</a> влагалище<<$tatooyesno>>'
-     else
+    if cunthair[num]<=0:vag_tipe[num]=0
+    if cunthair[num]>0 and cunthair[num]<5:vag_tipe[num]=1
+    if cunthair[num]>=5:vag_tipe[num]=2
+	if $genital[num]='':
+		$d_pussytype={view("pic/vag/type<<vag_tipe[num]>>.jpg")}&$tatooyesno = "."
+		if pubis_t[num]>0:$tatooyesno=', с набитой татуировкой.>'
+        if vag_tipe[num]=0:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">гладко-выбритое</a> влагалище<<$tatooyesno>>'
+        if vag_tipe[num]=1:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">покрытое небольщшими волосиками</a> влагалище<<$tatooyesno>>'
+        if vag_tipe[num]=2:$genital[num]='Между ног <a class="plain" href="exec:dynamic $d_pussytype">скрытое волосами</a> влагалище<<$tatooyesno>>'
+    else
 		$genital[num]+=', ниже члена находится влагалище'
-     end
+    end
 	$d_clitpirsview={view("pic/bodymod/pirsclit<<vag_pirs[num]>>.jpg")}
-     if vag_pirs[num]=1:$genital[num]+=', клитор проколот и в него вставлена <a class="plain" href="exec:dynamic $d_clitpirsview">штанга</a>'
-     if vag_pirs[num]=2:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">колечко</a>'
-     if vag_pirs[num]=3:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">большое кольцо</a>'
-     if vag_pirs[num]=4:$genital[num]+=', клитор с которого свисает <a class="plain" href="exec:dynamic $d_clitpirsview">цепочка с колокольчиком</a>'
+    if vag_pirs[num]=1:$genital[num]+=', клитор проколот и в него вставлена <a class="plain" href="exec:dynamic $d_clitpirsview">штанга</a>'
+    if vag_pirs[num]=2:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">колечко</a>'
+    if vag_pirs[num]=3:$genital[num]+=', клитор проколот и в него вставлено <a class="plain" href="exec:dynamic $d_clitpirsview">большое кольцо</a>'
+    if vag_pirs[num]=4:$genital[num]+=', клитор с которого свисает <a class="plain" href="exec:dynamic $d_clitpirsview">цепочка с колокольчиком</a>'
 end
 !* ---------------------------------- АНУС ---------------------------------- *!
 if anus[num]=0:$anus[num]='Девственный анус'&anus_pic[num]=0
@@ -352,31 +350,31 @@ if age[num]>=50 and age[num]<55:$age[num]='На вид лет 50'
 if age[num]>=55 and age[num]<60:$age[num]='На вид лет 55'
 if age[num]>=60:$age[num]='На вид больше 60 лет'
 if num=you:
-     if face_pic[you]>0:
-         if spec_face_pic[you]>=7:
+    if face_pic[you]>0:
+        if spec_face_pic[you]>=7:
 			$d_view_st={view("pic/face/<<spec_face_pic[you]>>/<<hairlong[you]>>_<<hcol[you]>>.jpg")}
-         elseif spec_face_pic[you]=6:
+        elseif spec_face_pic[you]=6:
 			 gs 'util_func', "update_portrait", num&$d_view_st={view("pic/face/6/t<<face_tipe[you]>>/<<pic_hcol[you]>>/<<face_pic[you]>>.jpg")}
-         else
+        else
 			$d_view_st={view("pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg")}
-         end
-     else
-		 if face_pic[you]>0:
-			 if face[you]>=50 and skin[you]<4:
-				 if hcol[you]=0 and face_pic[you]>100:face_pic[you]=rand(1,100)
-				 if hcol[you]=1 and face_pic[you]>126:face_pic[you]=rand(1,115)
-				 if hcol[you]=2 and face_pic[you]>100:face_pic[you]=rand(1,100)
-				 if hcol[you]>=3 and face_pic[you]>167:face_pic[you]=rand(1,100)
-			 end
-			 if face[you]>=50 and skin[you]>3 and skin[you]<7 and face_pic[you]=0 and face_pic[you]>20:face_pic[you]=rand(1,20)
-			 if face[you]<50 and skin[you]>3 and skin[you]<7 and face_pic[you]<70001 and face_pic[you]>70029:face_pic[you]=rand(70001,70029)
-			 if face[you]>=50 and skin[you]<4:$d_view_st={view("pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg")}
-			 if face[you]>=50 and skin[you]>3 and skin[you]<7:$d_view_st={view("pic/face/4/<<face_pic[you]>>.jpg")}
-			 if face[you]<50:$d_view_st={view("pic/faceman/<<face_pic[you]>>.jpg")}
-		 end
-	 end
-   if force_male_portrait[you]>0:$d_view_st={view('pic/faceman/<<face_pic[you]>>.jpg')}
-   if force_fem_portrait[you]>0:$d_view_st={view('pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg')}
+        end
+    else
+		if face_pic[you]>0:
+			if face[you]>=50 and skin[you]<4:
+				if hcol[you]=0 and face_pic[you]>100:face_pic[you]=rand(1,100)
+				if hcol[you]=1 and face_pic[you]>126:face_pic[you]=rand(1,115)
+				if hcol[you]=2 and face_pic[you]>100:face_pic[you]=rand(1,100)
+				if hcol[you]>=3 and face_pic[you]>167:face_pic[you]=rand(1,100)
+			end
+			if face[you]>=50 and skin[you]>3 and skin[you]<7 and face_pic[you]=0 and face_pic[you]>20:face_pic[you]=rand(1,20)
+			if face[you]<50 and skin[you]>3 and skin[you]<7 and face_pic[you]<70001 and face_pic[you]>70029:face_pic[you]=rand(70001,70029)
+			if face[you]>=50 and skin[you]<4:$d_view_st={view("pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg")}
+			if face[you]>=50 and skin[you]>3 and skin[you]<7:$d_view_st={view("pic/face/4/<<face_pic[you]>>.jpg")}
+			if face[you]<50:$d_view_st={view("pic/faceman/<<face_pic[you]>>.jpg")}
+		end
+	end
+	if force_male_portrait[you]>0:$d_view_st={view('pic/faceman/<<face_pic[you]>>.jpg')}
+	if force_fem_portrait[you]>0:$d_view_st={view('pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg')}
 	$ager[num]='<a class="plain" href="exec:dynamic $d_view_st"><<$age[num]>></a>'
 end
 if num=you:$facetxt[num]='<<$ager[num]>>

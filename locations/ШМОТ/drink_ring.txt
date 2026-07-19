@@ -1,4 +1,1 @@
-﻿thirst[you]=0
-energy[you]+=20
-pisswasser[you]+=10
-gt'preloc'
+﻿thirst[you]=0&energy[you]+=20&pisswasser[you]+=10&gt'preloc'

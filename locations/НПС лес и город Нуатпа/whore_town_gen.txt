@@ -1,30 +1,6 @@
 ﻿if whore_town=0:
-	gs'rand_gerl_gen'
-	$name[i]='Шлюха'&$surname[i]='Шлюха'
-
-	lust[args[0]]=rand(80,100)
-
-	gs'body_auto',i
-
-	
-	npc=args[0]
-	lust[args[0]]=rand(50,100)
-	vag[args[0]]=rand(50,60)
-	anus[args[0]]=rand(50,60)
-	throat[args[0]]=rand(25,28)
-	
-	cumslut[args[0]]= rand(25,50)
-	analslut[args[0]]= rand(25,50)
-	
-	
-	agro[args[0]]=rand(-50,30)
-	
-	can_bj[i]=1
-	can_anal[i]=1
-	cantvag[i]=0
-	
-	all_in_anal[i]=100
-	all_in_oral[i]=100
-	all_in_vag[i]=100
-	se_lighthouse[]=i&
+	gs'rand_gerl_gen'&$name[i]='Шлюха'&$surname[i]='Шлюха'&!gs'body_auto',i
+	npc=args[0]&lust[args[0]]=rand(80,100)&agro[args[0]]=rand(-50,30)
+	vag[args[0]]=rand(50,60)&anus[args[0]]=rand(50,60)&throat[args[0]]=rand(25,28)&cumslut[args[0]]= rand(25,50)&analslut[args[0]]= rand(25,50)
+	can_bj[i]=1&can_anal[i]=1&cantvag[i]=0&all_in_anal[i]=100&all_in_oral[i]=100&all_in_vag[i]=100&
 end

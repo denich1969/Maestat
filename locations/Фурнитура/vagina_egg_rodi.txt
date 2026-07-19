@@ -6,7 +6,7 @@ if fat[you]>1000:fat[you]-=9
 if fat[you]>1500:fat[you]-=12
 if fat[you]>2000:fat[you]-=15
 if fat[you]>2500:fat[you]-=19
-mistcurse[you]+=5&gs'soulcraft',25&gs'stat'&'<center><video src="pic/event/EggVagRodi<<rand(1,3)>>.webm" ></video></center>'
+mistcurse[you]+=5&gs'soulcraft',25&gs'stat'&'<center><video autoplay loop src="pic/event/EggVagRodi<<rand(1,3)>>.webm" ></video></center>'
 'Вас скручивает боль от толчков внутри вашего чрева, яйцо росшее в вашей матке стало столь велико, что уже рвется наружу. '
 'Вы закусываете губу от боли, на глазах выступают слезы, когда из вашей вагины вылезает крупное пульсирующее яйцо. '
 'Вылетев из вашей попы яйцо упало и раскололось, оттуда вывалился какая то мелкая но злобная тварь вся в щупальцах и тонких лезвиеподобных хитиновых лапках. '

@@ -27,13 +27,13 @@ if tabernwork[you]=1:
      if worktabernpol!daystart and energy[you]>=40:
      	 act'Мыть полы':
 			 energy[you]-=40&worktabernpol=daystart&money[you]+=100&time+=60&cls&gs'stat'&'Вы целый час моете полы в трактире, за свою работу вы получаете шиллинг.'
-			'<center><video src="pic/misc/Cleanpol<<rand(0,4)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
+			'<center><video autoplay loop src="pic/misc/Cleanpol<<rand(0,4)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
 		 end
      end
      if worktabernposuda!daystart and energy[you]>=40:
      	 act'Мыть посуду':
 			 energy[you]-=40&worktabernposuda=daystart&money[you]+=100&time+=60&cls&gs'stat'&'Вы целый час моете посуду в трактире, за свою работу вы получаете шиллинг.'
-			 '<center><video src="pic/misc/Cleanpos<<rand(0,4)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
+			 '<center><video autoplay loop src="pic/misc/Cleanpos<<rand(0,4)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
 		 end
      end
 end

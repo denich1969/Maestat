@@ -44,17 +44,17 @@ if Z[you]>=700 and Z[you]<800:
 	if w!you and dead[w]=1000 and startnewspawn=1:dead[w]=0
 	if canagromob=1 and corr[w]>=1000 and onceuptime[w]=0:onceuptime[w]=1&dead[w]=1000
 	if w!you and dead[w]=0 and Z[w]=Z[you]:
-		 if corr[w]>=100 and vag[w]>=1 and agro[w]=0:
-			 if mob[w]!4 and fucked[w]>=50:
-				 exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
-				 vag[w]=40&minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
-			 end
-		 end
-		 if mob[w]=21 and corr[w]>=100:
-			 exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Сисси шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
-			 minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
-		 end
-		 if succubus_slut[w]>0:
+		if corr[w]>=100 and vag[w]>=1 and agro[w]=0:
+			if mob[w]!4 and fucked[w]>=50:
+				exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
+				vag[w]=40&minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
+			end
+		end
+		if mob[w]=21 and corr[w]>=100:
+			exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Сисси шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
+			minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
+		end
+		if succubus_slut[w]>0:
 			if corr[w]<100:corr[w]=100
 			sucslut=succubus_slut[w]&if dead[sucslut]>0:succubus_slut[w]=0&exsucslave[w]=sucslut&corr[w]=0
 		end
@@ -72,48 +72,48 @@ if Z[you]>=700 and Z[you]<800:
 	if w!you and dead[w]=0 and cantwalk[w]=0:
 		freez=0&if w=recepboy:freez=1
 		if freez=0:
-			 if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]>0:
+			if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]>0:
 				if mob_busy[w]=1:mob_sleep[w]=time+60
 				mob_busy[w]=0
-			 end
-			 if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0:
+			end
+			if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0:
 				randtipe=rand(0,2)&!if randtipe=0:''&!нет движения
-				 if randtipe=1:
+				if randtipe=1:
 					randnapr=rand(0,1)&!по Х
-					 if randnapr=0 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']=0:
-						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на восток'
+					if randnapr=0 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']=0:
+						if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на восток'
 						X[w]+=1
-					 end
-					 if randnapr=1 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']=0:
-						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на запад'
+					end
+					if randnapr=1 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']=0:
+						if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на запад'
 						X[w]-=1
-					 end
-				 end
-				 if randtipe=2:
-					 randnapr=rand(0,1)&!по У
-					 if randnapr=0 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']=0:
-						  if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на север'
+					end
+				end
+				if randtipe=2:
+					randnapr=rand(0,1)&!по У
+					if randnapr=0 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']=0:
+						if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на север'
 						Y[w]+=1
-					 end
-					 if randnapr=1 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']=0:
-						 if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на юг'
+					end
+					if randnapr=1 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']=0:
+						if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на юг'
 						Y[w]-=1
-					 end
-				 end
-				 if slutegg[w]>0:
+					end
+				end
+				if slutegg[w]>0:
 					slutegg[w]-=1
 					if slutegg[w]=0:
 						 eggborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100&gs'mobgen'&if eggborn[w]>=10:total_slut-=1&dead[w]=1
 					end
-				 end
-				 if slutborn[w]>0:
+				end
+				if slutborn[w]>0:
 					slutborn[w]-=1
 		if slutborn[w]=0 and slutborntipe[w]=1:slutborntipe[w]=0&motherborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&gs'aborigen_gen'&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100
 		if slutborn[w]=0 and slutborntipe[w]=2:timesgoblinbird[w]+=1&slutborntipe[w]=0&motherborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&gs'goblin'&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100
-				 end
+				end
 				if Z[you]=Z[w]:gs'subwalkerNW'
-			 end
-		 end
+			end
+		end
 	end
 end
 $think[w]=''

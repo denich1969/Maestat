@@ -19,7 +19,7 @@ act'Следующая страница':
 							     if H[you]>0 and total_npc_on_loc=0 and vag[you]>0:
 							     'Вы чувствуете как у вас между ног намокло и приятный зуд внизу живота заставляет вас потрогать себя между ног'
 							         act'Потрогать':
-										 horny[you]=0&jerk[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/solo/book.webm" ></video></center>'
+										 horny[you]=0&jerk[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/book.webm" ></video></center>'
 										 'Вы трогаете себя внизу и внезапно для себя упираетесь книжкой себе в разбухшую письку и начинаете ее тереть.'
 							             if goodoldtimesQW=1:goodoldtimesQW=2&item[141]+=1&'Из книжки выпадает записка.'&corr[you]+=5
 										'Вы кончаете представляя при этом как большой и узловатый член входит между ваших губ.'&act'Закрыть':gt'preloc'

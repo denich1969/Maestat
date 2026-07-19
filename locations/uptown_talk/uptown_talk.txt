@@ -1,7 +1,7 @@
 ﻿if massagegirl[you]>0:
      if pol[npc]=0 and pol[you]>0 and massage['<<$loc[you]>>']>0 and massageday[npc]!daystart and tiler!npc and femas!npc:
 		 act'<b>МАССАЖ</b>':
-			money[you]+=2000&temp_ahj+=1&massageday[npc]=daystart&time+=60&cls&gs'stat'&'<center><video src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
+			money[you]+=2000&temp_ahj+=1&massageday[npc]=daystart&time+=60&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
 			'Вам отдали деньги и вы проводили клиента в комнату и там положили его раздетог она кушетку и анчали массажировать вливая в него энергию. '
 			'А в конце вы взяв в ладошку его торчащий колом член передернули ему и удалили остатки спермы полотенцем.'&act'Уйти':gt'after_fss'
 		 end
@@ -13,13 +13,13 @@ if tiler=npc:
          if money[you]>=50000:
 			 act'Я хочу массаж':
 				 money[you]-=50000&soul[you]+=10&soulpower[you]+=1&if magik[you]>0:magik_exp[you]+=1
-				 time+=60&cls&gs'stat'&'<center><video src="pic/sex/massage/regular.webm" ></video></center>'
+				 time+=60&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/massage/regular.webm" ></video></center>'
 				 'Вы отдали деньги и <<$name[npc]>> отвел вас в массажный кабинет. Массажист начал массирвоать ваше тело, при этом явно закачивая в вас энергию, у вас стала прирастать душа.'
 				 act'Уйти':gt'preloc'
 				 if corr[you]>=50 and vag[you]>0:
 					 act'Я хочу более глубокий массаж':
 						 if magik[you]>0:magik_exp[you]+=1
-						 cls&gs'stat'&'<center><video src="pic/sex/massage/sex<<rand(0,3)>>.webm" ></video></center>'&'<<$name[npc]>> вынул член и стал пристраиваться к вам'
+						 cls&gs'stat'&'<center><video autoplay loop src="pic/sex/massage/sex<<rand(0,3)>>.webm" ></video></center>'&'<<$name[npc]>> вынул член и стал пристраиваться к вам'
 						 temp_vag_fss+=1&gs'stat'&'Стоя раком, вы выгибаете спину пока вас трахают в киску.'
 						 if vag[you]=1:
 							horny[you]=0&'Вспышка резкой боли, когда вас лишают девственности и вы видите, что на члене немного крови.'
@@ -61,7 +61,7 @@ if femas=npc:
          if money[you]>=50000:
 			 act'Я хочу массаж':
 				money[you]-=50000&soul[you]+=10&soulpower[you]+=1&if magik[you]>0:magik_exp[you]+=1
-				temp_hj+=1&time+=60&cls&gs'stat'&'<center><video src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
+				temp_hj+=1&time+=60&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
 				'Вы отдали деньги и <<$name[npc]>> отвела вас в массажный кабинет. Массажистка начала массирвоать ваше тело, при этом явно закачивая в вас энергию, у вас стала прирастать душа. '
 				'Она взяла ваш член и начала его дрочить. Вскоре вы кончили и она протерла еще раз вас полотенцем.'&act'Уйти':gt'after_activ_sex'
 			 end

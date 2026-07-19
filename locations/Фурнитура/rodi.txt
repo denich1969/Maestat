@@ -1,5 +1,5 @@
 ﻿if inseminate[you]>0:
-	milking[you]+=240&saggy[you]+=1&gs'stat'&'<center><video src="pic/event/rodi.webm" ></video></center>'
+	milking[you]+=240&saggy[you]+=1&gs'stat'&'<center><video autoplay loop src="pic/event/rodi.webm" ></video></center>'
 	'У вас начались схватки и вскоре отошли воды, из вашей вагины потекла жидкость, и вы стали стонать от сильной боли.'
 	if lebeda_head[you]=1:gt'lebeda_res'
 	ass[you]+=1&vag[you]+=15&!vag[you]+=5

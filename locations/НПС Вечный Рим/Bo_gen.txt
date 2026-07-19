@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&Bo=i
-lvl[i]=1&soul[i]=100&work[i]=0
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&Bo=i&lvl[i]=1&soul[i]=100&work[i]=0
 master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=12
-
 spec_face_pic[i]=5&face_pic[i]=250
 $title[i]='Дядюшка Бо'&$history[i]='Владелец лавки «Узоры дядюшки Бо»'
 $name[i]='Бо'&$surname[i]=' '&$nick[i]='Татуировщик'
@@ -13,9 +11,5 @@ age[i]=70&vital[i]=40&will[i]=50&reflex[i]=40
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 pol[i]=0&gs'body'&total_generated_male+=1
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=10&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=0&brave[i]=0&lust[i]=10&!характер
-h_slot[i]=0
-t_slot[i]=2&l_slot[i]=5&b_slot[i]=5
-ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!X[i]=2&Y[i]=2&Z[i]=404&H[i]=7&R[i]=2
-roma_world[]=i&walkprog[i]=301&!программа движения
+h_slot[i]=0&t_slot[i]=2&l_slot[i]=5&b_slot[i]=5&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!X[i]=2&Y[i]=2&Z[i]=404&H[i]=7&R[i]=2
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&roma_world[]=i&walkprog[i]=301&!программа движения

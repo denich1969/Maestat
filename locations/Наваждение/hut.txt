@@ -1,23 +1,19 @@
-﻿gs'stat'&'Шалаш аборигенов.'
-gs'Item'&*pl''
-gs 'npconloc'
-act'Отойти':gt 'world'
+﻿gs'stat'&'Шалаш аборигенов.'&gs'Item'&*nl&gs 'npconloc'&act'Отойти':gt 'world'
 if searshed['<<$loc[you]>>']=0:
-     act'Обыскать':
-		 searshed['<<$loc[you]>>']+=1
-		 tiperand=rand(0,9)
-         if tiperand=0:item_loc['23,<<$loc[you]>>']+=1
-         if tiperand=1:item_loc['22,<<$loc[you]>>']+=1
-         if tiperand=2:item_loc['27,<<$loc[you]>>']+=1
-         if tiperand=3:item_loc['28,<<$loc[you]>>']+=1
-         if tiperand=4:item_loc_t['<<rand(12,19)>>,<<$loc[you]>>']+=1
-		 if tiperand=5:item_loc_l['<<rand(9,17)>>,<<$loc[you]>>']+=1
-		 if tiperand=6:item_loc_b['<<rand(8,9)>>,<<$loc[you]>>']+=1
-		 if tiperand=7:item_loc_ut['<<rand(1,3)>>,<<$loc[you]>>']+=1
-		 if tiperand=8:item_loc_ul['<<rand(1,4)>>,<<$loc[you]>>']+=1
-		 if tiperand=9:item_loc_ub['<<rand(1,5)>>,<<$loc[you]>>']+=1
+    act'Обыскать':
+		searshed['<<$loc[you]>>']+=1&tiperand=rand(0,9)
+        if tiperand=0:item_loc['23,<<$loc[you]>>']+=1
+        if tiperand=1:item_loc['22,<<$loc[you]>>']+=1
+        if tiperand=2:item_loc['27,<<$loc[you]>>']+=1
+        if tiperand=3:item_loc['28,<<$loc[you]>>']+=1
+        if tiperand=4:item_loc_t['<<rand(12,19)>>,<<$loc[you]>>']+=1
+		if tiperand=5:item_loc_l['<<rand(9,17)>>,<<$loc[you]>>']+=1
+		if tiperand=6:item_loc_b['<<rand(8,9)>>,<<$loc[you]>>']+=1
+		if tiperand=7:item_loc_ut['<<rand(1,3)>>,<<$loc[you]>>']+=1
+		if tiperand=8:item_loc_ul['<<rand(1,4)>>,<<$loc[you]>>']+=1
+		if tiperand=9:item_loc_ub['<<rand(1,5)>>,<<$loc[you]>>']+=1
 		cls&gt'preloc'
-     end
+    end
 else
 	'Вы обыскивали этот шалаш'
 end

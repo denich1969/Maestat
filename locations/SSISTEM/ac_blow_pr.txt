@@ -1,6 +1,6 @@
 ﻿cls&gs'can_varian_sex',you,npc
 if candoblow[npc]>0:
-	if dontwannablow[npc]>0:dontwannablow[npc]=0&temp_blow+=1&sexpower[you]-=1&'<center><video src="pic/sex/bj/pro<<rand(0,3)>>.webm" ></video></center>'
+	if dontwannablow[npc]>0:dontwannablow[npc]=0&temp_blow+=1&sexpower[you]-=1&'<center><video autoplay loop src="pic/sex/bj/pro<<rand(0,3)>>.webm" ></video></center>'
 	$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
 	if bj[npc]<10:
 		if lust[npc]<20:
@@ -44,7 +44,7 @@ if sexpower[you]>0:
 	act'...':gt 'activ_sex'
 else
 	act'...':
-		horny[you]=0&agro[npc]+=1&cls&gs'stat'&'<center><video src="pic/sex/femdom/handcum.webm" ></video></center>'&'<<$name[npc]>> дрочит ваш член, а вы начинаете кончать, пока гладите ее ляжку.'
-		act'Уйти':gt 'after_activ_sex'
+		horny[you]=0&agro[npc]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/femdom/handcum.webm" ></video></center>'
+		'<<$name[npc]>> дрочит ваш член, а вы начинаете кончать, пока гладите ее ляжку.'&act'Уйти':gt 'after_activ_sex'
 	end
 end

@@ -2,7 +2,7 @@
 if item[98]>0:act'Сварить пельменей':pelmen+=1&$item[98]-=1&cla&gt $curloc
 if hunger[you]>1 and pelmen>0:
 	act'Поесть пельменей':
-		 energy[you]=energyMax[you]&fat[you]+=1&if vag[you]>0:fat[you]+=4
-		 time+=15&cls&gs'walker'&gs'eat'&gs'stat'&'Вы положили себе пельменей из кастрюлки, после чего сели за стол и съели.'&act'...':gt $curloc
+		energy[you]=energyMax[you]&fat[you]+=1&if vag[you]>0:fat[you]+=4
+		time+=15&cls&gs'walker'&gs'eat'&gs'stat'&'Вы положили себе пельменей из кастрюлки, после чего сели за стол и съели.'&act'...':gt $curloc
 	end
 end

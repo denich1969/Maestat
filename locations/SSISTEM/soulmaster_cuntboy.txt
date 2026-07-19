@@ -6,7 +6,7 @@ gs'stat'&'<center><img src="pic/face/5/79.jpg" ></center>'&'К вам подхо
 act'Сесть':
 	horny[you]+=50&cls&gs'stat'&'<center><img src="pic/face/5/80.jpg" ></center>'&'Блондинка усаживает вас на диван и размещается по удобнее между ваших ног'
 	 act'Стонать':
-		 horny[you]+=50&cls&gs'stat'&'<center><video src="pic/sex/lesb/pov0.webm" ></video></center>'
+		 horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/lesb/pov0.webm" ></video></center>'
 		 'Блондинка вылизывает так страстно, что вы чуть ли не теряете разум, но все же вы никак не можете достичь оргазма. Девушка внезапно переворачивает вас и ставит раком.'
 	 	 act'Стонать':
 			horny[you]+=50&vag[you]+=10&cls&gs'stat'&'<center><img src="pic/sex/pornpic/soulmaster.jpg" ></center>'&'Блондинка одевает страпон и вводит вам в разгоряченный и мокрый вареник. '
@@ -14,7 +14,7 @@ act'Сесть':
 			' Девушка не заставила себя долго ждать и начала вас яростно трахать, вбивая вам в вагину страпон. '
 			'Вы ошалев от ощущений повернули голову в бок и увидели что Люкс глядит на это все и дрочит свой член, от чего вам стало мучительно стыдно и ваши щеки покраснели.'
 		 	 act'Стонать':
-				horny[you]=0&cls&gs'soulcraft',100&squirt[you]+=1&gs'stat'&'<center><video src="pic/sex/pornpic/squirting.webm" ></video></center>'
+				horny[you]=0&cls&gs'soulcraft',100&squirt[you]+=1&gs'stat'&'<center><video autoplay loop src="pic/sex/pornpic/squirting.webm" ></video></center>'
 				'Вы упали на диван не в силах выносить эту сладкую муку и Люкс подойдя к вам едва дотронулся до вашей полыхающей вагины. '
 				'Тут вас накрыл такой шквал оргазма, которого у вас никогда не было. '
 				'Вас буквально колбасило минут пять и из вашей полыхающей щели летело в разные стороны черте знает что, и моча и вагинальный секрет. '

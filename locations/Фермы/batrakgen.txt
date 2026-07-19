@@ -18,5 +18,4 @@ reflex[i]=rand(40,70)
 agro[i]=rand(0,2)&corr[i]=rand(50,1000)
 
 
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-walkprog[i]=0&fight_prog[i]=1&!программа движения и боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&fight_prog[i]=1&!программа движения и боя

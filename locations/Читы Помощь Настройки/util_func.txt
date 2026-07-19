@@ -1,11 +1,5 @@
 ﻿$ARGS[0]= $UCASE($ARGS[0])
-if $ARGS[0] = 'SET_POSE_CD':
-	if scene_cooldown_duration > 0:
-		pose_cooldown = scene_cooldown_duration
-	else
-		pose_cooldown=1
-	end
-end
+if $ARGS[0] = 'SET_POSE_CD':pose_cooldown=iif(scene_cooldown_duration>0,scene_cooldown_duration,1)
 if $ARGS[0] = 'GET_GENDER_DEF':
     if ARGS[1] > 0:
 		$RESULT='TRANS'
@@ -15,317 +9,231 @@ if $ARGS[0] = 'GET_GENDER_DEF':
 		if dick[ARGS[1]]>0 and vag[ARGS[1]]=0 and face[ARGS[1]]>=50 and ass[ARGS[1]]>=20:$RESULT='TRANS'
     end
 end
-!Инпут для RGB
 if $ARGS[0] = 'SHOW_INPUT_FOR_RGB':
-  if $ARGS[1] = 'STATIC_BACKGROUND_COLOR_RED':$ARGS['COLOR_IS'] = '<font color=red>красного</font>'
-  if $ARGS[1] = 'STATIC_BACKGROUND_COLOR_GREEN':$ARGS['COLOR_IS'] = '<font color=green>зелёного</font>'
-  if $ARGS[1] = 'STATIC_BACKGROUND_COLOR_BLUE':$ARGS['COLOR_IS'] = '<font color=blue>синего</font>'
-  if $ARGS[1] = 'STATIC_FONT_COLOR_RED':$ARGS['COLOR_IS'] = '<font color=red>красного</font>'
-  if $ARGS[1] = 'STATIC_FONT_COLOR_GREEN':$ARGS['COLOR_IS'] = '<font color=green>зелёного</font>'
-  if $ARGS[1] = 'STATIC_FONT_COLOR_BLUE':$ARGS['COLOR_IS'] = '<font color=blue>синего</font>'
-  $ARGS['INPUT'] = INPUT ('Введите значение от 0 до 255, для <<$ARGS["COLOR_IS"]>> цвета')
-  ARGS['VAL'] = VAL($ARGS['INPUT'])
-  if ARGS['VAL'] < 0: ARGS['VAL'] = 0
-  if ARGS['VAL'] > 255: ARGS['VAL'] = 255
-  dynamic "CONFIG['<<$ARGS[1]>>'] = <<ARGS['VAL']>>"
+	if $ARGS[1] = 'STATIC_BACKGROUND_COLOR_RED':$ARGS['COLOR_IS'] = '<font color=red>красного</font>'&!тут и далее Инпут для RGB
+	if $ARGS[1] = 'STATIC_BACKGROUND_COLOR_GREEN':$ARGS['COLOR_IS'] = '<font color=green>зелёного</font>'
+	if $ARGS[1] = 'STATIC_BACKGROUND_COLOR_BLUE':$ARGS['COLOR_IS'] = '<font color=blue>синего</font>'
+	if $ARGS[1] = 'STATIC_FONT_COLOR_RED':$ARGS['COLOR_IS'] = '<font color=red>красного</font>'
+	if $ARGS[1] = 'STATIC_FONT_COLOR_GREEN':$ARGS['COLOR_IS'] = '<font color=green>зелёного</font>'
+	if $ARGS[1] = 'STATIC_FONT_COLOR_BLUE':$ARGS['COLOR_IS'] = '<font color=blue>синего</font>'
+	$ARGS['INPUT'] = INPUT ('Введите значение от 0 до 255, для <<$ARGS["COLOR_IS"]>> цвета')
+	ARGS['VAL'] = VAL($ARGS['INPUT'])
+	if ARGS['VAL'] < 0: ARGS['VAL'] = 0
+	if ARGS['VAL'] > 255: ARGS['VAL'] = 255
+	dynamic "CONFIG['<<$ARGS[1]>>'] = <<ARGS['VAL']>>"
 end
 if $ARGS[0] = 'APPLY_RGB':
 	if $ARGS[1] = 'ENABLE_STATIC_BACKGROUND_COLOR':BCOLOR=RGB(CONFIG['STATIC_BACKGROUND_COLOR_RED'], CONFIG['STATIC_BACKGROUND_COLOR_GREEN'], CONFIG['STATIC_BACKGROUND_COLOR_BLUE'])
 	if $ARGS[1] = 'ENABLE_STATIC_FONT_COLOR':FCOLOR=RGB(CONFIG['STATIC_FONT_COLOR_RED'], CONFIG['STATIC_FONT_COLOR_GREEN'], CONFIG['STATIC_FONT_COLOR_BLUE'])
 end
 if $ARGS[0] = 'APPLY_RECOMMENDED_BACKGROUND_COLOR':
-   CONFIG['ENABLE_STATIC_BACKGROUND_COLOR']=1
-   CONFIG['STATIC_BACKGROUND_COLOR_RED'] = 255
-   CONFIG['STATIC_BACKGROUND_COLOR_GREEN'] = 255
-   CONFIG['STATIC_BACKGROUND_COLOR_BLUE'] = 255
-   CONFIG['ENABLE_STATIC_FONT_COLOR']=1
-   CONFIG['STATIC_FONT_COLOR_RED'] = 32
-   CONFIG['STATIC_FONT_COLOR_GREEN'] = 32
-   CONFIG['STATIC_FONT_COLOR_BLUE'] = 32
-   CONFIG['CAN_APPLY_FONT_COLOR'] = 1
+	CONFIG['ENABLE_STATIC_BACKGROUND_COLOR']=1
+	CONFIG['STATIC_BACKGROUND_COLOR_RED'] = 255
+	CONFIG['STATIC_BACKGROUND_COLOR_GREEN'] = 255
+	CONFIG['STATIC_BACKGROUND_COLOR_BLUE'] = 255
+	CONFIG['ENABLE_STATIC_FONT_COLOR']=1
+	CONFIG['STATIC_FONT_COLOR_RED'] = 32
+	CONFIG['STATIC_FONT_COLOR_GREEN'] = 32
+	CONFIG['STATIC_FONT_COLOR_BLUE'] = 32
+	CONFIG['CAN_APPLY_FONT_COLOR'] = 1
 end
-!Инпут для отношений.
 if $ARGS[0] = 'SHOW_INPUT_FOR_RELATIONS':
-  $ARGS['INPUT'] = INPUT ('Введите число.')
-  ARGS['VAL'] = VAL($ARGS['INPUT'])
-  if ARGS['VAL'] > 200: ARGS['VAL'] = 200
-  if ARGS['VAL'] >= 0:
-  friends['<<ARGS[1]>>,<<ARGS[2]>>'] = ARGS['VAL']
-  friends['<<ARGS[2]>>,<<ARGS[1]>>'] = ARGS['VAL']
-  end
+	$ARGS['INPUT']=INPUT ('Введите число.')&ARGS['VAL']=VAL($ARGS['INPUT'])&!Инпут для отношений.
+	if ARGS['VAL']>200: ARGS['VAL'] = 200
+	if ARGS['VAL']>=0:friends['<<ARGS[1]>>,<<ARGS[2]>>']=ARGS['VAL']&friends['<<ARGS[2]>>,<<ARGS[1]>>']=ARGS['VAL']
 end
-!Инпут для суммы знакомства и флирта.
 if $ARGS[0] = 'GET_FLIRTS_AMOUNT':
-	i=ARRSIZE('$name')
-	ARGS['AMOUNT'] = 0
+	i=ARRSIZE('$name')&ARGS['AMOUNT']=0&!Инпут для суммы знакомства и флирта.
 	:flirts_amount_loop
-	if know['<<ARGS["AMOUNT"]>>,<<you>>'] > 0: ARGS['COUNTER'] += 1
+	if know['<<ARGS["AMOUNT"]>>,<<you>>']>0: ARGS['COUNTER']+= 1
 	if ARGS["AMOUNT"] < i:ARGS["AMOUNT"]+=1 & jump 'flirts_amount_loop'
-	RESULT = ARGS['COUNTER']
+	RESULT=ARGS['COUNTER']
 end
-!Инпут для суммы лучших друзей
 if $ARGS[0] = 'GET_FRIENDS_AMOUNT':
-	i=ARRSIZE('$name')
-	ARGS['AMOUNT'] = 0
+	i=ARRSIZE('$name')&ARGS['AMOUNT']=0&!Инпут для суммы лучших друзей
 	:friends_amount_loop
 	if friends['<<ARGS["AMOUNT"]>>,<<you>>'] > 50: ARGS['COUNTER'] += 1
 	if ARGS["AMOUNT"] < i:ARGS["AMOUNT"]+=1 & jump 'friends_amount_loop'
 	RESULT = ARGS['COUNTER']
 end
-!Инпут для чисел.
-if $ARGS[0] = 'SHOW_INPUT_FOR_NUMBERS':
-  $ARGS['INPUT'] = INPUT ('Введите число.')
-  ARGS['VAL'] = VAL($ARGS['INPUT'])
-  if ARGS['VAL'] > 2147483646: ARGS['VAL'] = 2147483646
-  if ARGS['VAL'] > 0:
-  dynamic "<<$ARGS[1]>>[<<npc_index>>] = <<ARGS['VAL']>>"
-  end
+if $ARGS[0]='SHOW_INPUT_FOR_NUMBERS':
+	$ARGS['INPUT']=INPUT ('Введите число.')&ARGS['VAL']=VAL($ARGS['INPUT'])&!Инпут для чисел.
+	if ARGS['VAL']>2147483646:ARGS['VAL']=2147483646
+	if ARGS['VAL']>0:dynamic "<<$ARGS[1]>>[<<npc_index>>] = <<ARGS['VAL']>>"
 end
-!Инпут для чисел (не массив) с лимитом.
-if $ARGS[0] = 'SHOW_INPUT_FOR_NUMBERS_SINGLE_LIMIT':
-  $ARGS['INPUT'] = INPUT ('Введите число.')
-   ARGS['VAL'] = VAL($ARGS['INPUT'])
-  if ARGS['VAL'] > ARGS[2]: ARGS['VAL'] = ARGS[2]
-  if ARGS['VAL'] > 0:
-    dynamic "<<$ARGS[1]>> = <<ARGS['VAL']>>"
-  end
+if $ARGS[0]='SHOW_INPUT_FOR_NUMBERS_SINGLE_LIMIT':
+	$ARGS['INPUT'] = INPUT ('Введите число.')&ARGS['VAL']=VAL($ARGS['INPUT'])&!Инпут для чисел (не массив) с лимитом.
+	if ARGS['VAL'] > ARGS[2]: ARGS['VAL']=ARGS[2]
+	if ARGS['VAL'] > 0:dynamic "<<$ARGS[1]>> = <<ARGS['VAL']>>"
 end
-!Инпут для чисел с лимитом на макс-значение.
-if $ARGS[0] = 'SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT':
-  $ARGS['INPUT'] = INPUT ('Введите число.')
-  ARGS['VAL'] = VAL($ARGS['INPUT'])
-  if ARGS['VAL'] > ARGS[2]: ARGS['VAL'] = ARGS[2]
-  if ARGS['VAL'] > 0:
-    dynamic "<<$ARGS[1]>>[<<npc_index>>] = <<ARGS['VAL']>>"
-  end
+if $ARGS[0]='SHOW_INPUT_FOR_NUMBERS_WITH_LIMIT':
+	$ARGS['INPUT'] = INPUT ('Введите число.')&ARGS['VAL']=VAL($ARGS['INPUT'])&!Инпут для чисел с лимитом на макс-значение.
+	if ARGS['VAL'] > ARGS[2]: ARGS['VAL']=ARGS[2]
+	if ARGS['VAL'] > 0:dynamic "<<$ARGS[1]>>[<<npc_index>>] = <<ARGS['VAL']>>"
 end
-!Инпут для имени/фамилии.
-if $ARGS[0] = 'SHOW_INPUT_FOR_NAME':
-  if ARGS[2] = 1: $ARGS['INPUT'] = INPUT ('Введите имя, или нажмите <font color="red">"Отмена"</font>, чтобы оставить старое имя.')
-  if ARGS[2] = 2: $ARGS['INPUT'] = INPUT ('Введите фамилию, или нажмите <font color="red">"Отмена"</font>, чтобы оставить старую фамилию.')
-  if $ARGS['INPUT'] ! '':dynamic "$<<$ARGS[1]>>[<<npc_index>>] = '<<$ARGS['INPUT']>>'"
+if $ARGS[0]='SHOW_INPUT_FOR_NAME':
+	if ARGS[2]=1: $ARGS['INPUT']=INPUT ('Введите имя, или нажмите <font color="red">"Отмена"</font>, чтобы оставить старое имя.')&!Инпут для имени
+	if ARGS[2]=2: $ARGS['INPUT']=INPUT ('Введите фамилию, или нажмите <font color="red">"Отмена"</font>, чтобы оставить старую фамилию.')&!Инпут для фамилии.
+	if $ARGS['INPUT'] ! '':dynamic "$<<$ARGS[1]>>[<<npc_index>>] = '<<$ARGS['INPUT']>>'"
 end
-!Инпут для размера иконок в тулбаре.
 if $ARGS[0] = 'SHOW_INPUT_FOR_TOOLBAR_ICON_SIZE':
-  $ARGS['INPUT'] = INPUT ('Введите размер в пикселях, рекомендуемые значения 15-25. (Размер по умолчанию: 25px)')
-  ARGS['VAL'] = VAL($ARGS['INPUT'])
-  if ARGS['VAL'] > 2147483646: ARGS['VAL'] = 2147483646
-  if ARGS['VAL'] > 0:
-     CONFIG['TOOLBAR_ICON_SIZE'] = ARGS['VAL']
-     gs 'stat'
-  end
+	$ARGS['INPUT'] = INPUT ('Введите размер в пикселях, рекомендуемые значения 15-25. (Размер по умолчанию: 25px)')&ARGS['VAL'] = VAL($ARGS['INPUT'])&!Инпут для размера иконок в тулбаре.
+	if ARGS['VAL'] > 2147483646: ARGS['VAL']=2147483646
+	if ARGS['VAL'] > 0:CONFIG['TOOLBAR_ICON_SIZE']=ARGS['VAL']&gs 'stat'
 end
-!Инпут для размера видео/картинок.
 if $ARGS[0] = 'SHOW_INPUT_FOR_V_SIZE':
-   $ARGS['INPUT'] = INPUT ('Введите размер в пикселях - (Размер по умолчанию: <<$ARGS[2]>>)')
-   ARGS['VAL'] = VAL($ARGS['INPUT'])
+   $ARGS['INPUT'] = INPUT ('Введите размер в пикселях - (Размер по умолчанию: <<$ARGS[2]>>)')&ARGS['VAL'] = VAL($ARGS['INPUT'])&!Инпут для размера видео/картинок.
    if ARGS['VAL']<0:ARGS['VAL']=0
    if ARGS['VAL']>2000:ARGS['VAL']=2000
-   $CONFIG['<<$ARGS[1]>>']='<<ARGS["VAL"]>>px'
-   if ARGS['VAL']=0:$CONFIG['<<$ARGS[1]>>']='auto'
+   $CONFIG['<<$ARGS[1]>>']='<<ARGS["VAL"]>>px'&if ARGS['VAL']=0:$CONFIG['<<$ARGS[1]>>']='auto'
    CONFIG['UPDATE_CSS']=1
 end
-!Функция для быстрого "убийства" нескольких переменных одновременно.
-!Вызывается таким образом gs 'util_func','KILLVARS','VAR1','VAR2','VAR3'
-!Переменные под именем "VAR1","VAR2","VAR3" будут убиты.
 if $ARGS[0] = 'KILLVARS':
-	i = ARRSIZE('ARGS') - 1
+	i = ARRSIZE('ARGS') - 1&!Функция для быстрого "убийства" переменных "VAR1","VAR2","VAR3"  одновременно.!Вызывается таким образом gs 'util_func','KILLVARS','VAR1','VAR2','VAR3'
 	:killvars_loop
-	killvar '<<$ARGS[i]>>'
-	if i>0:i-=1 & jump'killvars_loop'
+	killvar '<<$ARGS[i]>>'&if i>0:i-=1 & jump'killvars_loop'
 end
-!Возвращает строку с нулями, нужно для того, чтоб некоторые кнопки не разъезжались.
 if $ARGS[0] = 'GET_ZERO':
-	if ARGS[1] > 9 and ARGS[1] < 99:$RESULT = '0<<ARGS[1]>>'
+	if ARGS[1] > 9 and ARGS[1] < 99:$RESULT = '0<<ARGS[1]>>'&!Возвращает строку с нулями, нужно для того, чтоб некоторые кнопки не разъезжались.
 	if ARGS[1] < 10 :$RESULT = '00<<ARGS[1]>>'
 	if ARGS[1] >= 100 :$RESULT = '<<ARGS[1]>>'
 end
-!Возвращает строку с пробелами, нужно для того, чтоб некоторые кнопки не так сильно разъезжались.
 if $ARGS[0] = 'GET_EMPTY':
-if ARGS[1] > 9 and ARGS[1] < 99:$RESULT = ' '
-if ARGS[1] < 10 :$RESULT = '  '
-if ARGS[1] >= 100 :$RESULT = ''
+	if ARGS[1] > 9 and ARGS[1] < 99:$RESULT = ' '&!Возвращает строку с пробелами, нужно для того, чтоб некоторые кнопки не так сильно разъезжались.
+	if ARGS[1] < 10 :$RESULT = '  '
+	if ARGS[1] >= 100 :$RESULT = ''
 end
-!Конвертирует int в float и возвращает строку.
 if $ARGS[0] = 'GET_FLOAT':
-	$ARGS['VALUE'] = ARGS[1]
+	$ARGS['VALUE'] = ARGS[1]&!Конвертирует int в float и возвращает строку.
 	if LEN($ARGS['VALUE']) = 1:$RESULT = '0.0' + $ARGS['VALUE']
 	if LEN($ARGS['VALUE']) = 2:$RESULT = '0.' + $ARGS['VALUE']
 	if LEN($ARGS['VALUE'])> 2:$RESULT = "<<$MID($ARGS['VALUE'], 1, LEN($ARGS['VALUE'])-2)>>" + '.' + "<<$MID($ARGS['VALUE'], LEN($ARGS['VALUE'])-1)>>"
 end
-!Возвращает UTF иконку пола.
-if $ARGS[0] = 'GET_GENDER_UTF':
-	if ARGS[1] > 0:
-		$ARGS['GENDER_IS']=$func('util_func', 'get_gender_def', ARGS[1])
-		!Женский
-		if $ARGS['GENDER_IS']='FEMALE':$RESULT = '<font size=+1 color="#FF69B4"><b>&#9792;</b></font>'
-		!Мужской
-		if $ARGS['GENDER_IS']='MALE':$RESULT = '<font size=+1 color="#1E90FF"><b>&#9794;</b></font>'
-		!Транс
-		if $ARGS['GENDER_IS']='TRANS':$RESULT = '<font size=+1 color="#C71585"><b>&#9893;</b></font>'
-	end
+if $ARGS[0]='GET_GENDER_UTF' and ARGS[1]>0:
+	$ARGS['GENDER_IS']=$func('util_func', 'get_gender_def', ARGS[1])&!Возвращает UTF иконку пола.
+	if $ARGS['GENDER_IS']='FEMALE':$RESULT = '<font size=+1 color="#FF69B4"><b>&#9792;</b></font>'&!Женский
+	if $ARGS['GENDER_IS']='MALE':$RESULT = '<font size=+1 color="#1E90FF"><b>&#9794;</b></font>'&!Мужской
+	if $ARGS['GENDER_IS']='TRANS':$RESULT = '<font size=+1 color="#C71585"><b>&#9893;</b></font>'&!Транс
 end
 !Обновляем портрет
 if $ARGS[0] = 'UPDATE_PORTRAIT':
-  if ARGS[1] = you:
-    if face_pic[you]>0 or spec_face_pic[you]=6 and face_pic[you]=0:
-     if spec_face_pic[you]>0:
-         if spec_face_pic[you]>=7:
-         $d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<hairlong[you]>>_<<hcol[you]>>.jpg'
-         elseif spec_face_pic[you]=6:
-            if dagongene>110 and insmundface=1:
-				spec_face_pic[you]=6
-				face_tipe[you]=99
-				force_male_portrait[you]=0
-				force_fem_portrait[you]=0
-				if face[you]<15:face_pic[you]=6
-				if face[you]>=15 and face[you]<25:face_pic[you]=5
-				if face[you]>=25 and face[you]<45:face_pic[you]=4
-				if face[you]>=45 and face[you]<55:face_pic[you]=3
-				if face[you]>=55 and face[you]<70:face_pic[you]=2
-				if face[you]>=70 and face[you]<90:face_pic[you]=1
-				if face[you]>=90:face_pic[you]=0
+	if ARGS[1] = you:
+		if face_pic[you]>0 or spec_face_pic[you]=6 and face_pic[you]=0:
+			if spec_face_pic[you]>0:
+				if spec_face_pic[you]>=7:
+					$d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<hairlong[you]>>_<<hcol[you]>>.jpg'
+				elseif spec_face_pic[you]=6:
+					if dagongene>110 and insmundface=1:
+						spec_face_pic[you]=6&face_tipe[you]=99&force_male_portrait[you]=0&force_fem_portrait[you]=0
+						if face[you]<15:face_pic[you]=6
+						if face[you]>=15 and face[you]<25:face_pic[you]=5
+						if face[you]>=25 and face[you]<45:face_pic[you]=4
+						if face[you]>=45 and face[you]<55:face_pic[you]=3
+						if face[you]>=55 and face[you]<70:face_pic[you]=2
+						if face[you]>=70 and face[you]<90:face_pic[you]=1
+						if face[you]>=90:face_pic[you]=0
+					else
+						if face[you]>0 and face[you]<=15:face_pic[you]=4
+						if face[you]>20 and face[you]<=40:face_pic[you]=3
+						if face[you]>40 and face[you]<=60:face_pic[you]=2
+						if face[you]>60 and face[you]<=80:face_pic[you]=1
+						if face[you]>80:face_pic[you]=0
+					end
+					pic_hcol[you]=hcol[you]&$d_view_mirr='pic/face/6/t<<face_tipe[you]>>/<<pic_hcol[you]>>/<<face_pic[you]>>.jpg'
+				else
+					$d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'
+				end
 			else
-				if face[you]>0 and face[you]<=15:face_pic[you]=4
-				if face[you]>20 and face[you]<=40:face_pic[you]=3
-				if face[you]>40 and face[you]<=60:face_pic[you]=2
-				if face[you]>60 and face[you]<=80:face_pic[you]=1
-				if face[you]>80:face_pic[you]=0
-            end
-			pic_hcol[you]=hcol[you]
-			$d_view_mirr='pic/face/6/t<<face_tipe[you]>>/<<pic_hcol[you]>>/<<face_pic[you]>>.jpg'
-         else
-         $d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'
-         end
-     else
-		 if face[you]>=50 and skin[i]<4:$d_view_mirr='pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg'
-		 if face[you]>=50 and skin[i]>=4:$d_view_mirr='pic/face/4/<<face_pic[you]>>.jpg'
-         if face[you]<50:$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'
-	 end
-   if force_male_portrait[you]>0:
-      $d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'
-      $d_view_st='pic/faceman/<<face_pic[you]>>.jpg'
-   end
-   if force_fem_portrait[you]>0:
-      $d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'
-      $d_view_st='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'
-   end
-  end
-  else
-  gs 'init_d_view', ARGS[1], "d_view"
-  end
+				if face[you]>=50 and skin[i]<4:$d_view_mirr='pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg'
+				if face[you]>=50 and skin[i]>3 and skin[i]<7:$d_view_mirr='pic/face/4/<<face_pic[you]>>.jpg'
+				if face[you]<50:$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'
+			end
+			if force_male_portrait[you]>0:
+				$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'&$d_view_st='pic/faceman/<<face_pic[you]>>.jpg'
+			end
+			if force_fem_portrait[you]>0:$d_view_mirr='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'&$d_view_st='pic/face/<<spec_face_pic[you]>>/<<face_pic[you]>>.jpg'
+		end
+	else
+		gs 'init_d_view', ARGS[1], "d_view"
+	end
 end
-!Интерполяция цвета, от 0 до 100. (Для пола)!Цвет будет плавно переходить от одного к другому.
 if $ARGS[0] = 'INTERPOLATE_COLOR':
-    ARGS['INDEX'] = ARGS[1]
-    ARGS['VALUE'] = face[ARGS['INDEX']]
+    ARGS['INDEX'] = ARGS[1]&ARGS['VALUE'] = face[ARGS['INDEX']]&!Интерполяция цвета, от 0 до 100. (Для пола)!Цвет будет плавно переходить от одного к другому.
     if ARGS['VALUE'] < 0: ARGS['VALUE'] = 0
     if ARGS['VALUE'] > 100: ARGS['VALUE'] = 100
     ARGS['FACTOR'] = ARGS['VALUE'] * 1000 / 100
-	  CONFIG['CURRENT_COLOR_R'] = CONFIG['MALE_COLOR_R'] + (ARGS['FACTOR'] * (CONFIG['FEM_COLOR_R'] - CONFIG['MALE_COLOR_R']) / 1000)
+	CONFIG['CURRENT_COLOR_R'] = CONFIG['MALE_COLOR_R'] + (ARGS['FACTOR'] * (CONFIG['FEM_COLOR_R'] - CONFIG['MALE_COLOR_R']) / 1000)
     CONFIG['CURRENT_COLOR_G'] = CONFIG['MALE_COLOR_G'] + (ARGS['FACTOR'] * (CONFIG['FEM_COLOR_G'] - CONFIG['MALE_COLOR_G']) / 1000)
     CONFIG['CURRENT_COLOR_B'] = CONFIG['MALE_COLOR_B'] + (ARGS['FACTOR'] * (CONFIG['FEM_COLOR_B'] - CONFIG['MALE_COLOR_B']) / 1000)
 end
-!Интерполяция цвета, от 0 до 100. (Общая)!Цвет будет плавно переходить от одного к другому.
 if $ARGS[0] = 'INTERPOLATE_COLOR_ALL':
-    ARGS['VALUE'] = ARGS[1]
-    ARGS['TEMP_COLOR_ONE_R']=ARGS[2]
-    ARGS['TEMP_COLOR_ONE_G']=ARGS[3]
-    ARGS['TEMP_COLOR_ONE_B']=ARGS[4]
-    ARGS['TEMP_COLOR_TWO_R']=ARGS[5]
-    ARGS['TEMP_COLOR_TWO_G']=ARGS[6]
-    ARGS['TEMP_COLOR_TWO_B']=ARGS[7]
+    ARGS['VALUE'] = ARGS[1]&!Интерполяция цвета, от 0 до 100. (Общая)!Цвет будет плавно переходить от одного к другому.
+	ARGS['TEMP_COLOR_ONE_R']=ARGS[2]&ARGS['TEMP_COLOR_ONE_G']=ARGS[3]&ARGS['TEMP_COLOR_ONE_B']=ARGS[4]
+    ARGS['TEMP_COLOR_TWO_R']=ARGS[5]&ARGS['TEMP_COLOR_TWO_G']=ARGS[6]& ARGS['TEMP_COLOR_TWO_B']=ARGS[7]
     if ARGS['VALUE'] < 0: ARGS['VALUE'] = 0
     if ARGS['VALUE'] > 100: ARGS['VALUE'] = 100
-    ARGS['FACTOR'] = ARGS['VALUE'] * 1000 / 100
+	ARGS['FACTOR'] = ARGS['VALUE'] * 1000 / 100
 	ARGS['CURRENT_COLOR_R'] = ARGS['TEMP_COLOR_ONE_R'] + (ARGS['FACTOR'] * (ARGS['TEMP_COLOR_TWO_R'] - ARGS['TEMP_COLOR_ONE_R']) / 1000)
     ARGS['CURRENT_COLOR_G'] = ARGS['TEMP_COLOR_ONE_G'] + (ARGS['FACTOR'] * (ARGS['TEMP_COLOR_TWO_G'] - ARGS['TEMP_COLOR_ONE_G']) / 1000)
     ARGS['CURRENT_COLOR_B'] = ARGS['TEMP_COLOR_ONE_B'] + (ARGS['FACTOR'] * (ARGS['TEMP_COLOR_TWO_B'] - ARGS['TEMP_COLOR_ONE_B']) / 1000)
     $RESULT = '<<func("util_func", "rgb_to_hex", ARGS["CURRENT_COLOR_R"], ARGS["CURRENT_COLOR_G"], ARGS["CURRENT_COLOR_B"])>>'
 end
-!Шотркат для интерполяции цвета.
 if $ARGS[0] = 'GET_INT_COLOR':
-   $ARGS[1] = UCASE($ARGS[1])
-   if $ARGS[1] ! '':
-      if $ARGS[1] = 'FROM_GREEN_TO_GRAY':$RESULT='<<func("util_func", "interpolate_color_all", ARGS[2], 89, 89, 89, 12, 167, 27)>>'
-   end
+	$ARGS[1] = UCASE($ARGS[1])&!Шотркат для интерполяции цвета.
+	if $ARGS[1] ! '' and $ARGS[1]='FROM_GREEN_TO_GRAY':$RESULT='<<func("util_func", "interpolate_color_all", ARGS[2], 89, 89, 89, 12, 167, 27)>>'
 end
-!Конвертируем десятичное число в шестнадцатеричное число.!Нужно для конверсии RGB в HEX
 if $ARGS[0] = 'DECIMAL_TO_HEX':
 	$ARGS['0'] = "0"&$ARGS['1'] = "1"&$ARGS['2'] = "2"&$ARGS['3'] = "3"&$ARGS['4'] = "4"&$ARGS['5'] = "5"
 	$ARGS['6'] = "6"&$ARGS['7'] = "7"&$ARGS['8'] = "8"&$ARGS['9'] = "9"&$ARGS['10'] = "a"&$ARGS['11'] = "b"
 	$ARGS['12'] = "c"&$ARGS['13'] = "d"&$ARGS['14'] = "e"&$ARGS['15'] = "f"&$ARGS['HEX'] = ""
-	ARGS['VALUE'] = ARGS[1]
+	ARGS['VALUE'] = ARGS[1]&!Конвертируем десятичное число в шестнадцатеричное число.!Нужно для конверсии RGB в HEX
 	:hex_loop
-	ARGS['REMAINDER'] = ARGS['VALUE'] mod 16
-	$ARGS['HEX'] = $ARGS["<<ARGS['REMAINDER']>>"] + $ARGS['HEX']
-	ARGS['VALUE'] = ARGS['VALUE'] / 16
+	ARGS['REMAINDER']=ARGS['VALUE'] mod 16
+	$ARGS['HEX']=$ARGS["<<ARGS['REMAINDER']>>"]+$ARGS['HEX']&ARGS['VALUE']=ARGS['VALUE'] / 16
 	if ARGS['VALUE'] > 0: jump 'hex_loop'
 	if LEN($ARGS['HEX']) = 1:$ARGS['HEX'] = "0" + $ARGS['HEX']
 	if LEN($ARGS['HEX']) = 0:$ARGS['HEX'] = "00"
 	$RESULT = $ARGS['HEX']
 end
-!Ковертируем RGB в хекс
 if $ARGS[0] = 'RGB_TO_HEX':
-   $ARGS['R'] = '<<func("util_func", "decimal_to_hex", ARGS[1])>>'
-   $ARGS['G'] = '<<func("util_func", "decimal_to_hex", ARGS[2])>>'
-   $ARGS['B'] = '<<func("util_func", "decimal_to_hex", ARGS[3])>>'
-   $RESULT = "#" + $ARGS['R'] + $ARGS['G'] + $ARGS['B']
+	$ARGS['R'] = '<<func("util_func", "decimal_to_hex", ARGS[1])>>'
+	$ARGS['G'] = '<<func("util_func", "decimal_to_hex", ARGS[2])>>'
+	$ARGS['B'] = '<<func("util_func", "decimal_to_hex", ARGS[3])>>'
+	$RESULT = "#" + $ARGS['R'] + $ARGS['G'] + $ARGS['B']&!Ковертируем RGB в хекс
 end
-!Находим индекс NPC по имени и фамилии для выбора цели.
 if $ARGS[0] = 'FIND_NPC_BY_NAME':
-  $ARGS['NAME_INPUT'] = INPUT ('Введите имя цели, которую хотите найти.')
-  $ARGS['SURNAME_INPUT'] = INPUT ('Введите фамилию, которую хотите найти. ')
-  if $ARGS['NAME_INPUT'] = '' and $ARGS['SURNAME_INPUT'] = '':jump 'find_by_name_loop_end'
-  i=1
-  :find_by_name_loop
-  ARGS['ARRSIZE'] = ARRSIZE('$name')
-  if $UCASE($name[i]) = $UCASE($ARGS['NAME_INPUT']) and $UCASE($surname[i]) = $UCASE($ARGS['SURNAME_INPUT']):
-    if npc_index ! target_index: target_index = i & jump 'find_by_name_loop_end'
-  end
-  if i<ARGS['ARRSIZE']:i+=1 & jump 'find_by_name_loop'
-  :find_by_name_loop_end
-  killvar 'i'
+	$ARGS['NAME_INPUT'] = INPUT ('Введите имя цели, которую хотите найти.')&!Находим индекс NPC по имени и фамилии для выбора цели.
+	$ARGS['SURNAME_INPUT'] = INPUT ('Введите фамилию, которую хотите найти. ')
+	if $ARGS['NAME_INPUT'] = '' and $ARGS['SURNAME_INPUT'] = '':jump 'find_by_name_loop_end'
+	i=1
+	:find_by_name_loop
+	ARGS['ARRSIZE'] = ARRSIZE('$name')
+	if $UCASE($name[i]) = $UCASE($ARGS['NAME_INPUT']) and $UCASE($surname[i]) = $UCASE($ARGS['SURNAME_INPUT']) and npc_index ! target_index: target_index = i & jump 'find_by_name_loop_end'
+	if i<ARGS['ARRSIZE']:i+=1 & jump 'find_by_name_loop'
+	:find_by_name_loop_end
+	killvar 'i'
 end
-!Находим индекс NPC по имени и фамилии для телепортации к NPC.
 if $ARGS[0] = 'FIND_NPC_BY_NAME_FOR_TELEPORT':
-  $ARGS['NAME_INPUT'] = INPUT ('Введите имя цели, к которой хотите телепортироваться.')
-  $ARGS['SURNAME_INPUT'] = INPUT ('Введите фамилию, к которой хотите телепортироваться. ')
-  if $ARGS['NAME_INPUT'] = '' and $ARGS['SURNAME_INPUT'] = '':jump 'find_by_name_loop_end'
-  i=1
-  :find_by_name_loop
-  ARGS['ARRSIZE'] = ARRSIZE('$name')
-  if $UCASE($name[i]) = $UCASE($ARGS['NAME_INPUT']) and $UCASE($surname[i]) = $UCASE($ARGS['SURNAME_INPUT']):
-    X[you]=X[i] & Y[you]=Y[i] & Z[you]=Z[i] & H[you]=H[i] & R[you]=R[i]
-    npc_index=0
-    target_index=0
-    CHEAT_MENU['IN_CHEAT_MENU']=0
-    pl"<<i>>"
-    jump 'find_by_name_loop_finish'
-  end
-  if i<ARGS['ARRSIZE']:i+=1 & jump 'find_by_name_loop'
-  :find_by_name_loop_finish
-  if X[you] ! X[i] and Y[you] ! Y[i] and Z[you] ! Z[i] and H[you] ! H[i] and R[you] ! R[i]:msg('Не удалось найти цель, возможно цели с таким именем и фамилией не существует, или была допущена ошибка.')
-  if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:gt 'preloc'
-  :find_by_name_loop_end
-  killvar 'i'
+	$ARGS['NAME_INPUT'] = INPUT ('Введите имя цели, к которой хотите телепортироваться.')&!Находим индекс NPC по имени и фамилии для телепортации к NPC.
+	$ARGS['SURNAME_INPUT'] = INPUT ('Введите фамилию, к которой хотите телепортироваться. ')
+	if $ARGS['NAME_INPUT'] = '' and $ARGS['SURNAME_INPUT'] = '':jump 'find_by_name_loop_end'
+	i=1
+	:find_by_name_loop
+	ARGS['ARRSIZE'] = ARRSIZE('$name')
+	if $UCASE($name[i]) = $UCASE($ARGS['NAME_INPUT']) and $UCASE($surname[i]) = $UCASE($ARGS['SURNAME_INPUT']):
+    X[you]=X[i]&Y[you]=Y[i]&Z[you]=Z[i]&H[you]=H[i]&R[you]=R[i]&npc_index=0&target_index=0&CHEAT_MENU['IN_CHEAT_MENU']=0&
+	pl"<<i>>"&jump 'find_by_name_loop_finish'
 end
-!Телепорт по индексу
-if $ARGS[0] = 'TELEPORT_BY_INDEX':
-	  if ARGS[1] ! 0 and ARGS[2] ! 0:
-		 X[ARGS[1]]=X[ARGS[2]]
-		 Y[ARGS[1]]=Y[ARGS[2]]
-		 Z[ARGS[1]]=Z[ARGS[2]]
-		 H[ARGS[1]]=H[ARGS[2]]
-		 R[ARGS[1]]=R[ARGS[2]]
-	  end
+if i<ARGS['ARRSIZE']:i+=1 & jump 'find_by_name_loop'
+	:find_by_name_loop_finish
+	if X[you] ! X[i] and Y[you] ! Y[i] and Z[you] ! Z[i] and H[you] ! H[i] and R[you] ! R[i]:msg('Не удалось найти цель, возможно цели с таким именем и фамилией не существует, или была допущена ошибка.')
+	if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:gt 'preloc'
+	:find_by_name_loop_end
+	killvar 'i'
 end
-!Проверяем являются-ли цели родственниками или мужем/женой друг-друга.
-!Принимает 2 аргумента:
-!ARGS[1] - индекс NPC_1
-!ARGS[2] - индекс NPC_2
+if $ARGS[0]='TELEPORT_BY_INDEX' and ARGS[1]!0 and ARGS[2]!0:X[ARGS[1]]=X[ARGS[2]]&Y[ARGS[1]]=Y[ARGS[2]]&Z[ARGS[1]]=Z[ARGS[2]]&H[ARGS[1]]=H[ARGS[2]]&R[ARGS[1]]=R[ARGS[2]]&!Телепорт 
 if $ARGS[0] = 'CHECK_RELATIONS_OF_NPC':
-   RESULT=0
+   RESULT=0&!Проверяем являются-ли цели родственниками или мужем/женой друг-друга.!Принимает 2 аргумента:   ARGS[1] - индекс NPC_1  и   ARGS[2] - индекс NPC_2
    if husband[ARGS[1]] = ARGS[2]:RESULT=1
    if brother[ARGS[1]] = ARGS[2]:RESULT=2
    if father[ARGS[1]] = ARGS[2]:RESULT=3
@@ -335,745 +243,559 @@ if $ARGS[0] = 'CHECK_RELATIONS_OF_NPC':
    if girlfriend_num[ARGS[1]] = ARGS[2]:RESULT=7
    if boyfriend_num[ARGS[1]] = ARGS[2]:RESULT=8
 end
-!Проверяем замужем/жената ли цель
-if $ARGS[0] = 'TARGET_IS_MARRIED':
-   if ARGS[1] ! 0:RESULT = husband[ARGS[1]]
-end
-!Проверяем является-ли цель братом/сестрой
-if $ARGS[0] = 'TARGET_IS_BROTHER':
-   if ARGS[1] ! 0:RESULT = brother[ARGS[1]]
-end
-if $ARGS[0] = 'TARGET_HAS_FATHER':
-   if ARGS[1] ! 0:
-    if father[ARGS[1]]>0:RESULT = father[ARGS[1]]
-   end
-end
-if $ARGS[0] = 'TARGET_HAS_MOTHER':
-   if ARGS[1] ! 0:
-    if mother[ARGS[1]]>0:RESULT = mother[ARGS[1]]
-   end
-end
-if $ARGS[0] = 'TARGET_HAS_FIRST_KID':
-   if ARGS[1] ! 0:
-    if kid_first[ARGS[1]]>0:RESULT = kid_first[ARGS[1]]
-   end
-end
-if $ARGS[0] = 'TARGET_HAS_SECOND_KID':
-   if ARGS[1] ! 0:
+if $ARGS[0] = 'TARGET_IS_MARRIED' and ARGS[1] ! 0:RESULT = husband[ARGS[1]]&!Проверяем замужем/жената ли цель
+if $ARGS[0] = 'TARGET_IS_BROTHER' and ARGS[1] ! 0:RESULT = brother[ARGS[1]]&!Проверяем является-ли цель братом/сестрой
+if $ARGS[0] = 'TARGET_HAS_FATHER' and ARGS[1] ! 0 and father[ARGS[1]]>0:RESULT = father[ARGS[1]]
+if $ARGS[0] = 'TARGET_HAS_MOTHER' and ARGS[1] ! 0 and mother[ARGS[1]]>0:RESULT = mother[ARGS[1]]
+if $ARGS[0] = 'TARGET_HAS_FIRST_KID' and ARGS[1] ! 0 and kid_first[ARGS[1]]>0:RESULT = kid_first[ARGS[1]]
+if $ARGS[0] = 'TARGET_HAS_SECOND_KID' and ARGS[1] ! 0 and kid_second[ARGS[1]]>0:RESULT = kid_second[ARGS[1]]
+if $ARGS[0] = 'TARGET_IS_CHILD' and ARGS[1] ! 0:
+    if kid_first[ARGS[1]]>0:RESULT = kid_first[ARGS[1]]&!Проверяем является-ли цель чьим-то родителем.
     if kid_second[ARGS[1]]>0:RESULT = kid_second[ARGS[1]]
-   end
 end
-!Проверяем является-ли цель чьим-то родителем.
-if $ARGS[0] = 'TARGET_IS_CHILD':
-   if ARGS[1] ! 0:
-    if kid_first[ARGS[1]]>0:RESULT = kid_first[ARGS[1]]
-    if kid_second[ARGS[1]]>0:RESULT = kid_second[ARGS[1]]
-   end
-end
-!Проверяем является-ли цель чьим-то "Парнем/девушкой"
-if $ARGS[0] = 'TARGET_IS_BOYFRIEND':
-   if ARGS[1] ! 0:
-    if boyfriend_num[ARGS[1]]>0:RESULT = boyfriend_num[ARGS[1]]
+if $ARGS[0] = 'TARGET_IS_BOYFRIEND' and ARGS[1] ! 0:
+    if boyfriend_num[ARGS[1]]>0:RESULT = boyfriend_num[ARGS[1]]&!Проверяем является-ли цель чьим-то "Парнем/девушкой"
     if girlfriend_num[ARGS[1]]>0:RESULT = girlfriend_num[ARGS[1]]
-   end
 end
 if $ARGS[0] = 'IS_ABLE_TO_RELATE':
-   if ARGS[1] ! 0 and ARGS[2] ! 0:
-      if UCASE($ARGS[3]) = 'BOYFRIEND':
-         if pol[ARGS[1]] ! pol[ARGS[2]]:RESULT=1
-         if boyfriend_num[ARGS[1]]=0:RESULT+=1
-         if boyfriend_num[ARGS[2]]=0:RESULT+=1
-         if girlfriend_num[ARGS[1]]=0:RESULT+=1
-         if girlfriend_num[ARGS[2]]=0:RESULT+=1
-         if brother[ARGS[1]]=ARGS[2]:RESULT=0
-         if husband[ARGS[1]]>0:RESULT=0
-         if husband[ARGS[2]]>0:RESULT=0
-         if father[ARGS[1]]=ARGS[2]:RESULT=0
-         if mother[ARGS[1]]=ARGS[2]:RESULT=0
-         if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
-         if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-      end
-      if UCASE($ARGS[3]) = 'MARRIED':
-         if pol[ARGS[1]] ! pol[ARGS[2]]:RESULT=1
-         if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT+=2
-         if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT+=2
-         if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT+=2
-         if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT+=2
-         if brother[ARGS[1]]=ARGS[2]:RESULT=0
-         if husband[ARGS[1]]>0:RESULT=0
-         if husband[ARGS[2]]>0:RESULT=0
-         if father[ARGS[1]]=ARGS[2]:RESULT=0
-         if mother[ARGS[1]]=ARGS[2]:RESULT=0
-         if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
-         if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-      end
-      if UCASE($ARGS[3]) = 'SIBLING':
+	if ARGS[1] ! 0 and ARGS[2] ! 0:
+		if UCASE($ARGS[3]) = 'BOYFRIEND':
+			if pol[ARGS[1]] ! pol[ARGS[2]]:RESULT=1
+			if boyfriend_num[ARGS[1]]=0:RESULT+=1
+			if boyfriend_num[ARGS[2]]=0:RESULT+=1
+			if girlfriend_num[ARGS[1]]=0:RESULT+=1
+			if girlfriend_num[ARGS[2]]=0:RESULT+=1
+			if brother[ARGS[1]]=ARGS[2]:RESULT=0
+			if husband[ARGS[1]]>0:RESULT=0
+			if husband[ARGS[2]]>0:RESULT=0
+			if father[ARGS[1]]=ARGS[2]:RESULT=0
+			if mother[ARGS[1]]=ARGS[2]:RESULT=0
+			if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
+			if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+		end
+		if UCASE($ARGS[3]) = 'MARRIED':
+			if pol[ARGS[1]] ! pol[ARGS[2]]:RESULT=1
+			if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT+=2
+			if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT+=2
+			if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT+=2
+			if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT+=2
+			if brother[ARGS[1]]=ARGS[2]:RESULT=0
+			if husband[ARGS[1]]>0:RESULT=0
+			if husband[ARGS[2]]>0:RESULT=0
+			if father[ARGS[1]]=ARGS[2]:RESULT=0
+			if mother[ARGS[1]]=ARGS[2]:RESULT=0
+			if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
+			if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+		end
+		if UCASE($ARGS[3]) = 'SIBLING':
+			RESULT=5
+			if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if husband[ARGS[1]]=ARGS[2]:RESULT=0
+			if husband[ARGS[2]]=ARGS[1]:RESULT=0
+			if brother[ARGS[1]]=ARGS[2]:RESULT=0
+			if father[ARGS[1]]=ARGS[2]:RESULT=0
+			if mother[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+		end
+		if UCASE($ARGS[3]) = 'FATHER':
             RESULT=5
-         if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if husband[ARGS[1]]=ARGS[2]:RESULT=0
-         if husband[ARGS[2]]=ARGS[1]:RESULT=0
-         if brother[ARGS[1]]=ARGS[2]:RESULT=0
-         if father[ARGS[1]]=ARGS[2]:RESULT=0
-         if mother[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-      end
-      if UCASE($ARGS[3]) = 'FATHER':
+			if dick[ARGS[1]]=0:RESULT=0
+			if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if husband[ARGS[1]]=ARGS[2]:RESULT=0
+			if husband[ARGS[2]]=ARGS[1]:RESULT=0
+			if brother[ARGS[1]]=ARGS[2]:RESULT=0
+			if father[ARGS[2]]>0:RESULT=0
+			if mother[ARGS[2]]=ARGS[1]:RESULT=0
+			if mother[ARGS[1]]=ARGS[2]:RESULT=0
+			if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
+			if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_first[ARGS[2]]=ARGS[1]:RESULT=0
+			if kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_second[ARGS[2]]=ARGS[1]:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_first[ARGS[1]]>0 and kid_second[ARGS[1]]>0:RESULT=0
+		end
+		if UCASE($ARGS[3]) = 'MOTHER':
             RESULT=5
-         if dick[ARGS[1]]=0:RESULT=0
-         if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if husband[ARGS[1]]=ARGS[2]:RESULT=0
-         if husband[ARGS[2]]=ARGS[1]:RESULT=0
-         if brother[ARGS[1]]=ARGS[2]:RESULT=0
-         if father[ARGS[2]]>0:RESULT=0
-         if mother[ARGS[2]]=ARGS[1]:RESULT=0
-         if mother[ARGS[1]]=ARGS[2]:RESULT=0
-         if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
-         if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_first[ARGS[2]]=ARGS[1]:RESULT=0
-         if kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_second[ARGS[2]]=ARGS[1]:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_first[ARGS[1]]>0 and kid_second[ARGS[1]]>0:RESULT=0
-      end
-      if UCASE($ARGS[3]) = 'MOTHER':
+			if vag[ARGS[1]]=0:RESULT=0
+			if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if husband[ARGS[1]]=ARGS[2]:RESULT=0
+			if husband[ARGS[2]]=ARGS[1]:RESULT=0
+			if brother[ARGS[1]]=ARGS[2]:RESULT=0
+			if father[ARGS[2]]=ARGS[1]:RESULT=0
+			if father[ARGS[1]]=ARGS[2]:RESULT=0
+			if mother[ARGS[2]]>0:RESULT=0
+			if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
+			if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_first[ARGS[2]]=ARGS[1]:RESULT=0
+			if kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_second[ARGS[2]]=ARGS[1]:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_first[ARGS[1]]>0 and kid_second[ARGS[1]]>0:RESULT=0
+		end
+		if UCASE($ARGS[3]) = 'KID_1':
             RESULT=5
-         if vag[ARGS[1]]=0:RESULT=0
-         if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if husband[ARGS[1]]=ARGS[2]:RESULT=0
-         if husband[ARGS[2]]=ARGS[1]:RESULT=0
-         if brother[ARGS[1]]=ARGS[2]:RESULT=0
-         if father[ARGS[2]]=ARGS[1]:RESULT=0
-         if father[ARGS[1]]=ARGS[2]:RESULT=0
-         if mother[ARGS[2]]>0:RESULT=0
-         if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
-         if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_first[ARGS[2]]=ARGS[1]:RESULT=0
-         if kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_second[ARGS[2]]=ARGS[1]:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_first[ARGS[1]]>0 and kid_second[ARGS[1]]>0:RESULT=0
-      end
-      if UCASE($ARGS[3]) = 'KID_1':
+			if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if husband[ARGS[1]]=ARGS[2]:RESULT=0
+			if husband[ARGS[2]]=ARGS[1]:RESULT=0
+			if brother[ARGS[1]]=ARGS[2]:RESULT=0
+			if dick[ARGS[1]]>0 and father[ARGS[2]]>0:RESULT=0
+			if vag[ARGS[1]]>0 and mother[ARGS[2]]>0:RESULT=0
+			if father[ARGS[1]] = ARGS[2]:RESULT=0
+			if mother[ARGS[1]] = ARGS[2]:RESULT=0
+			if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
+			if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
+			if kid_first[ARGS[1]]>0:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+		end
+		if UCASE($ARGS[3]) = 'KID_2':
             RESULT=5
-         if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if husband[ARGS[1]]=ARGS[2]:RESULT=0
-         if husband[ARGS[2]]=ARGS[1]:RESULT=0
-         if brother[ARGS[1]]=ARGS[2]:RESULT=0
-         if dick[ARGS[1]]>0 and father[ARGS[2]]>0:RESULT=0
-         if vag[ARGS[1]]>0 and mother[ARGS[2]]>0:RESULT=0
-         if father[ARGS[1]] = ARGS[2]:RESULT=0
-         if mother[ARGS[1]] = ARGS[2]:RESULT=0
-         if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
-         if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
-         if kid_first[ARGS[1]]>0:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-      end
-      if UCASE($ARGS[3]) = 'KID_2':
-            RESULT=5
-         if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
-         if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
-         if husband[ARGS[1]]=ARGS[2]:RESULT=0
-         if husband[ARGS[2]]=ARGS[1]:RESULT=0
-         if brother[ARGS[1]]=ARGS[2]:RESULT=0
-         if dick[ARGS[1]]>0 and father[ARGS[2]]>0:RESULT=0
-         if vag[ARGS[1]]>0 and mother[ARGS[2]]>0:RESULT=0
-         if father[ARGS[1]] = ARGS[2]:RESULT=0
-         if mother[ARGS[1]] = ARGS[2]:RESULT=0
-         if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
-         if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
-         if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
-         if kid_second[ARGS[1]]>0:RESULT=0
-      end
-   end
+			if boyfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if boyfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if girlfriend_num[ARGS[1]]=ARGS[2]:RESULT=0
+			if girlfriend_num[ARGS[2]]=ARGS[1]:RESULT=0
+			if husband[ARGS[1]]=ARGS[2]:RESULT=0
+			if husband[ARGS[2]]=ARGS[1]:RESULT=0
+			if brother[ARGS[1]]=ARGS[2]:RESULT=0
+			if dick[ARGS[1]]>0 and father[ARGS[2]]>0:RESULT=0
+			if vag[ARGS[1]]>0 and mother[ARGS[2]]>0:RESULT=0
+			if father[ARGS[1]] = ARGS[2]:RESULT=0
+			if mother[ARGS[1]] = ARGS[2]:RESULT=0
+			if father[ARGS[1]]=father[ARGS[2]] and father[ARGS[1]]>0:RESULT=0
+			if mother[ARGS[1]]=mother[ARGS[2]] and mother[ARGS[1]]>0:RESULT=0
+			if kid_first[ARGS[1]]=ARGS[2] or kid_second[ARGS[1]]=ARGS[2]:RESULT=0
+			if kid_second[ARGS[1]]>0:RESULT=0
+		end
+	end
 end
-!Увеличиваем отношения между 2мя NPC
-!Принимает 3 агрумента:
-!ARGS[1] - индекс NPC_1
-!ARGS[2] - индекс NPC_2
-!ARGS[3] - значение, которое будет добавлено к отношениям
-if $ARGS[0] = 'INCREASE_REL_STAT':
-  if ARGS[1] ! 0 and ARGS[2] ! 0:
-     friends['<<ARGS[1]>>,<<ARGS[2]>>'] += ARGS[3]
-     friends['<<ARGS[2]>>,<<ARGS[1]>>'] += ARGS[3]
-     if friends['<<ARGS[1]>>,<<ARGS[2]>>']>100:friends['<<ARGS[1]>>,<<ARGS[2]>>']=100
-     if friends['<<ARGS[2]>>,<<ARGS[1]>>']>100:friends['<<ARGS[2]>>,<<ARGS[1]>>']=100
-  end
+if $ARGS[0]='INCREASE_REL_STAT' and ARGS[1]!0 and ARGS[2]!0:
+    friends['<<ARGS[1]>>,<<ARGS[2]>>']+=ARGS[3]&friends['<<ARGS[2]>>,<<ARGS[1]>>']+=ARGS[3]&!Увеличиваем отношения между 2мя NPC!Принимает 3 агрумента:   
+    if friends['<<ARGS[1]>>,<<ARGS[2]>>']>100:friends['<<ARGS[1]>>,<<ARGS[2]>>']=100&!ARGS[1] - индекс NPC_1 и  ARGS[2] - индекс NPC_2 и ARGS[3] - значение, которое будет добавлено к отношениям
+    if friends['<<ARGS[2]>>,<<ARGS[1]>>']>100:friends['<<ARGS[2]>>,<<ARGS[1]>>']=100
 end
-!Уменьшаем отношения между 2мя NPC
-!Принимает 3 агрумента:
-!ARGS[1] - индекс NPC_1
-!ARGS[2] - индекс NPC_2
-!ARGS[3] - значение, которое будет вычтено из отношениям
-if $ARGS[0] = 'DECREASE_REL_STAT':
-  if ARGS[1] ! 0 and ARGS[2] ! 0:
-     friends['<<ARGS[1]>>,<<ARGS[2]>>'] -= ARGS[3]
-     friends['<<ARGS[2]>>,<<ARGS[1]>>'] -= ARGS[3]
-     if friends['<<ARGS[1]>>,<<ARGS[2]>>']<0:friends['<<ARGS[1]>>,<<ARGS[2]>>']=0
-     if friends['<<ARGS[2]>>,<<ARGS[1]>>']<0:friends['<<ARGS[2]>>,<<ARGS[1]>>']=0
-  end
+if $ARGS[0]='DECREASE_REL_STAT' and ARGS[1]!0 and ARGS[2]!0:
+    friends['<<ARGS[1]>>,<<ARGS[2]>>']-= ARGS[3]&friends['<<ARGS[2]>>,<<ARGS[1]>>']-= ARGS[3]&!Уменьшаем отношения между 2мя NPC!Принимает 3 агрумента:
+    if friends['<<ARGS[1]>>,<<ARGS[2]>>']<0:friends['<<ARGS[1]>>,<<ARGS[2]>>']=0&!ARGS[1] - индекс NPC_1  и  ARGS[2] - индекс NPC_2  и  ARGS[3] - значение, которое будет вычтено из отношениям
+    if friends['<<ARGS[2]>>,<<ARGS[1]>>']<0:friends['<<ARGS[2]>>,<<ARGS[1]>>']=0
 end
-!Получаем среднее значение между двумя переменными.
 if $ARGS[0] = 'GET_AVG_VALUE_OF':
-   $ARGS[1] = UCASE($ARGS[1])
-   if $ARGS[1] = 'REL':
-      RESULT = (friends['<<ARGS[2]>>,<<ARGS[3]>>']+friends['<<ARGS[3]>>,<<ARGS[2]>>'])/2
-   end
+   $ARGS[1] = UCASE($ARGS[1])&if $ARGS[1] = 'REL':RESULT = (friends['<<ARGS[2]>>,<<ARGS[3]>>']+friends['<<ARGS[3]>>,<<ARGS[2]>>'])/2&!Получаем среднее значение между двумя переменными.
 end
-!Получаем процент одного значение по отношению к другому.
-!Т.е. если мы отправляем переменную weight[you] которая ровняется 200 и сравниваем её с weightmax[you] которая ровняется 1000 - то в ответ мы получим 20.
 if $ARGS[0] = 'GET_PERCENT_OF':
-    ARGS['VALUE_ONE']=ARGS[1]
-    ARGS['VALUE_TWO']=ARGS[2]
+    ARGS['VALUE_ONE']=ARGS[1]&ARGS['VALUE_TWO']=ARGS[2]&!Получаем процент одного значение по отношению к другому.
     if ISNUM($ARGS[1])>0:ARGS['VALUE_ONE']=VAL($ARGS[1])
-    if ISNUM($ARGS[2])>0:ARGS['VALUE_TWO']=VAL($ARGS[2])
-
-    RESULT=(ARGS['VALUE_ONE'] * 100) / ARGS['VALUE_TWO']
+    if ISNUM($ARGS[2])>0:ARGS['VALUE_TWO']=VAL($ARGS[2])&!Если отправляем переменную weight[you] которая ровняется 200 и сравниваем её с weightmax[you] которая ровняется 1000 - то в получим 20.
+    RESULT=(ARGS['VALUE_ONE'] * 100)/ARGS['VALUE_TWO']
 end
-!Получаем процентное значение здоровья с цветовой интерполяцией.
-if $ARGS[0] = 'GET_HEALTH_VALUE':
-   if ARGS[1] ! 0:
-         ARGS['MAX']=1
-      if healthmax[ARGS[1]]>0:ARGS['MAX']=healthmax[ARGS[1]]
-      ARGS['CALC_FLOAT'] = (health[ARGS[1]] * 10000) / ARGS['MAX']
-      ARGS['GET_PERCENT_VALUE'] = (health[ARGS[1]] * 100) / ARGS['MAX']
-      $ARGS['GET_HEX_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
-      $ARGS['GET_HEX_COLOR_FOR_PERCENT'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
-      $RESULT = '<b><font class="dark-text-shadow" color="<<$ARGS[''GET_HEX_COLOR'']>>"><<health[ARGS[1]]>></font>/<font color="#0ea406"><<healthmax[ARGS[1]]>></font></b> [<font color="<<$ARGS[''GET_HEX_COLOR_FOR_PERCENT'']>>">' + $func('util_func', 'get_float',ARGS['CALC_FLOAT']) + '</font>%]'
-   end
+if $ARGS[0] = 'GET_HEALTH_VALUE' and ARGS[1] ! 0:
+    ARGS['MAX']=1&if healthmax[ARGS[1]]>0:ARGS['MAX']=healthmax[ARGS[1]]
+	ARGS['CALC_FLOAT'] = (health[ARGS[1]] * 10000) / ARGS['MAX']&ARGS['GET_PERCENT_VALUE'] = (health[ARGS[1]] * 100) / ARGS['MAX']
+	$ARGS['GET_HEX_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
+	$ARGS['GET_HEX_COLOR_FOR_PERCENT'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
+	$RESULT = '<b><font class="dark-text-shadow" color="<<$ARGS[''GET_HEX_COLOR'']>>"><<health[ARGS[1]]>></font>/<font color="#0ea406"><<healthmax[ARGS[1]]>></font></b> [<font color="<<$ARGS[''GET_HEX_COLOR_FOR_PERCENT'']>>">' + $func('util_func', 'get_float',ARGS['CALC_FLOAT']) + '</font>%]'&!Получаем процентное значение здоровья с цветовой интерполяцией.
 end
-!Получаем процентное значение маны с цветовой интерполяцией.
-if $ARGS[0] = 'GET_MANA_VALUE':
-   if ARGS[1] ! 0:
-         ARGS['MAX']=1
-      if manamax[ARGS[1]]>0:ARGS['MAX']=manamax[ARGS[1]]
-      ARGS['CALC_FLOAT'] = (mana[ARGS[1]] * 10000) / ARGS['MAX']
-      ARGS['GET_PERCENT_VALUE'] = (mana[ARGS[1]] * 100) / ARGS['MAX']
-      $ARGS['GET_HEX_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 6, 73, 167)
-      $ARGS['GET_HEX_COLOR_FOR_PERCENT'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
-      $RESULT = '<b><font class="dark-text-shadow" color="<<$ARGS[''GET_HEX_COLOR'']>>"><<mana[ARGS[1]]>></font>/<font color="#0649a7"><<manamax[ARGS[1]]>></font></b> [<font color="<<$ARGS[''GET_HEX_COLOR_FOR_PERCENT'']>>">' + $func('util_func', 'get_float',ARGS['CALC_FLOAT']) + '</font>%]'
-   end
+if $ARGS[0] = 'GET_MANA_VALUE' and ARGS[1] ! 0:
+    ARGS['MAX']=1&if manamax[ARGS[1]]>0:ARGS['MAX']=manamax[ARGS[1]]
+    ARGS['CALC_FLOAT'] = (mana[ARGS[1]] * 10000) / ARGS['MAX']
+    ARGS['GET_PERCENT_VALUE'] = (mana[ARGS[1]] * 100) / ARGS['MAX']
+    $ARGS['GET_HEX_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 6, 73, 167)
+    $ARGS['GET_HEX_COLOR_FOR_PERCENT'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
+    $RESULT = '<b><font class="dark-text-shadow" color="<<$ARGS[''GET_HEX_COLOR'']>>"><<mana[ARGS[1]]>></font>/<font color="#0649a7"><<manamax[ARGS[1]]>></font></b> [<font color="<<$ARGS[''GET_HEX_COLOR_FOR_PERCENT'']>>">' + $func('util_func', 'get_float',ARGS['CALC_FLOAT']) + '</font>%]'&!Получаем процентное значение маны с цветовой интерполяцией.
 end
-!Получаем процентное значение энергии с цветовой интерполяцией.
-if $ARGS[0] = 'GET_ENERGY_VALUE':
-   if ARGS[1] ! 0:
-         ARGS['MAX']=1
-      if energymax[ARGS[1]]>0:ARGS['MAX']=energymax[ARGS[1]]
-      ARGS['CALC_FLOAT'] = (energy[ARGS[1]] * 10000) / ARGS['MAX']
-      ARGS['GET_PERCENT_VALUE'] = (energy[ARGS[1]] * 100) / ARGS['MAX']
-      $ARGS['GET_HEX_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 208, 164, 22)
-      $ARGS['GET_HEX_COLOR_FOR_PERCENT'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
-      $RESULT = '<b><font class="dark-text-shadow" color="<<$ARGS[''GET_HEX_COLOR'']>>"><<energy[ARGS[1]]>></font>/<font color="#d0a416"><<energymax[ARGS[1]]>></font></b> [<font color="<<$ARGS[''GET_HEX_COLOR_FOR_PERCENT'']>>">' + $func('util_func', 'get_float',ARGS['CALC_FLOAT']) + '</font>%]'
-   end
+if $ARGS[0] = 'GET_ENERGY_VALUE' and ARGS[1] ! 0:
+    ARGS['MAX']=1&if energymax[ARGS[1]]>0:ARGS['MAX']=energymax[ARGS[1]]
+    ARGS['CALC_FLOAT'] = (energy[ARGS[1]] * 10000) / ARGS['MAX']
+    ARGS['GET_PERCENT_VALUE'] = (energy[ARGS[1]] * 100) / ARGS['MAX']
+    $ARGS['GET_HEX_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 208, 164, 22)
+    $ARGS['GET_HEX_COLOR_FOR_PERCENT'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_VALUE'], 225, 8, 8, 14, 164, 6)
+    $RESULT = '<b><font class="dark-text-shadow" color="<<$ARGS[''GET_HEX_COLOR'']>>"><<energy[ARGS[1]]>></font>/<font color="#d0a416"><<energymax[ARGS[1]]>></font></b> [<font color="<<$ARGS[''GET_HEX_COLOR_FOR_PERCENT'']>>">' + $func('util_func', 'get_float',ARGS['CALC_FLOAT']) + '</font>%]'&!Получаем процентное значение энергии с цветовой интерполяцией.
 end
-!Получаем процентное значение энергии с цветовой интерполяцией.
-if $ARGS[0] = 'GET_SOUL_COLOR':$RESULT = $func('util_func', 'interpolate_color_all', soul[you], 225, 8, 8, 83, 200, 234)
-!Получаем процентное значение энергии с цветовой интерполяцией.
-if $ARGS[0] = 'GET_AROUSAL_COLOR':$RESULT = $func('util_func', 'interpolate_color_all', horny[you], 14, 164, 6, 219, 55, 230)
-!Получаем цвет "Пола"
-if $ARGS[0] = 'GET_GENDER_COLOR':
-	if ARGS[1]>0:$RESULT = $func('util_func', 'interpolate_color_all', ARGS[1], 30, 144, 255, 255, 105, 180)
-end
-!Получаем цвет глаз.
+if $ARGS[0] = 'GET_SOUL_COLOR':$RESULT = $func('util_func', 'interpolate_color_all', soul[you], 225, 8, 8, 83, 200, 234)&!Получаем процентное значение энергии с цветовой интерполяцией.
+if $ARGS[0] = 'GET_AROUSAL_COLOR':$RESULT = $func('util_func', 'interpolate_color_all', horny[you], 14, 164, 6, 219, 55, 230)&!Получаем процентное значение энергии с цветовой интерполяцией.
+if $ARGS[0] = 'GET_GENDER_COLOR' and ARGS[1]>0:$RESULT = $func('util_func', 'interpolate_color_all', ARGS[1], 30, 144, 255, 255, 105, 180)&!Получаем цвет "Пола"
 if $ARGS[0] = 'GET_EYE_COLOR':
-   $EYE_COLOR_ARR[]='#000000'&!Чёрные
-   $EYE_COLOR_ARR[]='#8B4513'&!Карие
-   $EYE_COLOR_ARR[]='<<iif(ARGS[2]>0, "#000000", "#949494")>>'&!Серые
-   $EYE_COLOR_ARR[]='#008000'&!Зелёные
-   $EYE_COLOR_ARR[]='#0000FF'&!Голубые
-   $EYE_COLOR_ARR[]='#bd2e1f'&!Красные
-   $EYE_COLOR_ARR[]='#c2b500'&!Желтые
-   $RESULT = $EYE_COLOR_ARR[ARGS[1]]
-   killvar'$EYE_COLOR_ARR'
+	$EYE_COLOR_ARR[]='#000000'&!Чёрные
+	$EYE_COLOR_ARR[]='#8B4513'&!Карие
+	$EYE_COLOR_ARR[]='<<iif(ARGS[2]>0, "#000000", "#949494")>>'&!Серые
+	$EYE_COLOR_ARR[]='#008000'&!Зелёные
+	$EYE_COLOR_ARR[]='#0000FF'&!Голубые
+	$EYE_COLOR_ARR[]='#bd2e1f'&!Красные
+	$EYE_COLOR_ARR[]='#c2b500'&!Желтые
+	$RESULT = $EYE_COLOR_ARR[ARGS[1]]&!Получаем цвет глаз
+	killvar'$EYE_COLOR_ARR'
 end
-!Получаем цвет волос.
 if $ARGS[0] = 'GET_HAIR_COLOR':
-   $HAIR_COLOR_ARR[]='#000000'&!Чёрные
-   $HAIR_COLOR_ARR[]='#8B4513'&!Русые
-   $HAIR_COLOR_ARR[]='#D2691E'&!Рыжие
-   $HAIR_COLOR_ARR[]='<<iif(ARGS[2]>0, "#000000", "#e9df90")>>'&!Светлые
-   $HAIR_COLOR_ARR[]='#1E90FF'&!Синии
-   $HAIR_COLOR_ARR[]='#bd2e1f'&!Красные
-   $HAIR_COLOR_ARR[]='<<iif(ARGS[2]>0, "#000000", "#949494")>>'&!Белые
-   $RESULT = $HAIR_COLOR_ARR[ARGS[1]]
-   killvar'$HAIR_COLOR_ARR'
+	$HAIR_COLOR_ARR[]='#000000'&!Чёрные
+	$HAIR_COLOR_ARR[]='#8B4513'&!Русые
+	$HAIR_COLOR_ARR[]='#D2691E'&!Рыжие
+	$HAIR_COLOR_ARR[]='<<iif(ARGS[2]>0, "#000000", "#e9df90")>>'&!Светлые
+	$HAIR_COLOR_ARR[]='#1E90FF'&!Синии
+	$HAIR_COLOR_ARR[]='#bd2e1f'&!Красные
+	$HAIR_COLOR_ARR[]='<<iif(ARGS[2]>0, "#000000", "#949494")>>'&!Белые
+	$RESULT = $HAIR_COLOR_ARR[ARGS[1]]&!Получаем цвет волос.
+	killvar'$HAIR_COLOR_ARR'
 end
 if $ARGS[0] = 'GET_WEIGHT_TEXT':
     ARGS['GET_PERCENT_OF'] = func('util_func', 'get_percent_of', burden[you], burdenmax[you])
-   $ARGS['WEIGHT_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_OF'], 14, 164, 6, 225, 8, 8)
-   $RESULT='<font color="<<$ARGS[''WEIGHT_COLOR'']>>"><<$func("util_func", "get_float", burden[you])>></font>/<<$func("util_func", "get_float", burdenmax[you])>>'
+	$ARGS['WEIGHT_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_OF'], 14, 164, 6, 225, 8, 8)
+	$RESULT='<font color="<<$ARGS[''WEIGHT_COLOR'']>>"><<$func("util_func", "get_float", burden[you])>></font>/<<$func("util_func", "get_float", burdenmax[you])>>'
 end
 if $ARGS[0] = 'GET_WEIGHT_TEXT_ALL':$RESULT='<font color="green"><<$func("util_func", "get_float", ARGS[1])>></font><img width="12" src="pic/misc/UI/icons/weight.png">'
 if $ARGS[0] = 'GET_MSG_FOR_CLOTHES':
-   $ARGS['GET_ITEM_DESC']=$func('util_func', 'get_item_description', $ARGS[1], ARGS[2])
-    msg('<img src="pic/clo/<<$ARGS[1]>>/<<ARGS[2]>>.jpg"><br><<$ARGS["GET_ITEM_DESC"]>>')
+	$ARGS['GET_ITEM_DESC']=$func('util_func', 'get_item_description', $ARGS[1], ARGS[2])&msg('<img src="pic/clo/<<$ARGS[1]>>/<<ARGS[2]>>.jpg"><br><<$ARGS["GET_ITEM_DESC"]>>')
 end
-if $ARGS[0] = 'GET_COLORED_NAME':
-   if ARGS[1] ! 0:
-     $ARGS['NAME_COLOR'] = $func('util_func', 'get_gender_color', face[ARGS[1]])
-     $ARGS['GENDER_UTF'] = $func("util_func", "get_gender_utf", ARGS[1])
-     $RESULT='<font color="<<$ARGS[''NAME_COLOR'']>>"><<$name[ARGS[1]]>></font><<$ARGS[''GENDER_UTF'']>>'
-   end
+if $ARGS[0] = 'GET_COLORED_NAME' and ARGS[1] ! 0:
+    $ARGS['NAME_COLOR'] = $func('util_func', 'get_gender_color', face[ARGS[1]])&$ARGS['GENDER_UTF'] = $func("util_func", "get_gender_utf", ARGS[1])
+    $RESULT='<font color="<<$ARGS[''NAME_COLOR'']>>"><<$name[ARGS[1]]>></font><<$ARGS[''GENDER_UTF'']>>'
 end
-if $ARGS[0] = 'GET_COLORED_NAME_AND_SURNAME':
-   if ARGS[1] ! 0:
-     $ARGS['NAME_COLOR'] = $func('util_func', 'get_gender_color', face[ARGS[1]])
-     $ARGS['GENDER_UTF'] = $func("util_func", "get_gender_utf", ARGS[1])
-     $RESULT='<font color="<<$ARGS[''NAME_COLOR'']>>"><<$name[ARGS[1]]>> <<$surname[ARGS[1]]>></font><<$ARGS[''GENDER_UTF'']>>'
-   end
+if $ARGS[0] = 'GET_COLORED_NAME_AND_SURNAME' and ARGS[1] ! 0:
+    $ARGS['NAME_COLOR'] = $func('util_func', 'get_gender_color', face[ARGS[1]])&$ARGS['GENDER_UTF'] = $func("util_func", "get_gender_utf", ARGS[1])
+    $RESULT='<font color="<<$ARGS[''NAME_COLOR'']>>"><<$name[ARGS[1]]>> <<$surname[ARGS[1]]>></font><<$ARGS[''GENDER_UTF'']>>'
 end
 !Получаем основные характеристики предмета.
-if $ARGS[0] = 'GET_ITEM_DESCRIPTION':
-   if $ARGS[1] ! '':
-      !Ботинки
-      if $ARGS[1]='boot':
-         if pol_b[ARGS[2]]=0:
-            $RESULT+='Мужская обувь.<br>'
-         elseif pol_b[ARGS[2]]=1:
-            $RESULT+='Женская обувь.<br>'
-         else
-            $RESULT+='Унисекс обувь.<br>'
-         end
-         if sexy_b[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_b[ARGS[2]]>><br>'
-         if aristokrat_b[ARGS[2]]>0:$RESULT+='Обувь достойная высшего общества: <<aristokrat_b[ARGS[2]]>>.<br>'
-         if sport_b[ARGS[2]]>0:$RESULT+='Спортивная обувь.<br>'
-         $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_b_burden[ARGS[2]])
-      end
-      !Шапки
-      if $ARGS[1]='hat':
-         if masked[ARGS[2]]>0:$RESULT+='Скрывает лицо.<br>'
-         if sexy_h[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_h[ARGS[2]]>><br>'
-         if aristokrat_h[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_h[ARGS[2]]>> .<br>'
-         if leather_h[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
-         if sport_h[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
-         $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_h_burden[ARGS[2]])
-      end
-      !Штаны/юбки
-      if $ARGS[1]='low':
-         if pol_l[ARGS[2]]=0:
-            $RESULT+='Мужская одежда.<br>'
-         elseif pol_l[ARGS[2]]=1:
+if $ARGS[0] = 'GET_ITEM_DESCRIPTION' and $ARGS[1] ! '':
+	if $ARGS[1]='boot':
+		$RESULT+=$iif(pol_b[ARGS[2]]=0,'Мужская обувь.<br>',$iif(pol_b[ARGS[2]]=1,'Женская обувь.<br>','Унисекс обувь.<br>'))
+		if sexy_b[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_b[ARGS[2]]>><br>'
+		if aristokrat_b[ARGS[2]]>0:$RESULT+='Обувь достойная высшего общества: <<aristokrat_b[ARGS[2]]>>.<br>'
+		if sport_b[ARGS[2]]>0:$RESULT+='Спортивная обувь.<br>'
+		$RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_b_burden[ARGS[2]])&!Ботинки
+    end
+    if $ARGS[1]='hat':
+        if masked[ARGS[2]]>0:$RESULT+='Скрывает лицо.<br>'
+        if sexy_h[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_h[ARGS[2]]>><br>'
+        if aristokrat_h[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_h[ARGS[2]]>> .<br>'
+        if leather_h[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
+        if sport_h[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
+        $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_h_burden[ARGS[2]])&!Шапки
+    end
+    if $ARGS[1]='low':
+        if pol_l[ARGS[2]]=0:
+			$RESULT+='Мужская одежда.<br>'
+        elseif pol_l[ARGS[2]]=1:
             $RESULT+='Женская одежда.<br>'
             if long_l[ARGS[2]]=1:$RESULT+='Мини платье едва прикрывающее попу.<br>'
             if long_l[ARGS[2]]=2:$RESULT+='Платье длиной до середины бедра.<br>'
             if long_l[ARGS[2]]=3:$RESULT+='Платье до колена.<br>'
             if long_l[ARGS[2]]=4:$RESULT+='Платье до пола.<br>'
-         else
+        else
             $RESULT+='Унисекс одежда.<br>'
-         end
-         if sheer_l[ARGS[2]]>0:$RESULT+='Прозрачная одежда.<br>'
-         if sexy_l[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_l[ARGS[2]]>><br>'
-         if aristokrat_l[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_l[ARGS[2]]>>.<br>'
-         if leather_l[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
-         if sport_l[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
-         $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_l_burden[ARGS[2]])
-      end
-      !Рубашки/платья
-      if $ARGS[1]='top':
-         if pol_t[ARGS[2]]=0:
+        end
+        if sheer_l[ARGS[2]]>0:$RESULT+='Прозрачная одежда.<br>'
+        if sexy_l[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_l[ARGS[2]]>><br>'
+        if aristokrat_l[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_l[ARGS[2]]>>.<br>'
+        if leather_l[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
+        if sport_l[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
+        $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_l_burden[ARGS[2]])&!Штаны/юбки
+    end
+    if $ARGS[1]='top':
+        if pol_t[ARGS[2]]=0:
             $RESULT+='Мужская одежда.<br>'
-         elseif pol_t[ARGS[2]]=1:
+        elseif pol_t[ARGS[2]]=1:
             $RESULT+='Женская одежда.<br>'
             if long_t[ARGS[2]]=1:$RESULT+='Мини платье едва прикрывающее попу.<br>'
             if long_t[ARGS[2]]=2:$RESULT+='Платье длиной до середины бедра.<br>'
             if long_t[ARGS[2]]=3:$RESULT+='Платье до колена.<br>'
             if long_t[ARGS[2]]=4:$RESULT+='Платье до пола.<br>'
-         else
+        else
             $RESULT+='Унисекс одежда.<br>'
-         end
-         if sheer[ARGS[2]]>0:$RESULT+='Прозрачная одежда.<br>'
-         if sexy_t[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_t[ARGS[2]]>>.<br>'
-         if aristokrat_t[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_t[ARGS[2]]>>.<br>'
-         if leather_t[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
-         if sport_t[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
-         $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_t_burden[ARGS[2]])
-      end
-      !Лифчики
-      if $ARGS[1]='utop':
-         if pol_ut[ARGS[2]]=0:
-            $RESULT+='Мужская одежда.<br>'
-         elseif pol_ut[ARGS[2]]=1:
-            $RESULT+='Женская одежда.<br>'
-         else
-            $RESULT+='Унисекс одежда.<br>'
-         end
-         if sexy_ut[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_ut[ARGS[2]]>>.<br>'
-         if aristokrat_ut[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_ut[ARGS[2]]>>.<br>'
-         if leather_ut[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
-         if sport_ut[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
-         $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_ut_burden[ARGS[2]])
-      end
-      !Трусы
-      if $ARGS[1]='ulow':
-         if pol_ul[ARGS[2]]=0:
-            $RESULT+='Мужская одежда.<br>'
-         elseif pol_ul[ARGS[2]]=1:
-            $RESULT+='Женская одежда.<br>'
-         else
-            $RESULT+='Унисекс одежда.<br>'
-         end
-         if sexy_ul[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_ul[ARGS[2]]>>.<br>'
-         if aristokrat_ul[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_ul[ARGS[2]]>>.<br>'
-         if leather_ul[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
-         if sport_ul[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
-         $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_ul_burden[ARGS[2]])
-      end
-      !Чулки
-      if $ARGS[1]='uboot':
-         if pol_ub[ARGS[2]]=0:
-            $RESULT+='Мужская одежда.<br>'
-         elseif pol_ub[ARGS[2]]=1:
-            $RESULT+='Женская одежда.<br>'
-         else
-            $RESULT+='Унисекс одежда.<br>'
-         end
-         if sexy_ub[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_ub[ARGS[2]]>>.<br>'
-         if aristokrat_ub[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_ub[ARGS[2]]>>.<br>'
-         if leather_ub[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
-         if sport_ub[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
-         $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_ub_burden[ARGS[2]])
-      end
-   end
+        end
+        if sheer[ARGS[2]]>0:$RESULT+='Прозрачная одежда.<br>'
+        if sexy_t[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_t[ARGS[2]]>>.<br>'
+        if aristokrat_t[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_t[ARGS[2]]>>.<br>'
+        if leather_t[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
+        if sport_t[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
+        $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_t_burden[ARGS[2]])&!Рубашки/платья
+    end
+    if $ARGS[1]='utop':
+		$RESULT+=$iif(pol_ut[ARGS[2]]=0,'Мужская одежда.<br>',$iif(pol_ut[ARGS[2]]=1,'Женская одежда.<br>','Унисекс одежда.<br>'))
+        if sexy_ut[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_ut[ARGS[2]]>>.<br>'
+        if aristokrat_ut[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_ut[ARGS[2]]>>.<br>'
+        if leather_ut[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
+        if sport_ut[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
+        $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_ut_burden[ARGS[2]])&!Лифчики майки
+    end
+    if $ARGS[1]='ulow':
+		$RESULT+=$iif(pol_ul[ARGS[2]]=0,'Мужская одежда.<br>',$iif(pol_ul[ARGS[2]]=1,'Женская одежда.<br>','Унисекс одежда.<br>'))
+        if sexy_ul[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_ul[ARGS[2]]>>.<br>'
+        if aristokrat_ul[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_ul[ARGS[2]]>>.<br>'
+        if leather_ul[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
+        if sport_ul[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
+        $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_ul_burden[ARGS[2]])&!Трусы
+    end
+    if $ARGS[1]='uboot':
+		$RESULT+=$iif(pol_ub[ARGS[2]]=0,'Мужская одежда.<br>',$iif(pol_ub[ARGS[2]]=1,'Женская одежда.<br>','Унисекс одежда.<br>'))
+        if sexy_ub[ARGS[2]]>0:$RESULT+='Сексуальность: <<sexy_ub[ARGS[2]]>>.<br>'
+        if aristokrat_ub[ARGS[2]]>0:$RESULT+='Одежда достойная высшего общества: <<aristokrat_ub[ARGS[2]]>>.<br>'
+        if leather_ub[ARGS[2]]>0:$RESULT+='Непромокаемая одежда.<br>'
+        if sport_ub[ARGS[2]]>0:$RESULT+='Спортивная одежда.<br>'
+        $RESULT+='Вес:' + $func('util_func', 'get_weight_text_all', item_ub_burden[ARGS[2]])&!Чулки
+    end
 end
 !Получаем список иконок предмета.
-if $ARGS[0] = 'GET_ITEM_ICONS':
-    if $ARGS[1] ! '':
-      !Ботинки
-      if $ARGS[1]='boot':
-         if pol_b[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'
-         if pol_b[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
-         if pol_b[ARGS[2]]=2:$RESULT=''
-         if aristokrat_b[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
-         if sexy_b[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
-         if sport_b[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
-      end
-      !Шапки
-      if $ARGS[1]='hat':
-         if pol_h[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'
-         if pol_h[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
-         if pol_h[ARGS[2]]=2:$RESULT=''
-         if aristokrat_h[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
-         if sexy_h[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
-         if sport_h[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
-      end
-      !Штаны/юбки
-      if $ARGS[1]='low':
-         if pol_l[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'
-         if pol_l[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
-         if pol_l[ARGS[2]]=2:$RESULT=''
-         if aristokrat_l[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
-         if sexy_l[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
-         if sport_l[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
-      end
-      !Рубашки/платья
-      if $ARGS[1]='top':
-         if pol_t[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'
-         if pol_t[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
-         if pol_t[ARGS[2]]=2:$RESULT=''
-         if aristokrat_t[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
-         if sexy_t[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
-         if sport_t[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
-      end
-      !Лифчики
-      if $ARGS[1]='utop':
-         if pol_ut[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'
-         if pol_ut[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
-         if pol_ut[ARGS[2]]=2:$RESULT=''
-         if aristokrat_ut[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
-         if sexy_ut[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
-         if sport_ut[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
-      end
-      !Трусы
-      if $ARGS[1]='ulow':
-         if pol_ul[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'
-         if pol_ul[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
-         if pol_ul[ARGS[2]]=2:$RESULT=''
-         if aristokrat_ul[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
-         if sexy_ul[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
-         if sport_ul[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
-      end
-      !Чулки
-      if $ARGS[1]='uboot':
-         if pol_ub[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'
-         if pol_ub[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
-         if pol_ub[ARGS[2]]=2:$RESULT=''
-         if aristokrat_ub[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
-         if sexy_ub[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
-         if sport_ub[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
-      end
+if $ARGS[0]='GET_ITEM_ICONS' and $ARGS[1]!'':
+     if $ARGS[1]='boot':
+        if pol_b[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'&!Ботинки
+        if pol_b[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
+        if pol_b[ARGS[2]]=2:$RESULT=''
+        if aristokrat_b[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
+        if sexy_b[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
+        if sport_b[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
+    end
+    if $ARGS[1]='hat':
+        if pol_h[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'&!Шапки
+        if pol_h[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
+        if pol_h[ARGS[2]]=2:$RESULT=''
+        if aristokrat_h[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
+        if sexy_h[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
+        if sport_h[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
+    end
+    if $ARGS[1]='low':
+        if pol_l[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'&!Штаны/юбки
+        if pol_l[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
+        if pol_l[ARGS[2]]=2:$RESULT=''
+        if aristokrat_l[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
+        if sexy_l[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
+        if sport_l[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
+    end
+    if $ARGS[1]='top':
+        if pol_t[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'&!Рубашки/платья
+        if pol_t[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
+        if pol_t[ARGS[2]]=2:$RESULT=''
+        if aristokrat_t[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
+        if sexy_t[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
+        if sport_t[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
+    end
+    if $ARGS[1]='utop':
+        if pol_ut[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'&!Лифчики
+        if pol_ut[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
+        if pol_ut[ARGS[2]]=2:$RESULT=''
+        if aristokrat_ut[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
+        if sexy_ut[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
+        if sport_ut[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
+    end
+    if $ARGS[1]='ulow':
+        if pol_ul[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'&!Трусы
+        if pol_ul[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
+        if pol_ul[ARGS[2]]=2:$RESULT=''
+        if aristokrat_ul[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
+        if sexy_ul[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
+        if sport_ul[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
+    end
+    if $ARGS[1]='uboot':
+        if pol_ub[ARGS[2]]=0:$RESULT='<b><font color="#1e90ff">&#9794;</font></b>'&!Чулки
+        if pol_ub[ARGS[2]]=1:$RESULT='<b><font color="#ff69b4">&#9792;</font></b>'
+        if pol_ub[ARGS[2]]=2:$RESULT=''
+        if aristokrat_ub[ARGS[2]]>0:$RESULT+='<b><font color="#ccad00">&#9812;</font></b>'
+        if sexy_ub[ARGS[2]]>0:$RESULT+='<b><font color="#cc00c9">&#10084;</font></b>'
+        if sport_ub[ARGS[2]]>0:$RESULT+='<b>&#9917;</b>'
     end
 end
-!Определяем цену предмета.
-if $ARGS[0] = 'GET_CLOTHES_PRICE':
-    if $ARGS[1] ! '':
-      !Ботинки
-      if $ARGS[1]='boot':
-         ARGS['BASE_PRICE']=2000
-         if sexy_b[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
-         if aristokrat_b[ARGS[2]]>0:ARGS['BASE_PRICE']+=3000
-         if sport_b[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
-      end
-      !Шапки
-      if $ARGS[1]='hat':
-         ARGS['BASE_PRICE']=10000
-         if sexy_h[ARGS[2]]>=5:ARGS['BASE_PRICE']+=sexy_h[ARGS[2]]*1000
-      end
-      !Штаны/юбки
-      if $ARGS[1]='low':
-         ARGS['BASE_PRICE']=1000
-         if sexy_l[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
-         if aristokrat_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
-         if sport_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
-         if long_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=2000
-         if leather_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=2000
-      end
-      !Рубашки/платья
-      if $ARGS[1]='top':
-         ARGS['BASE_PRICE']=1000
-         if sexy_t[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
-         if long_t[ARGS[2]]>0:ARGS['BASE_PRICE']+=3000
-         if aristokrat_t[ARGS[2]]>0:ARGS['BASE_PRICE']+=9000
-         if sport_t[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
-      end
-      !Трусы
-      if $ARGS[1]='ulow':
-         ARGS['BASE_PRICE']=1000
-         if sexy_ul[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
-         if aristokrat_ul[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
-         if sport_ul[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
-      end
-      !Лифчики
-      if $ARGS[1]='utop':
-         ARGS['BASE_PRICE']=1000
-         if sexy_ut[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
-         if aristokrat_ut[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
-         if sport_ut[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
-      end
-      !Чулки
-      if $ARGS[1]='uboot':
-         ARGS['BASE_PRICE']=1000
-         if sexy_ub[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
-         if aristokrat_ub[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
-         if sport_ub[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
-      end
-      RESULT=ARGS['BASE_PRICE']
+if $ARGS[0] = 'GET_CLOTHES_PRICE' and $ARGS[1] ! '':
+    if $ARGS[1]='boot':
+        ARGS['BASE_PRICE']=2000&!Ботинки
+        if sexy_b[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
+        if aristokrat_b[ARGS[2]]>0:ARGS['BASE_PRICE']+=3000
+        if sport_b[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
+    end 
+    if $ARGS[1]='hat':
+        ARGS['BASE_PRICE']=10000&!Шапки
+        if sexy_h[ARGS[2]]>=5:ARGS['BASE_PRICE']+=sexy_h[ARGS[2]]*1000
     end
-end
-!Получаем кол-во предметов у цели.
-if $ARGS[0] = 'GET_OWN_ITEMS_AMOUNT':
-    if $ARGS[1] ! '':
-      if $ARGS[1]='boot' and item_b[ARGS[2]]>0:RESULT=item_b[ARGS[2]]
-      if $ARGS[1]='hat' and item_h[ARGS[2]]>0:RESULT=item_h[ARGS[2]]
-      if $ARGS[1]='low' and item_l[ARGS[2]]>0:RESULT=item_l[ARGS[2]]
-      if $ARGS[1]='top' and item_t[ARGS[2]]>0:RESULT=item_t[ARGS[2]]
-      if $ARGS[1]='uboot' and item_ub[ARGS[2]]>0:RESULT=item_ub[ARGS[2]]
-      if $ARGS[1]='utop' and item_ut[ARGS[2]]>0:RESULT=item_ut[ARGS[2]]
-      if $ARGS[1]='ulow' and item_ul[ARGS[2]]>0:RESULT=item_ul[ARGS[2]]
+    if $ARGS[1]='low':
+        ARGS['BASE_PRICE']=1000&!Штаны/юбки
+        if sexy_l[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
+        if aristokrat_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
+        if sport_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
+        if long_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=2000
+        if leather_l[ARGS[2]]>0:ARGS['BASE_PRICE']+=2000
     end
-end
-!Проверяем возможность продажи предмета, если продать можно - расчитываем и возвращаем цену предмета.
-if $ARGS[0] = 'IS_ABLE_TO_SELL_ITEM':
-    if $ARGS[1] ! '':
-        RESULT=0
-      if $ARGS[1]='boot' and item_b[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
-      if $ARGS[1]='hat' and item_h[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
-      if $ARGS[1]='low' and item_l[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
-      if $ARGS[1]='top' and item_t[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
-      if $ARGS[1]='top' and (ARGS[2]=132 or ARGS[2]=51 or ARGS[2]=70):RESULT=0
-      if $ARGS[1]='uboot' and item_ub[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
-      if $ARGS[1]='utop' and item_ut[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
-      if $ARGS[1]='ulow' and item_ul[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+    if $ARGS[1]='top':
+        ARGS['BASE_PRICE']=1000&!Рубашки/платья
+        if sexy_t[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
+        if long_t[ARGS[2]]>0:ARGS['BASE_PRICE']+=3000
+        if aristokrat_t[ARGS[2]]>0:ARGS['BASE_PRICE']+=9000
+        if sport_t[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
     end
+    if $ARGS[1]='ulow':
+        ARGS['BASE_PRICE']=1000&!Трусы
+        if sexy_ul[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
+        if aristokrat_ul[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
+        if sport_ul[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
+    end
+    if $ARGS[1]='utop':
+        ARGS['BASE_PRICE']=1000&!Лифчики
+        if sexy_ut[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
+        if aristokrat_ut[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
+        if sport_ut[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
+    end
+    if $ARGS[1]='uboot':
+        ARGS['BASE_PRICE']=1000&!Чулки
+        if sexy_ub[ARGS[2]]>=5:ARGS['BASE_PRICE']+=1000
+        if aristokrat_ub[ARGS[2]]>0:ARGS['BASE_PRICE']+=4000
+        if sport_ub[ARGS[2]]>0:ARGS['BASE_PRICE']+=1000
+    end
+    RESULT=ARGS['BASE_PRICE']&!Определяем цену предмета.
 end
-if $ARGS[0] = 'UPDATE_BUY_SELL_BUTTON':
-   if $ARGS[1] ! '' and ARGS[2]>0:
-      $ARGS['VALID_TYPES']='item_b,item_h,item_l,item_t,item_ut,item_ul,item_ub'
-      $ARGS['TYPE']=''
-      ARGS['ITEM_INDEX']=ARGS[2]
-      if INSTR(UCASE($ARGS['VALID_TYPES']), UCASE($ARGS[1]))>0:$ARGS['TYPE']=$ARGS[1]
-      if $ARGS['TYPE'] ! '':
-         if $ARGS['TYPE']='item_b':$ARGS['IMG_FOLDER']='boot'
-         if $ARGS['TYPE']='item_h':$ARGS['IMG_FOLDER']='hat'
-         if $ARGS['TYPE']='item_l':$ARGS['IMG_FOLDER']='low'
-         if $ARGS['TYPE']='item_t':$ARGS['IMG_FOLDER']='top'
-         if $ARGS['TYPE']='item_ut':$ARGS['IMG_FOLDER']='utop'
-         if $ARGS['TYPE']='item_ul':$ARGS['IMG_FOLDER']='ulow'
-         if $ARGS['TYPE']='item_ub':$ARGS['IMG_FOLDER']='uboot'
-            !Возможно-ли купить, если да - генерируем кнопку "Купить", если нет, показываем сколько нехватает денег.
-            ARGS['IS_ABLE_TO_BUY']=func('util_func','get_clothes_price', $ARGS['IMG_FOLDER'], ARGS['ITEM_INDEX'])
-            if ARGS['IS_ABLE_TO_BUY']<=money[you]:
-               $ARGS['BUY_LOGIC']='dynamic ''<<$ARGS[''TYPE'']>>[<<ARGS[''ITEM_INDEX'']>>]+=1 & money[you]-=<<ARGS[''IS_ABLE_TO_BUY'']>>'' & burden[you]+=<<$ARGS[''TYPE'']>>_burden[<<ARGS[''ITEM_INDEX'']>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ARGS[''TYPE'']>>'', <<ARGS[''ITEM_INDEX'']>>) & gs''stat'' & gt $curloc'
-               $ARGS['BUY_BUTTON']='<a class="plain" href="exec:<<$ARGS[''BUY_LOGIC'']>>">[Купить <font color=green><<ARGS["IS_ABLE_TO_BUY"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a>'
-            else
-               $ARGS['BUY_BUTTON']='[Нехватает <font color=red><<(ARGS["IS_ABLE_TO_BUY"] - money[you])/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]'
-            end
-            !Возможно-ли продать, если да - генерируем кнопку.
-            ARGS['IS_ABLE_TO_SELL']=func('util_func','is_able_to_sell_item', $ARGS['IMG_FOLDER'], ARGS['ITEM_INDEX'])
-            $ARGS['SELL_BUTTON']=''
-            if ARGS['IS_ABLE_TO_SELL']>0:
-               $ARGS['SELL_LOGIC']='dynamic ''<<$ARGS[''TYPE'']>>[<<ARGS[''ITEM_INDEX'']>>]-=1 & money[you]+=<<ARGS[''IS_ABLE_TO_SELL'']>>'' & burden[you]-=<<$ARGS[''TYPE'']>>_burden[<<ARGS[''ITEM_INDEX'']>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ARGS[''TYPE'']>>'', <<ARGS[''ITEM_INDEX'']>>) & gs''stat'' & gt $curloc'
-               ARGS['CURRENT_ITEM_AMOUNT']=func('util_func','get_own_items_amount', $ARGS['IMG_FOLDER'], ARGS['ITEM_INDEX'])
-               $ARGS['SELL_BUTTON']='<a class="plain" href="exec:<<$ARGS[''SELL_LOGIC'']>>">[Продать <font color=green><<ARGS["IS_ABLE_TO_SELL"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a> <i>У вас <<ARGS["CURRENT_ITEM_AMOUNT"]>>шт</i>'
-            end
-
-            $ARGS['UPDATED_BUTTONS']='<td rowspan="3" width="100%"><<$ARGS["BUY_BUTTON"]>> <<$ARGS["SELL_BUTTON"]>></td>'
-
-            $STORE_CACHE[ACTIVE_TAB_INDEX]=$REPLACE($STORE_CACHE[ACTIVE_TAB_INDEX],$CACHE_STORE_BUTTONS['<<$ARGS["TYPE"]>>_<<ARGS["ITEM_INDEX"]>>'], $ARGS['UPDATED_BUTTONS'])
-            $CACHE_STORE_BUTTONS['<<$ARGS["TYPE"]>>_<<ARGS["ITEM_INDEX"]>>']=$ARGS['UPDATED_BUTTONS']
-      end
-   end
+if $ARGS[0] = 'GET_OWN_ITEMS_AMOUNT' and $ARGS[1] ! '':
+    if $ARGS[1]='boot' and item_b[ARGS[2]]>0:RESULT=item_b[ARGS[2]]&!Получаем кол-во предметов у цели.
+    if $ARGS[1]='hat' and item_h[ARGS[2]]>0:RESULT=item_h[ARGS[2]]
+    if $ARGS[1]='low' and item_l[ARGS[2]]>0:RESULT=item_l[ARGS[2]]
+    if $ARGS[1]='top' and item_t[ARGS[2]]>0:RESULT=item_t[ARGS[2]]
+    if $ARGS[1]='uboot' and item_ub[ARGS[2]]>0:RESULT=item_ub[ARGS[2]]
+    if $ARGS[1]='utop' and item_ut[ARGS[2]]>0:RESULT=item_ut[ARGS[2]]
+    if $ARGS[1]='ulow' and item_ul[ARGS[2]]>0:RESULT=item_ul[ARGS[2]]
+end
+if $ARGS[0] = 'IS_ABLE_TO_SELL_ITEM' and $ARGS[1] ! '':
+    RESULT=0&!Проверяем возможность продажи предмета, если продать можно - расчитываем и возвращаем цену предмета.
+    if $ARGS[1]='boot' and item_b[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+    if $ARGS[1]='hat' and item_h[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+    if $ARGS[1]='low' and item_l[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+    if $ARGS[1]='top' and item_t[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+    if $ARGS[1]='top' and (ARGS[2]=132 or ARGS[2]=51 or ARGS[2]=70):RESULT=0
+    if $ARGS[1]='uboot' and item_ub[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+    if $ARGS[1]='utop' and item_ut[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+    if $ARGS[1]='ulow' and item_ul[ARGS[2]]>0:RESULT=func('util_func','get_clothes_price', $ARGS[1], ARGS[2]) / 2
+end
+if $ARGS[0] = 'UPDATE_BUY_SELL_BUTTON' and $ARGS[1] ! '' and ARGS[2]>0:
+    $ARGS['VALID_TYPES']='item_b,item_h,item_l,item_t,item_ut,item_ul,item_ub'&$ARGS['TYPE']=''&ARGS['ITEM_INDEX']=ARGS[2]
+    if INSTR(UCASE($ARGS['VALID_TYPES']), UCASE($ARGS[1]))>0:$ARGS['TYPE']=$ARGS[1]
+    if $ARGS['TYPE'] ! '':
+        if $ARGS['TYPE']='item_b':$ARGS['IMG_FOLDER']='boot'
+        if $ARGS['TYPE']='item_h':$ARGS['IMG_FOLDER']='hat'
+        if $ARGS['TYPE']='item_l':$ARGS['IMG_FOLDER']='low'
+        if $ARGS['TYPE']='item_t':$ARGS['IMG_FOLDER']='top'
+        if $ARGS['TYPE']='item_ut':$ARGS['IMG_FOLDER']='utop'
+        if $ARGS['TYPE']='item_ul':$ARGS['IMG_FOLDER']='ulow'
+        if $ARGS['TYPE']='item_ub':$ARGS['IMG_FOLDER']='uboot'
+        ARGS['IS_ABLE_TO_BUY']=func('util_func','get_clothes_price', $ARGS['IMG_FOLDER'], ARGS['ITEM_INDEX'])&!Возможнсть купить: да - генерируем кнопку "Купить", нет - показываем сколько ещё надо денег.
+        if ARGS['IS_ABLE_TO_BUY']<=money[you]:
+            $ARGS['BUY_LOGIC']='dynamic ''<<$ARGS[''TYPE'']>>[<<ARGS[''ITEM_INDEX'']>>]+=1 & money[you]-=<<ARGS[''IS_ABLE_TO_BUY'']>>'' & burden[you]+=<<$ARGS[''TYPE'']>>_burden[<<ARGS[''ITEM_INDEX'']>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ARGS[''TYPE'']>>'', <<ARGS[''ITEM_INDEX'']>>) & gs''stat'' & gt $curloc'
+            $ARGS['BUY_BUTTON']='<a class="plain" href="exec:<<$ARGS[''BUY_LOGIC'']>>">[Купить <font color=green><<ARGS["IS_ABLE_TO_BUY"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a>'
+        else
+            $ARGS['BUY_BUTTON']='[Нехватает <font color=red><<(ARGS["IS_ABLE_TO_BUY"] - money[you])/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]'
+        end
+        ARGS['IS_ABLE_TO_SELL']=func('util_func','is_able_to_sell_item', $ARGS['IMG_FOLDER'], ARGS['ITEM_INDEX'])&!Возможно-ли продать, если да - генерируем кнопку.
+        $ARGS['SELL_BUTTON']=''
+        if ARGS['IS_ABLE_TO_SELL']>0:
+			$ARGS['SELL_LOGIC']='dynamic ''<<$ARGS[''TYPE'']>>[<<ARGS[''ITEM_INDEX'']>>]-=1 & money[you]+=<<ARGS[''IS_ABLE_TO_SELL'']>>'' & burden[you]-=<<$ARGS[''TYPE'']>>_burden[<<ARGS[''ITEM_INDEX'']>>] & gs(''util_func'', ''update_buy_sell_button'', ''<<$ARGS[''TYPE'']>>'', <<ARGS[''ITEM_INDEX'']>>) & gs''stat'' & gt $curloc'
+			ARGS['CURRENT_ITEM_AMOUNT']=func('util_func','get_own_items_amount', $ARGS['IMG_FOLDER'], ARGS['ITEM_INDEX'])
+			$ARGS['SELL_BUTTON']='<a class="plain" href="exec:<<$ARGS[''SELL_LOGIC'']>>">[Продать <font color=green><<ARGS["IS_ABLE_TO_SELL"]/100>></font><img width="12" height="auto" src="<<$contentUI>>/currency/<<$piccurr[curr]>>">]</a> <i>У вас <<ARGS["CURRENT_ITEM_AMOUNT"]>>шт</i>'
+        end
+        $ARGS['UPDATED_BUTTONS']='<td rowspan="3" width="100%"><<$ARGS["BUY_BUTTON"]>> <<$ARGS["SELL_BUTTON"]>></td>'
+        $STORE_CACHE[ACTIVE_TAB_INDEX]=$REPLACE($STORE_CACHE[ACTIVE_TAB_INDEX],$CACHE_STORE_BUTTONS['<<$ARGS["TYPE"]>>_<<ARGS["ITEM_INDEX"]>>'], $ARGS['UPDATED_BUTTONS'])
+        $CACHE_STORE_BUTTONS['<<$ARGS["TYPE"]>>_<<ARGS["ITEM_INDEX"]>>']=$ARGS['UPDATED_BUTTONS']
+    end
 end
 if $ARGS[0] = 'STORE_APPLY_FILTER':
-   $ARGS['VAR_NAME']=''
-   IS_VALID_ITEM_TEMP=1
-   if UCASE($LIMIT_STORE_BY) = 'SEXY':$ARGS['VAR_NAME']='sexy_<<$ARGS[1]>>'
-   if UCASE($LIMIT_STORE_BY) = 'ARISTOKRAT':$ARGS['VAR_NAME']='aristokrat_<<$ARGS[1]>>'
-   if UCASE($LIMIT_STORE_BY) = 'POL_M':$ARGS['VAR_NAME']='pol_<<$ARGS[1]>>[<<ARGS[2]>>]=0'
-   if UCASE($LIMIT_STORE_BY) = 'POL_F':$ARGS['VAR_NAME']='pol_<<$ARGS[1]>>[<<ARGS[2]>>]=1'
-   if UCASE($LIMIT_STORE_BY) = 'SPORT':$ARGS['VAR_NAME']='sport_<<$ARGS[1]>>'
-   if UCASE($ARGS[3]) = 'ARMOR':$ARGS['VAR_NAME']='armor_<<$ARGS[1]>>'
-   if UCASE($ARGS[3]) = 'NO_ARMOR':$ARGS['SECOND_VAR_NAME']='armor_<<$ARGS[1]>>' & ARGS['NO_ARMOR']=1
-   if $ARGS[1] ! '' and $ARGS['VAR_NAME'] ! '' and ARGS[2]>0:
-      IS_VALID_ITEM_TEMP=0
-      if UCASE($LIMIT_STORE_BY) ! 'POL_M' and UCASE($LIMIT_STORE_BY) ! 'POL_F':
-         dynamic'if <<$ARGS["VAR_NAME"]>>[<<ARGS[2]>>]>0:IS_VALID_ITEM_TEMP=1'
-      else
-         dynamic'if <<$ARGS["VAR_NAME"]>>:IS_VALID_ITEM_TEMP=1'
-      end
-   end
-   if ARGS['NO_ARMOR']>0:dynamic'if <<$ARGS["SECOND_VAR_NAME"]>>[<<ARGS[2]>>]>0:IS_VALID_ITEM_TEMP=0'
-   RESULT=IS_VALID_ITEM_TEMP
+	$ARGS['VAR_NAME']=''&IS_VALID_ITEM_TEMP=1
+	if UCASE($LIMIT_STORE_BY) = 'SEXY':$ARGS['VAR_NAME']='sexy_<<$ARGS[1]>>'
+	if UCASE($LIMIT_STORE_BY) = 'ARISTOKRAT':$ARGS['VAR_NAME']='aristokrat_<<$ARGS[1]>>'
+	if UCASE($LIMIT_STORE_BY) = 'POL_M':$ARGS['VAR_NAME']='pol_<<$ARGS[1]>>[<<ARGS[2]>>]=0'
+	if UCASE($LIMIT_STORE_BY) = 'POL_F':$ARGS['VAR_NAME']='pol_<<$ARGS[1]>>[<<ARGS[2]>>]=1'
+	if UCASE($LIMIT_STORE_BY) = 'SPORT':$ARGS['VAR_NAME']='sport_<<$ARGS[1]>>'
+	if UCASE($ARGS[3]) = 'ARMOR':$ARGS['VAR_NAME']='armor_<<$ARGS[1]>>'
+	if UCASE($ARGS[3]) = 'NO_ARMOR':$ARGS['SECOND_VAR_NAME']='armor_<<$ARGS[1]>>' & ARGS['NO_ARMOR']=1
+	if $ARGS[1] ! '' and $ARGS['VAR_NAME'] ! '' and ARGS[2]>0:
+		IS_VALID_ITEM_TEMP=0
+		if UCASE($LIMIT_STORE_BY) ! 'POL_M' and UCASE($LIMIT_STORE_BY) ! 'POL_F':
+			dynamic'if <<$ARGS["VAR_NAME"]>>[<<ARGS[2]>>]>0:IS_VALID_ITEM_TEMP=1'
+		else
+			dynamic'if <<$ARGS["VAR_NAME"]>>:IS_VALID_ITEM_TEMP=1'
+		end
+	end
+	if ARGS['NO_ARMOR']>0:dynamic'if <<$ARGS["SECOND_VAR_NAME"]>>[<<ARGS[2]>>]>0:IS_VALID_ITEM_TEMP=0'
+	RESULT=IS_VALID_ITEM_TEMP
 end
 !Экипировка пирсинга.
-if $ARGS[0] = 'EQUIP_PIERCING':
-   if ARGS[1] ! 0:
-      !Пирсинг языка
-      if tongue_p[you]=0:
-         if ARGS[1]=286:tongue_p[you]=1 & item[ARGS[1]]-=1
-      end
-      !Пирсинг носа
-      if nose_p[you]=0:
-         if ARGS[1]=287:nose_p[you]=1 & item[ARGS[1]]-=1
-         if ARGS[1]=288:nose_p[you]=2 & item[ARGS[1]]-=1
-      end
-      !Пирсинг груди
-      if nip_p[you]=0:
-         if ARGS[1]=289:nip_p[you]=1 & item[ARGS[1]]-=1
-         if ARGS[1]=290:nip_p[you]=2 & item[ARGS[1]]-=1
-         if ARGS[1]=291:nip_p[you]=3 & item[ARGS[1]]-=1
-      end
-      !Пирсинг клитора/вагины
-      if vag_pirs[you]=0 and vag[you]>0:
-         if ARGS[1]=292:vag_pirs[you]=1 & item[ARGS[1]]-=1
-         if ARGS[1]=293:vag_pirs[you]=2 & item[ARGS[1]]-=1
-         if ARGS[1]=294:vag_pirs[you]=3 & item[ARGS[1]]-=1
-         if ARGS[1]=295:vag_pirs[you]=4 & item[ARGS[1]]-=1
-      end
-   end
+if $ARGS[0]='EQUIP_PIERCING' and ARGS[1]!0:
+    if tongue_p[you]=0 and ARGS[1]=286:tongue_p[you]=1 & item[ARGS[1]]-=1&!Пирсинг языка
+    if nose_p[you]=0:
+        if ARGS[1]=287:nose_p[you]=1&item[ARGS[1]]-=1&!Пирсинг носа
+        if ARGS[1]=288:nose_p[you]=2&item[ARGS[1]]-=1
+    end
+    if nip_p[you]=0:
+        if ARGS[1]=289:nip_p[you]=1 & item[ARGS[1]]-=1&!Пирсинг груди
+        if ARGS[1]=290:nip_p[you]=2 & item[ARGS[1]]-=1
+        if ARGS[1]=291:nip_p[you]=3 & item[ARGS[1]]-=1
+    end
+    if vag_pirs[you]=0 and vag[you]>0:
+        if ARGS[1]=292:vag_pirs[you]=1 & item[ARGS[1]]-=1&!Пирсинг клитора/вагины
+        if ARGS[1]=293:vag_pirs[you]=2 & item[ARGS[1]]-=1
+        if ARGS[1]=294:vag_pirs[you]=3 & item[ARGS[1]]-=1
+        if ARGS[1]=295:vag_pirs[you]=4 & item[ARGS[1]]-=1
+    end
 end
 if $ARGS[0] = 'RESET_CHEATMENU_AND_EXIT':
-	TEMP_SEARCH_ACTIVE=0
-	TEMP_SELECTED_TARGET=0
-	npc_index=0
-	target_index=0
-	CHEAT_MENU['MODE']=0
-	CHEAT_MENU['SUBMODE'] = 0
-	CHEAT_MENU['IN_CHEAT_MENU']=0
-	gt 'preloc'
+	TEMP_SEARCH_ACTIVE=0&TEMP_SELECTED_TARGET=0&npc_index=0&target_index=0&CHEAT_MENU['MODE']=0&CHEAT_MENU['SUBMODE']=0&CHEAT_MENU['IN_CHEAT_MENU']=0&gt 'preloc'
 end
-if $ARGS[0] = 'DISPLAY_INV_ITEM_INFO':
-   if ARGS[1] ! 0:msg($item_text[ARGS[1]])
+if $ARGS[0]='DISPLAY_INV_ITEM_INFO' and ARGS[1]!0:msg($item_text[ARGS[1]])
+if $ARGS[0]='GET_WEIGHT_OF_ITEMS_FUNC' 	and $ARGS[1] ! '':
+    TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC=0&TEMP_MULTI=1&$RESULT="<hr><center>Предметы</center><hr>"&$RESULT+=$func('util_func','get_weight_of_items', $ARGS[1])
+    if $ARGS[2] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[2])
+    if $ARGS[3] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[3])
+    if $ARGS[4] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[4])
+    if $ARGS[5] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[5])
+    if $ARGS[6] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[6])
+    $RESULT+="<center>Общий вес: " + $func("util_func","get_weight_text_all",TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC) + "</center><hr>"
+    killvar'TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC'&killvar'TEMP_MULTI'&$RESULT=$func("util_func", 'remove_item_icons', $RESULT)&msg($RESULT)
 end
-if $ARGS[0] = 'GET_WEIGHT_OF_ITEMS_FUNC':
-   if $ARGS[1] ! '':
-      TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC=0
-      TEMP_MULTI=1
-      $RESULT="<hr><center>Предметы</center><hr>"
-      $RESULT+=$func('util_func','get_weight_of_items', $ARGS[1])
-      if $ARGS[2] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[2])
-      if $ARGS[3] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[3])
-      if $ARGS[4] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[4])
-      if $ARGS[5] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[5])
-      if $ARGS[6] ! '':$RESULT+=$func('util_func','get_weight_of_items', $ARGS[6])
-      $RESULT+="<center>Общий вес: " + $func("util_func","get_weight_text_all",TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC) + "</center><hr>"
-      killvar'TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC'
-      killvar'TEMP_MULTI'
-      $RESULT=$func("util_func", 'remove_item_icons', $RESULT)
-      msg($RESULT)
-   end
+if $ARGS[0] = 'GET_WEIGHT_OF_ITEMS' and $ARGS[1] ! '':
+    $ARGS['VALID_TYPES']='$item_name,$h_name,$t_name,$l_name,$b_name,$ub_name,$ut_name,$ul_name'&$ARGS['TYPE']=''
+    if INSTR(UCASE($ARGS['VALID_TYPES']), UCASE($ARGS[1]))>0:$ARGS['TYPE']=$ARGS[1]
+    if $ARGS['TYPE'] ! '':
+        if UCASE($ARGS[1])='$ITEM_NAME':$ARGS['SUBVAR_1']='item_burden' & $ARGS['SUBVAR_2']='item'
+        if UCASE($ARGS[1])='$H_NAME':$ARGS['SUBVAR_1']='item_h_burden' & $ARGS['SUBVAR_2']='item_h'
+        if UCASE($ARGS[1])='$T_NAME':$ARGS['SUBVAR_1']='item_t_burden' & $ARGS['SUBVAR_2']='item_t'
+        if UCASE($ARGS[1])='$L_NAME':$ARGS['SUBVAR_1']='item_l_burden' & $ARGS['SUBVAR_2']='item_l'
+        if UCASE($ARGS[1])='$B_NAME':$ARGS['SUBVAR_1']='item_b_burden' & $ARGS['SUBVAR_2']='item_b'
+        if UCASE($ARGS[1])='$UB_NAME':$ARGS['SUBVAR_1']='item_ub_burden' & $ARGS['SUBVAR_2']='item_ub'
+        if UCASE($ARGS[1])='$UT_NAME':$ARGS['SUBVAR_1']='item_ut_burden' & $ARGS['SUBVAR_2']='item_ut'
+        if UCASE($ARGS[1])='$UL_NAME':$ARGS['SUBVAR_1']='item_ul_burden' & $ARGS['SUBVAR_2']='item_ul'
+    end
+    if $ARGS['SUBVAR_1'] ! '' and $ARGS['SUBVAR_2'] ! '':
+        i=1&TEMP_TOTAL_WEIGHT_OF_ITEMS=0&$TEMP_TYPE_OF_ITEMS=$ARGS['TYPE']&$TEMP_SUBVAR_ONE=$ARGS['SUBVAR_1']
+        $TEMP_SUBVAR_TWO=$ARGS['SUBVAR_2']&$TEMP_ITEMS_STRING=''&ARGS['ARRSIZE']=arrsize($ARGS['TYPE'])
+        :get_weight_of_items_loop
+        dynamic('if <<$TEMP_TYPE_OF_ITEMS>>[<<i>>]!"" and <<$TEMP_SUBVAR_TWO>>[<<i>>]>0:
+        if $TEMP_ITEMS_STRING = "" and TEMP_MULTI=0:$TEMP_ITEMS_STRING="<hr><center>Предметы</center><hr>"
+        $TEMP_ITEMS_STRING+=<<$TEMP_TYPE_OF_ITEMS>>[<<i>>]+": "
+        $TEMP_ITEMS_STRING+=$func("util_func","get_weight_text_all",<<$TEMP_SUBVAR_ONE>>[<<i>>])
+        if <<$TEMP_SUBVAR_TWO>>[<<i>>]>1:$TEMP_ITEMS_STRING+=" x" + <<$TEMP_SUBVAR_TWO>>[<<i>>]
+        $TEMP_ITEMS_STRING+="<hr>"
+        TEMP_TOTAL_WEIGHT_OF_ITEMS+=<<$TEMP_SUBVAR_ONE>>[<<i>>]*<<$TEMP_SUBVAR_TWO>>[<<i>>]
+        end')
+        if ARGS['ARRSIZE']>i:i+=1 & jump'get_weight_of_items_loop'
+        if $TEMP_ITEMS_STRING ! '' and TEMP_MULTI=0:$TEMP_ITEMS_STRING+="<center>Общий вес: " + $func("util_func","get_weight_text_all",TEMP_TOTAL_WEIGHT_OF_ITEMS) + "</center><hr>"
+        if TEMP_MULTI>0:TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC+=TEMP_TOTAL_WEIGHT_OF_ITEMS
+        $RESULT=$TEMP_ITEMS_STRING
+    end
+    killvar'TEMP_TOTAL_WEIGHT_OF_ITEMS'&killvar'$TEMP_TYPE_OF_ITEMS'&killvar'$TEMP_SUBVAR_ONE'&killvar'$TEMP_SUBVAR_TWO'&killvar'$TEMP_ITEMS_STRING'&killvar'i'
+    if TEMP_MULTI=0:msg($RESULT)
 end
-if $ARGS[0] = 'GET_WEIGHT_OF_ITEMS':
-   if $ARGS[1] ! '':
-      $ARGS['VALID_TYPES']='$item_name,$h_name,$t_name,$l_name,$b_name,$ub_name,$ut_name,$ul_name'
-      $ARGS['TYPE']=''
-      if INSTR(UCASE($ARGS['VALID_TYPES']), UCASE($ARGS[1]))>0:$ARGS['TYPE']=$ARGS[1]
-      if $ARGS['TYPE'] ! '':
-         if UCASE($ARGS[1])='$ITEM_NAME':$ARGS['SUBVAR_1']='item_burden' & $ARGS['SUBVAR_2']='item'
-         if UCASE($ARGS[1])='$H_NAME':$ARGS['SUBVAR_1']='item_h_burden' & $ARGS['SUBVAR_2']='item_h'
-         if UCASE($ARGS[1])='$T_NAME':$ARGS['SUBVAR_1']='item_t_burden' & $ARGS['SUBVAR_2']='item_t'
-         if UCASE($ARGS[1])='$L_NAME':$ARGS['SUBVAR_1']='item_l_burden' & $ARGS['SUBVAR_2']='item_l'
-         if UCASE($ARGS[1])='$B_NAME':$ARGS['SUBVAR_1']='item_b_burden' & $ARGS['SUBVAR_2']='item_b'
-         if UCASE($ARGS[1])='$UB_NAME':$ARGS['SUBVAR_1']='item_ub_burden' & $ARGS['SUBVAR_2']='item_ub'
-         if UCASE($ARGS[1])='$UT_NAME':$ARGS['SUBVAR_1']='item_ut_burden' & $ARGS['SUBVAR_2']='item_ut'
-         if UCASE($ARGS[1])='$UL_NAME':$ARGS['SUBVAR_1']='item_ul_burden' & $ARGS['SUBVAR_2']='item_ul'
-      end
-      if $ARGS['SUBVAR_1'] ! '' and $ARGS['SUBVAR_2'] ! '':
-         i=1
-         TEMP_TOTAL_WEIGHT_OF_ITEMS=0
-         $TEMP_TYPE_OF_ITEMS=$ARGS['TYPE']
-         $TEMP_SUBVAR_ONE=$ARGS['SUBVAR_1']
-         $TEMP_SUBVAR_TWO=$ARGS['SUBVAR_2']
-         $TEMP_ITEMS_STRING=''
-         ARGS['ARRSIZE']=arrsize($ARGS['TYPE'])
-         :get_weight_of_items_loop
-          dynamic('if <<$TEMP_TYPE_OF_ITEMS>>[<<i>>]!"" and <<$TEMP_SUBVAR_TWO>>[<<i>>]>0:
-          if $TEMP_ITEMS_STRING = "" and TEMP_MULTI=0:$TEMP_ITEMS_STRING="<hr><center>Предметы</center><hr>"
-          $TEMP_ITEMS_STRING+=<<$TEMP_TYPE_OF_ITEMS>>[<<i>>]+": "
-          $TEMP_ITEMS_STRING+=$func("util_func","get_weight_text_all",<<$TEMP_SUBVAR_ONE>>[<<i>>])
-          if <<$TEMP_SUBVAR_TWO>>[<<i>>]>1:$TEMP_ITEMS_STRING+=" x" + <<$TEMP_SUBVAR_TWO>>[<<i>>]
-          $TEMP_ITEMS_STRING+="<hr>"
-          TEMP_TOTAL_WEIGHT_OF_ITEMS+=<<$TEMP_SUBVAR_ONE>>[<<i>>]*<<$TEMP_SUBVAR_TWO>>[<<i>>]
-          end')
-          if ARGS['ARRSIZE']>i:i+=1 & jump'get_weight_of_items_loop'
-          if $TEMP_ITEMS_STRING ! '' and TEMP_MULTI=0:$TEMP_ITEMS_STRING+="<center>Общий вес: " + $func("util_func","get_weight_text_all",TEMP_TOTAL_WEIGHT_OF_ITEMS) + "</center><hr>"
-          if TEMP_MULTI>0:TEMP_TOTAL_WEIGHT_OF_ITEMS_FUNC+=TEMP_TOTAL_WEIGHT_OF_ITEMS
-          $RESULT=$TEMP_ITEMS_STRING
-      end
-      killvar'TEMP_TOTAL_WEIGHT_OF_ITEMS'
-      killvar'$TEMP_TYPE_OF_ITEMS'
-      killvar'$TEMP_SUBVAR_ONE'
-      killvar'$TEMP_SUBVAR_TWO'
-      killvar'$TEMP_ITEMS_STRING'
-      killvar'i'
-      if TEMP_MULTI=0:msg($RESULT)
-   end
-end
-if $ARGS[0] = 'REMOVE_ITEM_ICONS':
-   if $ARGS[1] ! '':
-      $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/hat.png">', '')
-      $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/shirt.png">', '')
-      $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/pants.png">', '')
-      $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/bra.png">', '')
-      $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/boots.png">', '')
-      $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/panties.png">', '')
-      $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/socks.png">', '')
-      $RESULT=$ARGS[1]
-   end
+if $ARGS[0] = 'REMOVE_ITEM_ICONS' and $ARGS[1] ! '':
+    $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/hat.png">', '')
+    $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/shirt.png">', '')
+    $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/pants.png">', '')
+    $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/bra.png">', '')
+    $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/boots.png">', '')
+    $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/panties.png">', '')
+    $ARGS[1]=$REPLACE($ARGS[1], '<img width="15" height="auto" src="pic/misc/UI/icons/socks.png">', '')
+    $RESULT=$ARGS[1]
 end

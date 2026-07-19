@@ -11,10 +11,10 @@ end
 if m_slot[you]!31:m_slot[you]=31&$item_m_name[31]='Дилдо'&uron_weapon_m[you]=10&'Оружие в ваших руках превращается в дилдо'
 act'Нет!':gt'sex'
 !'gs'stat'&cuntlick[you]+=1&girl[you]+=1&if sexpartner[npc]=0:sexpartner[npc]=1
-soul[you]-=5&'<center><video src="pic/sex/rape/cunt.webm" ></video></center>'
+soul[you]-=5&'<center><video autoplay loop src="pic/sex/rape/cunt.webm" ></video></center>'
 'Ведьма встает над вами и задрав платье садится своей мокрой киской на ваше лицо. Она заставляет вас отлизать у нее и быстро кончает. Кончив ведьма усмехается и приказывает вам открыть рот.'
 act'Открыть рот':
-	drinkpee[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/rape/pee.webm" ></video></center>'
+	drinkpee[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/rape/pee.webm" ></video></center>'
 	'Вы открыли рот и ведьма начала ссать вам в рот. Обоссав вас и заставив проглотить ведьма со смешком встала с вашего лица.'&act'Встать':gt 'preloc'
      if m_slot[you]=25:m_slot[you]=31&$item_m_name[31]='Дилдо'&uron_weapon_m[you]=10&'Сияющий меч в ваших руках превращается в дилдо'
 end'

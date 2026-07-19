@@ -92,9 +92,9 @@
 					corr[you]+=3&target_soul=4&if magworld[Znow]>0:gs'soulcraft'
 					cls&gs'stat'
 					if skin[npc]>3 and skin[npc]<7:
-						blacked[you]+=1&'<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наклоняется над вами и плюет вам в лицо'
+						blacked[you]+=1&'<center><video autoplay loop src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наклоняется над вами и плюет вам в лицо'
 				    else
-						'<center><video src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наклоняется над вами и плюет вам в лицо'
+						'<center><video autoplay loop src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наклоняется над вами и плюет вам в лицо'
 					end
 					if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам харкают в лицо во время минета. '
 					gs'fuck_oral_spit',you_blow,you&gs'fuck_final',in_sex[you]&gs'stat'
@@ -111,13 +111,13 @@
 					if magworld[Znow]>0:gs'soulcraft'
 					cls&gs'stat'
 					if toilet['<<$loc[you]>>']>=1:
-						corr[you]+=5&'<center><video src="pic/sex/bj/pee/toiletseat.webm" ></video></center>'
+						corr[you]+=5&'<center><video autoplay loop src="pic/sex/bj/pee/toiletseat.webm" ></video></center>'
 						'<<$nick[you_blow]>> снимает сидушку с унитаза и одевает сидушку вам на шею. Затем подносит свой член к лицу и начинает ссать вам на лицо и в рот.'
 					else
 						if skin[npc]>3 and skin[npc]<7:
-							blacked[you]+=1&'<center><video src="pic/sex/bj/pee/piss<<rand(0,6)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наставляет вам на лицо свой член и начинает ссать на вас.'
+							blacked[you]+=1&'<center><video autoplay loop src="pic/sex/bj/pee/piss<<rand(0,6)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наставляет вам на лицо свой член и начинает ссать на вас.'
 						else
-							'<center><video src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наставляет вам на лицо свой член и начинает ссать на вас.'
+							'<center><video autoplay loop src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'&'<<$nick[you_blow]>> наставляет вам на лицо свой член и начинает ссать на вас.'
 						end
 					end
 					gs'fuck_piss',you_blow,you&gs'fuck_final',in_sex[you]&gs'stat'

@@ -1,27 +1,23 @@
 ﻿if (dick[you]>0 or vag[you]>0) and  womenbrain[you]>30:
 if skin[ddd]>3 and skin[ddd]<7:
-	'<center><video src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
-	'<<$name[sss]>> <<$surname[sss]>> стонет когда ее ебут во все дыры'&*nl
-	if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и дрочите свой член'
-	if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и трете свою киску'
-	'<<$gangbangers_loc>>'
+	'<center><video autoplay loop src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'&'<<$name[sss]>> <<$surname[sss]>> стонет когда ее ебут во все дыры'&*nl'<<$gangbangers_loc>>'&*nl
+	if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и дрочите свой член'
+	if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и трете свою киску'
 end
 act'Дрочить':
-	 horny[you]+=10&cls&gs'stat'&'<center><video src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
-	 '<<$name[sss]>> <<$surname[sss]>> громко стонет'&*nl
-	 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и дрочите свой член'
-	 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и трете свою киску'
-	 '<<$gangbangers_loc>>'
-	 if horny[you]<100:
-		 act'<b>Уйти</b>':gt 'preloc'
+	horny[you]+=10&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
+	'<<$name[sss]>> <<$surname[sss]>> громко стонет'&*nl'<<$gangbangers_loc>>'&*nl
+	if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и дрочите свой член'
+	if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы смотрите как толпа негров ебёт девушку и трете свою киску'
+	if horny[you]<100:
+		act'<b>Уйти</b>':gt 'preloc'
 	else
-		 act'Кончить':
-			 horny[you]=0&cls&gs'stat'&'<center><video src="pic/sex/vag/mcum<<rand(0,4)>>.webm" ></video></center>'
-			 'Вы видите как из киски девушки вытекает сперма и вас трясет от возбуждения'&*nl
-			 if pol[you]=0 and dick[you]>0:'<center><video src="pic/vids/podsm1.webm" ></video></center> Ваш член начинает пульсировать... Вы кончаете...'
-			 if pol[you]=1 and vag[you]>0:'<center><video src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'
-			 act'<b>Уйти</b>':gt 'preloc'
-		 end
+		act'Кончить':
+			horny[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,4)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
+			'Вы видите как из киски девушки вытекает сперма и вас трясет от возбуждения'&*nl
+			if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Ваш член начинает пульсировать... Вы кончаете...'
+			if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'
+		end
 	end
 end
 elseif pol[you]=0 and dick[you]>0 and  womenbrain[you]<=30:

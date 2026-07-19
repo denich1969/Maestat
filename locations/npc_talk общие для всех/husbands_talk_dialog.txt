@@ -1,49 +1,22 @@
-﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - И где же мы будем жить?.'
-act'<b>Уйти</b>':gt 'preloc'
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - И где же мы будем жить?.'&act'<b>Уйти</b>':gt 'preloc'
 if Zhome[you]>0:
 	 act'Пожениться и жить у меня':
-		 husband[npc]=you&husband[you]=npc
-		 Xhome[npc]=Xhome[you]&Yhome[npc]=Yhome[you]&Zhome[npc]=Zhome[you]&Hhome[npc]=Hhome[you]&Rhome[npc]=Rhome[you]
-		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-		 '<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена! Я перееду жить к тебе.'
-		 act'<b>Уйти</b>':gt 'preloc'
+		 husband[npc]=you&husband[you]=npc&Xhome[npc]=Xhome[you]&Yhome[npc]=Yhome[you]&Zhome[npc]=Zhome[you]&Hhome[npc]=Hhome[you]&Rhome[npc]=Rhome[you]
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена! Я перееду жить к тебе.'&act'<b>Уйти</b>':gt 'preloc'
 	 end
 end
 if Zhome[npc]>0 and husband[npc]>=0:
 	 act'Пожениться и переехать к ней':
-		 husband[npc]=you&husband[you]=npc
-		 Xhome[you]=Xhome[npc]&Yhome[you]=Yhome[npc]&Zhome[you]=Zhome[npc]&Hhome[you]=Hhome[npc]&Rhome[you]=Rhome[npc]
-		 key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1
-		 can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
+		 husband[npc]=you&husband[you]=npc&Xhome[you]=Xhome[npc]&Yhome[you]=Yhome[npc]&Zhome[you]=Zhome[npc]&Hhome[you]=Hhome[npc]&Rhome[you]=Rhome[npc]
+		 key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1&can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
 		 $locnameH['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']+=' (Жилье жены)'
-		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена! Ты переедешь ко мне.'
-		 act'<b>Уйти</b>':gt 'preloc'
+		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена! Ты переедешь ко мне.'&act'<b>Уйти</b>':gt 'preloc'
 	 end
 end
 act'Пожениться и жить раздельно':
-	husband[npc]=you&husband[you]=npc
-	cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-	'<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена!'
-	act'<b>Уйти</b>':gt 'preloc'
+	husband[npc]=you&husband[you]=npc&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> целует вас в губы - Теперь мы с тобой муж и жена!'&act'<b>Уйти</b>':gt 'preloc'
 end
-act'назначить husband':
-	husband[npc]=input("введите номер")
-	husband_num=husband[npc]
-	husband[husband_num]=npc
-	gt 'preloc'
-end
-if husband[npc]=you:
-	act'Стать куколдом':cuckold[you]=npc&cuckold[npc]=you&gt 'preloc'
-end
-act'назначить boyfriend':
-	boyfriend_num[npc]=input("boyfriend")
-	boyfriend_num_m=boyfriend_num[npc]
-	girlfriend_num[boyfriend_num_m]=npc
-	gt 'preloc'
-end
-act'назначить girlfriend':
-	girlfriend_num[npc]=input("girlfriend")
-	girlfriend_num_f=girlfriend_num[npc]
-	boyfriend_num[girlfriend_num_f]=npc
-	gt 'preloc'
-end
+act'назначить husband':husband[npc]=input("введите номер")&husband_num=husband[npc]&husband[husband_num]=npc&gt 'preloc'
+if husband[npc]=you:act'Стать куколдом':cuckold[you]=npc&cuckold[npc]=you&gt 'preloc'
+act'назначить boyfriend':boyfriend_num[npc]=input("boyfriend")&boyfriend_num_m=boyfriend_num[npc]&girlfriend_num[boyfriend_num_m]=npc&gt 'preloc'
+act'назначить girlfriend':girlfriend_num[npc]=input("girlfriend")&girlfriend_num_f=girlfriend_num[npc]&boyfriend_num[girlfriend_num_f]=npc&gt 'preloc'

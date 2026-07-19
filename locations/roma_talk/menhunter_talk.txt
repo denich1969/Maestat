@@ -15,27 +15,23 @@ ACT '— Покажи-ка свои товары.':
 	cls&'<div id="bg"><img src = "<<$content>>/shop<<a>>.jpg"></div>' &GT "Shop_catalog"
 	'Компас для выхода из тумана в другие миры - 15000 искр'&*pl ''&'Электродубина 1000 искр'
 	if rome_pass=0:
-		'У механтера есть чипы гражданства рима вместе с установкой 100 искр.'
-		if iskr[you]>=100:act'Установить чип':time+=5&rome_pass=1&iskr[you]-=100&gt $curloc
+		'У механтера есть чипы гражданства рима вместе с установкой 100 искр.'&if iskr[you]>=100:act'Установить чип':time+=5&rome_pass=1&iskr[you]-=100&gt $curloc
 	end
 	if item[45]=0 and iskr[you]>=15000:act'Купить компас 15000':time+=5&item[45]+=1&iskr[you]-=15000&gt $curloc
 	 if iskr[you]>=1000:
 		act'Купить электродубину':
-			item_m[13]+=1&iskr[you]-=1000&openinv=1&dynamic $d_inv
-			cls&gs'stat'&'Вы отдаете деньги и покупаете оружие'&act'...':gt $curloc
+			item_m[13]+=1&iskr[you]-=1000&openinv=1&dynamic $d_inv&cls&gs'stat'&'Вы отдаете деньги и покупаете оружие'&act'...':gt $curloc
 		end
 	 end
 	ACT '— Мне пора, пока!':  GT "preloc"
 END
 IF OBJ "Голова совомедведя":
 	ACT "Продать голову монстра Менхантеру":
-		msg "Что вы там принесли мне, <<$name>>? Трофей? Что ж... пожалуй я смогу это кому-нибудь перепродать в качестве сувенира. Даю за него 50 золотых."
-		DELOBJ "Голова совомедведя"
+		msg "Что вы там принесли мне, <<$name>>? Трофей? Что ж... пожалуй я смогу это кому-нибудь перепродать в качестве сувенира. Даю за него 50 золотых."&DELOBJ "Голова совомедведя"
 		money+=50&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
 		GT "preloc"
 	END
 END
-$loc[you]=$curloc
-loc_for_drop=0
+$loc[you]=$curloc&loc_for_drop=0
 gs'stat'&'<b><center>Арсенал Механтера</center></b>'&'В мастерской продаются разные устройства для поимки рабынь из других миров охотниками.'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
 gs'npconloc'&*pl ''&gs'item'&act'Уйти': GT "preloc"

@@ -21,27 +21,27 @@ if sallivan_work=1:
 						horny[you]=100&gs'soulcraft'&dom[you]-=1&womenbrain[you]+=1&time+=15&sexpartner['<<sallivan>>,<<you>>']+=1&sexpartner['<<you>>,<<sallivan>>']+=1
 						if vag[you]<1:
 							if rand(1,2)=1:
-								anus[you]+=1&cls&'<center><video src="pic/event/Sallivan/t1.webm" ></video></center>'
+								anus[you]+=1&cls&'<center><video autoplay loop src="pic/event/Sallivan/t1.webm" ></video></center>'
 								'Салливан встретил вас в коморке и по-хозяйски раздел и, уложив на стол, стал драть вас в зад, пока не заполнил его своей спермой. Вам кончить при этом не удалось...'
 							else
-								oral_fixation[you]+=1&bj[you]+=1&cls&'<center><video src="pic/event/Sallivan/t2.webm" ></video></center>'
+								oral_fixation[you]+=1&bj[you]+=1&cls&'<center><video autoplay loop src="pic/event/Sallivan/t2.webm" ></video></center>'
 								'Салливан встретил вас в коморке и по-хозяйски раздел и заставил вас отсасывать ему, пока не наполнил спермой ваш рот. Вам же только оставалось проглотить результы его трудов и уйти.'
 							end
 						else
 							rndbar=rand(1,3)
 							if rndbar=1:	
-								cls&'<center><video src="pic/event/Sallivan/dog<<rand(1,3)>>.webm" ></video></center>'
+								cls&'<center><video autoplay loop src="pic/event/Sallivan/dog<<rand(1,3)>>.webm" ></video></center>'
 								'Салливан встретил вас в коморке и по-хозяйски поставил раком и начал размеренно трахать в свое удовольствие, пока не кончил в вашу расстраханную пизду. '
 								'Вас же эта участь не постигла.'&vag[you]+=1&insemrand=rand(0,10)&if inseminate[you]=0 and insemrand=10:father_you_child=sallivan&gs'preggo'						
 							end
 							if rndbar=2:
 								oral_fixation[you]+=1&bj[you]+=1
-								cls&'<center><video src="pic/event/Sallivan/face1.webm" ></video></center>'
+								cls&'<center><video autoplay loop src="pic/event/Sallivan/face1.webm" ></video></center>'
 								'Салливан встретил вас в коморке, поставил на колени и сходу вогнал свой член вам в рот, пока не наполнил спермой ваш рот. '
 								'Вам же только оставалось проглоть результыт его трудов и уйти.'
 							end
 							if rndbar=3:
-								cls&'<center><video src="pic/event/Sallivan/an1.webm" ></video></center>'
+								cls&'<center><video autoplay loop src="pic/event/Sallivan/an1.webm" ></video></center>'
 								'Салливан встретил вас в коморке, посадил на свой стол и оголив вашу задницу, стал трахать вас в очко, '
 								'не заботясь ни о вашем удовольствии, ни о нормах приличя, называя вас анальной шлюхой. '&anus[you]+=1
 							end

@@ -1,27 +1,22 @@
-﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-act'<b>Уйти</b>':gt 'preloc'
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 if empty_ball[npc]<time:
-	 if total_npc_on_loc>1:
-		 if agro[npc]<75:'<<$name[npc]>> обнимает вас - Любимая, давай уединимся.'
-		 if agro[npc]>=75:'<<$name[npc]>> шлепает вам по заднице и ржот - Детка, пошли куда нибудь, где не так много народа.'
-		 if follower[npc]=0 and cansex[npc]>0 and firstfoll=0:gs'take_follower'
-		 gs'block_quick'
-	 else
-		 if agro[npc]<75:'<<$name[npc]>> обнимает вас - Любимая, давай займемся сексом.'
-		 if agro[npc]>=75:'<<$name[npc]>> шлепает вам по заднице и ржот - Ух какая задница, дорогая, давай потрахаемся.'
-		 act'Возьми меня':gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-	 end
+	if total_npc_on_loc>1:
+		if agro[npc]<75:'<<$name[npc]>> обнимает вас - Любимая, давай уединимся.'
+		if agro[npc]>=75:'<<$name[npc]>> шлепает вам по заднице и ржот - Детка, пошли куда нибудь, где не так много народа.'
+		if follower[npc]=0 and cansex[npc]>0 and firstfoll=0:gs'take_follower'
+		gs'block_quick'
+	else
+		if agro[npc]<75:'<<$name[npc]>> обнимает вас - Любимая, давай займемся сексом.'
+		if agro[npc]>=75:'<<$name[npc]>> шлепает вам по заднице и ржот - Ух какая задница, дорогая, давай потрахаемся.'
+		act'Возьми меня':gs'drop_follower'&last_sex[npc]=time+(60*5)&friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+	end
 else
-	 if agro[npc]<75:
-		 if positiv[npc]=2:
-			 '<<$name[npc]>> улыбается вам - Как дела, солнышко?'&!клоун
-		 else
-			 if ratio[npc]=2:
-				 '<<$name[npc]>> улыбается вам - Что делаешь, котенок?'&!ботан
-			 else
-				 '<<$name[npc]>> улыбается вам - Как настроение, любимая?'&!романтик
-			 end
-		 end
-	 end
-	 if agro[npc]>=75:'<<$name[npc]>> шлепает вам по заднице и ржот - Классная жопа!'
+	if agro[npc]<75:
+		if positiv[npc]=2:
+			'<<$name[npc]>> улыбается вам - Как дела, солнышко?'&!клоун
+		else
+			$iif(ratio[npc]=2,'<<$name[npc]>> улыбается вам - Что делаешь, котенок?','<<$name[npc]>> улыбается вам - Как настроение, любимая?')&!да ботан! нет романтик
+		end
+	end
+	if agro[npc]>=75:'<<$name[npc]>> шлепает вам по заднице и ржот - Классная жопа!'
 end

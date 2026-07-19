@@ -1,39 +1,39 @@
 ﻿if firstfoll>0:
-	 if follower[firstfoll]=you:
+	if follower[firstfoll]=you:
 		foll=follower[firstfoll]&if mob_sleep[foll]>time:follower[firstfoll]=0&firstfoll=0
-		 if mob_busy[foll]>0:follower[firstfoll]=0&firstfoll=0
-		 if dead[foll]>0:follower[firstfoll]=0&firstfoll=0
-		 if health[you]<=0:follower[firstfoll]=0&firstfoll=0
-	 end
-	 if follower[firstfoll]!you:follower[firstfoll]=you
-	 if follower[firstfoll]=you:foll=follower[firstfoll]&X[firstfoll]=X[you]&Y[firstfoll]=Y[you]&Z[firstfoll]=Z[you]&H[firstfoll]=H[you]&R[firstfoll]=R[you]
+		if mob_busy[foll]>0:follower[firstfoll]=0&firstfoll=0
+		if dead[foll]>0:follower[firstfoll]=0&firstfoll=0
+		if health[you]<=0:follower[firstfoll]=0&firstfoll=0
+	end
+	if follower[firstfoll]!you:follower[firstfoll]=you
+	if follower[firstfoll]=you:foll=follower[firstfoll]&X[firstfoll]=X[you]&Y[firstfoll]=Y[you]&Z[firstfoll]=Z[you]&H[firstfoll]=H[you]&R[firstfoll]=R[you]
 end
 if secfoll>0:
-	 if follower[secfoll]=you:
+	if follower[secfoll]=you:
 		foll=follower[secfoll]&if mob_sleep[foll]>time:follower[secfoll]=0&secfoll=0
-		 if mob_busy[foll]>0:follower[secfoll]=0&secfoll=0
-		 if dead[foll]>0:follower[secfoll]=0&secfoll=0
-		 if health[you]<=0:follower[secfoll]=0&secfoll=0
-	 end
-	 if follower[secfoll]!you:follower[secfoll]=you
-	 if follower[secfoll]=you:foll=follower[secfoll]&X[secfoll]=X[you]&Y[secfoll]=Y[you]&Z[secfoll]=Z[you]&H[secfoll]=H[you]&R[secfoll]=R[you]
+		if mob_busy[foll]>0:follower[secfoll]=0&secfoll=0
+		if dead[foll]>0:follower[secfoll]=0&secfoll=0
+		if health[you]<=0:follower[secfoll]=0&secfoll=0
+	end
+	if follower[secfoll]!you:follower[secfoll]=you
+	if follower[secfoll]=you:foll=follower[secfoll]&X[secfoll]=X[you]&Y[secfoll]=Y[you]&Z[secfoll]=Z[you]&H[secfoll]=H[you]&R[secfoll]=R[you]
 end
 if threfoll>0:
-	 if follower[threfoll]=you:
+	if follower[threfoll]=you:
 		foll=follower[threfoll]&if mob_sleep[foll]>time:follower[threfoll]=0&threfoll=0
-		 if mob_busy[foll]>0:follower[threfoll]=0&threfoll=0
-		 if dead[foll]>0:follower[threfoll]=0&threfoll=0
-		 if health[you]<=0:follower[threfoll]=0&threfoll=0
-	 end
-	 if follower[threfoll]!you:follower[threfoll]=you
-	 if follower[threfoll]=you:foll=follower[threfoll]&X[threfoll]=X[you]&Y[threfoll]=Y[you]&Z[threfoll]=Z[you]&H[threfoll]=H[you]&R[threfoll]=R[you]
+		if mob_busy[foll]>0:follower[threfoll]=0&threfoll=0
+		if dead[foll]>0:follower[threfoll]=0&threfoll=0
+		if health[you]<=0:follower[threfoll]=0&threfoll=0
+	end
+	if follower[threfoll]!you:follower[threfoll]=you
+	if follower[threfoll]=you:foll=follower[threfoll]&X[threfoll]=X[you]&Y[threfoll]=Y[you]&Z[threfoll]=Z[you]&H[threfoll]=H[you]&R[threfoll]=R[you]
 end
 !'if follower[you]!0:
 	foll=follower[you]&if mob_sleep[foll]>time:follower[you]=0
-     if mob_busy[foll]>0:follower[you]=0
-     if dead[foll]>0:follower[you]=0
-     if corr[foll]>=100:follower[you]=0
-     if health[you]<=0:follower[you]=0
+    if mob_busy[foll]>0:follower[you]=0
+    if dead[foll]>0:follower[you]=0
+    if corr[foll]>=100:follower[you]=0
+    if health[you]<=0:follower[you]=0
 end'
 if follower[you]!0:
 	foll=follower[you]&X[foll]=X[you]&Y[foll]=Y[you]&Z[foll]=Z[you]&H[foll]=H[you]&R[foll]=R[you]&'<b><<$nick[foll]>> <<$name[foll]>> <<$surname[foll]>></b> следует за вами'
@@ -41,12 +41,8 @@ if follower[you]!0:
 end
 if ass[you]>45:ass[you]=45
 defence[you]=0&if t_slot[you]=42 and master[you]=1:defence[you]+=500
-!if t_slot[you]=25:defence[you]+=100
-!if l_slot[you]=19:defence[you]+=150
-uronstraf[you]=0
-if ass[you]>30 and ass[you]<=35:uronstraf[you]+=1
-if ass[you]>35 and ass[you]<40:uronstraf[you]+=5
-if ass[you]>40:uronstraf[you]+=10
+!defence[you]+=iif(t_slot[you]=25,100,iif( l_slot[you]=19,150,0))
+uronstraf[you]=0&uronstraf[you]+=iif(ass[you]>30 and ass[you]<=35,1,iif(ass[you]>35 and ass[you]<=40,5,10))
 if tits_real[you]=17:uronstraf[you]+=1
 if tits_real[you]=18:uronstraf[you]+=2
 if tits_real[you]=19:uronstraf[you]+=3
@@ -98,14 +94,14 @@ if deadly[you]>5:gt'dead'
 gs'nudeness'
 if pisswasser[you]>=100:pisswasser[you]=0&status_tipe[you]=3&status_time[you]=time+200&msg("Вы обоссались!")&!peecover[you]+=2
 lust[you]=max(lust[you],base_lust[you]+temp_lust[you])
-if cum_face[you]<=6:$d_cumface_view='<video src="pic/cum/<<cum_face[you]>>.webm" >'&!$d_cumface_view='view"pic/cum/<<cum_face[you]>>.webm"'
-if cum_face[you]>6:$d_cumface_view='<video src="pic/cum/6.webm" >'&!$d_cumface_view='view"pic/cum/6.webm"'
+if cum_face[you]<=6:$d_cumface_view='<video autoplay loop autoplay loop src="pic/cum/<<cum_face[you]>>.webm" >'
+if cum_face[you]>6:$d_cumface_view='<video autoplay loop autoplay loop src="pic/cum/6.webm" >'
 if ass[you]>=20:
-     if l_slot[you]=5:l_slot[you]=23
-     if l_slot[you]=58:l_slot[you]=59
+    if l_slot[you]=5:l_slot[you]=23
+    if l_slot[you]=58:l_slot[you]=59
 else
-     if l_slot[you]=23:l_slot[you]=5
-     if l_slot[you]=59:l_slot[you]=58
+    if l_slot[you]=23:l_slot[you]=5
+    if l_slot[you]=59:l_slot[you]=58
 end
 if dick[you]<8:
 	if ul_slot[you]=5:ul_slot[you]=17
@@ -113,16 +109,16 @@ else
 	if ul_slot[you]=17:ul_slot[you]=5
 end
 if tits_real[you]>=10 and pol[you]=0:
-     if t_slot[you]=4:t_slot[you]=13
-     if t_slot[you]=2:t_slot[you]=12
-     if t_slot[you]=3:t_slot[you]=16
-     if t_slot[you]=1:t_slot[you]=15
-     if t_slot[you]=84:t_slot[you]=85
+    if t_slot[you]=4:t_slot[you]=13
+    if t_slot[you]=2:t_slot[you]=12
+    if t_slot[you]=3:t_slot[you]=16
+    if t_slot[you]=1:t_slot[you]=15
+    if t_slot[you]=84:t_slot[you]=85
 elseif tits_real[you]<10 and pol[you]=0:
-     if t_slot[you]=13:t_slot[you]=4
-     if t_slot[you]=12:t_slot[you]=2
-     if t_slot[you]=16:t_slot[you]=3
-     if t_slot[you]=15:t_slot[you]=1
-     if t_slot[you]=85:t_slot[you]=84
+    if t_slot[you]=13:t_slot[you]=4
+    if t_slot[you]=12:t_slot[you]=2
+    if t_slot[you]=16:t_slot[you]=3
+    if t_slot[you]=15:t_slot[you]=1
+    if t_slot[you]=85:t_slot[you]=84
 end
 $d_view_tatoo_moon='<img src="pic/tattoo/moon.jpg" >'&!{view("pic/tattoo/moon.jpg")}

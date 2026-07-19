@@ -1,7 +1,5 @@
 ﻿gs'stat'
 if aftermmffuck=0:
-	'Вы в квартире Марка и сюда приехал его друг. Кажется парни хотят вас трахнуть в двоем'
-	gs'npconloc'&gs'item'
-	act'Взять члены в руки':aftermmffuck=1&first=mark&second=kirill&gt'sex'
+	'Вы в квартире Марка и сюда приехал его друг. Кажется парни хотят вас трахнуть в двоем'&gs'npconloc'&gs'item'&act'Взять члены в руки':aftermmffuck=1&first=mark&second=kirill&gt'sex'
 end
 if aftermmffuck=1:'Наконец парни удовлетворили свою похоть и отпустили вас'&act'Уйти':$loc[you]='<<Xhome[you]>>,<<Yhome[you]>>,<<Zhome[you]>>,<<Hhome[you]>>,<<Rhome[you]>>'&gt 'world'&!gt'street_ap'

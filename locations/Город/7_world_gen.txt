@@ -1,5 +1,4 @@
-﻿X=0&Y=0&Z=570&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5
-$n_board[Z]='Парк'&$w_board[Z]='Порт'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
+﻿X=0&Y=0&Z=570&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5&$n_board[Z]='Парк'&$w_board[Z]='Порт'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
 magworld[Z]=100&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 :markgenworldSeven
 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
@@ -7,29 +6,20 @@ if X=0 and Y>0 and Y<5:d_border_way['<<$temploc>>']=6
 if Y=5 and X>0 and X<5:d_border_way['<<$temploc>>']=4
 if X=3 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	 $locname['<<$temploc>>']='Универсам'&$lname['<<$temploc>>']='Универсам'&$locopis['<<$temploc>>']='Коробка магазина в котором продают всякое говно'
-	 np['<<$temploc>>']=19&under['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Универсам'&$lname['<<$temploc>>']='Универсам'&$locopis['<<$temploc>>']='Коробка магазина в котором продают всякое говно'&np['<<$temploc>>']=19&under['<<$temploc>>']=1
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Вход в Универсальный магазин'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$locopis['<<$temploc>>']='Торговые залы магазина'
-	np['<<$temploc>>']=20&supermarket['<<$temploc>>']=2
-	R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
-	 H=0&R=0
+	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$locopis['<<$temploc>>']='Торговые залы магазина'&np['<<$temploc>>']=20&supermarket['<<$temploc>>']=2
+	R=1&gs 'toilet_gen',0&H=0&R=0
 elseif X=4 and Y=3:
-     $locname['<<$temploc>>']='Двор вашего дома'&$lname['<<$temploc>>']='Двор вашего дома'&$locopis['<<$temploc>>']='Очередной безликий бетонный дом стоящий на пустыре'
-	 np['<<$temploc>>']=10&gs'hero_home_gen'
-	 Xstart=X&Ystart=Y&Zstart=Z&Hstart=H&Rstart=3
-	 H=0&R=0
+    $locname['<<$temploc>>']='Двор вашего дома'&$lname['<<$temploc>>']='Двор вашего дома'&$locopis['<<$temploc>>']='Очередной безликий бетонный дом стоящий на пустыре'
+	np['<<$temploc>>']=10&gs'hero_home_gen'&Xstart=X&Ystart=Y&Zstart=Z&Hstart=H&Rstart=3&H=0&R=0
 elseif X=4 and Y=4:
-     $locname['<<$temploc>>']='Школа'&$lname['<<$temploc>>']='Школа'&$locopis['<<$temploc>>']='Школа со школьным двором'
-	 np['<<$temploc>>']=26&gs'school_gen'
-     H=0&R=0
+    $locname['<<$temploc>>']='Школа'&$lname['<<$temploc>>']='Школа'&$locopis['<<$temploc>>']='Школа со школьным двором'&np['<<$temploc>>']=26&gs'school_gen'&H=0&R=0
 else
-     $locname['<<$temploc>>']='Жилая застройка'&$lname['<<$temploc>>']='Жилая застройка'&$locopis['<<$temploc>>']='Безликие коробки домов'
-	 np['<<$temploc>>']=rand(12,18)
-	 rander=rand(1,3)&gs'gop_7_gen'
-	 if rander>1:gs'gop_7_gen'
-	 if rander>2:gs'gop_7_gen'
+    $locname['<<$temploc>>']='Жилая застройка'&$lname['<<$temploc>>']='Жилая застройка'&$locopis['<<$temploc>>']='Безликие коробки домов'&np['<<$temploc>>']=rand(12,18)
+	rander=rand(1,3)&gs'gop_7_gen'&if rander>1:gs'gop_7_gen'
+	if rander>2:gs'gop_7_gen'
 end
 peoplegenrand=rand(2)&pre_class=rand(1)
 if peoplegenrand=0:gs'male_gen'&slavworld[]=i

@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&kaggikarr=i
-lvl[i]=1&soul[i]=100&mob[i]=205&mobexp[i]=10&!номер моба для разговора
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&kaggikarr=i&lvl[i]=1&soul[i]=100&mob[i]=205&mobexp[i]=10&!номер моба для разговора
 tipemobpic[i]=1&picture[i]=505&!номер типа фотки!номер фотки
 visualpol[i]=1&!видимый пол, не зависит от половых органов
 if visualpol[i]=0:$nick[i]='Ворон'&gs'man_name'
@@ -10,10 +9,7 @@ mus[i]=rand(400,800)&!minuron[i]=rand(5,10)&maxuron[i]=rand(15,30)
 healthmax[i]=10*rand(30,50)&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 reflex[i]=rand(50,70)
 agro[i]=0&corr[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-walkprog[i]=0&fight_prog[i]=0&!программа движения!программа боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&fight_prog[i]=0&!программа движения и боя
 canfly[i]=1
-stander[i]=0&!стоит на месте
-bl_resist[i]=1&!имунитет к ударам
-def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
-notfast[i]=0&!если 1 то все удары героя попадают в нпс
+stander[i]=0&bl_resist[i]=1&!стоит на месте     !имунитет к ударам
+def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться     !если 1 то все удары героя попадают в нпс

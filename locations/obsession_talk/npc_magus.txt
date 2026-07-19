@@ -1,52 +1,39 @@
-﻿$d_view='pic/mob/158.jpg'
-'<center><img src="<<$d_view>>" ></center>'
-horny[npc]=0
+﻿$d_view='pic/mob/158.jpg'&'<center><img src="<<$d_view>>" ></center>'&horny[npc]=0
 if mob_sleep[npc]>time:
 	'<<$nick[npc]>> медитирует'
 else
-	'<<$nick[npc]>> отстраненно смотрит на вас'
-act'<b>Уйти</b>':gt 'preloc'
-	 act'Научи меня магии':
+	'<<$nick[npc]>> отстраненно смотрит на вас'&act'<b>Уйти</b>':gt 'preloc'
+	act'Научи меня магии':
 		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-	     if magik[you]=0:
+	    if magik[you]=0:
 			'<<$nick[npc]>> - Если ты принесешь мне рунный камень, то я смогу открыть магичность тебе.'
-	         if item[29]>0:
-	         	 act'Отдать рунный камень':
-					 item[29]-=1
-					 burden[you]-=item_burden[29]
-					 magik[you]+=1
-					 cls&gs'stat'&'Вы отдали рунный камень и маг поводил над ним руками и вы почувствовали что обрели магичность.'
-					 act'...':gt $curloc
-				 end
-	         end
-	     else
+	        if item[29]>0:
+	         	act'Отдать рунный камень':
+					item[29]-=1&burden[you]-=item_burden[29]&magik[you]+=1&cls&gs'stat'&'Вы отдали рунный камень и маг поводил над ним руками и вы почувствовали что обрели магичность.'&act'...':gt $curloc
+				end
+	        end
+	    else
 			'<<$nick[npc]>> - У тебя уже есть магичность.'
-	         if spell_fireball[you]=0:
+	        if spell_fireball[you]=0:
 				'<<$nick[npc]>> - за рунный камень я могу научить тебя кидать фаерболл'
-	         	 if item[29]>0:
+	         	if item[29]>0:
 					 act'Выучить фаерболл':
-						 item[29]-=1
-						 burden[you]-=item_burden[29]
-						 spell_fireball[you]+=1
-						 cls&gs'stat'
-						 'Вы отдали рунный камень и маг поводил над ним руками и показал вам каким жестом нужно вызывать фаербол, объяснив вам ,что сила фаербола зависит от вашего опыта и магичности.'
-						 act'...':gt $curloc
-					 end
-				 end
-	         end
-	         if powerwawe_spell[you]=0:
+						item[29]-=1&burden[you]-=item_burden[29]&spell_fireball[you]+=1&cls&gs'stat'& act'...':gt $curloc
+						'Вы отдали рунный камень и маг поводил над ним руками и показал вам каким жестом нужно вызывать фаербол, объяснив вам ,что сила фаербола зависит от вашего опыта и магичности.'
+					end
+				end
+	        end
+	        if powerwawe_spell[you]=0:
 				'За рунный камень я могу научить тебя силовой волне'
-	         	 if item[29]>0:
+	         	if item[29]>0:
 					 act'Выучить силовую волну':
-						 item[29]-=1
-						 burden[you]-=item_burden[29]
-						 powerwawe_spell[you]+=1
-						 cls&gs'stat'&'Вы отдали рунный камень и маг поводил над ним руками и показал вам каким жестом нужно вызывать силовую волну, объяснив вам, что хоть урон от силовой волны меньше чем от фаербола, но силовая волна способна сбивать с ног.'
-						 act'...':gt $curloc
-					 end
+						item[29]-=1&burden[you]-=item_burden[29]&powerwawe_spell[you]+=1
+						cls&gs'stat'&'Вы отдали рунный камень и маг поводил над ним руками и показал вам каким жестом нужно вызывать силовую волну.'
+						'Он также объяснил вам, что хоть урон от силовой волны меньше, чем от фаербола, но силовая волна способна сбивать с ног.'&act'...':gt $curloc
+					end
 				 end
-	         end
-	     end
+	        end
+	    end
 		act'<b>Уйти</b>':gt 'preloc'
-	 end
+	end
 end

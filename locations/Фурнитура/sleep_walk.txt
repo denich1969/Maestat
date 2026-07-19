@@ -1,5 +1,5 @@
 ﻿blockneed=1
-if horny[follower[you]]>70 and pol[you]>0: 'Вы укладываетесь спать, замечаете стояк у мужика и дрочите ему. '&wait 300 &'<center><video src="pic/sex/hand0.webm" ></video></center>'&wait 800 &*clr&'<center><video src="pic/sex/wank.webm" ></video></center> Когда он кончает, вы ложитесь вместе обнимаясь.'&wait 300 &horny[follower[you]]=0&*clr&gs'drop_follower'
+if horny[follower[you]]>70 and pol[you]>0: 'Вы укладываетесь спать, замечаете стояк у мужика и дрочите ему. '&wait 300 &'<center><video autoplay loop src="pic/sex/hand0.webm" ></video></center>'&wait 800 &*clr&'<center><video autoplay loop src="pic/sex/wank.webm" ></video></center> Когда он кончает, вы ложитесь вместе обнимаясь.'&wait 300 &horny[follower[you]]=0&*clr&gs'drop_follower'
 :anothersleep
 	time+=60&gs'stat'&gs'walker'
 if hour>=22 or hour<7:jump'anothersleep'
@@ -28,7 +28,7 @@ if magik_eggvag_timer[you]<=0 and magik_eggvag[you]>0:gt'magik_eggvag_rodi'
 'Вы легли спать и быстро уснули.'
 if dagonegg>0:
 	'Ночью, вас охватило безумное возбуждение и спазмы, вы вспомнили, что глубинный монстр кончил в вас и оставил в нутри вашей утробы свои плоды... Пришло время выпустить их наружу...'
-	'<center><video src="pic/event/see/rody.webm" ></video></center>'&horny[you]=100&dagongene+=dagonegg&vag[you]+=dagonegg
+	'<center><video autoplay loop src="pic/event/see/rody.webm" ></video></center>'&horny[you]=100&dagongene+=dagonegg&vag[you]+=dagonegg
 	in=1
 	:egg
 		if in<=dagonegg:item[999]-=1&burden[you]-=item_burden[999]&item_loc['999,<<$loc[you]>>']+=1&in+=1&jump'egg'
@@ -41,7 +41,7 @@ if sluttySisQW=4 and $loc[you]='3,1,3,1,3':
 	msg('Пока вы спали, ваша сестра подходила к вам и сказав: 
 			"Нравиться издеваться над слабыми девушками? 
 			Ну так посмотрим, что ты теперь скажешь...", а затем быстро намазала вам чем-то губы, а когда вы собрались уже было проснуться, вас буквально усыпило. 
-			Что было дольше, вы не помните, полностью отдавшись власти Морфея...')
+			Что было дольше, вы не помните, полностью отдавшись власти Морфея...')&spec_face_pic[you]=6&face_tipe[you]=4&face_pic[you]=0
 	sluttySisQW=5&sluttySisMest=daystart+30&mus[you]=10&fat[you]=10&vag[num]=1&nip[num]+=20&corr[you]+=35&ul_slot[you]=6&if dopburden[you]>50:dopburden[you]=50
 end
 if TargetLebeda=1:
@@ -118,7 +118,7 @@ if pol[you]>0 and dagongene>49 and dagongene<110:
 			'<center><img src="pic/event/sleep/dgonson2.jpg" ></center>'
 		end
 		if dagongene>=100 and dagongene<150:
-			'Сквозь перелну сна, вы видите себя плывущей под водой девой... Только вот ваше лицо уже чем-то похоже на жителей истмунда... К чему бы это?'&
+			'Сквозь перелну сна, вы видите себя плывущей под водой девой... Только вот ваше лицо уже чем-то похоже на жителей истмунда... К чему бы это?'
 			'<center><img src="pic/event/sleep/dgonson3.jpg" ></center>'
 		end
 	end
@@ -127,18 +127,10 @@ if vag[you]>0:
 	if inseminate[you]>0:
 		'<center><img src="pic/event/pregg<<rand(1,4)>>.jpg" ></center>'
 	else
-		if vag_tipe[you]=0:
-			'<center><img src="pic/event/sleep<<rand(1,4)>>.jpg" ></center>'
-		else
-			'<center><img src="pic/event/sleeph<<rand(1,4)>>.jpg" ></center>'
-		end	
+		$iif(vag_tipe[you]=0,'<center><img src="pic/event/sleep<<rand(1,4)>>.jpg" ></center>','<center><img src="pic/event/sleeph<<rand(1,4)>>.jpg" ></center>')
 	end
 else
-	if pol[you]>0:
-		'<center><img src="pic/event/sleep_s<<rand(1,2)>>.jpg" ></center>'
-	else
-		'<center><img src="pic/event/sleepm<<rand(1,2)>>.jpg" ></center>'
-	end
+	$iif(pol[you]>0,'<center><img src="pic/event/sleep_s<<rand(1,2)>>.jpg" ></center>','<center><img src="pic/event/sleepm<<rand(1,2)>>.jpg" ></center>')
 end
 if portvenera=1:
 	if portvenerafix<21:
@@ -155,11 +147,7 @@ if portvenera=1:
 		end
 		portvenera=0&msg("Похоже ваша связь с портовой шлюхой не прошла даром. Неизвестный гармон проник в ваше тело и оно изменилось...")
 	else
-		mus[you]=1000&fat[you]=800
-		ass[you]=20&tits[you]=15&nip[you]=40
-		face[you]+=50
-		womenbrain[you]+=20&lust[you]+=50&corr[you]=100
-		portvenerafix=0&portvenera=0
+		mus[you]=1000&fat[you]=800&ass[you]=20&tits[you]=15&nip[you]=40&face[you]+=50&womenbrain[you]+=20&lust[you]+=50&corr[you]=100&portvenerafix=0&portvenera=0
 		msg("Концентрация гармонов в вашем теле выросла настолько, что вас буквально наполнило им и ваше тело подчинилось этому наплыву. Вы стали подобны проституткам портового истмунда...")
 	end
 end
@@ -175,51 +163,48 @@ else
 		if randsleep=3:
 			if vag[you]>0 or (dick[you]=1 and ball[you]<2):
 				if seeevent=3 and alko[you]<12 and rand(1,5)=3:
-					 cls&'<center><video src="pic/event/sleep/sleepdagon<<rand(1,4)>>.webm" ></video></center>'&'Пока вы спали, дух вашего морского любовника отыскал вас и взял ваше тело в свое услужение...'
-					 insemrand=rand(0,12)&vag[you]+=rand(1,3)&if inseminate[you]=0 and insemrand=10:father_you_child=dagonknight&gs'preggo'
-					act'Встать':gt 'world'
+					cls&'<center><video autoplay loop src="pic/event/sleep/sleepdagon<<rand(1,4)>>.webm" ></video></center>'
+					'Пока вы спали, дух вашего морского любовника отыскал вас и взял ваше тело в свое услужение...'&act'Встать':gt 'world'
+					insemrand=rand(0,12)&vag[you]+=rand(1,3)&if inseminate[you]=0 and insemrand=10:father_you_child=dagonknight&gs'preggo'
 				else
 					if alko[you]>=rand(9,12):
-						 cls&'<center><video src="pic/event/sleep/sleepsexf<<rand(1,5)>>.webm" ></video></center>'
-						 'Видимо ваше состояние не осталось незамеченным и кто-то решил воспользоваться вашим беспомощным положением...'
-						 'Вас решил трахнуть неизвестный, а вы были в столь пьяном состоянии, что даже не проснулись от этого...'&horny[you]+=rand(20,35)&if vag[you]>0 and ball[you]>0: ball[you]=0
-						 act'Осмотреть себя':
-							cls&'<center><video src="pic/event/sleep/aftersleep.webm" ></video></center>'
+						cls&'<center><video autoplay loop src="pic/event/sleep/sleepsexf<<rand(1,5)>>.webm" ></video></center>'
+						'Видимо ваше состояние не осталось незамеченным и кто-то решил воспользоваться вашим беспомощным положением...'
+						'Вас решил трахнуть неизвестный, а вы были в столь пьяном состоянии, что даже не проснулись от этого...'&horny[you]+=rand(20,35)&if vag[you]>0 and ball[you]>0: ball[you]=0
+						act'Осмотреть себя':
+							cls&'<center><video autoplay loop src="pic/event/sleep/aftersleep.webm" ></video></center>'
 							'Когда вы поднялись, картина сложилась, ваше возбуждение не появилось само собой, вся ваша промежность была полна чьей-то спермы. '
-							'Что поделать... Общественное место, а вы напились...'
-							 insemrand=rand(0,12)&vag[you]+=rand(1,3)&if inseminate[you]=0 and insemrand=10:father_you_child=you&gs'preggo'&
-							act'Встать':gt 'world'
-						 end	
+							'Что поделать... Общественное место, а вы напились...'&act'Встать':gt 'world'
+							insemrand=rand(0,12)&vag[you]+=rand(1,3)&if inseminate[you]=0 and insemrand=10:father_you_child=you&gs'preggo'
+						end	
 					else
-						 cls&'<center><video src="pic/event/sleep/cum_to_face<<rand(1,2)>>.webm" ></video></center>'
-						 'Пока вы спали, кто-то неизвестный решил подрочить, глядя на вас. Кончил он, разумеется, на ваше лицо. Что поделать - общественная спальня...'
-						 cum_face[you]+=rand(1,5)&if vag[you]>0 and ball[you]>0:ball[you]=0
-						 horny[you] += rand(20,35)&act'Встать':gt 'world'
+						cls&'<center><video autoplay loop src="pic/event/sleep/cum_to_face<<rand(1,2)>>.webm" ></video></center>'&cum_face[you]+=rand(1,5)&horny[you] += rand(20,35)&act'Встать':gt 'world'
+						'Пока вы спали, кто-то неизвестный решил подрочить, глядя на вас. Кончил он, разумеется, на ваше лицо. Что поделать - общественная спальня...'&if vag[you]>0 and ball[you]>0:ball[you]=0
 					end
 				end
 			else
 				if dick[you]<12 and horny[you]>50:
 					if alko[you]>12 and anus[you]>30:
-						cls&'<center><video src="pic/event/sleep/analsleepman.webm" ></video></center>'
-						 'Видимо ваше состояние не осталось незамеченным и кто-то решил воспользоваться вашим беспомощным положением...'
-						 'Вас решил трахнуть неизвестный, а вы были в столь пьяном состоянии, что даже не проснулись от этого...'
-						 horny[you] += rand(20,35)&anus[you]+=2&act'Встать':gt 'world'
+						cls&'<center><video autoplay loop src="pic/event/sleep/analsleepman.webm" ></video></center>'
+						'Видимо ваше состояние не осталось незамеченным и кто-то решил воспользоваться вашим беспомощным положением...'
+						'Вас решил трахнуть неизвестный, а вы были в столь пьяном состоянии, что даже не проснулись от этого...'&horny[you] += rand(20,35)&anus[you]+=2&act'Встать':gt 'world'
 					else
-						cls&'<center><video src="pic/event/sleep/poisonsleep.webm" ></video></center>'&'Пока вы спали, кто-то неизвестный решил напоить вас какой-то солоноватой жидкостью. '
+						cls&'<center><video autoplay loop src="pic/event/sleep/poisonsleep.webm" ></video></center>'&'Пока вы спали, кто-то неизвестный решил напоить вас какой-то солоноватой жидкостью. '
 						'Вы лишь на миг приоткрыли глаза, а затем вновь провалились в сон до утра. А в это время незвестный еще и чем-то намазал вашу промежность...'
-						 horny[you]+=rand(30,40)&dagongene+=rand(1,2)
-						 if (dick[you]>=1 or ball[you]>0) and vag[you]<1:
+						horny[you]+=rand(30,40)&dagongene+=rand(1,2)
+						if (dick[you]>=1 or ball[you]>0) and vag[you]<1:
 							dick[you]-=1&ball[you]-=1
 							if dick[you]<2:dick[you]=0&ball[you]=0&msg('Во сне вы ощутили, что даже тот крохотный член, что у вас был - решил вас покинуть под действием неизвестного снадобья...')
-						 else
-							if rand(1,2)=1:dick[you]=0&ball[you]=0&vag[you]=1&msg('Сильное жжение между ваших ног заставило вас проснуться и стереть ту дрянь, которую нанесли на вашу промежность, а в ходе этого вы поняли, что обзавелись собственной вагиной...')
-						 end
-						 womenbrain[you]-=5&feminize[you]+=rand(2,5)&act'Встать':gt 'world'
+						else
+							if rand(1,2)=1:dick[you]=0&ball[you]=0&vag[you]=1&msg('Сильное жжение между ваших ног заставило вас проснуться и стереть ту дрянь, которую нанесли на вашу промежность, 
+																																а в ходе этого вы поняли, что обзавелись собственной вагиной...')
+						end
+						womenbrain[you]-=5&feminize[you]+=rand(2,5)&act'Встать':gt 'world'
 					end
 				else
-					 cls&'<center><video src="pic/event/sleep/poisonsleep.webm" ></video></center>'
-					 'Пока вы спали, кто-то неизвестный решил напоить вас какой-то солоноватой жидкостью. Вы лишь на миг приоткрыли глаза, а затем вновь провалились в сон до утра...'
-					 horny[you]+=rand(20,35)&womenbrain[you]-=2&dagongene+=rand(1,2)&feminize[you]+=rand(1,4)&act'Встать':gt 'world'
+					cls&'<center><video autoplay loop src="pic/event/sleep/poisonsleep.webm" ></video></center>'
+					'Пока вы спали, кто-то неизвестный решил напоить вас какой-то солоноватой жидкостью. Вы лишь на миг приоткрыли глаза, а затем вновь провалились в сон до утра...'
+					horny[you]+=rand(20,35)&womenbrain[you]-=2&dagongene+=rand(1,2)&feminize[you]+=rand(1,4)&act'Встать':gt 'world'
 				end
 			end
 		end

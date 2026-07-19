@@ -1,8 +1,2 @@
-﻿$loc[you]=$curloc
-gs'stat'
-loc_for_drop=0
-'<b><center>Узоры Дядюшки Бо</center></b>'
-!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-'Дядюшка Бо делает любые татуировки и так же клеймит рабынь.'
-gs'npconloc'
-gs'item'
+﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Узоры Дядюшки Бо</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+'Дядюшка Бо делает любые татуировки и так же клеймит рабынь.'&gs'npconloc'&gs'item'

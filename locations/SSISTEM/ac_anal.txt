@@ -42,10 +42,10 @@ if candoanal[npc]>0:
 		act'Залить в глотку феминизатор':
 			feminize[npc]+=5&item[79]-=1&burden[you]-=item_burden[79]&cls&gs'stat'&if agro[npc]>20:agro[npc]-=1
 			if skin[you]>4:
-			    '<center><video src="pic/sex/anal_fem_mis_bbc<<rand(0,9)>>.webm" ></center>'
+			    '<center><video autoplay loop src="pic/sex/anal_fem_mis_bbc<<rand(0,9)>>.webm" ></center>'
 			    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 			else
-			    '<center><video src="pic/sex/anal_fem_mis<<rand(0,17)>>.webm" ></center>'
+			    '<center><video autoplay loop src="pic/sex/anal_fem_mis<<rand(0,17)>>.webm" ></center>'
 			    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 			end
 			act'Далее':gt 'activ_sex'
@@ -57,19 +57,20 @@ if candoanal[npc]>0:
 				act'Дать по морде':
 					cls
 					if slave[npc]=you:submission[npc]+=1
-					if skin[you]>4:
-						  '<center><video src="pic/sex/bbc/miss/missslapbbc<<rand(0,2)>>.webm" ></video></center>'&'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
+					if skin[you]>4 and skin[you]<7:
+						'<center><video autoplay loop src="pic/sex/bbc/miss/missslapbbc<<rand(0,2)>>.webm" ></video></center>'
+						'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
 					else
-						  '<center><video src="pic/sex/anal/mslap<<rand(0,7)>>.webm" ></video></center>'&'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
+						'<center><video autoplay loop src="pic/sex/anal/mslap<<rand(0,7)>>.webm" ></video></center>'&'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
 					end
 					gs'fuck_anal_slap_face',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
 				end
 				act'Плюнуть в рожу':
 					cls
 					if skin[you]>4:
-						'<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
+						'<center><video autoplay loop src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
 		            else
-						'<center><video src="pic/sex/degraded/spit<<rand(0,6)>>.webm" ></video></center>'&'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
+						'<center><video autoplay loop src="pic/sex/degraded/spit<<rand(0,6)>>.webm" ></video></center>'&'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
 					end
 					gs'fuck_anal_spit_face',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
 				end
@@ -94,10 +95,10 @@ if candoanal[npc]>0:
 				feminize[npc]+=5&item[79]-=1&burden[you]-=item_burden[79]
 				cls&gs'stat'&if agro[npc]>20:agro[npc]-=1
 				if skin[you]>4:
-					'<center><video src="pic/sex/anal_fem_bbc<<rand(0,16)>>.webm" ></center>'
+					'<center><video autoplay loop src="pic/sex/anal_fem_bbc<<rand(0,16)>>.webm" ></center>'
 					'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 				else
-					'<center><video src="pic/sex/anal_fem<<rand(0,21)>>.webm" ></center>'
+					'<center><video autoplay loop src="pic/sex/anal_fem<<rand(0,21)>>.webm" ></center>'
 					'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 				end
 				act'Далее':gt 'activ_sex'
@@ -118,18 +119,18 @@ if candoanal[npc]>0:
 				act'Дать по морде':
 					cls
 					if skin[you]>4:
-					     '<center><video src="pic/sex/bbc/dog/dogslapbbc.webm" ></video></center>'&*pl'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
+					     '<center><video autoplay loop src="pic/sex/bbc/dog/dogslapbbc.webm" ></video></center>'&*pl'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
 					else
-					     '<center><video src="pic/sex/anal/slap<<rand(0,2)>>.webm" ></video></center>'&*pl'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
+					     '<center><video autoplay loop src="pic/sex/anal/slap<<rand(0,2)>>.webm" ></video></center>'&*pl'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину'
 					end
 					gs'fuck_anal_slap_face',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
 				end
 				act'Плюнуть в рожу':
 					cls
 					if skin[you]>4:
-                         '<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&*pl'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
+                         '<center><video autoplay loop src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&*pl'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
                     else
-					     '<center><video src="pic/sex/anal/spit<<rand(0,2)>>.webm" ></video></center>'&*pl'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
+					     '<center><video autoplay loop src="pic/sex/anal/spit<<rand(0,2)>>.webm" ></video></center>'&*pl'<<$name[npc]>> получает смачный харчок в свое покрасневшее лицо'
 					end
 					gs'fuck_anal_spit_face',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
 				end
@@ -147,13 +148,13 @@ if candoanal[npc]=0:
 	act'...':gt 'activ_sex'
 	if dom[you]>=90 and agro[npc]<50:
 		act'<i>Медленно ввести</i>':
-			agro[npc]-=1&anal_fixation[npc]+=1&!'<center><video src="pic/sex/anal/slap0.webm" ></video></center>'
+			agro[npc]-=1&anal_fixation[npc]+=1&!'<center><video autoplay loop src="pic/sex/anal/slap0.webm" ></video></center>'
 			cls&gs 'stat'&'- Не очкуй, я аккуратно, тебе понравиться... Как говорят хирурги, надежно зафиксированный пациент в анестезии не нуждается.'&gt 'ac_anal'
 		end
 		act'<i>Молча дать по морде</i>':
 			horny[npc]=0&if agro[npc]>0:agro[npc]-=5
 			anal_fixation[npc]+=1&if maso_fixation[npc]>0 and orgasm[npc]<time:horny[npc]+=maso_fixation[npc]
-			'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину.'&gt 'ac_anal'&!'<center><video src="pic/sex/anal/slap0.webm" ></video></center>'
+			'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину.'&gt 'ac_anal'&!'<center><video autoplay loop src="pic/sex/anal/slap0.webm" ></video></center>'
 		end
 	end
 end

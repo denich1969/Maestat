@@ -6,13 +6,13 @@
 		$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> сосала мой хуй в школьном туалете'
 		$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я сосала хуй Томми Соломону в школьном туалете.'
 		sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
-		time+=15&gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+		time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
 		'Вы вошли в туалет и убедившись, что тут никого нет, сели на корточки перед Томми и тот со своей наглой ухмылкой расстегнул ширинку и вытащил свой член. '
 		'Устроившись по удобнее, что бы не плюхнутся задом на пол туалета вы взялись за бедра парня и взяли его член в рот. '
 		'Привычными движениями вы начали сосать хуй стараясь при этом покрепче его сжимать губами и не издавать звуков. '
 		'Хотя иногда громкие сосущие звуки непроизвольно вырывались из вашего рта под усмешки Томми.'
 		 act'Сосать':
-			empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'
+			empty_ball[npc]=time+(60*10)&tommyblow[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/swallow<<rand(0,10)>>.webm" ></video></center>'
 			 'Томми кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'&act'Встать':gt'preloc'
 			 if tommyblow[you]=1 or tommyblow[you]>=5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раз ты мне уже отсосала.'
 			 if tommyblow[you]>1 and tommyblow[you]<5:'Томми заправляя член в штаны усмехнулся - Ну вот, <<tommyblow[you]>> раза ты мне уже отсосала.'

@@ -1,6 +1,6 @@
 ﻿if anneka=0:
-	npcmaxnum+=1&i=npcmaxnum&num=i&goblin[]=i&anneka=i&$rassa[i]='goblin'&rassa_bes[i]=1
-	pol[i]=1&soul[i]=100&!work[i]=26&subwork[i]=100
+	npcmaxnum+=1&i=npcmaxnum&num=i&goblin[]=i&anneka=i&$rassa[i]='goblin'&rassa_bes[i]=1&lvl[i]=1&soul[i]=100
+	master[i]=0&delusion[i]=0&beliver[i]=0&magik[i]=0&!work[i]=26&subwork[i]=100
 	spec_face_pic[i]=5&face_pic[i]=174&!face_npc[i]=1&face_pic[i]=7
 	$name[i]='Гоблинша'&$surname[i]='Гоблин'
 	face[i]=80&gla[i]=3&glacol[i]=4&lips[i]=1&nose[i]=1&scull[i]=0&cheeks[i]=1
@@ -8,13 +8,10 @@
 	rost[i]=150&mus[i]=500&fat[i]=1000&skin[i]=1&preskin[i]=1
 	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=20&curl[i]=0&hcol[i]=0
 	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
-	age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1&gs'female_gen',anneka&gs'body_auto',i,'old_npc_once'
+	age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1&gs'female_gen',anneka&!gs'body_auto',i,'old_npc_once'
 	womenbrain[i]=rand(60,90)&bisex[i]=1&agro[i]=50&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=100&corr[i]=rand(10,30)&!характер
-	h_slot[i]=0&w_slot[i]=0
-	c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
-	t_slot[i]=17&l_slot[i]=13&b_slot[i]=0
-	ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=0
+	h_slot[i]=0&w_slot[i]=0&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=17&l_slot[i]=13&b_slot[i]=0&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=0
 	can_bj[i]=1&can_anal[i]=1&cantvag[i]=1&vafla[i]=60&cumslut[i]=60&all_in_anal[i]=100&all_in_oral[i]=100&all_in_vag[i]=100&perk_cumslut[i]=1
-	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&in_home[i]=2
-	se_lighthouse[]=i&
+	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0
+	!in_home[i]=2
 end

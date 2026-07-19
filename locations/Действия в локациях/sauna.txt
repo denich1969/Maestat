@@ -13,7 +13,7 @@
 		 sportiv[you]+=1&status_tipe[you]=1&status_time[you]=time+120
 		 cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0&peecover[you]=0&fishsmell[you]=0
 		 time+=60&cls&gs'walker'&gs'stat'& 'Вы целый час купаетесь в освежающей воде.'&act'...':gt 'preloc'
-		if pol[you]>0:'<center><video src="pic/misc/pool<<rand(4)>>.webm" ></video></center>'
-		if pol[you]=0:'<center><video src="pic/misc/poolman<<rand(3)>>.webm" ></video></center>'
+		if pol[you]>0:'<center><video autoplay loop src="pic/misc/pool<<rand(4)>>.webm" ></video></center>'
+		if pol[you]=0:'<center><video autoplay loop src="pic/misc/poolman<<rand(3)>>.webm" ></video></center>'
 	 end
  end

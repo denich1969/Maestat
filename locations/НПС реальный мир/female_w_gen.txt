@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i
-lvl[i]=1&soul[i]=100
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100
 spec_face_pic[i]=5&face_pic[i]=1
 $name[i]='Нина'&$surname[i]='Алферова'&$title[i]='Соседка'&$nick[i]='Девушка'&know['<<i>>,<<you>>']+=1&know['<<you>>,<<i>>']+=1
 face[i]=70&gla[i]=1&glacol[i]=1&nose[i]=3&lips[i]=1&scull[i]=1&cheeks[i]=0
@@ -21,7 +20,5 @@ end
 if lust[i]>=75 and agro[i]>=75:misstress[i]=1&total_misstress+=1
 if lust[i]>=75 and agro[i]>=50 and agro[i]<75:femwhore[i]=1&total_femwhore+=1
 if lust[i]>=75 and agro[i]<50:subslut[i]=1&total_subslut+=1
-t_slot[i]=15&l_slot[i]=26&b_slot[i]=13
-ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-real_world[]=i&!walkprog[i]=26
+t_slot[i]=15&l_slot[i]=26&b_slot[i]=13&ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&real_world[]=i&!walkprog[i]=26

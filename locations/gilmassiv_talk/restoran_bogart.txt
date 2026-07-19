@@ -1,5 +1,5 @@
-﻿bogart_haras[you]+=1&npc=borisbogart&gs'stat'
-'<center><video src="pic/misc/slap0.webm" ></video></center>'&'Когда вы проходите мимо Богарта, тот шлепает вам по заднице.'&!'<center><video src="pic/misc/assgrab.webm" ></video></center>'
+﻿bogart_haras[you]+=1&npc=borisbogart&gs'stat'&!'<center><video autoplay loop src="pic/misc/assgrab.webm" ></video></center>'
+'<center><video autoplay loop src="pic/misc/slap0.webm" ></video></center>'&'Когда вы проходите мимо Богарта, тот шлепает вам по заднице.'
 if bogart_haras[you]<3:
 	act'<b>Уйти</b>':gt 'preloc'
 else
@@ -21,20 +21,20 @@ else
 							 'Богарт командует вам - Настоящая шлюха должна быть покорной и услужливой! Так что открой свой писсуар!'
 						 	 act'Открыть рот':
 								horny[npc]=0&time+=5&cls&gs'soulcraft'&drinkpee[you]+=1&pee[npc]+=1&peecover[you]+=2
-								time+=15&gs'stat'&'<center><video src="pic/sex/bj/pee/5.webm" ></video></center>'&'Вы открыли рот и вам тут же туда хлынула струя мочи Богарта.' 
+								time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/pee/5.webm" ></video></center>'&'Вы открыли рот и вам тут же туда хлынула струя мочи Богарта.' 
 								 'Она ужасна на вкус, горькая, насыщенная, теплая и противно пахнет, 
 								 но вы пересилили себя и набрав полный рот мочи проглотили ее и тут же распахнули свой писсуар для новой порции.'
 								 act'Краснеть от стыда':
 									 horny[npc]=0&time+=5&cls&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
 									 sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
-									 time+=15&gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,2)>>.webm" ></video></center>'
+									 time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,2)>>.webm" ></video></center>'
 									 'Богарт засовывает вам член в рот и вы его сосете своим ртом в котором так и стоит вкус мочи.'
 									 'Буквально через несколько минут Богарт вновь прижимает ваше лицо к холодному кафелю унитаза.'
 									 act'Ждать':
 										 empty_ball[npc]=time+(60*10)
 										 $global_npc_log[you]+='<br>'
 										 $global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Богарт выебал меня в рот и нассал туда.'
-										 cum_face[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
+										 cum_face[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
 										 'Прижавшись щекой к унитазу вы чувствуете как капли спермы Богарта приземляются вам на лицо'
 										 money[you]+=10000&'Богарт презрительно швыряет вам сотню шиллингов - На тебе салфетку, утрись.'&act'Встать':gt'preloc'
 									 end
@@ -57,12 +57,12 @@ else
 							 'Богарт берет вас за шкирку и макает лицом в унитаз, а затем нажимает кнопку смыва. Холодная вода из унитаза окатывает ваше лицо.'
 						 	 act'Краснеть от стыда':
 								 horny[npc]=0&time+=5&cls&gs'soulcraft'&drinkpee[you]+=1&pee[npc]+=1&peecover[you]+=2
-								 time+=15&gs'stat'&'<center><video src="pic/sex/degraded/pee_toilet<<rand(0,2)>>.webm" ></video></center>'
+								 time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/pee_toilet<<rand(0,2)>>.webm" ></video></center>'
 								 'Богарт вынул член и внезапно вам в щеку ударила пахучая струя мочи Богарта. Его моча текла по вашей щеке в унитаз.'
 								 act'Краснеть от стыда':
 									 horny[npc]=0&time+=5&cls&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
 									 sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
-									 time+=15&gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+									 time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
 									 'Макнув вас лицом в унитаз Богарт засовывает вам член в рот и вы его сосете.'
 									 'Буквально через несколько минут Богарт вновь прижимает ваше лицо к холодному кафелю унитаза.'
 									 solo=npc&gs'fast_sex','minet',npc,you&temp_orgazm[you]=0&'Буквально через несколько минут Богарт вновь прижимает ваше лицо к холодному кафелю унитаза.'
@@ -70,7 +70,7 @@ else
 										 empty_ball[npc]=time+(60*10)
 										 $global_npc_log[you]+='<br>'
 										 $global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Богарт выебал меня в рот и нассал туда.'
-										 cum_face[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
+										 cum_face[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
 										 'Прижавшись щекой к унитазу вы чувствуете как капли спермы Богарта приземляются вам на лицо'
 										 money[you]+=10000&'Богарт презрительно швыряет вам сотню шиллингов - На тебе салфетку, утрись.'&act'Встать':gt'preloc'
 									 end
@@ -94,14 +94,14 @@ else
 						 	 act'Краснеть от стыда':
 								 horny[npc]=0&time+=5&cls&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
 								 sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
-								 time+=15&gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+								 time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
 								 'Макнув вас лицом в унитаз Богарт засовывает вам член в рот и вы его сосете.'
 								 'Буквально через несколько минут Богарт вновь прижимает ваше лицо к холодному кафелю унитаза.'
 							     act'Ждать':
 									 empty_ball[npc]=time+(60*10)
 									 $global_npc_log[you]+='<br>'
 									 $global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Богарт выебал меня в рот и макнул в унитаз лицом.'
-									 cum_face[you]+=1&cls&gs'stat'&'<center><video src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
+									 cum_face[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
 									 'Прижавшись щекой к унитазу вы чувствуете как капли спермы Богарта приземляются вам на лицо'
 									 money[you]+=10000&'Богарт презрительно швыряет вам сотню шиллингов - На тебе салфетку, утрись.'&act'Встать':gt'preloc'
 								 end
@@ -115,7 +115,7 @@ else
 					 corr[you]+=5&R[npc]=1&R[you]=1&if bogart_slut_reit[you]=2 and bogart_toilet_slut[you]>0:bogart_slut_reit[you]=3
 					 bogart_toilet_slut[you]+=1&horny[npc]=0&cls&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
 					 sexpartner['<<npc>>,<<you>>']+=1&sexpartner['<<you>>,<<npc>>']+=1&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
-					 time+=15&gs'stat'&'<center><video src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
+					 time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
 					 'Вы вошли в туалет и привычно заняли свое место на коленях. Богарт достал член и начал пихать его вам в рот'
 					 solo=npc&gs'fast_sex','minet',npc,you&temp_orgazm[you]=0
 					 act'Сосать':
@@ -135,7 +135,7 @@ else
 			 'Богарт хватает вас за руку с усмешкой - Как ты крутиш своей попкой вокруг меня, надо тебя наказать. Ну ка наклонись!'
 			 act'Наклониться':
 				bogart_slut[you]+=1&time+=5
-				cls&gs'stat'&'<center><video src="pic/misc/spank1.webm" ></video></center>'&'Вы наклонились а Богарт смачно шлепнул вам по заднице и все посетители ресторана оглянулись на вас.'
+				cls&gs'stat'&'<center><video autoplay loop src="pic/misc/spank1.webm" ></video></center>'&'Вы наклонились а Богарт смачно шлепнул вам по заднице и все посетители ресторана оглянулись на вас.'
 				'Богарт с усмешкой сказал - А где благодарность за науку?'&act'Спасибо господин Богарт':gt 'preloc'
 			 end
 		 else

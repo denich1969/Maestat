@@ -262,6 +262,7 @@
       <Location name="surname"/>
       <Location name="negr_man_name"/>
       <Location name="negr_surname"/>
+      <Location name="negr_woman_name"/>
       <Location name="ru_man_name"/>
       <Location name="ru_woman_name"/>
       <Location name="ru_surname"/>
@@ -471,7 +472,7 @@
       <Location name="verbovka"/>
       <Location name="kinkharrysolomon"/>
       <Location name="quick_contact"/>
-      <Location name="demon_dick_talk"/>
+      <Location name="demon_dick_talk не исп"/>
       <Location name="demon_dick_dialog"/>
     </Folder>
     <Folder name="НПС Локация">
@@ -1648,7 +1649,6 @@
       <Location name="3_world_gen"/>
       <Location name="4_world_gen"/>
       <Location name="6_world_gen"/>
-      <Location name="gop_6_gen"/>
       <Location name="7_world_gen"/>
     </Folder>
     <Folder name="Фермы">

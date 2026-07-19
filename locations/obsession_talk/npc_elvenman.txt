@@ -1,32 +1,24 @@
 ﻿if Z[you]=770:
-	$d_view='pic/mob/<<rand(137,142)>>.jpg'
-	'<center><img src="<<$d_view>>" ></center>'
+	$d_view='pic/mob/<<rand(137,142)>>.jpg'&'<center><img src="<<$d_view>>" ></center>'
 	if mob_sleep[npc]>time:
 		'<<$nick[npc]>> дремлет'
 	else
 		if you_slut[npc]>0:
-			'<<$nick[npc]>> усмехается глядя на вас'
-			if corr[npc]<100:
-				act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
-			end
-			dynamic $d_fear
+			'<<$nick[npc]>> усмехается глядя на вас'&dynamic $d_fear
+			if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 		else
 			if corr[npc]<100:
 				if glooms_here=1:
-					'<<$nick[npc]>> насвистывая мелодию - берегись, в этом лесу семейство Хмуров вершит свою черную магию'
-					act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+					'<<$nick[npc]>> насвистывая мелодию - берегись, в этом лесу семейство Хмуров вершит свою черную магию'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 					act'Расскажи о Хмурах':
-						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-						 '<<$nick[npc]>> - Хмуры это муж и жена Хильди и Грим, они очень сильные колдуны, они оскверняют лес и привели сюда гоблинов.'
-						act'<b>Уйти</b>':gt 'preloc'
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						'<<$nick[npc]>> - Хмуры это муж и жена Хильди и Грим, они очень сильные колдуны, они оскверняют лес и привели сюда гоблинов.'&act'<b>Уйти</b>':gt 'preloc'
 					end
 				else
-					'<<$nick[npc]>> насвистывая мелодию - Это наш лес, чудесное место, хотя берегись колючек'
-					act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
+					'<<$nick[npc]>> насвистывая мелодию - Это наш лес, чудесное место, хотя берегись колючек'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 				end
 			else
-				 '<<$nick[npc]>> напряженно пялится на вас и вы замечаете что у него стоит член'
-				 dynamic $d_fear
+				 '<<$nick[npc]>> напряженно пялится на вас и вы замечаете что у него стоит член'&dynamic $d_fear
 			end
 		end
 	end

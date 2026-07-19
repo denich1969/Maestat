@@ -1,32 +1,18 @@
 ﻿$d_sitdown={
-if pose[you]<=1:pose[you]=2&time+=5&gs'walker'&gt 'preloc'
-if (pose[you]=3 or pose[you]>=4) and energy[you]>=5:pose[you]=2&time+=5&gs'walker'&gt 'preloc'}
-$d_goup={if pose[you]=2:pose[you]=1&time+=5&gs'walker'&gt 'preloc'}
-$d_goup={if pose[you]=2:pose[you]=1&time+=5&gs'walker'&gt 'preloc'}
-$d_onback={if pose[you]=2 or pose[you]=1:pose[you]=3&time+=5&gs'walker'&gt 'preloc'}
-$d_onfour={if pose[you]=2:pose[you]=4&time+=5&gs'walker'&gt 'preloc'}
-$poser=''
-if pose[you]=1:
-	$poser='<b>Вы стоите</b>'
-	$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a> <a href="exec:dynamic $d_onback">Лечь на спину</a>'
-end
+	if pose[you]<=1:pose[you]=2&time+=5&gs'walker'&gt 'preloc'
+	if (pose[you]=3 or pose[you]>=4) and energy[you]>=5:pose[you]=2&time+=5&gs'walker'&gt 'preloc'}
+$d_goup={if pose[you]=2:pose[you]=1&time+=5&gs'walker'&gt 'preloc'}&$d_goup={if pose[you]=2:pose[you]=1&time+=5&gs'walker'&gt 'preloc'}
+$d_onback={if pose[you]=2 or pose[you]=1:pose[you]=3&time+=5&gs'walker'&gt 'preloc'}&$d_onfour={if pose[you]=2:pose[you]=4&time+=5&gs'walker'&gt 'preloc'}&$poser=''
+if pose[you]=1:$poser='<b>Вы стоите</b>'&$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a> <a href="exec:dynamic $d_onback">Лечь на спину</a>'
 if pose[you]=2:
-	$poser='<b>Вы на коленях</b>'
-	$poser+= ' <a href="exec:dynamic $d_goup">Встать</a>'
-	$poser+= ' <a href="exec:dynamic $d_onback">Лечь на спину</a>'
+	$poser='<b>Вы на коленях</b>'&$poser+= ' <a href="exec:dynamic $d_goup">Встать</a>'&$poser+= ' <a href="exec:dynamic $d_onback">Лечь на спину</a>'
 	$poser+= ' <a href="exec:dynamic $d_onfour">На четвереньки</a>'
 end
 if pose[you]=3:$poser='<b>Вы лежите на спине</b>'&	$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a>'
 if pose[you]>=4:$poser='<b>Вы стоите на четвереньках</b>'&$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a>'
 if pose[you]=0:pose[you]=1&$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a>'&if Z[you]!200:$poser='<b>У вас кружится голова</b>'
 $d_pissloc={
-	time+=2
-	pisswasser[you]=0
-	$d_pissloc2='<center><video src="pic/event/piss<<rand(0,17)>>.webm" ></video></center>'&!{view("pic/event/piss<<rand(0,17)>>.webm")}
-	dynamic $d_pissloc2
-	pissonloc['<<$loc[you]>>']=time+120
-	gs'walker'
-	gt 'preloc'}
+	time+=2&pisswasser[you]=0&$d_pissloc2='<center><video autoplay loop src="pic/event/piss<<rand(0,17)>>.webm" ></video></center>'&$d_pissloc2&pissonloc['<<$loc[you]>>']=time+120&gs'walker'&gt 'preloc'}
 $status[you]=''
 if pol[you]=0 and status_tipe[you]=1:$status[you]='ВЫ МОКРЫЙ'
 if pol[you]>=1 and status_tipe[you]=1:$status[you]='ВЫ МОКРАЯ'
@@ -38,9 +24,7 @@ if status_tipe[you]>0 and status_time[you]>time:status_minut=status_time[you]-ti
 if status_tipe[you]>0 and status_time[you]<=time:status_time[you]=0&$status[you]=''&status_tipe[you]=0
 if pisswasser[you]>=50:
      if (dick[you]>1 and CONFIG['DISABLE_position']=0) or CONFIG['DISABLE_position']=1:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
-     if vag[you]>0 and CONFIG['DISABLE_position']=0:
-         if pose[you]=2:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
-     end
+     if vag[you]>0 and CONFIG['DISABLE_position']=0 and pose[you]=2:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
 end
 if $status[you]!'':'<b><<$status[you]>></b>. Действует еще <<status_minut>> '+$func('plural',status_minut,'минута','минуты','минут')
 '<<$poser>>'

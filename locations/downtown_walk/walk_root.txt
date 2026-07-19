@@ -1,26 +1,21 @@
 ﻿owl_start+=1
 if Z[you]=10:
-	Xdest[w]=X[you]&Ydest[w]=Y[you]&Zdest[w]=Z[you]&Hdest[w]=H[you]&Rdest[w]=R[you]
-	$destination[w]='полеты'
+	Xdest[w]=X[you]&Ydest[w]=Y[you]&Zdest[w]=Z[you]&Hdest[w]=H[you]&Rdest[w]=R[you]&$destination[w]='полеты'
 else
 	$destination[w]='прогулка'
 end
 if Z[w]!10:Zdest[w]=10
 if $destination[w]='прогулка':
-	$think[w]='думает о прогулке'
-	owl_fun+=1
-	gs'walk_full_rand'
+	$think[w]='думает о прогулке'&owl_fun+=1&gs'walk_full_rand'
 else
 	gs'destination'
-	 if $destination[w]!'':
-		 if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
-			owl_stay+=1
-			$think[w]='думает о всякой ерунде'&!на точке назначения
-		 else
-			owl_go+=1
-			 gs'walk_dest'&!вне точки назначения
-		 end
-	 else
+	if $destination[w]!'':
+		if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+			owl_stay+=1&$think[w]='думает о всякой ерунде'&!на точке назначения
+		else
+			owl_go+=1&gs'walk_dest'&!вне точки назначения
+		end
+	else
 		$think[w]='думает о том чем бы заняться'
-	 end
+	end
 end

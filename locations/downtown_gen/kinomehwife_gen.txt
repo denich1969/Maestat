@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&kinomehwife=i
-lvl[i]=1&soul[i]=5000&work[i]=51&subwork[i]=10
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&kinomehwife=i&lvl[i]=1&soul[i]=5000&work[i]=51&subwork[i]=10
 master[i]=0&delusion[i]=0&magik[i]=6&beliver[i]=0
 spec_face_pic[i]=5&face_pic[i]=101
 $name[i]='Лилия'&$surname[i]='Питерсон'&$nick[i]='Ведьма'&$title[i]=''&$history[i]='Я ведьма алхимик в химической лаборатории, а мой муж киномеханик.'
@@ -11,15 +10,7 @@ age[i]=26&vital[i]=40&will[i]=50&reflex[i]=40
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80&!Урон в бою
 pol[i]=1&gs'body'&total_generated_female+=1
 bisex[i]=1&agro[i]=30&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=0&lust[i]=100&!характер
-!l_hand_t[i]=3     
-t_slot[i]=rand(54,64)&l_slot[i]=rand(27,44)&b_slot[i]=rand(17,22)
-ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
-	 girl[kinomeh]+=1&guy[i]+=1&!Отношения и активность
-	 sexpartner['<<i>>,<<kinomeh>>']+=100&sexpartner['<<kinomeh>>,<<i>>']+=100
-	 vagsex[i]+=100&avagsex[kinomeh]+=100
-	 bj[i]+=100&abj[kinomeh]+=100
-	 anal[i]+=100&aanal[kinomeh]+=100
-	 sexpartner_num_m['<<i>>,<<guy[i]>>']=kinomeh&sexpartner_num_f['<<finch>>,<<girl[kinomeh]>>']=i
-     husband[i]=kinomeh&husband[kinomeh]=i&!Отношения и активность конец
-s_world[]=i&walkprog[i]=30
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+girl[kinomeh]+=1&guy[i]+=1&sexpartner['<<i>>,<<kinomeh>>']+=100&sexpartner['<<kinomeh>>,<<i>>']+=100&vagsex[i]+=100&avagsex[kinomeh]+=100&bj[i]+=100&abj[kinomeh]+=100
+anal[i]+=100&aanal[kinomeh]+=100&sexpartner_num_m['<<i>>,<<guy[i]>>']=kinomeh&sexpartner_num_f['<<finch>>,<<girl[kinomeh]>>']=i&husband[i]=kinomeh&husband[kinomeh]=i   
+t_slot[i]=rand(54,64)&l_slot[i]=rand(27,44)&b_slot[i]=rand(17,22)&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)&!l_hand_t[i]=3  
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&s_world[]=i&walkprog[i]=30

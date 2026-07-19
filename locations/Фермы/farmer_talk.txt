@@ -1,81 +1,79 @@
 ﻿if Zhome[npc]=1:'<<$name[npc]>> вяло жует колосок'
 if Zhome[npc]=2:'<<$name[npc]>> вяло жует травинку'
 if corr[npc]<100:
-	 if evil[you]<100:
-		 if friends[npc]>0:
-			 if Xhome[npc]>0 and Yhome[npc]>0:
-				 if can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=0:
-					 act'Проситься на постой':
-						 friends[npc]+=1&can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=1
-						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> с радостью приглашает вас на постой'&act'<b>Уйти</b>':gt 'preloc'
-					 end
-				 else
+	if evil[you]<100:
+		if friends[npc]>0:
+			if Xhome[npc]>0 and Yhome[npc]>0:
+				if can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=0:
+					act'Проситься на постой':
+						friends[npc]+=1&can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=1
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> с радостью приглашает вас на постой'&act'<b>Уйти</b>':gt 'preloc'
+					end
+				else
 				 
-				 end
-			 end
-			 if horny[you]>=50:
-			     if vag[npc]>0:
-					 act'Может развлечемся?':
-					 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					     if horny[npc]>=50 or sexpartner['<<npc>>,<<you>>']>0:
+				end
+			end
+			if horny[you]>=50:
+			    if vag[npc]>0:
+					act'Может развлечемся?':
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					    if horny[npc]>=50 or sexpartner['<<npc>>,<<you>>']>0:
 							friends[npc]+=1&'<<$name[npc]>> смущенно соглашается'&act'Обнять':gt'justsex'
-					     else
+					    else
 							'<<$name[npc]>> смущенно отказывается'&act'<b>Уйти</b>':gt 'preloc'
-					     end
-					 end
-				 end
-			 end
-			 if dick[npc]>1 and horny[npc]>=50 and pol[you]>0:
-				'<<$name[npc]>> похотливо осматривает вас - Развлечемся?'
-				 act'Ну давай!':friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-			 end
-		 end
-		 if friends[npc]=0:
-			 if know['<<npc>>,<<you>>']=0:
-				 act'Познакомиться':
+					    end
+					end
+				end
+			end
+			if dick[npc]>1 and horny[npc]>=50 and pol[you]>0:
+				'<<$name[npc]>> похотливо осматривает вас - Развлечемся?'&act'Ну давай!':friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+			end
+		end
+		if friends[npc]=0:
+			if know['<<npc>>,<<you>>']=0:
+				act'Познакомиться':
 					know['<<npc>>,<<you>>']+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 else
-			 	 act'Поболтать':
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-				     if evil[you]<=0:
+				end
+			else
+			 	act'Поболтать':
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				    if evil[you]<=0:
 						friends[npc]+=1&'<<$name[npc]>> улыбается вам и весело болтает'
-				     else
+				    else
 						'<<$name[npc]>> настороженно общается с вами'
-				     end
+				    end
 					act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-		 end
-	 else
-		 if can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']>0:
+				end
+			end
+		end
+	else
+		if can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']>0:
 			can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=0&'<<$name[npc]>> хмурится глядя на вас - Больше не приходи в мой дом!'
-		 else
+		else
 			'<<$name[npc]>> хмурится глядя на вас - Уходи!'
-		 end
-	 end
-	 act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+	act'<b>Уйти</b>':gt 'preloc'
 else
-	 if horny[npc]<50:
-		 if know['<<npc>>,<<you>>']=0:
-			 act'Познакомиться':
+	if horny[npc]<50:
+		if know['<<npc>>,<<you>>']=0:
+			act'Познакомиться':
 				know['<<npc>>,<<you>>']+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> представляется как <<$name[npc]>> <<$surname[npc]>>'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-		 '<<$name[npc]>> Надменно смотрит на вас - Чего надо?'
-		 if friends[npc]>0:
-			 if Xhome[npc]>0 and Yhome[npc]>0:
-				 if can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=0:
-					 act'Просится на постой':
-						 friends[npc]+=1&can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=1
-						 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> с радостью приглашает вас на постой'&act'<b>Уйти</b>':gt 'preloc'
-					 end
-				 end
-			 end
-		 end
-		 act'<b>Уйти</b>':gt 'preloc'
-	 else
-		'<<$name[npc]>> похотливо осматривает вас - Развлечемся?'
-		 act'Ну давай!':friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
-	 end
+			end
+		end
+		'<<$name[npc]>> Надменно смотрит на вас - Чего надо?'
+		if friends[npc]>0:
+			if Xhome[npc]>0 and Yhome[npc]>0:
+				if can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=0:
+					act'Просится на постой':
+						friends[npc]+=1&can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>']=1
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> с радостью приглашает вас на постой'&act'<b>Уйти</b>':gt 'preloc'
+					end
+				end
+			end
+		end
+		act'<b>Уйти</b>':gt 'preloc'
+	else
+		'<<$name[npc]>> похотливо осматривает вас - Развлечемся?'&act'Ну давай!':friends[npc]+=1&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+	end
 end

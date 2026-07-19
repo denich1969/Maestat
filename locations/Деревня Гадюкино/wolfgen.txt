@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&
-lvl[i]=1&soul[i]=100&mob[i]=107&mobexp[i]=10&!номер моба для разговора
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&lvl[i]=1&soul[i]=100&mob[i]=107&mobexp[i]=10&!номер моба для разговора
 tipemobpic[i]=1&picture[i]=rand(76,80)&!номер типа фотки!номер фотки
 visualpol[i]=0&!видимый пол, не зависит от половых органов
 tipenick=rand(0,5)

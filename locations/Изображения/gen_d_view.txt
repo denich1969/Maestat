@@ -1,10 +1,11 @@
 ﻿if tipemobpic[npc]=0:
-	 if face_pic[npc]>0 and (visualpol[npc]=1 or pol[npc]=1):
+	if face_pic[npc]>0 and (visualpol[npc]=1 or pol[npc]=1):
 		$d_view='pic/face/<<spec_face_pic[npc]>>/<<face_pic[npc]>>.jpg'
-	 else
-		 if face[npc]>=50:$d_view='pic/face/<<hcol[npc]>>/<<face_pic[npc]>>.jpg'
-		 if face[npc]<50:$d_view='pic/faceman/<<face_pic[npc]>>.jpg'
-	 end
+	else
+		if face[npc]>=50:$d_view='pic/face/<<hcol[npc]>>/<<face_pic[npc]>>.jpg'
+		if face[npc]<50:$d_view='pic/faceman/<<face_pic[npc]>>.jpg'
+	end
 end
+if tipemobpic[npc]=1:$d_view='pic/mob/<<picture[npc]>>.jpg'
 if tipemobpic[npc]=1 and face_pic[npc]=0:$d_view='pic/mob/<<picture[npc]>>.jpg'
 if tipemobpic[npc]=0 and face_pic[npc]>0 and visualpol[i]=1 and pol[i]=1:$d_view='pic/face/<<hcol[npc]>>/<<face_pic[npc]>>.jpg'

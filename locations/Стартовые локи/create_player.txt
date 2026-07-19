@@ -20,8 +20,8 @@
 	cunthair[you]=10
 	demon_dick[you]=0&!Изначально нет особенностей суккуба
 	''
-	!'<center><video src="pic/sex/lesb/fingers_lick.webm" ></video></center>'
-	!'<center><video src="pic/sex/bdsm/purification.webm" ></video></center>'
+	!'<center><video autoplay loop src="pic/sex/lesb/fingers_lick.webm" ></video></center>'
+	!'<center><video autoplay loop src="pic/sex/bdsm/purification.webm" ></video></center>'
 	 '<center><a class="plain" ><H2><div><u>Вам необходимо выбрать вариант старта игры.</u></div></H2></a></center>'
 	!'	Вам необходимо выбрать вариант старта игры.'
 	*nl

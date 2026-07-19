@@ -34,7 +34,7 @@ if sexpower[npc]>0:
 	end
 	if pose[you]=2:
 		if skin[npc]>3 and skin[npc]<7:
-			'<center><video src="pic/sex/bbc/before_blow<<rand(0,29)>>.webm" ></video></center>'
+			'<center><video autoplay loop src="pic/sex/bbc/before_blow<<rand(0,29)>>.webm" ></video></center>'
 		else
 			gs 'dick_fig','npc'&!Изображения члена в зависимости от размеров
 		end
@@ -43,9 +43,9 @@ if sexpower[npc]>0:
 		     act'Вылизать очко':
 			     cls
 			     if skin[npc]>3 and skin[npc]<7:
-					blacked[you]+=1&'<center><video src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'&'Вы старательно вылизываете черное очко.'
+					blacked[you]+=1&'<center><video autoplay loop src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'&'Вы старательно вылизываете черное очко.'
 				 else
-					'<center><video src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'&'Вы старательно вылизываете очко.'
+					'<center><video autoplay loop src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'&'Вы старательно вылизываете очко.'
 				 end
 				 gs'fuck_anal_lick',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
 		     end
@@ -155,9 +155,9 @@ if sexpower[npc]>0:
 						act'Пихать пальцы себе в киску':
 							you_dirty_slut[npc]+=5&sexpower[npc]-=1&cls&gs'stat'
 							if skin[npc]>3 and skin[npc]<7:
-						        '<center><video src="pic/sex/foreplay/miss_a_fingerb<<rand(0,2)>>.webm" ></video></center>'
+						        '<center><video autoplay loop src="pic/sex/foreplay/miss_a_fingerb<<rand(0,2)>>.webm" ></video></center>'
 						    else
-							    '<center><video src="pic/sex/foreplay/miss_a_finger<<rand(0,1)>>.webm" ></video></center>'
+							    '<center><video autoplay loop src="pic/sex/foreplay/miss_a_finger<<rand(0,1)>>.webm" ></video></center>'
 							end
 							horny[you]+=lust[you]/10&'Пока вас дрючат в задницу, вы начинаете пихать себе в киску пальцы.'
 							gs'fuck_anal',npc,you&gs'fuck_vag_jerk',you,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
@@ -169,8 +169,8 @@ if sexpower[npc]>0:
 		if orgasm[you]<time:
 			if vag[you]>0 and corrupto>=10:
 				act'Полижи мне':
-					agro[npc]-=1&cls&gs'stat'&'<center><video src="pic/sex/femdom/cuniman0.webm" ></video></center>'&'Вы расслабляетесь и ловите кайф, пока парень вылизывает вашу шмоньку и клиторок.'&!куни
-					gs'fuck_oral_lick_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
+					agro[npc]-=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/femdom/cuniman0.webm" ></video></center>'&!куни
+					'Вы расслабляетесь и ловите кайф, пока парень вылизывает вашу шмоньку и клиторок.'&gs'fuck_oral_lick_vag',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt 'fss_sex_sistem'
 				end
 			end
 		end

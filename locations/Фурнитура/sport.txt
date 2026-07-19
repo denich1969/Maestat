@@ -9,9 +9,9 @@
 			 end
 			time+=5&cls&gs'stat'
 			if pol[you]>0:
-				 '<center><video src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
+				 '<center><video autoplay loop src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
 			else
-				 '<center><video src="pic/misc/pushupmen<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
+				 '<center><video autoplay loop src="pic/misc/pushupmen<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
 			end
 			act'...':gt $curloc
 		 end
@@ -25,10 +25,10 @@
 				 end
 				 time+=65&cls&gs'stat'
 				if pol[you]>0:
-					 '<center><video src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'
+					 '<center><video autoplay loop src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'
 					 'Вы отжимались пока не выдохлись, но после небольшого перерыва - повторили процедуру и так 5 раз подряд, пока совсем не выбились из сил.'
 				else
-					 '<center><video src="pic/misc/pushupmen<<rand(2)>>.webm" ></video></center>'
+					 '<center><video autoplay loop src="pic/misc/pushupmen<<rand(2)>>.webm" ></video></center>'
 					 'Вы отжимались пока не выдохлись, но после небольшого перерыва - повторили процедуру и так 5 раз подряд, пока совсем не выбились из сил.'
 			    end
 				 act'...':gt $curloc
@@ -39,8 +39,8 @@
 		 act'Упражнения на пресс':
 			 energy[you]-=50&if fat[you]>10:fat[you]-=1
 			 sportiv[you]+=1&time+=5&cls&gs'stat'
-			if pol[you]>0:'<center><video src="pic/misc/situps.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
-			if pol[you]=0: '<center><video src="pic/misc/situpsmen.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+			if pol[you]>0:'<center><video autoplay loop src="pic/misc/situps.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
+			if pol[you]=0: '<center><video autoplay loop src="pic/misc/situpsmen.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
 			 act'...':gt $curloc
 		 end
 	 end
@@ -51,9 +51,9 @@
 			 if ass[you]>=20 and ass[you]<30:
 				 tempass[you]+=1&if tempass[you]>=20:tempass[you]=0&ass[you]+=1
 			 end
-			time+=5&cls&gs'stat'&!if pol[you]>0:'<center><video src="pic/misc/squat2.webm" ></video></center>'
-			if pol[you]>0:'<center><video src="pic/misc/squatdom<<rand(1)>>.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
-			if pol[you]=0:'<center><video src="pic/misc/squatdommen.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
+			time+=5&cls&gs'stat'&!if pol[you]>0:'<center><video autoplay loop src="pic/misc/squat2.webm" ></video></center>'
+			if pol[you]>0:'<center><video autoplay loop src="pic/misc/squatdom<<rand(1)>>.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
+			if pol[you]=0:'<center><video autoplay loop src="pic/misc/squatdommen.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
 			act'...':gt $curloc
 		end
 	end

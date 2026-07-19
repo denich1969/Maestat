@@ -1,5 +1,4 @@
-﻿$MAINDESC_BACKIMAGE = "market.jpg"&!ЭТО РЫНОК РАБОВ
-'<div id="header">Рынок</div>'&CLR&close all
+﻿$MAINDESC_BACKIMAGE = "market.jpg"&'<div id="header">Рынок</div>'&CLR&close all&!ЭТО РЫНОК РАБОВ
 if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/market.mp3",Громкость_эффектов
 IF farid = 0:
 	ACT 'Оглядеться':msg "Вы стоите посреди шумной рыночной площади. Впереди, на помосте, окруженном покупателями и зеваками, усатый караванщик демонстрирует живой товар. 

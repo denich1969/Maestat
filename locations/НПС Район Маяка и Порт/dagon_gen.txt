@@ -1,16 +1,13 @@
-﻿npcmaxnum+=1&i=npcmaxnum&demon[]=i&lord_dagon=i
-lvl[i]=10&soul[i]=1000&mob[i]=9&mobexp[i]=100&!номер моба для разговора
+﻿npcmaxnum+=1&i=npcmaxnum&demon[]=i&lord_dagon=i&lvl[i]=10&soul[i]=1000&mob[i]=9&mobexp[i]=100&!номер моба для разговора
 master[i]=2&magik[i]=37&delusion[i]=0
 tipemobpic[i]=1&picture[i]=52&!номер типа фотки и фотки
-visualpol[i]=0&!видимый пол, не зависит от половых органов
 $name[i]='Дагон'&$surname[i]=''&$nick[i]='Воплощение бога глубин'&$title[i]=''&$history[i]=''&$basestatus[i]=' булькает'
 dick[i]=30&dickd[i]=50&ball[i]=100
 rost[i]=195&fat[i]=800&mus[i]=4000&skin[i]=1&!minuron[i]=rand(12,20)&maxuron[i]=rand(30,50)
 age[i]=25&vital[i]=100&will[i]=50&reflex[i]=rand(30,40)
 healthmax[i]=5000&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=100&mana[i]=0&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
-pol[i]=0&gs'body'&total_generated_demon+=1
+visualpol[i]=0&pol[i]=0&gs'body'&total_generated_demon+=1
 womenbrain[i]=0&bisex[i]=0&agro[i]=2&selfrespect[i]=2&positiv[i]=2&extrovert[i]=0&ratio[i]=1&brave[i]=2&lust[i]=100&&corr[i]=1000!характер
-Xhome[i]=2&Yhome[i]=2&Zhome[i]=1&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&Hhome[i]=1
-n_world[]=i&walkprog[i]=0&fight_prog[i]=8&!программа движения!программа боя
+Xhome[i]=2&Yhome[i]=2&Zhome[i]=1&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&Hhome[i]=1&n_world[]=i&walkprog[i]=0&fight_prog[i]=8&!программы движения и боя
 def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
 notfast[i]=0&!если 1 то все удары героя попадают в нпс

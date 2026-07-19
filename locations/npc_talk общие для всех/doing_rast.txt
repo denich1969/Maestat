@@ -1,5 +1,4 @@
-﻿$doing[i]=''
-if teatr_zal['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:$doing[i]=$iif(work[i]=54,' <b>играет на сцене</b>',' смотрит на представление')
+﻿$doing[i]=''&if teatr_zal['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:$doing[i]=$iif(work[i]=54,' <b>играет на сцене</b>',' смотрит на представление')
 if school_class['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
     if hour<=10 and techer=i and X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i]:$doing[i]=' - рассаживайтесь по партам и начинаем урок'
 end
@@ -7,49 +6,33 @@ if cooking[i]>0 and kitchen['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1:$d
 if watchtv[i]=1 and tv['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1:$doing[i]+=' смотрит телевизор'
 if adultcinema=1 and tv['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1 and dick[i]>1:$doing[i]+=' дрочит свой член глядя на экран'
 if mother=i:
-     if week<6 and hour<10 and hour>=7 and atestat[you]=0 and H[you]>0:
-		randtalker=rand(0,1)
-         if husband[i]!you:
-			 if randtalker=0:$doing[i]=' - Тебе не пора в школу?'
-			 if randtalker=1:
-				 if pol[you]=0:$doing[i]=' - Забыл где школа? На север от дома, через речку перейти и ты там.'
-				 if pol[you]>0:$doing[i]=' - Забыла где школа? На север от дома, через речку перейти и ты там.'
-			 end
-         end
-     end
+    if week<6 and hour<10 and hour>=7 and atestat[you]=0 and H[you]>0:
+		randtalker=rand(1)
+        if husband[i]!you:
+			if randtalker=0:$doing[i]=' - Тебе не пора в школу?'
+			if randtalker=1:$doing[i]=$iif(pol[you]=0,' - Забыл где школа? На север от дома, через речку перейти и ты там.',' - Забыла где школа? На север от дома, через речку перейти и ты там.')
+        end
+    end
 end
 if father=i and H[you]>0 and homemarker['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1:
-     if hour>=7 and hour<10:
-		randtalker=rand(0,10)
-         if randtalker=0:$doing[i]=' - где мои носки?'
-         if randtalker=1:$doing[i]=' - не занимайте туалет!'
-     end
-     if hour>=10:
-		randtalker=rand(0,10)
-         if randtalker=0:$doing[i]=' - где пульт от телевизора?'
-         if randtalker=1:$doing[i]=' - что у нас на обед?'
-     end
+    if hour>=7 and hour<10:randtalker=rand(0,10)&$doing[i]=$iif(randtalker=0,' - где мои носки?',$iif(randtalker=1,' - не занимайте туалет!',''))
+    if hour>=10:randtalker=rand(0,10)&$doing[i]=$iif(randtalker=0,' - где пульт от телевизора?',$iif(randtalker=1,' - что у нас на обед?',''))
 end
 if father=i and sister=you and meh_factory_office['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
-     randtalker=rand(0,10)
-	 if work[you]=4:
-	 else
-	     if cum_face[you]>0:
+    randtalker=rand(0,10)
+	if work[you]!4:
+	    if cum_face[you]>0:
 			temprand=rand(0,10)
-			 if temprand=0:$doing[i]=' провожает вас взглядом'
-			 if temprand=1:$doing[i]=' смотрит на вас'
-			 if temprand=2:$doing[i]=' приглядывается к вашему лицу'
-			 if temprand=3:$doing[i]=' показывает на лицо - у тебя в чем то щека испачкана'
-	     else
-			 randtalker=rand(0,5)
-			 if randtalker=0:$doing[i]=' - что ты тут делаешь?'
-			 if randtalker=1:$doing[i]=' - зачем ты тут?'
+			if temprand=0:$doing[i]=' провожает вас взглядом'
+			if temprand=1:$doing[i]=' смотрит на вас'
+			if temprand=2:$doing[i]=' приглядывается к вашему лицу'
+			if temprand=3:$doing[i]=' показывает на лицо - у тебя в чем то щека испачкана'
+	    else
+			randtalker=rand(0,5)&$doing[i]=$iif(randtalker=0,' - что ты тут делаешь?',$iif(randtalker=1,' - зачем ты тут?',''))
 	     end
 	 end
 end
-if sister=i and restoran['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
-$doing[i]=' разносит еду и напитки по столам'
-end
+if sister=i and restoran['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:$doing[i]=' разносит еду и напитки по столам'
 if cowgirl=i:
      if oncetalk[i]=2:oncetalk[i]=3&$doing[i]=' хнычет - Я так устала. Хочу вернуться обратно домой и прогуляться по свежей лужайке.'
      if oncetalk[i]=1:oncetalk[i]=2&$doing[i]=' чешет голову - Нужно найти чем я тут могу быть полезна, у меня очень много талантов.'
@@ -76,30 +59,18 @@ end
 if fishsmell[you]>0 and $name[i]!'':
 	if $doing[i]='' and mob[i]=0:
 		 if pol[i]=0:
-			temprand=rand(0,20)
-			 if temprand=0:$doing[i]=' морщит нос - Фу!'
-			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
-			 if temprand=2:$doing[i]=' морщит нос - От тебя жутко несет рыбой!'
+			temprand=rand(0,20)&$doing[i]=$iif(temprand=0,' морщит нос - Фу!',$iif(temprand=1,' морщит нос - Помойся!',$iif(temprand=2,' морщит нос - От тебя жутко несет рыбой!','')))
 		 else
-			temprand=rand(0,20)
-			 if temprand=0:$doing[i]=' морщит нос - Фу!'
-			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
-			 if temprand=2:$doing[i]=' морщит нос - От тебя жутко несет рыбой!'
+			temprand=rand(0,20)&$doing[i]=$iif(temprand=0,' морщит нос - Фу!',$iif(temprand=1,' морщит нос - Помойся!',$iif(temprand=2,' морщит нос - От тебя жутко несет рыбой!','')))
 		 end
 	end
 end
 if peecover[you]>0 and $name[i]!'':
 	if $doing[i]='' and mob[i]=0:
 		 if pol[i]=0:
-			temprand=rand(0,20)
-			 if temprand=0:$doing[i]=' морщит нос - От тебя несет как от туалета!'
-			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
-			 if temprand=2:$doing[i]=' морщит нос - От тебя пахнет мочой!'
+			temprand=rand(0,20)&$doing[i]=$iif(temprand=0,' морщит нос - От тебя несет как от туалета!',$iif(temprand=1,' морщит нос - Помойся!',$iif(temprand=2,' морщит нос - От тебя пахнет мочой!','')))
 		 else
-			temprand=rand(0,20)
-			 if temprand=0:$doing[i]=' морщит нос - От тебя несет как от туалета!'
-			 if temprand=1:$doing[i]=' морщит нос - Помойся!'
-			 if temprand=2:$doing[i]=' морщит нос - От тебя пахнет мочой!'
+			temprand=rand(0,20)&$doing[i]=$iif(temprand=0,' морщит нос - От тебя несет как от туалета!',$iif(temprand=1,' морщит нос - Помойся!',$iif(temprand=2,' морщит нос - От тебя пахнет мочой!','')))
 		 end
 	end
 end
@@ -301,30 +272,25 @@ if l_nude[you]>1 and $name[i]!'':
 end
 if $doing[i]='' and mob[i]=0 and $name[i]!'':
 	if demon_dick[you]>0 and attraction[you]>=50:horny[i]+=demon_dick[you]
-     if pol[i]=0:
-         if sexiness[you]>=30:
-             if lust[i]>=50:
-				 temprand=rand(0,11)
-				 if horny[i]<50:
-					horny[i]+=(attraction[you]-30)/10&if horny[i]>50:horny[i]=50
-				 end
-                 if temprand=0:$doing[i]=' провожает вас взглядом'
-                 if temprand=1:$doing[i]=' смотрит на вас'
-                 if temprand=2:$doing[i]=' пожирает вас глазами'
-                 if temprand=3:$doing[i]=' присвистывает'
-                 if temprand=4:$doing[i]=' усмехается'
-                 if temprand=5:$doing[i]=' сглатывает слюну'
-                 if temprand=6:$doing[i]=' откашливается'
-                 if temprand=7:$doing[i]=' пялится на вас'
-                 if temprand=8:$doing[i]=' ухмыляется'
-                 if temprand=9:$doing[i]=' разглядывает ваши ноги'
-                 if temprand=10:$doing[i]=' разглядывает вашу задницу'
-                 if temprand=11:$doing[i]=' разглядывает вашу грудь'
-             end
-         end
-     else
-
-     end
+    if pol[i]=0:
+        if sexiness[you]>=30:
+            if lust[i]>=50:
+				temprand=rand(0,11)&horny[i]=iif(horny[i]<50,horny[i]+(attraction[you]-30)/10,50)
+                if temprand=0:$doing[i]=' провожает вас взглядом'
+                if temprand=1:$doing[i]=' смотрит на вас'
+                if temprand=2:$doing[i]=' пожирает вас глазами'
+                if temprand=3:$doing[i]=' присвистывает'
+                if temprand=4:$doing[i]=' усмехается'
+                if temprand=5:$doing[i]=' сглатывает слюну'
+                if temprand=6:$doing[i]=' откашливается'
+                if temprand=7:$doing[i]=' пялится на вас'
+                if temprand=8:$doing[i]=' ухмыляется'
+                if temprand=9:$doing[i]=' разглядывает ваши ноги'
+                if temprand=10:$doing[i]=' разглядывает вашу задницу'
+                if temprand=11:$doing[i]=' разглядывает вашу грудь'
+            end
+        end
+    end
 end
 if party[i]>0 and Xhome[tbigg]=X[i] and Yhome[tbigg]=Y[i] and Zhome[tbigg]=Z[i] and Hhome[tbigg]=H[i] and Rhome[tbigg]=R[i]:
 	temp=rand(0,9)
@@ -339,12 +305,7 @@ if party[i]>0 and Xhome[tbigg]=X[i] and Yhome[tbigg]=Y[i] and Zhome[tbigg]=Z[i] 
 	if temp=8:$doing[i]+=', бухает'
 	if temp=9:$doing[i]+=', лыбится'
 end
-if want_talk[i]=1:
-	temp=rand(0,2)
-	if temp=0:$doing[i]=', рисуется'
-	if temp=1:$doing[i]=', понтуется'
-	if temp=2:$doing[i]=', зажигает'
-end
+if want_talk[i]=1:temp=rand(0,2)&$doing[i]=$iif(temp=0,', рисуется',$iif(temprand=1,', понтуется',$iif(temprand=2,', зажигает','')))
 if mob[i]=3 and aggressor=i and loss[i]>0 and $name[i]!'' and R[i]=0:
      if pol[you]=0:
 		temprand=rand(0,11)

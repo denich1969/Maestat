@@ -2,39 +2,39 @@
 fight_for_forbid = 0&!Драка за запрет на секс, буде задействованна в локациях win, lose, agrowin
 $you_gender_check=""&!проверка вашего пола будет перенесенно в отдельную локацию так как пригодится много где
 if dick[you]>0 and vag[you]=0:
-	 $you_gender_check="male"
+	$you_gender_check="male"
 elseif vag[you]=1 and dick[you]=0: 
-	 $you_gender_check="female"
+	$you_gender_check="female"
 end
 npc_gender_check=""&!проверка пола нпс делаем отдельно, чтобы не путаться
 if dick[npc]>0 and vag[npc]=0:
-	 $npc_gender_check="male"
+	$npc_gender_check="male"
 elseif vag[npc]=1 and dick[npc]=0: 
-	 $you_gender_check="female"
+	$you_gender_check="female"
 end
 !Сначала проверяем состоим ли мы с NPC в отношениях и есть ли запрет в данный момент так же проверка на доминацию, так как слюнтяй не рискнёт требовать подобного.
 if(girlfriend[you]=npc or girlfriend[npc]=you or boyfriend[you]=npc or boyfriend[npc]=you or husband[npc]=you or husband[you]=npc or wife[npc]=you) and forbidsex[npc]=0:
-	 !Проверка являемся ли мы богом
-	 if godoutofendless[you]=1:
-		 forbidsex[npc]=1&cls&act "Как прикажете, владыка":gt 'preloc'
-	 !муж, жена, девушка, парень, если перепутал, просто поменяйте местами, пройдена проверка на доминирование
-	 elseif dom[you]=>25 and dom[you]>dom[npc]:
-		 !определяем пол через наличие вагины для шимейлов пока не придумал
-		 if $you_gender_check="female":
-			 forbidsex[npc]=1&cla&act "Да дорогая, никаких проблем":gt 'preloc'
-		 elseif $you_gender_check="male":
-			 forbidsex[npc]=1&cla&act "Да любимый, я буду только твоей":gt 'preloc'
+	!Проверка являемся ли мы богом
+	if godoutofendless[you]=1:
+		forbidsex[npc]=1&cls&act "Как прикажете, владыка":gt 'preloc'
+		!муж, жена, девушка, парень, если перепутал, просто поменяйте местами, пройдена проверка на доминирование
+	elseif dom[you]=>25 and dom[you]>dom[npc]:
+		!определяем пол через наличие вагины для шимейлов пока не придумал
+		if $you_gender_check="female":
+			forbidsex[npc]=1&cla&act "Да дорогая, никаких проблем":gt 'preloc'
+		elseif $you_gender_check="male":
+			forbidsex[npc]=1&cla&act "Да любимый, я буду только твоей":gt 'preloc'
 		else
-			 forbidsex[npc]=1&cla&act "Да, конечно":gt 'preloc'&!В игре за жену в семье исправляет баг: она запрещает ему трахаться и нет реакции
-		 end
-	 else
-		 cls
-		 if $you_gender_check="male":
-			 "C чего ты взял, что можешь мне указывать"&act "Далее":gs "fightforforbid"
-		 elseif $you_gender_check="female":
-			 "C чего ты взяла, что можешь мне указывать"&act "Далее":gs "fightforforbid"
-		 end
-	 end
+			forbidsex[npc]=1&cla&act "Да, конечно":gt 'preloc'&!В игре за жену в семье исправляет баг: она запрещает ему трахаться и нет реакции
+		end
+	else
+		cls
+		if $you_gender_check="male":
+			"C чего ты взял, что можешь мне указывать"&act "Далее":gs "fightforforbid"
+		elseif $you_gender_check="female":
+			"C чего ты взяла, что можешь мне указывать"&act "Далее":gs "fightforforbid"
+		end
+	end
 !Для всего что не в отношениях
 elseif (girlfriend[npc]!you or boyfriend[npc]!you or husband[npc]!you or wife[npc]!you) and forbidsex[npc]=0 and dom[you]=>30:
 	if wife[npc]=you or mother[npc]=you:
@@ -44,49 +44,49 @@ elseif (girlfriend[npc]!you or boyfriend[npc]!you or husband[npc]!you or wife[np
 	else
 		$text_act="Узнаю, что ты с кем-то трахаешься, пожалеешь."
 	end	
-	 act "<<$text_act>>":
-		 !Для незнакомца
-		 if friends['<<npc>>,<<you>>'] <= 10 or friends['<<npc>>,<<you>>'] < 50:
-			 if dom[you]<=dom[npc]:
-				 act "Наказать за грубый ответ: Да, кто ты, чтобы мне указывать, иди на хер":gs "fightforforbid"
-			 else
+	act "<<$text_act>>":
+		!Для незнакомца
+		if friends['<<npc>>,<<you>>'] <= 10 or friends['<<npc>>,<<you>>'] < 50:
+			if dom[you]<=dom[npc]:
+				act "Наказать за грубый ответ: Да, кто ты, чтобы мне указывать, иди на хер":gs "fightforforbid"
+			else
 				cla
 				act "Дать понять, что последствия отказа могут быть куда хуже, чем принятие мирного предложения.":
-					 forbidsex[npc]=1&cla&act "<<$name[npc]>> хочет возразить, но быстро отступает в сторону и соглашется принять услования.":gt 'preloc'
-				 end
-			 end
-		 !Для друга
-		 elseif friends['<<npc>>,<<you>>'] => 50:
-			 "Слушай, я хорошо, к тебе отношусь, но ты пересекаешь личные границы!"
-			 act "Настоять на своём":
-				 if dom[you]>dom[npc]:
-					 forbidsex[npc]=1&cla&act 'Закончить разговор, получив согласие. <<$name[npc]>> говорит: "ладно, если это так важно, я пойду навстречу". ':gt 'preloc'
-				 else
+					forbidsex[npc]=1&cla&act "<<$name[npc]>> хочет возразить, но быстро отступает в сторону и соглашется принять услования.":gt 'preloc'
+				end
+			end
+		!Для друга
+		elseif friends['<<npc>>,<<you>>'] => 50:
+			"Слушай, я хорошо, к тебе отношусь, но ты пересекаешь личные границы!"
+			act "Настоять на своём":
+				if dom[you]>dom[npc]:
+					forbidsex[npc]=1&cla&act 'Закончить разговор, получив согласие. <<$name[npc]>> говорит: "ладно, если это так важно, я пойду навстречу". ':gt 'preloc'
+				else
 				 	cla&act "Нет значит нет":gs "fightforforbid"
-				 end
-			 end
-		 !Для лучшего друга друга
-		 elseif friends['<<npc>>,<<you>>'] => 90:
-			 if dom[you]<=dom[npc] and (vag[you]!vag[npc] or dick[you]!dick[npc]):
-				 "Ехидно улыбается - Только, если решишь встречаться со мной"
-				 act"Принять предложение и вступить в отношения":
-					 "Радостно улыбается - Хорошо никого кроме тебя и меня."
-					 if $you_gender_check="female" and $npc_gender_check="male":
-						 forbidsex[npc]=1&girlfriend[npc]=you&boyfriend[you]=npc&cla&act "<<$name[npc]>> теперь твой парень. Закончить разговор":gt 'preloc'
-					 elseif $you_gender_check="male" and $npc_gender_check="female":
-						 forbidsex[npc]=1&girlfriend[you]=npc&boyfriend[npc]=you&cla&act " <<$name[npc]>> теперь твоя девушка. Закончить разговор":gt 'preloc'
-					 end
-				 end
-				 act"Отказать":
-				     cla&act "Ну тогда не требуй от меня ничего в данном вопросе.":gs "fightforforbid"
-				 end
-			 elseif dom[you]>dom[npc]:
-				 if $npc_gender_check="male":
+				end
+			end
+		!Для лучшего друга друга
+		elseif friends['<<npc>>,<<you>>'] => 90:
+			if dom[you]<=dom[npc] and (vag[you]!vag[npc] or dick[you]!dick[npc]):
+				"Ехидно улыбается - Только, если решишь встречаться со мной"
+				act"Принять предложение и вступить в отношения":
+					"Радостно улыбается - Хорошо никого кроме тебя и меня."
+					if $you_gender_check="female" and $npc_gender_check="male":
+						forbidsex[npc]=1&girlfriend[npc]=you&boyfriend[you]=npc&cla&act "<<$name[npc]>> теперь твой парень. Закончить разговор":gt 'preloc'
+					elseif $you_gender_check="male" and $npc_gender_check="female":
+						forbidsex[npc]=1&girlfriend[you]=npc&boyfriend[npc]=you&cla&act " <<$name[npc]>> теперь твоя девушка. Закончить разговор":gt 'preloc'
+					end
+				end
+				act"Отказать":
+				    cla&act "Ну тогда не требуй от меня ничего в данном вопросе.":gs "fightforforbid"
+				end
+			elseif dom[you]>dom[npc]:
+				if $npc_gender_check="male":
 					cla&act "А ты что, ревнуешь, ладно я согласен":gt 'preloc'
-				 elseif $npc_gender_check="female":
+				elseif $npc_gender_check="female":
 					cla&act "А ты что, ревнуешь, ладно я согласна":gt 'preloc'
-				 end
-			 end
-		 end
-	 end
+				end
+			end
+		end
+	end
 end&!В свзяи с тем, что такая структура очень громоздкая и её не очень удобно читать в последствии каждый блок будет разбить на отдельные локации для удобства работы.

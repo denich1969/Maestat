@@ -16,7 +16,7 @@ else
 			end
 			act'Тверк':
 				horny[npc]+=sexiness[you]/2&womenbrain[you]+=2&act'<b>Уйти</b>':gt 'preloc'
-				cls&gs'stat'&'<center><video src="pic/misc/twerk<<rand(0,17)>>.webm" ></video></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Какая ты игривая сучка, мне это нравится.'
+				cls&gs'stat'&'<center><video autoplay loop src="pic/misc/twerk<<rand(0,17)>>.webm" ></video></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Какая ты игривая сучка, мне это нравится.'
 				if know['<<npc>>,<<you>>']=0:
 					act'Познакомиться':
 						know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1

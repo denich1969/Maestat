@@ -1,52 +1,17 @@
 ﻿if runeportal=1:
-	gs'mobgen'
-	$name[i]='Мерцающий'
-	healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]
-	minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)
-	reflex[i]=rand(50,70)
-	mobexp[i]=20
+	gs'mobgen'&$name[i]='Мерцающий'&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)&mobexp[i]=20
 	X=rand(1,9)&Y=rand(1,9)&Z=770&H[you]=0&R[you]=0
-	gs'mobgen'
-	$name[i]='Кристальный'
-	healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]
-	minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)
-	reflex[i]=rand(50,70)
-	mobexp[i]=20
+	gs'mobgen'&$name[i]='Кристальный'&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)&mobexp[i]=20
 	X=rand(1,9)&Y=rand(1,9)&Z=770&H[you]=0&R[you]=0
-	gs'mobgen'
-	$name[i]='Серебристый'
-	healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]
-	minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)
-	reflex[i]=rand(50,70)
-	mobexp[i]=20
+	gs'mobgen'&$name[i]='Серебристый'&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)&mobexp[i]=20
 	X=rand(1,9)&Y=rand(1,9)&Z=770&H[you]=0&R[you]=0
-	gs'mobgen'
-	$name[i]='Сталистый'
-	healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]
-	minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)
-	reflex[i]=rand(50,70)
-	mobexp[i]=20
+	gs'mobgen'&$name[i]='Сталистый'&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)&mobexp[i]=20
 	X=rand(1,9)&Y=rand(1,9)&Z=770&H[you]=0&R[you]=0
-	gs'mobgen'
-	$name[i]='Сочащийся'
-	healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]
-	minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)
-	reflex[i]=rand(50,70)
-	mobexp[i]=20
+	gs'mobgen'&$name[i]='Сочащийся'&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)&mobexp[i]=20
 	X=rand(1,9)&Y=rand(1,9)&Z=770&H[you]=0&R[you]=0
-	gs'mobgen'
-	$name[i]='Тигриный'
-	healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]
-	minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)
-	reflex[i]=rand(50,70)
-	mobexp[i]=20
+	gs'mobgen'&$name[i]='Тигриный'&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)&mobexp[i]=20
 	X=rand(1,9)&Y=rand(1,9)&Z=770&H[you]=0&R[you]=0
-	gs'mobgen'
-	$name[i]='Леопардовый'
-	healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]
-	minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)
-	reflex[i]=rand(50,70)
-	mobexp[i]=20
+	gs'mobgen'&$name[i]='Леопардовый'&healthmax[i]=10*rand(50,80)&health[i]=healthmax[i]&minuron[i]=rand(10,20)&maxuron[i]=rand(20,40)&reflex[i]=rand(50,70)&mobexp[i]=20
 	X=rand(1,9)&Y=rand(1,9)&Z=770&H[you]=0&R[you]=0
 end
 if runeportal=2:

@@ -5,15 +5,15 @@ if candoblow[npc]>0:
 	if h_slot[npc]>0:
 		if h_slot[npc]=1 or h_slot[npc]=10:
 		    if skin[you]>4:
-			     '<center><video src="pic/sex/bdsm/mask_blowb.webm" ></video></center>'
+			     '<center><video autoplay loop src="pic/sex/bdsm/mask_blowb.webm" ></video></center>'
 			else
-			     '<center><video src="pic/sex/bdsm/mask_blow<<rand(0,8)>>.webm" ></video></center>'
+			     '<center><video autoplay loop src="pic/sex/bdsm/mask_blow<<rand(0,8)>>.webm" ></video></center>'
 			end
 		elseif h_slot[npc]=6 or h_slot[npc]=7:
              if skin[you]>4:
-                 '<center><video src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
+                 '<center><video autoplay loop src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
              else
-			     '<center><video src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
+			     '<center><video autoplay loop src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
 			 end
         else
              $func('get_images', 'blowjob', npc, you)
@@ -51,9 +51,9 @@ if candoblow[npc]>0:
 		act'Плюнуть в лицо':
 			cls
 			if skin[you]>4:
-				'<center><video src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'
+				'<center><video autoplay loop src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'
 		    else
-				'<center><video src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'
+				'<center><video autoplay loop src="pic/sex/bj/spitonface/<<rand(0,2)>>.webm" ></video></center>'
 			end
 			if agro[npc]<=20:
 				'<<$name[npc]>> спокойно закрывает глаза когда вы смачно харкаете ей в лицо'&if slave[npc]=you:submission[npc]+=1
@@ -86,7 +86,7 @@ if candoblow[npc]=0:
 	end
 	if dom[you]>=90 and agro[npc]<50:
 		act'Молча дать по морде':
-			agro[npc]-=1&horny[npc]=0&oral_fixation[npc]+=1&!gs'stat'&'<center><video src="pic/sex/anal/slap0.webm" ></video></center>'
+			agro[npc]-=1&horny[npc]=0&oral_fixation[npc]+=1&!gs'stat'&'<center><video autoplay loop src="pic/sex/anal/slap0.webm" ></video></center>'
 			'<<$name[npc]>> хватается за щеку и вскрикивает когда вы отвешиваете ей звонкую пощечину.'&gt $curloc
 		end
 	end

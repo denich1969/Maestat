@@ -1,37 +1,25 @@
-﻿X=0&Y=0&Z=404&H=0&R=0&Xmax[Z]=6&Ymax[Z]=6&!romaworld[Z]=1
+﻿X=0&Y=0&Z=404&H=0&R=0&Xmax[Z]=6&Ymax[Z]=6&$n_board[Z]='Туман'&$w_board[Z]='Туман'&$e_board[Z]='Туман'&$s_board[Z]='Туман'
 !'идолы Великих Домов используют одну и ту же общую тематику: Таурус - Бык, Серпис - Змея, Камира - Химера и Корвус - Ворон'
 !'Великие Дома: каждый верующий в спасителя будет отдан во власть дома Верных (Таурус), каждый не верующий в спасителя будет отдан во власть дома Отступников (Серпис), каждый кто без души живой будет отдано во власть дома Отверженных (Камира), а каждый кто отдал свою душу нечистому да принадлежит отныне дому Проклятых (Корвус). '
 !$n_board[Z]='Стена'&$w_board[Z]='Городские ворота'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
-$n_board[Z]='Туман'&$w_board[Z]='Туман'&$e_board[Z]='Туман'&$s_board[Z]='Туман'
 magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 :markgenworldfog
 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if X=0 or X=Xmax[Z] or Y=0 or Y=Ymax[Z]:
-	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Густой лес'
-	 np['<<$temploc>>']=rand(35,38)
-	 list['<<$temploc>>']=rand(0,1)&koluchka['<<$temploc>>']=rand(0,1)
-	! mandragora['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&omela['<<$temploc>>']=rand(0,1)
-	 zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)
-	! banana['<<$temploc>>']=rand(0,1)&orange['<<$temploc>>']=rand(0,1)
-	 item_loc['46,<<$temploc>>']=rand(0,1)	 
-	! gs'mobgen'
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Густой лес'&np['<<$temploc>>']=rand(35,38)
+	list['<<$temploc>>']=rand(0,1)&koluchka['<<$temploc>>']=rand(0,1)&! mandragora['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&omela['<<$temploc>>']=rand(0,1)
+	zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)&! banana['<<$temploc>>']=rand(0,1)&orange['<<$temploc>>']=rand(0,1)
+	item_loc['46,<<$temploc>>']=rand(0,1)&! gs'mobgen'
 	if rand(1,10)<=3:item_loc['46,<<$temploc>>']=1
 	! if rand(0,1)=0:gs'aborigen_gen'&paradiseworld[]=i
 elseif X=3 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=2
-	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Вечный Рим'&$lname['<<$temploc>>']='город'&$lname_go['<<$temploc>>']='Идти на улицу у дома'
-	$locopis['<<$temploc>>']='Огромный город со множеством улиц, вдоль которых расположены особняки и дворцы'
-	np['<<$temploc>>']=401
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=2
-	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улицы Вечного Рима'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Внешний Город'&$lname['<<$temploc>>']='Внешняя улица'&$lname_go['<<$temploc>>']='На Внешнюю улицу'
-	$locopis['<<$temploc>>']='Широкая улица со светильничками вдоль проезжей части и домами по обе стороны.'
-	np['<<$temploc>>']=402
-	peoplegenrand=rand(0,2)
-	pre_class=rand(0,1)
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Вечный Рим'&$lname['<<$temploc>>']='город'&$lname_go['<<$temploc>>']='Идти на улицу у дома'
+	$locopis['<<$temploc>>']='Огромный город со множеством улиц, вдоль которых расположены особняки и дворцы'&np['<<$temploc>>']=401
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=2&H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улицы Вечного Рима'&maxPositionR['<<$templocH>>']=0
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Внешний Город'&$lname['<<$temploc>>']='Внешняя улица'&$lname_go['<<$temploc>>']='На Внешнюю улицу'
+	$locopis['<<$temploc>>']='Широкая улица со светильничками вдоль проезжей части и домами по обе стороны.'&np['<<$temploc>>']=402
+	peoplegenrand=rand(0,2)&pre_class=rand(0,1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
 	if peoplegenrand=2:gs'male_gen'&romaworld[]=i&gs'female_gen'&romaworld[]=i
@@ -40,9 +28,7 @@ elseif X=3 and Y=3:
 	H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Белый Город'&privat['<<$templocH>>']=1&lock['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Ватикан'
 	$locname['<<$temploc>>']='Папская Зона'&$lname['<<$temploc>>']='Ватикан'&$lname_go['<<$temploc>>']='в Ватикан'
-	$locopis['<<$temploc>>']='это очень закрытая маленькая теократия, отгороженная даже от Белого Города'
-	np['<<$temploc>>']=407
-	!gs 'consul_gen'&romaworld[]=i	
+	$locopis['<<$temploc>>']='это очень закрытая маленькая теократия, отгороженная даже от Белого Города'&np['<<$temploc>>']=407&!gs 'consul_gen'&romaworld[]=i	
 	peoplegenrand=rand(2)&pre_class=rand(1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
@@ -50,12 +36,9 @@ elseif X=3 and Y=3:
 elseif X=2 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=3
 	!'В "муравейнике" Квартала Змеи - условно западной части Внутреннего Города - из примечательных, известных на весь город, локаций, можно перечислить кабак "Бедро Девственницы" (в котором действительно подают такое блюдо) и зону Техносферы (на её территории распологается криохранилище, медицинский центр и библиотечный терминал). Шпили Администрации непосредственно примыкают к стенам Ватикана. С Кварталом Змеи граничат территории домов Таурус и Корвус.'
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартал Змеи'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Западная Улица'&$lname['<<$temploc>>']='Улица отступников'&$lname_go['<<$temploc>>']='На улицу отступников'
-	$locopis['<<$temploc>>']='На этой улице живут не верующие в спасителя - Отступники.'
-	np['<<$temploc>>']=408
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартал Змеи'&maxPositionR['<<$templocH>>']=0
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Западная Улица'&$lname['<<$temploc>>']='Улица отступников'&$lname_go['<<$temploc>>']='На улицу отступников'
+	$locopis['<<$temploc>>']='На этой улице живут не верующие в спасителя - Отступники.'&np['<<$temploc>>']=408
 	peoplegenrand=rand(2)&pre_class=rand(1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
@@ -66,126 +49,87 @@ elseif X=2 and Y=3:
 	H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Медцентр'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Медцентр'
 	$locname['<<$temploc>>']='зона Техносферы'&$lname['<<$temploc>>']='Медцентр'&$lname_go['<<$temploc>>']='в Медцентр'
-	$locopis['<<$temploc>>']='Медцентр уровень оснащенности которого превосходит любые известные вам медицинские учреждения.'
-	! np['<<$temploc>>']=220
-	 np['<<$temploc>>']=21
-	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=0&blocksex['<<$temploc>>']=1
-	 autodoc['<<$temploc>>']=1&medlab['<<$temploc>>']=1&procedure['<<$temploc>>']=1&ordinator['<<$temploc>>']=1&hospital['<<$temploc>>']=1
-	gs 'Surgeon_gen'&romaworld[]=i
+	$locopis['<<$temploc>>']='Медцентр уровень оснащенности которого превосходит любые известные вам медицинские учреждения.'&np['<<$temploc>>']=21&! np['<<$temploc>>']=220
+	can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=0&blocksex['<<$temploc>>']=1
+	autodoc['<<$temploc>>']=1&medlab['<<$temploc>>']=1&procedure['<<$temploc>>']=1&ordinator['<<$temploc>>']=1&hospital['<<$temploc>>']=1&gs 'Surgeon_gen'&romaworld[]=i
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Кабак Бедро девственницы'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кабак Бедро девственницы'
-	$locname['<<$temploc>>']='Кабак'&$lname['<<$temploc>>']='Кабак'&$lname_go['<<$temploc>>']='в кабак'
-	$locopis['<<$temploc>>']='Популярное заведение где подают человеческое мясо и отличное пиво. Так же за 5 искр можно поспать в общей комнате.'
-	np['<<$temploc>>']=64
-	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=2&can_drink['<<$temploc>>']=1&toilet['<<$temploc>>']=1
-	taberntable['<<$temploc>>']=1&bartable['<<$temploc>>']=2&!bar_shepot['<<$temploc>>']=1
-	!gs'kabak_gen'
+	$locname['<<$temploc>>']='Кабак'&$lname['<<$temploc>>']='Кабак'&$lname_go['<<$temploc>>']='в кабак'&!gs'kabak_gen'
+	$locopis['<<$temploc>>']='Популярное заведение где подают человеческое мясо и отличное пиво. Так же за 5 искр можно поспать в общей комнате.'&np['<<$temploc>>']=64
+	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=2&can_drink['<<$temploc>>']=1&toilet['<<$temploc>>']=1&taberntable['<<$temploc>>']=1&bartable['<<$temploc>>']=2&!bar_shepot['<<$temploc>>']=1
 	gs 'innkeeper_gen'&romaworld[]=i
 elseif X=2 and Y=4:
 	!'На территории торговой площади Торговой Площади Внешнего Города расположен ряд примечательных и популярных локаций - рынок рабов, "Гастрономикон", Бутик Сервиллии Квинты, салон красоты, ювелирный магазин "Сокровищница Ашуры", Арсенал Менхантера, риелторская контора и множество других магазинов и интересностей, таких как Гильдия Работорговцев, Колизей, Центральный Форум и так далее.'
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=7
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Торговый  квартал'&maxPositionR['<<$templocH>>']=0
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=7&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Торговый  квартал'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Торговая  площадь'&$lname['<<$temploc>>']='площадь'&$lname_go['<<$temploc>>']='на площадь'
-	$locopis['<<$temploc>>']='На этой площади расположен ряд примечательных и популярных заведений, а также множество магазинов и других интересностей'
-	np['<<$temploc>>']=410
+	$locopis['<<$temploc>>']='На этой площади расположен ряд примечательных и популярных заведений, а также множество магазинов и других интересностей'&np['<<$temploc>>']=410
 	peoplegenrand=rand(2)&pre_class=rand(1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
 	if peoplegenrand=2:gs'male_gen'&romaworld[]=i&gs'female_gen'&romaworld[]=i
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Арсенал Менхантера'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прилавок магазина'
-	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в Арсенал'&$locopis['<<$temploc>>']='Магазин, где продаётся всё для охоты'
-	np['<<$temploc>>']=404
-	mirror['<<$temploc>>']=1
-	gs 'menhunter_gen'&romaworld[]=i
+	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в Арсенал'&$locopis['<<$temploc>>']='Магазин, где продаётся всё для охоты'&np['<<$temploc>>']=404
+	mirror['<<$temploc>>']=1&gs 'menhunter_gen'&romaworld[]=i
 	H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Гастрономикон.'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прилавок магазина.'
 	$locname['<<$temploc>>']='Лавка мясника'&$lname['<<$temploc>>']='Лавка'&$lname_go['<<$temploc>>']='в лавку'&$locopis['<<$temploc>>']='Лавка, где забивают на мясо, которое продают и закупают'
-	np['<<$temploc>>']=405
-	gs 'Butcher_gen'&romaworld[]=i
+	np['<<$temploc>>']=405&gs 'Butcher_gen'&romaworld[]=i
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Помещение для разделки.'
 	$locname['<<$temploc>>']='Разделочная'&$lname['<<$temploc>>']='Разделочная'&$lname_go['<<$temploc>>']='в разделочную'
 	$locopis['<<$temploc>>']='Помещение, где забивают на мясо, которое продают и закупают'
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бутик Сервилии Квинты'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Бутик'
-	$locname['<<$temploc>>']='Бутик'&$lname['<<$temploc>>']='Бутик'&$lname_go['<<$temploc>>']='в Бутик'&$locopis['<<$temploc>>']='Бутик, где продают одежду для аристократии'
-	np['<<$temploc>>']=197
-	clostore['<<$temploc>>']=1&lowstore['<<$temploc>>']=1&bootstore['<<$temploc>>']=1&junkstore['<<$temploc>>']=1
-	gs 'Servilia_gen'&romaworld[]=i
-	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Примерочная'
-	np['<<$temploc>>']='	'&mirror['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Бутик'&$lname['<<$temploc>>']='Бутик'&$lname_go['<<$temploc>>']='в Бутик'&$locopis['<<$temploc>>']='Бутик, где продают одежду для аристократии'&np['<<$temploc>>']=197
+	clostore['<<$temploc>>']=1&lowstore['<<$temploc>>']=1&bootstore['<<$temploc>>']=1&junkstore['<<$temploc>>']=1&gs 'Servilia_gen'&romaworld[]=i
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Примерочная'&np['<<$temploc>>']='	'&mirror['<<$temploc>>']=1
 	H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Салон Elven laid'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Салон'
 	$locname['<<$temploc>>']='Салон'&$lname['<<$temploc>>']='Салон'&$lname_go['<<$temploc>>']='в Салон'&$locopis['<<$temploc>>']='Салон красоты, где предлагают полный спектр услуг'
-	np['<<$temploc>>']=411&np['<<$temploc>>']=0
-	salon_beut['<<$temploc>>']=1
-	gs 'Elven_gen'&romaworld[]=i
-	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Уборная'
-	$locname['<<$temploc>>']='Уборная'&$lname['<<$temploc>>']='Уборная'&$lname_go['<<$temploc>>']='в Уборную'
-	$locopis['<<$temploc>>']='Уборная, где можно поправить одежду и накраситься'
-	mirror['<<$temploc>>']=1
+	np['<<$temploc>>']=411&np['<<$temploc>>']=0&salon_beut['<<$temploc>>']=1&gs 'Elven_gen'&romaworld[]=i
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Уборная'&$locname['<<$temploc>>']='Уборная'&$lname['<<$temploc>>']='Уборная'&$lname_go['<<$temploc>>']='в Уборную'
+	$locopis['<<$temploc>>']='Уборная, где можно поправить одежду и накраситься'&mirror['<<$temploc>>']=1
 	H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Аптека'&maxPositionR['<<$templocH>>']=1
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Аптека'
-	$locname['<<$temploc>>']='Аптека'&$lname['<<$temploc>>']='Аптека'&$lname_go['<<$temploc>>']='в Аптеку'
-	$locopis['<<$temploc>>']='Аптека, где продаются настоящие алхимические эликсиры'
-	np['<<$temploc>>']=408
-	gs 'Aptekar_gen'&romaworld[]=i	
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Аптека'&$locname['<<$temploc>>']='Аптека'&$lname['<<$temploc>>']='Аптека'&$lname_go['<<$temploc>>']='в Аптеку'
+	$locopis['<<$temploc>>']='Аптека, где продаются настоящие алхимические эликсиры'&np['<<$temploc>>']=408&gs 'Aptekar_gen'&romaworld[]=i	
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Примерочная'
 	$locname['<<$temploc>>']='Лаборатория'&$lname['<<$temploc>>']='Лаборатория'&$lname_go['<<$temploc>>']='в Лабораторию'
-	$locopis['<<$temploc>>']='Лаборатория, где делаются настоящие алхимические эликсиры'
-	np['<<$temploc>>']=408
-	mirror['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Лаборатория, где делаются настоящие алхимические эликсиры'&np['<<$temploc>>']=408&mirror['<<$temploc>>']=1
 	H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Колизей'&maxPositionR['<<$templocH>>']=1
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Холл колизея'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Холл колизея'&np['<<$temploc>>']=411&gs 'Guildman_gen'&romaworld[]=i
 	$locname['<<$temploc>>']='Колизей'&$lname['<<$temploc>>']='Колизей'&$lname_go['<<$temploc>>']='в Колизей'&$locopis['<<$temploc>>']='Колизей, где проводятся бои гладиаторов'
-	np['<<$temploc>>']=411
-	gs 'Guildman_gen'&romaworld[]=i
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Арена колизея'
-	$locname['<<$temploc>>']='Арена'&$lname['<<$temploc>>']='Арена'&$lname_go['<<$temploc>>']='на Арену'&$locopis['<<$temploc>>']='Арена, где бьются гладиаторы'
-	np['<<$temploc>>']=411
+	$locname['<<$temploc>>']='Арена'&$lname['<<$temploc>>']='Арена'&$lname_go['<<$temploc>>']='на Арену'&$locopis['<<$temploc>>']='Арена, где бьются гладиаторы'&np['<<$temploc>>']=411
 	H=7&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Сенат'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Приёмная Сената'
-	$locname['<<$temploc>>']='Приёмная'&$lname['<<$temploc>>']='Сенат'&$lname_go['<<$temploc>>']='в Сенат'
-	np['<<$temploc>>']=407
+	$locname['<<$temploc>>']='Приёмная'&$lname['<<$temploc>>']='Сенат'&$lname_go['<<$temploc>>']='в Сенат'&np['<<$temploc>>']=407
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Форум'
 	$locname['<<$temploc>>']='риелторская контора'&$lname['<<$temploc>>']='контара'&$lname_go['<<$temploc>>']='в контору'
-	$locopis['<<$temploc>>']='Центральный Форум, в котором можно договориться с консулом о получении гражданства и покупке дома'
-	np['<<$temploc>>']=407
-	gs 'consul_gen'&romaworld[]=i
+	$locopis['<<$temploc>>']='Центральный Форум, в котором можно договориться с консулом о получении гражданства и покупке дома'&np['<<$temploc>>']=407&gs 'consul_gen'&romaworld[]=i
 elseif X=2 and Y=2:
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Улица торговцев рабами'
 	$locname['<<$temploc>>']='Улица торговцев рабами'&$lname['<<$temploc>>']='Улица торговцев рабами'&$lname_go['<<$temploc>>']='На улицу торговцев рабами'
-	$locopis['<<$temploc>>']='Улица, по которой то и дело проводят вереницы рабов.'
-	np['<<$temploc>>']=409
+	$locopis['<<$temploc>>']='Улица, по которой то и дело проводят вереницы рабов.'&np['<<$temploc>>']=409
 	peoplegenrand=rand(2)&pre_class=rand(1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
 	if peoplegenrand=2:gs'male_gen'&romaworld[]=i&gs'female_gen'&romaworld[]=i
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Рынок рабов'&maxPositionR['<<$templocH>>']=2
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Рынок рабов'
-	$locname['<<$temploc>>']='Рынок'&$lname['<<$temploc>>']='Рынок'&$lname_go['<<$temploc>>']='на рынок'
-	$locopis['<<$temploc>>']='Рынок, где продают и покупают рабов'
-	np['<<$temploc>>']=406
+	$locname['<<$temploc>>']='Рынок'&$lname['<<$temploc>>']='Рынок'&$lname_go['<<$temploc>>']='на рынок'&$locopis['<<$temploc>>']='Рынок, где продают и покупают рабов'&np['<<$temploc>>']=406
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Конторка фарида'
-	$locname['<<$temploc>>']='Конторка'&$lname['<<$temploc>>']='конторка'&$lname_go['<<$temploc>>']='в конторку'
-	np['<<$temploc>>']=406
-	gs 'Farid_gen'&romaworld[]=i	
+	$locname['<<$temploc>>']='Конторка'&$lname['<<$temploc>>']='конторка'&$lname_go['<<$temploc>>']='в конторку'&np['<<$temploc>>']=406&gs 'Farid_gen'&romaworld[]=i	
 	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гильдия Работорговцев'
 	$locname['<<$temploc>>']='Гильдия'&$lname['<<$temploc>>']='Гильдия'&$lname_go['<<$temploc>>']='в Гильдию'
-	$locopis['<<$temploc>>']='Судя по интерьерам гильдия на подъеме, очень влиятельна и может выдавать ссуды.'+' За 10 искр можно переночевать в спальном помещении гильдии. Можно нанять быка - крепкого мужчину способного хоть весь день трахать рабыню. За 50 искр вы можете провести часовое воспитание рабыни у опытного тренера'
-	np['<<$temploc>>']=410
-	gs 'slavemaker_gen'&romaworld[]=i
+	$locopis['<<$temploc>>']='Судя по интерьерам гильдия на подъеме, очень влиятельна и может выдавать ссуды.'+' За 10 искр можно переночевать в спальном помещении гильдии. Можно нанять быка - крепкого мужчину способного хоть весь день трахать рабыню. За 50 искр вы можете провести часовое воспитание рабыни у опытного тренера'&np['<<$temploc>>']=410&gs 'slavemaker_gen'&romaworld[]=i
 elseif X=3 and Y=2:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=3
 	!'Среди резиденций Квартале Быка - условно северной части Внутреннего Города - из примечательных локаций, известных на весь город, локаций, можно перечислить салон мадам Жофрэ (бордель) и Джентельменский клуб сира Шелли. Белый Дворец - "администрация" дома - непосредственно примыкает к стенам Ватикана. С Кварталом Быка граничат территории домов Серпис и Камира.'
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартал Быка'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Северная Улица'&$lname['<<$temploc>>']='Улица Верных'&$lname_go['<<$temploc>>']='На улицу Верных'
-	$locopis['<<$temploc>>']='На этой улице живут верующие в спасителя - Верные.'
-	np['<<$temploc>>']=408
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Северная Улица'&$lname['<<$temploc>>']='Улица Верных'&$lname_go['<<$temploc>>']='На улицу Верных'
+	$locopis['<<$temploc>>']='На этой улице живут верующие в спасителя - Верные.'&np['<<$temploc>>']=408
 	peoplegenrand=rand(2)&pre_class=rand(1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
@@ -194,61 +138,40 @@ elseif X=3 and Y=2:
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Дом  Таурус'
 	$locname['<<$temploc>>']='Белый Дворец'&$lname['<<$temploc>>']='Храм'&$lname_go['<<$temploc>>']='в Храм'&$locopis['<<$temploc>>']='Вход только по разрешению Дома Таурус'
 	H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Салон Мадам Жоффрэн'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Салон Мадам'
-	$locname['<<$temploc>>']='Салон'&$lname['<<$temploc>>']='Салон'&$lname_go['<<$temploc>>']='в Салон'
-	$locopis['<<$temploc>>']='Приличный бордель с отлично выдрессированными рабынями'
-	np['<<$temploc>>']=411
-	gs 'Jofre_gen'&romaworld[]=i
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Салон Мадам'&$locname['<<$temploc>>']='Салон'&$lname['<<$temploc>>']='Салон'&$lname_go['<<$temploc>>']='в Салон'
+	$locopis['<<$temploc>>']='Приличный бордель с отлично выдрессированными рабынями'&np['<<$temploc>>']=411&gs 'Jofre_gen'&romaworld[]=i
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Джентельменский клуб сира Шелли'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Джентельменский клуб'
-	$locname['<<$temploc>>']='клуб'&$lname['<<$temploc>>']='клуб'&$lname_go['<<$temploc>>']='в клуб'&$locopis['<<$temploc>>']='Только для джентльменов'
-	!np['<<$temploc>>']=411
-	!gs 'Shelly_gen'&romaworld[]=i
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Джентельменский клуб'&!np['<<$temploc>>']=411
+	$locname['<<$temploc>>']='клуб'&$lname['<<$temploc>>']='клуб'&$lname_go['<<$temploc>>']='в клуб'&$locopis['<<$temploc>>']='Только для джентльменов'&!gs 'Shelly_gen'&romaworld[]=i
 elseif X=4 and Y=2:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Поместье Ландольфов'&maxPositionR['<<$templocH>>']=0&ownerloc['<<$templocH>>']=nari&homemarker['<<$templocH>>']=1
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Двор особняка Ландольфов'&privat['<<$templocH>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Двор особняка Ландольфов'&privat['<<$templocH>>']=1&np['<<$temploc>>']=403
 	$locname['<<$temploc>>']='Двор'&$lname['<<$temploc>>']='двор осабняка Ландольфов'&$lname_go['<<$temploc>>']='во двор'&$locopis['<<$temploc>>']='Большой двор Особняка Ландольфов'
-	np['<<$temploc>>']=403
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Ландольфов'&maxPositionR['<<$templocH>>']=5&ownerloc['<<$templocH>>']=nari&homemarker['<<$templocH>>']=1
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Холл дома Ландольфов'
-	$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='холл особняка'&$lname_go['<<$temploc>>']='в холл'&
-	np['<<$temploc>>']=403&mirror['<<$temploc>>']=1
-	if domina!you:gs'lerch_gen'
-	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Зал в особняке Ландольфов'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Холл дома Ландольфов'&np['<<$temploc>>']=403&mirror['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='холл особняка'&$lname_go['<<$temploc>>']='в холл'&if domina!you:gs'lerch_gen'
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Зал в особняке Ландольфов'&np['<<$temploc>>']=403&mirror['<<$temploc>>']=1&item_loc['171,<<$temploc>>']=1
 	$locname['<<$temploc>>']='Зал в Особняке'&$lname['<<$temploc>>']='зал '&$lname_go['<<$temploc>>']='в зал'&$locopis['<<$temploc>>']='Большой зал в Особняке Ландольфов'
-	np['<<$temploc>>']=403&mirror['<<$temploc>>']=1
 	gs 'nari_gen'&!romaworld[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
-	item_loc['171,<<$temploc>>']=1
 	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
-	$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
-	$locopis['<<$temploc>>']='Спальная комната с огромной кроватью'
-	np['<<$temploc>>']=41&mirror['<<$temploc>>']=1
-	mirror['<<$temploc>>']=1&wardrobe['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	item_loc_t['2,<<$temploc>>']=1&item_loc_t['16,<<$temploc>>']=1
-	item_loc_l['16,<<$temploc>>']=1&item_loc_l['23,<<$temploc>>']=1&item_loc_l['31,<<$temploc>>']=1
+	$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Спальная комната с огромной кроватью'
+	np['<<$temploc>>']=41&mirror['<<$temploc>>']=1&mirror['<<$temploc>>']=1&wardrobe['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	item_loc_t['2,<<$temploc>>']=1&item_loc_t['16,<<$temploc>>']=1&item_loc_l['16,<<$temploc>>']=1&item_loc_l['23,<<$temploc>>']=1&item_loc_l['31,<<$temploc>>']=1
 	item_loc_ut['2,<<$temploc>>']=1&item_loc_ul['2,<<$temploc>>']=1&item_loc_ub['3,<<$temploc>>']=1
 	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
-	$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'
-	$locopis['<<$temploc>>']='В центре комнаты длинный стол'
-	np['<<$temploc>>']=176
-	can_drink['<<$temploc>>']=1&can_eat['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&!kitchentable['<<$temploc>>']=1
-	item_loc['98,<<$loc[you]>>']=10
-	R=4&gs 'toilet_gen',5&!gs 'toilet_gen',уровень туалета
-	$locopis['<<$temploc>>']='Роскошный туалет особняка'
+	$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'&$locopis['<<$temploc>>']='В центре комнаты длинный стол'&np['<<$temploc>>']=176
+	item_loc['98,<<$loc[you]>>']=10&can_drink['<<$temploc>>']=1&can_eat['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&!kitchentable['<<$temploc>>']=1
+	R=4&gs 'toilet_gen',5&$locopis['<<$temploc>>']='Роскошный туалет особняка'
 	item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
 	R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг и рабов'
 	$locname['<<$temploc>>']='Комната для слуг и рабов'&$lname['<<$temploc>>']='Комната для слуг и рабов'&$lname_go['<<$temploc>>']='в комнату для слуг и рабов'
-	$locopis['<<$temploc>>']='Простенькая спальная с грубыми кроватями'
-	np['<<$temploc>>']=149&	mirror['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Простенькая спальная с грубыми кроватями'&np['<<$temploc>>']=149&mirror['<<$temploc>>']=1
 elseif X=4 and Y=3:
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=4
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=4&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартал Отверженных'&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=0
 	!'Среди жилой застройки Квартала Отверженных - условно восточной части Внутреннего Города - из примечательных, известных на весь город, локаций, можно перечислить тату-​салон "Узоры Дядюшки Бо", магазин волшебных и алхимических зелий "Редкости Мистры" и публичную звероферму. Огненная Цитадель непосредственно примыкает к стенам Ватикана. С Кварталом Отверженых граничат территории домов Таурус и Корвус.'	
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартал Отверженных'&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Восточная Улица'&$lname['<<$temploc>>']='Улица Отверженных'&$lname_go['<<$temploc>>']='На улицу Отверженных'
-	$locopis['<<$temploc>>']='В этом квартале, как в гетто, живут Отверженные, включая зверолюдей разных пород.'
-	np['<<$temploc>>']=408
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Восточная Улица'&$lname['<<$temploc>>']='Улица Отверженных'&$lname_go['<<$temploc>>']='На улицу Отверженных'
+	$locopis['<<$temploc>>']='В этом квартале, как в гетто, живут Отверженные, включая зверолюдей разных пород.'&np['<<$temploc>>']=408
 	peoplegenrand=rand(2)&pre_class=rand(1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
@@ -261,35 +184,25 @@ elseif X=4 and Y=3:
 	Старик-татуировщик из Дома Камира. Он хорошо делает тату. Ну ОЧЕНЬ хорошо. Дядюшка Бо — добродушный старик, который сам знает, что на вас нарисовать. Но не говорит. '
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Мастерская татуировщика'
 	$locname['<<$temploc>>']='Мастерская'&$lname['<<$temploc>>']='мастерская'&$lname_go['<<$temploc>>']='к татуировщику'
-	$locopis['<<$temploc>>']='Дядюшка Бо делает любые татуировки, а так же клеймит рабынь.'
-	np['<<$temploc>>']=408
-	gs 'Bo_gen'&romaworld[]=i
+	$locopis['<<$temploc>>']='Дядюшка Бо делает любые татуировки, а так же клеймит рабынь.'&np['<<$temploc>>']=408&gs 'Bo_gen'&romaworld[]=i
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Магазин редкостей Мистры'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Магазин редкостей Мистры'
 	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='магазин'&$lname_go['<<$temploc>>']='в Магазин'
-	$locopis['<<$temploc>>']='Мистра торгует чудесными и странными предметами со всех миров, которые в основном совершенно бесполезны'
-	np['<<$temploc>>']=411
-	bookstore['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1&pentagramm['<<$temploc>>']=1
-	gs 'mistra_gen'&romaworld[]=i
+	$locopis['<<$temploc>>']='Мистра торгует чудесными и странными предметами со всех миров, которые в основном совершенно бесполезны'&np['<<$temploc>>']=411
+	bookstore['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1&pentagramm['<<$temploc>>']=1&gs 'mistra_gen'&romaworld[]=i
 	H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Публичная звероферма'&maxPositionR['<<$templocH>>']=0
 	R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Звероферма'
-	$locname['<<$temploc>>']='Звероферма'&$lname['<<$temploc>>']='звероферма'&$lname_go['<<$temploc>>']='на звероферму'
-	$locopis['<<$temploc>>']='<a href="exec:time+=15&gt ''zoofarm''">Публичная звероферма</a>, в которой воспитуют ездовых и тяговых рабынь'
-	np['<<$temploc>>']=411
-	gs 'Horse_gen'&romaworld[]=i
+	$locname['<<$temploc>>']='Звероферма'&$lname['<<$temploc>>']='звероферма'&$lname_go['<<$temploc>>']='на звероферму'&np['<<$temploc>>']=411
+	$locopis['<<$temploc>>']='<a href="exec:time+=15&gt ''zoofarm''">Публичная звероферма</a>, в которой воспитуют ездовых и тяговых рабынь'&gs 'Horse_gen'&romaworld[]=i
 elseif X=4 and Y=4:
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Свалка'
 	$locname['<<$temploc>>']='Свалка'&$lname['<<$temploc>>']='Свалка'&$lname_go['<<$temploc>>']='на Свалку'
-	$locopis['<<$temploc>>']='Свалка, куда выбрасывают трупы и можно найти что-нибудь брошенное в спешке'
-	np['<<$temploc>>']=501
+	$locopis['<<$temploc>>']='Свалка, куда выбрасывают трупы и можно найти что-нибудь брошенное в спешке'&np['<<$temploc>>']=501
 elseif X=3 and Y=4:
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=3
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=3&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартал Проклятых'&maxPositionR['<<$templocH>>']=0
 	!'Среди резиденций Некрополиса - условно южной части Внутреннего Города - из примечательных, известных на весь город, локаций, можно перечислить пирсинг-​салон "Стальная Роза" и Анатомический Театр (популярное у мертвецов заведение, совмещающее в себе функции театра, морга и столовой). Воронья Башня непосредственно примыкает к стенам Ватикана. С Некрополисом граничат территории домов Серпис и Камира.'
-	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Квартал Проклятых'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Южная Улица'&$lname['<<$temploc>>']='Некрополис'&$lname_go['<<$temploc>>']='На улицу Проклятых'
-	$locopis['<<$temploc>>']='В этом квартале живут те, кто отдал свою душу нечистому - Проклятые.'
-	np['<<$temploc>>']=408
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Южная Улица'&$lname['<<$temploc>>']='Некрополис'&$lname_go['<<$temploc>>']='На улицу Проклятых'
+	$locopis['<<$temploc>>']='В этом квартале живут те, кто отдал свою душу нечистому - Проклятые.'&np['<<$temploc>>']=408
 	peoplegenrand=rand(2)&pre_class=rand(1)
 	if peoplegenrand=0:gs'male_gen'&romaworld[]=i
 	if peoplegenrand=1:gs'female_gen'&romaworld[]=i
@@ -300,53 +213,15 @@ elseif X=3 and Y=4:
 	H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Студия Стальная Роза'&maxPositionR['<<$templocH>>']=0
 	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Стальная Роза'
 	$locname['<<$temploc>>']='Студия'&$lname['<<$temploc>>']='Студия'&$lname_go['<<$temploc>>']='в Студию'
-	$locopis['<<$temploc>>']='В студии предлагают любое оборудование для содержания рабынь, клетки, цепи и прочее.'
-	np['<<$temploc>>']=411
-	gs 'Stalina_gen'&romaworld[]=i
+	$locopis['<<$temploc>>']='В студии предлагают любое оборудование для содержания рабынь, клетки, цепи и прочее.'&np['<<$temploc>>']=411&gs 'Stalina_gen'&romaworld[]=i
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Некромикон'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Анатомический театр'
 	$locname['<<$temploc>>']='Театр'&$lname['<<$temploc>>']='театр'&$lname_go['<<$temploc>>']='в театр'
-	$locopis['<<$temploc>>']='популярное у мертвецов заведение, совмещающее в себе функции театра, морга и столовой.'
-	np['<<$temploc>>']=411
-	H=0&R=0
+	$locopis['<<$temploc>>']='популярное у мертвецов заведение, совмещающее в себе функции театра, морга и столовой.'&np['<<$temploc>>']=411&H=0&R=0
 else
-	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	d_border_way['<<$temploc>>']=404
-	$locname['<<$temploc>>']='Туман'&$lname['<<$temploc>>']='Туман'
-	$locopis['<<$temploc>>']='Сплошной кисель из густого тумана приглушающего звуки и скрывающим все уже на расстоянии вытянутой руки'
-	np['<<$temploc>>']=400
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&d_border_way['<<$temploc>>']=404&$locname['<<$temploc>>']='Туман'&$lname['<<$temploc>>']='Туман'
+	$locopis['<<$temploc>>']='Сплошной кисель из густого тумана приглушающего звуки и скрывающим все уже на расстоянии вытянутой руки'&np['<<$temploc>>']=400
 	if (X[you]=1 and Y[you]>0 and Y[you]<4) or (X[you]=3 and Y[you]>0 and Y[you]<4) or (X[you]=2 and (Y[you]=1 or Y[you]=3)):gs'Enter_fog'
 end
 X+=1&if X<=Xmax[Z]:jump'markgenworldfog'
 X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldfog'
-	!'Туманы это дорога между разными мирами (прорыв Хумгата?). Вечный Рим окружен ими. В других мирах Туманы появляются изредка, клочками. При помощи искр Туман можно призвать в любой мир. После того как ты попал в Туман, ты выйдешь в Вечном Риме. Исключения:
-1) Можно вовсе сгинуть в Туманах. Там опасно.
-2) Если ты вошел в них из Вечного Рима, и у тебя есть Искры, то можно проложить дорогу во внешний мир, потратив Искры.
-В Туманах очень плохо работает восприятие, причём все его виды. Туманы застилают зрение, искажают звуки и запахи и т.п. Внешне это похоже на обычный туман-​дымку, но Туман не материален, это просто то, как мы воспринимаем междумирье - затуманенным.
-В Туманах можно наткнуться на самые разные и странные предметы, но все они гнилые, искорёженные, старые, бесполезные. Там бывают свои ландшафты, типа гор или мертвых лесов, но морей и рек не бывает. В Туманах можно наткнуться на такого же путника или Исчадия. Исчадия бывают разные внешне, но почти все они занимаются тем, что пожирают любую встреченную органику, за исключением самок разумных существ. Самок они пытаются оплодотворить и отпустить. Ватикан говорит, что Туманы созданы Богом во время Вавилонского Столпотворения. Научному исследованию это пространство поддаётся слабо. Как и в Вечном Риме там не действует большая часть сложных технологий, магических, научных или иных.
-Туманы названы так потому, что напоминают по виду обычный, очень густой туман. Но на самом деле это не некий физический объект типа взвеси водяных капель, а более метафизическое явление. Туманы состоят из разрыва между мирами и искажения физических законов, оттого они замутняют все органы чувств, не только зрение. Звуки в туманах кажутся глухими и отдаленными, запахи почти неразличимы и даже на ощупь вещи кажутся такими, словно вы отлежали руку. Видимость в Туманах может варьироваться в пределах от «не вижу дальше вытянутой руки» до примерно десятка метров. Радары, сонары и прочие приборы наблюдения, которые теоретически можно запустить в Туманах при помощи магии Искр оказываются столь же беспомощными.
-В Туманах работает свой собственный набор физических законов, близкий, но не идентичный к тем, что работают в Вечном Риме. В частности в туманах орихалк имеет такие же свойства, как и в Вечном Риме, хотя во всех Внешних Мирах он трансмутирует.
-Пространство «внутри» Туманов обычно называется просто Туманы, но если надо отличить выход Тумана в мир от его внутренностей, применяется термин «туманное междумирье» или просто «междумирье». В междумирье есть два типа местности. Основной это солончаковые пустоши: плоские и безжизненные. Второй тип местности именуется оазисами. Как правило в оазисах Туман менее густой. Считается что это кусочки внешних миров, затянутые туда при закрытии Туманных Врат (выходов Туманов в мир). В оазисах может быть любая местность, например лес, горы или даже руины зданий. Но Туманы очень вредны для любых оформленных объектов, поэтому даже в оазисах как правило деревья засыхают, металлы ржавеют, краска облезает, а бетон выкрашивается. Тем не менее, вредное влияние Туманов в оазисах ниже чем на солончаках, поэтому караваны обычно останавливаются на отдых именно там.
-В Туманах можно встретить разных существ. Это могут быть заблудившиеся жители Внешних Миров, торговцы из Вечного Рима или Исчадия туманов. Исчадия это совершенно особый тип существ, со своими уникальными свойствами. Свою энергию и массу они берут не из того мира, в котором действуют, а из какого-​то иного невидимого нам измерения. Ученые считают, что то, что мы видим как тело исчадия, это лишь малая его часть, которую можно наблюдать в известном нам четырехмерном пространстве. Живые существа для Исчадий делятся на два типа — половые партнеры и пища. Всё, что они воспринимают как самку, они пытаются оплодотворить, выделяя огромные объёмы семенной жидкости и густо заполняя ей все возможные отверстия на теле жертвы. Если Исчадие считает что оплодотворить жертву не выйдет, оно пожирает её. Это явно не является для Исчадий основным источником пищи, скорее, способом устранять конкурентов. Если Исчадие спаривается регулярно оно растёт и продолжает жить, иногда достигая таких колоссальных размеров что может нападать даже на крупные гусеничные краулеры. Исчадия, которым не удаётся спариваться, дохнут. Любая фертильная самка оплодотворенная исчадием, станет в итоге носительницей его личинки — ксенопаразита. Ксенопаразит вылупляется в промежутке от нескольких дней до пары недель после оплодотворения, всегда убивая свою мать. Однако для стерилизованных самок Исчадия сравнительно безопасны — само по себе изнасилование можно пережить. В то же время даже стерилизованные женщины значительно сильнее привлекают Исчадий чем самцы. Очевидно всё дело в феромонах. Женщин твари ищут целенаправленно, в то время как на мужчин нападают лишь при случайной встрече.
-Как известно Вечный Рим окружен Туманами со всех сторон, и чтобы отгонять их от обжитых мест требуется постоянно поддерживать ритуалы, требующие затраты Искр. Во Внешних Мирах всё наоборот, Туманы очень редко появляются спонтанно и рассеиваются, если их не поддерживать. Вызывать и поддерживать Туманы во Внешнем Мире можно так же при помощи Искр.
-Разумное существо, вошедшее в Туман попадает в туманное междумирье. Если не применяются специальные средства навигации, то выйти из Туманов можно только в Вечном Риме. Это отражено в поговорке «Все дороги ведут в Рим». Но Искры позволяют обмануть этот закон и переходить из Вечного Рима во Внешние Миры или даже прямо между разными Внешними Мирами. Искры можно удерживать в кристаллических структурах. Чем качественнее и крупнее кристалл, тем больше Искр он способен удержать. Когда Искра изымается с кристалла, тот деградирует, теряя своё качество. Например, на кристалл емкостью в сто искр можно поместить сто искр, но изъяв, их все мы получим мутный «мертвый» кристалл, емкость которого стала равна нулю. На тот же самый кристалл можно помещать и изымать по одной искре, он выдержит сто таких циклов уменьшая свою емкость на единицу за каждый цикл. Кристалл на котором нет искр называют спящим, кристалл с искрами — пробужденным или живым, а кристалл исчерпавший свой ресурс — мертвым.
-Чтобы выйти из Туманов вне Вечного Рима необходимо использовать Искры. Искра выпускается наружу и становится путеводным огоньком, горящим примерно в течение одного дневного перехода. Этот огонёк называется висп (от англ willowisp). Пока висп живёт, идущие за ним пробиваются сквозь Туманы во Внешний Мир. Обычно направление, к которому движется висп, невозможно определить заранее, и караван выйдет в случайном мире через случайное время. Однако, если перед смертью висп загнать в самоцвет, способный содержать Искры то тот преобразуется в «навигационный кристалл» или «навкрист» для краткости. Сам висп вошедший в кристалл не становится искрой, а просто растворяется, но информация о цели его пути записывается в структуре кристалла. Любой висп, вышедший с такого кристалла будет стремиться к тому же самому миру. Навкристалл можно переписать, но для этого надо полностью снять с него все искры, чтобы он стал спящим. Так как это расточительно, то обычно навкристы используют по назначению и только один для одного мира.
-Создавать навкристы можно только в Туманах, так как именно там Искры способны становиться Виспами. Для оптимального использования ресурса, обычно используется следующая техника:
-Мистогатор (туманный навигатор) берет с собой несколько пробужденных кристаллов с одной искрой на них и идёт в нужный мир по заряженному навкристу. Незадолго до того как его висп отживёт свой срок, мистогатор загоняет его в один из пробуждённых кристаллов, делая его навкристом своего места назначения. Потом вызывает следующий висп. Таким образом за время путешествия получается столько новых навкристов, сколько дней занял путь. Навкристы это хороший товар, особенно в том случае, если мир предлагает выгодную торговлю или там есть торговая корпорация принадлежащая Великому Дому. Впрочем, даже самый бесполезный мир, может быть интересен для мистогаторов, по причинам описанным ниже.
-До тех пор, пока во Внешнем Мире есть свои Туманные Врата, его положение в междумире условно фиксировано. Это не значит что к нему ведёт тот же маршрут, но вот расстояние до Вечного Рима и любого другого фиксированного Внешнего Мира остаётся одинаковым. В туманах расстояние меряется «стадиями». Один стадий, примерно равен дистанции, которую за один дневной переход способен одолеть тяжело груженный носильщик.
-Время жизни Туманных Врат во внешнем мире может быть разным, но в среднем составляет несколько декад. Когда Туманные Врата закрываются, они открываются заново, но уже в другом месте. При этом условное расстояние этого мира до всех остальных становится равно новой, случайной величине. Два мира, которые были рядом, после смены Врат могут оказаться очень далеко друг от друга. Однако время в пути, можно рассчитать заранее, если иметь нужный навкрист. Если целевой мир находится далеко, то мистогатор имеющий множество навкристов может рассчитать маршрут через другие миры так, что время в пути уменьшится. Самый простой пример: нужный нам мир А в данный момент времени отстоит от ВР на сто стадиев. Есть мир Б, который отстоит от ВР на два стадия, а от мира А на тринадцать стадиев. В итоге транзитный маршрут ВР-​Б-А будет короче и составит всего пятнадцать стадиев. Такие штуки возможны так как расстояние в междумирье очень относительно и не подчиняется обычной геометрии. Учитывая опасность путешествия по Туманам, возможность срезать путь всегда очень важна. Поэтому иметь много навкристов, даже ведущих в небогатые миры для мистогатора весьма полезно.
-Ещё один момент, связанный с растояниями в междумирье. Прямой путь и обратный не равны. Т.е. Если от Вечного Рима до мира А сто стадиев, это ещё не значит что от мира А до Вечного Рима тоже сто стадиев. Обратное расстояние рассчёту не подлежит, так как в ВР мы идём без навкристов и виспов. Однако общее правило такое — прийти в Вечный Рим из внешнего мира обычно проще и быстрее чем наоборот.
-Между мирами обычно путешествуют:
-1. Агенты Домов, посланные для задания по увеличению влияния в интересном внешнем мире
-2. Курьеры, перевозящие документы, обычно из штаб-​квартиры Дома в корпорацию этого Дома во Внешнем Мире
-3. Пионеры, ищущие новые миры, проводящие там разведку. В этот момент пишется первый навкрист этого мира
-4. Мистогаторы, идущие по навкристу и делаюшие в дороге его копии для перепродажи
-5. Торговцы, перепродающие товары между Внешними Мирами чтобы в итоге получить что-​то ценное для Вечного Рима и выручить Искры
-6. Фрахтовщики, перевозящие между мирами чужие грузы
-7. Корсары, поджидающие караваны в оазисах с целью отнять товар и получить выкуп Искрами за пленных граждан
-8. Контрабандисты, возящие в Вечный Рим нелегальный живой товар. Бывают трех типов — клонеры, контрафактеры и охотники. Клонеры возят партии искуственно выращенных рабов и преследуются очень жестко. Контрафактеры организуют рабские школы во Внешних Мирах, где подготовка обходится очень дешево, и ведут уже подготовленных рабов в Вечный Рим, тоже жесткого преследуются. Охотники — ищущие в других мирах перспективных экзотических рабынь под обучение в Гильдии. На охотников обычно смотрят сквозь пальцы, если они водят рабынь понемногу и высокого качества.
-9. Беженцы, получившие навкристалл хорошего мира и желающие переселится туда от ужасов Вечного Рима
-Разумеется, разные роли могут всячески сочетаться, чтобы извлечь из опасных путешествий максимум прибыли. Проще всего пройти по Туманам пешком. Так можно скрываться от Исчадий и тратить минимум ресурсов в пути. Но товар пешком не унесёшь, поэтому торговцы используют различный транспорт. Есть три основных вида транспорта для междумирья.
-Повозки. Просто колесные телеги, в которые впрягают от одного до шести, реже восьми рабов. Грузоподъемность не велика, зато транспорт дешевый. К сожалению, такие телеги очень уязвимы к нападению Исчадий, так как спрятаться на телеге не выйдет и убежать тоже. Если в повозку запрягают мужчин, то обычно дополнительно берут с собой охрану. Мужчины могут везти больший вес и не привлекают Исчадий феромонами. Но, с другой стороны, если Исчадие всё же нападёт, а охрана не справится, то все конепарни будут убиты и повозка застрянет в междумирье. Кроме того, если возница женщина, то исчадие нападет на неё первой. А если мужчина, то шансы 50 на 50 выберет ли оно для атаки упряжку или возницу. Женщины способны везти меньший вес и чаще подвергаются атаки Исчадий. Однако если они стерилизованы, то это не очень страшно. При нападении возница просто отцепляет упряжь и даёт Исчадию изнасиловать понидевок. Если возница мужчина, то Исчадие будет занято понидевками и ему будет легко скрыться. Затем запрягает их снова и путь продолжается. Впрочем, изнасилованным поняшкам нужен отдых, так что время в пути вырастает.
-Краулеры. Это гусеничные повозки из орихалка, очень медленные и маломаневренные, зато способные перевозить большие грузы. В движение они приводятся мускульной тягой рабов, которые движут рычаги подобно гребцам на вёслах. Трансмиссия краулера передаёт энергию на ведущие шестерни гусениц. Краулеры бывают открытыми, но редко, так как при нападении Исчадия такая баржа будет беспомощна. Обычно краулеры защищают орихалковой каркасной бронёй и пружинными пушками.
-Клипперы. Воздушные суда, со средней грузоподъёмностью. Для них опасны только корсары и летающие Исчадия, но для поддержания машины в воздухе необходима работа торсиноида — механизма генерирующего антигравитацию путем возбуждения торсионных полей. Торсиноид для работы сжигает Исркы, поэтому весьма дорог в использовании. В движение клипперы приводятся маховыми крыло-​парусами (орнитовеллумы). Тут конечно тоже не обходится без галерных рабов.'

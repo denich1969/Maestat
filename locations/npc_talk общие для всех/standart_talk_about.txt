@@ -47,41 +47,41 @@ if misstress[npc]=1:'Госпожа, предпочитающая доминир
 if subslut[npc]=1:'Пониженная шлюха, любящая подчиняться.'
 if femwhore[npc]=1:'Агрессивная шлюха.'&*nl
 if pol[npc]=0:
-	 if guy[npc]>0:'Было <<guy[npc]>> парней.'
-	 if girl[npc]>0:'Было <<girl[npc]>> девушек.'
-	 if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занимался лесбийским сексом.'
-	 if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосал член'
-	 if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосал член, из этого <<glory[npc]>> раз сосала член в глорихоле.'
-	 if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давал в рот.'
-	 if glory_bj[npc]>0:'<<$name[npc]>> отсосал <<glory_bj[npc]>> хуев в глорихоле.'
-	 if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз.'
-	 if avagsex[npc]>0:'Он трахал во влагалище <<avagsex[npc]>> раз.'
-	 if aanal[npc]>0:'Он <<aanal[npc]>> раз трахал в попу.'
-	 if anal[npc]>0:'Его трахали в попу <<anal[npc]>> раз.'
-	 if mastr[npc]>0:'<<mastr[npc]>> раз мастурбировал.'
-	 !if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов.'
-	 if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизал пизду.'
-	 if pee[npc]>0:'<<pee[npc]>> раз он мочился в рот.'
-	 if drinkpee[npc]>0:'<<drinkpee[npc]>> раз пил мочу.'
+	if guy[npc]>0:'Было <<guy[npc]>> парней.'
+	if girl[npc]>0:'Было <<girl[npc]>> девушек.'
+	if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занимался лесбийским сексом.'
+	if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосал член'
+	if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосал член, из этого <<glory[npc]>> раз сосала член в глорихоле.'
+	if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давал в рот.'
+	if glory_bj[npc]>0:'<<$name[npc]>> отсосал <<glory_bj[npc]>> хуев в глорихоле.'
+	if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз.'
+	if avagsex[npc]>0:'Он трахал во влагалище <<avagsex[npc]>> раз.'
+	if aanal[npc]>0:'Он <<aanal[npc]>> раз трахал в попу.'
+	if anal[npc]>0:'Его трахали в попу <<anal[npc]>> раз.'
+	if mastr[npc]>0:'<<mastr[npc]>> раз мастурбировал.'
+	!if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов.'
+	if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизал пизду.'
+	if pee[npc]>0:'<<pee[npc]>> раз он мочился в рот.'
+	if drinkpee[npc]>0:'<<drinkpee[npc]>> раз пил мочу.'
 end
 if pol[npc]>0:
-	 if guy[npc]>0:'Было <<guy[npc]>> парней.'
-	 if girl[npc]>0:'Было <<girl[npc]>> девушек.'
-	 if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занималась лесбийским сексом.'
-	 if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосала член'
-	 if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосала член, из этого <<glory[npc]>> раз сосала член в глорихоле.'
-	 if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давала в рот'
-	 if glory_bj[npc]>0:'<<$name[npc]>> отсосала <<glory_bj[npc]>> хуев в глорихоле.'
-	 if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз.'
-	 if avagsex[npc]>0:'Она трахала во влагалище <<avagsex[npc]>> раз.'
-	 if aanal[npc]>0:'Она <<aanal[npc]>> раз трахала в попу.'
-	 if anal[npc]>0:'Ее трахали в попу <<anal[npc]>> раз.'
-	 ''
-	 if mastr[npc]>0:'<Она <mastr[npc]>> раз мастурбировала.'
-	 !if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов.'
+	if guy[npc]>0:'Было <<guy[npc]>> парней.'
+	if girl[npc]>0:'Было <<girl[npc]>> девушек.'
+	if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занималась лесбийским сексом.'
+	if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосала член'
+	if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосала член, из этого <<glory[npc]>> раз сосала член в глорихоле.'
+	if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давала в рот'
+	if glory_bj[npc]>0:'<<$name[npc]>> отсосала <<glory_bj[npc]>> хуев в глорихоле.'
+	if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз.'
+	if avagsex[npc]>0:'Она трахала во влагалище <<avagsex[npc]>> раз.'
+	if aanal[npc]>0:'Она <<aanal[npc]>> раз трахала в попу.'
+	if anal[npc]>0:'Ее трахали в попу <<anal[npc]>> раз.'
+	''
+	if mastr[npc]>0:'<Она <mastr[npc]>> раз мастурбировала.'
+	!if orgasm[npc]>0:'<<orgasm[npc]>> оргазмов.'
 	 if cuntlick[npc]>0:'<<$name[npc]>> <<cuntlick[npc]>> раз лизала пизду'
-	 if pee[npc]>0:'<<pee[npc]>> раз она мочилась в рот.'
-	 if drinkpee[npc]>0:'<<drinkpee[npc]>> раз пила мочу.'
+	if pee[npc]>0:'<<pee[npc]>> раз она мочилась в рот.'
+	if drinkpee[npc]>0:'<<drinkpee[npc]>> раз пила мочу.'
 end
 if vag[npc]=1:'<b>У <<$name[npc]>> девственное влагалище</b>'
 if vag[npc]>=2 and vag[npc]<15:'У <<$name[npc]>> более не невинное влагалище'
@@ -120,19 +120,19 @@ act'<b>Проверить в автодоке</b>':gt 'autodoc_talk_dialog'
 act'<b>Пожениться</b>':gt 'husbands_talk_dialog'
 act'Переодеть <<$name[npc]>>':gt'npc_cloth'
 if can_drive[npc]=0:
-	 act'вкл Управление <<$name[npc]>>':
+	act'вкл Управление <<$name[npc]>>':
 		can_drive[npc]=you&puppil[npc]+=1&my_puppil[npc]=1&total_puppil+=1&gs'stat'&act'...':gt 'preloc'
- 	 end
+ 	end
 end
 if can_drive[npc]>0:
-	 act'откл Управление <<$name[npc]>>':
-		 can_drive[npc]=0&puppil[npc]=0&my_puppil[npc]=0&total_puppil-=1&gs'stat'&act'...':gt 'preloc'
-	 end
+	act'откл Управление <<$name[npc]>>':
+		can_drive[npc]=0&puppil[npc]=0&my_puppil[npc]=0&total_puppil-=1&gs'stat'&act'...':gt 'preloc'
+	end
 end
 if agency_ud[npc]>0:
-	 act'Отказаться от агента':
+	act'Отказаться от агента':
 		agency_ud[npc]=0&myagent[npc]=0&my_contact[npc]=0&gs'stat'&act'...':gt 'preloc'
-	 end
+	end
 end
 act'Переехать к <b><<$name[npc]>> <<$surname[npc]>></b>':
 	Xhome[you]=Xhome[npc]&Yhome[you]=Yhome[npc]&Zhome[you]=Zhome[npc]&Hhome[you]=Hhome[npc]&Rhome[you]=Rhome[npc]
@@ -144,9 +144,9 @@ end
 act'Переселить <b><<$name[npc]>>...</b>':Xhome[npc]=input("Xhome.")&Yhome[npc]=input("Yhome.")&Zhome[npc]=input("Zhome.")&Hhome[npc]=input("Hhome.")&Rhome[npc]=input("Rhome.")&gt $curloc
 act'Переселить <b>в общагу</b>':Xhome[npc]=1&Yhome[npc]=0&Zhome[npc]=3&Hhome[npc]=6&Rhome[npc]=input("спальня №1: <b>3</b>, №2: <b>4</b>, №3 <b>5</b>, №4 <b>6</b>.")&gt $curloc
 if dilamina_lezdomQW[you]>1:
-	 act'квест с Томми Соломоном':
-		 dilamina_lezdomQW[you]=0&dilamina_lezdomQW_sw[you]=0&tommyblow[you]=0&gs'stat'&act'...':gt 'preloc'
-	 end
+	act'квест с Томми Соломоном':
+		dilamina_lezdomQW[you]=0&dilamina_lezdomQW_sw[you]=0&tommyblow[you]=0&gs'stat'&act'...':gt 'preloc'
+	end
 end
 act'Уст. <<$name[npc]>> кольцо и меч':
 	l_ring[npc]=input("<b><<l_ring[npc]>></b> 118,119,147,148")&r_ring[npc]=input("<b><<r_ring[npc]>></b> 118,119,147,148")
@@ -174,34 +174,34 @@ act'Добавить себе кольца маест.':
 	wind_gem[you]=input("wind_gem 0, 1")&soul_gem[you]=input("soul_gem 0, 1")&gt $curloc
 end
 if pol[npc]>=0:
-	 act'Скопировать с себя одежду на <<$name[npc]>>':
-		 t_slot[npc]=t_slot[you]&l_slot[npc]=l_slot[you]&b_slot[npc]=b_slot[you]&ul_slot[npc]=ul_slot[you]&ut_slot[npc]=ut_slot[you]&ub_slot[npc]=ub_slot[you]&h_slot[npc]=h_slot[you]&gt $curloc
-	 end
+	act'Скопировать с себя одежду на <<$name[npc]>>':
+		t_slot[npc]=t_slot[you]&l_slot[npc]=l_slot[you]&b_slot[npc]=b_slot[you]&ul_slot[npc]=ul_slot[you]&ut_slot[npc]=ut_slot[you]&ub_slot[npc]=ub_slot[you]&h_slot[npc]=h_slot[you]&gt $curloc
+	end
 end
 if pol[npc]>=0:
-	 act'Скопировать с <<$name[npc]>> одежду на себя':
-		 t_slot[you]=t_slot[npc]&l_slot[you]=l_slot[npc]&b_slot[you]=b_slot[npc]&ul_slot[you]=ul_slot[npc]&ut_slot[you]=ut_slot[npc]&ub_slot[you]=ub_slot[npc]&h_slot[you]=h_slot[npc]&gt $curloc
-	 end
+	act'Скопировать с <<$name[npc]>> одежду на себя':
+		t_slot[you]=t_slot[npc]&l_slot[you]=l_slot[npc]&b_slot[you]=b_slot[npc]&ul_slot[you]=ul_slot[npc]&ut_slot[you]=ut_slot[npc]&ub_slot[you]=ub_slot[npc]&h_slot[you]=h_slot[npc]&gt $curloc
+	end
 end
 if dead[borisbogart]=2:
-	 act'Воскресить Богарта':dead[borisbogart]=0&earth_gem[borisbogart]=0&Xhome[borisbogart]=4&Yhome[borisbogart]=0&Zhome[borisbogart]=3&Hhome[borisbogart]=2&Rhome[borisbogart]=2&gt'preloc'
+	act'Воскресить Богарта':dead[borisbogart]=0&earth_gem[borisbogart]=0&Xhome[borisbogart]=4&Yhome[borisbogart]=0&Zhome[borisbogart]=3&Hhome[borisbogart]=2&Rhome[borisbogart]=2&gt'preloc'
 end
 if Xhome[addboss]=4 and Yhome[addboss]=0 and Zhome[addboss]=3 and Hhome[addboss]=2 and Rhome[addboss]=1:
 	act'Забрать особняк у Ханта':
 		Xhome[you]=Xhome[addboss]&Yhome[you]=Yhome[addboss]&Zhome[you]=Zhome[addboss]&Hhome[you]=Hhome[addboss]&Rhome[you]=Rhome[addboss]
 		key['<<you>>,<<Xhome[addboss]>>,<<Yhome[addboss]>>,<<Zhome[addboss]>>,<<Hhome[addboss]>>']=1
 		can_sleep['<<Xhome[addboss]>>,<<Yhome[addboss]>>,<<Zhome[addboss]>>,<<Hhome[addboss]>>,<<Rhome[addboss]>>']=1
-		 X=4&Y=0&Z=3&H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк <<$surname[you]>>'
-		 R=1&$locnameR['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Ваша спальная'&$locname['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Ваша спальная'
-		 R=3&$locnameR['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Гостевая спальная'&$locname['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Гостевая спальная'
-		 Xhome[addboss]=3&Yhome[addboss]=1&Zhome[addboss]=3&Hhome[addboss]=2&Rhome[addboss]=3&gt $curloc
+		X=4&Y=0&Z=3&H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк <<$surname[you]>>'
+		R=1&$locnameR['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Ваша спальная'&$locname['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Ваша спальная'
+		R=3&$locnameR['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Гостевая спальная'&$locname['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Гостевая спальная'
+		Xhome[addboss]=3&Yhome[addboss]=1&Zhome[addboss]=3&Hhome[addboss]=2&Rhome[addboss]=3&gt $curloc
 	 end
 end
 if dead[borisbogart]<2:act'Убить Богарта':dead[borisbogart]=2&gt $curloc
 if dead[lebeda]>0:
-	 act'Квест с Лебедой':
-		 lebeda_birdQW=1&lebeda_head[you]=1&lebeda_day=0&babaiga=0&gs'stat'&if vag[you]=0:dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&gt'preloc'
-	 end
+	act'Квест с Лебедой':
+		lebeda_birdQW=1&lebeda_head[you]=1&lebeda_day=0&babaiga=0&gs'stat'&if vag[you]=0:dick[you]=0&dickd[you]=0&ball[you]=0&vag[you]=1&gt'preloc'
+	end
 end
 if satansToyQW[you]=0:act'Квест с Люксом Эосфором':satansToyQW[you]=1&gt'preloc'
 if dead[soulmaster]>0:act'Воскресить Люкса Эосфора':dead[soulmaster]=0&dead[soulslut]=0&dead[soulmistress]=0&soul_gem[soulmaster]=0&gt'preloc'
@@ -213,12 +213,12 @@ end
 act'history npc':$history[npc]=input("написать")&gt'preloc'
 if whoreboss[you]=npc:
 	'<<$name[npc]>> смотрит вам в глаза - Могу дать тебе 100 шиллингов в долг, отдашь через неделю с процентами!'
-	 if sutenerpay[you]>0:
+	if sutenerpay[you]>0:
 		'<<$name[npc]>> - ты должна мне <<sutenerpay[you]/100>> шиллингов'
-	 	 act'Взять в долг 100 шиллингов':
-			 money[you]+=10000&sutenerpay[you]+=12000&sutenerpay_day[you]=0&sutenerpay_day[you]=daystart+7
-			 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы берете деньги у своего сутенера'&act'<b>Уйти</b>':gt 'preloc'
-	 	 end
-	 end
+	 	act'Взять в долг 100 шиллингов':
+			money[you]+=10000&sutenerpay[you]+=12000&sutenerpay_day[you]=0&sutenerpay_day[you]=daystart+7
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы берете деньги у своего сутенера'&act'<b>Уйти</b>':gt 'preloc'
+	 	end
+	end
 end
 if $loc[you]=$loc[npc] and hacking['<<$loc[you]>>']=1:'Вот ты и попался ворюга'&cant_fight_run=1&gs'progcurse'&gt 'prefight'

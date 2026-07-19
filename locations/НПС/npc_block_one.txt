@@ -1,47 +1,39 @@
 ﻿nextdoorgirl[npc]=0&if pol[npc]>0 and sexpartner['<<npc>>,<<you>>']=0 and port_whore[npc]=0 and misstress[npc]=0 and street_whore[npc]=0 and upwhore[npc]=0 and downwhore[npc]=0:nextdoorgirl[npc]=1
 if cum_face[you]>0 or cum_clo[you]>0 or peecover[you]>0 or fishsmell[you]>0:gt'smelllikeshit'
 if l_slot[you]=0:
-	tempslot=t_slot[you]
-     if t_slot[you]>0 and long_t[tempslot]>0:
-     else
-		gt'nudereact'
-     end
+	tempslot=t_slot[you]&if t_slot[you]=0 or long_t[tempslot]=0:gt'nudereact'
 end
 if boyfriend_num[you]=npc and bf_want_walk[npc]>0:gt'bf_talk'
 if follower[npc]=you and secfoll>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
-     if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and threfoll=0:
-         if pol[you]>0 and total_npc_on_loc<=2:
-             act'Устроить групповушку':
-				 gang[firstfoll]+=1&gang[secfoll]+=1
-				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
-				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
-                 horny[firstfoll]=50&horny[secfoll]=50&pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-				 '<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'&act'...':gs'drop_follower'&gt'sex'
+    if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and threfoll=0:
+        if pol[you]>0 and total_npc_on_loc<=2:
+            act'Устроить групповушку':
+				if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+                gang[firstfoll]+=1&gang[secfoll]+=1&horny[firstfoll]=50&horny[secfoll]=50&pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'&act'...':gs'drop_follower'&gt'sex'
+            end
+       end
+       if pol[you]=0 and total_npc_on_loc<=2 and vag[firstfoll]>0 and vag[secfoll]>0 and mysubslut[firstfoll]>=1 and mysubslut[secfoll]>=1:
+            act'Устроить групповушку':
+				if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+                gang[firstfoll]+=1&gang[secfoll]+=1&horny[firstfoll]=50&horny[secfoll]=50&pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			    '<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'&act'...':first=firstfoll&second=secfoll&gs'drop_follower'&gs'sexpower'&gt'ffm'
             end
         end
-        if pol[you]=0 and total_npc_on_loc<=2 and vag[firstfoll]>0 and vag[secfoll]>0 and mysubslut[firstfoll]>=1 and mysubslut[secfoll]>=1:
-             act'Устроить групповушку':
-				 gang[firstfoll]+=1&gang[secfoll]+=1
-				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
-				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
-                 horny[firstfoll]=50&horny[secfoll]=50
-				 pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[firstfoll]>> и <<$name[secfoll]>> переглядываются и соглашаются на групповуху.'
-			     act'...':first=firstfoll&second=secfoll&gs'drop_follower'&gs'sexpower'&gt'ffm'
-             end
-         end
-     end
-     if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and sexpartner['<<threfoll>>,<<you>>']>0:
-         if pol[you]>0 and total_npc_on_loc<=3:
-             act'Устроить групповушку':
-				 gang[firstfoll]+=1&gang[secfoll]+=1&gang[threfoll]+=1
-				 if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
-				 if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
-				 if watch_you_slut['<<threfoll>>,<<you>>']=0:watch_you_slut['<<threfoll>>,<<you>>']=1
-                 horny[firstfoll]=50&horny[secfoll]=50&horny[threfoll]=50&pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-				 '<<$name[firstfoll]>>, <<$name[secfoll]>> и <<$name[threfoll]>> переглядываются и соглашаются на групповуху.'&act'...':gs'drop_follower'&gt'sex'
-             end
-         end
-     end
+    end
+    if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and sexpartner['<<threfoll>>,<<you>>']>0:
+        if pol[you]>0 and total_npc_on_loc<=3:
+            act'Устроить групповушку':
+				if watch_you_slut['<<firstfoll>>,<<you>>']=0:watch_you_slut['<<firstfoll>>,<<you>>']=1
+				if watch_you_slut['<<secfoll>>,<<you>>']=0:watch_you_slut['<<secfoll>>,<<you>>']=1
+				if watch_you_slut['<<threfoll>>,<<you>>']=0:watch_you_slut['<<threfoll>>,<<you>>']=1
+                gang[firstfoll]+=1&gang[secfoll]+=1&gang[threfoll]+=1&horny[firstfoll]=50&horny[secfoll]=50&horny[threfoll]=50&pose[you]=2&solo=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'<<$name[firstfoll]>>, <<$name[secfoll]>> и <<$name[threfoll]>> переглядываются и соглашаются на групповуху.'&act'...':gs'drop_follower'&gt'sex'
+            end
+        end
+    end
 end
 if pol[npc]=0:
      if pol[you]>0:
@@ -123,7 +115,7 @@ if pol[npc]>0 and dick[you]>0 and l_slot[you]=0 and (t_slot[you]=70 or t_slot[yo
 		 if skin[you]<4:
 			gs 'dick_fig','you'&!Изображения члена в зависимости от размеров
 		 else
-			'<center><video src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
+			'<center><video autoplay loop src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
 		 end
 		'Вы распахиваете свой плащ и показываете свой стоячий член'
 	     if lust[npc]>=75:

@@ -16,14 +16,14 @@ else
 	if $args[1]='kredit':kredit-=args[0]&$valuta='кредитах'
 	if $args[1]='veksel':veksel-=args[0]&$valuta='векселях'
 	if serafLip[you]=0 and DemonMorf[you]=0:
-		 if golod[you]>= 10:
-			 golod[you]+=5&health[you]+=5&fat[you]+=1&'Вы объелись.'
-		 else
-			 golod[you]+=10&health[you]+=5&mana[you]+=5&'Вы хорошо покушали.'
-		 end
+		if hunger[you]>=10:
+			hunger[you]+=5&health[you]+=5&fat[you]+=1&'Вы объелись.'
+		else
+			hunger[you]+=10&health[you]+=5&mana[you]+=5&'Вы хорошо покушали.'
+		end
 	end
 	if serafLip[you]=1 or DemonMorf[you]>0:
-		golod[you]= 0&health[you]=health[you]/2&mana[you]=mana[you]/2&'Резко заболел желудок и вас тут же вырвало, вы не сможете есть ничего, кроме спермы.'
+		hunger[you]= 0&health[you]=health[you]/2&mana[you]=mana[you]/2&'Резко заболел желудок и вас тут же вырвало, вы не сможете есть ничего, кроме спермы.'
 	end
 	gs'stat'&if args[0]>0:'Оплата в '+ $valuta+' составила: <<args[0]>> '
 end

@@ -1,59 +1,14 @@
-﻿gs'stat'
-'<center><img src="<<$d_view>>" ></center>'
-'Пялится на вас с усмешкой - Оденься! Не прилично в таком виде появляться на людях.'
-
-act'<b>Уйти</b>':gt 'preloc'
-
+﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Пялится на вас с усмешкой - Оденься! Не прилично в таком виде появляться на людях.'&act'<b>Уйти</b>':gt 'preloc'
 if pol[npc]>0:
-     if pol[you]>0:
-		'<<$name[npc]>> - может тебе дать платье?'
-         act'Дай':
-			 cls
-			 if princess=you:
-				 takeitem=132
-				 burden[you]+=item_t_burden[takeitem]
-				 item_t[takeitem]+=1
-			 else
-				 takeitem=51
-				 burden[you]+=item_t_burden[takeitem]
-				 item_t[takeitem]+=1
-			 end
-			 gt 'preloc'
-         end
-     else
-     '<<$name[npc]>> - может тебе дать плащь?'
-         act'Дай':
-			 cls
-			 takeitem=70
-			 burden[you]+=item_t_burden[takeitem]
-			 item_t[takeitem]+=1
-			 gt 'preloc'
-         end
-     end
+    if pol[you]>0:
+		'<<$name[npc]>> - может тебе дать платье?'&act'Дай':takeitem=iif(princess=you,132,51)&burden[you]+=item_t_burden[takeitem]&item_t[takeitem]+=1&cls&gt 'preloc'
+    else
+		'<<$name[npc]>> - может тебе дать плащ?'&act'Дай':takeitem=70&burden[you]+=item_t_burden[takeitem]&item_t[takeitem]+=1&cls&gt 'preloc'
+    end
 else
-     if pol[you]>0:
-		'<<$name[npc]>> - может тебе дать платье?'
-         act'Дай':
-			 cls
-			 if princess=you:
-				 takeitem=132
-				 burden[you]+=item_t_burden[takeitem]
-				 item_t[takeitem]+=1
-			 else
-				 takeitem=51
-				 burden[you]+=item_t_burden[takeitem]
-				 item_t[takeitem]+=1
-			 end
-			 gt 'preloc'
-         end
-     else
-		'<<$name[npc]>> - может тебе дать плащь?'
-         act'Дай':
-			 cls
-			 takeitem=70
-			 burden[you]+=item_t_burden[takeitem]
-			 item_t[takeitem]+=1
-			 gt 'preloc'
-         end
-     end
+    if pol[you]>0:
+		'<<$name[npc]>> - может тебе дать платье?'&act'Дай':takeitem=iif(princess=you,132,51)&burden[you]+=item_t_burden[takeitem]&item_t[takeitem]+=1&cls&gt 'preloc'
+    else
+		'<<$name[npc]>> - может тебе дать плащ?'&act'Дай':takeitem=70&burden[you]+=item_t_burden[takeitem]&item_t[takeitem]+=1&cls&gt 'preloc'
+    end
 end

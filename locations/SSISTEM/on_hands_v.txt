@@ -7,10 +7,10 @@ act'Стонать':
 	if you_blow>0:
 		if vag[you_blow]>0:
 			if vag[you_blow]>0:
-				'<center><video src="pic/sex/lesb/slut_d<<rand(0, 0)>>.webm" ></video></center>'
+				'<center><video autoplay loop src="pic/sex/lesb/slut_d<<rand(0, 0)>>.webm" ></video></center>'
 				'Вас размашисто ебут в киску и <<$name[you_blow]>> наклоняется над вами и начинает вылизывать вашу попку и член входящий в вашу киску'&gs'fuck_anal_lick',you_blow,you
 			else
-				'<center><video src="pic/sex/lesb/d<<rand(0,2)>>.webm" ></video></center>'&'Вас ебут в киску и ваши стоны глушит то что вы лижите влагалище'
+				'<center><video autoplay loop src="pic/sex/lesb/d<<rand(0,2)>>.webm" ></video></center>'&'Вас ебут в киску и ваши стоны глушит то что вы лижите влагалище'
 			end
 			gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'
 			if sex_last_orgazm[you_blow]>0:mob_sleep[you_blow]=time+60&lesb[you]+=1&!'<<$name[you_blow]>> содрогается в оргазме'	
@@ -29,7 +29,7 @@ act'Стонать':
 		end
 	else
 		if toilet['<<$loc[you]>>']>=1 and agro[vag_fucker]=2:
-			gs'wet'&'<center><video src="pic/sex/degraded/<<rand(0,1)>>.webm" ></video></center>'&'<<$nick[vag_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в пизду.'
+			gs'wet'&'<center><video autoplay loop src="pic/sex/degraded/<<rand(0,1)>>.webm" ></video></center>'&'<<$nick[vag_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в пизду.'
 			if camera['<<$loc[you]>>']>=1:$porno[film]+='<<$nick[vag_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в пизду. '
 		else
 			$func('get_images', 'vag_fuck_dog', you, vag_fucker)&'Стоя раком вы выгибаете спину пока вас трахают в киску'

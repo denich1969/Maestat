@@ -255,7 +255,7 @@ if karta['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0)
 if paint['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''paint''">Картина на стене</a>'
 if moonqwportret['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''moonqwportret''">Портрет лунной королевы</a>'
 if mostwood['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''mostwood''">Толстое бревно лежащее через расщелину</a>'
-if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']>0:'<a href="exec:time+=5&gt ''sumrak''">Вьющиеся тени в которых угадываются какие то фигуры</a>'
+if sumrak['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']>0:'<a href="exec:time+=5&gt ''sumrak''">Вьющиеся тени в которых угадываются какие-то фигуры</a>'
 if pereval['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''pereval''">Горный перевал</a>'
 if towngate['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''towngate''">Городские врата</a>'
 if castlegate['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''castlegate''">Ворота замка</a>'
@@ -586,8 +586,8 @@ if busy[you]=0:
 		 if cum_face[you]>0:
 			 act'Стереть сперму с лица':
 				 spit_face[you]=0&peecover[you]=0&time+=5&cls&gs'stat'
-				 if cum_face[you]<=6:'<center><video src="pic/cum/<<cum_face[you]>>.webm" ></center>'
-				 if cum_face[you]>6:'<center><video src="pic/cum/6.webm" ></center>'
+				 if cum_face[you]<=6:'<center><video autoplay loop src="pic/cum/<<cum_face[you]>>.webm" ></center>'
+				 if cum_face[you]>6:'<center><video autoplay loop src="pic/cum/6.webm" ></center>'
 				 'Вы старательно отчистили лицо от следов спермы'&act'<b>Уйти</b>':cum_face[you]=0&spit_face[you]=0&gt 'preloc'
 			 end
 		 end
@@ -637,8 +637,8 @@ if busy[you]=0:
 			 if cum_face[you]>0:
 				 act'Стереть сперму с лица':
 					 spit_face[you]=0&time+=5&cls&gs'stat'
-					 if cum_face[you]<=6:'<center><video src="pic/cum/<<cum_face[you]>>.webm" ></center>'
-					 if cum_face[you]>6:'<center><video src="pic/cum/6.webm" ></center>'
+					 if cum_face[you]<=6:'<center><video autoplay loop src="pic/cum/<<cum_face[you]>>.webm" ></center>'
+					 if cum_face[you]>6:'<center><video autoplay loop src="pic/cum/6.webm" ></center>'
 					 'Вы старательно отчистили лицо от следов спермы'&act'<b>Уйти</b>':cum_face[you]=0&gt 'world'
 				 end
 			 end
@@ -656,10 +656,10 @@ if medusa_pouder_timer[you]>0:
 		act '<b>Смыть пыльцу медузы</b>':
 			horny[you]-=5&time+=10&cls
 			if horny[you]<=20:
-				horny[you]=0&gs'stat'&'<center><video src="pic/misc/cunt_shower.webm" ></video></center>'&*pl'Вы отчаяно поливаете водой свою пылающую промежность, чувствуя как жжение ослабевает'
-				medusa_pouder_timer[you]=0&delact '<b>Смыть пыльцу медузы</b>'
+				horny[you]=0&gs'stat'&'<center><video autoplay loop src="pic/misc/cunt_shower.webm" ></video></center>'
+				*pl'Вы отчаяно поливаете водой свою пылающую промежность, чувствуя как жжение ослабевает'&medusa_pouder_timer[you]=0&delact '<b>Смыть пыльцу медузы</b>'
 			else
-				gs'stat'&'<center><video src="pic/misc/cunt_shower.webm" ></video></center>'&*pl'Вы отчаяно поливаете водой свою пылающую промежность'
+				gs'stat'&'<center><video autoplay loop src="pic/misc/cunt_shower.webm" ></video></center>'&*pl'Вы отчаяно поливаете водой свою пылающую промежность'
 			end
 			act'...':gt 'preloc'
 		end
@@ -668,10 +668,10 @@ if medusa_pouder_timer[you]>0:
 		act '<b>Незаметно потереть киску, чтобы унять зуд</b>':
 			horny[you]+=10&time+=2&cls
 			if horny[you]>200:
-				horny[you]=0&jerk[you]+=1&gs'stat'&'<center><video src="pic/sex/solo/jerk.webm" ></center>'&wait 500&*clr&*pl'<center><video src="pic/sex/solo/orgazm.webm" ></video></center>'
-				'Едва вы нащупали киску под одеждой, как вас охватил мощный оргазм'
+				horny[you]=0&jerk[you]+=1&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/jerk.webm" ></center>'&wait 500&*clr
+				*pl'<center><video autoplay loop src="pic/sex/solo/orgazm.webm" ></video></center>'&'Едва вы нащупали киску под одеждой, как вас охватил мощный оргазм'
 			else
-				gs'stat'&'<center><video src="pic/sex/solo/shlik<<rand(0,6)>>.webm" ></video></center>'&*pl'Незаметно для окружающих вы трете свою киску, пытаясь унять адский зуд'
+				gs'stat'&'<center><video autoplay loop src="pic/sex/solo/shlik<<rand(0,6)>>.webm" ></video></center>'&*pl'Незаметно для окружающих вы трете свою киску, пытаясь унять адский зуд'
 			end
 			act'...':gt 'preloc'
 		end
@@ -682,19 +682,19 @@ if medusa_pouder_timer[you]>0:
 				horny[you]=0&jerk[you]+=1&gs'stat'&'Едва вы прикоснулись к члену под одеждой, как вас охватил мощный оргазм'
 				if dick[you]>5:
 					if tit[you]>5:
-						 '<center><video src="pic/sex/solo/wank<<rand(12,23)>>.webm" ></video></center>'
+						 '<center><video autoplay loop src="pic/sex/solo/wank<<rand(12,23)>>.webm" ></video></center>'
 					else
 						 if skin[you]>4:
-							'<center><video src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'
+							'<center><video autoplay loop src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'
 						 else
-							'<center><video src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'
+							'<center><video autoplay loop src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'
 						 end
 					end
 				else
-					 '<center><video src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
+					 '<center><video autoplay loop src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
 				end
 			else
-				gs'stat'&'<center><video src="pic/sex/solo/scratch.webm" ></video></center>'&*pl'Незаметно для окружающих вы чешете и натираете свою область паха, пытаясь унять адский зуд в чреслах'
+				gs'stat'&'<center><video autoplay loop src="pic/sex/solo/scratch.webm" ></video></center>'&*pl'Незаметно для окружающих вы чешете и натираете свою область паха, пытаясь унять адский зуд в чреслах'
 			end
 			act'...':gt 'preloc'
 		end

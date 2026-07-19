@@ -2,9 +2,9 @@
 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Покупает по бутылке холодного пива и вы отходите в сторонку выпивая пиво и болтая, парень клеится к вам и обнимает вас'
 act'Еще выпить':
 	 alko[you]+=rand(3,9)&horny[you]+=40
-	 cls&gs'stat'&'<center><video src="pic/misc/grab<<rand(0,4)>>.webm" ></video></center>'&'Вы распиваете еще пива и становитесь все пьянее, парень откровенно пристает к вам и мацает вас'
+	 cls&gs'stat'&'<center><video autoplay loop src="pic/misc/grab<<rand(0,4)>>.webm" ></video></center>'&'Вы распиваете еще пива и становитесь все пьянее, парень откровенно пристает к вам и мацает вас'
 	act'Еще выпить':
-		 alko[you]+=rand(3,9)&horny[you]+=50&cls&gs'stat'&'<center><video src="pic/misc/grab<<rand(5,6)>>.webm" ></video></center>'
+		 alko[you]+=rand(3,9)&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/misc/grab<<rand(5,6)>>.webm" ></video></center>'
 		 'Вы напились уже довольно сильно и вас мотает, руки парня уже не стесняясь шарят по вашему телу и залезают вам в трусы'
 		act'Пошли к тебе':
 			 friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1

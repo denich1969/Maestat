@@ -65,13 +65,8 @@ if prirand=27:$pri='ввир'
 if prirand=28:$pri='зинге'
 if prirand=29:$pri='т'
 
-
-
-
 $temp_name_drow_dom=$dom+$pri
-
-!'
-if drowdom>0:
+!'if drowdom>0:
 dd=1
 :markdrowdomprov
      if $temp_name_drow_dom=$name_drow_dom[dd]:jump'markdrowdom'
@@ -85,26 +80,3 @@ drowdom+=1
 $name_drow_dom[drowdom]=$temp_name_drow_dom    
 end
 '
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

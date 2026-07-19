@@ -1,5 +1,5 @@
-﻿gs'stat'&'Кольцо засветилось черным светом. Вы направили кольцо на противника и из него вылетел сгусток темной материи'&'<center><video src="pic/event/Ring_Ancient_God.webm" ></video></center>'
-hod[you]+=1
+﻿gs'stat'&'Кольцо засветилось черным светом. Вы направили кольцо на противника и из него вылетел сгусток темной материи'
+'<center><video autoplay loop src="pic/event/Ring_Ancient_God.webm" ></video></center>'&hod[you]+=1
 if uronstraf[you]>0 and uronstraf[you]<10:'Грудь и попа немного мешают вам в бою'
 if uronstraf[you]>=10:'Сиськи с задницей мешают вам в бою'
 mana[you]=manamax[you]&energy[you]=energymax[you]&health[you]=healthmax[you]
@@ -8,7 +8,7 @@ if defenceV>0:
 	defenceV=0&'<<$name[npc]>> получает <<uron>> единиц урона'
 	if defenceV>0:'Вы разбиваете защиту противника'
 	if defenceV=0:'Вы разбили защиту противника'
-	 stunV+=5&'Противник оказался парализован и не может драться'
+	stunV+=5&'Противник оказался парализован и не может драться'
 end
 if hod[you]>=4:hod[you]=0&act'Далее':gt'win'
 if hod[you]<=3:act'Далее':gt'fight'

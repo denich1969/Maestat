@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&gvin=i
-lvl[i]=1&soul[i]=100&mob[i]=302&mobexp[i]=10&!номер моба для разговора
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&gvin=i&lvl[i]=1&soul[i]=100&mob[i]=302&mobexp[i]=10&!номер моба для разговора
 
 tipemobpic[i]=0&picture[i]=250&!номер типа фотки и фотки
 
@@ -13,7 +12,5 @@ healthmax[i]=10*rand(30,50)&health[i]=healthmax[i]&energymax[i]=200&energy[i]=en
 reflex[i]=rand(50,70)
 agro[i]=1&corr[i]=100
 
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-walkprog[i]=302&fight_prog[i]=1&!программа движения!программа боя
-def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
-notfast[i]=0&!если 1 то все удары героя попадают в нпс
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=302&fight_prog[i]=1&!программа движения и боя
+def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться     ! если 1 то все удары героя попадают в нпс

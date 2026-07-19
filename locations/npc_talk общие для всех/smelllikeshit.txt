@@ -1,7 +1,2 @@
-﻿shame_for_you['<<npc>>,<<you>>']+=1
-
-gs'stat'
-'<center><img src="<<$d_view>>" ></center>'
-'Брезгливо вас осматривает и говорит - Приведи себя в порядок.'
-
-act'<b>Уйти</b>':gt 'preloc'
+﻿shame_for_you['<<npc>>,<<you>>']+=1&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Брезгливо вас осматривает и говорит - Приведи себя в порядок.'&act'<b>Уйти</b>':gt 'preloc'
+if fishsmell[you]>0:temprand=rand(0,20)&$doing[i]=$iif(temprand=0,' морщит нос - Фу!',$iif(temprand=1,' морщит нос - Помойся!',$iif(temprand=2,' морщит нос - От тебя жутко несет рыбой!','')))

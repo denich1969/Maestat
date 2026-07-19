@@ -1,50 +1,15 @@
-﻿$loc[you]=$curloc
-gs'stat'
-loc_for_drop=0
-'<b><center>Кабак Бедро девственницы</center></b>'
-!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-'Популярное заведение где подают человеческое мясо и отличное пиво. Так же за 5 искр можно поспать в общей комнате.'
-gs'npconloc'
-gs'item'
-
-
+﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Кабак Бедро девственницы</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+'Популярное заведение где подают человеческое мясо и отличное пиво. Так же за 5 искр можно поспать в общей комнате.'&gs'npconloc'&gs'item'
 if iskr[you]>=2:
-'Вы можете побыстрому перекусить за 2 искры'
+	'Вы можете побыстрому перекусить за 2 искры'
    	if hunger[you]>1:
 		act'Поесть за 2 искр':
-			iskr[you]-=2
-			time+=30
-			energy[you]=energyMax[you]
-			fat[you]+=25
-			if vag[you]>0:fat[you]+=25
-			gs'eat'
-			gs'drink'
-			gt $curloc
+			iskr[you]-=2&time+=30&energy[you]=energyMax[you]&fat[you]+=25&if vag[you]>0:fat[you]+=25
+			gs'eat'&gs'drink'&gt $curloc
 		end
 	end
 end
-
-if iskr[you]>=5 and roompayslvmsn!daystart:
-	act'Оплатить комнату':
-	time+=5
-	iskr[you]-=5
-	roompayslvmsn=daystart
-	gt $curloc
-	end
-end
-if roompayslvmsn=daystart or roompayslvmsn=daystart-1 and hour<8:
-'У вас оплачено койко место в общей комнате на сегодня'
-gs'sleep'
-end
-
-
+if iskr[you]>=5 and roompayslvmsn!daystart:act'Оплатить комнату':time+=5&iskr[you]-=5&roompayslvmsn=romadaystart&gt $curloc
+if roompayslvmsn=daystart or roompayslvmsn=daystart-1 and hour<8:'У вас оплачено койко место в общей комнате на сегодня'&gs'sleep'
 !'Знающие люди говорят, что уже можно сходить в Змеиный квартал.
-
-Компроматы, шлюхи, крррф, грязные связи.
-Тут можно:
-
-получить деанон,
-подсыпать наркотики,
-нарыть грязи,
-узнать, кто кого трахает и за что,
-купить дешевых шлюх на развес.'
+Компроматы, шлюхи, крррф, грязные связи. Тут можно: получить деанон, подсыпать наркотики, нарыть грязи, узнать, кто кого трахает и за что, купить дешевых шлюх на развес.'

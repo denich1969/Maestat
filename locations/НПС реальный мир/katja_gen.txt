@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&katja=i
-lvl[i]=1&soul[i]=100&work[i]=19&subwork[i]=0
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&katja=i&lvl[i]=1&soul[i]=100&work[i]=19&subwork[i]=0
 master[i]=0&delusion[i]=0&beliver[i]=0&mage[i]=0&magik[i]=0
 spec_face_pic[i]=5&face_pic[i]=164&!face_npc[i]=1&face_pic[i]=10&!фото
 $title[i]=''&$history[i]='Я работаю в офисе.'&$name[i]='Катя'&$surname[i]='Ватрушкина'
@@ -10,9 +9,5 @@ face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&h
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 age[i]=26&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1&!gs'female_gen'
 womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=0&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=1&lust[i]=10&!характер
-h_slot[i]=0&w_slot[i]=0
-coat_slot[i]=0&topz_slot[i]=0&topg_slot[i]=0
-t_slot[i]=11&l_slot[i]=9&b_slot[i]=6
-ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!$loc[i]='ofis'
-real_world[]=i&walkprog[i]=202&in_home[i]=2
+h_slot[i]=0&w_slot[i]=0&coat_slot[i]=0&topz_slot[i]=0&topg_slot[i]=0&t_slot[i]=11&l_slot[i]=9&b_slot[i]=6&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=0
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&real_world[]=i&walkprog[i]=202&in_home[i]=2&!$loc[i]='ofis'

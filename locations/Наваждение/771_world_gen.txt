@@ -1,575 +1,382 @@
-﻿X=0&Y=0&Z=771&H=0&R=0&Xmax[Z]=11&Ymax[Z]=5
-$n_board[Z]='Стена'&$w_board[Z]='Стена'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
+﻿X=0&Y=0&Z=771&H=0&R=0&Xmax[Z]=11&Ymax[Z]=5&$n_board[Z]='Стена'&$w_board[Z]='Стена'&$e_board[Z]='Стена'&$s_board[Z]='Стена'
 magworld[Z]=1&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 if X=0 and Y=0:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
-	 gs'bdsmdom'
-	 item_loc['31,<<$temploc>>']=1&item_loc['35,<<$temploc>>']=1&item_loc['29,<<$temploc>>']=1
+    $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&	gs'bdsmdom'&item_loc['31,<<$temploc>>']=1&item_loc['35,<<$temploc>>']=1&item_loc['29,<<$temploc>>']=1
 end
 X=0&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 X=0&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №2'&$lname['<<$temploc>>']='Комната №2'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №2'&$lname['<<$temploc>>']='Комната №2'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=1&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 X=1&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №3'&$lname['<<$temploc>>']='Комната №3'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	$locname['<<$temploc>>']='Комната №3'&$lname['<<$temploc>>']='Комната №3'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=1&Y=2
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №4'&$lname['<<$temploc>>']='Комната №4'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №4'&$lname['<<$temploc>>']='Комната №4'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=2&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 X=2&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №5'&$lname['<<$temploc>>']='Комната №5'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1
-	 gs'justgirl'
-	 gs'randclo'&gs'randclo'&gs'randclo'&gs'randclo'
-	 !item_loc['31,<<$temploc>>']=1
+    $locname['<<$temploc>>']='Комната №5'&$lname['<<$temploc>>']='Комната №5'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&gs'justgirl'&gs'randclo'&gs'randclo'&gs'randclo'&gs'randclo'&!item_loc['31,<<$temploc>>']=1
 X=2&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №6'&$lname['<<$temploc>>']='Комната №6'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №6'&$lname['<<$temploc>>']='Комната №6'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=3&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 X=3&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №7'&$lname['<<$temploc>>']='Комната №7'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №7'&$lname['<<$temploc>>']='Комната №7'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=3&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №8'&$lname['<<$temploc>>']='Комната №8'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	$locname['<<$temploc>>']='Комната №8'&$lname['<<$temploc>>']='Комната №8'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=4&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 X=4&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №9'&$lname['<<$temploc>>']='Комната №9'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'justgirl'
-	 gs'randclo'&gs'randclo'&gs'randclo'
-	 item_loc['31,<<$temploc>>']=1
+	$locname['<<$temploc>>']='Комната №9'&$lname['<<$temploc>>']='Комната №9'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&gs'justgirl'&gs'randclo'&gs'randclo'&gs'randclo'&item_loc['31,<<$temploc>>']=1
 X=4&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №10'&$lname['<<$temploc>>']='Комната №10'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №10'&$lname['<<$temploc>>']='Комната №10'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=5&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №11'&$lname['<<$temploc>>']='Комната №11'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	$locname['<<$temploc>>']='Комната №11'&$lname['<<$temploc>>']='Комната №11'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №12'&$lname['<<$temploc>>']='Комната №12'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №12'&$lname['<<$temploc>>']='Комната №12'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=6&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №13'&$lname['<<$temploc>>']='Комната №13'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'justgirl'
-	 gs'randclo'&gs'randclo'&gs'randclo'
-	 item_loc['31,<<$temploc>>']=1
+    $locname['<<$temploc>>']='Комната №13'&$lname['<<$temploc>>']='Комната №13'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&gs'justgirl'&gs'randclo'&gs'randclo'&gs'randclo'&item_loc['31,<<$temploc>>']=1
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №14'&$lname['<<$temploc>>']='Комната №14'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №14'&$lname['<<$temploc>>']='Комната №14'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=7&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №15'&$lname['<<$temploc>>']='Комната №15'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №15'&$lname['<<$temploc>>']='Комната №15'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №16'&$lname['<<$temploc>>']='Комната №16'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №16'&$lname['<<$temploc>>']='Комната №16'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=8&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №17'&$lname['<<$temploc>>']='Комната №17'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
-	 item_loc['17,<<$temploc>>']+=1&item_loc['20,<<$temploc>>']+=1
+    $locname['<<$temploc>>']='Комната №17'&$lname['<<$temploc>>']='Комната №17'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&item_loc['17,<<$temploc>>']+=1&item_loc['20,<<$temploc>>']+=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №18'&$lname['<<$temploc>>']='Комната №18'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'justgirl'
- 	 gs'randclo'&gs'randclo'&gs'randclo'
-	 item_loc['31,<<$temploc>>']=1
+    $locname['<<$temploc>>']='Комната №18'&$lname['<<$temploc>>']='Комната №18'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&gs'justgirl'&gs'randclo'&gs'randclo'&gs'randclo'&item_loc['31,<<$temploc>>']=1
 X=9&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №19'&$lname['<<$temploc>>']='Комната №19'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №19'&$lname['<<$temploc>>']='Комната №19'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №20'&$lname['<<$temploc>>']='Комната №20'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
-	 item_loc['17,<<$temploc>>']+=1&item_loc['20,<<$temploc>>']+=1
+    $locname['<<$temploc>>']='Комната №20'&$lname['<<$temploc>>']='Комната №20'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&item_loc['17,<<$temploc>>']+=1&item_loc['20,<<$temploc>>']+=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=10&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 X=10&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 X=10&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 X=10&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=10&Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 door2['<<$temploc>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	door2['<<$temploc>>']=1
 X=11&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Туалет'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'
-	 np['<<$temploc>>']=1
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
-	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1
-	 item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'&np['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+	can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
 X=11&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Туалет'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'
-	 np['<<$temploc>>']=1
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
-	 can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&gloryhole['<<$temploc>>']=1&toilet['<<$temploc>>']=1
-	 item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
-     gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
-     gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
-     gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'&np['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
+	can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&gloryhole['<<$temploc>>']=1&toilet['<<$temploc>>']=1&item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
+    gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+    gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
+    gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 X=9&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №21'&$lname['<<$temploc>>']='Комната №21'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'justgirl'
-	 gs'randclo'&gs'randclo'&gs'randclo'
-	 item_loc['31,<<$temploc>>']=1
+	$locname['<<$temploc>>']='Комната №21'&$lname['<<$temploc>>']='Комната №21'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&gs'justgirl'&gs'randclo'&gs'randclo'&gs'randclo'&item_loc['31,<<$temploc>>']=1
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №22'&$lname['<<$temploc>>']='Комната №22'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
-	 item_loc['17,<<$temploc>>']+=1
+    $locname['<<$temploc>>']='Комната №22'&$lname['<<$temploc>>']='Комната №22'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&item_loc['17,<<$temploc>>']+=1
+	gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 X=8&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №23'&$lname['<<$temploc>>']='Комната №23'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
-	 item_loc['2,<<$temploc>>']+=1
+	$locname['<<$temploc>>']='Комната №23'&$lname['<<$temploc>>']='Комната №23'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&item_loc['2,<<$temploc>>']+=1
+	gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №24'&$lname['<<$temploc>>']='Комната №24'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
+    $locname['<<$temploc>>']='Комната №24'&$lname['<<$temploc>>']='Комната №24'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 X=7&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №25'&$lname['<<$temploc>>']='Комната №25'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
-	 item_loc['2,<<$temploc>>']+=1
+    $locname['<<$temploc>>']='Комната №25'&$lname['<<$temploc>>']='Комната №25'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&item_loc['2,<<$temploc>>']+=1
+	gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №26'&$lname['<<$temploc>>']='Комната №26'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'& !$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'justgirl'
-	 gs'randclo'&gs'randclo'&gs'randclo'
-	 item_loc['31,<<$temploc>>']=1
+    $locname['<<$temploc>>']='Комната №26'&$lname['<<$temploc>>']='Комната №26'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'& !$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&gs'justgirl'&gs'randclo'&gs'randclo'&gs'randclo'&item_loc['31,<<$temploc>>']=1
 X=6&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №27'&$lname['<<$temploc>>']='Комната №27'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
-	 item_loc['2,<<$temploc>>']+=1
+    $locname['<<$temploc>>']='Комната №27'&$lname['<<$temploc>>']='Комната №27'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&item_loc['2,<<$temploc>>']+=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №28'&$lname['<<$temploc>>']='Комната №28'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №28'&$lname['<<$temploc>>']='Комната №28'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=5&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'
-	 np['<<$temploc>>']=509
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №29'&$lname['<<$temploc>>']='Комната №29'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Комната №29'&$lname['<<$temploc>>']='Комната №29'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Комната №30'&$lname['<<$temploc>>']='Комната №30'&$locopis['<<$temploc>>']='Гостинничный номер'
-	 np['<<$temploc>>']=510
-	 $wall_name['<<$temploc>>']='Комната'
-	 n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-	 $n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
-	 $e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
-	 $n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 $e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	 tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
-	 gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
-	 item_loc['2,<<$temploc>>']+=1
+    $locname['<<$temploc>>']='Комната №30'&$lname['<<$temploc>>']='Комната №30'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
+	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
+	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
+	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&item_loc['2,<<$temploc>>']+=1
+	gs'bmale_gen'&$nick[i]='Клиент'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=55&mobexp[i]=10&total_pornacter+=1&$title[i]='Чёрный мужчина посещающий отель'
 X=4&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-      $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
 X=3&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=2&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
 X=1&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=0&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Лестница'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Лестница'&$lname['<<$temploc>>']='Лестница'&$locopis['<<$temploc>>']='лестница ведущая на второй этаж'
-	 np['<<$temploc>>']=535
-	 stairway['<<$temploc>>']=1
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Лестница'&$lname['<<$temploc>>']='Лестница'&$locopis['<<$temploc>>']='лестница ведущая на второй этаж'&np['<<$temploc>>']=535
+	stairway['<<$temploc>>']=1&gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=4&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-      $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
 X=3&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=2&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
 X=1&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=0&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=4&Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Ресепшн'&$lname['<<$temploc>>']='Ресепшн'&$locopis['<<$temploc>>']='Стойка у входа, на которой регистрируются посетители'
-	 np['<<$temploc>>']=513
-	 door['<<$temploc>>']=1&!Xdoor['<<$temploc>>']=0&Ydoor['<<$temploc>>']=0&Zdoor['<<$temploc>>']=770
-	 tvh['<<$temploc>>']=1
-	 gs'domale_gen'&recepboy=i&$title[i]='Работник отеля'&$nick[i]='Слуга на ресепшине'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+    $locname['<<$temploc>>']='Ресепшн'&$lname['<<$temploc>>']='Ресепшн'&$locopis['<<$temploc>>']='Стойка у входа, на которой регистрируются посетители'&np['<<$temploc>>']=513
+	tvh['<<$temploc>>']=1&door['<<$temploc>>']=1&!Xdoor['<<$temploc>>']=0&Ydoor['<<$temploc>>']=0&Zdoor['<<$temploc>>']=770
+	gs'domale_gen'&recepboy=i&$title[i]='Работник отеля'&$nick[i]='Слуга на ресепшине'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=3&Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
 X=2&Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-      $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
-	 gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
+	gs'domale_gen'&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 X=1&Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-      $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511
 X=0&Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Холл'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-     $locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'
-	 np['<<$temploc>>']=511
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$locopis['<<$temploc>>']='Просторный холл гостинницы'&np['<<$temploc>>']=511

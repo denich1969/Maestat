@@ -1,37 +1,21 @@
 ﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Изменить <<$name[npc]>>.'&act'Уйти':gt 'preloc'
 act'Установить фотку <<$name[npc]>>':
 	spec_face_pic[npc]=input("Введите номер папки. ЖГГ До 5 стандартные внешности, ввести 0. 5 предустановленные фото. 6 фото по феминности. 7 и 8 только женское лицо.")
-     if spec_face_pic[npc]=6:
-		 face_tipe[npc]=input("Введите тип внешности из 6й папки.")&face_pic[npc]=1
-     else
+    if spec_face_pic[npc]=6:
+		face_tipe[npc]=input("Введите тип внешности из 6й папки.")&face_pic[npc]=1
+    else
 		face_pic[npc]=input("Введите номер фотографии. Фотографию можно посмотреть в файлах игры.")
-     end
+    end
 	gt $curloc
 end
-if muggle[npc]=1:
-	 act'Сделать <<$name[npc]>> магом':
-		 muggle[npc]=0&magik[npc]=input("уровень магии")&act'...':gt $curloc
-	 end
-end
-if muggle[npc]=0:
-	 act'Сделать <<$name[npc]>> маглом':
-		 muggle[npc]=1&magik[npc]=0&act'...':gt $curloc
-	 end
-end
+if muggle[npc]=1:act'Сделать <<$name[npc]>> магом':muggle[npc]=0&magik[npc]=input("уровень магии")&gt $curloc
+if muggle[npc]=0:act'Сделать <<$name[npc]>> маглом':muggle[npc]=1&magik[npc]=0&gt $curloc
 if lips[npc]!0:'<a href="exec:lips[npc]=0&gt $curloc,''cheat''">Обыкновенные губы</a>'
 if lips[npc]!1:'<a href="exec:lips[npc]=1&gt $curloc,''cheat''">Пухленькие губы</a>'
 if lips[npc]!2:'<a href="exec:lips[npc]=2&gt $curloc,''cheat''">Толстые губы</a>'
 if lips[npc]!3:'<a href="exec:lips[npc]=3&gt $curloc,''cheat''">Огромные губы, похожие на букву О</a>'
-if vag[npc]=0:
-	 act'Установить <<$name[npc]>> вагину':
-		dick[npc]=0&dickd[npc]=0&ball[npc]=0&vag[npc]=1&act'...':gt $curloc
-	 end
-end
-if vag[npc]=1:
-	 act'Установить <<$name[npc]>> член':
-		dick[npc]=15&dickd[npc]=30&ball[npc]=50&vag[npc]=0&act'...':gt $curloc
-	 end
-end
+if vag[npc]=0:act'Установить <<$name[npc]>> вагину':dick[npc]=0&dickd[npc]=0&ball[npc]=0&vag[npc]=1&gt $curloc
+if vag[npc]=1:act'Установить <<$name[npc]>> член':dick[npc]=15&dickd[npc]=30&ball[npc]=50&vag[npc]=0&gt $curloc
 act'Напоить <<$name[npc]>> манайзером':
 	manize[npc]=input("Введите количество")&gs'stat'&act'...':gt $curloc
 end
@@ -110,33 +94,19 @@ if beliver[npc]=0:
 		beliver[npc]=input("введите номер напр. дагон: 2 ")&gs'stat'&act'...':gt $curloc
 	 end
 end
-if beliver[npc]>0:
-	 act'<<$name[npc]>> не будет последователем':
-		beliver[npc]=0&gs'stat'&act'...':gt $curloc
-	 end
-end
+if beliver[npc]>0:act'<<$name[npc]>> не будет последователем':beliver[npc]=0&gs'stat'&gt $curloc
 if pol[npc]>0:
 	 act'Сделать <<$name[npc]>> шлюхой npc':
 		 whore[npc]+=1&whoreboss[npc]=input("номер npc")&lust[npc]+=100&agro[npc]=0&stamp_t[npc]=rand(1,4)&t_slot[npc]=rand(32,36)&l_slot[npc]=rand(70,79)&b_slot[npc]=rand(34,36)
 		 ul_slot[npc]=0&ut_slot[npc]=0&forhorn[npc]+=100&oral_fixation[npc]+=100&gs'stat'&act'...':gt $curloc
 	 end
 end
-
-if whore[npc]>0:
-	 act'<<$name[npc]>> больше не будет шлюхой':
-		whoreboss[npc]=0&whore[npc]=0&gs'stat'&act'...':gt $curloc
-	 end
-end
-
+if whore[npc]>0:act'<<$name[npc]>> больше не будет шлюхой':whoreboss[npc]=0&whore[npc]=0&gs'stat'&gt $curloc
 if whore[you]=0:
 	 act'Самой стать шлюхой npc':
-		 whoreboss[you]=npc&whore[you]+=1&lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&horny[you]+=100
-		 drinkpee[you]+=100&peecover[you]+=100&feminize[you]+=100&collar[you]=1&t_slot[you]=86&l_slot[you]=46&b_slot[you]=11&ul_slot[you]=14&ub_slot[you]=2&ut_slot[you]=2
-		 lowered_status['<<npc>>,<<you>>']+=100&sexpartner['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know_whore['<<npc>>,<<you>>']+=1&gs'stat'&act'...':gt $curloc
-	 end
+		whoreboss[you]=npc&whore[you]+=1&lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&horny[you]+=100
+		drinkpee[you]+=100&peecover[you]+=100&feminize[you]+=100&collar[you]=1&t_slot[you]=86&l_slot[you]=46&b_slot[you]=11&ul_slot[you]=14&ub_slot[you]=2&ut_slot[you]=2
+		lowered_status['<<npc>>,<<you>>']+=100&sexpartner['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know_whore['<<npc>>,<<you>>']+=1&gs'stat'&act'...':gt $curloc
+	end
 end
-if whore[you]>0:
-	 act'Я не буду больше шлюхой':
-		whoreboss[you]=0&whore[you]=0&collar[you]=0&gs'stat'&act'...':gt $curloc
-	 end
-end
+if whore[you]>0:act'Я не буду больше шлюхой':whoreboss[you]=0&whore[you]=0&collar[you]=0&gs'stat'&gt $curloc

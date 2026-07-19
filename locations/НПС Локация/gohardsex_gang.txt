@@ -23,7 +23,7 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 end
 i+=1&if i<=npcmax:jump'marknpclocgb'
 if skin[ddd]>3 and skin[ddd]<7:
-	w=sss&face[sss]+=1&feminize[sss]+=1&gs'effect_feminize',sss&'<center><video src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
+	w=sss&face[sss]+=1&feminize[sss]+=1&gs'effect_feminize',sss&'<center><video autoplay loop src="pic/sex/degraded/blackgang<<rand(0,21)>>.webm" ></video></center>'
 	'<<$name[sss]>> <<$surname[sss]>> стонет когда её ебут во все дыры'&you_see_sex[sss]+=1&corr[sss]+=rand(2,8)&act'Дрочить':gt 'sex_gang_see'
      if blackedGangQW=0 and Z[you]=3:blackedGangQW=1&'Вы пялитесь на эту картину и задаетесь вопросом, происходящее вообще нормально? Почему власти не реагируют на это?'
 else

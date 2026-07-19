@@ -1,84 +1,47 @@
-﻿$loc[you]=$curloc
-loc_for_drop=0&gs'stat'&'<b><center>Рынок рабов</center></b>'&*pl ''&'<center><img src="pic/slave/guild/auktion.jpg" ></center>'
-'Все не клейменные рабыни пойманные охотниками стекаются сюда, где их продают с дощатого помоста.'
- "Вы стоите посреди шумной рыночной площади. Впереди, на помосте, окруженном покупателями и зеваками, усатый караванщик демонстрирует живой товар. В толпе вы замечаете знакомого работорговца — Фарида"
+﻿$loc[you]=$curloc&loc_for_drop=0&gs'stat'&'<b><center>Рынок рабов</center></b>'&*pl ''&'<center><img src="pic/slave/guild/auktion.jpg" ></center>'
+'Все не клейменные рабыни пойманные охотниками стекаются сюда, где их продают с дощатого помоста.'&*nl"Вы стоите посреди шумной рыночной площади. '
+'Впереди, на помосте, окруженном покупателями и зеваками, усатый караванщик демонстрирует живой товар. В толпе вы замечаете знакомого работорговца — Фарида"
 gs'npconloc'&*pl ''&gs'item'&!GT "Slavemarket"
-if  girl > 0:
-	price = внешность*целка*2*(ноги+ловкость+ум+возраст)+ RAND (1,50)
-	girl = 0
-	DELOBJ "Добыча"
-	iskr[you]+=price
-	if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/money.mp3",Громкость_эффектов
-	"Вы выставили дикарку на торги и получили за нее <<price>> з.м."
+if  girl>0:
+	price=внешность*целка*2*(ноги+ловкость+ум+возраст)+RAND (1,50)&girl=0&DELOBJ "Добыча"&iskr[you]+=price
+	"Вы выставили дикарку на торги и получили за нее <<price>> з.м."&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/money.mp3",Громкость_эффектов
 end
 if hour>=8 and hour<=20:
 	'На рынке продают рабынь захваченных охотниками ходящими в туманы.'
 	if firstslaveday!daystart:
 		act'Посмотреть первую рабыню':
-			firstslaveday=daystart
-			time+=60&cls&gs'stat'
-			slave=0
-			gs'slavegen'
-			gs'slavebody'
-			'<b><center><<$sl_name[slave]>></center></b>'
-			'<center><img src="pic/slave/face/<<sl_hcol[slave]>>/<<sl_facepic[slave]>>.jpg" ></center>'
-			'<<$sl_body[slave]>>'
-			slavemoney=100+sl_total[slave]*100
-			if sl_age[slave]<21:slavemoney+=100
-			'Рабыня стоит <<slavemoney>> искр'
-			act'Уйти':gt $curloc
+			firstslaveday=romadaystart&time+=60&cls&gs'stat'&slave=0&gs'slavegen'&gs'slavebody'&'<b><center><<$sl_name[slave]>></center></b>'
+			'<center><img src="pic/slave/face/<<sl_hcol[slave]>>/<<sl_facepic[slave]>>.jpg" ></center>'&*nl'<<$sl_body[slave]>>'&slavemoney=100+sl_total[slave]*100&if sl_age[slave]<21:slavemoney+=100
+			'Рабыня стоит <<slavemoney>> искр'&act'Уйти':gt $curloc
 			if iskr[you]>=slavemoney:
 				act'Купить рабыню':
-					iskr[you]-=slavemoney
-					cls&gs'slaveperevod'&'Вы заплатили деньги и купили рабыню'
-					act'Уйти':gt $curloc
+					iskr[you]-=slavemoney&cls&gs'slaveperevod'&'Вы заплатили деньги и купили рабыню'&act'Уйти':gt $curloc
 				end
 			end
 		end
 	end
 	if firstslaveday=daystart and secondslaveday!daystart:
 		act'Посмотреть вторую рабыню':
-			secondslaveday=daystart
-			slave=0
-			time+=60&cls&gs'stat'
-			gs'slavegen'
-			gs'slavebody'
-			'<b><center><<$sl_name[slave]>></center></b>'
-			'<center><img src="pic/slave/face/<<sl_hcol[slave]>>/<<sl_facepic[slave]>>.jpg" ></center>'
-			'<<$sl_body[slave]>>'
-			slavemoney=100+sl_total[slave]*100
-			if sl_age[slave]<21:slavemoney+=100
-			'Рабыня стоит <<slavemoney>> искр'
-			act'Уйти':gt $curloc
+			secondslaveday=romadaystart&slave=0&time+=60&cls&gs'stat'&gs'slavegen'&gs'slavebody'&'<b><center><<$sl_name[slave]>></center></b>'
+			'<center><img src="pic/slave/face/<<sl_hcol[slave]>>/<<sl_facepic[slave]>>.jpg" ></center>'&'<<$sl_body[slave]>>'
+			slavemoney=100+sl_total[slave]*100&if sl_age[slave]<21:slavemoney+=100
+			'Рабыня стоит <<slavemoney>> искр'&act'Уйти':gt $curloc
 			if iskr[you]>=slavemoney:
 				act'Купить рабыню':
-					iskr[you]-=slavemoney
-					cls&gs'slaveperevod'&'Вы заплатили деньги и купили рабыню'
-					act'Уйти':gt $curloc
+					iskr[you]-=slavemoney&cls&gs'slaveperevod'&'Вы заплатили деньги и купили рабыню'&act'Уйти':gt $curloc
 				end
 			end
 		end
 	end
 	if secondslaveday=daystart and thirdslaveday!daystart:
 		act'Посмотреть третью рабыню':
-			thirdslaveday=daystart
-			time+=60&cls&gs'stat'
-			slave=0
-			gs'slavegen'
-			gs'slavebody'
-			'<b><center><<$sl_name[slave]>></center></b>'
-			'<center><img src="pic/slave/face/<<sl_hcol[slave]>>/<<sl_facepic[slave]>>.jpg" ></center>'
-			'<<$sl_body[slave]>>'
-			slavemoney=100+sl_total[slave]*100
-			if sl_age[slave]<21:slavemoney+=100
-			'Рабыня стоит <<slavemoney>> искр'
-			act'Уйти':gt $curloc
+			thirdslaveday=romadaystart&time+=60&cls&gs'stat'&slave=0&gs'slavegen'&gs'slavebody'&'<b><center><<$sl_name[slave]>></center></b>'
+			'<center><img src="pic/slave/face/<<sl_hcol[slave]>>/<<sl_facepic[slave]>>.jpg" ></center>'&'<<$sl_body[slave]>>'
+			slavemoney=100+sl_total[slave]*100&if sl_age[slave]<21:slavemoney+=100
+			'Рабыня стоит <<slavemoney>> искр'&act'Уйти':gt $curloc
 			if iskr[you]>=slavemoney:
 				act'Купить рабыню':
-					iskr[you]-=slavemoney
-					cls&gs'slaveperevod'
-					'Вы заплатили деньги и купили рабыню'
-					act'Уйти':gt $curloc
+					iskr[you]-=slavemoney&cls&gs'slaveperevod'&'Вы заплатили деньги и купили рабыню'&act'Уйти':gt $curloc
 				end
 			end
 		end
@@ -92,8 +55,8 @@ IF sex = 1:
 END
 ACT "- Скажи, Фарид, от чего зависит цена рабов на аукционе?":
 	*CLR&"<TABLE><TR><TD><img src = 'content/market/farid.jpg'></TD><TD>"
-	 "(Вы): - Скажи, Фарид, от чего зависит цена на рабов на аукционе?"
-	 "<BR>(Фарид): - Ну... рабы бывают всякие, у разных категорий разная ценность. <BR><BR>Вы уточняете: - Меня интересуют молодые и привлекательные, но не обученные рабыни. <BR><BR> - Ааааа! Весьма ходовой товар. Таких часто берут мастера Школы Рабынь и делают из них настоящих искусниц... Но они отбирают самых лучших, а те что попроще достаются любителям клубнички, которым рабы-любви со знаком Школы не по карману. <BR> Если девушка здоровая и без изъянов, всегда найдется тот, кто заплатит золотом. В первую очередь смотрят на красоту мордашки. Также важен возраст. Если у девчонки еще не отрасли сиськи, за нее дадут куда меньше. Созревшие женщины стоят дороже. До своего предела, конечно, но ты-то не старухами будешь торговать, а? <BR> Оценивают конечно и красоту тела в целом, выносливость и подтянутость. Гибкость и грация движений тоже делают женщину более желанной. На обучение чаще берут смышленых девушек, тех у которых виден характер. Очень важна девственность - за нетронутую рабыню можно выручить почти вдвое от обычной цены! Ну и конечно многое зависит от того как пойдет аукцион — если кому-то девчонка просто приглянется, он часто готов заплатить больше!" 
+	"(Вы): - Скажи, Фарид, от чего зависит цена на рабов на аукционе?"
+	"<BR>(Фарид): - Ну... рабы бывают всякие, у разных категорий разная ценность. <BR><BR>Вы уточняете: - Меня интересуют молодые и привлекательные, но не обученные рабыни. <BR><BR> - Ааааа! Весьма ходовой товар. Таких часто берут мастера Школы Рабынь и делают из них настоящих искусниц... Но они отбирают самых лучших, а те что попроще достаются любителям клубнички, которым рабы-любви со знаком Школы не по карману. <BR> Если девушка здоровая и без изъянов, всегда найдется тот, кто заплатит золотом. В первую очередь смотрят на красоту мордашки. Также важен возраст. Если у девчонки еще не отрасли сиськи, за нее дадут куда меньше. Созревшие женщины стоят дороже. До своего предела, конечно, но ты-то не старухами будешь торговать, а? <BR> Оценивают конечно и красоту тела в целом, выносливость и подтянутость. Гибкость и грация движений тоже делают женщину более желанной. На обучение чаще берут смышленых девушек, тех у которых виден характер. Очень важна девственность - за нетронутую рабыню можно выручить почти вдвое от обычной цены! Ну и конечно многое зависит от того как пойдет аукцион — если кому-то девчонка просто приглянется, он часто готов заплатить больше!" 
 	DELACT "- Скажи, Фарид, от чего зависит цена рабов на аукционе?"
 END
 ACT "- Сколько стоит самая дорогая рабыня?":
@@ -102,7 +65,7 @@ ACT "- Сколько стоит самая дорогая рабыня?":
 	"<BR>(Фарид): - Оооо! Штучный и экзотический товар порой может стоить дороже чем звезды на небе! Но ты наверное имеешь в виду обычных красоток? Самая дорогая не обученная рабыня которую тут продавали до тебя, ушла с аукциона ровно за 600 золотых. Неплохая прибавка к пенсии, на мой взгляд!"
 	DELACT "- Сколько стоит самая дорогая рабыня?"
 END
-IF OBJ "Добыча" and girl = 1:
+IF OBJ "Добыча" and girl=1:
 	ACT "- Фарид, посмотри на эту дикарку. Как думаешь, сколько за нее дадут на аукционе?":
 		price = (внешность*целка*(ноги+ловкость+ум+возраст))+24
 		"<BR> Фарид внимательно осматривает и ощупывает вашу добычу, и даже проверяет у дикарки зубы и целостность девственной плевы. Наконец, прикинув что-то в уме, работорговец произносит: <BR> 	- Я бы оценил ее в <<price>> золотых. Но на аукционе цена может скакать." 
@@ -127,12 +90,8 @@ IF OBJ "Добыча" and girl = 2:
 END
 IF OBJ "Добыча" and girl = 1:
 	ACT "Продать пойманную дикарку на аукционе":
-		price = внешность*целка*2*(ноги+ловкость+ум+возраст)+ RAND (1,50)
-		girl = 0
-		DELOBJ "Добыча"
-		money+=price
+		price=внешность*целка*2*(ноги+ловкость+ум+возраст)+ RAND (1,50)&girl=0&DELOBJ "Добыча"&money+=price&msg "Вы выставили дикарку на торги и получили за нее <<price>> з.м."
 		if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//money.mp3",Громкость_эффектов
-		msg "Вы выставили дикарку на торги и получили за нее <<price>> з.м."
 		GT "Slavemarket"
 	END
 END

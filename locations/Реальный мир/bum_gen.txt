@@ -1,12 +1,6 @@
-﻿npcmaxnum+=1&i=npcmaxnum
-mob[i]=2&mobexp[i]=10&!номер моба для разговора
-tipemobpic[i]=1&picture[i]=rand(10,14)&!номер типа фотки и номер фотки
-fight_prog[i]=1&!программа боя
-def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
-notfast[i]=0&!если 1 то все удары героя попадают в нпс
-visualpol[i]=0&!видимый пол, не зависит от половых органов
-gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname
-tipe=rand(0,8)
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&mob[i]=2&mobexp[i]=10&!номер моба для разговора
+tipemobpic[i]=1&picture[i]=rand(10,14)&gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname&!номер типа фотки и номер фотки, ФИО
+tipe=rand(0,8)&$basestatus[i]=' копается в куче мусора'
 if tipe=0:$nick[i]='Бездомный'
 if tipe=1:$nick[i]='Нищий'
 if tipe=2:$nick[i]='Забулдыга'
@@ -16,10 +10,13 @@ if tipe=5:$nick[i]='Престарелый алкаш'
 if tipe=6:$nick[i]='Пьяньчужка'
 if tipe=7:$nick[i]='Алканавт'
 if tipe=8:$nick[i]='Бродяга'
-$basestatus[i]=' копается в куче мусора'
-dick[i]=rand(12,20)&dickd[i]=rand(30,45)&ball[i]=rand(40,70)
+face[i]=10&gla[i]=0&glacol[i]=1&nose[i]=0&lips[i]=0&cheeks[i]=-10
+dick[i]=rand(12,20)&dickd[i]=rand(30,45)&ball[i]=rand(40,70)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
+rost[i]=178&fat[i]=500&mus[i]=1000&skin[i]=1
+face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=0&beard[i]=0 
 healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
-reflex[i]=rand(40,50)
-agro[i]=rand(0,1)&corr[i]=rand(10,100)
-real_world[]=i&walkprog[i]=0&!программа движения
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+age[i]=27&vital[i]=rand(60,90)&will[i]=10&reflex[i]=rand(40,50)&mustage[i]=0&visualpol[i]=0&pol[i]=0&gs'body'&total_generated_male+=1&!gs'male_gen'
+womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=rand(0,1)&selrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=10&corr[i]=rand(10,100)
+h_slot[i]=0&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=10&l_slot[i]=1&b_slot[i]=1&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&real_world[]=i&walkprog[i]=0&!программа движения
+fight_prog[i]=1&def_tipe[i]=0&notfast[i]=0&!программа боя  !тип защиты. 1 это не пытается защищаться  !если 1 то все удары героя попадают в нпс

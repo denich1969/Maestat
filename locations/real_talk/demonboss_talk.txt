@@ -1,15 +1,15 @@
 ﻿if know['<<you>>,<<demonboss>>']:
 	if BossmainQW=0:
 		act 'Поговорить об устройстве на работу':
-			 time+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Здравствуйте, я хочу устроиться на работу'
+			time+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Здравствуйте, я хочу устроиться на работу'
 			act 'Дождаться ответа':
-				 time+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				time+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 				if pol[you]=0:'Эта работа не для мужчин, нам нужна привлекательная женщина, но и вы можете попытаться. Прочитайте инструкции и оформите бланки. '
 				if pol[you]=1 and attraction[you]>3:'Вы приняты. Вот, прочитайте инструкции и оформите бланки. '
 				pl'Затем познакомитесь с сотрудниками вашего отдела'
 				act 'Устроиться на работу':
 					time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&delact 'Поговорить об устройстве на работу'
-					BossmainQW=1&work[you]=19&'Вы оформляете документы и становитесь сотрудником офиса'&act'<b>Уйти</b>':gt 'preloc'
+					BossmainQW=1&work[you]=19&'Вы оформляете документы и становитесь сотрудником офиса'&Xwork=1&Ywork=1&Zwork=200&Hwork=1&Rwork=1&act'<b>Уйти</b>':gt 'preloc'
 				end
 			end
 		end
@@ -17,7 +17,7 @@
 	if BossmainQW=1:
 		act 'Отчитаться':
 			if pol[you]=0:
-				 time+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&rubl[you]+=50000&'Вы отчитываетесь за проделанную работу.'
+				time+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&rubl[you]+=50000&'Вы отчитываетесь за проделанную работу.'
 				if BossmainQW=1 and day=5 and realdaystart>=7:
 					BossmainQW=2&'Начальник отдела брезгливо замечает - Несмотря на то что пятница, я надеюсь вы <<$surname[you]>> закончите свои дела, а не ворон считать в окне будете.'
 				end
@@ -37,7 +37,7 @@
 					end
 				end
 			end
-			act 'Вернуться на рабочее место':X[you]=Xwork&Y[you]=Ywork&Z[you]=Zwork&H[you]=Hwork&R[you]=Rwork&gt'world'
+			act 'Идти на рабочее место':X[you]=Xwork&Y[you]=Ywork&Z[you]=Zwork&H[you]=Hwork&R[you]=Rwork&gt'world'
 		end
 	end
 end

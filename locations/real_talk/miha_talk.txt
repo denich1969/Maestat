@@ -26,8 +26,7 @@
 	end
 	if pol[you]=0:
 		act'Поприветствовать':
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> пожал вашу руку - Привет <<$name[you]>>, слушай, у меня к тебе дело. '
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> пожал вашу руку - Привет <<$name[you]>>, слушай, у меня к тебе дело. '
 			'Я тебе говорил, что у меня машина сломалась, дружище, выручи, мне по разборкам надо покататься, коробку найти.'
 			act'Без вопросов':
 				time+=60*8&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
@@ -44,8 +43,7 @@ if (friends['<<npc>>,<<you>>']>10 or (boyfriend[you]=miha and you=girlfrend[miha
 	if pol[you]=0:
 		act'Поприветствовать':
 			meetQW=2
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-			'<<$name[npc]>> пожал вашу руку - Привет <<$name[you]>>, ну что, сходим в наш бар неподалеку, выпьем пивка для рывка.'
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> пожал вашу руку - Привет <<$name[you]>>, ну что, сходим в наш бар неподалеку, выпьем пивка для рывка.'
 			act'Идти с Михой в бар':
 				alko[you]+=8&time+=60*3&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 				'Вы пошли с Михой в бар и там начали с пивка и стали вести разговоры за жизнь. Постепенно довольно сильно набрались и вам приспичило в туалет.'

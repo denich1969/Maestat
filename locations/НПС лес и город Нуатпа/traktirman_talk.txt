@@ -1,7 +1,4 @@
-﻿'У вас <<item[24]>> серебра'
-!"DEBUG clothe_sexy_point "+clothe_sexy_point[you]
-!"DEBUG sexy_point "+sexy_point[you]
-!"DEBUG horny npc "+horny[npc]
+﻿!'У вас <<item[24]>> серебра'&!"DEBUG clothe_sexy_point "+clothe_sexy_point[you]&!"DEBUG sexy_point "+sexy_point[you]&!"DEBUG horny npc "+horny[npc]
 if GF_whore>1 and total_sexy[you]>60:
 	if a_pee['<<npc>>,<<you>>']>0: 
 		if horny[npc]>=50:
@@ -22,35 +19,29 @@ if sex_times['<<npc>>,<<you>>']>10 and timeHorny[you]!time/60:
 	'<i><font color="pink">Подмигнул, шлепнув по заднице</font></i>'&timeHorny[you]=time/60&if agro[you]<50:horny[you]+=lust[you]/10&gs'stat'
 end
 act'Поговорить':
-	time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-	'<<$name[npc]>> - проклятые бесы, они все заполонили, из за них торговля совсем зачахла. Но я по прежнему торгую в обмен на серебро.'
+	time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - проклятые бесы, они все заполонили, из за них торговля совсем зачахла. Но я по прежнему торгую в обмен на серебро.'
 	if flirttrakdot>0:'<<$name[npc]>> хмурится - И завязывай подкатывать к моей дочери!'
-	 if hunter[kap]=1:'<<$name[npc]>> раздосадованно качает головой - Совсем никого не осталось в деревне!'
+	if hunter[kap]=1:'<<$name[npc]>> раздосадованно качает головой - Совсем никого не осталось в деревне!'
 	act'...':gt $loc[you]
 	if (horny[npc]>=50) and pol[you]>0 and sex_times['<<npc>>,<<you>>']>0:
 		whorePay=total_sexy[you]-GF_whore
 		if whorePay<10:whorePay=10
 		'<<$name[npc]>> сально осматривает вас - Детка, я дам тебе <<whorePay>> серебра, если ты приласкаешь меня'
 		if slutty_outfit=0:
-			slutty_outfit=1
-			item_loc_t['17,fv_tavern']=1&item_loc_l['13,fv_tavern']=1&item_loc_ub['6,fv_tavern']=1&item_loc_b['14,fv_tavern']=1
-			'<<$name[npc]>> порылся в сундуке - У меня тут кое какие шмотки есть, возьми. Если наденешь их, обед за счет заведения!'
-			"<i><<$name[npc]>> - Надень его и получишь прибавку</i>"
+			slutty_outfit=1&item_loc_t['17,fv_tavern']=1&item_loc_l['13,fv_tavern']=1&item_loc_ub['6,fv_tavern']=1&item_loc_b['14,fv_tavern']=1
+			'<<$name[npc]>> порылся в сундуке - У меня тут кое какие шмотки есть, возьми. Если наденешь их, обед за счет заведения!'&*nl"<i><<$name[npc]>> - Надень его и получишь прибавку</i>"
 		end
 		if a_pee['<<npc>>,<<you>>']>0 and in_home[mech]>=2:
-			tiperand=rand(0,1)
+			tiperand=rand(1)
 			if tiperand=0:
 				'<<$name[npc]>> - Но думаю нам нужно разнообразить секс и позвать Мердока'
-			act'Заняться сексом':
-						sexday[npc]=daystart&GF_whore+=1&whore=1
+				act'Заняться сексом':
+					sexday[npc]=daystart&GF_whore+=1&whore=1
 					if analslut[you]>10 and cumslut[you]>10 and GF_whore>10:dirty_train=1
 					first=npc&second=mech&item[24]+=whorePay
 					if agro[you]<25:
-						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&item[26]+=1&gs'item_use',11,26&item[2]-=1&item_loc_t['2,fv_tavern']+=1&act'Тепло...':gt'sex'
 						"<<$name[npc]>> достал бутылочку с молоком, откупорил и дал вам выпить его, вы решили, что ничего страшного не будет и запрокинули ее в рот"
-						item[26]+=1&gs'item_use',11,26
-						item[2]-=1&item_loc_t['2,fv_tavern']+=1
-						act'Тепло...':gt'sex'
 					else	
 						gt'sex'
 					end
@@ -61,14 +52,10 @@ act'Поговорить':
 				act'Заняться сексом':
 					sexday[npc]=daystart&GF_whore+=1&whore=1
 					if analslut[you]>10 and cumslut[you]>10 and GF_whore>10:dirty_train=1
-						first=npc&second=kap
-					item[24]+=whorePay
+					first=npc&second=kap&item[24]+=whorePay
 					if agro[you]<25:
-						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&item[26]+=1&gs'item_use',11,26&item[2]-=1&item_loc_t['2,fv_tavern']+=1&act'Тепло...':gt'sex'
 						"<<$name[npc]>> достал бутылочку с молоком, откупорил и дал вам выпить его, вы решили, что ничего страшного не будет и запрокинули ее в рот"
-						item[26]+=1&gs'item_use',11,26
-						item[2]-=1&item_loc_t['2,fv_tavern']+=1
-						act'Тепло...':gt'sex'
 					else	
 						gt'sex'
 					end
@@ -78,9 +65,8 @@ act'Поговорить':
 			act'Заняться сексом':
 				sexday[npc]=daystart&item[24]+=whorePay&whore=1&GF_whore+=1&if rude[npc]<3:rude[npc]+=1
 				if agro[you]<25:
-					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&item[26]+=1&	gs'item_use',11,26&item[2]-=1&item_loc_t['2,fv_tavern']+=1&act'Тепло...':gt'sex'
 					"<<$name[npc]>> достал бутылочку с молоком, откупорил и дал вам выпить его, вы решили, что ничего страшного не будет и запрокинули ее в рот"
-					item[26]+=1&	gs'item_use',11,26&item[2]-=1&item_loc_t['2,fv_tavern']+=1&act'Тепло...':gt'sex'
 				else	
 					gt'sex'
 				end
@@ -97,8 +83,7 @@ act'Поговорить':
 				act'Заняться сексом':sexday[npc]=daystart&item[16]+=1&talkaboutsex=2&lust[npc]=70&agro[npc]=70&gt'sex'
 			end
 		else
-			'<<$name[npc]>> - Детка, хочешь заработать 50 серебра? Тебе хватит и на еду и на выпивку. А ты приласкаешь меня. Не бойся, я никому не расскажу.'
-			act'Послать его':talkaboutsex=1&gt $loc[you]
+			'<<$name[npc]>> - Детка, хочешь заработать 50 серебра? Тебе хватит и на еду и на выпивку. А ты приласкаешь меня. Не бойся, я никому не расскажу.'&act'Послать его':talkaboutsex=1&gt $loc[you]
 			act'Заняться сексом':sexday[npc]=daystart&item[24]+=50&talkaboutsex=2&lust[npc]=70&agro[npc]=70&gt'sex'
 		end
 	end
@@ -111,8 +96,7 @@ end
 if item[24]>=10:
 	if (burden[you]+item_burden[25])<=burdenmax[you]:
 		act'Купить виски 10 серебра':
-			item[24]-=10&burden[you]-=item_burden[24]&!вычесть серебро
-			t=25&item[25]+=1&burden[you]+=item_burden[25]
+			item[24]-=10&burden[you]-=item_burden[24]&item[25]+=1&burden[you]+=item_burden[25]&!вычесть серебро и получить виски
 			time+=rand(1,3)&cls&gs'stat'&dynamic $d_inv&'<center><img src="<<$d_view>>" ></center>'&'Вы платите серебром и трактирщик дает вам бутылку виски'&act'...':gt $loc[you]
 		end
 	end
@@ -120,24 +104,21 @@ end
 if item[24]>=obedCost:
 	if hunger[you]>1:
 		act'Заказать еду <<obedCost>> серебра':
-			item[24]-=obedCost&burden[you]-=item_burden[24]*obedCost&!вычесть серебро
-			energy[you]=energyMax[you]&fat[you]+=25&if vag[you]>0:fat[you]+=20
-			time+=15&cls&gs'eat'&gs'eat'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> положил вам горячей еды и вы заплатили 2 серебра. Съев еду вы отдали миску трактирщику.'
-			act'...':gt $loc[you]
+			item[24]-=obedCost&burden[you]-=item_burden[24]*obedCost&energy[you]=energyMax[you]&fat[you]+=25&if vag[you]>0:fat[you]+=20
+			time+=15&cls&gs'eat'&gs'eat'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> положил вам горячей еды. Съев еду вы отдали миску трактирщику.'&act'...':gt $loc[you]
 		end
 	end
 end
 horny[traktirman]=77
 if horny[traktirman]>=50 and GF_whore>3 and cumslut[you]>10 and timeHorny[you]!time/60:
-	timeHorny[you]=time/60&horny[you]+=lust[you]/20+cumslut[you]
-	cls&gs'stat'&'<center><video src="pic/ev/traktirman/ass_s.webm" ></video></center>'&"<<$name[traktirman]>> начинает мацать вам жопу, прижимая к себе, и вы чувтвуете его стоячий член через одежду"
+	timeHorny[you]=time/60&horny[you]+=lust[you]/20+cumslut[you]&cls&gs'stat'&'<center><video autoplay loop src="pic/ev/traktirman/ass_s.webm" ></video></center>'
+	"<<$name[traktirman]>> начинает мацать вам жопу, прижимая к себе, и вы чувтвуете его стоячий член через одежду"
 	"<i><<$name[traktirman]>> - <<$name[you]>> мне нужна твоя профессиональная помощь охотницы!</i>"
 	"Он указывает на мешочек под стойкой. Вы наклонились, осмотрели в мешочке нет ничего необычного - просто монеты"
 	act'Подобрать': 
 		npc=traktirman&cls&gs'stat'&'<center><img src="pic/sex/cockpov.jpg" ></center>'&"Вы подобрали кошель, а обернувшись увидели стоящий <<dick[traktirman]>>см член <<$name[traktirman]>>"
 		act'Взять в рот':
-			gs'ssstart_value'
-			youcontrol=1&whorePay=total_sexy[you]-GF_whore&if whorePay<10:whorePay=10
+			gs'ssstart_value'&youcontrol=1&whorePay=total_sexy[you]-GF_whore&if whorePay<10:whorePay=10
 			item[24]+=whorePay&killvar('event_kargan_bar')&gt'traktirman_bar'
 		end
 	end

@@ -1,31 +1,17 @@
 ﻿if rand_gerl_gen=0:
-
-	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&rand_gerl=i
-
-	pol[i]=1 
-	gs'female_gen'
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&rand_gerl=i&lvl[i]=1&soul[i]=100
 	face_npc[i]=1&face_pic[i]=1
-	$name[i]='Шлюха'&$surname[i]='Шлюха'
+	$name[i]='Незнакомка'&$surname[i]='Женщина'
 	face[i]=65&gla[i]=1&glacol[i]=1&lips[i]=1&nose[i]=3&scull[i]=1&cheeks[i]=0	
-	
+	rost[i]=174&fat[i]=1500&mus[i]=500&skin[i]=1&preskin[i]=0
 	vag[i]=1&anus[i]=0&ass[i]=30&tits[i]=15
-	rost[i]=174&mus[i]=500&fat[i]=1500&skin[i]=1&preskin[i]=0
-	
-	hlong[i]=35&curl[i]=0&hcol[i]=1
-	age[i]=27
-	
-	
-	bisex[i]=1&agro[i]=100&lust[i]=0
-
-	h_slot[i]=0
-	c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0
-	t_slot[i]=4&l_slot[i]=3&b_slot[i]=6
-	ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=2
-
-	gs'body_auto',i,'old_npc_once'
-	se_lighthouse[]=i&
+	face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=35&curl[i]=0&hcol[i]=1
+	age[i]=27&vital[i]=40&will[i]=50&reflex[i]=40
+	health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
+	pol[i]=1&gs'body'&total_generated_female+=1&gs'female_gen'&!gs'body_auto',i,'old_npc_once'
+	womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=0&!характер
+	h_slot[i]=0&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=4&l_slot[i]=3&b_slot[i]=6&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=2
+	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0
 end	
-
 !sex_times['<<you>>,<<i>>']=0&sex_times['<<i>>,<<you>>']=0
-
 !energy[rand_gerl]=energymax[rand_gerl]

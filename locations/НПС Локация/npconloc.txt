@@ -1,6 +1,5 @@
 ﻿hubby=0&aggressor=0&$npc_loc=''&$npc_locFive=''&$npc_locFore=''&$npc_locThr=''&$npc_locTwo=''&$npc_locOne=''&$deadnpc_loc=''&$massnpc_loc=''&$mobnpc_loc=''
-i=1&npcmax=arrsize('$name')
-total_npc_on_loc=0&total_man_on_loc=0&insmouth_loc_num=0&tent_want=0&slut_want=0&godlevel=0
+i=1&npcmax=arrsize('$name')&total_npc_on_loc=0&total_man_on_loc=0&insmouth_loc_num=0&tent_want=0&slut_want=0&godlevel=0
 highmaglevel=0&firstmaglevel=0&twomaglevel=0&thremaglevel=0&foremaglevel=0&fivemaglevel=0&sixmaglevel=0&minimaglevel=0
 :marknpcloc
 if magik[i]=37:godlevel+=1
@@ -14,25 +13,21 @@ if magik[i]>=2 and magik[i]<4:sixmaglevel+=1
 if magik[i]>=1 and magik[i]<2:minimaglevel+=1
 if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] and i!you and dead[i]=0:
 	if dilamina_lezdomQW[you]=1 and i=tommysolomon and tommysolomon_day_blow!daystart and dead[i]=0:gt'tommysolomon_blow'
-	 if Z[i]=1 and nw[i]=0:nw[i]=1
-	 if Z[i]=2 and new[i]=0:new[i]=1
-	 if Z[i]=3 and ew[i]=0:ew[i]=1
-	 if Z[i]=4 and sew[i]=0:sew[i]=1
-	 if Z[i]=5 and sw[i]=0:sw[i]=1
+	if Z[i]=1 and nw[i]=0:nw[i]=1
+	if Z[i]=2 and new[i]=0:new[i]=1
+	if Z[i]=3 and ew[i]=0:ew[i]=1
+	if Z[i]=4 and sew[i]=0:sew[i]=1
+	if Z[i]=5 and sw[i]=0:sw[i]=1
 	if husband[i]=you and pol[i]=0 and cuckold[i]=you:hubby=i
 	if i ! youngdot and i ! elderdot and mob[i]=0 and Zhome[i]>0 and Zhome[i]!Z[i] and immobilaze[i]=0:X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&!возвращает нпс домой
 	if adultcinema=1:horny[i]+=50
-	!if dead[i]=0 and $name[i]!'':
-		if agro[i]>100:agro[i]=100
-		if agro[i]<0:agro[i]=0
-		if lust[i]>100:lust[i]=100
-		if lust[i]<0:lust[i]=0
-		if horny[i]>100:horny[i]=100
-		if horny[i]<0:horny[i]=0
-	!end
-	num=i&gs'body'
-	maksex[i]=0&if makeup[i]=1:maksex[i]-=30
-	if makeup[i]=2:maksex[i]=10
+	if agro[i]>100:agro[i]=100
+	if agro[i]<0:agro[i]=0
+	if lust[i]>100:lust[i]=100
+	if lust[i]<0:lust[i]=0
+	if horny[i]>100:horny[i]=100
+	if horny[i]<0:horny[i]=0
+	num=i&gs'body'&maksex[i]=iif(makeup[i]=2,10,iif(makeup[i]=1,maksex[i]-30,0))
 	if ut_slot[i]>0:t_nude[i]=0
 	l_nude[i]=1&if l_slot[i]>0:l_nude[i]=0&!НИЗ
 	if ul_slot[i]>0:l_nude[i]=0
@@ -78,220 +73,186 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 	if preskin[i]=1:sexiness[i]+=5
 	if preskin[i]=2:sexiness[i]+=10
 	if preskin[i]=3:sexiness[i]+=15
-	if beard[i]>=1 and sexiness[i]>0:sexiness[i]=sexiness[i]-beard[i]
-	if sexiness[i]<0:sexiness[i]=0
-	sexiness[i]=sexiness[i]+maksex[i]
-	if makeup[i]=1 and sexiness[i]>70 and h_slot[i]=0:sexiness[i]=70
-	gs'assign_portrait', i
-	gs'npcpersonalNW'
-	if madness[i]>0:aggressor=i
+	sexiness[i]=iif(beard[i]>=1 and sexiness[i]>0 and sexiness[i]>=beard[i],sexiness[i]-beard[i],sexiness[i])&sexiness[i]=iif(makeup[i]=1 and sexiness[i]>70 and h_slot[i]=0,70,sexiness[i]+maksex[i])
+	gs'assign_portrait', i&gs'npcpersonalNW'&if madness[i]>0:aggressor=i
 	if aggressor=i and mobtalk[i]>=time:aggressor=0
 	if mob[i]=3 and aggressor=i and loss[i]>0 and energy[you]>=20:aggressor=0&$status[i]=' выглядит перепуганным'
 	if moon_veil[you]=1 and aggressor=i:aggressor=0&$status[i]=' удивленно чешет голову'
 	if aggressor=i and noagro[you]>=time:horny[i]=0&aggressor=0
 	if itsrainingday['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']>=time and aggressor=i:
-		 if mob[i]>0:
-			 if mob[i]=3:
-				horny[i]=50
-			 else
-				 horny[i]=0&aggressor=0
-			 end
-		 else
-			 if beliver[i]=2:
-			 
-			 else
-				 horny[i]=0&aggressor=0
-			 end
-		 end
+		if mob[i]>0:
+			if mob[i]=3:horny[i]=50
+			if mob[i]!3:horny[i]=0&aggressor=0
+		else
+			if beliver[i]!2:horny[i]=0&aggressor=0
+		end
 	end
 	if pol[you]>0 and pol[i]>0 and sladkovamasha=i and know['<<i>>,<<you>>']=0 and you=sister:
 		know['<<i>>,<<you>>']+=1&know['<<you>>,<<i>>']+=1&friends['<<i>>,<<you>>']+=50&friends['<<you>>,<<i>>']+=50&aggressor=i
 	end
-	if wantbeat['<<i>>,<<you>>']=1:aggressor=i
-	if tornton_lose_slave=1 and i=tornton:aggressor=i
+	if wantbeat['<<i>>,<<you>>']=1 or (tornton_lose_slave=1 and i=tornton):aggressor=i
 	if follower[i]=you:$status[i]+=' (спутник)'
-	!'if my_puppil[i]=0:
-		 if friends[i]>0:
-			 if friends[i]<5:$status[i]+=iif (vag[i]>0, " (знакомая)", "(знакомый)")
-			 if friends[i]>=5 and friends[i]<25:$status[i]+=iif (vag[i]>0, " (приятельница)", "(приятель)")
-			 if friends[i]>=25 and friends[i]<50:$status[i]+=iif (vag[i]>0, " (подруга)", "(друг)")
-			 if friends[i]>=50 and friends[i]<75:$status[i]+=iif (vag[i]>0, " (хорошая подруга)", "(хороший друг)")
-			 if friends[i]>=75:$status[i]+=iif (vag[i]>0, " (лучшая подруга)", "(лучший друг)")
-		 else
-			 if fuckblow[i]>0 or fuckyou[i]>0 or fuckyouass[i]>0:$status[i]+=iif (vag[i]>0, " (трахала вас)", "(трахал вас)")
-		 end
-	end'
 	gs'subview'
 	if knowaura[i]>0:
-		 if magik[i]=0:$poweraura[i]='Магические силы отсутствуют.'
-		 if mlev[i]=9:$poweraura[i]='Божественная сила.'
-		 if mlev[i]=8:$poweraura[i]='Сила вне категорий.'
-		 if mlev[i]=7:$poweraura[i]='1я категория силы.'
-		 if mlev[i]=6:$poweraura[i]='2я категория силы.'
-		 if mlev[i]=5:$poweraura[i]='3я категория силы.'
-		 if mlev[i]=4:$poweraura[i]='4я категория силы.'
-		 if mlev[i]=3:$poweraura[i]='5я категория силы.'
-		 if mlev[i]=2:$poweraura[i]='6я категория силы.'
-		 if mlev[i]=1:$poweraura[i]='7я категория силы.'
-		 $poweraura[i]+=' <<win[i]>>-<<loss[i]>>'
-		 if know_seed[i]=1:$poweraura[i]+=' Заражение спорами паразитами'
+		if magik[i]=0:$poweraura[i]='Магические силы отсутствуют.'
+		if mlev[i]=9:$poweraura[i]='Божественная сила.'
+		if mlev[i]=8:$poweraura[i]='Сила вне категорий.'
+		if mlev[i]=7:$poweraura[i]='1я категория силы.'
+		if mlev[i]=6:$poweraura[i]='2я категория силы.'
+		if mlev[i]=5:$poweraura[i]='3я категория силы.'
+		if mlev[i]=4:$poweraura[i]='4я категория силы.'
+		if mlev[i]=3:$poweraura[i]='5я категория силы.'
+		if mlev[i]=2:$poweraura[i]='6я категория силы.'
+		if mlev[i]=1:$poweraura[i]='7я категория силы.'
+		$poweraura[i]+=' <<win[i]>>-<<loss[i]>>'&if know_seed[i]=1:$poweraura[i]+=' Заражение спорами паразитами'
 	end
-	total_npc_on_loc+=1
-	if pol[i]=0:total_man_on_loc+=1
+	total_npc_on_loc+=1&if pol[i]=0:total_man_on_loc+=1
 	if blackwood=i:total_man_on_loc-=1
 	if gilman=i:total_man_on_loc-=1
 	if mob_busy[i]>0 and cantwalk[i]=3:mob_busy[i]=0&action_tipe[i]=0&aktive_tipe[i]=0
 	if mob_busy[i]=0:
-		$doing[i]=''&if mob_sleep[i]>time:$doing[i]+=' пребывает в задумчивости'
-		if mob_busy[i]>0:$doing[i]+=' пребывает в задумчивости'
+		$doing[i]=''&if mob_sleep[i]>time or mob_busy[i]>0:$doing[i]+=' пребывает в задумчивости'
 		if master[you]>0:$doing[i]+=' <<$think[i]>> (<<horny[i]>> возбуждение) (<<corr[i]>> испорченность) Назначение <<$destination[i]>>'
 		if inseminate[i]>0 and pregnant_day[i]<daystart:$doing[i]+=' <b>беременна.</b>'
 		gs'doing_rast'
 		if mob[i]=0:
-			!if $title[i]!'':$npc_loc+='<<$title[i]>> '
 			if tipe_view=0:
-				 $npc_loc+='<br>'
-				 if star[i]>0:$npc_loc+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
-				 if $d_viewnpc!'' and age[i]>0:$npc_loc+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
-				 if my_puppil[i]>0:$npc_loc+='<img src="pic/misc/body.png">'
-				 if vision_times[i]>0:$npc_loc+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
-				 if $slavename[i]='':
-					 if sexpartner['<<i>>,<<you>>']>0:
-					 if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
-				 else
-					 if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
-				 end
-			 else
-				 $npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
-			 end
-			 if knowaura[i]>0:$npc_loc+='<a href="exec:msg''<<$poweraura[i]>>''"><img src="pic/misc/aura<<mlev[i]>>.png"></a>'
-			 if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
+				$npc_loc+='<br>'&if star[i]>0:$npc_loc+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
+				if $d_viewnpc!'' and age[i]>0:$npc_loc+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
+				if my_puppil[i]>0:$npc_loc+='<img src="pic/misc/body.png">'
+				if vision_times[i]>0:$npc_loc+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
+				if $slavename[i]='':
+					if sexpartner['<<i>>,<<you>>']>0:
+					if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
+				else
+					if know['<<i>>,<<you>>']=0:$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
+				end
+			else
+				$npc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
+			end
+			if knowaura[i]>0:$npc_loc+='<a href="exec:msg''<<$poweraura[i]>>''"><img src="pic/misc/aura<<mlev[i]>>.png"></a>'
+			if $doing[i]!'':$npc_loc+=' <<$doing[i]>>'
 		end
 		if tipe_view=1:
-			$npc_locOne+='<br>'
-			if star[i]>0:$npc_locOne+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
+			$npc_locOne+='<br>'&if star[i]>0:$npc_locOne+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
 			if $d_viewnpc!'' and age[i]>0:$npc_locOne+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
 			if my_puppil[i]>0:$npc_locOne+='<img src="pic/misc/body.png">'
 			if vision_times[i]>0:$npc_locOne+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
 			if $slavename[i]='':
 				if sexpartner['<<i>>,<<you>>']>0:
-					 if know['<<i>>,<<you>>']=0:$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']=0:$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
 				else
-					 if know['<<i>>,<<you>>']=0:$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']=0:$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
 				end
 			else
-				 $npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
+				$npc_locOne+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
 			end
 			if knowaura[i]>0:$npc_locOne+='<a href="exec:msg''<<$poweraura[i]>>''"><img src="pic/misc/aura<<mlev[i]>>.png"></a>'
 			if CONFIG['ENABLE_spore_display']>0 and lebeda_seed[i]>0:$npc_locOne+= ' <font size=+2 color=#800000><b>&#xa628;</b></font>'
 			if $doing[i]!'':$npc_locOne+=' <<$doing[i]>>'
 		end
 	    if tipe_view=2:
-			$npc_locTwo+='<br>'
-			if star[i]>0:$npc_locTwo+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
+			$npc_locTwo+='<br>'&if star[i]>0:$npc_locTwo+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
 			if $d_viewnpc!'' and age[i]>0:$npc_locTwo+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
 			if my_puppil[i]>0:$npc_locTwo+='<img src="pic/misc/body.png">'
 			if vision_times[i]>0:$npc_locTwo+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
 	        if $slavename[i]='':
-				 if sexpartner['<<i>>,<<you>>']>0:
+				if sexpartner['<<i>>,<<you>>']>0:
 					if know['<<i>>,<<you>>']=0:$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
-				 else
+				else
 					if know['<<i>>,<<you>>']=0:$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
-				 end
-			 else
+				end
+			else
 				$npc_locTwo+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
-			 end
+			end
 			if knowaura[i]>0:$npc_locTwo+='<a href="exec:msg''<<$poweraura[i]>>''"><img src="pic/misc/aura<<mlev[i]>>.png"></a>'
 			if CONFIG['ENABLE_spore_display']>0 and lebeda_seed[i]>0:$npc_locTwo+= ' <font size=+2 color=#800000><b>&#xa628;</b></font>'
 			if $doing[i]!'':$npc_locTwo+=' <<$doing[i]>>'
-	     end
-	     if tipe_view=3:
-			$npc_locThr+='<br>'
-			if star[i]>0:$npc_locThr+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
+	    end
+	    if tipe_view=3:
+			$npc_locThr+='<br>'&if star[i]>0:$npc_locThr+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
 			if $d_viewnpc!'' and age[i]>0:$npc_locThr+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
 			if my_puppil[i]>0:$npc_locThr+='<img src="pic/misc/body.png">'
 			if vision_times[i]>0:$npc_locThr+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
 	        if $slavename[i]='':
-				 if sexpartner['<<i>>,<<you>>']>0:
+				if sexpartner['<<i>>,<<you>>']>0:
 					if know['<<i>>,<<you>>']=0:$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
-				 else
+				else
 					if know['<<i>>,<<you>>']=0:$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
 					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
-				 end
-			 else
+				end
+			else
 				$npc_locThr+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
-			 end
+			end
 			if knowaura[i]>0:$npc_locThr+='<a href="exec:msg''<<$poweraura[i]>>''"><img src="pic/misc/aura<<mlev[i]>>.png"></a>'
 			if CONFIG['ENABLE_spore_display']>0 and lebeda_seed[i]>0:$npc_locThr+= ' <font size=+2 color=#800000><b>&#xa628;</b></font>'
 			if $doing[i]!'':$npc_locThr+=' <<$doing[i]>>'
 	    end
 	    if tipe_view=4:
-			$npc_locFore+='<br>'
-			if star[i]>0:$npc_locFore+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
+			$npc_locFore+='<br>'&if star[i]>0:$npc_locFore+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
 			if $d_viewnpc!'' and age[i]>0:$npc_locFore+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
 			if my_puppil[i]>0:$npc_locFore+='<img src="pic/misc/body.png">'
 			if vision_times[i]>0:$npc_locFore+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
 	        if $slavename[i]='':
-				 if sexpartner['<<i>>,<<you>>']>0:
-					 if know['<<i>>,<<you>>']=0:$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
-				 else
-					 if know['<<i>>,<<you>>']=0:$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
-				 end
-			 else
+				if sexpartner['<<i>>,<<you>>']>0:
+					if know['<<i>>,<<you>>']=0:$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
+				else
+					if know['<<i>>,<<you>>']=0:$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
+				end
+			else
 				$npc_locFore+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
-			 end
+			end
 			if knowaura[i]>0:$npc_locFore+='<a href="exec:msg''<<$poweraura[i]>>''"><img src="pic/misc/aura<<mlev[i]>>.png"></a>'
 			if CONFIG['ENABLE_spore_display']>0 and lebeda_seed[i]>0:$npc_locFore+= ' <font size=+2 color=#800000><b>&#xa628;</b></font>'
 			if $doing[i]!'':$npc_locFore+=' <<$doing[i]>>'
 	    end
 	    if tipe_view=5:
-			$npc_locFive+='<br>'
-			if star[i]>0:$npc_locFive+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
+			$npc_locFive+='<br>'&if star[i]>0:$npc_locFive+='<a href="exec:msg''<<$startext[i]>>''"><img src="pic/misc/star.png"></a>'
 			if $d_viewnpc!'' and age[i]>0:$npc_locFive+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
 			if my_puppil[i]>0:$npc_locFive+='<img src="pic/misc/body.png">'
 			if vision_times[i]>0:$npc_locFive+='<a href="exec:msg''Вы видели воспоминания этого человека <<vision_times[i]>> раз''"><img src="pic/misc/glaz.png"></a>'
 	        if $slavename[i]='':
-				 if sexpartner['<<i>>,<<you>>']>0:
-					 if know['<<i>>,<<you>>']=0:$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
-				 else
-					 if know['<<i>>,<<you>>']=0:$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
-					 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
-				 end
-			 else
+				if sexpartner['<<i>>,<<you>>']>0:
+					if know['<<i>>,<<you>>']=0:$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$name[i]>> <<$surname[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$nick[i]>> <<$name[i]>></b></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><b><<$title[i]>> <<$name[i]>></b></a><<$status[i]>>'
+				else
+					if know['<<i>>,<<you>>']=0:$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+					if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$title[i]>> <<$name[i]>></a><<$status[i]>>'
+				end
+			else
 				$npc_locFive+='<a href="exec:gt ''gonpc'',<<i>>"><<$slavename[i]>></a><<$status[i]>>'
 			end
 			if knowaura[i]>0:$npc_locFive+='<a href="exec:msg''<<$poweraura[i]>>''"><img src="pic/misc/aura<<mlev[i]>>.png"></a>'
@@ -299,163 +260,138 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 			if $doing[i]!'':$npc_locFive+=' <<$doing[i]>>'
 	    end
     end
-    if mob[i]>0:
-		 if mob[i]=3:insmouth_loc_num=i
-		 $mobnpc_loc+='<br>'
-		 if $d_viewnpc!'':$mobnpc_loc+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
-		 !if $title[i]!'':$npc_loc+='<<$title[i]>> '
-		 if know['<<i>>,<<you>>']=0:$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$fullname[i]>></a><<$status[i]>>'
-		 if know['<<i>>,<<you>>']>0 and $surname[i]!'' and $nick[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
-		 if know['<<i>>,<<you>>']>0 and $surname[i]='' and $nick[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
-		 if know['<<i>>,<<you>>']>0 and $nick[i]!'' and $surname[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
-		 if know['<<i>>,<<you>>']>0 and $nick[i]!'' and $surname[i]!'':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
-		 if CONFIG['ENABLE_spore_display']>0 and lebeda_seed[i]>0:$mobnpc_loc+= ' <font size=+2 color=#800000><b>&#xa628;</b></font>'
-		 if $doing[i]!'':$mobnpc_loc+=' <<$doing[i]>>'
-     end
+	if mob[i]>0:
+		if mob[i]=3:insmouth_loc_num=i
+		$mobnpc_loc+='<br>'&if $d_viewnpc!'':$mobnpc_loc+='<td><a href="exec:gt ''gonpc'',<<i>>"><img height="30" src=<<$d_viewnpc>>></a></td>'
+		if know['<<i>>,<<you>>']=0:$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$fullname[i]>></a><<$status[i]>>'
+		if know['<<i>>,<<you>>']>0 and $surname[i]!'' and $nick[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+		if know['<<i>>,<<you>>']>0 and $surname[i]='' and $nick[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+		if know['<<i>>,<<you>>']>0 and $nick[i]!'' and $surname[i]='':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>></a><<$status[i]>>'
+		if know['<<i>>,<<you>>']>0 and $nick[i]!'' and $surname[i]!'':$mobnpc_loc+='<a href="exec:gt ''gonpc'',<<i>>"><<$nick[i]>> <<$name[i]>> <<$surname[i]>></a><<$status[i]>>'
+		if CONFIG['ENABLE_spore_display']>0 and lebeda_seed[i]>0:$mobnpc_loc+= ' <font size=+2 color=#800000><b>&#xa628;</b></font>'
+		if $doing[i]!'':$mobnpc_loc+=' <<$doing[i]>>'
+	end
 else
-		if aktive_tipe[i]>0 and action_tipe[i]=1:
-			 $massnpc_loc+='<br>'
-			 subb=under_sub[i]
-			if ((subb=girlfriend_num[you] or subb=husband[you]) and forbidsex[subb]=1 and rand(10)>3) or (forbidsex[subb]=1 and rand(10)>2):
-				$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения заняться сексом </b></a>.'&!убрано 9112024, возвращено 09.04.2026
+	if aktive_tipe[i]>0 and action_tipe[i]=1:
+		$massnpc_loc+='<br>'&subb=under_sub[i]
+		if ((subb=girlfriend_num[you] or subb=husband[you]) and forbidsex[subb]=1 and rand(10)>3) or (forbidsex[subb]=1 and rand(10)>2):
+			$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения заняться сексом </b></a>.'
+		else
+			$whoisit='девушку'&if age[subb]>=30:$whoisit='женщину'
+			if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>=90:$whoisit='вашу лучшую подругу'
+			if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>=50 and friends['<<subb>>,<<you>>']<90:$whoisit='вашу подругу'
+			if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>=10 and friends['<<subb>>,<<you>>']<50:$whoisit='вашу приятельницу'
+			if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>0 and friends['<<subb>>,<<you>>']<10:$whoisit='вашу знакомую'
+			if sexpartner['<<subb>>,<<you>>']>0 and sexpartner['<<you>>,<<subb>>']>0 and pol[subb]=1 and husband[you]!subb:$whoisit='вашу любовницу'
+			if kid_first[you]=subb and pol[subb]=1:$whoisit='вашу дочь'
+			if kid_second[you]=subb and pol[subb]=1:$whoisit='вашу дочь'
+			if mother[you]=subb and husband[you]!subb:$whoisit='вашу маму'
+			if brother[you]=subb and pol[subb]=1:$whoisit='вашу сестру'
+			if girlfriend_num[you]=subb:$whoisit='вашу девушку'
+			if husband[you]=subb and pol[subb]=1:$whoisit='вашу жену'
+			if know['<<i>>,<<you>>']=0:$fuckername='<<$nick[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]!'':$fuckername='<<$name[i]>> <<$surname[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$fuckername='<<$nick[i]>> <<$name[i]>>'
+			if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$fuckername='<<$title[i]>> <<$name[i]>>'
+			if know['<<subb>>,<<you>>']=0:$slutname='<<$nick[subb]>>'
+			if know['<<subb>>,<<you>>']>0 and $surname[subb]!'':$slutname='<<$name[subb]>> <<$surname[subb]>>'
+			if know['<<subb>>,<<you>>']>0 and $surname[subb]='' and $title[subb]='':$slutname='<<$nick[subb]>> <<$name[subb]>>'
+			if know['<<subb>>,<<you>>']>0 and $surname[subb]='' and $title[subb]!'':$slutname='<<$title[subb]>> <<$name[subb]>>'
+			if pol[subb]=0:$whoisit=$iif(age[subb]<30,'парня','мужчину')
+			if dick[i]>0:$massnpc_loc+='<a href="exec:gt ''gonpcsex'',<<i>>,<<subb>>"><b><b><<$fuckername>> трахает <<$whoisit>>. <<$slutname>> громко стонет</b></a>'
+			!проверка только на наличие члена - картинок с дом женщиной и членодевками нет
+			if dick[i]=0 and dick[subb]>0:$massnpc_loc+='<a href="exec:gt ''gonpcfemdom'',<<i>>,<<subb>>"><b><b><<$name[i]>> страпонит <<$whoisit>>. <<$name[subb]>> громко стонет</b></a>'
+			if dick[i]=0 and dick[subb]=0:$massnpc_loc+='<a href="exec:gt ''gonpclezdom'',<<i>>,<<subb>>"><b><b><<$name[i]>> страпонит <<$whoisit>>. <<$name[subb]>> громко стонет</b></a>'
+		end
+	end 
+	if aktive_tipe[i]>0 and action_tipe[i]=2:
+		$massnpc_loc+='<br>'&subb=under_sub[i]
+		if ((subb=girlfriend_num[you] or subb=husband[you]) and forbidsex[subb]=1 and rand(10)>3) or (forbidsex[subb]=1 and rand(10)>2):
+			$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения уединиться </b></a>'&!убрано 9112024, возвращено 19.11.2026
+		else
+			$massnpc_loc+='<a href="exec:gt ''grindnpcsex'',<<i>>,<<subb>>"><b><b><<$nick[i]>> <<$iif(pol[i]=0,"зажал","зажала")>> в уголочке девушку. <<$name[subb]>> краснеет, когда её мацают.</b></a>'
+		end
+	end
+	if aktive_tipe[i]>0 and action_tipe[i]=3:
+		$massnpc_loc+='<br>'&subb=under_sub[i]
+		if ((subb=girlfriend_num[you] or subb=husband[you]) and forbidsex[subb]=1 and rand(10)>2) or (forbidsex[subb]=1 and rand(10)>1):
+			$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения отсосать </b></a>'&!убрано 9112024, возвращено 09.04.2026
+		else
+			$herhe=$iif(pol[i]=0,'его','ее')
+			if dick[i]>0:$massnpc_loc+='<a href="exec:gt ''goundertablenpcsex'',<<i>>,<<subb>>"><b><b><<$nick[i]>> сидит за столом со странным выражением лица. Приглядевшись вы понимаете ,что под столом сидит <<$name[subb]>> и сосет <<$herhe>> член.</b></a>'
+			if dick[i]=0 and vag[i]>0:$massnpc_loc+='<a href="exec:gt ''goundertablenpcsex'',<<i>>,<<subb>>"><b><b><<$nick[i]>> стоит со странным выражением лица. Приглядевшись вы понимаете ,что <<$name[subb]>> лижет <<$herhe>> пизду.</b></a>'&!фемдом/лездом куни
+		end
+	end
+	if action_tipe[i]=4:
+		$massnpc_loc+='<br>'&subb=under_sub[i]
+		if know['<<i>>,<<you>>']>0:
+			if know['<<subb>>,<<you>>']>0:
+				$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
 			else
-				$whoisit='девушку'
-				if age[subb]>=30:$whoisit='женщину'
-				if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>=90:$whoisit='вашу лучшую подругу'
-				if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>=50 and friends['<<subb>>,<<you>>']<90:$whoisit='вашу подругу'
-				if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>=10 and friends['<<subb>>,<<you>>']<50:$whoisit='вашу приятельницу'
-				if sexpartner['<<subb>>,<<you>>']=0 and pol[subb]=1 and husband[you]!subb and friends['<<subb>>,<<you>>']>0 and friends['<<subb>>,<<you>>']<10:$whoisit='вашу знакомую'
-				if sexpartner['<<subb>>,<<you>>']>0 and sexpartner['<<you>>,<<subb>>']>0 and pol[subb]=1 and husband[you]!subb:$whoisit='вашу любовницу'
-				if kid_first[you]=subb and pol[subb]=1:$whoisit='вашу дочь'
-				if kid_second[you]=subb and pol[subb]=1:$whoisit='вашу дочь'
-				if mother[you]=subb and husband[you]!subb:$whoisit='вашу маму'
-				if brother[you]=subb and pol[subb]=1:$whoisit='вашу сестру'
-				if girlfriend_num[you]=subb:$whoisit='вашу девушку'
-				if husband[you]=subb and pol[subb]=1:$whoisit='вашу жену'
-				if know['<<i>>,<<you>>']=0:$fuckername='<<$nick[i]>>'
-				if know['<<i>>,<<you>>']>0 and $surname[i]!'':$fuckername='<<$name[i]>> <<$surname[i]>>'
-				if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]='':$fuckername='<<$nick[i]>> <<$name[i]>>'
-				if know['<<i>>,<<you>>']>0 and $surname[i]='' and $title[i]!'':$fuckername='<<$title[i]>> <<$name[i]>>'
-				if know['<<subb>>,<<you>>']=0:$slutname='<<$nick[subb]>>'
-				if know['<<subb>>,<<you>>']>0 and $surname[subb]!'':$slutname='<<$name[subb]>> <<$surname[subb]>>'
-				if know['<<subb>>,<<you>>']>0 and $surname[subb]='' and $title[subb]='':$slutname='<<$nick[subb]>> <<$name[subb]>>'
-				if know['<<subb>>,<<you>>']>0 and $surname[subb]='' and $title[subb]!'':$slutname='<<$title[subb]>> <<$name[subb]>>'
-				if pol[subb]=0:$whoisit=$iif(age[subb]<30,'парня','мужчину')
-				if dick[i]>0:$massnpc_loc+='<a href="exec:gt ''gonpcsex'',<<i>>,<<subb>>"><b><b><<$fuckername>> трахает <<$whoisit>>. <<$slutname>> громко стонет</b></a>'
-				!проверка только на наличие члена - картинок с дом женщиной и членодевками нет
-				if dick[i]=0 and dick[subb]>0:$massnpc_loc+='<a href="exec:gt ''gonpcfemdom'',<<i>>,<<subb>>"><b><b><<$name[i]>> страпонит <<$whoisit>>. <<$name[subb]>> громко стонет</b></a>'
-				if dick[i]=0 and dick[subb]=0:$massnpc_loc+='<a href="exec:gt ''gonpclezdom'',<<i>>,<<subb>>"><b><b><<$name[i]>> страпонит <<$whoisit>>. <<$name[subb]>> громко стонет</b></a>'
+				$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$nick[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
 			end
-		end 
-		if aktive_tipe[i]>0 and action_tipe[i]=2:
-			$massnpc_loc+='<br>'
-			subb=under_sub[i]
-			if ((subb=girlfriend_num[you] or subb=husband[you]) and forbidsex[subb]=1 and rand(10)>3) or (forbidsex[subb]=1 and rand(10)>2):
-				 $massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения уединиться </b></a>'&!убрано 9112024, возвращено 19.11.2026
+		else
+			if know['<<subb>>,<<you>>']>0:
+				$massnpc_loc+='<<$nick[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
 			else
-				 if pol[i]=0:$herhe='зажал'
-				 if pol[i]>0:$herhe='зажала'
-				 $massnpc_loc+='<a href="exec:gt ''grindnpcsex'',<<i>>,<<subb>>"><b><b><<$nick[i]>> <<$herhe>> в уголочке девушку. <<$name[subb]>> краснеет, когда ее мацают.</b></a>'
+				$massnpc_loc+='<<$nick[i]>> и <<$nick[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
 			end
 		end
-		if aktive_tipe[i]>0 and action_tipe[i]=3:
-			 $massnpc_loc+='<br>'
-			 subb=under_sub[i]
-			if ((subb=girlfriend_num[you] or subb=husband[you]) and forbidsex[subb]=1 and rand(10)>2) or (forbidsex[subb]=1 and rand(10)>1):
-				$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения отсосать </b></a>'&!убрано 9112024, возвращено 09.04.2026
+	end
+	if action_tipe[i]=6:
+		$massnpc_loc+='<br>'&subb=under_sub[i]
+		if know['<<i>>,<<you>>']>0:
+			if know['<<subb>>,<<you>>']>0:
+				$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <b>дерутся</b> между собой'
 			else
-				if pol[i]=0:$herhe='его'
-				if pol[i]>0:$herhe='ее'
-				if dick[i]>0:$massnpc_loc+='<a href="exec:gt ''goundertablenpcsex'',<<i>>,<<subb>>"><b><b><<$nick[i]>> сидит за столом со странным выражением лица. Приглядевшись вы понимаете ,что под столом сидит <<$name[subb]>> и сосет <<$herhe>> член.</b></a>'
-				!фемдом/лездом куни
-				if dick[i]=0 and vag[i]>0:$massnpc_loc+='<a href="exec:gt ''goundertablenpcsex'',<<i>>,<<subb>>"><b><b><<$nick[i]>> стоит со странным выражением лица. Приглядевшись вы понимаете ,что <<$name[subb]>> лижет <<$herhe>> пизду.</b></a>'
+				$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$nick[subb]>> <b>дерутся</b> между собой'
+			end
+		else
+			if know['<<subb>>,<<you>>']>0:
+				$massnpc_loc+='<<$nick[i]>> и <<$name[subb]>> <<$surname[subb]>> <b>дерутся</b> между собой'
+			else
+				$massnpc_loc+='<<$nick[i]>> и <<$nick[subb]>> <b>дерутся</b> между собой'
 			end
 		end
-		if action_tipe[i]=4:
-			 $massnpc_loc+='<br>'
-			 subb=under_sub[i]
-			 if know['<<i>>,<<you>>']>0:
-				 if know['<<subb>>,<<you>>']>0:
-					$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
-				 else
-					$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$nick[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
-				 end
-			 else
-				 if know['<<subb>>,<<you>>']>0:
-					$massnpc_loc+='<<$nick[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
-				 else
-					$massnpc_loc+='<<$nick[i]>> и <<$nick[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают</b></a> между собой'
-				 end
-			 end
-		end
-		if action_tipe[i]=6:
-			 $massnpc_loc+='<br>'
-			 subb=under_sub[i]
-			 if know['<<i>>,<<you>>']>0:
-				 if know['<<subb>>,<<you>>']>0:
-					$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <b>дерутся</b> между собой'
-				 else
-					$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$nick[subb]>> <b>дерутся</b> между собой'
-				 end
-			 else
-				 if know['<<subb>>,<<you>>']>0:
-					$massnpc_loc+='<<$nick[i]>> и <<$name[subb]>> <<$surname[subb]>> <b>дерутся</b> между собой'
-				 else
-					$massnpc_loc+='<<$nick[i]>> и <<$nick[subb]>> <b>дерутся</b> между собой'
-				 end
-			 end
-			 if fight_tipe[i]=1:$massnpc_loc+=', идет ожесточенная рубка'
-			 if fight_tipe[i]=2:$massnpc_loc+=', грохочут выстрелы из огнестрельного оружия'
-			 if fight_tipe[i]=3:$massnpc_loc+=', мерцает и раскатисто разрезает воздух магическая энергия'
-			 !if fight_tipe[i]=3 and Z[i]<101 and Z[i]=Z[you]:$massnpc_loc+=', мерцает и раскатисто разрезает воздух магическая энергия'
-			 !if fight_tipe[i]=3 and Z[i]=200 and Z[i]=Z[you]:$massnpc_loc+=', на всю округу слышен мат'
-		 end
-		 if action_tipe[i]=666 and aktive_tipe[i]=0:
-			 $massnpc_loc+='<br>'&subb=under_sub[i]&face[i]+=1
-			 w=i&feminize[i]+=1&gs'effect_feminize',i
-			 if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gorape'',<<i>>,<<subb>>"><b>насилуют</b></a>'
-			 if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда ее <a href="exec:gt ''gorape'',<<i>>,<<subb>>"><b>насилуют</b></a>'
-		 end
-		 if action_tipe[i]>=667 and action_tipe[i]<670 and aktive_tipe[i]=0:
-			 $massnpc_loc+='<br>'&face[i]+=1
-			 w=i&feminize[i]+=1&gs'effect_feminize',i
-			 if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gorape_gang'',<<i>>"><b>насилуют</b> группой</a>'
-			 if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда ее <a href="exec:gt ''gorape_gang'',<<i>>"><b>насилуют</b> группой</a>'
-		 end
-		 if action_tipe[i]=700 and aktive_tipe[i]=0:
-			 $massnpc_loc+='<br>'&subb=under_sub[i]&face[i]+=1
-			 w=i&feminize[i]+=1
-			 gs'effect_feminize',i
-			 if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gohardsex'',<<i>>,<<subb>>"><b>жестко трахают</b></a>'
-			 if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда ее <a href="exec:gt ''gohardsex'',<<i>>,<<subb>>"><b>жестко трахают</b></a>'
-		 end
-		 if action_tipe[i]>=701 and action_tipe[i]<770 and aktive_tipe[i]=0:
-			 $massnpc_loc+='<br>'&face[i]+=1
-			 w=i&feminize[i]+=1&gs'effect_feminize',i
-			 if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gohardsex_gang'',<<i>>"><b>жестко трахают</b> группой</a>'
-			 if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда ее <a href="exec:gt ''gohardsex_gang'',<<i>>"><b>жестко трахают</b> группой</a>'
-		 end
-		 if aktive_tipe[i]>0 and action_tipe[i]=100:
-			 $massnpc_loc+='<br>'&subb=under_sub[i]
-			 $massnpc_loc+='<a href="exec:gt ''goofficeblowjobsex'',<<i>>,<<subb>>"><b><b><<$name[i]>> <<$surname[i]>> сидит на кресле и между его ног сидит девушка и ритмично двигает головой. Приглядевшись вы видите, что это <<$name[subb]>> сосет член.</b></a>'
-		 end
-		 if aktive_tipe[i]>0 and action_tipe[i]=110:
-			 $massnpc_loc+='<br>'&subb=under_sub[i]&face[i]+=1
-			 w=i&feminize[i]+=1&gs'effect_feminize',i
-			$massnpc_loc+='<a href="exec:gt ''gotoiletblow'',<<i>>,<<subb>>"><b><b><<$name[i]>> <<$surname[i]>> стоит и перед ним на корточках сидит <<$name[subb]>> <<$surname[subb]>> и сосет член.</b></a>'
-		 end
-		 if akitive_tipe[i]>0 and action_tipe[i]=999:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения заняться сексом </b></a>.'
-	 end
+		if fight_tipe[i]=1:$massnpc_loc+=', идет ожесточенная рубка'
+		if fight_tipe[i]=2:$massnpc_loc+=', грохочут выстрелы из огнестрельного оружия'
+		if fight_tipe[i]=3:$massnpc_loc+=', мерцает и раскатисто разрезает воздух магическая энергия'
+		!if fight_tipe[i]=3 and Z[i]<101 and Z[i]=Z[you]:$massnpc_loc+=', мерцает и раскатисто разрезает воздух магическая энергия'
+		!if fight_tipe[i]=3 and Z[i]=200 and Z[i]=Z[you]:$massnpc_loc+=', на всю округу слышен мат'
+	end
+	if action_tipe[i]=666 and aktive_tipe[i]=0:
+		$massnpc_loc+='<br>'&subb=under_sub[i]&face[i]+=1&w=i&feminize[i]+=1&gs'effect_feminize',i
+		if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gorape'',<<i>>,<<subb>>"><b>насилуют</b></a>'
+		if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда её <a href="exec:gt ''gorape'',<<i>>,<<subb>>"><b>насилуют</b></a>'
+	end
+	if action_tipe[i]>=667 and action_tipe[i]<670 and aktive_tipe[i]=0:
+		$massnpc_loc+='<br>'&face[i]+=1&w=i&feminize[i]+=1&gs'effect_feminize',i
+		if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gorape_gang'',<<i>>"><b>насилуют</b> группой</a>'
+		if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда её <a href="exec:gt ''gorape_gang'',<<i>>"><b>насилуют</b> группой</a>'
+	end
+	if action_tipe[i]=700 and aktive_tipe[i]=0:
+		$massnpc_loc+='<br>'&subb=under_sub[i]&face[i]+=1&w=i&feminize[i]+=1&gs'effect_feminize',i
+		if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gohardsex'',<<i>>,<<subb>>"><b>жестко трахают</b></a>'
+		if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда её <a href="exec:gt ''gohardsex'',<<i>>,<<subb>>"><b>жестко трахают</b></a>'
+	end
+	if action_tipe[i]>=701 and action_tipe[i]<770 and aktive_tipe[i]=0:
+		$massnpc_loc+='<br>'&face[i]+=1&w=i&feminize[i]+=1&gs'effect_feminize',i
+		if pol[i]=0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда его <a href="exec:gt ''gohardsex_gang'',<<i>>"><b>жестко трахают</b> группой</a>'
+		if pol[i]>0:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> плачет и стонет когда её <a href="exec:gt ''gohardsex_gang'',<<i>>"><b>жестко трахают</b> группой</a>'
+	end
+	if aktive_tipe[i]>0 and action_tipe[i]=100:$massnpc_loc+='<br>'&subb=under_sub[i]&$massnpc_loc+='<a href="exec:gt ''goofficeblowjobsex'',<<i>>,<<subb>>"><b><b><<$name[i]>> <<$surname[i]>> сидит на кресле и между его ног сидит девушка и ритмично двигает головой. Приглядевшись вы видите, что это <<$name[subb]>> сосет член.</b></a>'
+	if aktive_tipe[i]>0 and action_tipe[i]=110:
+		$massnpc_loc+='<br>'&subb=under_sub[i]&face[i]+=1&w=i&feminize[i]+=1&gs'effect_feminize',i
+		$massnpc_loc+='<a href="exec:gt ''gotoiletblow'',<<i>>,<<subb>>"><b><b><<$name[i]>> <<$surname[i]>> стоит и перед ним на корточках сидит <<$name[subb]>> <<$surname[subb]>> и сосет член.</b></a>'
+	end
+	if akitive_tipe[i]>0 and action_tipe[i]=999:$massnpc_loc+='<<$name[i]>> <<$surname[i]>> и <<$name[subb]>> <<$surname[subb]>> <a href="exec:gt ''gotalk'',<<i>>,<<subb>>"><b>разговаривают. <<$name[subb]>> <<$surname[subb]>> откзаывается от предложения заняться сексом </b></a>.'
+	end
 end
 if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and i!you and dead[i]=1:
-	$fullname[i]=$name[i]+' '+$surname[i]&if $nick[i]!'':$fullname[i]=$nick[i]
-     $deadnpc_loc+='<br>'&$deadnpc_loc+='<a href="exec:gt ''godeadnpc'',<<i>>"><<$fullname[i]>></a> (Мертвое тело)'
+	$fullname[i]=$iif($nick[i]!'',$nick[i],$name[i]+' '+$surname[i])&$deadnpc_loc+='<br>'&$deadnpc_loc+='<a href="exec:gt ''godeadnpc'',<<i>>"><<$fullname[i]>></a> (Мертвое тело)'
 end
-i+=1
-if i<=npcmax:jump'marknpcloc'
-!'$mob_loc=''
-	mob=1&mobmax=arrsize('$mobname')&markmobloc
-     if $mobloc[mob]=$loc[you] and mobdead[mob]=0 and $mobname[mob]!'':tm=mobtipe_uni[mob]&$mob_loc+='<br>'&$mob_loc+='<a href="exec:gt ''gomob'',<<mob>>"><<$mobname[tm]>></a>'
+i+=1&if i<=npcmax:jump'marknpcloc'
+!'$mob_loc=''&mob=1&mobmax=arrsize('$mobname')&markmobloc&if $mobloc[mob]=$loc[you] and mobdead[mob]=0 and $mobname[mob]!'':tm=mobtipe_uni[mob]&$mob_loc+='<br>'&$mob_loc+='<a href="exec:gt ''gomob'',<<mob>>"><<$mobname[tm]>></a>'
 	mob+=1&if mob<=mobmax:jump'markmobloc''
 !'<<$mob_loc>>'
 *nl ''
@@ -464,27 +400,23 @@ if $npc_locTwo!'':'<<$npc_locTwo>>'
 if $npc_locThr!'':'<<$npc_locThr>>'
 if $npc_locFore!'':'<<$npc_locFore>>'
 if $npc_locFive!'':'<<$npc_locFive>>'
-'<<$npc_loc>>'
-'<<$mobnpc_loc>>'
-'<<$massnpc_loc>>'
-'<<$walklog>>'&*nl ''
-'<<$deadnpc_loc>>'
+'<<$npc_loc>>'&*nl'<<$mobnpc_loc>>'&*nl'<<$massnpc_loc>>'&*nl'<<$walklog>>'&*nl ''&*nl'<<$deadnpc_loc>>'
 if aggressor>0 and last_time_agressor<time:last_time_agressor=time+30&gt 'gonpc',aggressor
 if H[you]>0:mistagressor=0
 if total_npc_on_loc=0 and H[you]=0:
-     if hour>22 or hour<5:
-         if druidcirkl['<<$loc[you]>>']>=1:
+    if hour>22 or hour<5:
+        if druidcirkl['<<$loc[you]>>']>=1:
 			'Тени и мгла вьются вокруг круга камней и не в силах пробиться внутрь'
-         else
+        else
 			if Z[you]=10:
 				 '<b>Над болотами раздается какой-то страшный гул и вокруг сгущаются тени</b>'&if rand(2,10)<=mistagressor:gt'shadowatk'
-			elseif Z[you]>=1 and Z[you]<=5:
-				 '<b>Улицы охвачены густым холодным туманом</b>'
-				 if mistagressor>0 and fragile_sistersQW<100:'<b>Вы чувствуете пристальный злобный взгляд из тумана</b>'
-				 if mistagressor>0 and fragile_sistersQW=100:'<b>Вы чувствуете пристальный взгляд <a href="exec:gt ''baaltalk''">Баал Зебуба</b></a>'
-				 if mistagressor>2 and fragile_sistersQW<100 and rand(2,10)<=mistagressor:gt'gomistatk'
+			elseif Z[you]>=1 and Z[you]<6:
+				'<b>Улицы охвачены густым холодным туманом</b>'
+				if mistagressor>0 and fragile_sistersQW<100:'<b>Вы чувствуете пристальный злобный взгляд из тумана</b>'
+				if mistagressor>0 and fragile_sistersQW=100:'<b>Вы чувствуете пристальный взгляд <a href="exec:gt ''baaltalk''">Баал Зебуба</b></a>'
+				if mistagressor>2 and fragile_sistersQW<100 and rand(2,10)<=mistagressor:gt'gomistatk'
 			elseif Z[you]=200:
-				  '<b>Ночь - опасное время для прогулок на свежем воздухе</b>'
+				'<b>Ночь - опасное время для прогулок на свежем воздухе</b>'
 			elseif Z[you]=770:
 				'<b>Над джунглями раздается какой-то страшный гул и вокруг сгущаются тени</b>'
 			elseif Z[you]=404:
@@ -494,9 +426,9 @@ if total_npc_on_loc=0 and H[you]=0:
 			elseif Z[you]=760:
 				'<b>Над просторами сгущаются тени</b>'
 			end
-         end
+        end
 		mistagressor+=1
-     else
+    else
 		mistagressor=0
-     end
+    end
 end

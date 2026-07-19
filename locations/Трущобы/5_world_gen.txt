@@ -1,21 +1,16 @@
-﻿X=0&Y=0&Z=550&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5
-$n_board[Z]='Стена'&$w_board[Z]='Аптаун'&$e_board[Z]='Стена'&$s_board[Z]='Парк'
+﻿X=0&Y=0&Z=550&H=0&R=0&Xmax[Z]=5&Ymax[Z]=5&$n_board[Z]='Стена'&$w_board[Z]='Аптаун'&$e_board[Z]='Стена'&$s_board[Z]='Парк'
 magworld[Z]=100&oxigen[Z]=1&temper[Z]=2&!0- сверххолодно&1- холодно&2- норм&3- жарко&4 - пустыня&5 - огонь
 :markgenworldFive
 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if X=0 and Y>0 and Y<5:d_border_way['<<$temploc>>']=3
 if Y=0 and X>0 and X<5:d_border_way['<<$temploc>>']=4
 if X=3 and Y=3:
-     $locname['<<$temploc>>']='Ночлежка'&$lname['<<$temploc>>']='Ночлежка'&
-	 $locopis['<<$temploc>>']='Старое здание из красного кирпича обветшало, но все еще прочно стоит среди убогих полуразвалившихся лачуг'
-	 np['<<$temploc>>']=94
-	 gs'nochleg_gen'
-	 H=0&R=0
-	 under['<<$temploc>>']=1
+    $locname['<<$temploc>>']='Ночлежка'&$lname['<<$temploc>>']='Ночлежка'&
+	$locopis['<<$temploc>>']='Старое здание из красного кирпича обветшало, но все еще прочно стоит среди убогих полуразвалившихся лачуг'&np['<<$temploc>>']=94
+	gs'nochleg_gen'&H=0&R=0&under['<<$temploc>>']=1
 else
-     $locname['<<$temploc>>']='Трущобы'&$lname['<<$temploc>>']='Трущобы'&$locopis['<<$temploc>>']='Убогие лачуги, вонь и нищета'
-	 np['<<$temploc>>']=rand(83,90)
-	 gs'blackganger'&slumsworld[]=i&gs'blackganger'&slumsworld[]=i&gs'blackganger'&slumsworld[]=i
+    $locname['<<$temploc>>']='Трущобы'&$lname['<<$temploc>>']='Трущобы'&$locopis['<<$temploc>>']='Убогие лачуги, вонь и нищета'&np['<<$temploc>>']=rand(83,90)
+	gs'blackganger'&slumsworld[]=i&gs'blackganger'&slumsworld[]=i&gs'blackganger'&slumsworld[]=i
 end
 X+=1&if X<=Xmax[Z]:jump'markgenworldFive'
 X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworldFive'

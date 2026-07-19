@@ -1,6 +1,1 @@
-﻿'<center><img src="<<$d_view>>" ></center>'&!$d_view='pic/mob/154.jpg'&
-if mob_sleep[npc]>time:
-	'<<$nick[npc]>> спит'
-else
-	'<<$nick[npc]>> угрожающе хихикает'
-end
+﻿'<center><img src="<<$d_view>>" ></center>'&$iif(mob_sleep[npc]>time,'<<$nick[npc]>> спит','<<$nick[npc]>> угрожающе хихикает')&!$d_view='pic/mob/154.jpg'&

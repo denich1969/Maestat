@@ -10,200 +10,141 @@ if X=3 and Y=3:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Двор многоэтажки'&if H+2=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$locname['<<$temploc>>']='Двор вашей многоэтажки'&!'надпись под фото'
 	$lname['<<$temploc>>']='многоэтажка'&if H+2=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$lname['<<$temploc>>']='ваша многоэтажка'&$lname_go['<<$temploc>>']='во двор'
-	$locopis['<<$temploc>>']='Двор многоэтажки с детской площадкой и парковкой для автомобилей, одиноко стоящей среди однотипных хрущёвок'&!'надпись под фото'
-	np['<<$temploc>>']=12
+	$locopis['<<$temploc>>']='Двор многоэтажки с детской площадкой и парковкой для автомобилей, одиноко стоящей среди однотипных хрущёвок'&np['<<$temploc>>']=12&!'надпись под фото и фото'
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Подъезд многоэтажки'&maxPositionR['<<$templocH>>']=0
 	if H+1=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$locnameH['<<$temploc>>']='Подъезд вашей многоэтажки'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Подъезд многоэтажки'&if H+1=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$locnameR['<<$temploc>>']='Ваш подъезд'
-	$locname['<<$temploc>>']='Подъезд'&$lname['<<$temploc>>']='подъезд'&$lname_go['<<$temploc>>']='в подъезд'&$locopis['<<$temploc>>']='Грязный подъезд '
+	$locname['<<$temploc>>']='Подъезд'&$lname['<<$temploc>>']='подъезд'&$lname_go['<<$temploc>>']='в подъезд'&$locopis['<<$temploc>>']='Грязный подъезд '&np['<<$temploc>>']=7&gs'hero_home_gen'
 	if H+1=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$locname['<<$temploc>>']='Подъезд вашего дома'&$lname['<<$temploc>>']='подъезд вашего дома'
-	np['<<$temploc>>']=7
-	gs'hero_home_gen'
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №2'&ownerloc['<<$templocH>>']=mark&privat['<<$templocH>>']=1
 	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №2'&$lname_go['<<$temploc>>']='в квартиру №2'&!'надпись над фото'
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'
-	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
-	np['<<$temploc>>']=153
-	mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
-	telephone['<<$temploc>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'&telephone['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'&np['<<$temploc>>']=153
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
-	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname_go['<<$temploc>>']='на кухню'
-	$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля пельменей'
-	np['<<$temploc>>']=154
-	can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname_go['<<$temploc>>']='на кухню'&can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля'&np['<<$temploc>>']=154
 	R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
 	item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
-	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'&np['<<$temploc>>']=156&gs'mark_gen'&gs'kirill_gen'
 	$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
-	np['<<$temploc>>']=156
-	gs'mark_gen'&gs'kirill_gen'
 	R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
 	$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
-	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
-	np['<<$temploc>>']=157
-	tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'&np['<<$temploc>>']=157&tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
 	H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №3'&ownerloc['<<$templocH>>']=katja&privat['<<$templocH>>']=1
 	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №3'&$lname_go['<<$temploc>>']='в квартиру №3'&!'надпись над фото'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'
-	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
-	np['<<$temploc>>']=153
-	mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
-	item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1
-	telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'&np['<<$temploc>>']=153
+	item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1&telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
-	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname_go['<<$temploc>>']='на кухню'
-	$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля пельменей'
-	np['<<$temploc>>']=154
-	can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname_go['<<$temploc>>']='на кухню'&can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля пельменей'&np['<<$temploc>>']=154
 	R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
 	item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
-	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'&np['<<$temploc>>']=156&gs'katja_gen'
 	$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
-	np['<<$temploc>>']=156
-	gs'katja_gen'
 	R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
-	$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
-	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
-	np['<<$temploc>>']=157
-	tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'&tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'&np['<<$temploc>>']=157
 	H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №4'&ownerloc['<<$templocH>>']=katja&privat['<<$templocH>>']=1
 	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №4'&$lname_go['<<$temploc>>']='в квартиру №4'&!'надпись над фото'
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'
-	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'
-	np['<<$temploc>>']=153
-	mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
-	item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1
-	telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'&mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'&np['<<$temploc>>']=153
+	item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1&telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
-	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname_go['<<$temploc>>']='на кухню'
-	$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля пельменей'
-	np['<<$temploc>>']=154
-	can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
-	R=2&gs 'toilet_gen',1&!gs 'toilet_gen',уровень туалета
-	item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
-	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
+	$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname_go['<<$temploc>>']='на кухню'&can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля пельменей'&np['<<$temploc>>']=154
+	R=2&gs 'toilet_gen',1&item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
+	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'&np['<<$temploc>>']=156&gs'miha_gen'
 	$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'
-	np['<<$temploc>>']=156
-	gs'miha_gen'
 	R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'
 	$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
-	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
-	np['<<$temploc>>']=157
-	tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'&np['<<$temploc>>']=157&tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
 elseif X=3 and Y=4:
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Сквер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-     $locname['<<$temploc>>']='Сквер'&$lname['<<$temploc>>']='Сквер'&$locopis['<<$temploc>>']='Ухоженный сквер с лавочками, подстриженными кустиками и мощеными дорожками'
-	 np['<<$temploc>>']=11
+    $locname['<<$temploc>>']='Сквер'&$lname['<<$temploc>>']='Сквер'&$locopis['<<$temploc>>']='Ухоженный сквер с лавочками, подстриженными кустиками и мощеными дорожками'&np['<<$temploc>>']=11
 elseif X=3 and Y=2:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Отделение полиции'&blocksex['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Отделение'&$lname['<<$temploc>>']='полиция'&$lname_go['<<$temploc>>']='в полицию'&$locopis['<<$temploc>>']='Районное отделение полиции'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Отделение'&$lname['<<$temploc>>']='полиция'&$lname_go['<<$temploc>>']='в полицию'&$locopis['<<$temploc>>']='Районное отделение полиции'&np['<<$temploc>>']=0
 	gs'realworldhuman_gen'&real_world[]=i&walkprog[i]=0&$iif(pol[i]=0,'Постовой','Охранница')
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Приёмная отделения полиции'&maxPositionR['<<$templocH>>']=3
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-	$locname['<<$temploc>>']='Полиция'&$lname['<<$temploc>>']='Полиция'&$locopis['<<$temploc>>']='Отделение полиции охраняющей город'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Полиция'&$lname['<<$temploc>>']='Полиция'&$locopis['<<$temploc>>']='Отделение полиции охраняющей город'&np['<<$temploc>>']=0
 	gs'realworldhuman_gen'&real_world[]=i&walkprog[i]=0&$iif(pol[i]=0,'Охранник','Охранница')
-	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'
-	np['<<$temploc>>']=1
-	toilet['<<$temploc>>']=1
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'&np['<<$temploc>>']=1
 	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кабинет начальника полиции'
 	$locname['<<$temploc>>']='Кабинет начальника'&$lname['<<$temploc>>']='кабинет'&$lname_go['<<$temploc>>']='в кабинет'
-	$locopis['<<$temploc>>']='Место, где шеф полиции ведёт приём и даёт указания подчинённым'
-	np['<<$temploc>>']=0
+	$locopis['<<$temploc>>']='Место, где шеф полиции ведёт приём и даёт указания подчинённым'&np['<<$temploc>>']=0
 	gs'realworldhuman_gen'&real_world[]=i&walkprog[i]=0&$nick='Шеф полиции'
 	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кабинет детективов'
-	$locname['<<$temploc>>']='Кабинет детективов'&$lname['<<$temploc>>']='Кабинет детективов'&$lname_go['<<$temploc>>']='в кабинет'&$locopis['<<$temploc>>']=''
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Кабинет детективов'&$lname['<<$temploc>>']='Кабинет детективов'&$lname_go['<<$temploc>>']='в кабинет'&$locopis['<<$temploc>>']=''&np['<<$temploc>>']=0
 	gs'realworldhuman_gen'&real_world[]=i&walkprog[i]=0&$nick='Детектив'
 elseif X=3 and Y=1:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Отель'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Отель'&$lname['<<$temploc>>']='Отель'&$lname_go['<<$temploc>>']='к отелю'
-	$locopis['<<$temploc>>']='Отель, в народе называемый клоповником, в котором останавливаются фермеры'
-	np['<<$temploc>>']=0
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Отель'&$lname['<<$temploc>>']='Отель'&$lname_go['<<$temploc>>']='к отелю'
+	$locopis['<<$temploc>>']='Отель, в народе называемый клоповником, в котором останавливаются фермеры'&np['<<$temploc>>']=0
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Отель'&maxPositionR['<<$templocH>>']=7
 	:markOtel
 	R+=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната'
-	$locname['<<$temploc>>']='Комната №<<R>>'&$lname['<<$temploc>>']='комната'&$locopis['<<$temploc>>']='Затрапезная комната в отеле'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Комната №<<R>>'&$lname['<<$temploc>>']='комната'&$locopis['<<$temploc>>']='Затрапезная комната в отеле'&np['<<$temploc>>']=0
 	gs'realworldhuman_gen'&real_world[]=i&walkprog[i]=0&$iif(pol[i]=0,'Фермер','Фермерша')&ratio[i]=2&extrovert[i]=1
 	if R<7:jump 'markOtel'
-	R=7&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Туалетная комната в отеле'
-	np['<<$temploc>>']=0
-	toilet['<<$temploc>>']=1
+	R=7&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Туалетная комната в отеле'&np['<<$temploc>>']=0
 elseif X=4 and Y=4:
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Площадь'&maxPositionR['<<$templocH>>']=0&blocksexH['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-    $locname['<<$temploc>>']='Площадь 40 лет Октября'&$lname['<<$temploc>>']='Площадь'&$locopis['<<$temploc>>']='Площадь с героическим прошлым которое уже никто не помнит'
-	np['<<$temploc>>']=23
+    $locname['<<$temploc>>']='Площадь 40 лет Октября'&$lname['<<$temploc>>']='Площадь'&$locopis['<<$temploc>>']='Площадь с героическим прошлым которое уже никто не помнит'&np['<<$temploc>>']=23
 	gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i
 elseif X=4 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Театральная Площадь'&maxPositionR['<<$templocH>>']=0&blocksexH['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Театральная площадь'&$lname['<<$temploc>>']='Театральная площадь'&$locopis['<<$temploc>>']='театральная площадь, название говорит само за себя'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Театральная площадь'&$lname['<<$temploc>>']='Театральная площадь'&$locopis['<<$temploc>>']='театральная площадь, название говорит само за себя'&np['<<$temploc>>']=0
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Театр'&maxPositionR['<<$templocH>>']=3&blocksex['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Касса театра'
-	$locname['<<$temploc>>']='Касса'&$lname['<<$temploc>>']='касса'&$locopis['<<$temploc>>']='касса, где можно купить билет на представление'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Касса'&$lname['<<$temploc>>']='касса'&$locopis['<<$temploc>>']='касса, где можно купить билет на представление'&np['<<$temploc>>']=0
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Фойе театра'&blocksex['<<$temploc>>']=1
-	$locname['<<$temploc>>']='Фойе театра'&$lname['<<$temploc>>']='фойе'&$lname_go['<<$temploc>>']='в фойе'&$locopis['<<$temploc>>']='Входное фойе городского театра'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Фойе театра'&$lname['<<$temploc>>']='фойе'&$lname_go['<<$temploc>>']='в фойе'&$locopis['<<$temploc>>']='Входное фойе городского театра'&np['<<$temploc>>']=0
 	gs'realworldhuman_gen'&$nick[i]='Билетёр'
-	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'
-	np['<<$temploc>>']=1
-	toilet['<<$temploc>>']=1
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'&np['<<$temploc>>']=1
 	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Зал театра'&blocksex['<<$temploc>>']=1
-	$locname['<<$temploc>>']='Зал театра'&$lname['<<$temploc>>']='зал'&$locopis['<<$temploc>>']='Зал городского театра'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Зал театра'&$lname['<<$temploc>>']='зал'&$locopis['<<$temploc>>']='Зал городского театра'&np['<<$temploc>>']=0
 	gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Актёр','Актриса')&gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Актёр','Актриса')&gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Актёр','Актриса')	
 elseif X=4 and Y=2:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Детский сад'&maxPositionR['<<$templocH>>']=0&blocksexH['<<$templocH>>']=1
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Детский сад Петушок'&$lname['<<$temploc>>']='Детсад'&$lname_go['<<$temploc>>']='в детсад'
-	$locopis['<<$temploc>>']='Детский садик с площадками для выгула детишек'
-	np['<<$temploc>>']=25
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Детский сад Петушок'&$lname['<<$temploc>>']='Детсад'&$lname_go['<<$temploc>>']='в детсад'
+	$locopis['<<$temploc>>']='Детский садик с площадками для выгула детишек'&np['<<$temploc>>']=25
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Приёмное отделение'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Приёмное отделение'&blocksex['<<$temploc>>']=1
     $locname['<<$temploc>>']='Приёмное отделение'&$lname['<<$temploc>>']='приёмное отделение'&$lname_go['<<$temploc>>']='в приёмное отделение'
 	$locopis['<<$temploc>>']='помещение с раздевалкой, где родители передают детишек воспитателям'
 elseif X=4 and Y=1:
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	gs'school_gen'
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&gs'school_gen'
 elseif X=5 and Y!3 and Y>0 and Y<=Ymax[Z]:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Речка Срачка'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Речка'&$lname['<<$temploc>>']='речка'&$locopis['<<$temploc>>']='Маленькая вонючая речка с замусоренными берегами'
-	 np['<<$temploc>>']=22
+    $locname['<<$temploc>>']='Речка'&$lname['<<$temploc>>']='речка'&$locopis['<<$temploc>>']='Маленькая вонючая речка с замусоренными берегами'&np['<<$temploc>>']=22
 elseif X=5 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Мост'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Мост'&$lname['<<$temploc>>']='мост'&$locopis['<<$temploc>>']='мост через речку'
-	 np['<<$temploc>>']=22
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Мост'&$lname['<<$temploc>>']='мост'&$locopis['<<$temploc>>']='мост через речку'&np['<<$temploc>>']=22
 elseif X=2 and Y=4:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=2
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Площадка перед поликлиникой'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Поликлиника'&blocksex['<<$temploc>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Поликлиника'&blocksex['<<$temploc>>']=1&np['<<$temploc>>']=21
 	$locname['<<$temploc>>']='Поликлиника'&$lname['<<$temploc>>']='Поликлиника'&$lname_go['<<$temploc>>']='в поликлинику'&$locopis['<<$temploc>>']='площадка для машин скорой помощи'
-	np['<<$temploc>>']=21
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Районная поликлиника'&maxPositionR['<<$templocH>>']=10
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Поликлиника'&blocksex['<<$temploc>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Поликлиника'&blocksex['<<$temploc>>']=1&np['<<$temploc>>']=0
     $locname['<<$temploc>>']='Поликлиника'&$lname['<<$temploc>>']='поликлиника'&$lname_go['<<$temploc>>']='в поликлинику'&$locopis['<<$temploc>>']='Современное здание поликлиники и больницы'
-	np['<<$temploc>>']=0
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Регистратура'&blocksex['<<$temploc>>']=1
 	$locname['<<$temploc>>']='Регистратура'&$lname['<<$temploc>>']='регистратура'&$lname_go['<<$temploc>>']='к регистратуре'
-	$locopis['<<$temploc>>']='регистратура, где можно взять направление к врачу'
-	np['<<$temploc>>']=0
+	$locopis['<<$temploc>>']='регистратура, где можно взять направление к врачу'&np['<<$temploc>>']=0
 	R=2&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
 	:markdoctor
 	R+=1&numdoctor=R-2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
@@ -215,83 +156,62 @@ elseif X=2 and Y=4:
 	if numdoctor=6:$locnameR['<<$temploc>>']='Андролог'&$locopis['<<$temploc>>']='кабинет, где принимает андролог'&gs'realworldhuman_gen'&$nick[i]='Андролог'
 	if numdoctor=7:$locnameR['<<$temploc>>']='Процедурная'&$locopis['<<$temploc>>']='кабинет, где делают анализы и процедуры'&gs'realworldhuman_gen'&$nick[i]=$iif(pol[i]=0,'Медбрат','Медсестра')
 	if numdoctor>7:$locnameR['<<$temploc>>']='Кабинет №<<numdoctor>>'
-	$locname['<<$temploc>>']='Кабинет №<<numdoctor>>'&$lname['<<$temploc>>']='кабинет №<<numdoctor>>'&$lname_go['<<$temploc>>']='в кабинет №<<numdoctor>>'
-	np['<<$temploc>>']=0&&killvar 'numhome'
-	if R<1+maxPositionR['<<$templocH>>']:jump 'markdoctor'
+	$locname['<<$temploc>>']='Кабинет №<<numdoctor>>'&$lname['<<$temploc>>']='кабинет №<<numdoctor>>'&$lname_go['<<$temploc>>']='в кабинет №<<numdoctor>>'&np['<<$temploc>>']=0
+	killvar 'numhome'&if R<1+maxPositionR['<<$templocH>>']:jump 'markdoctor'
 	H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Исследовательский центр'&maxPositionR['<<$templocH>>']=2
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Исследовательский центр'&blocksex['<<$temploc>>']=1
-	$locname['<<$temploc>>']='Центр'&$lname['<<$temploc>>']='центр'&$lname_go['<<$temploc>>']='в центр'&$locopis['<<$temploc>>']='Небольшой исследовательский центр нейтрино'
-	np['<<$temploc>>']=30
+	$locname['<<$temploc>>']='Центр'&$lname['<<$temploc>>']='центр'&$lname_go['<<$temploc>>']='в центр'&$locopis['<<$temploc>>']='Небольшой исследовательский центр нейтрино'&np['<<$temploc>>']=30
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Приёмная'
-	$locname['<<$temploc>>']='Приёмная'&$lname['<<$temploc>>']='приёмная'&$lname_go['<<$temploc>>']='в приёмную'&$locopis['<<$temploc>>']='Приёмная исследовательского центра'
-	np['<<$temploc>>']=30
-	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Хорошо оформленный общественный туалет'
-	np['<<$temploc>>']=1
-	toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Приёмная'&$lname['<<$temploc>>']='приёмная'&$lname_go['<<$temploc>>']='в приёмную'&$locopis['<<$temploc>>']='Приёмная исследовательского центра'&np['<<$temploc>>']=30
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Хорошо оформленный общественный туалет'&np['<<$temploc>>']=1
 elseif X=2 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Площадь у входа в универсальный магазин'&maxPositionR['<<$templocH>>']=0&blocksexH['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-     $locname['<<$temploc>>']='Площадь перед магазином'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в магазин'
-	 $locopis['<<$temploc>>']='Небольшая, но ухоженная площадка перед магазином'
-	 np['<<$temploc>>']=19
+    $locname['<<$temploc>>']='Площадь перед магазином'&$lname['<<$temploc>>']='Магазин'&$lname_go['<<$temploc>>']='в магазин'
+	$locopis['<<$temploc>>']='Небольшая, но ухоженная площадка перед магазином'&np['<<$temploc>>']=19
 	gs'gopnik_gen'&real_world[]=i&gs'gopnik_gen'&real_world[]=i&gs'gopnik_gen'&real_world[]=i
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Универсам'&maxPositionR['<<$templocH>>']=1
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='магазин'&$locopis['<<$temploc>>']='Торговый зал большого магазина'
-	np['<<$temploc>>']=20
-	supermarket['<<$temploc>>']=1&clostore['<<$temploc>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1&supermarket['<<$temploc>>']=1&clostore['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='магазин'&$locopis['<<$temploc>>']='Торговый зал большого магазина'&np['<<$temploc>>']=20
 	R=1&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
-	 H=1&gs'homegen',5
+	H=1&gs'homegen',5
 elseif X=2 and Y=2:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Котельная'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Котельная'&$lname['<<$temploc>>']='Котельная'
-	 $locopis['<<$temploc>>']='Местная котельная подающая горячую воду в дома'
-	 np['<<$temploc>>']=27
+    $locname['<<$temploc>>']='Котельная'&$lname['<<$temploc>>']='Котельная'&$locopis['<<$temploc>>']='Местная котельная подающая горячую воду в дома'&np['<<$temploc>>']=27
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Помещение котельной'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Качегарка'&$lname['<<$temploc>>']='качегарка'&$lname_go['<<$temploc>>']='в качегарку'
-	 $locopis['<<$temploc>>']='Местная котельная подающая горячую воду в дома'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Качегарка'&$lname['<<$temploc>>']='качегарка'&$lname_go['<<$temploc>>']='в качегарку'
+	$locopis['<<$temploc>>']='Местная котельная подающая горячую воду в дома'
 elseif X=2 and Y=1:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Городской рынок'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Рынок'&$lname['<<$temploc>>']='рынок'&$lname_go['<<$temploc>>']='на рынок'&$locopis['<<$temploc>>']='Большой рынок где продают свои товары фермеры'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Рынок'&$lname['<<$temploc>>']='рынок'&$lname_go['<<$temploc>>']='на рынок'&$locopis['<<$temploc>>']='Рынок, где продают свои товары фермеры'&np['<<$temploc>>']=0
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Городской рынок'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Помещение рынка'
-	$locname['<<$temploc>>']='Павильон'&$lname['<<$temploc>>']='павильон'&$lname_go['<<$temploc>>']='в павильон'&$locopis['<<$temploc>>']='Большой павильон рвнка'
-	np['<<$temploc>>']=0
-	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'
-	np['<<$temploc>>']=1
-	toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Павильон'&$lname['<<$temploc>>']='павильон'&$lname_go['<<$temploc>>']='в павильон'&$locopis['<<$temploc>>']='Большой павильон рвнка'&np['<<$temploc>>']=0
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'&np['<<$temploc>>']=1
 elseif X=1 and Y=4:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар "Нива"'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$locopis['<<$temploc>>']='Бар в котором отдыхают фермеры приехавшие в город'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Бар'&$lname['<<$temploc>>']='Бар'&$locopis['<<$temploc>>']='Бар в котором отдыхают фермеры приехавшие в город'&np['<<$temploc>>']=0
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Бар "Нива"'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Барная стойка'&$lname['<<$temploc>>']='стойка'&$locopis['<<$temploc>>']='Барная стойка с витриной, в которой стоят бутылки с выпивкой '
-	np['<<$temploc>>']=0
-	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'
-	np['<<$temploc>>']=1
-	toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Барная стойка'&$lname['<<$temploc>>']='стойка'&$locopis['<<$temploc>>']='Барная стойка с витриной, в которой стоят бутылки с выпивкой '&np['<<$temploc>>']=0
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обыкновенный туалет'&np['<<$temploc>>']=1
 elseif X=1 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улица Борщевского'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-     $locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='улица'&$lname_go['<<$temploc>>']='на улицу Борщевского'
-	 $locopis['<<$temploc>>']='Бетонные дома конца восмидесятых дворы которых не благоустроены и представляют собой пыльные пустыри'
-	 $locopis['<<$temploc>>']+='Дворы многоэтажек похожи на дно колодца и лишь где-то в вышине виден рваный клочок грязного неба.'
-	 np['<<$temploc>>']=10
-	 gs'realworldhuman_gen'&gs'realworldhuman_gen'&gs'realworldhuman_gen'
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1&$locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='улица'&$lname_go['<<$temploc>>']='на улицу Борщевского'
+	$locopis['<<$temploc>>']='Бетонные дома конца восмидесятых дворы которых не благоустроены и представляют собой пыльные пустыри'
+	$locopis['<<$temploc>>']+='Дворы многоэтажек похожи на дно колодца и лишь где-то в вышине виден рваный клочок грязного неба.'&np['<<$temploc>>']=10
+	gs'realworldhuman_gen'&gs'realworldhuman_gen'&gs'realworldhuman_gen'
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Аллея'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Аллея'
 	gs'homegen',5&!gs'miha_gen'&gs'mark_gen'&gs'kirill_gen'&gs'katja_gen'
@@ -301,36 +221,27 @@ elseif X=1 and Y=2:
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1&$locnameR['<<$temploc>>']='Городская библиотека'
 	gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i
 	$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='библиотека'&$lname_go['<<$temploc>>']='в библиотеку'
-	$locopis['<<$temploc>>']='Большинство книг в библиотеке написаны по памяти попавших в город людей, либо местные произведения'
-	np['<<$temploc>>']=0
+	$locopis['<<$temploc>>']='Большинство книг в библиотеке написаны по памяти попавших в город людей, либо местные произведения'&np['<<$temploc>>']=0
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Библиотека'&maxPositionR['<<$templocH>>']=2&blocksexH['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1&$locnameR['<<$temploc>>']='Городская библиотека'
 	$locname['<<$temploc>>']='Библиотека'&$lname['<<$temploc>>']='библиотека'&$lname_go['<<$temploc>>']='в библиотеку'
 	$locopis['<<$temploc>>']='Большинство книг в библиотеке написаны по памяти попавших в город людей, либо местные произведения'
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1&$locnameR['<<$temploc>>']='Читальный зал'
-	$locname['<<$temploc>>']='Зал'&$lname['<<$temploc>>']='зал'&$lname_go['<<$temploc>>']='в зал'
-	$locopis['<<$temploc>>']='Хорошо освещённый зал со столами'
+	$locname['<<$temploc>>']='Зал'&$lname['<<$temploc>>']='зал'&$lname_go['<<$temploc>>']='в зал'&$locopis['<<$temploc>>']='Хорошо освещённый зал со столами'
 	R=2&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
 elseif X=1 and Y=1:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=3
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Офисный центр'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
-     $locname['<<$temploc>>']='Офисный центр'&$lname['<<$temploc>>']='Офисы'&$lname_go['<<$temploc>>']='в офис'
-	 $locopis['<<$temploc>>']='Большое и современное здание с офисами'
-	np['<<$temploc>>']=29
+    $locname['<<$temploc>>']='Офисный центр'&$lname['<<$temploc>>']='Офисы'&$lname_go['<<$temploc>>']='в офис'
+	$locopis['<<$temploc>>']='Большое и современное здание с офисами'&np['<<$temploc>>']=29
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Офисное здание'&maxPositionR['<<$templocH>>']=3
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Коридор'
-	$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='коридор'&$locopis['<<$temploc>>']='коридор офисного здания'
-	np['<<$temploc>>']=0
+	$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='коридор'&$locopis['<<$temploc>>']='коридор офисного здания'&np['<<$temploc>>']=0
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Офис'
-	$locname['<<$temploc>>']='Офис'&$lname['<<$temploc>>']='Офис'&$locopis['<<$temploc>>']='Современный офис'
-	np['<<$temploc>>']=30
-	officeworkspace['<<$temploc>>']=1
-	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Босс'
-	$locname['<<$temploc>>']='Кабинет начальника'&$lname['<<$temploc>>']='босс'&$locopis['<<$temploc>>']='Кабинет босса в офисе'
-	np['<<$temploc>>']=30
-	gs'demonboss_gen'
-	officeworkspace['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Офис'&$lname['<<$temploc>>']='Офис'&$locopis['<<$temploc>>']='Современный офис'&np['<<$temploc>>']=30&officeworkspace['<<$temploc>>']=1
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Босс'&officeworkspace['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Кабинет начальника'&$lname['<<$temploc>>']='босс'&$locopis['<<$temploc>>']='Кабинет босса в офисе'&np['<<$temploc>>']=30&gs'demonboss_gen'
 	R=3&gs 'toilet_gen',0&!gs 'toilet_gen',уровень туалета
 	H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Кафе'&maxPositionR['<<$templocH>>']=2
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&blocksex['<<$temploc>>']=1
@@ -338,10 +249,8 @@ elseif X=1 and Y=1:
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Зал Кафе'&blocksex['<<$temploc>>']=1
 	$locname['<<$temploc>>']='Зал'&$lnameH['<<$templocH>>']='зал'&$locopis['<<$temploc>>']='зал кафе со столиками'
 	kiosk['<<$temploc>>']=1
-	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обычный общественный туалет'
-	np['<<$temploc>>']=1
-	toilet['<<$temploc>>']=1
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Обычный общественный туалет'&np['<<$temploc>>']=1
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Туристическое агентство'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&
 	$locname['<<$temploc>>']='Кафе'&$lnameH['<<$templocH>>']='Кафе'&$locopis['<<$temploc>>']='Офис туристического агентства, в котором продаётся тур в отель на экзотическом острове'
@@ -349,10 +258,8 @@ elseif X=1 and Y=1:
 elseif X=0 and Y>1 and Y<Ymax[Z]-1:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Гаражи'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Гаражный массив'&$lname['<<$temploc>>']='Гаражи'
-	 $locopis['<<$temploc>>']='Лабиринт однотипных приземистых кирпичных гаражей'
-	 np['<<$temploc>>']=24
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Гаражный массив'&$lname['<<$temploc>>']='Гаражи'
+	$locopis['<<$temploc>>']='Лабиринт однотипных приземистых кирпичных гаражей'&np['<<$temploc>>']=24
 elseif X=0 and Y=1:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Ресторан'&maxPositionR['<<$templocH>>']=0
@@ -362,28 +269,20 @@ elseif X=0 and Y=1:
 	$locname['<<$temploc>>']='Ресторан'&$lnameH['<<$templocH>>']='Ресторан'&$locopis['<<$temploc>>']='Заведение с лучшей в городе кухней'
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Зал ресторана'&blocksex['<<$temploc>>']=1
 	$locname['<<$temploc>>']='Зал'&$lnameH['<<$templocH>>']='зал'&$locopis['<<$temploc>>']='зал ресторана со столиками и сценой'
-	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Хорошо оформленный общественный туалет'
-	np['<<$temploc>>']=1
-	toilet['<<$temploc>>']=1
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&toilet['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Хорошо оформленный общественный туалет'&np['<<$temploc>>']=1
 elseif Y=0 and X>=0 and X<=Xmax[Z]:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Река'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-     $locname['<<$temploc>>']='Берег реки'&$lname['<<$temploc>>']='Берег реки'
-	 $locopis['<<$temploc>>']='Пустынный берег реки'
-	 np['<<$temploc>>']=28
-	 can_swim['<<$temploc>>']=1
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Берег реки'&$lname['<<$temploc>>']='Берег реки'&$locopis['<<$temploc>>']='Пустынный берег реки'&np['<<$temploc>>']=28
+	can_swim['<<$temploc>>']=1
 else
-	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5
-	!H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улица'&maxPositionR['<<$templocH>>']=0
+	maxPositionH['<<X>>,<<Y>>,<<Z>>']=5&!H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улица'&maxPositionR['<<$templocH>>']=0
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='улица'&$locopis['<<$temploc>>']='Безликая улочка с серыми советскими домами и редкими деревьями.'
-	np['<<$temploc>>']=rand(12,18)
-	gs'homegen',4
-	gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i&gs'gopnik_gen'&real_world[]=i
-	! H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улица'&maxPositionR['<<$templocH>>']=0
-	! R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Лес'
+	$locname['<<$temploc>>']='Улица'&$lname['<<$temploc>>']='улица'&$locopis['<<$temploc>>']='Безликая улочка с серыми советскими домами и редкими деревьями.'&np['<<$temploc>>']=rand(12,18)
+	gs'homegen',4&gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i&gs'realworldhuman_gen'&real_world[]=i&gs'gopnik_gen'&real_world[]=i
+	!H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Улица'&maxPositionR['<<$templocH>>']=0
+	!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Лес'
 end
 X+=1&if X<=Xmax[Z]:jump'markgenworld200'
 X=0&Y+=1&if Y<=Ymax[Z]:jump'markgenworld200'

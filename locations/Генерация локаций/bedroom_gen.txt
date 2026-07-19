@@ -1,7 +1,6 @@
 ﻿$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&!Образец вызова:gs 'bedroom_gen',уровень спальной, 'жильцы',номер предмета
 $temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
-$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
-gs'item_base'
+$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&gs'item_base'
 if args[0]=0:
 	$locopis['<<$temploc>>']=''&!описание
 	np['<<$temploc>>']=5&!номер картинки

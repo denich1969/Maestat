@@ -1,15 +1,9 @@
-﻿clo=ARGS[0]
-cantwear=0
-if pol_ut[clo]<2 and pol[you]!pol_ut[clo]:cantwear=1
+﻿clo=ARGS[0]&cantwear=0&if pol_ut[clo]<2 and pol[you]!pol_ut[clo]:cantwear=1
 if cantwear=0:
 	if ut_slot[you]=0:
-		ut_wardrobe[clo]=0
-		ut_slot[you]=clo
+		ut_wardrobe[clo]=0&ut_slot[you]=clo
 	else				
-		clothednow=ut_slot[you]
-		ut_wardrobe[clothednow]=1&!снять
-		ut_wardrobe[clo]=0
-		ut_slot[you]=clo&!надеть
+		clothednow=ut_slot[you]&ut_wardrobe[clothednow]=1&ut_wardrobe[clo]=0&ut_slot[you]=clo&!снять и поместить в шкаф одежду !убрать из шкафа и надеть одежду
 	end
 end
 if cantwear=1:msg("Нельзя надеть")

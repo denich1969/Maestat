@@ -2,9 +2,9 @@
 if sexpower[npc]>0:
 	temp_blow_fss+=1&sexpower[npc]-=1&gs'stat'
 	if skin[npc]>3 and skin[npc]<7:
-		blacked[you]+=1&'<center><video src="pic/sex/public/bbc_blow<<rand(0,21)>>.webm" ></video></center>'
+		blacked[you]+=1&'<center><video autoplay loop src="pic/sex/public/bbc_blow<<rand(0,21)>>.webm" ></video></center>'
 	else
-		'<center><video src="pic/sex/public/blow<<rand(0,27)>>.webm" ></video></center>'
+		'<center><video autoplay loop src="pic/sex/public/blow<<rand(0,27)>>.webm" ></video></center>'
 	end
 	$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
 	'Вы сидите на корточках и сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'

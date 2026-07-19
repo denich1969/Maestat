@@ -3,9 +3,9 @@
 	if namerander>=50 and namerander<=70:args[0]=9
 	if namerander>70:args[0]=rand(2,8)
 end
-if $title[i]='Негр из чёрного квартала':
-	namerander=rand(1,100)&if namerander<=70:args[0]=0
-	if namerander>70:args[0]=rand(1,9)
+if $title[i]='Житель чёрного квартала':
+	namerander=rand(1,100)&if namerander<=70:args[0]=10
+	if namerander>70:args[0]=10
 end
 if $title[i]='Житель жилмассива':
 	tipername=rand(1,10)&if tipername<=8:args[0]=0
@@ -38,6 +38,16 @@ if args[1]=0:
 		gs'manname_rom'&$name[args[2]]=$genname&gs'surname_rom'&$surname[args[2]]=$gensurname
 	elseif args[0]=9:
 		gs'man_name'&$name[args[2]]=$genname&gs'surname'&$surname[args[2]]=$gensurname
+	elseif args[0]=10:
+		gs'negr_man_name'&$name[args[2]]=$genname&gs'negr_surname'&$surname[args[2]]=$gensurname
+	elseif args[0]=11:
+		gs'elf_man_name'&$name[args[2]]=$genname&$surname[args[2]]=''
+	elseif args[0]=12:
+		gs'drow_man_name'&$name[args[2]]=$pri&gs'drow_dom_name'&$surname[args[2]]=$temp_name_drow_dom
+	elseif args[0]=13:
+		gs'orc_man_name'&$name[args[2]]=$genname&$surname[args[2]]=''
+	elseif args[0]=14:
+		gs'dworf_man_name'&$name[args[2]]=$genname&$surname[args[2]]=''
 	end
 else
 	if args[0]=0:
@@ -60,6 +70,14 @@ else
 		gs'womanname_rom'&$name[args[2]]=$genname&gs'surname_rom'&$surname[args[2]]=$gensurname_f
 	elseif args[0]=9:
 		gs'woman_name'&$name[args[2]]=$genname&gs'surname'&$surname[args[2]]=$gensurname
+	elseif args[0]=10:
+		gs'negr_woman_name'&$name[args[2]]=$genname&gs'negr_surname'&$surname[args[2]]=$gensurname
+	elseif args[0]=11:
+		gs'elf_woman_name'&$name[args[2]]=$genname&$surname[args[2]]=''
+	elseif args[0]=12:
+		gs'drow_woman_name'&$name[args[2]]=$pri&gs'drow_dom_name'&$surname[args[2]]=$temp_name_drow_dom
+	elseif args[0]=14:
+		gs'dworf_woman_name'&$name[args[2]]=$genname&$surname[args[2]]=''
 	end
 end
 nation[args[2]]=args[0]&pretipename=0

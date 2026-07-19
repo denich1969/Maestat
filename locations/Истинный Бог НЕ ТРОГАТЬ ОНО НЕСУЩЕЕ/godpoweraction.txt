@@ -107,14 +107,13 @@ if action_god[truegod] = 11:
 	Вы уверены, что при вашем могуществе, вам столь необходим данный предмет."&!Маэстат
 	act "Проблеммы и грядущие катастрофы мира смертных меня не интересуют. <br>И разумеется я не опущусь до того, чтобы после моего осознаго выбора бежать с баг репортами к творцам данного мира.</br>
 	По крайне мере до момента пока они не учтут моё присутствие в их плане бытия.":
-		 "Вы решаете взять всё в свои руки с той же лёгкость с которой, манипулирете оболочками смертных Маэстат ваш"
-		 water_gem[you]=1&fire_gem[you]=1&earth_gem[you]=1&wind_gem[you]=1&soul_gem[you]=1
-		 runemaster_spell[you]=1
-		 rune_alef[you]+=1&rune_dar[you]+=1&rune_fade[you]+=1&rune_spore[you]+=1&rune_Dea[you]+=1
-		 knowlanguage[you]=1&soulMG[you]=1&canbewitch[you]=1&free_spirit=1&mardukpower=1&Tsukuyomi[you]=1&visioner[you]=1&gt 'maestat'
+		"Вы решаете взять всё в свои руки с той же лёгкость с которой, манипулирете оболочками смертных Маэстат ваш"
+		water_gem[you]=1&fire_gem[you]=1&earth_gem[you]=1&wind_gem[you]=1&soul_gem[you]=1&runemaster_spell[you]=1
+		rune_alef[you]+=1&rune_dar[you]+=1&rune_fade[you]+=1&rune_spore[you]+=1&rune_Dea[you]+=1
+		knowlanguage[you]=1&soulMG[you]=1&canbewitch[you]=1&free_spirit=1&mardukpower=1&Tsukuyomi[you]=1&visioner[you]=1&gt 'maestat'
 	end
 	act "Оствлю этот вариант на потом.":
-		 "Вы проявляете терпение свойсвтенное только богу. Вернётесь ли вы в мир смертных или поразмышляете о применении иных ваших возможностей."&act "Вернуться в смертную оболочку":gt "godreturn"
+		"Вы проявляете терпение свойсвтенное только богу. Вернётесь ли вы в мир смертных или поразмышляете о применении иных ваших возможностей."&act "Вернуться в смертную оболочку":gt "godreturn"
 		act "Вновь обратится к собственным силам":action_god[truegod]=0&special_move[truegod]=0&gt "godoutofendlesspower"
 	end
 end

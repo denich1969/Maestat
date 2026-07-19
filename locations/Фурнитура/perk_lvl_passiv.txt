@@ -4,34 +4,34 @@ args[10]=rand(4)
 !"statistics_bj "+statistics_bj[you]&!"statistics_anal "+statistics_anal[you]&!"statistics_feminize[you] "+statistics_feminize[you]
 if lvlpoint[you]>=2 and statistics_bj[you]>(perk_cumslut[you]+1)*30 and args[10]=0 and pass_perk_accept=0 and perk_cumslut[you]<5:
 	pass_perk_accept=1&perk_cumslut[you]+=1&lvlpoint[you]-=2&horny[you]+=50&oral_fixation[you]+=10
-	cla&gs'stat'&'<center><video src="pic/sex/bj/facefuck/<<rand(0,40)>>.webm" ></video></center>'
+	cla&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/facefuck/<<rand(0,40)>>.webm" ></video></center>'
 	'<i>Вам снится как какой-то парень хватает вас за волосы и ебет в рот, но от этого вы только возбуждаетесь...</i>'&act'...':gt'newlevel'
 end
 if lvlpoint[you]>=2 and statistics_anal[you]>(perk_analslut[you]+1)*15 and args[10]=1 and pass_perk_accept=0 and perk_analslut[you]<5:	
 	pass_perk_accept=1&perk_analslut[you]+=1&lvlpoint[you]-=2&horny[you]+=50&anal_fixation[you]+=10
-	cla&gs'stat'&'<center><video src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
+	cla&gs'stat'&'<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
 	'<i>Вам снится как какой-то парень заводит вас в подворотню и начинает жостко ебать в жопу, от чего вы сильно возбуждаетесь, но кончить так и не смогли</i>'&act'...':gt'newlevel'
 end
 if lvlpoint[you]>=2 and statistics_feminize[you]>(perk_feminize[you]+1)*50 and args[10]=2 and pass_perk_accept=0 and perk_feminize[you]<3:	
 	pass_perk_accept=1&perk_feminize[you]+=1&lvlpoint[you]-=2
-	horny[you]+=50&!'<center><video src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
+	horny[you]+=50&!'<center><video autoplay loop src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
 	cla&gs'stat'&'<i>Проснувшись вы ощущаете странные изменения в теле, кажется ваш организм может самостоятельно вырабатывать феминизатор...</i>'&act'...':gt'newlevel'
 end
 if args[10]=3 and pol[you]>0 and womenbrain[you]>80 and func('util_func', 'get_flirts_amount')>(perk_sexy[you]+1)*30 and func('util_func', 'get_friends_amount')>(perk_flirt[you]+1)*15 and lvlpoint[you]>=2 and perk_sexy[you]<3:
-	pass_perk_accept=1&perk_sexy[you]+=1&lvlpoint[you]-=2&horny[you]+=50&!'<center><video src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
+	pass_perk_accept=1&perk_sexy[you]+=1&lvlpoint[you]-=2&horny[you]+=50&!'<center><video autoplay loop src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
 	cla&gs'stat'&'<i>Вы ощущете, как в вас пробуждается "животная" сексуальность</i>'&act'...':gt'newlevel'
 end
 if args[10]=4 and pol[you]>0 and orgasm_times[you]>500 and lvlpoint[you]>=3 and perk_orgazm_reload[you]=0:
-	pass_perk_accept=1&perk_orgazm_reload[you]+=1&lvlpoint[you]-=3&horny[you]+=50&!'<center><video src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
+	pass_perk_accept=1&perk_orgazm_reload[you]+=1&lvlpoint[you]-=3&horny[you]+=50&!'<center><video autoplay loop src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
 	cla&gs'stat'&'<i>В вашем теле, что-то окончательно сломалось... вы по настоящему мультиоргазмичная особа</i>'&act'...':gt'newlevel'
 end
 if args[10]=4 and pol[you]=0 and statistics_cumnpc[you]>(perk_cumnpc[you]+1)*30 and lvlpoint[you]>=2 and perk_cumnpc[you]<5:
-	pass_perk_accept=1&perk_cumnpc[you]+=1&lvlpoint[you]-=2&horny[you]+=50&!'<center><video src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
+	pass_perk_accept=1&perk_cumnpc[you]+=1&lvlpoint[you]-=2&horny[you]+=50&!'<center><video autoplay loop src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
 	cla&gs'stat'&'<i>Вы поняли, что заставить кого-то кончить, тоже опыт...</i>'&act'...':gt'newlevel'
 end
 if args[10]=3 and pol[you]=0 and womenbrain[you]<20 and statistics_cumnpc[you]>(perc_reset_ball[you]+1)*30 and lvlpoint[you]>2 and  perc_reset_ball[you]<2:
 	pass_perk_accept=1&perc_reset_ball[you]+=1&lvlpoint[you]-=3&horny[you]+=50&!'<i>Ваша сексуальность настолько высока, что даже у мертвого встанет!</i>'
-	cla&gs'stat'&'<i>Вы ощущете, как в вас пробуждается "животное" желание</i>'&!'<center><video src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
+	cla&gs'stat'&'<i>Вы ощущете, как в вас пробуждается "животное" желание</i>'&!'<center><video autoplay loop src="pic/sex/public/dog<<rand(0,3)>>.webm" ></center>'
 	act'...':gt'newlevel'
 end
 !{args[11]+=1&if args[11]<5 and pass_perk_accept=0:jump'newRand'}

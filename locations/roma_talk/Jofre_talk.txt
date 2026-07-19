@@ -1,20 +1,15 @@
-﻿!$loc[you]=$curloc
-loc_for_drop=0&gs'stat'&'<b><center>Салон Мадам Жофрэ</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-'Приличный бордель с отлично выдрессированными рабынями.'
-gs'npconloc'&gs'item'
+﻿loc_for_drop=0&gs'stat'&'<b><center>Салон Мадам Жофрэ</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'&!$loc[you]=$curloc
+'Приличный бордель с отлично выдрессированными рабынями.'&gs'npconloc'&gs'item'
 if pet_follower>0:
 	'Мадам Жофре смотрит на вашу рабыню оценивающе'
 	act'Сколько вы заплатите за рабыню?':
-		slave=pet_follower
-		cls&gs'stat'
+		slave=pet_follower&cls&gs'stat'
 		if sl_total[slave]>=6:
 			if sl_obediance[slave]>=60 and sl_lust[slave]>=20 and sl_oral[slave]>=5 and sl_anus[slave]>=30:
-				summa=sl_total[slave]*100
-				summa=summa+sl_lust[slave]*10+sl_oral[slave]*50+sl_anus[slave]*20+sl_emo[slave]*30
+				summa=sl_total[slave]*100&summa=summa+sl_lust[slave]*10+sl_oral[slave]*50+sl_anus[slave]*20+sl_emo[slave]*30
 				'Мадам Жофре оценивает рабыню, она дала ей дилдо и смотрит что рабыня может, потом говорит - Я ее могу взять за <<summa>> искр'
 				act'Продать':
-					pet_tipe=0&iskr[you]+=summa&pet_follower=0&$loc_slave[slave]='bordelum'
-					owner[slave]=2&slave_whore+=1&cls&gs'stat'&'Вы продали рабыню в шлюхи'&act'Уйти':gt $curloc
+					pet_tipe=0&iskr[you]+=summa&pet_follower=0&$loc_slave[slave]='bordelum'&owner[slave]=2&slave_whore+=1&cls&gs'stat'&'Вы продали рабыню в шлюхи'&act'Уйти':gt $curloc
 				end 
 			else
 				'Мадам Жофре отрицательно качает головой - она плохо воспитана и никуда не годится.'

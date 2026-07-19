@@ -1,64 +1,36 @@
-﻿!Образец вызова
-!gs 'hall_gen',уровень гостиной, 'предметы',номер предмета
-$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-$locnameR['<<$temploc>>']='Гостиная'
-$locname['<<$temploc>>']='Гостиная'
-$lname['<<$temploc>>']='Гостиная'
-$lname_go['<<$temploc>>']='в гостиную'
-gs'item_base'
-	item_loc['<<args[2]>>,<<$temploc>>']=1
+﻿!Образец вызова:  gs 'hall_gen',уровень гостиной, 'предметы',номер предмета
+$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостиная'&$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостиную'
+gs'item_base'&item_loc['<<args[2]>>,<<$temploc>>']=1
 if args[0]=0:
-	 !описание
-	$locopis['<<$temploc>>']=''
-	 !номер картинки
-	np['<<$temploc>>']=6
+	$locopis['<<$temploc>>']=''&!описание
+	np['<<$temploc>>']=6&!номер картинки
 	tv['<<$temploc>>']=0
 elseif  args[0]=1:
-	 !описание
-	$locopis['<<$temploc>>']='Большая гостиная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'
-	 !номер картинки
-	np['<<$temploc>>']=6
-	tv['<<$temploc>>']=1
-	item_loc['rand(30),<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Большая гостиная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'&!описание
+	np['<<$temploc>>']=6&!номер картинки
+	tv['<<$temploc>>']=1&item_loc['rand(30),<<$temploc>>']=1
 elseif  args[0]=2:
-	 !описание
-	$locopis['<<$temploc>>']='Комната отдыха с телевизором и игровыми приставками'
-	 !номер картинки
-	np['<<$temploc>>']=6
-	tv['<<$temploc>>']=1
-	item_loc['rand(30),<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Комната отдыха с телевизором и игровыми приставками'&!описание
+	np['<<$temploc>>']=6&!номер картинки
+	tv['<<$temploc>>']=1&item_loc['rand(30),<<$temploc>>']=1
 elseif  args[0]=3:
-	 !описание
-	$locopis['<<$temploc>>']='Просторная гостиная с диваном, креслами, камином и широкоформатным телевизором, висящим на стене'
-	 !номер картинки
-	np['<<$temploc>>']=6
-	tv['<<$temploc>>']=1
-	item_loc['rand(30),<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Просторная гостиная с диваном, креслами, камином и широкоформатным телевизором, висящим на стене'&!описание
+	np['<<$temploc>>']=6&!номер картинки
+	tv['<<$temploc>>']=1&item_loc['rand(30),<<$temploc>>']=1
 elseif  args[0]=4:
-	 !описание
-	$locopis['<<$temploc>>']='Шикарная гостиная с уютными диваноми, креслами, игорными столиками, камином и широкоформатным телевизором, висящим на стене'
-	 !номер картинки
-	np['<<$temploc>>']=6
-	tv['<<$temploc>>']=1
-	item_loc['rand(30),<<$temploc>>']=1
+	$locopis['<<$temploc>>']='Шикарная гостиная с уютными диваноми, креслами, игорными столиками, камином и широкоформатным телевизором, висящим на стене'&!описание
+	np['<<$temploc>>']=6&!номер картинки
+	tv['<<$temploc>>']=1&item_loc['rand(30),<<$temploc>>']=1
 elseif  args[0]=5:
-	$locname['<<$temploc>>']='Муравейник'
-	$lname['<<$temploc>>']='Муравейник'
-	$lname_go['<<$temploc>>']='в муравейник'
+	$locname['<<$temploc>>']='Муравейник'&$lname['<<$temploc>>']='Муравейник'&$lname_go['<<$temploc>>']='в муравейник'
 	$locopis['<<$temploc>>']='Раздолбанная мебель, ободранные обои и прокуренный потолок.'
 	np['<<$temploc>>']=103
 end
 mirror['<<$temploc>>']=1
 !Генератор жильцов для однокомнатных квартир(можно указывать принадлежность хозяину любым способом)
 if $args[1]='jeff_gen':
-	gs'jeff_gen'
-	ne_world[]=i
-	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
-	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$name[i]>>)'
+	gs'jeff_gen'&ne_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$name[i]>>)'
 elseif $args[1]='spiro':
-	gs'spiro_gen'
-	gs'spirowife_gen'
-	$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
+	gs'spiro_gen'&gs'spirowife_gen'&$locnameH['<<$templocH>>']=$locnameH['<<$templocH>>']+' (<<$surname[i]>>)'
 end
-!включение биосферы на Лунной базе или космическом корабле
-if Z=200 or Z=777 or Z=7777: biospere['<<$temploc>>']=1
+if Z=200 or Z=777 or Z=7777: biospere['<<$temploc>>']=1&!включение биосферы на Лунной базе или космическом корабле

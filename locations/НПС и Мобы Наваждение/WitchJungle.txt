@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&WitchJungle=i
-lvl[i]=1&soul[i]=100&mob[i]=33&mobexp[i]=50
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&WitchJungle=i&lvl[i]=1&soul[i]=100&mob[i]=33&mobexp[i]=50
 tipemobpic[i]=1&picture[i]=103
 gs'woman_name'&$name[i]='Петронилла'&gs'surname'&$surname[i]='де Миттс'&$nick[i]='Ведьма'
 face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
@@ -10,7 +9,5 @@ age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=40&will[i]=50&reflex[i
 healthmax[i]=10*rand(30,50)&health[i]=healthmax[i]&energymax[i]=200&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(5,10)&maxuron[i]=rand(15,30)&reflex[i]=rand(50,70)
 visualpol[i]=1&pol[i]=1&gs'body'&total_generated_female+=1&total_witch+=1
 womenbrain[i]=80&bisex[i]=0&agro[i]=2&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=2&brave[i]=2&lust[i]=0&corr[i]=1000&!характер
-t_slot[i]=rand(25,30)&l_slot[i]=rand(9,14)&b_slot[i]=rand(17,19)&!элитный класс
-ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-obsession_world[]=i&
+t_slot[i]=rand(25,30)&l_slot[i]=rand(9,14)&b_slot[i]=rand(17,19)&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)&!элитный класс
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&

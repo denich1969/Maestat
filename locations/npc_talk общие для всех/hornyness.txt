@@ -1,20 +1,13 @@
-﻿!if agro[i]=0:horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)+(corr[i]/10)
-!if agro[i]=1:horny[i]+=(sexiness[you]/8)+(forhorn[you]+pol[you]*3)+(corr[i]/10)
-!if agro[i]=2:horny[i]+=(sexiness[you]/4)+(forhorn[you]+pol[you]*5)+(corr[i]/10)
-if pol[you]!pol[i]:
-	if agro[i]=0:horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)&! при условии различия полов
+﻿if pol[you]!pol[i]:
+	if agro[i]=0:horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)&! при условии различия полов!   +(corr[i]/10   везде, надо ли?
 	if agro[i]=1:horny[i]+=(sexiness[you]/8)+(forhorn[you]+pol[you]*3)
 	if agro[i]=2:horny[i]+=(sexiness[you]/4)+(forhorn[you]+pol[you]*5)
 end
 if status_tipe[you]=2:horny[i]+=5
 if status_tipe[you]=3:horny[i]+=10
 if dick[i]=0 and vag[i]=0:horny[i]=0
-
 if peecover[you]>0 and hohot<time:
-	hohot=time+60
-	gs'gofight'
-	if you_slut[i]=0:you_slut[i]=1
-	$status[i]=' смеется над вами - Обоссаная шлюха! Эй народ, посмотрите на морду этой шмары!'
+	hohot=time+60&gs'gofight'&$status[i]=' смеется над вами - Обоссаная шлюха! Эй народ, посмотрите на морду этой шмары!'&if you_slut[i]=0:you_slut[i]=1
 end
 if cum_face[you]>0 and you_slut[i]=0:you_slut[i]=1
 if you_slut[i]<1 and pornfilmnow>0:you_slut[i]=2

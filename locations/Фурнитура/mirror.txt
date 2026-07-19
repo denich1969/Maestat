@@ -335,8 +335,8 @@ if cum_face[you]>0:
 	'<b>У вас на лице сперма</b>'
      act'Стереть сперму с лица':
 		 time+=5&cls&gs'stat'
-		 if cum_face[you]<=6:'<center><video src="pic/cum/<<cum_face[you]>>.webm" ></center>'
-		 if cum_face[you]>6:'<center><video src="pic/cum/6.webm" ></center>'
+		 if cum_face[you]<=6:'<center><video autoplay loop src="pic/cum/<<cum_face[you]>>.webm" ></center>'
+		 if cum_face[you]>6:'<center><video autoplay loop src="pic/cum/6.webm" ></center>'
 	     if cum_face[you]=1:
 			 'Вы старательно отчистили лицо от следов спермы'&act'<b>Уйти</b>':cum_face[you]=0&spit_face[you]=0&gt $curloc
          else
@@ -373,14 +373,14 @@ act'Посмотреть грудь':
 		'Вы обнажили грудь перед зеркалом и посмотрели на нее. У вас <<$sgtext>><<tit[you]>> размера'
 		if total_npc_on_loc=0:
 			act'Пощупать грудь':
-				 horny[you]+=rand(5,20)&time+=5&cls&gs'stat'&'<center><video src="pic/sex/solo/tits<<rand(0,2)>>.webm" ></video></center>'&'Вы щупаете свою грудь и вам от этого немного приятно'
+				 horny[you]+=rand(5,20)&time+=5&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/tits<<rand(0,2)>>.webm" ></video></center>'&'Вы щупаете свою грудь и вам от этого немного приятно'
 				act'<b>Уйти</b>':gt $curloc
 				act'Ласкать грудь':
-					 horny[you]+=rand(10,30)&time+=5&cls&gs'stat'&! '<center><video src="pic/sex/solo/tits_play0.webm" ></video></center>'
+					 horny[you]+=rand(10,30)&time+=5&cls&gs'stat'&! '<center><video autoplay loop src="pic/sex/solo/tits_play0.webm" ></video></center>'
 					 if milking[you]>0:
-						 '<center><video src="pic/sex/solo/tits_play_milk<<rand(1,4)>>.webm" ></video></center>'
+						 '<center><video autoplay loop src="pic/sex/solo/tits_play_milk<<rand(1,4)>>.webm" ></video></center>'
 					 else
-						 '<center><video src="pic/sex/solo/tits_play<<rand(0,4)>>.webm" ></video></center>'
+						 '<center><video autoplay loop src="pic/sex/solo/tits_play<<rand(0,4)>>.webm" ></video></center>'
 					 end
 					 'Вы ласкаете груди и приятное тепло разливается по вашему телу'&act'<b>Уйти</b>':gt $curloc
 				 end
@@ -401,13 +401,13 @@ act'Посмотреть тело':
 	 if pol[you]>0:'<center><img src="pic/body/<<bodypic[you]>>.jpg" ></center>'
 	 if pol[you]=0:'<center><img src="pic/bodyman/<<bodypic[you]>>.jpg" ></center>'
 	 'Вы покрутились перед зеркалом осматривая свое тело. <<$ass[you]>>'
-	 if plug[you]=2:'Из вашего зада торчит пушистых хвост'&'<center><video src="pic/bodymod/hvost<<rand(1,2)>>.webm" ></video></center>'
+	 if plug[you]=2:'Из вашего зада торчит пушистых хвост'&'<center><video autoplay loop src="pic/bodymod/hvost<<rand(1,2)>>.webm" ></video></center>'
     if leg_hair[you]>0:'На ногах растут волосы'
     if leg_hair[you]<=0:'Ноги гладкие и блестящие'
 	act'<b>Уйти</b>':gt $curloc
 	if total_npc_on_loc=0 and ass[you]>=27:
 		act'Пощупать попу':
-			horny[you]+=rand(1,5)&time+=5&cls&gs'stat'&'<center><video src="pic/sex/solo/ass<<rand(0,3)>>.webm" ></video></center>'&'Вы пощупали свою мягкую попу'&act'<b>Уйти</b>':gt $curloc
+			horny[you]+=rand(1,5)&time+=5&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/ass<<rand(0,3)>>.webm" ></video></center>'&'Вы пощупали свою мягкую попу'&act'<b>Уйти</b>':gt $curloc
 		end
 	end
 end
@@ -512,7 +512,7 @@ act'Посмотреть между ног':
 				 'Вы осмотрели свой член. Он длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
 			end
 		else
-			'<center><video src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
+			'<center><video autoplay loop src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
 			'Вы осмотрели свой член. Он длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
 		end
 	else
@@ -549,15 +549,15 @@ act'Посмотреть анус':
 		 if pol[you]>0 and dick[you]>0:$gend='s'
 		 if vag[you]>=1:$gend=''
 		if vag[you]>0 and rand(1,3)=2:
-			'<center><video src="pic/anus/<<anus_pic[you]>>.webm" ></video></center>'
+			'<center><video autoplay loop src="pic/anus/<<anus_pic[you]>>.webm" ></video></center>'
 		else
 			'<center><img src="pic/anus/<<$gend>><<$colorSkin>><<anus_pic[you]>>.jpg" ></center>'
 		end
 		 'Вы наклонились и осмотрели свой анус. <<$anus[you]>>'
 	   	 if item[130]>0:
 			 act'Засунуть анальную затычку':
-				 if vag[you]>0 and dick[you]=0:'<center><video src="pic/bodymod/anal_plug_in.webm"></center>'
-				 if dick[you]>0:'<center><video src="pic/bodymod/anal_plug_in_s_<<rand(0,1)>>.webm"></center>'
+				 if vag[you]>0 and dick[you]=0:'<center><video autoplay loop src="pic/bodymod/anal_plug_in.webm"></center>'
+				 if dick[you]>0:'<center><video autoplay loop src="pic/bodymod/anal_plug_in_s_<<rand(0,1)>>.webm"></center>'
 				 plug[you]=1&item[130]-=1&anus[you]+=1&cls&gs'stat'&'Вы расслабили попку и запихали затычку в анус'&act'<b>Уйти</b>':gt $curloc
 			 end
 	     end
@@ -565,7 +565,7 @@ act'Посмотреть анус':
 			 act'Засунуть анальный хвост':
 				if (l_slot[you]=0 or l_tipe[l_slot[you]]=0) and ul_slot[you]=0:
 					 plug[you]=2&item[129]-=1&anus[you]+=1
-					 cls&gs'stat'&'<center><video src="pic/bodymod/anal_tail_in.webm" ></video></center>'&'Вы расслабили попку и запихали затычку в анус'&act'<b>Уйти</b>':gt $curloc
+					 cls&gs'stat'&'<center><video autoplay loop src="pic/bodymod/anal_tail_in.webm" ></video></center>'&'Вы расслабили попку и запихали затычку в анус'&act'<b>Уйти</b>':gt $curloc
 				else
 					cls&'Для этого следует сначала снять трусы и надеть юбку, иначе не поместиться, либо использовать обычную пробку'
 				end
