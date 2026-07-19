@@ -236,6 +236,7 @@ IF $ARGS[0] = 'cheat':
 	!-------------------
 	'<br>Возбудитель: <a href="exec:gs $curloc, ''GetItem'',100">+1</a>, <a href="exec:gs $curloc, ''GetItem'',100,5">+5</a>'
 	'Приворотное зелье: <a href="exec:gs $curloc, ''GetItem'',95">+1</a>, <a href="exec:gs $curloc, ''GetItem'',95,5">+5</a>' 
+	'Набор отмычек: <a href="exec:gs $curloc, ''GetItem'',339">+1</a>, <a href="exec:gs $curloc, ''GetItem'',339,5">+5</a>' 
 	'<a href="exec:gs $curloc,''showAllItems'',0,35">Все предметы</a> <a href="exec:gs $curloc,''Shop''">Shop</a>'&*nl
 	if vag[you]>0:*p'<b> СМЕНА ПОЛА!!!</b>'
 	'<a href="exec:gs $curloc,''Macho'' & gs ''stat''">Мачо (потенция, яйца, феромоны, тестостерон)</a>'
