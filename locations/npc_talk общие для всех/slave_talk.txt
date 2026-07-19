@@ -119,12 +119,12 @@ else
 		 '<<$name[npc]>> отвечает - <<$name[mymas]>> <<$surname[mymas]>>'
 		 act'<b>Уйти</b>':gt 'preloc'
 		 if canbuywhore_tornton>0 and mymas=tornton:
-			 if money[you]>=200000:
+			 if money[you]>=2000:
 				'Вы можете купить шлюху за 2000 шиллингов'
 				 if saunakafehome[npc]=0 and saunakafeowner>=1:
 					 act'Выкупить и поселить в кафе "Рим"':
-						 money[you]-=200000
-						 money[mymas]+=200000
+						 money[you]-=2000
+						 money[mymas]+=2000
 						 saunakafehome[npc]=1
 						 Xhome[npc]=2&Yhome[npc]=0&Zhome[npc]=3&&Hhome[npc]=2&Rhome[npc]=3
 						 whoreboss[npc]=you
