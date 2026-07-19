@@ -1,13 +1,18 @@
 ﻿$nameloc[you]=$curloc&gs'stat'&'Барная стойка'&gs'Item'&*pl ''&gs 'npconloc'&act'Уйти':gt 'preloc'
 *nl'Обед - 1 шиллинг'&*nl'Пиво - 1 шиллинг'&*nl'Рыба - 10 пенсов'&*nl'Мясо - 50 пенсов'
 if money[you]>=100:
+	 act'Поесть 1 шиллинг':
+		 money[you]-=100&energy[you]=energyMax[you]&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и взяли тарелку каши с рыбой.'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=100:
 	 act'Купить пиво 1 шиллинг':
 		 money[you]-=100&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt 'preloc'
 	 end
 end
-if money[you]>=100:
-	 act'Поесть 1 шиллинг':
-		 money[you]-=100&energy[you]=energyMax[you]&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&'Вы заплатили деньги и взяли тарелку каши с рыбой.'&act'<b>Уйти</b>':gt $curloc
+if money[you]>=1000:
+	 act'Купить пиво 10шт - 10 шиллингов':
+		 money[you]-=1000&item[63]+=10&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt 'preloc'
 	 end
 end
 if money[you]>=50:
@@ -15,8 +20,21 @@ if money[you]>=50:
 		 money[you]-=50&item[62]+=1&burden[you]+=item_burden[62]&cls&gs'stat'&'Вы заплатили деньги и купили мясо'&act'<b>Уйти</b>':gt $curloc
 	 end
 end
+if money[you]>=500:
+	 act'Купить мясо 10 шт - 5 шиллингов':
+		 money[you]-=50&item[62]+=10&burden[you]+=item_burden[62]&cls&gs'stat'&'Вы заплатили деньги и купили мясо'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
 if money[you]>=10:
 	 act'Купить рыбу 10 пенсов':
+		 money[you]-=10&item[61]+=1&burden[you]+=item_burden[61]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt $curloc
+	 end
+	 act'Купить селедку 10 пенсов':
+		 money[you]-=10&item[67]+=1&burden[you]+=item_burden[67]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt $curloc
+	 end
+end
+if money[you]>=100:
+	 act'Купить рыбу 10шт - 1 шиллинг':
 		 money[you]-=10&item[61]+=1&burden[you]+=item_burden[61]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt $curloc
 	 end
 	 act'Купить селедку 10 пенсов':
