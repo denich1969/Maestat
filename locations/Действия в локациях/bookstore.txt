@@ -16,6 +16,7 @@
 '20 шиллингов стоит книга "Маестат как высшая цель". Это не магическая книга, а всего лишь древняя легенда о Маестате.'
 '10 шиллингов стоит Амулет защиты от колючек.'
 'Приворотное зелье - 1000 шиллингов.'
+'Набор отмычек - 500 шиллингов.'
 act'Уйти':gt 'preloc'
 if hour>=7 and hour<=16 and X[you]=X[martamarsh] and Y[you]=Y[martamarsh] and Z[you]=Z[martamarsh] and H[you]=H[martamarsh] and R[you]=R[martamarsh]:
      if map=0:
@@ -92,6 +93,11 @@ if hour>=7 and hour<=16 and X[you]=X[martamarsh] and Y[you]=Y[martamarsh] and Z[
 	if money[you]>=100000:
 		 act'Купить приворотное зелье':
 			 money[you]-=100000&item[95]+=1&burden[you]+=item_burden[95]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt $curloc
+		 end
+	end
+	if money[you]>=500:
+		 act'Купить набор отмычек':
+			 money[you]-=500&item[339]+=1&burden[you]+=item_burden[339]&cls&gs'stat'&'Вы заплатили деньги и купили набор отмычек'&act'<b>Уйти</b>':gt $curloc
 		 end
 	end
 	if money[you]>=500:
