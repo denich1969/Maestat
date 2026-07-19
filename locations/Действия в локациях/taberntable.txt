@@ -35,10 +35,10 @@ if money[you]>=10:
 end
 if money[you]>=100:
 	 act'Купить рыбу 10шт - 1 шиллинг':
-		 money[you]-=10&item[61]+=1&burden[you]+=item_burden[61]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt $curloc
+		 money[you]-=10&item[61]+=10&burden[you]+=item_burden[61]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt $curloc
 	 end
-	 act'Купить селедку 10 пенсов':
-		 money[you]-=10&item[67]+=1&burden[you]+=item_burden[67]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt $curloc
+	 act'Купить селедку 10шт - 1 шиллинг':
+		 money[you]-=10&item[67]+=10&burden[you]+=item_burden[67]&cls&gs'stat'&'Вы заплатили деньги и купили рыбу'&act'<b>Уйти</b>':gt $curloc
 	 end
 end
 if tabernwork[you]=1:
