@@ -1,7 +1,4 @@
-﻿gs 'stat'
-fcolor=rgb(0,0,0)
-bcolor=rgb(161,183,201)
-act'Убрать': gt 'preloc'
+﻿gs 'stat'&fcolor=rgb(0,0,0)&bcolor=rgb(161,183,201)&act'Убрать': gt 'preloc'
 act'<b>Карта</b>'      : gt $curloc,'GeoMap'	
 act'Спальная №1'      :gt 'TechLoc','GoCord',1,0,3,6,3
 act'Автодок'  :gt 'TechLoc','GoCord',2,3,3,1,5
@@ -207,8 +204,7 @@ END
 !$ARGS[4] - Название района
 IF $ARGS[0]='DrawTable':
 	gs $curloc,'top'
-	*p'<table width="100%" border="1" cellspacing="0">'
-    gs $curloc, 'FillTable',ARGS[1],ARGS[2],ARGS[3],$ARGS[4]
+	*p'<table width="100%" border="1" cellspacing="0">'&gs $curloc, 'FillTable',ARGS[1],ARGS[2],ARGS[3],$ARGS[4]
 	*p'</table>'
 END
 !---- НПС, КОНТАКТЫ -----------------------------------------------------
@@ -216,20 +212,11 @@ END
 IF $ARGS[0]='DrawContact_top':
 	*p'<table width="100%" border="1" cellspacing="0" cellpadding="3">'&!таблица контактов: вывод шапки !$ARGS[1] - заголовок таблицы
 	If $ARGS[1]!'':'<tr><th colspan="5"><<$ARGS[1]>></th></tr>'
-	*p'<tr>'
-    *p'<td rowspan="3" width="80" align=center>Фото<br>(позвонить)</td>'
-    *p'<td colspan="4" align=center>Описание</td>'
-    *p'<tr>'
-    	*p'<td colspan="3" align=center>Имя</td>'
-    	*p'<td align=center>Место нахождения (телепорт)</td>'
-    *p'</tr>'
-    *p'<tr>'&!строка 3
-    	*p'<td width="4%" align=center>Номер</td>'
-    	*p'<td align=center>Статус</td>'
-    	*p'<td width="4%" align=center>просмотрено даром</td>'
-    	*p'<td align=center>Точное местонахождение (пройти через мглу)</td>'
-    *p'</tr>'
-	*p'</tr>'
+	*p'<tr>'&*p'<td rowspan="3" width="80" align=center>Фото<br>(позвонить)</td>'&*p'<td colspan="4" align=center>Описание</td>'&*p'<tr>'
+    	*p'<td colspan="3" align=center>Имя</td>'&*p'<td align=center>Место нахождения (телепорт)</td>'
+    *p'</tr>'&*p'<tr>'&!строка 3
+    	*p'<td width="4%" align=center>Номер</td>'&*p'<td align=center>Статус</td>'&*p'<td width="4%" align=center>просмотрено даром</td>'&*p'<td align=center>Точное местонахождение (пройти через мглу)</td>'
+    *p'</tr>'&*p'</tr>'
 END
 IF $ARGS[0]='DrawContact_Row':
 	w=ARGS[1]
@@ -249,8 +236,7 @@ IF $ARGS[0]='DrawContact_Row':
 		else
 			*p'<td><a href="exec:gt ''TechLoc'',''GoCord'',<<X[w]>>,<<Y[w]>>,<<Z[w]>>"><<$lname[''<<X[w]>>,<<Y[w]>>,<<Z[w]>>,0,0'']>></a></td>'
 		end
-		*p'</tr>'
-		*p'<tr>'&!строка 3
+		*p'</tr>'&*p'<tr>'&!строка 3
 		*p'<td width="4%"><<w>></td>'&!Номер
 		*p'<td>'+$FUNC('TechLoc','npc_status',w)+'</td>'&!колонка статус
 		*p'<td width="4%">'+iif(vision_times[w]>0,vision_times[w],'')+'</td>'&!просмотрено Даром
@@ -259,8 +245,7 @@ IF $ARGS[0]='DrawContact_Row':
 		else
 			*p'<td><<$lname[''<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'']>></td>'
 		end
-		*p'</tr>'
-		*p'</tr>'
+		*p'</tr>'&*p'</tr>'
 	end
 	!'<td colspan="5" rowspan="6" align="center" vAlign="middle"><font size="16" color="blue"><b>МОРЕ</b></font></td>'  
 END

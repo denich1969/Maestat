@@ -8,10 +8,7 @@ if CHEAT_MENU['GET_NPC_LIST_MODE'] = 1:$func("generate_npc_list_two", "UNIQUE_NP
 if CHEAT_MENU['GET_NPC_LIST_MODE'] = 2:
 	if $TEMP_GENDER='':$TEMP_GENDER='MALE'
 	if SELECTED_LOC > 5 or SELECTED_LOC < 0:SELECTED_LOC=0
-	$ARGS['MALE_GENDER']='[ Мужской ]'
-	$ARGS['FEMALE_GENDER']='[ Женский ]'
-	$ARGS['TRANS_GENDER']='[ Транс ]'
-	$ARGS['ANY_GENDER']='[ Любой ]'
+	$ARGS['MALE_GENDER']='[ Мужской ]'&$ARGS['FEMALE_GENDER']='[ Женский ]'&$ARGS['TRANS_GENDER']='[ Транс ]'&$ARGS['ANY_GENDER']='[ Любой ]'
 	if $TEMP_GENDER='MALE':$ARGS['MALE_GENDER']='[ <font color="green">Мужской</font> ]'
 	if $TEMP_GENDER='FEMALE':$ARGS['FEMALE_GENDER']='[ <font color="green">Женский</font> ]'
 	if $TEMP_GENDER='TRANS':$ARGS['TRANS_GENDER']='[ <font color="green">Транс</font> ]'
@@ -20,18 +17,9 @@ if CHEAT_MENU['GET_NPC_LIST_MODE'] = 2:
 	$ARGS['FEMALE_LINK']='<a class="plain" href="exec:$TEMP_GENDER = ''FEMALE'' & gt $curloc"><font color=#202020><<$ARGS["FEMALE_GENDER"]>></font></a>'
 	$ARGS['TRANS_LINK']='<a class="plain" href="exec:$TEMP_GENDER = ''TRANS'' & gt $curloc"><font color=#202020><<$ARGS["TRANS_GENDER"]>></font></a>'
 	$ARGS['ANY_LINK']='<a class="plain" href="exec:$TEMP_GENDER = ''ANY'' & gt $curloc"><font color=#202020><<$ARGS["ANY_GENDER"]>></font></a>'
-	$LOC_LIST[0]='Любая'
-	$LOC_LIST[1]='Рыбацкая деревня'
-	$LOC_LIST[2]='Блэкберри'
-	$LOC_LIST[3]='Жилмассив'
-	$LOC_LIST[4]='Аптаун'
-	$LOC_LIST[5]='Даунтаун'
-	$ARGS['LOC_0']='[ <<$LOC_LIST[0]>> ]'
-	$ARGS['LOC_1']='[ <<$LOC_LIST[1]>> ]'
-	$ARGS['LOC_2']='[ <<$LOC_LIST[2]>> ]'
-	$ARGS['LOC_3']='[ <<$LOC_LIST[3]>> ]'
-	$ARGS['LOC_4']='[ <<$LOC_LIST[4]>> ]'
-	$ARGS['LOC_5']='[ <<$LOC_LIST[5]>> ]'
+	$LOC_LIST[0]='Любая'&$LOC_LIST[1]='Рыбацкая деревня'&$LOC_LIST[2]='Блэкберри'&$LOC_LIST[3]='Жилмассив'&$LOC_LIST[4]='Аптаун'&$LOC_LIST[5]='Даунтаун'
+	$ARGS['LOC_0']='[ <<$LOC_LIST[0]>> ]'&$ARGS['LOC_1']='[ <<$LOC_LIST[1]>> ]'&$ARGS['LOC_2']='[ <<$LOC_LIST[2]>> ]'
+	$ARGS['LOC_3']='[ <<$LOC_LIST[3]>> ]'&$ARGS['LOC_4']='[ <<$LOC_LIST[4]>> ]'&$ARGS['LOC_5']='[ <<$LOC_LIST[5]>> ]'
 	!Активная локация
 	$ARGS['LOC_<<SELECTED_LOC>>']='[ <font color="green"><<$LOC_LIST[SELECTED_LOC]>></font> ]'
 	$ARGS['LOC_0_LINK']='<a class="plain" href="exec:SELECTED_LOC = 0 & gt $curloc"><font color=#202020><<$ARGS["LOC_0"]>></font></a>'
@@ -64,36 +52,28 @@ if CHEAT_MENU['GET_NPC_LIST_MODE'] = 3:
 	if TEMP_SELECTED_TARGET<=0:
 		'<center><font size=+3 color=red><b>ЦЕЛЬ НЕ ВЫБРАНА<b></font></center>'
 	else
-		 ARGS['INDEX']=TEMP_SELECTED_TARGET
-		 gs('init_d_view', ARGS['INDEX'], 'd_view')
-		 $ARGS['GENDER_IS']=$func('util_func','get_gender_def', ARGS['INDEX'])
-		 $ARGS['HIM']='его'
-		 $ARGS['TO_HIM']='к нему'
-		 if $ARGS['GENDER_IS'] ! 'MALE':$ARGS['TO_HIM']='к ней'
-		 if $ARGS['GENDER_IS'] ! 'MALE':$ARGS['HIM']='её'
-		 $ARGS['SET_AS_TARGET_LOGIC']='TEMP_SEARCH_ACTIVE=0 & TEMP_SELECTED_TARGET=0 & npc_index=<<TEMP_SELECTED_TARGET>> & target_index=0 & CHEAT_MENU[''MODE''] = 0 & gt ''cheat_menu'''
-		 $ARGS['SET_AS_TARGET_BUTTON']='<a class="plain" href="exec:<<$ARGS[''SET_AS_TARGET_LOGIC'']>>">[ <font color="green">Сделать</font> ]</a>'
-		 $ARGS['TELEPORT_TARGET_TO_PLAYER_LOGIC']='gs(''util_func'',''teleport_by_index'',<<TEMP_SELECTED_TARGET>>,<<you>>) & gs(''util_func'',''reset_cheatmenu_and_exit'')'
-		 $ARGS['TELEPORT_TARGET_TO_PLAYER_BUTTON']='<a class="plain" href="exec:<<$ARGS[''TELEPORT_TARGET_TO_PLAYER_LOGIC'']>>">[ <font color="green">Телепортировать</font> ]</a>'
-		 $ARGS['TELEPORT_PLAYER_TO_TARGET_LOGIC']='gs(''util_func'',''teleport_by_index'',<<you>>,<<TEMP_SELECTED_TARGET>>) & gs(''util_func'',''reset_cheatmenu_and_exit'')'
-		 $ARGS['TELEPORT_PLAYER_TO_TARGET_BUTTON']='<a class="plain" href="exec:<<$ARGS[''TELEPORT_PLAYER_TO_TARGET_LOGIC'']>>">[ <font color="green">Телепортироваться</font> ]</a>'
-		 $ARGS['AREA']=''
-		 if Z[TEMP_SELECTED_TARGET]>0 and Z[TEMP_SELECTED_TARGET]<6:$ARGS['AREA']='<<$LOC_LIST[Z[TEMP_SELECTED_TARGET]]>> -> '
-		 $ARGS['LOCATION']='<<$locname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,0,0"]>> -> <<$lname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,<<H[TEMP_SELECTED_TARGET]>>,<<R[TEMP_SELECTED_TARGET]>>"]>>'
-		 if $locname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,0,0"] = $lname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,<<H[TEMP_SELECTED_TARGET]>>,<<R[TEMP_SELECTED_TARGET]>>"]:$ARGS['LOCATION']='<<$lname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,<<H[TEMP_SELECTED_TARGET]>>,<<R[TEMP_SELECTED_TARGET]>>"]>>'
-		 $ARGS['NPC_IN_LOC']=$ARGS['AREA'] + $ARGS['LOCATION']
-		*p'<center><table><tr>'
-		*p'<td>'
-		'<center>' + $func('util_func','get_colored_name_and_surname', ARGS['INDEX']) + '</center>'
-		'<center><img src="<<$d_view>>"></center>'
-		*p'</td>'
-		*p'<td>'
-		'<b>Локация</b>: <<$ARGS["NPC_IN_LOC"]>>'
-		'Сделать <<$ARGS["HIM"]>> целью для чит-редактора: <<$ARGS["SET_AS_TARGET_BUTTON"]>>'
+		ARGS['INDEX']=TEMP_SELECTED_TARGET
+		gs('init_d_view', ARGS['INDEX'], 'd_view')
+		$ARGS['GENDER_IS']=$func('util_func','get_gender_def', ARGS['INDEX'])
+		$ARGS['HIM']='его'
+		$ARGS['TO_HIM']='к нему'
+		if $ARGS['GENDER_IS'] ! 'MALE':$ARGS['TO_HIM']='к ней'
+		if $ARGS['GENDER_IS'] ! 'MALE':$ARGS['HIM']='её'
+		$ARGS['SET_AS_TARGET_LOGIC']='TEMP_SEARCH_ACTIVE=0 & TEMP_SELECTED_TARGET=0 & npc_index=<<TEMP_SELECTED_TARGET>> & target_index=0 & CHEAT_MENU[''MODE''] = 0 & gt ''cheat_menu'''
+		$ARGS['SET_AS_TARGET_BUTTON']='<a class="plain" href="exec:<<$ARGS[''SET_AS_TARGET_LOGIC'']>>">[ <font color="green">Сделать</font> ]</a>'
+		$ARGS['TELEPORT_TARGET_TO_PLAYER_LOGIC']='gs(''util_func'',''teleport_by_index'',<<TEMP_SELECTED_TARGET>>,<<you>>) & gs(''util_func'',''reset_cheatmenu_and_exit'')'
+		$ARGS['TELEPORT_TARGET_TO_PLAYER_BUTTON']='<a class="plain" href="exec:<<$ARGS[''TELEPORT_TARGET_TO_PLAYER_LOGIC'']>>">[ <font color="green">Телепортировать</font> ]</a>'
+		$ARGS['TELEPORT_PLAYER_TO_TARGET_LOGIC']='gs(''util_func'',''teleport_by_index'',<<you>>,<<TEMP_SELECTED_TARGET>>) & gs(''util_func'',''reset_cheatmenu_and_exit'')'
+		$ARGS['TELEPORT_PLAYER_TO_TARGET_BUTTON']='<a class="plain" href="exec:<<$ARGS[''TELEPORT_PLAYER_TO_TARGET_LOGIC'']>>">[ <font color="green">Телепортироваться</font> ]</a>'
+		$ARGS['AREA']=''
+		if Z[TEMP_SELECTED_TARGET]>0 and Z[TEMP_SELECTED_TARGET]<6:$ARGS['AREA']='<<$LOC_LIST[Z[TEMP_SELECTED_TARGET]]>> -> '
+		$ARGS['LOCATION']='<<$locname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,0,0"]>> -> <<$lname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,<<H[TEMP_SELECTED_TARGET]>>,<<R[TEMP_SELECTED_TARGET]>>"]>>'
+		if $locname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,0,0"] = $lname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,<<H[TEMP_SELECTED_TARGET]>>,<<R[TEMP_SELECTED_TARGET]>>"]:$ARGS['LOCATION']='<<$lname["<<X[TEMP_SELECTED_TARGET]>>,<<Y[TEMP_SELECTED_TARGET]>>,<<Z[TEMP_SELECTED_TARGET]>>,<<H[TEMP_SELECTED_TARGET]>>,<<R[TEMP_SELECTED_TARGET]>>"]>>'
+		$ARGS['NPC_IN_LOC']=$ARGS['AREA'] + $ARGS['LOCATION']
+		*p'<center><table><tr>'&*p'<td>'&'<center>' + $func('util_func','get_colored_name_and_surname', ARGS['INDEX']) + '</center>'&'<center><img src="<<$d_view>>"></center>'&*p'</td>'&*p'<td>'
+		'<b>Локация</b>: <<$ARGS["NPC_IN_LOC"]>>'&*nl'Сделать <<$ARGS["HIM"]>> целью для чит-редактора: <<$ARGS["SET_AS_TARGET_BUTTON"]>>'
 		'Телепортироваться <<$ARGS["TO_HIM"]>>: <<$ARGS["TELEPORT_PLAYER_TO_TARGET_BUTTON"]>>'
-		'Телепоровать <<$ARGS["HIM"]>> к вам: <<$ARGS["TELEPORT_TARGET_TO_PLAYER_BUTTON"]>>'
-		*p'</td>'
-		*p'</tr></table></center>'
+		'Телепоровать <<$ARGS["HIM"]>> к вам: <<$ARGS["TELEPORT_TARGET_TO_PLAYER_BUTTON"]>>'&*p'</td>'&*p'</tr></table></center>'
 	end
 end
 '<table width="100%" border="0" cellspacing="0" cellpadding="10"><tr bgcolor="#202020"><td colspan="4" align="center"><h3><font color="#202020"> </font></h3></td></tr>'&!Футтер

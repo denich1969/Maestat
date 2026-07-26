@@ -44,7 +44,6 @@ $tracklist_rm[5]='sound/music/desert1.mp3'
 $tracklist_rm[6]='sound/music/village.mp3'
 !{Сч_трек = 0
 :loop
-$tracklist_darksouls[Сч_трек] = 'Music/DS_<<Сч_трек>>.wav'
-Сч_трек +=1
-IF Сч_трек < 24: JUMP 'loop'
+	$tracklist_darksouls[Сч_трек] = 'Music/DS_<<Сч_трек>>.wav'
+Сч_трек +=1&IF Сч_трек < 24: JUMP 'loop'
 KILLVAR 'Сч_трек'}

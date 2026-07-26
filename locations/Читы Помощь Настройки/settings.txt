@@ -1,5 +1,4 @@
-﻿!bcolor=rgb(255,255,255)
-if curloc!'ahtung':$ARGS['GT_WHERE'] = '<<iif(CONFIG["IN_START_SCREEN"]=1, "CONFIG[''IN_START_SCREEN'']=0 & gt ''create_player''", "gt ''preloc''")>>'
+﻿if curloc!'ahtung':$ARGS['GT_WHERE'] = '<<iif(CONFIG["IN_START_SCREEN"]=1, "CONFIG[''IN_START_SCREEN'']=0 & gt ''create_player''", "gt ''preloc''")>>'
 $ARGS['EXIT_BUTTON'] = '<a class="plain" href="exec:<<$ARGS[''GT_WHERE'']>>"><b><font size=+4 color="#ffffff">&#11164;&#11164;&#11164;</font></b></a>'
 $ARGS['HEADER'] = '<table width="100%"><tr><td width="100"><<$ARGS[''EXIT_BUTTON'']>></td><td width="100%" align="center"><h3><font color="#202020">[ НАСТРОЙКИ ]</font></h3></td><td width="100"></td></tr></table>'
 !* -------------------------------------------------------------------------- *!
@@ -17,24 +16,21 @@ $ARGS['HEADER'] = '<table width="100%"><tr><td width="100"><<$ARGS[''EXIT_BUTTON
 !* --------------------------------- ОПЦИЯ_2 -------------------------------- *!
 *p'<tr>'
 *p'<<func("generate_links","DISABLE_SPIT", 1)>>'
-*p'<td width="100%">Отключение "Плевков", т.е. плевков в лицо, рот и прочие части тела, некоторые NPC очень любят плеваться.
-По умолчанию: <font color=green>Включено</font>.</td>'
+*p'<td width="100%">Отключение "Плевков", т.е. плевков в лицо, рот и прочие части тела, некоторые NPC очень любят плеваться.<br>По умолчанию: <font color=green>Включено</font>.</td>'
 *p'<td align="center"><a href="exec:msg(''Это не так отталкивающе/притягательно как предыдущий пункт, и тем не менее, не каждому нравится такой контент, а в некоторых ситуациях он практически неизбежен, если статусом опции является <font color=green>включено</font>.'')">[?]</a></td>'
 *p'</tr>'
 !* --------------------------------- ОПЦИЯ_3 -------------------------------- *!
 if CONFIG['ENABLE_CHEATS'] = 0:
 	*p'<tr>'
 	*p'<<func("generate_links","ENABLE_CHEATS")>>'
-	*p'<td width="100%">Включить читы: Тут всё просто, в игре появятся разные возможности для читерства. Фу такими быть...
-	По умолчанию: <font color=#be2919>Отключено</font>.</td>'
+	*p'<td width="100%">Включить читы: Тут всё просто, в игре появятся разные возможности для читерства. Фу такими быть...<br>По умолчанию: <font color=#be2919>Отключено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''В целом - эта игра сама по себе ни разу не сбалансирована, так что: если вы ощущаете сложность в прохождении, либо наоборот геймплей кажется слишком лёгким, то это простой способ подкрутить различные аспекты игры.'')">[?]</a></td>'
 	*p'</tr>'
 else
 	*p'<tr>'
 	*p'<<func("generate_links","ENABLE_CHEATS")>>'
 	*p'<td width="100%">Включить читы: Тут всё просто, в игре появятся разные возможности для читерства. Фу такими быть...
-	<i>Включить быстрое восстановление здоровья, маны, энергии итд. При включении этой опции, в дополнительном описании, при нажатии к примеру на "Здоровье" -> здоровье будет восстановлено на 100%. -> <<func("generate_links","ENABLE_QUICK_CHEATS", 9, CONFIG["ENABLE_QUICK_CHEATS"], 0, "ENABLER")>></i>
-	По умолчанию: <font color=#be2919>Отключено</font>.</td>'
+	<i>Включить быстрое восстановление здоровья, маны, энергии итд. При включении этой опции, в дополнительном описании, при нажатии к примеру на "Здоровье" -> здоровье будет восстановлено на 100%. -> <<func("generate_links","ENABLE_QUICK_CHEATS", 9, CONFIG["ENABLE_QUICK_CHEATS"], 0, "ENABLER")>></i><br>По умолчанию: <font color=#be2919>Отключено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''В целом - эта игра сама по себе ни разу не сбалансирована, так что: если вы ощущаете сложность в прохождении, либо наоборот геймплей кажется слишком лёгким, то это простой способ подкрутить различные аспекты игры.'')">[?]</a></td>'
 	*p'</tr>'
 end
@@ -49,17 +45,14 @@ end
 if CONFIG['ENABLE_STATIC_BACKGROUND_COLOR'] = 0:
 	*p'<tr>'
 	*p'<<func("generate_links","ENABLE_STATIC_BACKGROUND_COLOR")>>'
-	*p'<td width="100%">Включить статичный цвет фона: В игре, цвет бэкграунда меняется динамически в зависимости от времени суток и разных обстоятельств, эта опция позволяет выбрать статичный RGB цвет для фона.
-	По умолчанию: <font color=#be2919>Отключено</font>.</td>'
+	*p'<td width="100%">Включить статичный цвет фона: В игре, цвет бэкграунда меняется динамически в зависимости от времени суток и разных обстоятельств, эта опция позволяет выбрать статичный RGB цвет для фона.<br>По умолчанию: <font color=#be2919>Отключено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''RGB'')">[?]</a></td>'
 	*p'</tr>'
 else
 	*p'<tr>'
 	*p'<<func("generate_links","ENABLE_STATIC_BACKGROUND_COLOR")>>'
 	*p'<td width="100%">Включить статичный цвет фона: В игре, цвет бэкграунда меняется динамически в зависимости от времени суток и разных обстоятельств, эта опция позволяет выбрать статичный RGB цвет для фона.
-	Выберите цвет <b>-></b> |<a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_RGB'',''STATIC_BACKGROUND_COLOR_RED'' & gt $curloc"><font color=red>R</font></a>|<a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_RGB'',''STATIC_BACKGROUND_COLOR_GREEN'' & gt $curloc"><font color=green>G</font></a>|<a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_RGB'',''STATIC_BACKGROUND_COLOR_BLUE'' & gt $curloc"><font color=blue>B</font></a>| <b>-></b> <a href="exec:CONFIG[''APPLY_BACKGROUND_COLOR'']=1 & gt $curloc"><font color=blue>Применить</font></a>
-	Установить рекомендуемые цвета (фон -> белый, шрифты -> черный) -> <a href="exec:gs ''util_func'', ''APPLY_RECOMMENDED_BACKGROUND_COLOR'' & gt $curloc"><font color=blue><b>Установить</b></font></a>
-	По умолчанию: <font color=#be2919>Отключено</font>.</td>'
+	Выберите цвет <b>-></b> |<a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_RGB'',''STATIC_BACKGROUND_COLOR_RED'' & gt $curloc"><font color=red>R</font></a>|<a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_RGB'',''STATIC_BACKGROUND_COLOR_GREEN'' & gt $curloc"><font color=green>G</font></a>|<a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_RGB'',''STATIC_BACKGROUND_COLOR_BLUE'' & gt $curloc"><font color=blue>B</font></a>| <b>-></b> <a href="exec:CONFIG[''APPLY_BACKGROUND_COLOR'']=1 & gt $curloc"><font color=blue>Применить</font></a><br>Установить рекомендуемые цвета (фон -> белый, шрифты -> черный) -> <a href="exec:gs ''util_func'', ''APPLY_RECOMMENDED_BACKGROUND_COLOR'' & gt $curloc"><font color=blue><b>Установить</b></font></a><br>По умолчанию: <font color=#be2919>Отключено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''RGB'')">[?]</a></td>'
 	*p'</tr>'
 end
@@ -67,8 +60,7 @@ end
 if CONFIG['ENABLE_STATIC_FONT_COLOR'] = 0:
 	*p'<tr>'
 	*p'<<func("generate_links","ENABLE_STATIC_FONT_COLOR")>>'
-	*p'<td width="100%">Включить статичный цвет шрифтов: актуально, если включен "Статичный цвет фона", эта опция позволяет выбрать статичный RGB цвет для шрифтов, чтоб один цвет не перекрывал собой другой.
-	По умолчанию: <font color=#be2919>Отключено</font>.</td>'
+	*p'<td width="100%">Включить статичный цвет шрифтов: актуально, если включен "Статичный цвет фона", эта опция позволяет выбрать статичный RGB цвет для шрифтов, чтоб один цвет не перекрывал собой другой.<br>По умолчанию: <font color=#be2919>Отключено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''sometext'')">[?]</a></td>'
 	*p'</tr>'
 else
@@ -103,8 +95,7 @@ end
 if CONFIG['DISABLE_TOOLBAR'] = 1:
 	*p'<tr>'
 	*p'<<func("generate_links","DISABLE_TOOLBAR", 1)>>'
-	*p'<td width="100%">Отключить тулбар в "Дополнительном описании".
-	По умолчанию: <font color=green>Включено</font>.</td>'
+	*p'<td width="100%">Отключить тулбар в "Дополнительном описании".<br>По умолчанию: <font color=green>Включено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''Maybe'')">[?]</a></td>'
 	*p'</tr>'
 else
@@ -112,16 +103,14 @@ else
 	*p'<<func("generate_links","DISABLE_TOOLBAR", 1)>>'
 	*p'<td width="100%">Отключить тулбар в "Дополнительном описании".
 	Установить размер иконок -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_TOOLBAR_ICON_SIZE'' & gt $curloc"><font color=green><b>Ввод</b></font></a>
-	Установить цвет иконок -> [<a href="exec:CONFIG[''TOOLBAR_ICON_COLOR'']=1 & gt $curloc"><font color=green><b>Белый</b></font></a>] -> [<a href="exec:CONFIG[''TOOLBAR_ICON_COLOR'']=0 & gt $curloc"><font color=green><b>Чёрный</b></font></a>]
-	По умолчанию: <font color=green>Включено</font>.</td>'
+	Установить цвет иконок -> [<a href="exec:CONFIG[''TOOLBAR_ICON_COLOR'']=1 & gt $curloc"><font color=green><b>Белый</b></font></a>] -> [<a href="exec:CONFIG[''TOOLBAR_ICON_COLOR'']=0 & gt $curloc"><font color=green><b>Чёрный</b></font></a>]<br>По умолчанию: <font color=green>Включено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''Maybe'')">[?]</a></td>'
 	*p'</tr>'
 end
 !* --------------------------------- ОПЦИЯ_9 -------------------------------- *!
 *p'<tr>'
 *p'<<func("generate_links","DISABLE_AUTOSAVE", 1)>>'
-*p'<td width="100%">Отключить автосохранения.
-По умолчанию: <font color=green>Включено</font>.</td>'
+*p'<td width="100%">Отключить автосохранения.<br>По умолчанию: <font color=green>Включено</font>.</td>'
 *p'<td align="center"><a href="exec:msg(''Maybe'')">[?]</a></td>'
 *p'</tr>'
 !* -------------------------------- ОПЦИЯ_10 -------------------------------- *!
@@ -150,50 +139,34 @@ end
 Эти механики ещё завязаны события, когда ГГ падает в болота и лужи. Этот момент оставили с выводом сообщения о том, что ГГ упал и намок не на основной экран, а через msg. И можно ещё время добавить, типа, как бы он сам долго вставал. <font color=green>включено</font>.'')">[?]</a></td>'
 *p'</tr>'
 !* -------------------------------- ОПЦИЯ_13 -------------------------------- *!
-	*p'<tr>'
-	*p'<<func("generate_links","ENABLE_sound",0)>>'
-	*p'<td width="100%">Включить звук и музыку.
-	По умолчанию: <font color=#be2919>Отключено</font>.</td>'
-	*p'</td>'
+*p'<tr>'
+*p'<<func("generate_links","ENABLE_sound",0)>>'
+*p'<td width="100%">Включить звук и музыку.<br>По умолчанию: <font color=#be2919>Отключено</font>.</td>'
+*p'</td>'
 !* --------------------------------- ОПЦИЯ_14 -------------------------------- *!
 *p'<tr>'
 *p'<<func("generate_links","DISABLE_spores", 1)>>'
-*p'<td width="100%">Отключение механики спор Лебеды.
-По умолчанию: <font color=green>Включено</font>.</td>'
+*p'<td width="100%">Отключение механики спор Лебеды.<br>По умолчанию: <font color=green>Включено</font>.</td>'
 *p'<td align="center"><a href="exec:msg(''Механика спор вносит некоторый разбаланс в игру, когда фактически трахаться может кто угодно с кем угодно. При отключении состояние персонажей по спорам сохраняется и восстанавливается при обратном включении.'')">[?]</a></td>'
 *p'</tr>'
 !* --------------------------------- ОПЦИЯ_15 -------------------------------- *!
 *p'<tr>'
 *p'<<func("generate_links","ENABLE_spore_display", 0)>>'
-*p'<td width="100%">Включение отображения заражения персонажей спорами Лебеды на локации рядом с описанием.
-По умолчанию: <font color=#be2919>Отключено</font>.</td>'
+*p'<td width="100%">Включение отображения заражения персонажей спорами Лебеды на локации рядом с описанием.<br>По умолчанию: <font color=#be2919>Отключено</font>.</td>'
 *p'<td align="center"><a href="exec:msg(''Факт заражения порами отображается символом <font size=+2 color=#800000><b>&#xa628;</b></font>.'')">[?]</a></td>'
 *p'</tr>'
 !* -------------------------------- ОПЦИЯ_16 -------------------------------- *!
-	*p'<tr>'
-	*p'<<func("generate_links","ENABLE_save",0)>>'
-	if saverules=0:
-	*p'<td width="100%">Разрешить везде сохраняться.
-	По умолчанию: <font color=#be2919>В игре только автоматические сохранения и сохранения возле кроватей</font>.</td>'
-	end
-	if saverules=1:
-	*p'<td width="100%">Запретить везде сохраняться.
-	<font color=#be2919>В игре будет разрешено сохраняться везде, это провоцирует сэйводроч и это плохо.</font>.</td>'
-	end
-	*p'</td>'
+*p'<tr>'
+*p'<<func("generate_links","ENABLE_save",0)>>'
+if saverules=0:*p'<td width="100%">Разрешить везде сохраняться.<br>По умолчанию: <font color=#be2919>В игре только автоматические сохранения и сохранения возле кроватей</font>.</td>'
+if saverules=1:*p'<td width="100%">Запретить везде сохраняться.<br><font color=#be2919>В игре будет разрешено сохраняться везде, это провоцирует сэйводроч и это плохо.</font>.</td>'
+*p'</td>'
 !* -------------------------------- ОПЦИЯ_17 -------------------------------- *!
-	*p'<tr>'
-	*p'<<func("generate_links","ENABLE_newFS",0)>>'
-	if newFS=0:
-	*p'<td width="100%">Включить новую боевку.
-	<font color=#be2919>Урон врагов будет основываться на их оружии</font>.</td>'
-	end
-	if newFS=1:
-	*p'<td width="100%">Выключить новую боевку.
-	По умолчанию: <font color=#be2919>включена старая боевка</font>.</td>'
-	end
-	*p'</td>'	
-	
+*p'<tr>'
+*p'<<func("generate_links","ENABLE_newFS",0)>>'
+if newFS=0:*p'<td width="100%">Включить новую боевку.<br><font color=#be2919>Урон врагов будет основываться на их оружии</font>.</td>'
+if newFS=1:*p'<td width="100%">Выключить новую боевку<br>По умолчанию: <font color=#be2919>включена старая боевка</font>.</td>'
+*p'</td>'	
 !* ---------------------------------- КОНЕЦ --------------------------------- *!
 *p'<tr bgcolor="#7f9bf0"><td colspan="4" align="center"><h3><font color=#7f9bf0>.</font></h3></td></tr></table>'
 !* -------------------------------------------------------------------------- *!

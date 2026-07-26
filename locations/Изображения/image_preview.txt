@@ -12,8 +12,7 @@ if $ARGS[0] ! '':
 	if $ARGS[0] = 'MALE_BLACK':ARGS['AMOUNT']=70029 & $ARGS['PATH_TO_FOLDER'] = 'pic/faceman/' & $ARGS['NAME'] = 'МУЖСКИЕ - НЕГРЫ'&!Мужики (Негры)
 	!$RESULT='<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr bgcolor="#202020"><td align="center"><h3><font color="#ffffff">[ <<$ARGS[''NAME'']>> ]</font></h3></td></tr></table>'
 	$ARGS['HR'] = '<tr bgcolor="#ffffff"><td colspan="<<ARGS[''AMOUNT_OF_IMAGES_PER_ROW'']>>"><hr></td></tr>'
-	i=1
-	if $ARGS[0] = 'MALE_BLACK':i=70001
+	i=1&if $ARGS[0] = 'MALE_BLACK':i=70001
 	ARGS['TR_COUNTER']=0
 	:images_loop
 	if $ARGS[0] = 'MALE_WHITE' or $ARGS[0] = 'MALE_BLACK':
@@ -22,8 +21,7 @@ if $ARGS[0] ! '':
 		$ARGS['APPLY_PORTRAIT_LOGIC']='force_fem_portrait[npc_index]=1 & spec_face_pic[npc_index]=<<ARGS[1]>> & face_pic[npc_index]=<<i>> & force_male_portrait[npc_index]=0 & killvar ''$IMAGE_VIEW_TEMP'' & gt ''cheat_menu'''
 	end
 	if ARGS['TR_COUNTER'] = 0: $ARGS['CONTENT'] += '<tr>'
-	ARGS['TR_COUNTER']+=1
-	$path_to_image = '<<$ARGS[''PATH_TO_FOLDER'']>><<i>>.jpg'
+	ARGS['TR_COUNTER']+=1&$path_to_image = '<<$ARGS[''PATH_TO_FOLDER'']>><<i>>.jpg'
 	$ARGS['BUTTON_1'] = '<td width="50%" align="center"><a class="plain" href="exec:<<$ARGS[''APPLY_PORTRAIT_LOGIC'']>>"><font size=+2 color="green">&#10003</font></a></td>'
 	$ARGS['BUTTON_2'] = '<td width="50%" align="center"><a class="plain" href="exec:view(''<<$path_to_image>>'')"><font size=+2 color="#28a4e6">&#8981</font></a></td>'
 	$ARGS['BUTTONS'] = '<table width="100%" border="0"><tr><<$ARGS["BUTTON_1"]>><<$ARGS["BUTTON_2"]>></tr></table>'
