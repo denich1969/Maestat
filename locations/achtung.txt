@@ -103,8 +103,7 @@ else
 	</center></td>'
 	$areapage+='</tr></div><table>'&$areapage
 	act'Начать игру':
-		bud=6&year=2025&month=9&day=3&week=6&hour=7&daystart=1
-		insmout_gangwhore=0&!ГГ не является шлюхой истмутцев
+		bud=6&year=2025&month=9&day=3&week=6&hour=7&daystart=1&insmout_gangwhore=0&!ГГ не является шлюхой истмутцев
 		sexhunger=0&!Сексуальный голод отсутствует
 		dagongene=0&! Истмундский ген Дагона отсутствует
 		MinetDocha=0&!минет Богарту не сделан

@@ -1,12 +1,9 @@
 ﻿!Образец вызова;  gs 'housegen',число кварталов,номер горизонтали X,номер вертикали X,'название улицы','другое название улицы','описание улицы',номер картинки,'дома'
-X=args[1]&Y=args[2]&maxPositionH['<<X>>,<<Y>>,<<Z>>']=args[0]&$locname['<<$temploc>>']=$args[3]
-np['<<$temploc>>']=args[4]
-
+X=args[1]&Y=args[2]&maxPositionH['<<X>>,<<Y>>,<<Z>>']=args[0]&$locname['<<$temploc>>']=$args[3]&np['<<$temploc>>']=args[4]
 !Особенности улицы
 if $args[2]='Улица Могила героя':
-	$lname['<<$temploc>>']=$args[2]
+	$lname['<<$temploc>>']=$args[2]&herograve['<<$temploc>>']=1
 	$locopis['<<$temploc>>']='По преданию тут похоронили древнего героя который погиб в героической битве, но уже никто не помнит подробностей, как быстротечна мирская слава.'
-	herograve['<<$temploc>>']=1
 elseif $args[2]='Улица Призрачного причастия':
 	oldorder['<<$temploc>>']=1
 elseif $args[2]='Улица Колокольная':
@@ -20,7 +17,6 @@ elseif $args[2]='Морская набережная':
 else
 	
 end
-
 if $args[5]='<<Z>>'+'house':
 	gs '<<Z>>'+'house'
 elseif $args[5]='downhouse':
@@ -34,6 +30,4 @@ elseif $args[5]='downhouse1_2':
 else
 	
 end
-
-!gs '<<$args[5]>>'
-!msg '<<$args[5]>>'
+!gs '<<$args[5]>>'&!msg '<<$args[5]>>'

@@ -1,16 +1,14 @@
-﻿$nameloc[you]=$curloc
-loc_for_drop=0
+﻿$nameloc[you]=$curloc&loc_for_drop=0&act'Уйти':gt 'preloc'&!gt 'street_work'
 if Z[you]=200 and R[you]=1 and BossmainQW>0:
-	gs'stat'&'Ваше рабочее место'&!'<center><img src="pic/loc/ras/car.jpg" ></center>'
-	gs'Item'&*pl ''&gs 'npconloc'&!act'Отойти':gt 'preloc'
+	gs'stat'&'Ваше рабочее место'&gs'Item'&*pl ''&gs 'npconloc'&!'<center><img src="pic/loc/ras/car.jpg" ></center>'
 	if week<6:
-		 if hour>=7 and hour<=9:
-			 act'Работать':
-				 nopee=1&rubl[you]+=50000&time+=60*4&cls&gs'stat'&nopee=0&'Вы работаете свою работу, нудную, неинтересную, однообразную и тягомотную. Вам плятят тысячу рублей в день, но за обе части дня .'
-				 act'Отойти':gt 'preloc'
-			 end
-		 end
-		 if hour>13 and hour<=14:
+		if hour>=7 and hour<=9:
+			act'Работать':
+				nopee=1&rubl[you]+=50000&time+=60*4&cls&gs'stat'&nopee=0&'Вы работаете свою работу, нудную, неинтересную, однообразную и тягомотную. Вам плятят тысячу рублей в день, но за обе части дня .'
+				act'Отойти':gt 'preloc'
+			end
+		end
+		if hour>13 and hour<=14:
 			if BossmainQW=1:
 				if day=5 and realdaystart>=7:
 					act 'Идти с отчётом к боссу':
@@ -35,8 +33,7 @@ if Z[you]=200 and R[you]=1 and BossmainQW>0:
 		act'Взять бумажку':
 			master[you]=1&cls&gs'stat'&'Бумажка растворяется в вашей руке и таинственный женский голос шепчет вам '
 			'- Ты станешь моим аватаром, аватаром Богини Луны. И твоя главная задача - сделать так, чтобы никто не смог собрать Маестат. В общем, разберёшься.'&act'Отойти':gt 'preloc'
-		 end
+		end
 	end
 	!gs'stat'&'<b><center>Офис</center></b>'&'<center><img src="pic/loc/app/ofis.jpg" ></center>'&pl ''
 end
-act'Уйти':gt 'preloc'&!gt 'street_work'

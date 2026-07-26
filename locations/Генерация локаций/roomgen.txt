@@ -20,12 +20,10 @@ elseif $args[1]='Библиотека':
 	!Лунная База library['<<$temploc>>']=100
 	gs 'library_gen',args[2], '<<$args[3]>>',args[4],args[5]
 	if Z=200 or Z=777 or Z=7777:
-		ite=1
-		gs'item_base'
+		ite=1&gs'item_base'
 		:markgentestitem
-		item_loc['<<ite>>,<<$temploc>>']+=1
-		ite+=1
-		if $item_name[ite]!'':jump'markgentestitem'
+			item_loc['<<ite>>,<<$temploc>>']+=1
+		ite+=1&if $item_name[ite]!'':jump'markgentestitem'
 	end
 elseif $args[1]='Кладовая':
 
@@ -114,8 +112,7 @@ elseif $args[1]='Храм':
 	end
 
 elseif $args[1]='Пещера':
-	 !описание
-	! $locopis['<<$temploc>>']='Мрачная пещера на стенах и полу которой начертаны магические символы, на полках стоят всякие склянки и под потолком висят пучки трав.'
+	!$locopis['<<$temploc>>']='Мрачная пещера на стенах и полу которой начертаны магические символы, на полках стоят всякие склянки и под потолком висят пучки трав.'
 !elseif $args[1]='Аллея':
 
 !elseif $args[1]='Парк':

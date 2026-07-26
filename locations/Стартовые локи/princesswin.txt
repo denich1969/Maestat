@@ -1,13 +1,6 @@
-﻿winprincessonce=1&item[60]=0
-'<b>ПОБЕДА</b>'&*pl'Вы победили Хмуров и остановили вторжение.'&*nl
-num=you&gs'body'
-makeuptemp=makeup[you]
-if face_pic[you]>0:
-	if face[you]>=50:$d_view_mirr='pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg'
-	if face[you]<50:$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'&!'нпс <<npc>>. Цвет волос <<hcol[npc]>>. Номер пикчи <<face_pic[npc]>>.'
-	'<center><img src="<<$d_view_mirr>>" ></center>'
-end
-'<<$opis[you]>>'&*pl'Мышцы <<mus[you]>>'&*pl'Жир <<fat[you]>>'
+﻿winprincessonce=1&item[60]=0&'<b>ПОБЕДА</b>'&*pl'Вы победили Хмуров и остановили вторжение.'&*nl&num=you&gs'body'&makeuptemp=makeup[you]
+if face_pic[you]>0:'<center><img src="<<$d_view_mirr>>" ></center>'
+'<<$opis[you]>>'&*nl'Мышцы <<mus[you]>>'&*nl'Жир <<fat[you]>>'
 if defence[you]>0:'Защита <<defence[you]>>ед'
 if w_slot[you]>0:wslot=w_slot[you]&'Оружие дальнего боя. <<$item_w_name[wslot]>> Урон <<uron_weapon_w[you]>>'
 if m_slot[you]>0:mslot=m_slot[you]&'Оружие ближнего боя. <<$item_m_name[mslot]>> Урон <<uron_weapon_m[you]>>'
@@ -26,55 +19,18 @@ if sexiness[you]>10 and sexiness[you]<=50:'Я выгляжу сексуальн�
 if sexiness[you]>50 and sexiness[you]<=90:'Я выгляжу распущенно'
 if sexiness[you]>90:'Я выгляжу как конченная шлюха'
 $full=''
-if h_slot[you]>0:
-	hattemp=h_slot[you]
-	$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'
-	$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
-end
-if t_slot[you]>0:
-	toptemp=t_slot[you]
-	$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'
-	$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
-	!'<<$t_sexy[toptemp]>>'
-	!if aristokrat_t[toptemp]>0:'Офисная одежда'&!if leather_t[toptemp]>0:'Непромокаемая одежд'&!if sport_t[toptemp]>0:'Спортивная одежда'
-end
-if l_slot[you]>0:
-	lowtemp=l_slot[you]
-	$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'
-	$full+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
-	!'<<$l_sexy[lowtemp]>>'
-	!if aristokrat_l[lowtemp]>0:'Офисная одежда'&!if leather_l[lowtemp]>0:'Непромокаемая одежд'&!if sport_l[lowtemp]>0:'Спортивная одежда'
-end
-if ub_slot[you]>0:
-	uboottemp=ub_slot[you]
-	$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'
-	$full+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
-end
-if b_slot[you]>0:
-	boottemp=b_slot[you]
-	$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'
-	$full+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
-	!'<<$b_sexy[boottemp]>>'&!if aristokrat_b[boottemp]>0:'Офисная обувь'&!if sport_b[boottemp]>0:'Спортивная обувь'
-end
-'<<$full>>'
-$under=''
-if ut_slot[you]>0:
-	utoptemp=ut_slot[you]
-	$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'
-	$under+='<a href="exec:dynamic $d_utop_view"><img src="pic/clo/utop/<<utoptemp>>.jpg" ></a>'
-end
-if ul_slot[you]=0:
-	If pol[you]=0 and womenbrain[i]<=10: 
-		'Вы без трусов'
-	else
-		'Вы без трусиков'
-	end
-end 
-if ul_slot[you]>0:
-	ulowtemp=ul_slot[you]
-	$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'
-	$under+='<a href="exec:dynamic $d_ulow_view"><img src="pic/clo/ulow/<<ulowtemp>>.jpg" ></a>'
-end
+if h_slot[you]>0:hattemp=h_slot[you]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'&$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
+if t_slot[you]>0:toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
+!'<<$t_sexy[toptemp]>>'&if aristokrat_t[toptemp]>0:'Офисная одежда'&!if leather_t[toptemp]>0:'Непромокаемая одежд'&!if sport_t[toptemp]>0:'Спортивная одежда'
+if l_slot[you]>0:lowtemp=l_slot[you]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'&$full+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
+!'<<$l_sexy[lowtemp]>>'&if aristokrat_l[lowtemp]>0:'Офисная одежда'&!if leather_l[lowtemp]>0:'Непромокаемая одежд'&!if sport_l[lowtemp]>0:'Спортивная одежда'
+if ub_slot[you]>0:uboottemp=ub_slot[you]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
+if b_slot[you]>0:boottemp=b_slot[you]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
+!'<<$b_sexy[boottemp]>>'&!if aristokrat_b[boottemp]>0:'Офисная обувь'&!if sport_b[boottemp]>0:'Спортивная обувь'
+'<<$full>>'&$under=''
+if ut_slot[you]>0:utoptemp=ut_slot[you]&$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'&$under+='<a href="exec:dynamic $d_utop_view"><img src="pic/clo/utop/<<utoptemp>>.jpg" ></a>'
+if ul_slot[you]=0:$iIf(pol[you]=0 and womenbrain[i]<=10,'Вы без трусов','Вы без трусиков')
+if ul_slot[you]>0:ulowtemp=ul_slot[you]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'&$under+='<a href="exec:dynamic $d_ulow_view"><img src="pic/clo/ulow/<<ulowtemp>>.jpg" ></a>'
 '<<$under>>'
 if l_hand_t[you]>0:'Татуировка на левой руке - <img src="pic/tattoo/l_hand_t_<<l_hand_t[you]>>.jpg" >'
 if r_hand_t[you]>0:'Татуировка на правой руке - <img src="pic/tattoo/r_hand_t_<<r_hand_t[you]>>.jpg" >'
@@ -95,14 +51,9 @@ if hunter[you]>0 or magik[you]>0 or insight[you]>0:
 	if magik[you]=1:'<b><<magik[you]>></b> канал магии'
 	if magik[you]>=2 and magik[you]<5:'<b><<magik[you]>></b> канала магии'
 	if magik[you]>=5:'<b><<magik[you]>></b> каналов магии'
-	if soul[you]>=20:
-		 'Ваша душа <<soul[you]>>% от человеческой души'
-	else
-		 'Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>'
-	end
+	$iif(soul[you]>=20,'Ваша душа <<soul[you]>>% от человеческой души','Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>')
 end
-'Живучесть <<vital[you]>>'
-'Мускулатура <<mus[you]>>'
+'Живучесть <<vital[you]>>'&*nl'Мускулатура <<mus[you]>>'
 if soulpower[you]>0:'Сила духа дающая бонус к урону, грузоподъемности и выносливости <<soulpower[you]>>'
 if will[you]>0:'Воля <<will[you]>>, параметр удержания канала магии'
 if fight_skill[you]>0:'Навыки рукопашного боя <<fight_skill[you]>>'

@@ -101,8 +101,8 @@
       <Location name="princesswin"/>
       <Location name="roma_start"/>
       <Location name="romastory"/>
-      <Location name="pre_male_g"/>
-      <Location name="pre_female"/>
+      <Location name="pre_master"/>
+      <Location name="pre_master_f"/>
       <Location name="pre_goddes_f"/>
       <Location name="pre_goddes"/>
       <Location name="prestory"/>
