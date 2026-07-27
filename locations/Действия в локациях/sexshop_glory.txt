@@ -2,8 +2,7 @@
 	act'Глотать':
 		cum_face[you]+=1&glory[you]+=1&dom[you]-=1&cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете глотая сперму.'&!soul[you]-=1
 	 	if oral_fixation[you]>=1000:
-			'Едва вы дотрагиваетесь себе между ног, как тут же кончаете.'
-			if func('oralslut',-1,you,1)=1:horny[you]=0
+			'Едва вы дотрагиваетесь себе между ног, как тут же кончаете.'&if func('oralslut',-1,you,1)=1:horny[you]=0
 		else
 			if func('oralslut',-1,you)=1:horny[you]=0
 		end

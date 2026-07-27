@@ -1,4 +1,4 @@
-﻿gs'stat'&gs'mirror_view'&'<<$opis[you]>>'
+﻿gs'stat'&gs'mirror_view'&'<<$opis[you]>>'&act'<b>НАЧАТЬ</b>':SHOWSTAT 1&SHOWOBJS 1&health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]&gt'preloc'
 if spec_face_pic[you]!7:act'Переключить на другую внешность (1)':spec_face_pic[you]=7&gt $curloc
 if spec_face_pic[you]!8:act'Переключить на другую внешность (2)':spec_face_pic[you]=8&gt $curloc
 if spec_face_pic[you]!9:act'Переключить на другую внешность (3)':spec_face_pic[you]=9&gt $curloc
@@ -17,4 +17,3 @@ if hcol[you]!0:act'Черные волосы':hcol[you]=0&gt $curloc
 if hcol[you]!1:act'Русые волосы':hcol[you]=1&gt $curloc
 if hcol[you]!2:act'Рыжие волосы':hcol[you]=2&gt $curloc
 if hcol[you]!3:act'Светлые волосы':hcol[you]=3&gt $curloc
-act'<b>НАЧАТЬ</b>':SHOWSTAT 1&SHOWOBJS 1&health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]&gt'preloc'

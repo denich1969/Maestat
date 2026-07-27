@@ -293,15 +293,15 @@ if $ARGS[0] ! '':
 		}
 		!$d_greatoakqw={if oakqw=1:msg("Великий Дуб связан с другими мирами.")}
 		!luksDeadQW=100 убит Люкс Эосфор
-		  !globalQW=1 проявление Дара.
-		  !globalQW=2 герой в Агентстве.
-		  !globalQW=3 смерть Богарта.
-		  !globalQW=4 смерть Антея, Джофри - аватар.
-		  !globalQW=5 полиция, Джофри - аватар.
-		  !globalQW=6 ГГ - аватар.
-		  !ЧФ 1-23
-		  !ДХ 1-25
-		  !НБ 2-17
+		!globalQW=1 проявление Дара.
+		!globalQW=2 герой в Агентстве.
+		!globalQW=3 смерть Богарта.
+		!globalQW=4 смерть Антея, Джофри - аватар.
+		!globalQW=5 полиция, Джофри - аватар.
+		!globalQW=6 ГГ - аватар.
+		!ЧФ 1-23
+		!ДХ 1-25
+		!НБ 2-17
 		pl'<b>Активные квесты</b>'
 		if Z[you]<200:
 			if BlackRoseQW[you]>=1 and BlackRoseQW[you]<100:pl'<a href="exec:dynamic $d_blackroseqw">Агентство Добрых Дел</a> <<BlackRoseQW[you]>>'
@@ -339,12 +339,8 @@ if $ARGS[0] ! '':
 			if frank_viscontiQW>0 and frank_viscontiQW<100:pl'<a href="exec:dynamic $d_frank_viscontiQW">Фрэнк Висконти</a>'
 			if oakqw>=1 and oakqw<100:pl'<a href="exec:dynamic $d_greatoakqw">Великий дуб</a>'
 		end
-		if Z[you]=404:
-			if roma_home[you]=0:pl'Преобрести Дом для проживания в Риме'
-		end
-		if Z[you]=200:
-			if BossmainQW<6:pl'Знакомство с Демонами'
-		end
+		if Z[you]=404 and roma_home[you]=0:pl'Преобрести Дом для проживания в Риме'
+		if Z[you]=200 and BossmainQW<6:pl'Знакомство с Демонами'
 		pl'<b>Завершенные квесты</b>'
 		if Z[you]<200:
 			if BlackRoseQW[you]>=100:pl'<a href="exec:dynamic $d_blackroseqw">Агентство Добрых Дел</a>'
@@ -385,23 +381,16 @@ if $ARGS[0] ! '':
 			if saunakafeowner=1:pl'Вам принадлежит кафе "Рим". Координаты 2.0.3'
 			if hotelowner=1:pl'Вам принадлежит отель "Мардук". координаты 1.1.4'
 		end
-		if Z[you]=404:
-			if roma_home[you]=1:pl'У вас есть Дом в Риме'
-		end
-		if Z[you]=200:
-			if BossmainQW<6:pl'Вы узнали о существовании Демонов'
-		end
-		
+		if Z[you]=404 and roma_home[you]=1:pl'У вас есть Дом в Риме'
+		if Z[you]=200 and BossmainQW<6:pl'Вы узнали о существовании Демонов'
 		pl''
 		if savetipe=0:pl'Автосохранения в 1 файл <a href="exec:savetipe=1&gs''stat''">Сохранять каждый день в разные файлы</a>'
 		if savetipe=1:pl'Автосохранения каждый день в разные сейвы <a href="exec:savetipe=0&gs''stat''">Сохранять в 1 файл</a>'
-		pl''
-		pl'<<$global_npc_log[you]>>'
+		pl''&nl'<<$global_npc_log[you]>>'
     end
 	!* -------------------------------- ИНВЕНТАРЬ ------------------------------- *!
     if $ARGS[0] = 'ИНВЕНТАРЬ':
-		clr
-		openinv=1
+		clr&openinv=1
 		if busy[you]=0:
 			dynamic $d_inv
 		else
@@ -410,9 +399,7 @@ if $ARGS[0] ! '':
     end
 	!* ---------------------------- ПЕРСОНАЖ/ОПИСАНИЕ --------------------------- *!
     if $ARGS[0] = 'ПЕРСОНАЖ' or $ARGS[0] = 'ОПИСАНИЕ':
-		clr&p'<<func("generate_links", 1, 13, "ОПИСАНИЕ")>>'
-		num=you
-		gs'body', 'IN_PREVIEW'&clotemp=clonum[you]&openinv=0
+		clr&p'<<func("generate_links", 1, 13, "ОПИСАНИЕ")>>'&num=you&gs'body', 'IN_PREVIEW'&clotemp=clonum[you]&openinv=0
 		pl'<<$name[you]>> <<$surname[you]>>'&!if $nick[you]!'':pl'<<$nick[you]>>'
 		pl'<<$opis[you]>>'
 		if defence[you]>0:pl'Защита <<defence[you]>>ед.'
@@ -492,17 +479,10 @@ if $ARGS[0] ! '':
 				pl'<a href="exec:dynamic $d_utop_view"><<$ut_name[utoptemp]>></a> <a href="exec:gt''ut_un'',<<utoptemp>>">снять</a>'
 			end
 			if ul_slot[you]>0:
-				ulowtemp=ul_slot[you]
-				$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'
+				ulowtemp=ul_slot[you]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'
 				pl'<a href="exec:dynamic $d_ulow_view"><<$ul_name[ulowtemp]>></a> <a href="exec:gt''ul_un'',<<ulowtemp>>">снять</a>'
 			end
-			if ul_slot[you]=0:
-				If pol[you]=0 and womenbrain[i]<=10: 
-					pl'Вы без трусов'
-				else
-					pl'Вы без трусиков'
-				end
-			end
+			if ul_slot[you]=0:pl $iIf(pol[you]=0 and womenbrain[i]<=10,'Вы без трусов','Вы без трусиков')
 			if ub_slot[you]>0:
 				uboottemp=ub_slot[you]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'
 				pl'<a href="exec:dynamic $d_uboot_view"><<$ub_name[uboottemp]>></a> <a href="exec:gt''ub_un'',<<uboottemp>>">снять</a>'
@@ -511,61 +491,54 @@ if $ARGS[0] ! '':
 		end
 	end
 	if $ARGS[0] = 'СТАТИСТИКА':
-		  clr
-		  p'<<func("generate_links", 1, 13, "СТАТИСТИКА")>>'
-		  pl'<center><b><<$selobj>></b></center>'
-		  pl'Побед: <<win[you]>>, поражений: <<loss[you]>>, бегств: <<run[you]>>'
-		  if murderer[you]>0:pl'Вы убили: <<murderer[you]>> <<func("get_word", "человек", murderer[you])>>.'
-		  if guy[you]>0:pl'У вас <<func("get_word", "был", guy[you])>>: <<guy[you]>> <<func("get_word", "парень", guy[you])>>.'
-		  if girl[you]>0:pl'У вас <<func("get_word", "была", girl[you])>>: <<girl[you]>> <<func("get_word", "девушка", girl[you])>>.'
-		  if shemale[you]>0:pl'У вас <<func("get_word", "был", shemale[you])>>: <<shemale[you]>> <<func("get_word", "шимейл", shemale[you])>>'
-		  if tentacle[you]>0:pl'Вас <<tentacle[you]>> <<func("get_word", "раз", tentacle[you])>> насиловали тентакли, <<t_anal[you]>> <<func("get_word", "раз", t_anal[you])>> в попу, <<t_bj[you]>> <<func("get_word", "раз", t_bj[you])>> в рот.'
-		  if ork[you]>0:pl'Вас <<ork[you]>> <<func("get_word", "раз", ork[you])>> трахали орки.'
-		  if goblin[you]>0:pl'Вас <<goblin[you]>> <<func("get_word", "раз", goblin[you])>> трахали гоблины'
-		  if mistbist[you]>0:pl'Вас <<mistbist[you]>> <<func("get_word", "раз", mistbist[you])>> трахали туманные твари.'
-		  !if wolf[you]>=3:pl'Вас ебали <<wolf[you]>> волка, вы настоящая сучка для случки.'
-		  if wolf[you]>0:pl'Вас <<func("get_word", "ебал", wolf[you])>> <<wolf[you]>> <<func("get_word", "волк", wolf[you])>>.'
-		  if submission[you]>0:pl'У вас <<func("get_word", "была!", submission[you])>> <<submission[you]>> бдсм <<func("get_word", "сессия", submission[you])>> в качестве рабыни.'
-		  if gang[you]>0:pl'Вы <<gang[you]>> <<func("get_word", "раз", gang[you])>> принимали участие в групповым сексе.'
-		  if insmout_gang[you]>0:pl'Инсмутцы изнасиловали вас'
-		  if lesb[you]>0:pl'Вы <<lesb[you]>> <<func("get_word", "раз", lesb[you])>> занимались лесбийским сексом.'
-		  if bj[you]>0 and glory[you]=0:pl'Вы <<bj[you]>> <<func("get_word", "раз", bj[you])>> сосали член.'
-		  if bj[you]>0 and glory[you]>0:pl'Вы <<bj[you]>> <<func("get_word", "раз", bj[you])>> сосали член, из этого вы <<glory[you]>> <<func("get_word", "раз", glory[you])>> сосали член в глорихоле.'
-		  if abj[you]>0:pl'Вам <<abj[you]>> <<func("get_word", "раз", abj[you])>> сосали член.'
-		  if glory_bj[you]>0:pl'Вы отсосали <<glory_bj[you]>> <<func("get_word", "хуй", glory_bj[you])>> в глорихоле.'
-		  if fluffer[you]=1:pl'Вы начинающая флаффер, девочка на подсосе в порно'
-		  if fluffer[you]>1:pl'<<fluffer[you]>> <<func("get_word", "час", fluffer[you])>> вы сосали хуи порноактерам работая в порностудии флаффером.'
-		  if hj[you]>0:pl'Вы <<hj[you]>> <<func("get_word", "раз", hj[you])>> довели до оргазма руками.'
-		  if ahj[you]>0:pl'Вас <<ahj[you]>> <<func("get_word", "раз", ahj[you])>> довели до оргазма руками.'
-		  if vagsex[you]>0:pl'Вас трахали во влагалище <<vagsex[you]>> <<func("get_word", "раз", vagsex[you])>>.'
-		  if avagsex[you]>0:pl'Вы трахали во влагалище <<avagsex[you]>> <<func("get_word", "раз", avagsex[you])>>.'
-		  if aanal[you]>0:pl'<<aanal[you]>> <<func("get_word", "раз", aanal[you])>> вы трахали в попу.'
-		  if anal[you]>0:pl'Вас трахали в попу <<anal[you]>> раз'
-		  if jerk[you]>0:pl'<<jerk[you]>> <<func("get_word", "раз", jerk[you])>> мастурбировали.'
-		  if orgasm_times[you]>0:pl'Вы получили <<orgasm_times[you]>> <<func("get_word", "оргазм", orgasm_times[you])>> пока вас трахали.'
-		  if squirt[you]>0:pl'<<squirt[you]>> <<func("get_word", "раз", squirt[you])>> вы сквиртанули.'
-		  if cuntlick[you]>0:pl'<<cuntlick[you]>> <<func("get_word", "раз", cuntlick[you])>> вас заставляли лизать пизду.'
-		  if pee[you]>0 and CONFIG['DISABLE_PEE']=0:pl'<<pee[you]>> <<func("get_word", "раз", pee[you])>> вы мочились в рот.'
-		  if drinkpee[you]>0 and CONFIG['DISABLE_PEE']=0:pl'<<drinkpee[you]>> <<func("get_word", "раз", drinkpee[you])>> вас обоссали.'
-		  if whore[you]>0:pl'Вы <<whore[you]>> <<func("get_word", "раз", whore[you])>> занимались проституцией.'
-		  if bimboporn>0:pl'Вы <<bimboporn>> <<func("get_word", "раз", bimboporn[you])>> снимались в порно.'
-		  if port_repa[you]>0:pl'Вас уважают и некоторые даже боятся в Порту'
-		  if gilmassive_repa[you]>0:pl'Вы уважаемый член общества в Жилмассиве'
-		  if megapolis_repa[you]>0:pl'Вы уважаемый член общества в Мегаполисе'
-		  if egg[you]>0:pl'Вы выносили и родили <<egg[you]>> <<func("get_word", "яйцо", egg[you])>> от ночных тварей из своей задницы.'
-		  if child[you]>0:pl'Вы родили <<child[you]>> <<func("get_word", "ребёнок", child[you])>>.'
-		  if $fightlog[you]!'':pl'<<$fightlog[you]>>'
+		clr
+		p'<<func("generate_links", 1, 13, "СТАТИСТИКА")>>'
+		pl'<center><b><<$selobj>></b></center>'
+		pl'Побед: <<win[you]>>, поражений: <<loss[you]>>, бегств: <<run[you]>>'
+		if murderer[you]>0:pl'Вы убили: <<murderer[you]>> <<func("get_word", "человек", murderer[you])>>.'
+		if guy[you]>0:pl'У вас <<func("get_word", "был", guy[you])>>: <<guy[you]>> <<func("get_word", "парень", guy[you])>>.'
+		if girl[you]>0:pl'У вас <<func("get_word", "была", girl[you])>>: <<girl[you]>> <<func("get_word", "девушка", girl[you])>>.'
+		if shemale[you]>0:pl'У вас <<func("get_word", "был", shemale[you])>>: <<shemale[you]>> <<func("get_word", "шимейл", shemale[you])>>'
+		if tentacle[you]>0:pl'Вас <<tentacle[you]>> <<func("get_word", "раз", tentacle[you])>> насиловали тентакли, <<t_anal[you]>> <<func("get_word", "раз", t_anal[you])>> в попу, <<t_bj[you]>> <<func("get_word", "раз", t_bj[you])>> в рот.'
+		if ork[you]>0:pl'Вас <<ork[you]>> <<func("get_word", "раз", ork[you])>> трахали орки.'
+		if goblin[you]>0:pl'Вас <<goblin[you]>> <<func("get_word", "раз", goblin[you])>> трахали гоблины'
+		if mistbist[you]>0:pl'Вас <<mistbist[you]>> <<func("get_word", "раз", mistbist[you])>> трахали туманные твари.'
+		!if wolf[you]>=3:pl'Вас ебали <<wolf[you]>> волка, вы настоящая сучка для случки.'
+		if wolf[you]>0:pl'Вас <<func("get_word", "ебал", wolf[you])>> <<wolf[you]>> <<func("get_word", "волк", wolf[you])>>.'
+		if submission[you]>0:pl'У вас <<func("get_word", "была!", submission[you])>> <<submission[you]>> бдсм <<func("get_word", "сессия", submission[you])>> в качестве рабыни.'
+		if gang[you]>0:pl'Вы <<gang[you]>> <<func("get_word", "раз", gang[you])>> принимали участие в групповым сексе.'
+		if insmout_gang[you]>0:pl'Инсмутцы изнасиловали вас'
+		if lesb[you]>0:pl'Вы <<lesb[you]>> <<func("get_word", "раз", lesb[you])>> занимались лесбийским сексом.'
+		if bj[you]>0 and glory[you]=0:pl'Вы <<bj[you]>> <<func("get_word", "раз", bj[you])>> сосали член.'
+		if bj[you]>0 and glory[you]>0:pl'Вы <<bj[you]>> <<func("get_word", "раз", bj[you])>> сосали член, из этого вы <<glory[you]>> <<func("get_word", "раз", glory[you])>> сосали член в глорихоле.'
+		if abj[you]>0:pl'Вам <<abj[you]>> <<func("get_word", "раз", abj[you])>> сосали член.'
+		if glory_bj[you]>0:pl'Вы отсосали <<glory_bj[you]>> <<func("get_word", "хуй", glory_bj[you])>> в глорихоле.'
+		if fluffer[you]=1:pl'Вы начинающая флаффер, девочка на подсосе в порно'
+		if fluffer[you]>1:pl'<<fluffer[you]>> <<func("get_word", "час", fluffer[you])>> вы сосали хуи порноактерам работая в порностудии флаффером.'
+		if hj[you]>0:pl'Вы <<hj[you]>> <<func("get_word", "раз", hj[you])>> довели до оргазма руками.'
+		if ahj[you]>0:pl'Вас <<ahj[you]>> <<func("get_word", "раз", ahj[you])>> довели до оргазма руками.'
+		if vagsex[you]>0:pl'Вас трахали во влагалище <<vagsex[you]>> <<func("get_word", "раз", vagsex[you])>>.'
+		if avagsex[you]>0:pl'Вы трахали во влагалище <<avagsex[you]>> <<func("get_word", "раз", avagsex[you])>>.'
+		if aanal[you]>0:pl'<<aanal[you]>> <<func("get_word", "раз", aanal[you])>> вы трахали в попу.'
+		if anal[you]>0:pl'Вас трахали в попу <<anal[you]>> раз'
+		if jerk[you]>0:pl'<<jerk[you]>> <<func("get_word", "раз", jerk[you])>> мастурбировали.'
+		if orgasm_times[you]>0:pl'Вы получили <<orgasm_times[you]>> <<func("get_word", "оргазм", orgasm_times[you])>> пока вас трахали.'
+		if squirt[you]>0:pl'<<squirt[you]>> <<func("get_word", "раз", squirt[you])>> вы сквиртанули.'
+		if cuntlick[you]>0:pl'<<cuntlick[you]>> <<func("get_word", "раз", cuntlick[you])>> вас заставляли лизать пизду.'
+		if pee[you]>0 and CONFIG['DISABLE_PEE']=0:pl'<<pee[you]>> <<func("get_word", "раз", pee[you])>> вы мочились в рот.'
+		if drinkpee[you]>0 and CONFIG['DISABLE_PEE']=0:pl'<<drinkpee[you]>> <<func("get_word", "раз", drinkpee[you])>> вас обоссали.'
+		if whore[you]>0:pl'Вы <<whore[you]>> <<func("get_word", "раз", whore[you])>> занимались проституцией.'
+		if bimboporn>0:pl'Вы <<bimboporn>> <<func("get_word", "раз", bimboporn[you])>> снимались в порно.'
+		if port_repa[you]>0:pl'Вас уважают и некоторые даже боятся в Порту'
+		if gilmassive_repa[you]>0:pl'Вы уважаемый член общества в Жилмассиве'
+		if megapolis_repa[you]>0:pl'Вы уважаемый член общества в Мегаполисе'
+		if egg[you]>0:pl'Вы выносили и родили <<egg[you]>> <<func("get_word", "яйцо", egg[you])>> от ночных тварей из своей задницы.'
+		if child[you]>0:pl'Вы родили <<child[you]>> <<func("get_word", "ребёнок", child[you])>>.'
+		if $fightlog[you]!'':pl'<<$fightlog[you]>>'
 	end
 	if $ARGS[0] = 'ХАРАКТЕРИСТИКИ':
-		clr&p'<<func("generate_links", 1, 13, "ХАРАКТЕРИСТИКИ")>>'
-		num=you
-		gs'body'&pl'<center><b><<$selobj>></b></center>'
-		if muggle[you]>=1:
-			!magik[you]
-			pl'У вас нет никакого магического дара'
-		else
-			pl'<<lvl[you]>>й уровень. Опыт <<exp[you]>>/<<expneed[you]>>'
-		end
+		clr&p'<<func("generate_links", 1, 13, "ХАРАКТЕРИСТИКИ")>>'&num=you&gs'body'&pl'<center><b><<$selobj>></b></center>'
+		pl $iif(muggle[you]>=1,'У вас нет никакого магического дара','<<lvl[you]>>й уровень. Опыт <<exp[you]>>/<<expneed[you]>>')
 		if demon_dick[you]>0:
 			pl "Уровень "+IIF(pol[you]=0,'Инкуба', 'Суккуба')+": <b>" + demon_dick[you] + "</b> ("+soul[you]+"/"+demon_dick_soul_need[you]+")"
 			pl "Насыщение душами: <b>" + demon_dick_stomath[you] + "</b> ("+demon_dick_stomath_max[you]+")"
@@ -573,11 +546,11 @@ if $ARGS[0] ! '':
 		pl'Жизнь <<health[you]>>/<<healthmax[you]>>'
 		pl'Энергия <<energy[you]>>/<<energymax[you]>>'
 		if manamax[you]>0:pl'Мана <<mana[you]>>/<<manamax[you]>>'&pl'Опыта для получения канала <<magik_exp[you]>>/<<magik_exp_need[you]>>'
-		  if techer_dogovor[you]>0:ted=techer_dogovor[you]&pl'Ваш учитель <<$name[ted]>> <<$surname[ted]>>, вы не можете причинить ему вред.'
-		  if whoreboss[you]>0:sutener=whoreboss[you]&pl'Ваш сутенер <<$name[sutener]>> <<$surname[sutener]>>, и вы должны приносить ему деньги.'
-		  !if second_life[you]>0:pl'<<second_life[you]>> дополнительных жизней.'
-		 pl''
-		 if magik[you]>0:
+		if techer_dogovor[you]>0:ted=techer_dogovor[you]&pl'Ваш учитель <<$name[ted]>> <<$surname[ted]>>, вы не можете причинить ему вред.'
+		if whoreboss[you]>0:sutener=whoreboss[you]&pl'Ваш сутенер <<$name[sutener]>> <<$surname[sutener]>>, и вы должны приносить ему деньги.'
+		!if second_life[you]>0:pl'<<second_life[you]>> дополнительных жизней.'
+		pl''
+		if magik[you]>0:
 			if mlev[you]=9:pl'<b>Божественная сила</b>'
 			if mlev[you]=8:pl'<b>Сила вне категорий</b>, чтобы обрести божественную силу, нужно 37 каналов магии.'
 			if mlev[you]=7:pl'<b>1-я категория силы</b>, чтобы повысить категорию, нужно 29 каналов магии.'
@@ -592,11 +565,11 @@ if $ARGS[0] ! '':
 			if magik[you]>=5:pl'<b><<magik[you]>></b> каналов магии.'
 		end
 		if hunter[you]>0 or magik[you]>0 or insight[you]>0:
-			 if soul[you]>=20:
+			if soul[you]>=20:
 				pl'Ваша душа <<soul[you]>>% от человеческой души'
-			 else
+			else
 				pl'Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>'
-			 end
+			end
 		end
 		pl'Живучесть <<vital[you]>>'
 		pl'Мускулатура <<mus[you]>>'
@@ -656,21 +629,16 @@ if $ARGS[0] ! '':
 		if busy[you]=0:
 			UNSEL & gt "settings"
 		else
-			 gs'stat'
-			 pl'<br>'
-			 pl'<b>В данный момент вы слишком заняты, чтоб пользоваться настройками.</b>'
+			gs'stat'&pl'<br>'&pl'<b>В данный момент вы слишком заняты, чтоб пользоваться настройками.</b>'
 		end
 	end
-	if $ARGS[0] = 'ВВОД КОМАНД' or $ARGS[0] = 'КОМАНДА':
-		$ARGS['INPUT'] = INPUT ('Введите команду')
-		UNSEL & $ARGS['COMMAND'] = DYNEVAL($ARGS['INPUT'])
-	end
-	if $ARGS[0] = 'АВАРИЙКА':X[you]=XHome[you]&Y[you]=YHome[you]&Z[you]=ZHome[you]&H[you]=0&R[you]=0&gt 'world'
-	if $ARGS[0] = 'UI ТОГГЛЕР':
-		 if CONFIG['UI_EDITOR'] = 1:
+	if $ARGS[0]='ВВОД КОМАНД' or $ARGS[0] = 'КОМАНДА':$ARGS['INPUT'] = INPUT ('Введите команду')&UNSEL&$ARGS['COMMAND'] = DYNEVAL($ARGS['INPUT'])
+	if $ARGS[0]='АВАРИЙКА':X[you]=XHome[you]&Y[you]=YHome[you]&Z[you]=ZHome[you]&H[you]=0&R[you]=0&gt 'world'
+	if $ARGS[0]='UI ТОГГЛЕР':
+		if CONFIG['UI_EDITOR'] = 1:
 			CONFIG['UI_EDITOR'] = 0&gs'stat'
-		 else
+		else
 			CONFIG['UI_EDITOR'] = 1&gs'stat'
-		 end
+		end
 	end
 end

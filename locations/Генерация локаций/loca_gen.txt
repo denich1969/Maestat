@@ -2,7 +2,6 @@
 H=args[0]&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&privat['<<$templocH>>']=1&lock['<<$templocH>>']=args[5]&$locnameH['<<$templocH>>']=$args[1]&maxPositionR['<<$templocH>>']=args[2]
 if $args[1]='Квартира №1' or $args[1]='Квартира №2' or $args[1]='Квартира №3' or $args[1]='Квартира №4' or $args[1]='Квартира №5':
 
-
 !elseif $args[1]='Аллея':
 
 !elseif $args[1]='Парк':
@@ -11,8 +10,7 @@ if $args[1]='Квартира №1' or $args[1]='Квартира №2' or $args
 
 elseif $args[1]='Помойка':
 	$locname['<<$temploc>>']='Помойка'&$lname['<<$temploc>>']='Помойка'
-	$locopis['<<$temploc>>']='Остатки некогда густого хвойного леса и помойка в которую превратилось пространство между деревьями'
-	np['<<$temploc>>']=93
+	$locopis['<<$temploc>>']='Остатки некогда густого хвойного леса и помойка в которую превратилось пространство между деревьями'&np['<<$temploc>>']=93
 else
 
 end

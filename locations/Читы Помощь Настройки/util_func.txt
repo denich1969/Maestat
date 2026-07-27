@@ -233,15 +233,15 @@ if i<ARGS['ARRSIZE']:i+=1 & jump 'find_by_name_loop'
 end
 if $ARGS[0]='TELEPORT_BY_INDEX' and ARGS[1]!0 and ARGS[2]!0:X[ARGS[1]]=X[ARGS[2]]&Y[ARGS[1]]=Y[ARGS[2]]&Z[ARGS[1]]=Z[ARGS[2]]&H[ARGS[1]]=H[ARGS[2]]&R[ARGS[1]]=R[ARGS[2]]&!Телепорт 
 if $ARGS[0] = 'CHECK_RELATIONS_OF_NPC':
-   RESULT=0&!Проверяем являются-ли цели родственниками или мужем/женой друг-друга.!Принимает 2 аргумента:   ARGS[1] - индекс NPC_1  и   ARGS[2] - индекс NPC_2
-   if husband[ARGS[1]] = ARGS[2]:RESULT=1
-   if brother[ARGS[1]] = ARGS[2]:RESULT=2
-   if father[ARGS[1]] = ARGS[2]:RESULT=3
-   if mother[ARGS[1]] = ARGS[2]:RESULT=4
-   if kid_first[ARGS[1]] = ARGS[2]:RESULT=5
-   if kid_second[ARGS[1]] = ARGS[2]:RESULT=6
-   if girlfriend_num[ARGS[1]] = ARGS[2]:RESULT=7
-   if boyfriend_num[ARGS[1]] = ARGS[2]:RESULT=8
+	RESULT=0&!Проверяем являются-ли цели родственниками или мужем/женой друг-друга.!Принимает 2 аргумента:   ARGS[1] - индекс NPC_1  и   ARGS[2] - индекс NPC_2
+	if husband[ARGS[1]] = ARGS[2]:RESULT=1
+	if brother[ARGS[1]] = ARGS[2]:RESULT=2
+	if father[ARGS[1]] = ARGS[2]:RESULT=3
+	if mother[ARGS[1]] = ARGS[2]:RESULT=4
+	if kid_first[ARGS[1]] = ARGS[2]:RESULT=5
+	if kid_second[ARGS[1]] = ARGS[2]:RESULT=6
+	if girlfriend_num[ARGS[1]] = ARGS[2]:RESULT=7
+	if boyfriend_num[ARGS[1]] = ARGS[2]:RESULT=8
 end
 if $ARGS[0] = 'TARGET_IS_MARRIED' and ARGS[1] ! 0:RESULT = husband[ARGS[1]]&!Проверяем замужем/жената ли цель
 if $ARGS[0] = 'TARGET_IS_BROTHER' and ARGS[1] ! 0:RESULT = brother[ARGS[1]]&!Проверяем является-ли цель братом/сестрой
@@ -390,12 +390,12 @@ if $ARGS[0]='INCREASE_REL_STAT' and ARGS[1]!0 and ARGS[2]!0:
     if friends['<<ARGS[2]>>,<<ARGS[1]>>']>100:friends['<<ARGS[2]>>,<<ARGS[1]>>']=100
 end
 if $ARGS[0]='DECREASE_REL_STAT' and ARGS[1]!0 and ARGS[2]!0:
-    friends['<<ARGS[1]>>,<<ARGS[2]>>']-= ARGS[3]&friends['<<ARGS[2]>>,<<ARGS[1]>>']-= ARGS[3]&!Уменьшаем отношения между 2мя NPC!Принимает 3 агрумента:
+	friends['<<ARGS[1]>>,<<ARGS[2]>>']-= ARGS[3]&friends['<<ARGS[2]>>,<<ARGS[1]>>']-= ARGS[3]&!Уменьшаем отношения между 2мя NPC!Принимает 3 агрумента:
     if friends['<<ARGS[1]>>,<<ARGS[2]>>']<0:friends['<<ARGS[1]>>,<<ARGS[2]>>']=0&!ARGS[1] - индекс NPC_1  и  ARGS[2] - индекс NPC_2  и  ARGS[3] - значение, которое будет вычтено из отношениям
     if friends['<<ARGS[2]>>,<<ARGS[1]>>']<0:friends['<<ARGS[2]>>,<<ARGS[1]>>']=0
 end
 if $ARGS[0] = 'GET_AVG_VALUE_OF':
-   $ARGS[1] = UCASE($ARGS[1])&if $ARGS[1] = 'REL':RESULT = (friends['<<ARGS[2]>>,<<ARGS[3]>>']+friends['<<ARGS[3]>>,<<ARGS[2]>>'])/2&!Получаем среднее значение между двумя переменными.
+	$ARGS[1] = UCASE($ARGS[1])&if $ARGS[1] = 'REL':RESULT = (friends['<<ARGS[2]>>,<<ARGS[3]>>']+friends['<<ARGS[3]>>,<<ARGS[2]>>'])/2&!Получаем среднее значение между двумя переменными.
 end
 if $ARGS[0] = 'GET_PERCENT_OF':
     ARGS['VALUE_ONE']=ARGS[1]&ARGS['VALUE_TWO']=ARGS[2]&!Получаем процент одного значение по отношению к другому.

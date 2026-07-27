@@ -2,7 +2,7 @@
 	act'Глотать':
 		cum_face[you]+=1&glory[you]+=1&dom[you]-=1&!soul[you]-=1
 	    if frank_viscontiQW=5:
-			 visc_glory+=1&if visc_glory>=10:frank_viscontiQW=6
+			visc_glory+=1&if visc_glory>=10:frank_viscontiQW=6
 	    end
 		cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете, глотая сперму.'
 		if gloryhole['<<$loc[you]>>']=2:money[you]+=rand(10,50)&'После этого из дыры вам кинули несколько монет.'

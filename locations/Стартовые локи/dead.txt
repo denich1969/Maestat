@@ -1,5 +1,4 @@
-﻿SHOWSTAT 0&SHOWOBJS 0&showinput 0
-times_dead[you]+=1
+﻿SHOWSTAT 0&SHOWOBJS 0&showinput 0&times_dead[you]+=1
 if master[you]=1 or immortal[you]>=1:
 	if l_ring[you]=46:l_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
 	if r_ring[you]=46:r_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
@@ -33,8 +32,7 @@ else
 	if deadtipe=2:
 		'Вы видите яркий свет маяка рвущий мрак непроглядной тьмы.'&!'Из реального мира на маяк'
 		act'Идти на свет':
-			light-=100&SHOWSTAT 1&SHOWOBJS 1
-			health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]
+			light-=100&SHOWSTAT 1&SHOWOBJS 1&health[you]=healthmax[you]&mana[you]=manamax[you]&energy[you]=energymax[you]
 			hunger[you]=0&thirst[you]=0&in_fight=0&in_sex=0&X[you]=0&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt'home_9'
 		end
 	end
@@ -60,16 +58,10 @@ end
 if badend=7:SHOWSTAT 0&SHOWOBJS 0&SHOWACTS 0&'<b>Гибель в Вечном Риме<b/>'&$backimage = 'the_end_bg.jpg'&*pl'<div id="header_red">Вас убили</div>'
 ACT 'Начать заново': GT 'Start'
 ACT 'Продолжить игру тем же персонажем':
-	!meat = 0
-	!virgin_meat = 0
-	!girl = 0
-	!GS 'Change_Object_Count', "<u>Мясо", 0
-	!GS 'Change_Object_Count', "Девчатина", 0
-	!DELOBJ 'Добыча'
+	!meat = 0&virgin_meat = 0&girl = 0&GS 'Change_Object_Count', "<u>Мясо", 0&GS 'Change_Object_Count', "Девчатина", 0&DELOBJ 'Добыча'
 	if Z[you]=404:X[you]=3&Y[you]=3&Z[you]=404&H[you]=1&R[you]=0&msg 'Вы очнулись в канаве у обочины. На теле ни царапинки. Вокруг раздается шум улочек Вечного Рима.'
 	if Z[you]=200:X[you]=rand(0,5)&Y[you]=0&Z[you]=404&H[you]=0&R[you]=0&msg 'Вы очнулись  на берегу реки. На теле ни царапинки. Рядом раздается шум городских улиц.'
 	if CONFIG['ENABLE_sound']=1 and Z[you]=404:play '<<$contentS>>/Rome/heartbeat.mp3',Громкость_эффектов
-	
 	gt'world'
 END
 ACT 'Закончить игру':CLOSE ALL&KILLALL&SHOWINPUT 0&SHOWOBJS 0&SHOWSTAT 0&SHOWACTS 0&$MAINDESC_BACKIMAGE = ''&$backimage = 'the_end_bg.jpg'

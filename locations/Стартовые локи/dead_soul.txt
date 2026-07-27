@@ -1,20 +1,10 @@
-﻿SHOWSTAT 0
-SHOWOBJS 0
-showinput 0
-cls&'Вы <b>ПРОИГРАЛИ</b>'&*pl ''
+﻿SHOWSTAT 0&SHOWOBJS 0&showinput 0&cls&'Вы <b>ПРОИГРАЛИ</b>'&*pl ''
 if princess=you:
 	'<center><img src="pic/misc/princess.jpg" ></center>'&'Вас захватили и заключили в герметичном сосуде, к вашему рту присоединили шланг, ведущий к писсуарам в отеле, и сделали из вас навечно рабыню.'
 else
 	'Ваша душа была поглощена этим миром и вы растворились в нем, став его частью'
 end
-num=you&gs'body'&makeuptemp=makeup[you]
-if face_pic[you]>0:
-	!if face[you]>=50:$d_view_mirr='pic/face/<<hcol[you]>>/<<face_pic[you]>>.jpg'
-	!if face[you]<50:$d_view_mirr='pic/faceman/<<face_pic[you]>>.jpg'
-	!'нпс <<npc>>. Цвет волос <<hcol[npc]>>. Номер пикчи <<face_pic[npc]>>.'
-	'<center><img src="<<$d_view_mirr>>" ></center>'
-	!'<center><img src="pic/face/<<hcol[npc]>>/<<face_pic[npc]>>.jpg" ></center>'
-end
+num=you&gs'body'&makeuptemp=makeup[you]&if face_pic[you]>0:'<center><img src="<<$d_view_mirr>>" ></center>'
 '<<$opis[you]>>'&*nl'Мышцы <<mus[you]>>'&*nl'Жир <<fat[you]>>'
 if defence[you]>0:'Защита <<defence[you]>>ед'
 if w_slot[you]>0:wslot=w_slot[you]&'Оружие дальнего боя. <<$item_w_name[wslot]>> Урон <<uron_weapon_w[you]>>'
@@ -35,36 +25,16 @@ if sexiness[you]>50 and sexiness[you]<=90:'Я выгляжу распущенн�
 if sexiness[you]>90:'Я выгляжу как конченная шлюха'
 $full=''
 if h_slot[you]>0:hattemp=h_slot[you]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'&$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
-if t_slot[you]>0:
-	toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
-	!'<<$t_sexy[toptemp]>>'
-	!if aristokrat_t[toptemp]>0:'Офисная одежда'
-	!if leather_t[toptemp]>0:'Непромокаемая одежд'
-	!if sport_t[toptemp]>0:'Спортивная одежда'
-end
-if l_slot[you]>0:
-	lowtemp=l_slot[you]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'&$full+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
-	!'<<$l_sexy[lowtemp]>>'
-	!if aristokrat_l[lowtemp]>0:'Офисная одежда'
-	!if leather_l[lowtemp]>0:'Непромокаемая одежд'
-	!if sport_l[lowtemp]>0:'Спортивная одежда'
-end
+if t_slot[you]>0:toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
+!'<<$t_sexy[toptemp]>>'&$iif(aristokrat_t[toptemp]>0,'Офисная одежда',$iif(leather_t[toptemp]>0,'Непромокаемая одежда',$iif(sport_t[toptemp]>0,'Спортивная одежда','Обыкновенная одежда')))
+if l_slot[you]>0:lowtemp=l_slot[you]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'&$full+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
+!'<<$l_sexy[lowtemp]>>'&$iif(aristokrat_t[toptemp]>0,'Офисная одежда',$iif(leather_t[toptemp]>0,'Непромокаемая одежда',$iif(sport_t[toptemp]>0,'Спортивная одежда','Обыкновенная одежда')))
 if ub_slot[you]>0:uboottemp=ub_slot[you]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
-if b_slot[you]>0:
-	boottemp=b_slot[you]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
-	!'<<$b_sexy[boottemp]>>'
-	!if aristokrat_b[boottemp]>0:'Офисная обувь'
-	!if sport_b[boottemp]>0:'Спортивная обувь'
-end
+if b_slot[you]>0:boottemp=b_slot[you]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
+!'<<$b_sexy[boottemp]>>'&$iif(aristokrat_b[toptemp]>0,'Офисная обувь',$iif(sport_b[toptemp]>0,'Спортивная обувь','Обыкновенная обувь'))
 '<<$full>>'&$under=''
 if ut_slot[you]>0:utoptemp=ut_slot[you]&$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'&$under+='<a href="exec:dynamic $d_utop_view"><img src="pic/clo/utop/<<utoptemp>>.jpg" ></a>'
-if ul_slot[you]=0:
-	If pol[you]=0 and womenbrain[i]<=10: 
-		'Вы без трусов'
-	else
-		'Вы без трусиков'
-	end
-end 
+if ul_slot[you]=0:$iIf(pol[you]=0 and womenbrain[i]<=10,	'Вы без трусов','Вы без трусиков')
 if ul_slot[you]>0:ulowtemp=ul_slot[you]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'&$under+='<a href="exec:dynamic $d_ulow_view"><img src="pic/clo/ulow/<<ulowtemp>>.jpg" ></a>'
 '<<$under>>'
 if l_hand_t[you]>0:'Татуировка на левой руке - <img src="pic/tattoo/l_hand_t_<<l_hand_t[you]>>.jpg" >'
