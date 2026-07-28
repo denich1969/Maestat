@@ -1,5 +1,4 @@
-﻿$ARGS[0]= $UCASE($ARGS[0])
-if $ARGS[0] = 'SET_POSE_CD':pose_cooldown=iif(scene_cooldown_duration>0,scene_cooldown_duration,1)
+﻿$ARGS[0]= $UCASE($ARGS[0])&if $ARGS[0] = 'SET_POSE_CD':pose_cooldown=iif(scene_cooldown_duration>0,scene_cooldown_duration,1)
 if $ARGS[0] = 'GET_GENDER_DEF':
     if ARGS[1] > 0:
 		$RESULT='TRANS'
@@ -28,13 +27,9 @@ if $ARGS[0] = 'APPLY_RGB':
 end
 if $ARGS[0] = 'APPLY_RECOMMENDED_BACKGROUND_COLOR':
 	CONFIG['ENABLE_STATIC_BACKGROUND_COLOR']=1
-	CONFIG['STATIC_BACKGROUND_COLOR_RED'] = 255
-	CONFIG['STATIC_BACKGROUND_COLOR_GREEN'] = 255
-	CONFIG['STATIC_BACKGROUND_COLOR_BLUE'] = 255
+	CONFIG['STATIC_BACKGROUND_COLOR_RED'] = 255&CONFIG['STATIC_BACKGROUND_COLOR_GREEN'] = 255&CONFIG['STATIC_BACKGROUND_COLOR_BLUE'] = 255
 	CONFIG['ENABLE_STATIC_FONT_COLOR']=1
-	CONFIG['STATIC_FONT_COLOR_RED'] = 32
-	CONFIG['STATIC_FONT_COLOR_GREEN'] = 32
-	CONFIG['STATIC_FONT_COLOR_BLUE'] = 32
+	CONFIG['STATIC_FONT_COLOR_RED'] = 32&CONFIG['STATIC_FONT_COLOR_GREEN'] = 32&CONFIG['STATIC_FONT_COLOR_BLUE'] = 32
 	CONFIG['CAN_APPLY_FONT_COLOR'] = 1
 end
 if $ARGS[0] = 'SHOW_INPUT_FOR_RELATIONS':
@@ -454,7 +449,7 @@ end
 if $ARGS[0] = 'GET_WEIGHT_TEXT':
     ARGS['GET_PERCENT_OF'] = func('util_func', 'get_percent_of', burden[you], burdenmax[you])
 	$ARGS['WEIGHT_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_OF'], 14, 164, 6, 225, 8, 8)
-	$RESULT='<font color="<<$ARGS[''WEIGHT_COLOR'']>>"><<$func("util_func", "get_float", burden[you])>></font>/<<$func("util_func", "get_float", burdenmax[you])>>'
+	$RESULT='<font color="<<$ARGS[''WEIGHT_COLOR'']>>"><<$func("util_func", "get_float", burden[you]/10)>></font>/<<$func("util_func", "get_float", burdenmax[you]/10)>>'
 end
 if $ARGS[0] = 'GET_WEIGHT_TEXT_ALL':$RESULT='<font color="green"><<$func("util_func", "get_float", ARGS[1])>></font><img width="12" src="pic/misc/UI/icons/weight.png">'
 if $ARGS[0] = 'GET_MSG_FOR_CLOTHES':

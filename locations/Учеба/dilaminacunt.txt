@@ -52,8 +52,9 @@ act'Отлизать':
 							'Диламина Стянула с вас одежду, схватила стоящий член и став яростно его надрачивать, '
 							'второй рукой она активно совала пальцы вам в зад, доставляя сомнительное удовольствие, от которого вы тем не менее быстро дошли до своего пика.'								
 							act'Кончить':
-								cls&cum_face[you]+=Ball[you]/10&corr[you]+=1&bj[you]+=1&'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
+								cls&cum_face[you]+=Ball[you]/10&corr[you]+=1&bj[you]+=1&'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'
 								'Когда вы были готовы кончить, Диламина закинула ваши ноги вверх и стала выдрачивать вашу сперму вам же на лицо и рот, хотя вы в уже были в нерване, сам факт вас слегка шокировал.'
+								orgasm[you]=time&superslut[you]=0&act'Встать и одется':gt 'preloc'
 							end	
 						else
 							if varlm=2:
@@ -62,7 +63,7 @@ act'Отлизать':
 								act'Кончить':
 									cls&'Когда вы были готовы кончить, Диламина отпустила ваш член и закинула ваши ноги вверх, став выдрачивать вашу сперму вам же на лицо и рот. '
 									'Хотя вы в уже были в нерване, сам факт вас слегка возбудил.'&cum_face[you]+=Ball[you]/10&horny[you]+=rand(10,30)&corr[you]+=1&bj[you]+=1
-									'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
+									'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&orgasm[you]=time&superslut[you]=0&act'Встать и одется':gt 'preloc'
 								end	
 							else
 								'Диламина Стянула с вас одежду, схватила стоящий член и стала яростно аккуратно его надрачивать, одновременно погружая в ваш анус свою кисть, '
@@ -70,7 +71,7 @@ act'Отлизать':
 								act'Кончить':
 									cls&'Когда вы были готовы кончить, Диламина отпустила ваш член и закинула ваши ноги вверх. Вы уже покорно отрыли свой рот в ожидании порции собственной спермы, готовые ловить ее.'
 									cum_face[you]+=Ball[you]/10&horny[you]+=rand(30,55)&corr[you]+=2&bj[you]+=1&you_dirty_slut[npc]+=5
-									'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&act'Встать и одется':gt 'preloc'
+									'<center><video autoplay loop src="pic/sex/pegging/self_cum0.webm" ></video></center>'&orgasm[you]=time&superslut[you]=0&act'Встать и одется':gt 'preloc'
 								end	
 							end
 						end

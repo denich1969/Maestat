@@ -100,22 +100,3 @@ if gra=97:$genname='Балдин'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=98:$genname='Мовин'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=99:$genname='Ревин'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=100:$genname='Бадин'&$gennameA=''&$gennameU=''&$gennameOM=''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,1 @@
-﻿takeitem=ARGS[0]
-cls
-item_loc_ub['<<takeitem>>,<<$loc[you]>>']-=1
-item_loc['1,<<$loc[you]>>']+=1
-!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
-gt 'preloc'
+﻿cls&item_loc_ub['<<ARGS[0]>>,<<$loc[you]>>']-=1&item_loc['1,<<$loc[you]>>']+=1&gt 'preloc'

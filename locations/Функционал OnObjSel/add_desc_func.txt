@@ -633,7 +633,8 @@ if $ARGS[0] ! '':
 		end
 	end
 	if $ARGS[0]='ВВОД КОМАНД' or $ARGS[0] = 'КОМАНДА':$ARGS['INPUT'] = INPUT ('Введите команду')&UNSEL&$ARGS['COMMAND'] = DYNEVAL($ARGS['INPUT'])
-	if $ARGS[0]='АВАРИЙКА':X[you]=XHome[you]&Y[you]=YHome[you]&Z[you]=ZHome[you]&H[you]=0&R[you]=0&gt 'world'
+	if $ARGS[0]='АВАРИЙКА' and RHome[you]>0:X[you]=XHome[you]&Y[you]=YHome[you]&Z[you]=ZHome[you]&H[you]=0&R[you]=0&gt 'world'
+	if $ARGS[0]='АВАРИЙКА' and RHome[you]=0:H[you]=0&gt 'world'
 	if $ARGS[0]='UI ТОГГЛЕР':
 		if CONFIG['UI_EDITOR'] = 1:
 			CONFIG['UI_EDITOR'] = 0&gs'stat'

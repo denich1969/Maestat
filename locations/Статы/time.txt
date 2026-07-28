@@ -58,8 +58,7 @@ if minut >= 60:
 end
 if hour >= 24:
 	:loop
-	set day+=1
-	npc1=1&npc2=1
+	day+=1&npc1=1&npc2=1
 	:looptalk
 		maxtalk['<<npc1>>,<<npc2>>']=0&alko[npc1]=0
 	if npc1<=npcmaxnum and npc2<=npcmaxnum:npc1+=1&npc2+=1&jump 'looptalk'
@@ -70,7 +69,7 @@ if hour >= 24:
 	if princessdaystart>0 and Z[you]>=700 and Z[you]<800 and you=prinsess:princessdaystart+=1
 	!if daystartobsession>0 and Z[you]>=700 and Z[you]<800:daystartobsession+=1
 	sumdaystart=daystart+realdaystart+romadaystart+daystartobsession+princessdaystart
-	set week+=1&set hour-=24&hlong[you]+=1&paidnpc=1&npcmax=arrsize('$name')&!зарплата НПС и переодевание 19.04.2026
+	week+=1&hour-=24&hlong[you]+=1&paidnpc=1&npcmax=arrsize('$name')&!зарплата НПС и переодевание 19.04.2026
 	payday1=rand(200,300)&payday2=rand(250,500)&payday3=rand(300,600)&payday4=rand(400,700)&payday5=rand(500,800)&payday6=rand(500,1000)&payday7=rand(800,1300)
 	if daylypaymantdone=0:
 		:paynpc
@@ -142,8 +141,7 @@ if hour >= 24:
 	    end
 	    if dead[lebeda]=0:
 			gs'add_sex_stat',grief,lebeda
-			bj[lebeda]+=1&abj[grief]+=1
-			if throat[lebeda]<10:throat[lebeda]=10
+			bj[lebeda]+=1&abj[grief]+=1&if throat[lebeda]<10:throat[lebeda]=10
 			if dick[grief]>throat[lebeda]:throat[lebeda]+=5
 		    $global_npc_log[grief]+='<br>'&$global_npc_log[grief]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[lebeda]>> <<$surname[lebeda]>> взяла у меня на ротан.'
 		    $global_npc_log[lebeda]+='<br>'&$global_npc_log[lebeda]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> дал мне в рот.'
@@ -171,8 +169,7 @@ if hour >= 24:
 			$global_npc_log[grief]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[moongodes]>> <<$surname[moongodes]>> хоть и богиня, но стонала на моем хуе как обыкновенная шлюха.'
 		    $global_npc_log[moongodes]+='<br>'&$global_npc_log[moongodes]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[grief]>> <<$surname[grief]>> оттрахал меня.'
 	    end
-		ne_world[]=grief&ne_world[]=youngdot&ne_world[]=elderdot
-		walkprog[grief]=24&! walkprog[elderdot]=24&walkprog[youngdot]=24
+		ne_world[]=grief&ne_world[]=youngdot&ne_world[]=elderdot&walkprog[grief]=24&! walkprog[elderdot]=24&walkprog[youngdot]=24
 		! Xhome[elderdot]=Xhome[grief]&Yhome[elderdot]=Yhome[grief]&Zhome[elderdot]=Zhome[grief]&Hhome[elderdot]=Hhome[grief]&Rhome[elderdot]=Rhome[grief]
         ! Xhome[elderdot]=Xhome[grief]&Yhome[youngdot]=Yhome[grief]&Zhome[youngdot]=Zhome[grief]&Hhome[youngdot]=Hhome[grief]&Rhome[youngdot]=Rhome[grief]
 		gs'mrspiggy_gen'
@@ -207,9 +204,7 @@ if hour >= 24:
 				end
 			end
 		end
-		if boyfriend_num[addams]=necromancer and dead[necromancer]=0 and dead[addams]=0:
-			if magik[addams]<35 and magik[addams]*magik[addams]<addams_time:magik[addams]+=1
-		end
+		if boyfriend_num[addams]=necromancer and dead[necromancer]=0 and dead[addams]=0 and magik[addams]<35 and magik[addams]*magik[addams]<addams_time:magik[addams]+=1
 		if addams_time>=3 and boyfriend_num[addams]=0 and dead[necromancer]=0 and dead[addams]=0:
 			girlfriend_num[necromancer]=addams&boyfriend_num[addams]=necromancer&magik[addams]+=1&vital[addams]=1000&reflex[addams]=150
 		end
@@ -225,12 +220,7 @@ if hour >= 24:
 	if total_haron_gen>0 and cowgirl=0:cowgirl=1&gs'cowgirl_gen'
 	haron_pass+=1
 	if haron_pass>=haron_pass*haron_pass and total_haron_gen<50 and Z[you]>=1 and Z[you]<=5:
-		total_haron_gen+=1&haron_pass=0
-		if total_haron_gen=1:
-			gs'generate_haron_pass_first'
-		else
-			gs'generate_haron_pass'
-		end
+		total_haron_gen+=1&haron_pass=0&gs $iif(total_haron_gen=1,'generate_haron_pass_first','generate_haron_pass')
 	end
 	if globalQW=7 and you=father:
 		if magik[sister]<35:magik[sister]+=1
@@ -251,17 +241,13 @@ if hour >= 24:
 		np['<<$temploc>>']=179
 		mirror['<<$temploc>>']=1&magtower['<<$temploc>>']=1&witchkotel['<<$temploc>>']=10&pentagramm['<<$temploc>>']=1		 		 
 		R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'
-		$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'
-		$locopis['<<$temploc>>']='Уютная комната с несколькими кроватями'
-		np['<<$temploc>>']=180
-		mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
+		$locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Уютная комната с несколькими кроватями'
+		np['<<$temploc>>']=180&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
 		Xhome[smartgirl]=X&Yhome[smartgirl]=Y&Zhome[smartgirl]=Z&Hhome[smartgirl]=H&Rhome[smartgirl]=R&smgirl=girlfriend_num[smartgirl]&smboy=boyfriend_num[smartgirl]
 		girlfriend_num[smartgirl]=0&boyfriend_num[smartgirl]=0&girlfriend_num[smboy]=0&boyfriend_num[smboy]=0&girlfriend_num[smgirl]=0&boyfriend_num[smgirl]=0
 		if husband[smartgirl]>0:smhus=husband[smartgirl]&husband[smartgirl]=0&husband[smhus]=0 
-		R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
-		$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'
-		$locopis['<<$temploc>>']='Туалетная комната с ванной, умывальником и унитазом.'
-		np['<<$temploc>>']=4
+		R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'
+		$locopis['<<$temploc>>']='Туалетная комната с ванной, умывальником и унитазом.'&np['<<$temploc>>']=4
 		can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&shower['<<$temploc>>']=1&toilet['<<$temploc>>']=1
 	end
 	!if work[father]=7:money+=1000

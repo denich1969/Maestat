@@ -33,8 +33,7 @@ if Z[you]<101:
 		if girlfriend_num[paidnpc]!0:loveint=girlfriend_num[paidnpc]
 		if husband[paidnpc]!0:loveint=husband[paidnpc]
 		if loveint!0 and pol[loveint]>0 and money[paidnpc]*2>money[loveint]:
-			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])
-			dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
+			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])&dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
 			poluchka=iif(dom1>=dom2,money[paidnpc]/10,money[paidnpc]/2)&!если девушка/жена доминантнее - забирает половину денег НПС, иначе - 10%
 			if paidnpc=you and husband[you]=loveint and poluchka>5000:poluchka=5000&!девушка не забирает у игрока больше 25 шиллингов, жена - больше 50
 			if paidnpc=you and girlfriend_num[you]=loveint and poluchka>2500:poluchka=2500
@@ -43,14 +42,12 @@ if Z[you]<101:
 	end
 end
 if Z[you]=200:
-	rubl[paidnpc]+=denga[paidnpc]&denga[paidnpc]=0
-	rubl[paidnpc]-=100*(Zhome[paidnpc])&if rubl[paidnpc]<0:rubl[paidnpc]=0&!плотим нологи в рублях
+	rubl[paidnpc]+=denga[paidnpc]&denga[paidnpc]=0&rubl[paidnpc]-=100*(Zhome[paidnpc])&if rubl[paidnpc]<0:rubl[paidnpc]=0&!плотим нологи в рублях
 	if dick[paidnpc]>0:
 		if girlfriend_num[paidnpc]!0:loveint=girlfriend_num[paidnpc]
 		if husband[paidnpc]!0:loveint=husband[paidnpc]
 		if loveint!0 and pol[loveint]>0 and rubl[paidnpc]*2>money[loveint]:
-			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])
-			dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
+			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])&dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
 			poluchka=iif(dom1>=dom2,rubl[paidnpc]/10,rubl[paidnpc]/2)&!если девушка/жена доминантнее - забирает половину денег НПС, иначе - 10%
 			if paidnpc=you and husband[you]=loveint and poluchka>5000:poluchka=5000&!девушка не забирает у игрока больше 25 шиллингов, жена - больше 50
 			if paidnpc=you and girlfriend_num[you]=loveint and poluchka>2500:poluchka=2500
@@ -59,14 +56,12 @@ if Z[you]=200:
 	end
 end
 if Z[you]>=700 and Z[you]<800:
-	gulden[paidnpc]+=denga[paidnpc]&denga[paidnpc]=0
-	gulden[paidnpc]-=100*(Zhome[paidnpc])&if gulden[paidnpc]<0:gulden[paidnpc]=0&!плотим нологи в шиллингах
+	gulden[paidnpc]+=denga[paidnpc]&denga[paidnpc]=0&gulden[paidnpc]-=100*(Zhome[paidnpc])&if gulden[paidnpc]<0:gulden[paidnpc]=0&!плотим нологи в шиллингах
 	if dick[paidnpc]>0:
 		if girlfriend_num[paidnpc]!0:loveint=girlfriend_num[paidnpc]
 		if husband[paidnpc]!0:loveint=husband[paidnpc]
 		if loveint!0 and pol[loveint]>0 and gulden[paidnpc]*2>gulden[loveint]:
-			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])
-			dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
+			dom1=iif(dom[paidnpc]>agro[paidnpc],dom[paidnpc],agro[paidnpc])&dom2=iif(dom[loveint]>agro[loveint],dom[loveint],agro[loveint])
 			poluchka=iif(dom1>=dom2,gulden[paidnpc]/10,gulden[paidnpc]/2)&!если девушка/жена доминантнее - забирает половину денег НПС, иначе - 10%
 			if paidnpc=you and husband[you]=loveint and poluchka>5000:poluchka=5000&!девушка не забирает у игрока больше 25 шиллингов, жена - больше 50
 			if paidnpc=you and girlfriend_num[you]=loveint and poluchka>2500:poluchka=2500

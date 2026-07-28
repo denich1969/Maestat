@@ -10,7 +10,7 @@ if soulpower[you]>0:'<<soulpower[you]>> сила духа, урон, вынос�
 if corrupt[you]>0:'<<corrupt[you]>> оскверненность'
 'Очков для распределения <<lvlpoint[you]>>'
 if perk_burdenmax[you]<5 and lvlpoint[you]>=3:
-	'"Сильная спина" <<perk_burdenmax[you]+1>> - Увеличивает грузоподемность на 1000 <a href="exec:perk_burdenmax[you]+=1&lvlpoint[you]-=3&gt ''perk_lvl'',you">Взять способность (-3 поинта)</a>'
+	'"Сильная спина" <<perk_burdenmax[you]+1>> - Увеличивает грузоподемность на 1000 <a href="exec:perk_burdenmax[you]+=1&lvlpoint[you]-=3&gt ''perk_lvl'',you">Взять способность (-3 поинта)</a>'&!+1 кг
 end
 if func('util_func', 'get_friends_amount')>(perk_flirt[you]+1)*15 and lvlpoint[you]>1 and perk_flirt[you]<3:
 	'Мастер флирта <<perk_flirt[you]+1>> (вы харизматичны, умеете расположить к себе людей и флиртовать): <a href="exec:perk_flirt[you]+=1&lvlpoint[you]-=2&gt ''perk_lvl'',you">Взять способность (-2 поинта)</a>'	

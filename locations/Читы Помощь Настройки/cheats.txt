@@ -47,7 +47,7 @@ IF $ARGS[0] = 'cheat':
 	'Рефлексы (<<reflex[you]>>) <a href="exec:reflex[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>'
 	'Навыки драчуна (<<fight_skill[you]>>) <a href="exec:fight_skill[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>'
 	'Навык стрельбы (<<shoot_skill[you]>>) <a href="exec:shoot_skill[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>'
-	'Увеличить переносимый вес <a href="exec:dopburden[<<you>>]+=100 & gs ''stat''">+100</a>'
+	'Увеличить переносимый вес <a href="exec:dopburden[<<you>>]+=100 & gs ''stat''">+100</a>'&! В граммах
 	'Доминантность (<<dom[you]>>) <a href="exec:dom[<<you>>]=0 & gs ''stat'' & gt $curloc,''cheat''">0</a>, <a href="exec:dom[<<you>>]+=1 & gs ''stat'' & gt $curloc,''cheat''">+1</a>, <a href="exec:dom[<<you>>]+=5 & gs ''stat'' & gt $curloc,''cheat''">+5</a>, <a href="exec:dom[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>, <a href="exec:dom[<<you>>]=91 & gs ''stat'' & gt $curloc,''cheat''">91</a>'
 	'Сексуальность (<<sexiness[you]>>) |<a href="exec:sexiness[<<you>>]=100 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:sexiness[<<you>>]-=10 & gs ''stat'' & gt $curloc,''cheat''">-10</a>|<a href="exec:sexiness[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>|'
 	'Развращенность (<<corr[you]>>) |<a href="exec:corr[<<you>>]=0 & gs ''stat'' & gt $curloc,''cheat''"> 0 </a>|<a href="exec:corr[<<you>>]-=10 & gs ''stat'' & gt $curloc,''cheat''">-10</a>|<a href="exec:corr[<<you>>]+=10 & gs ''stat'' & gt $curloc,''cheat''">+10</a>|'

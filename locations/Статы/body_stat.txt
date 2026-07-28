@@ -100,7 +100,7 @@ if satanstoy[num]>0:manamax[num]+=satanstoy[num]
 expneed[num]=lvl[num]*lvl[num]*5
 if magik[num]>0:magik_exp_need[num]=magik[num]*2
 if magik[num]=0:magik_exp_need[num]=1
-burdenmax[num]=mus[num]+dopburden[num]+magik_burden[num]+(soulpower[num]*20) + burdenmax_bonus[num]+perk_burdenmax[you]*1000
-if burdenmax[num]<1000:burdenmax[num]=1000
+burdenmax[num]=mus[num]*100+dopburden[num]+magik_burden[num]+(soulpower[num]*20) + burdenmax_bonus[num]+perk_burdenmax[you]*1000
+if burdenmax[num]<10000:burdenmax[num]=10000
 maxsoul[num]=500+(manamax[num]*2)
 if num=you and mainbody>0:burdenmax[num]=burdenmax[mainbody]

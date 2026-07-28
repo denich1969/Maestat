@@ -21,22 +21,14 @@ else
 	if item[63]>0:
         act 'Потягивать пиво.':
 			gs 'pivoV',you&item[63]-=1&burden[you]-=item_burden[63]
-			if pol>0:
-				'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(1,6)>>.jpg"></center>'
-			else
-				'<center><img <<$set_imgh>> src="pic/loc/eventloc/beer.jpg"></center>'
-			end
+			$iif(pol>0,'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(1,6)>>.jpg"></center>','<center><img <<$set_imgh>> src="pic/loc/eventloc/beer.jpg"></center>')
 			'На столе стоит пинта пива.'&'Вы не спеша потягиваете прохладное пиво из кружки, минут за пятнадцать вы опустошили кружку пива.'&act 'Поставить пустую кружку.':gt $CURLOC
         end 
 	end
 	if item[231]>0:
 		act 'Пить виски':
 			gs 'ViskiV',you&item[231]-=1&burden[you]-=item_burden[231]
-			if pol>0:
-				'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(7,9)>>.jpg"></center>'
-			else
-				'<center><img <<$set_imgh>> src="pic/loc/eventloc/wiskey.jpg"></center>'
-			end
+			$iif(pol>0,'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(7,9)>>.jpg"></center>','<center><img <<$set_imgh>> src="pic/loc/eventloc/wiskey.jpg"></center>')
 			'Трактирщик поставил вам стопку наполненную вонючим пойлом, вы залпом его выпили. Остальное выпили собутыльники.'&act 'Отойти от стойки':gt $CURLOC
 		end
 	end

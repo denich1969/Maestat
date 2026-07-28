@@ -225,7 +225,7 @@ else
 									act 'Насаживаться':
 										cls&$func('get_images', 'glory_pussy', you)&'Вы встаете в полный рост и пристраиваете свою задницу к дырке, одновременно направляя член себе в вагину...'
 										act 'Закончить':
-											cls
+											cls&act'Встать':gt 'preloc'
 											if rand(1,2)=2:
 												'Вы чувствуете, что ваш партнер уже готов кончить и успеваете соскочить с члена и схватить его ртом, чтобы принять вязкое семя в свой рот.'
 												$func('get_images', 'glory_pussy_out', you)
@@ -236,7 +236,6 @@ else
 												womenbrain[you]+=1&glory[you]+=1&gs'soulcraft'&vag[you]+=2&dom[you]-=1&insemrand=rand(0,10)&if inseminate[you]=0 and insemrand=10:father_you_child=you&gs'preggo'
 												time+=15&gs'stat'
 											end
-											act'Встать':gt 'preloc'
 										end
 									end
 								else
@@ -293,9 +292,9 @@ else
 	end
 end
 if health[you]*2<healthmax[you] and energy[you]*2<energymax[you]:
-     act'Рыдать и звать маму':
+    act'Рыдать и звать маму':
 		crybaby[you]+=1&health[you]+=40&face[you]+=3&dom[you]-=rand(1,3)&energy[you]=energymax[you]
 		time+=rand(5,10)&gs'gofight'&gs'stat'&cls&'<center><video autoplay loop src="pic/misc/ridaet.webm" ></video></center>'
 		'Вы рыдаете, сидя на унитазе и зовете маму, ощущая собственную ранимость и душевную боль.'&act'Уйти':gt 'preloc'
-     end
+    end
 end

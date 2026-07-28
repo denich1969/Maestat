@@ -300,6 +300,4 @@ if gra=297:$gensurname='Рэйн'&$gensurname_f=''
 if gra=298:$gensurname='Раскол'&$gensurname_f=''
 if gra=299:$gensurname='Разор'&$gensurname_f=''
 if gra=300:$gensurname='Риско'&$gensurname_f=''
-
 if $gensurname_f='':$gensurname_f=$gensurname
-

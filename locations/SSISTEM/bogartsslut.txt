@@ -21,10 +21,10 @@ act'Дрочить':
 			creampie_cum[sss]=time+360&act'<b>Уйти</b>':gt 'preloc'
 		else
 			act'Кончить':
-				horny[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/office/cum.webm" ></video></center>'
+				orgasm[you]=time&superslut[you]=0&horny[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/office/cum.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
 				'Вы смотрите как <<$name[sss]>> слизывает сперму с члена Богарта и вас начинает трясти от возбуждения'&*nl
 				if pol[you]=0:'<center><video autoplay loop src="pic/vids/podsm4.webm" ></video></center> Девушка сжимает ваш... Вы кончаете...'
-				if pol[you]=1:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'&act'<b>Уйти</b>':gt 'preloc'
+				if pol[you]=1:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'
 			end
 		end
 	end

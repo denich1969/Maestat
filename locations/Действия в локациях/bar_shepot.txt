@@ -4,10 +4,10 @@ if sallivan_work=1:
 	    if energy[you]>=20:
 			act'Работать час':
 				barwork+=1&time+=60&cls&gs'stat'
-				$text=$iif(pol[you]=0 and face[you]<60,'помощником бармена'&'<center><img src="pic/misc/officiant.jpg" ></center>','помощницей бармена'&'<center><img src="pic/misc/officiantka.jpg" ></center>')
+				$text=$iif(pol[you]=0 and face[you]<60,'помощником бармена, '+'<center><img src="pic/misc/officiant.jpg" ></center>','помощницей бармена, '+'<center><img src="pic/misc/officiantka.jpg" ></center>')
 				if total_npc_on_loc>0:
 					energy[you]-=(20+total_npc_on_loc*2)&money[you]+=sallivansalary
-					'Вы работаете <<$text>>, принимая заказы у посетителей, и разнося им готовые блюда, вытирая столы и выполняя несложные поручения от Салливана. '
+					'Вы работаете <<$text>> принимая заказы у посетителей, и разнося им готовые блюда, вытирая столы и выполняя несложные поручения от Салливана. '
 					'За час работы вы получаете <<sallivansalary/100>> шиллингов и <<sallivansalary mod 100>> пенсов.'
 					if pol[you]>0:chai=total_npc_on_loc*rand(5,35)
 					if pol[you]=0:chai=total_npc_on_loc*rand(1,10)
@@ -48,7 +48,7 @@ if sallivan_work=1:
 						horny[sallivan]=0&gs'stat'&act'Уйти':gt $curloc
 					end					
 				else
-					act'Передохнуть':gt $curloc
+					act'Передохнуть':time+=5&busy[you]=0&gt 'world'
 				end
 			end
 		end

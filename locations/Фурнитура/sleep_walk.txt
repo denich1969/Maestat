@@ -42,7 +42,7 @@ if sluttySisQW=4 and $loc[you]='3,1,3,1,3':
 			"Нравиться издеваться над слабыми девушками? 
 			Ну так посмотрим, что ты теперь скажешь...", а затем быстро намазала вам чем-то губы, а когда вы собрались уже было проснуться, вас буквально усыпило. 
 			Что было дольше, вы не помните, полностью отдавшись власти Морфея...')&spec_face_pic[you]=6&face_tipe[you]=4&face_pic[you]=0
-	sluttySisQW=5&sluttySisMest=daystart+30&mus[you]=10&fat[you]=10&vag[num]=1&nip[num]+=20&corr[you]+=35&ul_slot[you]=6&if dopburden[you]>50:dopburden[you]=50
+	sluttySisQW=5&sluttySisMest=daystart+30&mus[you]=10&fat[you]=10&vag[num]=1&nip[num]+=20&corr[you]+=35&ul_slot[you]=6&if dopburden[you]>50000:dopburden[you]=50000
 end
 if TargetLebeda=1:
 	TargetLebeda=2&msg('Пока вы спали, гриб Лебеды внутри вас растворился окончательно и неизвестный гормон от Корневища поразил ваше тело... Что же: это был ваш выбор.')

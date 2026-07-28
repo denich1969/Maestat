@@ -1,110 +1,39 @@
-﻿i=0
-$item_w_name[i]='Пистолет Затычкина'
-$item_w_name_oi[i]='пистолета'
-clo_w_item[i]=4
-$item_w_use[i]='Взять'
-!вес
-item_w_burden[i]=5
-$item_w_text[i]='Пистолет под патрон 9х18мм, магазин на 8 патронов'
-uron_w_item[i]=350
-item_w_patron_max[i]=8
-!item_w_patron_load[i]=0
-!номер в итемах
-item_w_patrontipe[i]=27
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-i=1
-$item_w_name[i]='Пищаль охотника'
-$item_w_name_oi[i]='пищаля'
-clo_w_item[i]=4
-$item_w_use[i]='Взять'
-!вес
-item_w_burden[i]=5
-$item_w_text[i]=''
-uron_w_item[i]=350
-item_w_patron_max[i]=1
-!item_w_patron_load[i]=0
-!номер в итемах
-$weapon_tipe[i]='огнестрел'
-item_w_patrontipe[i]=23
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-i=2
-$item_w_name[i]='Волшебная палочка'
-$item_w_name_oi[i]='палочкой'
-clo_w_item[i]=4
-$item_w_use[i]='Взять'
-!вес
-item_w_burden[i]=5
-$item_w_text[i]=''
-uron_w_item[i]=10
-item_w_patron_max[i]=1
-!item_w_patron_load[i]=0
-!номер в итемах
-$weapon_tipe[i]='палочка'
-item_w_patrontipe[i]=0
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-i=3
-$item_w_name[i]='Однозарядная винтовка'
-$item_w_name_oi[i]='винтовки'
-clo_w_item[i]=4
-$item_w_use[i]='Взять'
-!вес
-item_w_burden[i]=5
-$item_w_text[i]=''
-uron_w_item[i]=800
-item_w_patron_max[i]=1
-!item_w_patron_load[i]=0
-!номер в итемах
-$weapon_tipe[i]='огнестрел'
-item_w_patrontipe[i]=23
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-i=4
-$item_w_name[i]='Мушкетон'
-$item_w_name_oi[i]='мушкетона'
-clo_w_item[i]=4
-$item_w_use[i]='Взять'
-!вес
-item_w_burden[i]=5
-$item_w_text[i]=''
-uron_w_item[i]=500
-item_w_patron_max[i]=1
-!item_w_patron_load[i]=0
-!номер в итемах
-$weapon_tipe[i]='огнестрел'
-item_w_patrontipe[i]=23
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-i=5
-$item_w_name[i]='Двухстволка'
-$item_w_name_oi[i]='двухстволки'
-clo_w_item[i]=4
-$item_w_use[i]='Взять'
-!вес
-item_w_burden[i]=5
-$item_w_text[i]=''
-uron_w_item[i]=400
-item_w_patron_max[i]=2
-!item_w_patron_load[i]=0
-!номер в итемах
-$weapon_tipe[i]='огнестрел'
-item_w_patrontipe[i]=23
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-i=6
-$item_w_name[i]='Винчестер'
-$item_w_name_oi[i]='винчестера'
-clo_w_item[i]=4
-$item_w_use[i]='Взять'
-!вес
-item_w_burden[i]=5
-$item_w_text[i]=''
-uron_w_item[i]=400
-item_w_patron_max[i]=12
-item_w_patron_max_reload[i]=1
-!item_w_patron_load[i]=0
-!номер в итемах
-$weapon_tipe[i]='огнестрел'
-item_w_patrontipe[i]=23
+﻿i=9&$item_name[i]='Пистолет Макарова'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Пистолет Макарова'&item_burden[i]=750&!вес
+i=10&$item_name[i]='Патрон 9х18мм'&can_eat[i]=0&$item_eat[i]='Взять'&$item_text[i]='Патрон для пистолета Макарова'&item_burden[i]=10&!вес
+uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=104&$item_name[i]='Пистолет Беретта'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Пистолет Беретта'&item_burden[i]=900&!вес
+uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=105&$item_name[i]='Патрон 9х19мм Паррабеллум'&can_eat[i]=0&$item_eat[i]='Взять в руку'&$item_text[i]='Патрон для пистолета Беретта'&item_burden[i]=10&!вес
+uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=106&$item_name[i]='Пистолет Люгер'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Пистолет Люгер'&item_burden[i]=1100&!вес
+uron_w_item[i]=500&item_w_patron_max[i]=8&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=107&$item_name[i]='Пистолет Смит-Вессон'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Пистолет Смит-Вессон'&item_burden[i]=900&!вес
+uron_w_item[i]=400&item_w_patron_max[i]=20&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=108&$item_name[i]='Пистолет Глок'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Пистолет Глок'&item_burden[i]=700&!вес
+uron_w_item[i]=350&item_w_patron_max[i]=17&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=109&$item_name[i]='Патрон 44 магнум'&can_eat[i]=0&$item_eat[i]='Взять в руку'&$item_text[i]='Патрон для мощных пистолетов и револьверов'&item_burden[i]=10&!вес
+uron_w_item[i]=350&item_w_patron_max[i]=17&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=110&$item_name[i]='Пистолет Дезерт Игл'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Пистолет Дезерт Игл'&item_burden[i]=1340&!вес
+uron_w_item[i]=800&item_w_patron_max[i]=8&item_w_patrontipe[i]=109&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=111&$item_name[i]='Золотой пистолет Дезерт Игл'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Пистолет Дезерт Игл'&item_burden[i]=1360&!вес
+uron_w_item[i]=800&item_w_patron_max[i]=8&item_w_patrontipe[i]=109&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=112&$item_name[i]='Револьвер Кольт Анаконда'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Револьвер Кольт Анаконда'&item_burden[i]=1500&!вес
+uron_w_item[i]=900&item_w_patron_max[i]=6&item_w_patrontipe[i]=109&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=125&$item_name[i]='Обрез двухстволки'&can_eat[i]=7&$item_eat[i]='Взять в руку'&$item_text[i]='Обрез двухстволки'&item_burden[i]=1830&!вес
+uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=126&$item_name[i]='Патрон 12го калибра'&can_eat[i]=0&$item_eat[i]='Взять в руку'&$item_text[i]='Патрон для дробовиков'&item_burden[i]=30&!вес
+uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!у патронов нулевой вес!!!
+i=280&$item_w_name[i]='Пистолет Затычкина'&$item_w_name_oi[i]='пистолета'&$item_w_use[i]='Взять'&$item_w_text[i]='Пистолет под патрон 9х18мм, магазин на 8 патронов'&item_w_burden[i]=500&!вес
+clo_w_item[i]=4&uron_w_item[i]=350&item_w_patron_max[i]=8&item_w_patrontipe[i]=27&!item_w_patron_load[i]=0
+i=281&$item_w_name[i]='Пищаль охотника'&$item_w_name_oi[i]='пищаль'&$item_w_use[i]='Взять'&$item_w_text[i]=''&item_w_burden[i]=2500&!вес
+$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=350&item_w_patron_max[i]=1&item_w_patrontipe[i]=23&!item_w_patron_load[i]=0
+i=282&$item_w_name[i]='Волшебная палочка'&$item_w_name_oi[i]='палочкой'&$item_w_use[i]='Взять'&$item_w_text[i]=''&item_w_burden[i]=200&!вес
+$weapon_tipe[i]='палочка'&clo_w_item[i]=4&uron_w_item[i]=10&item_w_patron_max[i]=1&item_w_patrontipe[i]=0&!item_w_patron_load[i]=0
+i=283&$item_name[i]='Однозарядная винтовка'&$item_name_oi[i]='винтовки'&$item_w_use[i]='Взять'&$item_w_text[i]=''&item_w_burden[i]=2500&!вес
+$weapon_tipe[i]='огнестрел'&uron_w_item[i]=800&item_w_patron_max[i]=1&item_w_patrontipe[i]=23&!clo_w_item[i]=4&!item_w_patron_load[i]=0
+i=284&$item_name[i]='Мушкетон'&$item_name[i]='мушкетона'&$item_w_use[i]='Взять'&$item_w_text[i]=''&item_w_burden[i]=2500&!вес
+$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=500&item_w_patron_max[i]=1&item_w_patrontipe[i]=23&!item_w_patron_load[i]=0
+i=285&$item_name[i]='Двухстволка'&$item_name[i]='двухстволки'&$item_use[i]='Взять'&$item_text[i]=''&item_w_burden[i]=3500&!item_w_patron_load[i]=0
+$weapon_tipe[i]='огнестрел'&$ARGS['PIRS_ICON']='<img width="15" height="auto" src="pic/misc/UI/icons/pirs.png">'&uron_w_item[i]=300&item_w_patron_max[i]=2&item_w_patrontipe[i]=23&!clo_w_item[i]=4
+i=340&$item_w_name[i]='Винчестер'&$item_w_name_oi[i]='винчестера'&$item_w_use[i]='Взять'&$item_w_text[i]=''&item_w_burden[i]=3500
+$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=400&item_w_patron_max[i]=12&item_w_patron_max_reload[i]=1&item_w_patrontipe[i]=23

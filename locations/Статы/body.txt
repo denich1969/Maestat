@@ -128,8 +128,7 @@ if mutation[num]>=10 and mutation[num]<25:$hlong[num]+=', под волосам�
 if mutation[num]>=25 and mutation[num]<50:$hlong[num]+=', на шишках что-то растет'
 if mutation[num]>=50 and mutation[num]<75:$hlong[num]+=', под волосами на коже растут грибы'
 if mutation[num]>=75:$hlong[num]+=', сквозь волосы торчат проросшие в вашей коже грибы'
-hairlong[num]=iif(hlong[num]<=25,0,1)
-if beard[num]<=0 and mustage[num]>0:mustage[num]=0
+hairlong[num]=iif(hlong[num]<=25,0,1)&if beard[num]<=0 and mustage[num]>0:mustage[num]=0
 if mustage[num]=0:
 	if beard[num]>=1 and beard[num]<=25:$face[num]+=', на лице короткая <<$hcola[num]>> щетина'
 	if beard[num]>25 and beard[num]<=75:$face[num]+=', на лице окладистая <<$hcola[num]>> борода'
@@ -273,7 +272,7 @@ if ass[num]>=40:assnum=rand(14,15)&$ass[num]='<a class="plain" href="exec:dynami
 tempseelegs[num]=0
 if l_slot[num]=0:tempseelegs[num]=1
 if l_slot[num]>0:
-	 lowslottemp=l_slot[num]&if long_l[lowslottemp]>0:tempseelegs[num]=1
+	lowslottemp=l_slot[num]&if long_l[lowslottemp]>0:tempseelegs[num]=1
 end
 if tempseelegs[num]>0:
 	if leg_hair[num]>0:$ass[num]+=', на ногах растут волосы'
@@ -396,10 +395,8 @@ if $UCASE($ARGS[0])='RETURN_DESC':
     $RESULT+='<tr><td><<$genital[num]>></td></tr>'
 end
 if num=you:
-	$opis[num]='Рост <<rost[num]>> сантиметров, вес <<weigth[num]>> кг, <<breast[num]>>-<<waist[num]>>-<<hips[num]>>, разница между талией и бедрами <<ass[num]>> см, окружность бицепса <<biceps[num]>> см,<br><<$bodybuild[num]>><br><<$facetxt[num]>><br><<$ass[num]>><br><<$tits[num]>><br><<$genital[num]>>'
-	!'<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
+	$opis[num]='Рост <<rost[num]>> сантиметров, вес <<weigth[num]>> кг, <<breast[num]>>-<<waist[num]>>-<<hips[num]>>, разница между талией и бедрами <<ass[num]>> см, окружность бицепса <<biceps[num]>> см,<br><<$bodybuild[num]>><br><<$facetxt[num]>><br><<$ass[num]>><br><<$tits[num]>><br><<$genital[num]>>'&!'<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
 end
 if num!you:
-	$opis[num]='Рост <<rost[num]>> сантиметров, вес <<weigth[num]>> кг, <<breast[num]>>-<<waist[num]>>-<<hips[num]>>, разница между талией и бедрами <<ass[num]>> см, окружность бицепса <<biceps[num]>> см,<br><<$bodybuild[num]>><br><<$facetxt[num]>><br><<$ass[num]>><br><<$tits[num]>><br><<$genital[num]>>'
-	!'<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
+	$opis[num]='Рост <<rost[num]>> сантиметров, вес <<weigth[num]>> кг, <<breast[num]>>-<<waist[num]>>-<<hips[num]>>, разница между талией и бедрами <<ass[num]>> см, окружность бицепса <<biceps[num]>> см,<br><<$bodybuild[num]>><br><<$facetxt[num]>><br><<$ass[num]>><br><<$tits[num]>><br><<$genital[num]>>'&!'<<$skin[num]>>, <<$face[num]>>, <<$hlong[num]>>.'
 end
