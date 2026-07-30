@@ -1,7 +1,4 @@
-﻿!args[11]=0
-!:newRand
-args[10]=rand(4)
-!"statistics_bj "+statistics_bj[you]&!"statistics_anal "+statistics_anal[you]&!"statistics_feminize[you] "+statistics_feminize[you]
+﻿args[10]=rand(4)&!"statistics_bj "+statistics_bj[you]&!"statistics_anal "+statistics_anal[you]&!"statistics_feminize[you] "+statistics_feminize[you]
 if lvlpoint[you]>=2 and statistics_bj[you]>(perk_cumslut[you]+1)*30 and args[10]=0 and pass_perk_accept=0 and perk_cumslut[you]<5:
 	pass_perk_accept=1&perk_cumslut[you]+=1&lvlpoint[you]-=2&horny[you]+=50&oral_fixation[you]+=10
 	cla&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/facefuck/<<rand(0,40)>>.webm" ></video></center>'

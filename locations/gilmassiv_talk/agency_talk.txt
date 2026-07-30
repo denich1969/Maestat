@@ -15,8 +15,7 @@ end
 if spyman=npc:
     if mabutaQW=3:
         act'Ведьма и Мерлин':
-			mabutaQW=4
-			time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> кивает головой - Припоминаю, было такое. Мерлин очень древний на самом-то деле. '
+			mabutaQW=4&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> кивает головой - Припоминаю, было такое. Мерлин очень древний на самом-то деле. '
 			'А тут втюрился в ведьмину дочку. Может знаешь ее? Она в школе еще училась. Одри Гигеркрафт. Дочь учительницы. '
 			'Сейчас она вполне самостоятельная ведьма, состоит в ковене Бойера, что в даунтауне. Не знаю что между ними приключилось, но Одри Мерлина отшила.'&act'<b>Уйти</b>':gt 'preloc'
 		end
@@ -48,9 +47,11 @@ if melifaro=npc:
         if endofvaloramaQW<2:
 			if magik[melifaro]>=magik[you]:
 				if pol[you]>0:
-					'<<$name[npc]>> морщится - Ты слишком слабая. Я тебя сильнее, мне проще самостоятельно решать вопросы. Прокачай немного каналы магии. А то пока ты профнепригодна. Если только бумажки в офисе перебирать.'
+					'<<$name[npc]>> морщится - Ты слишком слабая. Я тебя сильнее, мне проще самостоятельно решать вопросы. '
+					'Прокачай немного каналы магии. А то пока ты профнепригодна. Если только бумажки в офисе перебирать.'
 				else
-					'<<$name[npc]>> морщится - Ты слишком слабый. Я тебя сильнее, мне проще самостоятельно решать вопросы. Прокачай немного каналы магии. А то пока ты профнепригоден. Если только бумажки в офисе перебирать.'
+					'<<$name[npc]>> морщится - Ты слишком слабый. Я тебя сильнее, мне проще самостоятельно решать вопросы. '
+					'Прокачай немного каналы магии. А то пока ты профнепригоден. Если только бумажки в офисе перебирать.'
 				end
 			else
 				'<<$name[npc]>> - Оу, а у тебя есть силенки. Ты, <<$name[you]>>, - достойный оперативник.'
@@ -92,7 +93,7 @@ if melifaro=npc:
 			portAvatarQW=1&magik[addkiller]+=1&magik[necromancer]+=5&dead[obedmarsh]=2&water_gem[necromancer]=1
 			$history[necromancer]='Я в абсолютно честном бою убил Обеда Марша и стал аватаром Порта.'&w=necromancer&s=obedmarsh
 			$fightlog[w]+='<br>'&$fightlog[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[w]>>-<<loss[w]>> vs <<$name[s]>> <<$surname[s]>>. <<win[s]>>-<<loss[s]>>'
-			$fightlog[s]+='<br>'&
+			$fightlog[s]+='<br>'
 			$fightlog[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[s]>>-<<loss[s]>> vs <<$name[w]>> <<$surname[w]>>. <<win[w]>>-<<loss[w]>>'
 			runemasterQW=100&X=1&Y=1&Z=4&H=6&R=3&Xhome[addkiller]=X&Yhome[addkiller]=Y&Zhome[addkiller]=Z&Hhome[addkiller]=H&Rhome[addkiller]=R
 			X[addkiller]=X&Y[addkiller]=Y&Z[addkiller]=Z&H[addkiller]=H&R[addkiller]=R
@@ -168,16 +169,13 @@ if afterBogartQW>=6 or satansToyQW[you]>=100:
             act'<b>Поговорить о работе</b>':
 				runemasterQW=1&X=2&Y=0&Z=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=3
 				H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Полицейский участок'&maxPositionR['<<$templocH>>']=3
-				R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+				R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locopis['<<$temploc>>']='Дежурная часть с унылым дежурным, сидящим за столом и пишущим бесконечные бумажки.'&np['<<$temploc>>']=168
 				$locname['<<$temploc>>']='Полицейский участок'&$lname['<<$temploc>>']='Полицейский участок'&$lname_go['<<$temploc>>']='в полицейский участок'
-				$locopis['<<$temploc>>']='Дежурная часть с унылым дежурным, сидящим за столом и пишущим бесконечные бумажки.'&np['<<$temploc>>']=168
-				R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'
+				R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1
 				$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'&$locopis['<<$temploc>>']='Общественный туалет.'&np['<<$temploc>>']=1
-				can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1
-				R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кабинет'
+				R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кабинет'&can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&police_office['<<$temploc>>']=1
 				$locname['<<$temploc>>']='Кабинет'&$lname['<<$temploc>>']='Кабинет'&$lname_go['<<$temploc>>']='в кабинет'
 				$locopis['<<$temploc>>']='Крошечный казенный кабинет с давящей атмосферой казенной безнадежности.'&np['<<$temploc>>']=169
-				can_drink['<<$temploc>>']=0&mirror['<<$temploc>>']=1&police_office['<<$temploc>>']=1
 				R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Камеры предварительного задержания.'
 				$locname['<<$temploc>>']='Камеры предварительного задержания.'&$lname['<<$temploc>>']='Камеры предварительного задержания.'&$lname_go['<<$temploc>>']='в камеры'
 				$locopis['<<$temploc>>']='Мрачные клетки для нарушителей.'&np['<<$temploc>>']=170&can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&police_camera['<<$temploc>>']=1

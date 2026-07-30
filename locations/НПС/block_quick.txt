@@ -1,5 +1,5 @@
 ﻿$d_goquick={
-	 act'Идти в туалет':
+	act'Идти в туалет':
 		if Z[you]=1:X=1&Y=1&Z=1&H=1&R=2
 		if Z[you]=2:X=2&Y=1&Z=2&H=2&R=1
 		if Z[you]=3:X=3&Y=3&Z=3&H=1&R=5
@@ -13,11 +13,11 @@
 		'Вы вошли в туалет и убедившись что тут никого нет сели на корточки перед мужчиной и <<$name[npc]>> расстегнул ширинку и вытащил свой член. '
 		'Устроившись по удобнее, что бы не плюхнутся задом на пол туалета вы взялись за бедра парня и взяли его член в рот. '
 		'Привычными движениями вы начали сосать хуй стараясь при этом покрепче его сжимать губами и не издавать звуков. Хотя иногда громкие сосущие звуки непроизвольно вырывались из вашего рта.'
-		 act'Сосать':
+		act'Сосать':
 			empty_ball[npc]=time+(60*10)&cls&gs'stat'&$func('get_images', 'swallow', you, npc)&'<<$name[npc]>> кончает вам в рот наполняя его спермой и вы все проглатываете стараясь не испачкать одежду.'
-			 act'Встать':gt'preloc'
-		 end
-	 end}
+			act'Встать':gt'preloc'
+		end
+	end}
 if UCASE($ARGS[0])='GIVE_BJ':
 	act'Идти в туалет':
 		if Z[you]=1:X=1&Y=1&Z=1&H=1&R=2
@@ -40,8 +40,7 @@ if UCASE($ARGS[0])='GIVE_BJ':
 	end
 end
 if oral_fixation[you]>=100 and pol[you]>0 and dick[npc]>1 and Z[you]>=1 and Z[you]<=5 and UCASE($ARGS[0])!'GIVE_BJ':
-     act'Хочешь я отсосу у тебя?':
-		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Ты чудо, детка.'&dynamic $d_goquick
-		act'Хотя я передумала':gt'preloc'
-     end
+    act'Хочешь я отсосу у тебя?':
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Ты чудо, детка.'&dynamic $d_goquick&act'Хотя я передумала':gt'preloc'
+    end
 end

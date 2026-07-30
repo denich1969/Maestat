@@ -1,10 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum
-lvl[i]=1&soul[i]=100&mob[i]=6&mobexp[i]=10&!номер моба для разговора
-master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
-tipemobpic[i]=1&picture[i]=rand(39,41)&!номер типа фотки и номер фотки
-def_tipe[i]=0&!тип защиты. 1 это не пытается защищаться
-notfast[i]=0&!если 1 то все удары героя попадают в нпс
-gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname&$basestatus[i]=' пьет пиво'
+﻿npcmaxnum+=1&i=npcmaxnum&lvl[i]=1&soul[i]=100&mob[i]=6&mobexp[i]=10&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+gs'man_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname&$basestatus[i]=' пьет пиво'&tipemobpic[i]=1&picture[i]=rand(39,41)&!номер типа фотки и номер фотки
 face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=rand(12,20)&dickd[i]=rand(30,45)&ball[i]=rand(40,70)&vag[i]=0&ass[i]=2&nip[i]=8&tits[i]=rand(0,5)
 rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(600,1600)&skin[i]=rand(0,4)
@@ -22,5 +17,5 @@ healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&ene
 pol[i]=0&gs'body'&total_generated_male+=1&visualpol[i]=0&!видимый пол, не зависит от половых органов&minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
 forbidsex[i]=0&!присвоение отсутствия запрета
 womenbrain[i]=rand(10,40)&bisex[i]=0&agro[i]=rand(1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&rand(10,100)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-se_world[]=i&walkprog[i]=0&fight_prog[i]=1&!программа движения и боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=0&fight_prog[i]=1
+def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться!если 1 то все удары героя попадают в нпс

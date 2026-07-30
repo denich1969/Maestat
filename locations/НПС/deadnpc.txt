@@ -1,4 +1,4 @@
-﻿gs'stat'&num=npc
+﻿gs'stat'&num=npc&act'<b>Уйти</b>':gt 'preloc'
 if mob[npc]=0:
 	gs'body'&gs'npcbase'
 else
@@ -30,4 +30,3 @@ else
 	if fuckyou[npc]>0:'<<fuckyou[npc]>> раз трахал вас в пизду'
     if fuckyouass[npc]>0:'<<fuckyouass[npc]>> раз трахал вас в жопу'
 end
-act'<b>Уйти</b>':gt 'preloc'

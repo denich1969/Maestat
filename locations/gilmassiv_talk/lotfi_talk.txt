@@ -5,9 +5,9 @@
 act'Согласится':
 	bossQW=4&agency_ud[you]=1&techer_dogovor[you]=addboss&time+=30&cls&gs'stat'&'<center><img src="pic/face/5/48.jpg" ></center>'
 	'Вы пришли в особняк Богарта и вас встретила богиня земли, окинув вас взглядом она кивнула и показала на комнату - Пошли сюда'
-	 act'Идти':
+	act'Идти':
 		muggle[you]=0&souldar[you]=1&magik[you]+=1&visioner[you]+=1&npc=motherearth
 		X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
 		cls&gs'stat'&'<center><img src="pic/face/5/48.jpg" ></center>'&'Оставшись в комнате богиня ухмыльнулась - обними меня'&act'Обнять':gt 'justsex'
-	 end
+	end
 end

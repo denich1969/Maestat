@@ -121,8 +121,7 @@ Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 	tvh['<<$temploc>>']=1&mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1
 	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 X=6&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Коридор'&maxPositionR['<<$templocH>>']=0
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-    $locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Коридор'&$lname['<<$temploc>>']='Коридор'&$locopis['<<$temploc>>']='Гостинничный коридор'&np['<<$temploc>>']=509
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №13'&$lname['<<$temploc>>']='Комната №13'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510

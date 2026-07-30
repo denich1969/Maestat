@@ -10,8 +10,7 @@ else
 			if you_slut[npc]=0:
 				act'<b>Уйти</b>':gt 'preloc'
 				act'Поговорить':
-					know_about_portal[you]+=1&cls&gs'stat'&'Госпожа ухмыляется - Тут полно рабов нуждающихся в воспитании.'&!'<center><img src="<<$d_view>>" ></center>'
-					act'<b>Уйти</b>':gt 'preloc'
+					know_about_portal[you]+=1&cls&gs'stat'&'Госпожа ухмыляется - Тут полно рабов нуждающихся в воспитании.'&act'<b>Уйти</b>':gt 'preloc'
 				end
 			end
 			if you_slut[npc]>0:

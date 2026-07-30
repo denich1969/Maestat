@@ -1,5 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100
-master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
 $title[i]='Женщина из даунтауна'&gs'name_nations',rand(9),1,i
 face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,38)&nip[i]=rand(30,70)&tits[i]=rand(10,21)
@@ -11,17 +10,11 @@ if hcolrand>40 and hcolrand<=70:hcol[i]=0&spec_face_pic[i]=0&face_pic[i]=rand(5,
 if hcolrand>70 and hcolrand<=90:hcol[i]=3&spec_face_pic[i]=3&face_pic[i]=rand(5,100)&$nick[i]='Блондинка'&$nicksub[i]='блондинкой'&$nicksube[i]='блондинке'&$nicksubu[i]='блондинку'
 if hcolrand>90:hcol[i]=2&spec_face_pic[i]=2&face_pic[i]=rand(5,100)&$nick[i]='Рыжая девушка'&$nicksub[i]='рыжей девушкой'&$nicksube[i]='рыжей девушке'&$nicksubu[i]='рыжую девушку'
 age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=40&will[i]=50&reflex[i]=40
-health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&
+health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]
 pol[i]=1&gs'body'&total_generated_female+=1
 bisex[i]=iif(rand(1,100)>=70,1,0)&agro[i]=rand(1,90)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=0&!характер
 bisexwomantotal+=iif(bisex[i]>0,1,0)&lust[i]=iif(bisex[i]>0,rand(40,100),0)&lust[i]+=iif(extrovert[i]=2,10,0)&lust[i]+=iif(ratio[i]=0,10,0)&womenbrain[i]=rand(70,100)&forbidsex[i]=0&!нет запрета
-if bisex[i]=0:
-    if age[i]<27:
-		templust=rand(1,100)&lust[i]=iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50)))
-	else
-		templust=rand(1,100)&lust[i]=iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70)))
-    end
-end
+if bisex[i]=0:templust=rand(1,100)&lust[i]=iif(age[i]<27,iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50))),iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70))))
 if lust[i]>=75 and agro[i]>=75:misstress[i]=1&total_misstress+=1
 if lust[i]>=75 and agro[i]>=50 and agro[i]<75:femwhore[i]=1&total_femwhore+=1
 if lust[i]>=75 and agro[i]<50:subslut[i]=1&total_subslut+=1

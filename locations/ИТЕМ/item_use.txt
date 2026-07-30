@@ -60,11 +60,10 @@ if args[0]=11:
 	clr&dynamic $d_inv&!вытереться
 end
 if args[0]=12:
-	clr
-    if item[17]>0 or item[18]>0 or item[19]>0:gs'rashod_mila'&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[20]+=1&burden[you]+=item_burden[20]
+	clr&if item[17]>0 or item[18]>0 or item[19]>0:gs'rashod_mila'&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[20]+=1&burden[you]+=item_burden[20]
 	dynamic $d_inv&!стирка полотенца
 end
-if args[0]=13:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&clr&gs'drink'&gs'eat'&dynamic $d_inv&!действие итема!есть и пить
+if args[0]=13:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&clr&gs'drink'&gs'eat'&dynamic $d_inv&!действие итема!есть и пить
 if args[0]=14:
     if master[you]=1:useminihome+=1&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item_loc['<<args[1]>>,<<$loc[you]>>']=1&X[you]=100&Y[you]=100&Z[you]=7777&clr&gt'world'&!в квартиру
     if master[you]=0:msg("Маленькая и прочная модель дома")
@@ -120,7 +119,7 @@ if args[0]=22:
     end
 	dynamic $d_inv
 end
-if args[0]=23:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&noagro[you]=time+60*3&clr&dynamic $d_inv&!Малое зелье отвода глаз
+if args[0]=23:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&noagro[you]=time+60*3&clr&dynamic $d_inv&!Малое зелье отвода глаз
 if args[0]=24:
 	clr&eatitem=args[1]&!обучение языку
     if knowlanguage[you]=0:
@@ -130,11 +129,11 @@ if args[0]=24:
     end
 	dynamic $d_inv
 end
-if args[0]=25:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&noagro[you]=time+60*10&clr&dynamic $d_inv&!зелье отвода глаз
-if args[0]=26:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[2]+=1&burden[you]+=item_burden[2]&energy[you]+=20&health[you]+=20&alko[you]+=3&clr&gs'drink'&dynamic $d_inv
-if args[0]=27:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&feromon[you]+=5&clr&dynamic $d_inv&!феромоны
-if args[0]=28:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&feminize[you]+=5&clr&dynamic $d_inv&!феминайзер
-if args[0]=29:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&manize[you]+=5&clr&dynamic $d_inv&!манайзер
+if args[0]=25:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&noagro[you]=time+60*10&clr&dynamic $d_inv&!зелье отвода глаз
+if args[0]=26:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[2]+=1&burden[you]+=item_burden[2]&energy[you]+=20&health[you]+=20&alko[you]+=3&clr&gs'drink'&dynamic $d_inv
+if args[0]=27:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&feromon[you]+=5&clr&dynamic $d_inv&!феромоны
+if args[0]=28:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&feminize[you]+=5&clr&dynamic $d_inv&!феминайзер
+if args[0]=29:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&manize[you]+=5&clr&dynamic $d_inv&!манайзер
 if args[0]=30:
 	clr&eatitem=args[1]&!души
     if knowlanguage[you]=0:
@@ -174,20 +173,13 @@ if args[0]=33:
 end
 if args[0]=34:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&clr&gs'drug'&dynamic $d_inv&!пыльца фей
 if args[0]=35:
-	item[args[1]]-=1&burden[you]-=item_burden[args[1]]
-	item[82]+=1&burden[you]+=item_burden[82]
-	health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]
+	item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[82]+=1&burden[you]+=item_burden[82]&health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]
 	sfera_fiz+=1000&clr&dynamic $d_inv&!заряженная роза
 end
 if args[0]=36:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&mana[you]+=100&clr&dynamic $d_inv&!кристал
 if args[0]=37:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&health[you]=healthmax[you]&clr&dynamic $d_inv&!лечилка
-if args[0]=38:
-	eatitem=args[1]
-	spore[you]+=1&health[you]=healthmax[you]&energy[you]=energyMax[you]&!действие итема
-	item[args[1]]-=1&burden[you]-=item_burden[args[1]]
-	clr&gs'eat'&dynamic $d_inv&!гриб
-end
-if args[0]=39:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&lust[you]+=1&corr[you]+=1&horny[you]+=50&clr&dynamic $d_inv&!возбудитель
+if args[0]=38:spore[you]+=1&health[you]=healthmax[you]&energy[you]=energyMax[you]&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&clr&gs'eat'&dynamic $d_inv
+if args[0]=39:eatitem=args[1]&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&lust[you]+=1&corr[you]+=1&horny[you]+=50&clr&dynamic $d_inv&!возбудитель
 if args[0]=40:
 	eatitem=args[1]
 	item[eatitem]-=1&burden[you]-=item_burden[eatitem]
@@ -204,36 +196,34 @@ if args[0]=41:
 	eatitem=args[1]&if busy[you]=0:gt'blowbook'
 	clr&dynamic $d_inv&!книга
 end
-if args[0]=42:eatitem=args[1]& msg("Парк Аптауна. Координаты 4.0. Средняя кабинка.")&clr&dynamic $d_inv&!записка
+if args[0]=42:eatitem=args[1]&msg("Парк Аптауна. Координаты 4.0. Средняя кабинка.")&clr&dynamic $d_inv&!записка
 if args[0]=43:
 	clr&eatitem=args[1]&if busy[you]=0:gt'glorybook'&!папка
 	dynamic $d_inv
 end
 if args[0]=44:
-	clr&eatitem=args[1]&!установка телефона
-     if H[you]>0 and telephone['<<$loc[you]>>']=0:telephone['<<$loc[you]>>']=1&my_telephone['<<$loc[you]>>']=1&eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	clr&!установка телефона
+    if H[you]>0 and telephone['<<$loc[you]>>']=0:telephone['<<$loc[you]>>']=1&my_telephone['<<$loc[you]>>']=1&eatitem=args[1]&item[args[1]]-=1&burden[you]-=item_burden[args[1]]
 	dynamic $d_inv
 end
 if args[0]=45:
-	clr&eatitem=args[1]&!установка ведьминого котла
-     if H[you]>0 and witchkotel['<<$loc[you]>>']=0:witchkotel['<<$loc[you]>>']=1&eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	clr&!установка ведьминого котла
+    if H[you]>0 and witchkotel['<<$loc[you]>>']=0:witchkotel['<<$loc[you]>>']=1&item[args[1]]-=1&burden[you]-=item_burden[args[1]]
 	dynamic $d_inv
 end
 if args[0]=46:
-	clr&eatitem=args[1]&!установка пентаграммы
-     if H[you]>0 and pentagramm['<<$loc[you]>>']=0:pentagramm['<<$loc[you]>>']=1&eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	clr&!установка пентаграммы
+    if H[you]>0 and pentagramm['<<$loc[you]>>']=0:pentagramm['<<$loc[you]>>']=1&item[args[1]]-=1&burden[you]-=item_burden[args[1]]
 	dynamic $d_inv
 end
 if args[0]=47:
-	eatitem=args[1]
-	item[eatitem]-=1&burden[you]-=item_burden[eatitem]&magik[you]+=1&burden[you]+=item_burden[146]
-	health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]
+	item[args[1]]-=1&burden[you]-=item_burden[args[1]]&magik[you]+=1&burden[you]+=item_burden[146]&health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]
 	sfera_fiz+=10000&sfera_psih+=1000&sfera_antigrav+=1000&clr&dynamic $d_inv&!Магическое яйцо
 end
 if args[0]=48:clr&gs'util_func', 'equip_piercing', args[1]&dynamic $d_inv&!пирсинг
 if args[0]=171:clr&GS 'Shift_Z_Rus_Handler'&dynamic $d_inv&!записки охотника!eatitem=args[1]
 if args[0]=999:
-	 eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&lust[you]+=1&corr[you]+=1&horny[you]+=50
-	 clr&gs'drink'&gs'eat'&health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&!Яйцо морского монстра
-	 dagongene+=rand(5,10)&msg("Вы раскусили плотную оболочку и выпилис одержимое, ощутив невероятный прилив сил и энергиии во всем теле!")&dynamic $d_inv
+	item[args[1]]-=1&burden[you]-=item_burden[args[1]]&lust[you]+=1&corr[you]+=1&horny[you]+=50
+	clr&gs'drink'&gs'eat'&health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&!Яйцо морского монстра
+	dagongene+=rand(5,10)&msg("Вы раскусили плотную оболочку и выпилис одержимое, ощутив невероятный прилив сил и энергиии во всем теле!")&dynamic $d_inv
 end

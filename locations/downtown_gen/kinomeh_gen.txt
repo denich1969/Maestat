@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&kinomeh=i&lvl[i]=1&soul[i]=100&work[i]=58&subwork[i]=100
-master[i]=0&delusion[i]=0&beliver[i]=0&magik[i]=1
-spec_face_pic[i]=5&face_pic[i]=100
-$name[i]='Райли'&$surname[i]='Питерсон'&$nick[i]='Киномеханик'&$title[i]=''&$history[i]='Я владею кинотеатром и работаю там киномехаником.'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&kinomeh=i&lvl[i]=1&soul[i]=100&work[i]=58&subwork[i]=100&master[i]=0&delusion[i]=0&beliver[i]=0&magik[i]=1
+$name[i]='Райли'&$surname[i]='Питерсон'&$nick[i]='Киномеханик'&$title[i]=''&$history[i]='Я владею кинотеатром и работаю там киномехаником.'&spec_face_pic[i]=5&face_pic[i]=100
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=18&dickd[i]=35&ball[i]=60&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0&
 rost[i]=180&fat[i]=2000&mus[i]=1800&skin[i]=1

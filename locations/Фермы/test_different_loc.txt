@@ -6,8 +6,7 @@ if locrand<=6:
     $locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Зеленый яркий лес'&np['<<$temploc>>']=rand(73,80)
 	zemla['<<$temploc>>']=rand(0,1)&malin['<<$temploc>>']=rand(0,1)&chern['<<$temploc>>']=rand(0,1)
 	omela['<<$temploc>>']=rand(0,1)&bella['<<$temploc>>']=rand(0,1)&cikuta['<<$temploc>>']=rand(0,1)&mandragora['<<$temploc>>']=rand(0,1)
-	kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1
-	wolfgenrand=rand(0,1)&if wolfgenrand=1:gs'wolfgen'
+	kolushkarand=rand(1,100)&if kolushkarand>=75:koluchka['<<$temploc>>']=1&wolfgenrand=rand(0,1)&if wolfgenrand=1:gs'wolfgen'
 end
 if locrand=7:
     $locname['<<$temploc>>']='Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Лесное озеро'&np['<<$temploc>>']=82

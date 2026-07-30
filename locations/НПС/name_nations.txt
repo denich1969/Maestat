@@ -81,27 +81,14 @@ else
 	end
 end
 nation[args[2]]=args[0]&pretipename=0
-
-!{
-if skin[i]>3 and skin[i]<7:
-face_pic[i]=rand(70001,70029)&!присвоение фотки
-skin[i]=rand(4,6)
-hcol[i]=0
-gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3
+!{if skin[i]>3 and skin[i]<7:
+	face_pic[i]=rand(70001,70029)&skin[i]=rand(4,6)&hcol[i]=0&gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3
 else
-skin[i]=rand(0,3)
-hcol[i]=rand(0,3)
-gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)
+	skin[i]=rand(0,3)&hcol[i]=rand(0,3)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)
 end
-
 if skin[i]>3 and skin[i]<7:
-dick[i]=rand(18,30)&dickd[i]=rand(40,55)&ball[i]=rand(70,100)
+	dick[i]=rand(18,30)&dickd[i]=rand(40,55)&ball[i]=rand(70,100)
 else
-dicklongrand=rand(1,100)
-if dicklongrand<=80:dick[i]=rand(12,17)
-if dicklongrand>80 and dicklongrand<=90:dick[i]=rand(7,13)
-if dicklongrand>90 and dicklongrand<100:dick[i]=rand(18,25)
-if dicklongrand=100:dick[i]=rand(25,28)
-dickd[i]=rand(30,55)&ball[i]=rand(30,100)
-end
-}
+	dicklongrand=rand(1,100)&dick[i]=iif(dicklongrand<=80,rand(12,17),iif(dicklongrand>80 and dicklongrand<=90,rand(7,13),iif(dicklongrand>90 and dicklongrand<100,rand(18,25),rand(25,28))))
+	dickd[i]=rand(30,55)&ball[i]=rand(30,100)
+end}

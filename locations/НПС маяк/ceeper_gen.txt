@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&ceeper=i&lvl[i]=1&soul[i]=100&work[i]=0
-master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=154
-gs'female_gen'&$name[i]='Аэлита'&$surname[i]='Хранительница'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&ceeper=i&lvl[i]=1&soul[i]=100&work[i]=0&master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=0
+gs'female_gen'&$name[i]='Аэлита'&$surname[i]='Хранительница'&spec_face_pic[i]=5&face_pic[i]=154
 face[i]=65&gla[i]=1&glacol[i]=1&lips[i]=1&nose[i]=3&scull[i]=1&cheeks[i]=0
 rost[i]=174&mus[i]=500&fat[i]=1500&skin[i]=1&preskin[i]=0
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&anus[i]=0&throat[i]=0&ass[i]=30&nip[i]=45&tits[i]=15

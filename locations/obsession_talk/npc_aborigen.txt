@@ -7,8 +7,7 @@
 		if aborigen_killer=0:
 			if friends[npc]>0 and corr[npc]<100:gs'take_follower'
 			if you_slut[npc]>0:
-				'Абориген смотрит на вас с нескрываемым презрением и брезгливостью'&if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
-				dynamic $d_fear
+				'Абориген смотрит на вас с нескрываемым презрением и брезгливостью'&dynamic $d_fear&if corr[npc]<100:act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
 			else
 				if horny[npc]<50:
 					'Абориген с интересом смотрит на вас'&act'<b>Уйти</b>':horny[npc]-=30&gt 'preloc'
@@ -29,19 +28,17 @@
 						act'<b>Уйти</b>':gt 'preloc'
 					end
 					act'Спросить совета':
-						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&timestxt=rand(1,4)
+						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&timestxt=rand(1,4)&act'<b>Уйти</b>':gt 'preloc'
 						if timestxt=1:
 							if knowlist=0:knowlist=1
 							'Абориген важно заметил что на болотах растет такой куст, чьи листья полностью восстанавливают здоровье.'
 						end
 						if timestxt=2:
 							if kolknow=0:kolknow=1
-							'Абориген говорит что у колючки можно оторвать шип, и 
-							если чудовище со щупальцами на вас набросится достаточно будет швырнуть ему этот шип ,что бы чудовище уснуло.'
+							'Абориген говорит что у колючки можно оторвать шип, и '&*nl'если чудовище со щупальцами на вас набросится достаточно будет швырнуть ему этот шип ,что бы чудовище уснуло.'
 						end
 						if timestxt=3:'Абориген важно замечает что с острова можно выбраться только при помощи портала, но зачем нужно выбираться с такого райского места?'
 						if timestxt=4:'Абориген рассказывает, что для того что бы колючки не втыкались в вас нужно носить два слоя одежды, к примеру под штаны всегда одевать трусы.'
-						act'<b>Уйти</b>':gt 'preloc'
 					end
 				else
 					'Абориген напряженно пялится на вас и вы замечаете что у него стоит член'
@@ -50,8 +47,7 @@
 				end
 			end
 		else
-			'Абориген злобно скалится - ты убивать моего брата! Я делать из тебя шлюху!'
-			dynamic $d_fear
+			'Абориген злобно скалится - ты убивать моего брата! Я делать из тебя шлюху!'&dynamic $d_fear
 		end
 	end
 elseif Z[you]=100:
@@ -65,8 +61,7 @@ elseif Z[you]=100:
 		else
 			horny[npc]+=sexiness[you]/4&'<<$nick[npc]>> похотливо пялится на вас - Отличная задница!'
 			act'Кокетливо улыбнуться':
-				horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент'
-				womenbrain[you]+=1&!statistics_flirt[you]+=1
+				horny[npc]+=sexiness[you]/2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы улыбнулись в ответ на сомнительный комплимент'&womenbrain[you]+=1&!statistics_flirt[you]+=1
 				if horny[npc]>=50:
 					'<<$nick[npc]>> ухмыляется вашему кокетству. - Ну чего тогда, сученька, может доставим друг другу удовольствие?'&act'А почему бы и нет?':solo=npc&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
 				end
@@ -103,8 +98,7 @@ elseif Z[you]=100:
 				end
 				if dom[you]>=dom[npc]:
 					act'Послать его на хер':
-						gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> оскалился. - Крутой, значит, да? Ну, давай проверим, из какого дерьма ты слеплен, скотина!'
-						act'<b>Драться</b>':gt 'prefight'
+						gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> оскалился. - Крутой, значит, да? Ну, давай проверим, из какого дерьма ты слеплен, скотина!'&act'<b>Драться</b>':gt 'prefight'
 					end
 				end
 			 end

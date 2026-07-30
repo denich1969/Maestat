@@ -2,10 +2,7 @@
 tipemobpic[i]=0&face_pic[i]=rand(70001,70029)&!номер типа фотки и фотки
 gs'negr_man_name'&$name[i]=$genname&gs'negr_surname'&$surname[i]=$gensurname
 face[i]=rand(0,40)&gla[i]=rand(0,1)&glacol[i]=0&nose[i]=3&lips[i]=2&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
-dicklongrand=rand(1,100)&if dicklongrand<=80:dick[i]=rand(16,21)
-if dicklongrand>80 and dicklongrand<=90:dick[i]=rand(21,23)
-if dicklongrand>90 and dicklongrand<100:dick[i]=rand(23,28)
-if dicklongrand=100:dick[i]=rand(28,35)
+dicklongrand=rand(1,100)&dick[i]=iif(dicklongrand<=80,rand(12,17),iif(dicklongrand>80 and dicklongrand<=90,rand(7,13),iif(dicklongrand>90 and dicklongrand<100,rand(18,25),rand(25,28))))
 dickd[i]=rand(45,65)&ball[i]=rand(60,100)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1000)&mus[i]=rand(1200,2500)&skin[i]=rand(4,6)
 $nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))

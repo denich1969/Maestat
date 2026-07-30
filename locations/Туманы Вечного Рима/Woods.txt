@@ -69,7 +69,7 @@ END
 IF deep = 0:ACT "Идти в туманы":GT "Enter_fog2"
 "<center><H1><FONT color = 'white'><<$deep>></H1></center>"&!ПОКАЗЫВАЕТ РАЗНУЮ КАРТИНКУ И НАЗВАНИЕ В ЗАВИСИМОСТИ ОТ ГЛУБИНЫ ЛЕСА + ФОНОВЫЕ ЗВУКИ
 IF deep = 0 and time < 4:
-	 $BACKIMAGE = "content/forest/forest_light<<rand(1,5)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/deep0.mp3",Громкость_эффектов
+	$BACKIMAGE = "content/forest/forest_light<<rand(1,5)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/deep0.mp3",Громкость_эффектов
 END
 IF deep = 1 and time < 4:
 	$BACKIMAGE = "<<$content>>/Rome/forest_med<<rand(1,6)>>.jpg"&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome/deep0<<rand(1,2)>>.mp3",Громкость_эффектов

@@ -14,14 +14,12 @@ if friends['<<npc>>,<<you>>']=0:
 		'<<$name[npc]>> хохлится'
 	    if npc=filin:
 	     	act'Магия':
-				if lurlina_know=0:lurlina_know=1
-				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> рассказывает - Сила Гингемы в ее серебряных башмачках. '
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> рассказывает - Сила Гингемы в ее серебряных башмачках. '&if lurlina_know=0:lurlina_know=1
 				'Их ей подарила создательница волшебной страны и богиня фей - Лурлина. Ну и конечно ее силу развивает диета из жаб и пиявок.'&act'<b>Уйти</b>':gt 'preloc'
 			end
 			if lurlina_know=1:
 			 	 act'Лурлина':
-					if lurlina_know=0:lurlina_know=1
-					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> рассказывает:  '
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$nick[npc]>> рассказывает:  '&if lurlina_know=0:lurlina_know=1
 					'Лурлина - это создательница волшебной страны и богиня фей. Она дает волшебные силы. Где ее найти, мне неизвестно.'&act'<b>Уйти</b>':gt 'preloc'
 				end
 			end

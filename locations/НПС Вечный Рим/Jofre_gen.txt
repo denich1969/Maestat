@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&Jofre=i&lvl[i]=1&soul[i]=100&money[i]=5500
-master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=1&!Нет наваждения
-spec_face_pic[i]=5&face_pic[i]=175
-$name[i]='Мария'&$surname[i]='Жоффрен'&$nick[i]='Мадам Жоффрен'&$title[i]='Мадам'&$history[i]='Владелица приличного борделя с отлично выдрессированными рабынями'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&Jofre=i&lvl[i]=1&soul[i]=100&money[i]=5500&master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=1&!Нет наваждения
+$name[i]='Мария'&$surname[i]='Жоффрен'&$nick[i]='Мадам Жоффрен'&$title[i]='Мадам'&$history[i]='Владелица борделя с отлично выдрессированными рабынями'&spec_face_pic[i]=5&face_pic[i]=175
 face[i]=80&gla[i]=0&glacol[i]=2&nose[i]=1&lips[i]=1&scull[i]=0&cheeks[i]=0&!souldar[i]=1
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=20&anus[i]=0&throat[i]=0&ass[i]=34&nip[i]=45&tits[i]=18
 rost[i]=165&fat[i]=1400&mus[i]=600&skin[i]=1&preskin[i]=1

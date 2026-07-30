@@ -24,8 +24,7 @@ act'Поговорить':
 	if hunter[kap]=1:'<<$name[npc]>> раздосадованно качает головой - Совсем никого не осталось в деревне!'
 	act'...':gt $loc[you]
 	if (horny[npc]>=50) and pol[you]>0 and sex_times['<<npc>>,<<you>>']>0:
-		whorePay=total_sexy[you]-GF_whore
-		if whorePay<10:whorePay=10
+		whorePay=total_sexy[you]-GF_whore&if whorePay<10:whorePay=10
 		'<<$name[npc]>> сально осматривает вас - Детка, я дам тебе <<whorePay>> серебра, если ты приласкаешь меня'
 		if slutty_outfit=0:
 			slutty_outfit=1&item_loc_t['17,fv_tavern']=1&item_loc_l['13,fv_tavern']=1&item_loc_ub['6,fv_tavern']=1&item_loc_b['14,fv_tavern']=1
@@ -36,9 +35,7 @@ act'Поговорить':
 			if tiperand=0:
 				'<<$name[npc]>> - Но думаю нам нужно разнообразить секс и позвать Мердока'
 				act'Заняться сексом':
-					sexday[npc]=daystart&GF_whore+=1&whore=1
-					if analslut[you]>10 and cumslut[you]>10 and GF_whore>10:dirty_train=1
-					first=npc&second=mech&item[24]+=whorePay
+					first=npc&second=mech&item[24]+=whorePay&sexday[npc]=daystart&GF_whore+=1&whore=1&if analslut[you]>10 and cumslut[you]>10 and GF_whore>10:dirty_train=1
 					if agro[you]<25:
 						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&item[26]+=1&gs'item_use',11,26&item[2]-=1&item_loc_t['2,fv_tavern']+=1&act'Тепло...':gt'sex'
 						"<<$name[npc]>> достал бутылочку с молоком, откупорил и дал вам выпить его, вы решили, что ничего страшного не будет и запрокинули ее в рот"
@@ -50,9 +47,7 @@ act'Поговорить':
 			if tiperand=1:
 				'<<$name[npc]>> - Но думаю нам нужно разнообразить секс и позвать Винса Морехода'
 				act'Заняться сексом':
-					sexday[npc]=daystart&GF_whore+=1&whore=1
-					if analslut[you]>10 and cumslut[you]>10 and GF_whore>10:dirty_train=1
-					first=npc&second=kap&item[24]+=whorePay
+					first=npc&second=kap&item[24]+=whorePay&sexday[npc]=daystart&GF_whore+=1&whore=1&if analslut[you]>10 and cumslut[you]>10 and GF_whore>10:dirty_train=1
 					if agro[you]<25:
 						time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&item[26]+=1&gs'item_use',11,26&item[2]-=1&item_loc_t['2,fv_tavern']+=1&act'Тепло...':gt'sex'
 						"<<$name[npc]>> достал бутылочку с молоком, откупорил и дал вам выпить его, вы решили, что ничего страшного не будет и запрокинули ее в рот"

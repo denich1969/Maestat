@@ -3,11 +3,9 @@
 if X=0 or Y=0:
     $locname['<<$temploc>>']='Предгорье'&$lname['<<$temploc>>']='Предгорье'&$locopis['<<$temploc>>']='Зеленый яркий лес растущий у подножия горного хребта'&np['<<$temploc>>']=rand(573,580)
 elseif X=10 and Y<10 and Y!8:
-    $locname['<<$temploc>>']='Разлом'&$lname['<<$temploc>>']='Разлом'&$locopis['<<$temploc>>']='Глубокая и широкая трещина в земле какую не перепрыгнуть'
-	np['<<$temploc>>']=108&!d_border_way['<<$temploc>>']=2
+    $locname['<<$temploc>>']='Разлом'&$lname['<<$temploc>>']='Разлом'&$locopis['<<$temploc>>']='Глубокая и широкая трещина в земле какую не перепрыгнуть'&np['<<$temploc>>']=108
 elseif X=10 and Y=10:
-    $locname['<<$temploc>>']='Одинокая скала'&$lname['<<$temploc>>']='Одинокая скала'&$locopis['<<$temploc>>']='Одинокая скала с отвесными стенами'
-	np['<<$temploc>>']=109
+    $locname['<<$temploc>>']='Одинокая скала'&$lname['<<$temploc>>']='Одинокая скала'&$locopis['<<$temploc>>']='Одинокая скала с отвесными стенами'&np['<<$temploc>>']=109
 elseif X=1 and Y=1:
     $locname['<<$temploc>>']='Пещера'&$lname['<<$temploc>>']='Пещера'
 	$locopis['<<$temploc>>']='Мрачная пещера на стенах и полу которой начертаны магические символы, на полках стоят всякие склянки и под потолком висят пучки трав.'
@@ -15,13 +13,11 @@ elseif X=1 and Y=1:
 	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Замшелая скала с пещерой внутри'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Замшелая скала с пещерой внутри'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Замшелая скала с пещерой внутри'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Замшелая скала с пещерой внутри'
-	mirror['<<$temploc>>']=1&wardrobe['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1&!мебель
-	!бутылки
+	mirror['<<$temploc>>']=1&wardrobe['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&witchkotel['<<$temploc>>']=1&gs'witch'&gs'filin'
 	!'	 item_loc['1,<<$temploc>>']=3&item_loc['2,<<$temploc>>']=7&item_loc['20,<<$temploc>>']=2&item_loc['28,<<$temploc>>']=10&item_loc['30,<<$temploc>>']=3
 	item_loc['31,<<$temploc>>']=1&item_loc['37,<<$temploc>>']=1&item_loc['38,<<$temploc>>']=10&item_loc['39,<<$temploc>>']=10&item_loc['40,<<$temploc>>']=1
 	item_loc['49,<<$temploc>>']=3&item_loc['50,<<$temploc>>']=1&item_loc['56,<<$temploc>>']=1&item_loc['57,<<$temploc>>']=10&item_loc['58,<<$temploc>>']=10
 	item_loc['59,<<$temploc>>']=10&item_loc['60,<<$temploc>>']=10 '
-	gs'witch'&gs'filin'
 elseif X=2 and Y=1:
     $locname['<<$temploc>>']='Ведьмино Озеро'&$lname['<<$temploc>>']='Озеро'&$locopis['<<$temploc>>']='Лесное озеро'&np['<<$temploc>>']=3
 	road['<<$temploc>>']=1&lake['<<$temploc>>']=1&can_drink['<<$temploc>>']=2&frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
@@ -66,8 +62,7 @@ elseif X=5 and Y=4:
 	$wall_name['<<$temploc>>']='Ферма'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1 
 	$n_wall['<<$temploc>>']='Ферма'&$s_wall['<<$temploc>>']='Ферма'&$e_wall['<<$temploc>>']='Ферма'&$w_wall['<<$temploc>>']='Ферма'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1& !can_sleep['<<$temploc>>']=1
-	gs'farmerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'farmerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'&!can_sleep['<<$temploc>>']=1
 elseif X=3 and Y=2:
     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'&np['<<$temploc>>']=102&scarecrow['<<$temploc>>']=100
 	gs'kagikarr'
@@ -84,15 +79,13 @@ elseif X=5 and Y=9:
 	$wall_name['<<$temploc>>']='Дом'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
-	gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'&!can_sleep['<<$temploc>>']=1
 elseif X=5 and Y=7:
     $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный деревенский домик'&np['<<$temploc>>']=103
 	$wall_name['<<$temploc>>']='Дом'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
-	gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'&!can_sleep['<<$temploc>>']=1
 elseif X=4 and Y=8:
     $locname['<<$temploc>>']='Деревня Когида'&$lname['<<$temploc>>']='Деревня Когида'&$locopis['<<$temploc>>']='Небольшая деревушка'&np['<<$temploc>>']=110&road['<<$temploc>>']=3
 elseif X=4 and Y=9:
@@ -100,15 +93,13 @@ elseif X=4 and Y=9:
 	$wall_name['<<$temploc>>']='Дом'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
-	gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'&!can_sleep['<<$temploc>>']=1
 elseif X=4 and Y=7:
     $locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный деревенский домик'&np['<<$temploc>>']=103
 	$wall_name['<<$temploc>>']='Дом'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Деревенский дом'&$s_wall['<<$temploc>>']='Деревенский дом'&$e_wall['<<$temploc>>']='Деревенский дом'&$w_wall['<<$temploc>>']='Деревенский дом'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
-	gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'villagerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'&!can_sleep['<<$temploc>>']=1
 elseif X=3 and Y=8:
     $locname['<<$temploc>>']='Болотце'&$lname['<<$temploc>>']='Болотце'&$locopis['<<$temploc>>']='Лесное озеро'&np['<<$temploc>>']=101
 	marsh['<<$temploc>>']=1&list['<<$temploc>>']=1&frog['<<$temploc>>']=1&Hirudinea['<<$temploc>>']=1
@@ -117,8 +108,7 @@ elseif X=7 and Y=9:
 	$wall_name['<<$temploc>>']='Дом'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Поместье'&$s_wall['<<$temploc>>']='Поместье'&$e_wall['<<$temploc>>']='Поместье'&$w_wall['<<$temploc>>']='Поместье'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
-	gs'gvin'
+	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'gvin'&!can_sleep['<<$temploc>>']=1
 elseif X=6 and Y=9:
     $locname['<<$temploc>>']='Пшеничное поле'&$lname['<<$temploc>>']='Пшеничное поле'&$locopis['<<$temploc>>']='Поле засеянное пшеницей'&np['<<$temploc>>']=102&scarecrow['<<$temploc>>']=1
 elseif X=8 and Y=9:
@@ -128,8 +118,7 @@ elseif X=1 and Y=3:
 	$wall_name['<<$temploc>>']='Дом'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Поместье'&$s_wall['<<$temploc>>']='Поместье'&$e_wall['<<$temploc>>']='Поместье'&$w_wall['<<$temploc>>']='Поместье'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1
-	gs'urfin'&gs'topotun'
+	mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'urfin'&gs'topotun'&!can_sleep['<<$temploc>>']=1
 elseif X=1 and Y=2:
     $locname['<<$temploc>>']='Лес'&$lname['<<$temploc>>']='Лес'&$locopis['<<$temploc>>']='Мрачный и густой лес'&np['<<$temploc>>']=111
 elseif X=8 and Y=5:

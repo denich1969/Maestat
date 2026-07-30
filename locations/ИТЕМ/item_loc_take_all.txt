@@ -1,12 +1,7 @@
-﻿takeitem=ARGS[0]
-cls
-tempitem=item_loc['<<takeitem>>,<<$loc[you]>>']
-     if burden[you]+item_burden[takeitem]*tempitem<=burdenmax[you]:
-	 item_loc['<<takeitem>>,<<$loc[you]>>']-=tempitem
-	 item[takeitem]+=tempitem
-	 burden[you]+=item_burden[takeitem]*tempitem
-	 !msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
-	 else
-	 msg("Слишком тяжело")
-     end
+﻿cls&tempitem=item_loc['<<ARGS[0]>>,<<$loc[you]>>']
+if burden[you]+item_burden[ARGS[0]]*tempitem<=burdenmax[you]:
+	item_loc['<<ARGS[0]>>,<<$loc[you]>>']-=tempitem&item[ARGS[0]]+=tempitem&burden[you]+=item_burden[ARGS[0]]*tempitem&!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
+else
+	msg("Слишком тяжело")
+end
 gt 'preloc'

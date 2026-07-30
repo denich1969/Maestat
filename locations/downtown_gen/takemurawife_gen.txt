@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&takemurawife=i&lvl[i]=1&soul[i]=100&work[i]=57&subwork[i]=0
-master[i]=0&delusion[i]=0&magik[i]=10&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=97
-$name[i]='Носоми'&$surname[i]='Такемура'&$nick[i]='Азиатская красавица бармен'&$title[i]=''&$history[i]='Я бармен в баре художников и мой муж охотник из коллегии.'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&takemurawife=i&lvl[i]=1&soul[i]=100&work[i]=57&subwork[i]=0&master[i]=0&delusion[i]=0&magik[i]=10&beliver[i]=0
+$name[i]='Носоми'&$surname[i]='Такемура'&$nick[i]='Азиатская красавица бармен'&$title[i]=''&$history[i]='Я бармен в баре художников и мой муж охотник из коллегии.'&spec_face_pic[i]=5&face_pic[i]=97
 face[i]=100&gla[i]=2&glacol[i]=0&nose[i]=3&lips[i]=0&scull[i]=0&cheeks[i]=0
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=45&anus[i]=40&throat[i]=26&ass[i]=35&nip[i]=40&tits[i]=10
 rost[i]=165&fat[i]=800&mus[i]=1000&skin[i]=0

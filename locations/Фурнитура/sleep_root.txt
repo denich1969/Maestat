@@ -5,12 +5,11 @@ else
 	opasnoste=1&'В жаровне ничего нет и спать без защиты опасно.'
 end
 if hour>=22 or hour<6:
-     act'Спать':
+    act'Спать':
 		if times_sleep_root[you]>0 and owlgenonce=0:owlgenonce=1&gs'owl_gen'
-		times_sleep_root[you]+=1
-		if opasnoste=1:mutation[you]+=rand(1,5)&health[you]=10
+		times_sleep_root[you]+=1&if opasnoste=1:mutation[you]+=rand(1,5)&health[you]=10
 		opasnoste=0&gt'sleep_walk_root'
-     end
+    end
     if item[97]>0:
         if jarovna['<<$loc[you]>>']<time:
 			act'Раскурить гриб':

@@ -1,8 +1,7 @@
-﻿loc_for_drop=0&gs'stat'&'<b><center>Колизей</center></b>'&*pl ''&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+﻿loc_for_drop=0&gs'stat'&'<b><center>Колизей</center></b>'&*pl ''&gs'npconloc'&*pl ''&gs'item'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
 'Огромное сооружение где на потеху публики люди сражаются с людьми или тварями из туманов'
 if coliseum_win>0:'<<coliseum_win>> - побед в колизее'
 if coliseum_loss>0:'<<coliseum_loss>> - поражений в колизее'
-gs'npconloc'&*pl ''&gs'item'
 if hour>=9 and hour<=21 and coliseumfightday!daystart:
 	act'Дратся в колизее с гладиатором':
 		coliseumfightday=daystart&bossfight=1&prise=100&cls&gs'stat'&!'<center><img src="pic/mob/misthund.jpg" ></center>'

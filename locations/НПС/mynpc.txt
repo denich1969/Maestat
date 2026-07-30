@@ -171,34 +171,34 @@ if saunakafehome[npc]=0 and saunakafeowner>=1:
 	end
 end
 act'Дать денег':
-	 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Огромное спасибо'&givemoney=input("Введите сумму в шиллингах")&givemoney=givemoney*100
-	 if givemoney<=money[you]:
-	     money[npc]+=givemoney&money[you]-=givemoney&'Вы дали денег'
-	 else
-	     'Что-то пошло не так'
-	 end
-	 act'<b>Уйти</b>':gt 'preloc'
+	cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Огромное спасибо'&givemoney=input("Введите сумму в шиллингах")&givemoney=givemoney*100
+	if givemoney<=money[you]:
+	    money[npc]+=givemoney&money[you]-=givemoney&'Вы дали денег'
+	else
+	    'Что-то пошло не так'
+	end
+	act'<b>Уйти</b>':gt 'preloc'
 end
 if blackrunepower[you]>=1:
-     if muggle[npc]>=1 and magik[you]>3:
-		 act'Сделать магом (-1 магичности)':
-			 magik[you]-=1&muggle[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> теперь может развиваться как маг'
-			 '<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
-     if muggle[npc]=0 and magik[you]>3 and magik[num]<36:
-		 act'Отдать магичность':
-			 magik[you]-=1&magik[npc]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> получил от вас магический канал'
-			 '<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
-     if muggle[npc]=0 and magik[npc]>3 and magik[num]<36:
-         if marked_brp[npc]=0:
-			 act'Поставить клеймо':
-				 marked_total+=1&marked_brp[npc]=you&my_marked_brp[]=npc&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-				 'Вы применили черную руну и <<$name[npc]>> получает от вас клеймо. Вы умирая можете забрать силу и убить отмеченного.'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-         end
-     end
-     if marked_brp[npc]=you:'Клеймо позволяет вам умирая заменит свою силу на силу отмеченного'
+    if muggle[npc]>=1 and magik[you]>3:
+		act'Сделать магом (-1 магичности)':
+			magik[you]-=1&muggle[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> теперь может развиваться как маг'
+			'<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
+    if muggle[npc]=0 and magik[you]>3 and magik[num]<36:
+		act'Отдать магичность':
+			magik[you]-=1&magik[npc]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> получил от вас магический канал'
+			'<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
+    if muggle[npc]=0 and magik[npc]>3 and magik[num]<36:
+        if marked_brp[npc]=0:
+			act'Поставить клеймо':
+				marked_total+=1&marked_brp[npc]=you&my_marked_brp[]=npc&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'Вы применили черную руну и <<$name[npc]>> получает от вас клеймо. Вы умирая можете забрать силу и убить отмеченного.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+        end
+    end
+    if marked_brp[npc]=you:'Клеймо позволяет вам умирая заменит свою силу на силу отмеченного'
 end

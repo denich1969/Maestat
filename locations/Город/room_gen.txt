@@ -43,8 +43,7 @@ X=102&Y=100
 	np['<<$temploc>>']=18&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
 	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
-	mirror['<<$temploc>>']=1&tv['<<$temploc>>']=1
+	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&mirror['<<$temploc>>']=1&tv['<<$temploc>>']=1
 X=99&Y=100
     $locname['<<$temploc>>']='Подъезд'&$lname['<<$temploc>>']='Подъезд'&$locopis['<<$temploc>>']='Грязный подъезд '
 	np['<<$temploc>>']=19&$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0

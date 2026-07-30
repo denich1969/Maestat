@@ -21,7 +21,7 @@ end
 if pet_follower>0:
 	'Хозяйка смотрит на вашу рабыню оценивающе - нам нужны туалетные рабыни'
 	act'Сколько вы заплатите за рабыню?':
-		slave=pet_follower&cls&gs'stat'
+		slave=pet_follower&cls&gs'stat'&act'Уйти':gt $curloc
 		if sl_obediance[slave]>=80 and sl_piss[slave]>=20:
 			summa=sl_obediance[slave]*20&summa=summa+sl_piss[slave]*100&'Хозяйка помочившись в рот рабыне говорит - Я ее могу взять за <<summa>> искр'
 			act'Продать':
@@ -32,6 +32,5 @@ if pet_follower>0:
 			if sl_obediance[slave]<80:'Рабыня слишком непокорная'
 			if sl_piss[slave]<20:'Рабыня не очень любит пить мочу'
 		end
-		act'Уйти':gt $curloc
 	end
 end

@@ -111,8 +111,7 @@ if godoutofendless[you]=1:
 		end
 	end
 	act 'Впасть в сон':
-		action_god[truegod]=0&time+=$input('Сколько смертных минут вы хотите спать')
-		hunger[you]=0&thirst[you]=0&sleep[you]=0&pisswasser[you]=0
+		action_god[truegod]=0&time+=$input('Сколько смертных минут вы хотите спать')&hunger[you]=0&thirst[you]=0&sleep[you]=0&pisswasser[you]=0
 	    health[you]=healthmax[you]&energy[you]=enerhyhmax[you]&X[you]=lastcoorX&Y[you]=lastcoorY&Z[you]=lastcoorZ&H[you]=lastcoorH&R[you]=lastcoorR&gt 'world'
 	end
 	act '<brЗахват Маэстата</br>':action_god[truegod]=11&gt 'godpoweraction'

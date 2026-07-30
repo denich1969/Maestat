@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&hildiglum=i&lvl[i]=5&soul[i]=1000&mob[i]=23&mobexp[i]=50
-master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=5&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
-tipemobpic[i]=1&picture[i]=151
-gs'woman_name'&$name[i]='Хильди'&gs'surname'&$surname[i]='Хмур'&$title[i]='Ведьма'&$nick[i]='Ведьма'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&hildiglum=i&lvl[i]=5&soul[i]=1000&mob[i]=23&mobexp[i]=50&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=5&beliver[i]=0
+gs'woman_name'&$name[i]='Хильди'&gs'surname'&$surname[i]='Хмур'&$title[i]='Ведьма'&$nick[i]='Ведьма'&tipemobpic[i]=1&picture[i]=151
 face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,38)&nip[i]=rand(30,70)&tits[i]=rand(10,21)&!Половые признаки
 rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(100,2000)&mus[i]=rand(600,2400)&skin[i]=rand(0,3)

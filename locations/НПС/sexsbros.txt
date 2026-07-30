@@ -1,10 +1,5 @@
 ﻿sexpartner['<<npc>>,<<you>>']=0&sexpartner['<<you>>,<<npc>>']=0
-bj_mass['<<npc>>,<<you>>']=0&bj_mass['<<npc>>,<<you>>']=0
-bj_mass['<<you>>,<<npc>>']=0&bj_mass['<<you>>,<<npc>>']=0
-vag_mass['<<npc>>,<<you>>']=0&vag_mass['<<npc>>,<<you>>']=0
-vag_mass['<<you>>,<<npc>>']=0&vag_mass['<<you>>,<<npc>>']=0
-anal_mass['<<npc>>,<<you>>']=0&anal_mass['<<npc>>,<<you>>']=0
-anal_mass['<<you>>,<<npc>>']=0&anal_mass['<<you>>,<<npc>>']=0
-piss_mass['<<npc>>,<<you>>']=0&piss_mass['<<npc>>,<<you>>']=0
-piss_mass['<<you>>,<<npc>>']=0&piss_mass['<<you>>,<<npc>>']=0
-gt'preloc'
+bj_mass['<<npc>>,<<you>>']=0&bj_mass['<<npc>>,<<you>>']=0&bj_mass['<<you>>,<<npc>>']=0&bj_mass['<<you>>,<<npc>>']=0
+vag_mass['<<npc>>,<<you>>']=0&vag_mass['<<npc>>,<<you>>']=0&vag_mass['<<you>>,<<npc>>']=0&vag_mass['<<you>>,<<npc>>']=0
+anal_mass['<<npc>>,<<you>>']=0&anal_mass['<<npc>>,<<you>>']=0&anal_mass['<<you>>,<<npc>>']=0&anal_mass['<<you>>,<<npc>>']=0
+piss_mass['<<npc>>,<<you>>']=0&piss_mass['<<npc>>,<<you>>']=0&piss_mass['<<you>>,<<npc>>']=0&piss_mass['<<you>>,<<npc>>']=0&gt'preloc'

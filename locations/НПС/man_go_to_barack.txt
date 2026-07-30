@@ -1,5 +1,4 @@
-﻿X[npc]=2&Y[npc]=3&Z[npc]=2&H[npc]=0&R[npc]=0
-X[you]=2&Y[you]=3&Z[you]=2&H[you]=0&R[you]=0
+﻿X[npc]=2&Y[npc]=3&Z[npc]=2&H[npc]=0&R[npc]=0&X[you]=2&Y[you]=3&Z[you]=2&H[you]=0&R[you]=0
 gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> взяв вас под ручку идет к руинам пакгауза и убедившись на месте что никто за вами не наблюдает, начинает вас обнимать'
 if dick[you]>0 and (womenbrain[you]<75 or demon_dick[you]>0):
 	act'Я хочу занятся с тобой сексом':
@@ -19,4 +18,3 @@ if dick[you]>0 and (womenbrain[you]<75 or demon_dick[you]>0):
 		gt'justsex'
 	end
 end
- 

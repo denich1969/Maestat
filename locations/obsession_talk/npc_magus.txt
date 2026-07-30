@@ -4,7 +4,7 @@ if mob_sleep[npc]>time:
 else
 	'<<$nick[npc]>> отстраненно смотрит на вас'&act'<b>Уйти</b>':gt 'preloc'
 	act'Научи меня магии':
-		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 	    if magik[you]=0:
 			'<<$nick[npc]>> - Если ты принесешь мне рунный камень, то я смогу открыть магичность тебе.'
 	        if item[29]>0:
@@ -34,6 +34,5 @@ else
 				 end
 	        end
 	    end
-		act'<b>Уйти</b>':gt 'preloc'
 	end
 end

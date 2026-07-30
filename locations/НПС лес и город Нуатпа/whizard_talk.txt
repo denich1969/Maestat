@@ -27,7 +27,7 @@ if healedWK=1:
 	end
 	if magik[you]=0 and talk_about_magik>0:
 		act'Научи меня магии':
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы стали просить научить вас магии и <<$name[npc]>> задумалась.'&www=w_slot[you]
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы стали просить научить вас магии и <<$name[npc]>> задумалась.'&www=w_slot[you]&act'...':gt $loc[you]
 			if w_slot[you]>0 and $weapon_tipe[www]='палочка':
 				'Тебе нужно открыть канал магии, для этого нужно либо годами учиться, либо много духовной силы. Девушка присмотрелась к вам и стала водить волшебной палочкой вокруг вашей головы'
 				if soul[you]>=1100 and insight[you]>0:
@@ -42,12 +42,11 @@ if healedWK=1:
 			else
 				'<<$name[npc]>> тебе нужна волшебная палочка что бы учиться'
 			end
-			act'...':gt $loc[you]
 		end
 	end
 	if magik[you]>=1:
 		act'Просить научить заклинаниям':
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы стали просить научить вас магии и <<$name[npc]>> задумалась.'&www=w_slot[you]
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы стали просить научить вас магии и <<$name[npc]>> задумалась.'&www=w_slot[you]&act'...':gt $loc[you]
 			if w_slot[you]>0 and $weapon_tipe[www]='палочка':
 				if spell_heal[you]=0:
 					'За 100 душ я обучу тебя заклинанию лечения'
@@ -111,10 +110,9 @@ if healedWK=1:
 			else
 				'<<$name[npc]>> - тебе нужна волшебная палочка, что бы учиться.'
 			end
-			act'...':gt $loc[you]
 		end
 		act'Открыть новый канал':
-			cls&time+=15&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			cls&time+=15&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
 			if magik[you]=1:
 				'<<$name[npc]>> - что бы открыть следующий канал нужно потратить 10 озарения и 2000 душ'
 				if insight[you]>10 and soul[you]>=2100:
@@ -196,7 +194,6 @@ if healedWK=1:
 					end
 				end
 			end
-			act'...':gt $loc[you]
 		end
 	end
 	if magik[you]>=1 and item[25]>0 and sex_times['<<npc>>,<<you>>']=0:
@@ -220,25 +217,23 @@ if healedWK=1:
 	end
 	if sex_times['<<npc>>,<<you>>']>0 and dick[you]>1 and ball[you]>1 and can_anal[npc]=0:
 		act'Уговаривать заняться анальным сексом':
-			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы уговариваете девушку заняться анальным сексом'&!agro[npc]=100&lust[npc]=40
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы уговариваете девушку заняться анальным сексом'&act'Уйти':gt $loc[you]
 			if orgasm_times[npc]=0:
-				'<<$name[npc]>> отрицательно качает головой - Не, мне такое не нравиться.'
+				'<<$name[npc]>> отрицательно качает головой - Не, мне такое не нравиться.'&!agro[npc]=100&lust[npc]=40
 			else
 				can_anal[npc]=1&agro[npc]-=5&'<<$name[npc]>> улыбается - Ты хорош в постеле, думаю можно попробовать, вдруг это не так плохо.'
 			end
-			act'Уйти':gt $loc[you]
 		end
 	end
 	if sex_times['<<npc>>,<<you>>']>0:
 		act'Обсуждать секс':
 			if lust[npc]<100:lust[npc]+=1
-			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы разговариваете о сексе'
+			time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы разговариваете о сексе'&act'Уйти':gt $loc[you]
 			if lust[npc]<50:
 				'<<$name[npc]>> смущается и слушает вас, но ничего не рассказывает.'
 			else
 				know_sexlife[npc]+=1&'<<$name[npc]>> улыбается и рассказывает, что когда она училась у Альтотрона, то обслуживала его ртом и так же она трахалась с трактирщиком из соседской деревни'
 			end
-			act'Уйти':gt $loc[you]
 		end
 		if item[25]>0:
 			act'Предложить выпить виски':

@@ -1,7 +1,6 @@
 ﻿if gun_men=0:
 	i=npcmaxnum+1&npcmaxnum+=1&num=i&human[]=i&gun_men=i&lvl[i]=1&soul[i]=100&mechanic[i]=1
-	spec_face_pic[i]=5&face_pic[i]=173&!face_npc[i]=1&face_pic[i]=23
-	$name[i]='Артур'&$surname[i]='Флейм'
+	$name[i]='Артур'&$surname[i]='Флейм'&spec_face_pic[i]=5&face_pic[i]=173&!face_npc[i]=1&face_pic[i]=23
 	face[i]=10&gla[i]=0&glacol[i]=4&nose[i]=3&lips[i]=0
 	dick[i]=25&dickd[i]=55&ball[i]=100&
 	rost[i]=198&fat[i]=500&mus[i]=3000&skin[i]=2

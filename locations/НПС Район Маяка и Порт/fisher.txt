@@ -1,6 +1,5 @@
 ﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&fisherman=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&magik[i]=14&!Не имеет отношения к богине луны и наваждению
-spec_face_pic[i]=5&face_pic[i]=8&!номер типа фотки и фотки
-$name[i]='Мартин'&$surname[i]='Бауэр'&$nick[i]='Рыбак'&$title[i]=''&$history[i]='Хозяин таверны мой родной брат. Я ловлю рыбу, а он готовит ее и продает.'
+$name[i]='Мартин'&$surname[i]='Бауэр'&$nick[i]='Рыбак'&$title[i]=''&$history[i]='Хозяин таверны мой родной брат. Я ловлю рыбу, а он готовит ее и продает.'&spec_face_pic[i]=5&face_pic[i]=8
 face[i]=20&gla[i]=0&glacol[i]=2&nose[i]=0
 dick[i]=18&dickd[i]=40&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
 rost[i]=185&fat[i]=1000&mus[i]=1200&skin[i]=1

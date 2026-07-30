@@ -12,4 +12,3 @@ if $ARGS[1]='h':h_slot[you]=ARGS[0]
 if $ARGS[1]='m':m_slot[you]=ARGS[0]
 if $ARGS[1]='w':w_slot[you]=ARGS[0]
 gt 'preloc'
-!gt ''item_loc_wear'',<<zit>>,{t}

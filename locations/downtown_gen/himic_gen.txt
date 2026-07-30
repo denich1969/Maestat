@@ -1,8 +1,6 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&himic=i&lvl[i]=1&soul[i]=1000&work[i]=51&subwork[i]=100
-master[i]=0&delusion[i]=0&magik[i]=12&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=90
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&himic=i&lvl[i]=1&soul[i]=1000&work[i]=51&subwork[i]=100&master[i]=0&delusion[i]=0&magik[i]=12&beliver[i]=0
 $title[i]=''&$history[i]='Я глава алхимического ковена, при помощи ведьм и науки мы изготавливаем потрясающую химию.'
-$name[i]='Этан'&$surname[i]='Бойер'&$nick[i]='Крепкий мужчина'
+$name[i]='Этан'&$surname[i]='Бойер'&$nick[i]='Крепкий мужчина'&spec_face_pic[i]=5&face_pic[i]=90
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=28&dickd[i]=55&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rost[i]=188&fat[i]=1000&mus[i]=2200&skin[i]=1

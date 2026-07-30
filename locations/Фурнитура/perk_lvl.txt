@@ -1,14 +1,10 @@
-﻿gs'stat'&'Душа <<soul[you]>>'
-if magik[you]>0:'Магичность <<magik[you]>>'
-'Живучесть <<vital[you]>>'
-'Мускулатура <<mus[you]>>'
-if will[you]>0:'Воля <<will[you]>>'
+﻿gs'stat'&'Душа <<soul[you]>>'&if magik[you]>0:*nl'Магичность <<magik[you]>>'
+'Живучесть <<vital[you]>>'&*nl'Мускулатура <<mus[you]>>'&if will[you]>0:*nl'Воля <<will[you]>>'
 if fight_skill[you]>0:'Боевые навыки <<fight_skill[you]>>'
 if shoot_skill[you]>0:'Огнестрельное оружие <<shoot_skill[you]>>'
-'Рефлексы <<reflex[you]>>'
-if soulpower[you]>0:'<<soulpower[you]>> сила духа, урон, выносливость и грузоподъемность'&*nl
-if corrupt[you]>0:'<<corrupt[you]>> оскверненность'
-'Очков для распределения <<lvlpoint[you]>>'
+'Рефлексы <<reflex[you]>>'&if soulpower[you]>0:*nl'<<soulpower[you]>> сила духа, урон, выносливость и грузоподъемность'
+if corrupt[you]>0:*nl'<<corrupt[you]>> оскверненность'
+*nl'Очков для распределения <<lvlpoint[you]>>'
 if perk_burdenmax[you]<5 and lvlpoint[you]>=3:
 	'"Сильная спина" <<perk_burdenmax[you]+1>> - Увеличивает грузоподемность на 1000 <a href="exec:perk_burdenmax[you]+=1&lvlpoint[you]-=3&gt ''perk_lvl'',you">Взять способность (-3 поинта)</a>'&!+1 кг
 end

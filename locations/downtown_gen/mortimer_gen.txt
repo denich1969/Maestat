@@ -1,8 +1,6 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&mortimer=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=100
-master[i]=0&delusion[i]=0&magik[i]=18&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=87
-$title[i]='Старый охотник'&$history[i]='Я старейший из охотников. И пусть я не самый сильный из охотников, но я самый старый, потому я управляю коллегией.'
-$name[i]='Мортимер'&$surname[i]=''&$nick[i]='Старый охотник'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&mortimer=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=100&master[i]=0&delusion[i]=0&magik[i]=18&beliver[i]=0
+$history[i]='Я старейший из охотников. И пусть я не самый сильный из охотников, но я самый старый, потому я управляю коллегией.'
+$name[i]='Мортимер'&$surname[i]=''&$title[i]='Охотник за головами'&$nick[i]='Старый охотник'&spec_face_pic[i]=5&face_pic[i]=87
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=19&dickd[i]=50&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rost[i]=178&fat[i]=800&mus[i]=1000&skin[i]=1

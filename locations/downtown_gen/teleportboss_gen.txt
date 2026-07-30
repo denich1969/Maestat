@@ -1,8 +1,6 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&teleportboss=i&lvl[i]=1&soul[i]=1000&work[i]=50&subwork[i]=100&soul_gem[i]=0
-master[i]=0&delusion[i]=0&magik[i]=27&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=76
-$title[i]=''&$history[i]='Я основал компанию Телепорт Индастриал, которая позволяет гражданам города пользоваться телепортами.'
-$name[i]='Иеремия'&$surname[i]='Ландриган'&$nick[i]='Высокий блондин'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&teleportboss=i&lvl[i]=1&soul[i]=1000&work[i]=50&subwork[i]=100&soul_gem[i]=0&master[i]=0&delusion[i]=0&magik[i]=27&beliver[i]=0
+$history[i]='Я основал компанию Телепорт Индастриал, которая позволяет гражданам города пользоваться телепортами.'
+$name[i]='Иеремия'&$surname[i]='Ландриган'&$nick[i]='Высокий блондин'&$title[i]='Основатель "Телепорт Индастриал"'&spec_face_pic[i]=5&face_pic[i]=76
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=19&dickd[i]=50&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rost[i]=192&fat[i]=800&mus[i]=1000&skin[i]=1

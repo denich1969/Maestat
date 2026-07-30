@@ -1,4 +1,4 @@
-﻿$d_view = 'pic/faceman/<<picture[npc]>>.jpg'&'<center><img src="<<$d_view>>" ></center>'
+﻿'<center><img src="<<$d_view>>" ></center>'&!$d_view = 'pic/faceman/<<picture[npc]>>.jpg'
 if mob_sleep[npc]>time:
 	'Охранник дремлет'
 else
@@ -6,8 +6,7 @@ else
 		'Охранник усмехается глядя на вас'
 	else
 		if horny[npc]<50:
-			'Охранник строго смотрит на вас'
-			act'<b>Уйти</b>':gt 'preloc'
+			'Охранник строго смотрит на вас'&act'<b>Уйти</b>':gt 'preloc'
 		else
 			'Охранник напряженно пялится на вас и вы замечаете что у него стоит член'
 		end

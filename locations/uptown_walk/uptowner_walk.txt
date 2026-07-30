@@ -1,260 +1,76 @@
 ﻿rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
 if mob_sleep[w]>=time and mob_busy[w]>0:
-	$think[w]='zzzzz в отключке'
-	if mob_busy[w]=1:mob_sleep[w]=time+60
+	$think[w]='zzzzz в отключке'&if mob_busy[w]=1:mob_sleep[w]=time+60
 	mob_busy[w]=0
 else
-     if hour>=22 or hour<=6:
-         if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
+    if hour>=22 or hour<=6:
+        if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
 			$think[w]='думает о всякой фигне'&!спит дома
-         else
-			 $destination[w]='дом'&gs'destination'
-			 $think[w]='хочет домой'&gs'walk_dest'&!вне дома
-         end
-     else
-		 needonwork=0&$think[w]='думает о том что хватит спать'
-		 if work[w]>0 and week<6:needonwork=1
-		 if work[w]=25:needonwork=1
-		 if work[w]=30:needonwork=1
-         if needonwork=1:
-             if work[w]=20:
-				 if hour>=7 and hour<=16:
-					$think[w]='думает о работе'
-				     if subwork[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='теплица'
-						 if tiperand=1:$destination[w]='теплица2'
-						 if tiperand=2:$destination[w]='теплица3'
-					 end
-					 if subwork[w]>0:$destination[w]='теплица офис'
-				 end
-		     end
-		     if work[w]=21 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='рынок'
-		     if work[w]=22:
-				 if hour>=7 and hour<=16:
-					$think[w]='думает о работе'
-		     		 if subwork[w]=0:$destination[w]='винзавод'
-				     if subwork[w]>0:$destination[w]='винзавод офис'
-				 end
-		     end
-		     if work[w]=23 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='столярка'
-		     if work[w]=24:
-				 if hour>=7 and hour<=16:
-					$think[w]='думает о работе'
-		     		 if subwork[w]=0:$destination[w]='хлебозавод'
-				     if subwork[w]>0:$destination[w]='хлебозавод офис'
-				 end
-		     end
-		     if work[w]=25:
-				 if hour>=7 and hour<=16:
-					 $think[w]='думает о работе'
-					 tiperand=rand(0,2)
-					 if tiperand=0:$destination[w]='аптаун'
-					 if tiperand=1:$destination[w]='стриптиз'
-					 if tiperand=2:$destination[w]='вип'
-				 end
-		     end
-		     if work[w]=26:
-				 if hour>=7 and hour<=16:
-					$think[w]='думает о работе'
-		     		 if subwork[w]=0:$destination[w]='варьете'
-				     if subwork[w]>0:$destination[w]='варьете офис'
-				 end
-		     end
-		      if work[w]=27:
-				 if hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='сексшоп'
-		     end
-		      if work[w]=28:
-				 if hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='порнотеатр зал'
-		     end
-		     if work[w]=30:
-				 if hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='прогулка'
-		     end
-		     if work[w]=35:
-				 if hour>=7 and hour<=18:$think[w]='думает о работе'&numroom=rand(1,9)&$destination[w]='батори<<numroom>>'&!слуги Батори
-		     end
-         end
-         if needonwork=0:
-			 if hour>=7 and hour<=12:
-				 if wantutroday[w]!daystart:
-					 wantutroday[w]=daystart&wantutrodayloc[w]=rand(0,7)
-					 if massageday[w]=daystart:wantutrodayloc[w]=rand(0,6)
-				 end
-				 if wantutrodayloc[w]=0:
-					$think[w]='думает о выпивке'
-				 	if pol[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='стриптиз'
-						 if tiperand=1:$destination[w]='стриптиз'
-						 if tiperand=2:$destination[w]='вип'
-					 else
-						$destination[w]='прогулка'
-					 end
-				 end
-				 if wantutrodayloc[w]=1:
-					$think[w]='думает о выпивке'
-				 	if pol[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='стриптиз'
-						 if tiperand=1:$destination[w]='стриптиз'
-						 if tiperand=2:$destination[w]='вип'
-					 else
-						$destination[w]='рынок'
-					 end
-				 end
-				 if wantutrodayloc[w]=2:
-					$think[w]='думает о выпивке'
-				 	if pol[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='стриптиз'
-						 if tiperand=1:$destination[w]='стриптиз'
-						 if tiperand=2:$destination[w]='вип'
-					 else
-						$destination[w]='озеро'
-					 end
-				 end
-				 if wantutrodayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='бар наваждение'
-				 if wantutrodayloc[w]=4:
-					 if pol[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='стриптиз'
-						 if tiperand=1:$destination[w]='стриптиз'
-						 if tiperand=2:$destination[w]='вип'
-					 else
-						$destination[w]='сексшоп'
-					 end
-				 end
-				 if wantutrodayloc[w]=5:$think[w]='думает о выпивке'&$destination[w]='варьете'
-				 if wantutrodayloc[w]=6:
-					 if pol[w]=0:
-						$destination[w]='порнотеатр зал'
-					 else
-						$destination[w]=$iif(subslut[w]=1 or femwhore[w]=1,'порнотеатр зал','озеро')
-					 end
-				 end
-				 if wantutrodayloc[w]=7:$think[w]='думает о выпивке'&$destination[w]=$iif(lust[w]>=50,'массаж','бар наваждение')
+        else
+			$destination[w]='дом'&gs'destination'&$think[w]='хочет домой'&gs'walk_dest'&!вне дома
+        end
+    else
+		needonwork=0&$think[w]='думает о том что хватит спать'&if (work[w]>0 and week<6) or work[w]=25 or work[w]=30:needonwork=1
+        if needonwork=1:
+            if work[w]=20 and hour>=7 and hour<=16:$think[w]='думает о работе'&tiperand=rand(2)&$destination[w]=$iif(subwork[w]=0,$iif(tiperand=0,'теплица',$iif(tiperand=1,'теплица2','теплица3')),'теплица офис')
+		    if work[w]=21 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='рынок'
+			if work[w]=22 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]=$iif(subwork[w]=0,'винзавод','винзавод офис')
+			if work[w]=23 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='столярка'
+		    if work[w]=24 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]=$iif(subwork[w]=0,'хлебозавод','хлебозавод офис')
+		    if work[w]=25 and hour>=7 and hour<=16:$think[w]='думает о работе'&tiperand=rand(2)&$destination[w]=$iif(tiperand=0,'аптаун',$iif(tiperand=1,'стриптиз','вип'))
+		    if work[w]=26 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]=$iif(subwork[w]=0,'варьете','варьете офис')
+		    if work[w]=27 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='сексшоп'
+		    if work[w]=28 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='порнотеатр зал'
+		    if work[w]=30 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='прогулка'
+		    if work[w]=35 and hour>=7 and hour<=18:$think[w]='думает о работе'&$destination[w]='батори<<rand(1,9)>>'& !слуги Батори
+        else
+			if hour>=7 and hour<=12:
+				if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=iif(massageday[w]=daystart,rand(6),rand(7))
+				if wantutrodayloc[w]=0:$think[w]='думает о выпивке'&tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'прогулка')
+				if wantutrodayloc[w]=1:$think[w]='думает о выпивке'&tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'рынок')
+				if wantutrodayloc[w]=2:$think[w]='думает о выпивке'&tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'озеро')
+				if wantutrodayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='бар наваждение'
+				if wantutrodayloc[w]=4:tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'сексшоп')
+				if wantutrodayloc[w]=5:$think[w]='думает о выпивке'&$destination[w]='варьете'
+				if wantutrodayloc[w]=6:$destination[w]=$iif(pol[w]=0,'порнотеатр зал',$iif(subslut[w]=1 or femwhore[w]=1,'порнотеатр зал','озеро'))
+				if wantutrodayloc[w]=7:$think[w]='думает о выпивке'&$destination[w]=$iif(lust[w]>=50,'массаж','бар наваждение')
+			end
+			if hour>=13 and hour<=16:
+				if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=iif(massageday[w]=daystart,rand(6),rand(7))
+				if wantmiddayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='прогулка'
+				if wantmiddayloc[w]=1:$think[w]='думает о выпивке'&tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'рынок')
+				if wantmiddayloc[w]=2:$think[w]='думает о выпивке'&tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'озеро')
+				if wantmiddayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='бар наваждение'
+				if wantmiddayloc[w]=4:tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'сексшоп')
+				if wantmiddayloc[w]=5:$think[w]='думает о выпивке'&$destination[w]='варьете'
+				if wantmiddayloc[w]=6:$destination[w]=$iif(pol[w]=0,'порнотеатр зал',$iif(subslut[w]=1 or femwhore[w]=1,'порнотеатр зал','озеро'))
+				if wantmiddayloc[w]=7:$think[w]='думает о выпивке'&$destination[w]=$iif(lust[w]>=50,'массаж','бар наваждение')
 			 end
-			 if hour>=13 and hour<=16:
-				 if wantmidday[w]!daystart:
-					 wantmidday[w]=daystart&wantmiddayloc[w]=rand(0,7)
-					 if massageday[w]=daystart:wantmiddayloc[w]=rand(0,6)
-				 end
-				 if wantmiddayloc[w]=0:$think[w]='думает о прогулке'&$destination[w]='прогулка'
-				 if wantmiddayloc[w]=1:
-					$think[w]='думает о выпивке'
-					 if pol[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='стриптиз'
-						 if tiperand=1:$destination[w]='стриптиз'
-						 if tiperand=2:$destination[w]='вип'
-					 else
-						$destination[w]='рынок'
-					 end
-				 end
-				 if wantmiddayloc[w]=2:
-					$think[w]='думает о выпивке'
-					 if pol[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='стриптиз'
-						 if tiperand=1:$destination[w]='стриптиз'
-						 if tiperand=2:$destination[w]='вип'
-					 else
-						$destination[w]='озеро'
-					 end
-				 end
-				 if wantmiddayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='бар наваждение'
-				 if wantmiddayloc[w]=4:
-					 if pol[w]=0:
-						 tiperand=rand(0,2)
-						 if tiperand=0:$destination[w]='стриптиз'
-						 if tiperand=1:$destination[w]='стриптиз'
-						 if tiperand=2:$destination[w]='вип'
-					 else
-						$destination[w]='сексшоп'
-					 end
-				 end
-				 if wantmiddayloc[w]=5:$think[w]='думает о выпивке'&$destination[w]='варьете'
-				 if wantmiddayloc[w]=6:
-					 if pol[w]=0:
-						$destination[w]='порнотеатр зал'
-					 else
-						$destination[w]=$iif(subslut[w]=1 or femwhore[w]=1,'порнотеатр зал','озеро')
-					 end
-				 end
-				 if wantmiddayloc[w]=7:$think[w]='думает о выпивке'&$destination[w]=$iif(lust[w]>=50,'массаж','бар наваждение')
-			 end
-         end
-         if hour>=17:
-             if wantday[w]!daystart:
-				 wantday[w]=daystart&wantdayloc[w]=rand(0,7)
-				 if massageday[w]=daystart:wantdayloc[w]=rand(0,6)
-             end
-             if wantdayloc[w]=0:
-				$think[w]='думает о прогулке'
-			     if pol[w]=0:
-					 tiperand=rand(0,2)
-					 if tiperand=0:$destination[w]='стриптиз'
-					 if tiperand=1:$destination[w]='стриптиз'
-					 if tiperand=2:$destination[w]='вип'
-			     else
-					$destination[w]='прогулка'
-			     end
-             end
-             if wantdayloc[w]=1:
-				$think[w]='думает о выпивке'
-			     if pol[w]=0:
-					 tiperand=rand(0,2)
-					 if tiperand=0:$destination[w]='стриптиз'
-					 if tiperand=1:$destination[w]='стриптиз'
-					 if tiperand=2:$destination[w]='вип'
-			     else
-					$destination[w]='рынок'
-			     end
-			 end
-			 if wantdayloc[w]=2:
-			     if pol[w]=0:
-					 tiperand=rand(0,2)
-					 if tiperand=0:$destination[w]='стриптиз'
-					 if tiperand=1:$destination[w]='стриптиз'
-					 if tiperand=2:$destination[w]='вип'
-			     else
-					$destination[w]='озеро'
-			     end
-			 end
-			 if wantdayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='бар наваждение'
-			 if wantdayloc[w]=4:
-			     if pol[w]=0:
-					 tiperand=rand(0,2)
-					 if tiperand=0:$destination[w]='стриптиз'
-					 if tiperand=1:$destination[w]='стриптиз'
-					 if tiperand=2:$destination[w]='вип'
-			     else
-					$destination[w]='сексшоп'
-			     end
-			 end
+        end
+        if hour>=17:
+            if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=iif(massageday[w]=daystart,rand(6),rand(7))
+            if wantdayloc[w]=0:$think[w]='думает о прогулке'&tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'прогулка')
+            if wantdayloc[w]=1:$think[w]='думает о выпивке'&tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'рынок')
+			if wantdayloc[w]=2:tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'озеро')
+			if wantdayloc[w]=3:$think[w]='думает о выпивке'&$destination[w]='бар наваждение'
+			if wantdayloc[w]=4:tiperand=rand(2)&$destination[w]=$iif(pol[w]=0,$iif(tiperand=0,'стриптиз',$iif(tiperand=1,'стриптиз','вип')),'сексшоп')
 			 if wantdayloc[w]=5:$think[w]='думает о выпивке'&$destination[w]='варьете'
-			 if wantdayloc[w]=6:
-				 if pol[w]=0:
-					$destination[w]='порнотеатр зал'
-				 else
-					$destination[w]=$iif(subslut[w]=1 or femwhore[w]=1,'порнотеатр зал','озеро')
-				 end
-			 end
-			 if wantdayloc[w]=7:$think[w]='думает о выпивке'&$destination[w]=$iif(lust[w]>=50,'массаж','бар наваждение')
-         end
-         if $destination[w]='прогулка':
-			 $think[w]='думает о прогулке'&gs'walk_full_rand'
-         else
+			if wantdayloc[w]=6:$destination[w]=$iif(pol[w]=0,'порнотеатр зал',$iif(subslut[w]=1 or femwhore[w]=1,'порнотеатр зал','озеро'))
+			if wantdayloc[w]=7:$think[w]='думает о выпивке'&$destination[w]=$iif(lust[w]>=50,'массаж','бар наваждение')
+        end
+        if $destination[w]='прогулка':
+			$think[w]='думает о прогулке'&gs'walk_full_rand'
+        else
 			gs'destination'
-		     if $destination[w]!'':
-				 if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
+		    if $destination[w]!'':
+				if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
 					$think[w]='думает о всякой ерунде'&!на точке назначения
-				 else
-					 gs'walk_dest'&!вне точки назначения
-				 end
-			 else
+				else
+					gs'walk_dest'&!вне точки назначения
+				end
+			else
 				$think[w]='думает о том чем бы заняться'
-			 end
-         end
-     end
+			end
+        end
+    end
 end

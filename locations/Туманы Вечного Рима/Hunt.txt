@@ -4,8 +4,7 @@ IF time = 2:BCOLOR = RGB(255, 245, 130)&FCOLOR = RGB(1, 1, 1)
 IF time = 3:BCOLOR = RGB(255, 160, 60)&FCOLOR = RGB(1, 1, 1)
 IF time = 4:BCOLOR = RGB(10, 10, 40)&FCOLOR = RGB(255, 255, 255)
 IF girl = 0:GT "!Girlmaker"
-bear_fail = 0&!Флаг неудачи "Медвежьего захвата". Устанавливается при неудаче этого действия. Сбрасывается при заходе в локации Hunt и Hunt_chase.
-!GS "!Set_BG"
+bear_fail = 0&!Флаг неудачи "Медвежьего захвата". Устанавливается при неудаче этого действия. Сбрасывается при заходе в локации Hunt и Hunt_chase.&!GS "!Set_BG"
 '<div id="header_right"><<$deep>></div>'&'<div id="bg"><img src = "girls/<<$girl_pic>>.jpg"></div>'&!ПОКАЗЫВАЕТ ДИКАРКУ и РАЗНОЕ НАЗВАНИЕ В ЗАВИСИМОСТИ ОТ ГЛУБИНЫ ЛЕСА
 IF lure = 0:
 	scene = RAND (1,12)&!ВЫБИРАЕТ ОПИСАНИЕ СИТУАЦИИ В КОТОРОЙ ОХОТНИК НАХОДИТ ДЕВУШКУ

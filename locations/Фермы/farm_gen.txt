@@ -3,8 +3,7 @@
 Y=0&H=0&&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 if X<1020:
 	$locname['<<$temploc>>']='Фермерские земли'&$locopis['<<$temploc>>']='Фермерские поля на которых с невероятной скоростью выростает урожай'&np['<<$temploc>>']=101
-	maxPositionH['<<X>>,<<Y>>,<<Z>>,']=3&!3 домов
-	black_block=0&gs'farm_build'
+	maxPositionH['<<X>>,<<Y>>,<<Z>>,']=3&black_block=0&gs'farm_build'&!3 домов
 end
 if X>=1020 and X<1050:
 	$locname['<<$temploc>>']='Джунгли'&$locopis['<<$temploc>>']='Дикие, жаркие и непролазные джунгли с очень влажной чавкающей почвой'&np['<<$temploc>>']=1020&maxPositionH['<<X>>,<<Y>>,<<Z>>,']=0

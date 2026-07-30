@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100
-master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=100&!Не имеет отношения к богине луны, иллюзия
-tipemobpic[i]=1&picture[i]=rand(127,135)&!ФОТКА&picture[i]=rand(27,35)&mob_pic[i]=rand(127,135)
-$title[i]='Cлужанка'&$nick[i]='Cлужанка. '&$nick[i]+='Брюнетка'&!$nick[i]='Служанка'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=100
+$title[i]='Cлужанка'&$nick[i]='Cлужанка. '&$nick[i]+='Брюнетка'&tipemobpic[i]=1&picture[i]=rand(127,135)&!ФОТКА&picture[i]=rand(27,35)&mob_pic[i]=rand(127,135)
 gs'woman_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname
 face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=0&dickd[i]=0&ball[i]=0&ass[i]=rand(32,42)&nip[i]=rand(30,70)&tits[i]=rand(10,21)

@@ -1,6 +1,1 @@
-﻿takeitem=ARGS[0]
-cls
-item_loc_t['<<takeitem>>,<<$loc[you]>>']-=1
-t_slot[you]=takeitem
-
-gt 'preloc'
+﻿cls&item_loc_t['<<ARGS[0]>>,<<$loc[you]>>']-=1&t_slot[you]=ARGS[0]&gt 'preloc'

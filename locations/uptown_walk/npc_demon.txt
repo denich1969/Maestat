@@ -1,6 +1,5 @@
 ﻿if trueform[npc]=0:
-	know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1
-	$d_view='pic/mob/137.jpg'&'<center><img src="<<$d_view>>" ></center>'
+	know['<<npc>>,<<you>>']+=1&know['<<you>>,<<npc>>']+=1&$d_view='pic/mob/137.jpg'&'<center><img src="<<$d_view>>" ></center>'
     if sexiness[you]>50 and vag[you]>0:
 		if empty_ball[npc]>=time:
 			'<<$nick[npc]>> - убирайся отсюда, шлюха!'&act'<b>Уйти</b>':gt 'preloc'
@@ -20,7 +19,7 @@
 				end
 			end
 		end
-     else
+    else
 		'<<$nick[npc]>> - изыди, смертный!'&act'<b>Уйти</b>':gt 'preloc'
     end
 else
