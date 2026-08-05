@@ -13,8 +13,8 @@ else
 			'<<$name[npc]>> улыбается вам - Земля круглая, а город квадратный, вот мы и встретились снова.'&!клоун
 		else
 			$iif(ratio[npc]=2,'<<$name[npc]>> улыбается вам - А я только что думал о тебе.','<<$name[npc]>> улыбается вам - Мне нравится этот город хотя бы тем, что сюда попадают такие красавицы, как ты.')
-		 end
-	 end
+		end
+	end
 end
 if dont_give[npc]<1:
 	if womenbrain[you]<=75 and (demon_dick[you]=0 or (demon_dick[you]>0 and pol[you]=0)):

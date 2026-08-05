@@ -7,7 +7,7 @@
 act'<b>Перемещение</b>':
 	cls&gs'stat'&'Вам доступны тайные пути среди зеркальных коридоров монолита'
 	act'<b>Домой</b>':
-		 X[you]=3&Y[you]=3&Z[you]=0&H[you]=1&R[you]=0&gt 'world'
+		X[you]=3&Y[you]=3&Z[you]=0&H[you]=1&R[you]=0&gt 'world'
 	end
 	if master[you]=1:
 		act'<b>Луна</b>':X[you]=3&Y[you]=3&Z[you]=7777&H[you]=1&R[you]=1&gt 'world'

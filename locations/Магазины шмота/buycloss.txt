@@ -1,5 +1,4 @@
-﻿gs'stat'&'<center><img src="pic/clo/top/<<clo>>.jpg" ></center>'&'Номер одежды <<clo>>'
-'<<$t_name[clo]>>'&!длина 0 короткая, до пояса 1мини 2середина бедра 3колено 4 ниже колена
+﻿gs'stat'&'<center><img src="pic/clo/top/<<clo>>.jpg" ></center>'&'Номер одежды <<clo>>'&*nl'<<$t_name[clo]>>'&!длина 0 короткая, до пояса 1мини 2середина бедра 3колено 4 ниже колена
 if pol_t[clo]=0:
 	'Мужская одежда'
 else
@@ -17,7 +16,7 @@ act'Повесить обратно':gt'preloc'
 clopayment=1000&if sexy_t[clo]>=5:clopayment+=sexy_t[clo]*1000
 'Цена <<clopayment/100>> шиллингов'
 if money[you]>=clopayment:
-     act'Купить <<clopayment/100>> шиллингов':
+    act'Купить <<clopayment/100>> шиллингов':
 		money[you]-=clopayment&clohere['<<clo>>,<<$loc[you]>>']=0&burden[you]+=item_t_burden[clo]&item_t[clo]+=1&cls&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
-     end
+    end
 end

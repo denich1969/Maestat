@@ -1,11 +1,9 @@
 ﻿if demon_dick[args[0]]>0 and demon_dick_stomath[args[0]]>0 and demon_dick_stomath_time[args[0]]!hour:
 	demon_dick_stomath_time[args[0]]=hour
 	if demon_dick_stomath[args[0]]>=demon_dick[args[0]]:		
-		soul[args[0]]+=demon_dick[args[0]]
-		demon_dick_stomath[args[0]]-=demon_dick[args[0]]
+		soul[args[0]]+=demon_dick[args[0]]&demon_dick_stomath[args[0]]-=demon_dick[args[0]]
 	else
-		soul[args[0]]+=demon_dick_stomath[args[0]]
-		demon_dick_stomath[args[0]]=0
+		soul[args[0]]+=demon_dick_stomath[args[0]]&demon_dick_stomath[args[0]]=0
 	end
 end
 if demon_dick_stomath[args[0]]>demon_dick_stomath_max[args[0]]:

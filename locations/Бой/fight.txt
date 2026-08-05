@@ -4,11 +4,11 @@ if cooldown_frbr>0:cooldown_frbr-=1
 if necromancer=npc and stunV>0:stunV=0
 if godhand_defV>0:
 	defenceV=100500&	sfera_psihV=1000&	firedefV=50000&	godhand_defV-=1
-     if godhand_defV<=0:godhand_defV=0&defenceV=0&sfera_psihV=0&firedefV=0
+    if godhand_defV<=0:godhand_defV=0&defenceV=0&sfera_psihV=0&firedefV=0
 end
 if godhand_def>0:
 	sfera_fiz=100500&sfera_psih=1000&	firedef=50000&	godhand_def-=1
-     if godhand_def<=0:godhand_def=0&sfera_fiz=0&sfera_psih=0&firedef=0
+    if godhand_def<=0:godhand_def=0&sfera_fiz=0&sfera_psih=0&firedef=0
 end
 if infinitmana[npc]>0:mana[npc]=manamax[npc]
 if immortal[npc]=1:health[npc]=healthmax[npc]
@@ -16,24 +16,24 @@ if cooldown_prth>0:cooldown_prth-=1
 if cooldown_trth>0:cooldown_trth-=1
 if autoloss=1:autoloss=0&health[you]=0
 if regenerator=1:
-     if health[you]<healthmax[you] and health[you]>0:
-     needhealth=healthmax[you]-health[you]
-         if needhealth<=mana[you]:
-			 mana[you]-=needhealth&health[you]=healthmax[you]&'Вы регенерируете'
-         else
-			 regenerator=0&'Обкаст регенерации спадает с вас'
-         end
-     end
+    if health[you]<healthmax[you] and health[you]>0:
+    needhealth=healthmax[you]-health[you]
+        if needhealth<=mana[you]:
+			mana[you]-=needhealth&health[you]=healthmax[you]&'Вы регенерируете'
+        else
+			regenerator=0&'Обкаст регенерации спадает с вас'
+        end
+    end
 end
 if regeneratorV=1:
-     if health[npc]<healthmax[npc] and health[npc]>0:
-     needhealthV=healthmax[npc]-health[npc]
-         if needhealthV<=mana[npc]:
-			 mana[npc]-=needhealthV&health[npc]=healthmax[npc]&'Противник регенерирует'
-         else
-			 regeneratorV=0&'Обкаст регенерации спадает с противника'
-         end
-     end
+    if health[npc]<healthmax[npc] and health[npc]>0:
+    needhealthV=healthmax[npc]-health[npc]
+        if needhealthV<=mana[npc]:
+			mana[npc]-=needhealthV&health[npc]=healthmax[npc]&'Противник регенерирует'
+        else
+			regeneratorV=0&'Обкаст регенерации спадает с противника'
+        end
+    end
 end
 if regenerator_manaV>0:mana[npc]+=regenerator_manaV&'Противник восстанавливает <<regenerator_manaV>> едениц маны'
 if nostunnerV>0:stunV=0
@@ -52,30 +52,25 @@ if demon_slave[you]>=1 and subbdsmwant[you]=0:health[you]+=3*(1+fullpierce[you])
 if restrikt=1 and pose[you]=1:pose[you]=3
 if h_slot[you]=4000 and defence_you<=0:h_slot[you]=0&health[you]=healthmax[you]&energy[you]=energymax[you]&mana[you]=manamax[you]&'<b>Маска лисы разбивается от удара</b>'
 if mana[npc]<0:mana[npc]=0
-    if mob[npc]=0:
-		if $title[npc]='' and $surname[npc]='':'<b><<$name[npc]>></b>'
-		if $title[npc]!'' and $surname[npc]='':'<b><<$title[npc]>> <<$name[npc]>></b>'
-		if $title[npc]='' and $surname[npc]!'':'<b><<$name[npc]>> <<$surname[npc]>></b>'
-		if $title[npc]!'' and $surname[npc]!'':'<b><<$title[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
-    end
-	if mob[npc]>0:'<b><<$nick[npc]>></b>'&!if mob[npc]=0:'<b><<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
-	gs'gen_d_view'&!вывод картинки второстепенных НПС и мобов
-	if npc=brokk:$d_view='pic/misc/exo.jpg'
-	'<center><img src="<<$d_view>>" ></center>'&*nl
-	'Жизнь <<health[npc]>>/<<healthmax[npc]>>'&if health[npc]>0:$func ('scale.table',health[npc],healthmax[npc])
-	'Энергия <<energy[npc]>>/<<energymax[npc]>>'&$func ('scale.energy',energy[npc],energymax[npc])
-	if manamax[npc]>0:'Мана <<mana[npc]>>/<<manamax[npc]>>'&$func ('scale.mana',mana[npc],manamax[npc])
-	if defenceV>0:'У противника <<defenceV>> единиц защиты'
-	if sfera_psihV>0:'У противника <<sfera_psihV>> единиц психической защиты'
-	if firedefV>0:'У противника <<firedefV>> единиц огненной защиты'
-	if storm_shildV>0:'Вокруг противника кружится вихрь <<storm_shildV>> едениц'
-	if godhand_defV>0:'<b><<$name[npc]>> находится внутри полупрозрачной ладони сжатой в кулак </b>'
-	if newFS=1:
-	if UronV<=0:
-		'Сила удара противника неизвестна в начале боя'
-	else
-		'Сила удара противника от <<minuronV>> до <<maxuronV>>'
-	end
+if mob[npc]=0:
+	if $title[npc]='' and $surname[npc]='':'<b><<$name[npc]>></b>'
+	if $title[npc]!'' and $surname[npc]='':'<b><<$title[npc]>> <<$name[npc]>></b>'
+	if $title[npc]='' and $surname[npc]!'':'<b><<$name[npc]>> <<$surname[npc]>></b>'
+	if $title[npc]!'' and $surname[npc]!'':'<b><<$title[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
+end
+if mob[npc]>0:'<b><<$nick[npc]>></b>'&!if mob[npc]=0:'<b><<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
+gs'gen_d_view'&!вывод картинки второстепенных НПС и мобов
+if npc=brokk:$d_view='pic/misc/exo.jpg'
+'<center><img src="<<$d_view>>" ></center>'&*nl'Жизнь <<health[npc]>>/<<healthmax[npc]>>'&if health[npc]>0:$func ('scale.table',health[npc],healthmax[npc])
+'Энергия <<energy[npc]>>/<<energymax[npc]>>'&$func ('scale.energy',energy[npc],energymax[npc])
+if manamax[npc]>0:'Мана <<mana[npc]>>/<<manamax[npc]>>'&$func ('scale.mana',mana[npc],manamax[npc])
+if defenceV>0:'У противника <<defenceV>> единиц защиты'
+if sfera_psihV>0:'У противника <<sfera_psihV>> единиц психической защиты'
+if firedefV>0:'У противника <<firedefV>> единиц огненной защиты'
+if storm_shildV>0:'Вокруг противника кружится вихрь <<storm_shildV>> едениц'
+if godhand_defV>0:'<b><<$name[npc]>> находится внутри полупрозрачной ладони сжатой в кулак </b>'
+if newFS=1:
+	$iif(UronV>0,'Сила удара противника от <<minuronV>> до <<maxuronV>>','Сила удара противника неизвестна в начале боя')
 else
 	if minuronV<=0:minuronV=10
 	if minuronV>=maxuronV:maxuronV=minuronV*2
@@ -312,14 +307,8 @@ if hod=0:
 				health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&sfera_fiz+=1000&gt $curloc
 			end
 		end
-		if item[93]>0:
-			'<<item[93]>> шт. лекарств'
-		 	act'Выпить полное лекарство':hod=1&eatitem=93&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]=healthmax[you]&gt $curloc
-		end
-		if item[51]>0:
-			'<<item[51]>> шт малого лечения'
-		 	act'Выпить малое лечение':hod=1&eatitem=51&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]+=50&gt $curloc
-		end
+		if item[93]>0:'<<item[93]>> шт. лекарств'&act'Выпить полное лекарство':hod=1&eatitem=93&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]=healthmax[you]&gt $curloc
+		if item[51]>0:'<<item[51]>> шт малого лечения'&act'Выпить малое лечение':hod=1&eatitem=51&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]+=50&gt $curloc
 		if item[50]>0:
 			'<<item[50]>> шт зелий восстановления выносливости'
 		 	act'Выпить полное восстановление выносливости':hod=1&eatitem=50&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]=energymax[you]&gt $curloc
@@ -328,14 +317,8 @@ if hod=0:
 			'<<item[49]>> шт зелий малого восстановления выносливости'
 		 	act'Выпить малое восстановление выносливости':hod=1&eatitem=49&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]+=50&gt $curloc
 		end
-		if item[68]>0:
-			'<<item[68]>> шт кристалов маны'
-		 	act'Сломать кристал маны':hod=1&eatitem=68&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&mana[you]+=100&gt $curloc
-		end
-		if item[36]>0:
-			'<<item[36]>> шт зелий защиты разума'
-		 	act'Выпить защиту разума':hod=1&eatitem=36&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&sfera_psih=100&gt $curloc
-		end
+		if item[68]>0:'<<item[68]>> шт кристалов маны'&act'Сломать кристал маны':hod=1&eatitem=68&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&mana[you]+=100&gt $curloc
+		if item[36]>0:'<<item[36]>> шт зелий защиты разума'&act'Выпить защиту разума':hod=1&eatitem=36&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&sfera_psih=100&gt $curloc
 	end
      if item[146]>0:
 		'<<item[146]>> шт магических яиц'

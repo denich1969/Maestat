@@ -1,7 +1,7 @@
 ﻿gs'stat'&feminize[you]+=5&gs'soulcraft',5&mob_sleep[npc]=time+60
 if sexpartner['<<npc>>,<<you>>']=0:
 	wolf[you]+=1
-     if dick[you]>1:
+    if dick[you]>1:
 		guy[npc]+=1
      else
 		girl[npc]+=1

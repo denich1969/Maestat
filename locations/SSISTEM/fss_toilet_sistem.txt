@@ -2,10 +2,10 @@
 if sexpower[npc]>0:
 	if hardtimer=0:
 		if skin[npc]>3 and skin[npc]<7:
-		     '<center><video autoplay loop src="pic/sex/public/beforeb.webm" ></video></center>'
-		 else
-		     '<center><img src="pic/sex/public/before0.jpg" ></center>'
-		 end
+		    '<center><video autoplay loop src="pic/sex/public/beforeb.webm" ></video></center>'
+		else
+		    '<center><img src="pic/sex/public/before0.jpg" ></center>'
+		end
 		'<<$name[npc]>> лапает вас сжимая сиськи и попу, его пальцы скользят по вашей промежности.'
 		act'На корточки':
 			corr[you]+=1&pose[you]=2&hardtimer+=1&cls&gs'stat'
@@ -61,15 +61,15 @@ if sexpower[npc]>0:
 					if skin[npc]>3 and skin[npc]<7:
 						blacked[you]+=1
 						if rand(0,1)=1:
-				             '<center><video autoplay loop src="pic/sex/public/toilet_pb<<rand(0,4)>>.webm" ></video></center>'
+				            '<center><video autoplay loop src="pic/sex/public/toilet_pb<<rand(0,4)>>.webm" ></video></center>'
 				        else
-				             '<center><video autoplay loop src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
+				            '<center><video autoplay loop src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
 				        end
 					else
 					     if rand(0,1)=1:
-						     '<center><video autoplay loop src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
+						    '<center><video autoplay loop src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
 						 else
-						     '<center><video autoplay loop src="pic/sex/public/toilet_p<<rand(0,7)>>.webm" ></video></center>'
+						    '<center><video autoplay loop src="pic/sex/public/toilet_p<<rand(0,7)>>.webm" ></video></center>'
 						 end
 					end
 					'Стоя раком, вы выгибаете спину пока вас трахают в киску.'
@@ -103,24 +103,24 @@ if sexpower[npc]>0:
 				if skin[npc]>3 and skin[npc]<7:
 					blacked[you]+=1
 					if dick[you]>0:
-				         '<center><video autoplay loop src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
+				        '<center><video autoplay loop src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
 				     else
-				         if rand(0,1)=1:
-				             '<center><video autoplay loop src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
-				         else
-				             '<center><video autoplay loop src="pic/sex/public/toilet_analb<<rand(0,4)>>.webm" ></video></center>'
-				         end
+				        if rand(0,1)=1:
+				            '<center><video autoplay loop src="pic/sex/public/toilet_sexb<<rand(0,4)>>.webm" ></video></center>'
+				        else
+				            '<center><video autoplay loop src="pic/sex/public/toilet_analb<<rand(0,4)>>.webm" ></video></center>'
+				        end
 				     end
 				else
-					 if dick[you]>0:
-				         '<center><video autoplay loop src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
-				     else
-				         if rand(0,1)=1:
-				             '<center><video autoplay loop src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
-				         else
-				             '<center><video autoplay loop src="pic/sex/public/toilet_anal<<rand(0,7)>>.webm" ></video></center>'
-				         end
-				     end
+					if dick[you]>0:
+				        '<center><video autoplay loop src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
+				    else
+				        if rand(0,1)=1:
+				            '<center><video autoplay loop src="pic/sex/public/toilet_sex<<rand(0,10)>>.webm" ></video></center>'
+				        else
+				            '<center><video autoplay loop src="pic/sex/public/toilet_anal<<rand(0,7)>>.webm" ></video></center>'
+				        end
+				    end
 				end
 				if dickd[npc]>anus[you]:
 					'Вам больно, когда толстый член ебёт вашу задницу, ощущение как будто у вас там все горит огнем.'

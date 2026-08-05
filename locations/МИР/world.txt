@@ -180,8 +180,7 @@ if H[you]=0:
 	if (Z[you]=0 or Z[you]=200) and masterBDSM[you]!1:'В небе виднеется Луна'
 	gs 'inHouse'
     if itsrainingday['<<$loc[you]>>']>=time:
-		status_tipe[you]=1&status_time[you]=time+120
-		cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0&peecover[you]=0&fishsmell[you]=0
+		status_tipe[you]=1&status_time[you]=time+120&cum_face[you]=0&spit_face[you]=0&cum_clo[you]=0&peecover[you]=0&fishsmell[you]=0
 		FColor = RGB(0,0,0)&BColor = RGB(120,120,120)&'<b>Льет дождь как из ведра</b>'
     end
 end
@@ -197,9 +196,7 @@ if H[you]>0 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>
 end
 $road=''
 if road['<<$loc[you]>>']>0:
-	if road['<<$loc[you]>>']=1:$road='Тропинка'
-	if road['<<$loc[you]>>']=2:$road='Дорога'
-	if road['<<$loc[you]>>']=3:$road='Мощеная дорога'
+	$road=$iif(road['<<$loc[you]>>']=1,'Тропинка',$iif(road['<<$loc[you]>>']=2,'Дорога',$iif(road['<<$loc[you]>>']=2,'Мощеная дорога',$road)))
 	if road['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>']>0:$road+=', на восток'
 	if road['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>']>0:$road+=', на запад'
 	if road['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>']>0:$road+=', на север'
@@ -310,15 +307,15 @@ if frog['<<$loc[you]>>']>=1 and last_frog['<<$loc[you]>>']>0 and((pose[you]=1 an
 if corn['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''corn''">Сочные и высокие стебли кукурузы</a>'
 if banana['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''banana''">Банановая пальма</a>'
 if orange['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''orange''">Апельсиновое дерево</a>'
+if zemla['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''zemla''">Кусты земляники</a>'
+if malin['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''malin''">Малиновые кусты</a>'
+if chern['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''chern''">Черничный куст</a>'
 if list['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''list''">Сочные листья белокрыльника</a>'
 if frog['<<$loc[you]>>']>=1 and last_frog['<<$loc[you]>>']>0 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''frog''">По земле скачет жаба</a>'
 if mandragora['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''mandragora''">Кустик Мандрагоры</a>'
 if cikuta['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''cikuta''">Высокая трава Цикута</a>'
 if bella['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''bella''">Кусты Беладонны</a>'
 if omela['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''omela''">Дерево опутанное Омелой</a>'
-if zemla['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''zemla''">Кусты земляники</a>'
-if malin['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''malin''">Малиновые кусты</a>'
-if chern['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''chern''">Черничный куст</a>'
 if piroga['<<$loc[you]>>']>0 and busy[you]=0:'Пирога туземцев приплывших на остров'
 if cladka['<<$loc[you]>>']=2 and busy[you]=0:'Кладка крупных, кожистых яиц'
 if cladka['<<$loc[you]>>']=1 and busy[you]=0:'Разбитые яйца из которых вылупились чудовища'
@@ -376,8 +373,7 @@ if portal['<<$loc[you]>>']>=7777 and  ((pose[you]=1 and CONFIG['DISABLE_position
 if altar['<<$loc[you]>>']=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''altar''">Алтарь</a>'
 if koluchka['<<$loc[you]>>']=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''koluchka''">Колючки</a>'
 if koluchka['<<$loc[you]>>']=1 and koluchka_time['<<$loc[you]>>']<time:
-	koluchka_time['<<$loc[you]>>']=time+rand(60,120)
-	tiperand=rand(0,1)
+	koluchka_time['<<$loc[you]>>']=time+rand(60,120)&tiperand=rand(1)
     if master[you]=0:
 		if tiperand=0:
 			probitie=1&'<b>Колючий куст внезапно двигается и колючка впивается вам в грудь</b>'
@@ -682,17 +678,12 @@ if autosave_day!daystart:
 		if savetipe=1:SAVEGAME 'save/<<$name[you]>>_<<$surname[you]>>_day<<sumdaystart>>.sav'
 	end
 end
-if husband[you]>0 and father[you]>0:
-	if hour>21 and hour<24:
-		s=husband[you]&w=father[you]&if $loc[you]=$loc[s] and $loc[you]=$loc[w] and action_tipe[w]=0 and lust[s]>90 and sextimer[s]<time:gs'locationhard_sex'
-    end
+if husband[you]>0 and father[you]>0 and hour>21 and hour<24:
+	s=husband[you]&w=father[you]&if $loc[you]=$loc[s] and $loc[you]=$loc[w] and action_tipe[w]=0 and lust[s]>90 and sextimer[s]<time:gs'locationhard_sex'
 end
-if whoreboss[sladkovamasha]>0:
-	if hour>=23 and hour<24:
-		s=sladkovamasha&w=whoreboss[sladkovamasha]
-		X[sladkovamasha]=Xhome[sladkovamasha]&Y[sladkovamasha]=Yhome[sladkovamasha]&Z[sladkovamasha]=Zhome[sladkovamasha]
-		H[sladkovamasha]=Hhome[sladkovamasha]&R[sladkovamasha]=Rhome[sladkovamasha]
-		X[w]=Xhome[sladkovamasha]&Y[w]=Yhome[sladkovamasha]&Z[w]=Zhome[sladkovamasha]&H[w]=Hhome[sladkovamasha]&R[w]=Rhome[sladkovamasha]
-		if action_tipe[w]=0  and sextimer[s]<time:gs'locationhard_sex'
-    end
+if whoreboss[sladkovamasha]>0 and hour>=23 and hour<24:
+	s=sladkovamasha&w=whoreboss[sladkovamasha]&X[sladkovamasha]=Xhome[sladkovamasha]&Y[sladkovamasha]=Yhome[sladkovamasha]&Z[sladkovamasha]=Zhome[sladkovamasha]
+	H[sladkovamasha]=Hhome[sladkovamasha]&R[sladkovamasha]=Rhome[sladkovamasha]
+	X[w]=Xhome[sladkovamasha]&Y[w]=Yhome[sladkovamasha]&Z[w]=Zhome[sladkovamasha]&H[w]=Hhome[sladkovamasha]&R[w]=Rhome[sladkovamasha]
+	if action_tipe[w]=0  and sextimer[s]<time:gs'locationhard_sex'
 end

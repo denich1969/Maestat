@@ -1,3 +1,1 @@
-﻿clo=ARGS[0]
-
-gt'buylowssb'
+﻿clo=ARGS[0]&gt'buylowssb'

@@ -4,19 +4,19 @@ if candoblow[npc]>0:
 	temp_blow+=1&sexpower[you]-=1
 	if h_slot[npc]>0:
 		if h_slot[npc]=1 or h_slot[npc]=10:
-		    if skin[you]>4:
+		    if skin[you]>4 and skin[you]<7:
 			     '<center><video autoplay loop src="pic/sex/bdsm/mask_blowb.webm" ></video></center>'
 			else
 			     '<center><video autoplay loop src="pic/sex/bdsm/mask_blow<<rand(0,8)>>.webm" ></video></center>'
 			end
 		elseif h_slot[npc]=6 or h_slot[npc]=7:
-             if skin[you]>4:
-                 '<center><video autoplay loop src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
-             else
-			     '<center><video autoplay loop src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
-			 end
+            if skin[you]>4 and skin[you]<7:
+                '<center><video autoplay loop src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
+            else
+			    '<center><video autoplay loop src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
+			end
         else
-             $func('get_images', 'blowjob', npc, you)
+            $func('get_images', 'blowjob', npc, you)
         end
 	else
 		$func('get_images', 'blowjob', npc, you)

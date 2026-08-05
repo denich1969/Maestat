@@ -1,14 +1,5 @@
-﻿$nameloc[you]=$curloc
-gs'stat'
-'Прилавок секс шопа'
-'Дилдо стоит 20 шиллингов'
-'Анальная затычка 50 шиллингов'
-'Анальный хвост 100 шиллингов'
-'Феминайзер 10 шиллингов'
-'Манайзер 80 шиллингов'
-'Ошейник 30 шиллингов'
-'бдсм маска 50 шиллингов'
-'Кляп 80 шиллингов'
+﻿$nameloc[you]=$curloc&gs'stat'&'Прилавок секс шопа'&*nl'Дилдо стоит 20 шиллингов'&*nl'Анальная затычка 50 шиллингов'&*nl'Анальный хвост 100 шиллингов'
+'Феминайзер 10 шиллингов'&*nl'Манайзер 80 шиллингов'&*nl'Ошейник 30 шиллингов'&*nl'бдсм маска 50 шиллингов'&*nl'Кляп 80 шиллингов'
 $hat_loc=''&clo=1&clomax=arrsize('$h_name')
 :markhatthelocss
     if sexy_h[clo]>=5:hathere['<<clo>>,<<$loc[you]>>']=1
@@ -34,45 +25,43 @@ $boot_loc=''&clo=1&clomax=arrsize('$b_name')
 clo+=1&if clo<clomax:jump'markbootthelocss'
 *pl''&'<<$boot_loc>>'&gs'Item'&*pl''&gs 'npconloc'
 act'Отойти':gt 'preloc'
-	if money[you]>=2000:
-		 act'Купить дилдо 20 шиллингов':
-			 money[you]-=2000&item[31]+=1&burden[you]+=item_burden[31]
-			 cls&gs'stat'&'Вы заплатили деньги и купили дилдо'&'<center><img src="pic/misc/dildo.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
-		 end
+if money[you]>=2000:
+	act'Купить дилдо 20 шиллингов':
+		money[you]-=2000&item[31]+=1&burden[you]+=item_burden[31]&cls&gs'stat'&'Вы заплатили деньги и купили дилдо'&'<center><img src="pic/misc/dildo.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 	end
-	if money[you]>=5000:
-		 act'Купить анальную затычку 50 шиллингов':
-			 money[you]-=5000&item[130]+=1&burden[you]+=item_burden[130]&
-			 cls&gs'stat'&'Вы заплатили деньги и купили анальную затычку'&'<center><img src="pic/misc/plug.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	end
-	if money[you]>=10000:
-		 act'Купить анальный хвост 100 шиллингов':
-			 money[you]-=10000&item[129]+=1&burden[you]+=item_burden[129]&cls&gs'stat'&'Вы заплатили деньги и купили анальный хвост'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	end
-	if money[you]>=1000:
-		 act'Купить феминайзер 10ш':
-			 money[you]-=1000&item[79]+=1&burden[you]+=item_burden[79]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	end
-	if money[you]>=8000:
-		 act'Купить манайзер 80ш':
-			 money[you]-=8000&item[80]+=1&burden[you]+=item_burden[80]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	end
-if money[you]>=3000:
-	 act'Купить ошейник 30ш':
-		money[you]-=3000&item[44]+=1&cls&gs'stat'&'Вы заплатили деньги и купили ошейник'&act'<b>Уйти</b>':gt 'preloc'
-	 end
 end
 if money[you]>=5000:
-	 act'Купить бдсм маску 50ш':
-		money[you]-=5000&item_hat[1]+=1&cls&gs'stat'&'Вы заплатили деньги и купили маску'&act'<b>Уйти</b>':gt 'preloc'
-	 end
+	act'Купить анальную затычку 50 шиллингов':
+		money[you]-=5000&item[130]+=1&burden[you]+=item_burden[130]&cls&gs'stat'&'Вы заплатили деньги и купили анальную затычку'&'<center><img src="pic/misc/plug.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if money[you]>=10000:
+	act'Купить анальный хвост 100 шиллингов':
+		money[you]-=10000&item[129]+=1&burden[you]+=item_burden[129]&cls&gs'stat'&'Вы заплатили деньги и купили анальный хвост'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if money[you]>=1000:
+	act'Купить феминайзер 10ш':
+		money[you]-=1000&item[79]+=1&burden[you]+=item_burden[79]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	end
 end
 if money[you]>=8000:
-	 act'Купить кляп 80ш':
+	act'Купить манайзер 80ш':
+		money[you]-=8000&item[80]+=1&burden[you]+=item_burden[80]&cls&gs'stat'&'Вы заплатили деньги и купили зелье'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if money[you]>=3000:
+	act'Купить ошейник 30ш':
+		money[you]-=3000&item[44]+=1&cls&gs'stat'&'Вы заплатили деньги и купили ошейник'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if money[you]>=5000:
+	act'Купить бдсм маску 50ш':
+		money[you]-=5000&item_hat[1]+=1&cls&gs'stat'&'Вы заплатили деньги и купили маску'&act'<b>Уйти</b>':gt 'preloc'
+	end
+end
+if money[you]>=8000:
+	act'Купить кляп 80ш':
 		money[you]-=8000&item[49]+=1&cls&gs'stat'&'Вы заплатили деньги и купили кляп'&act'<b>Уйти</b>':gt 'preloc'
-	 end
+	end
 end	

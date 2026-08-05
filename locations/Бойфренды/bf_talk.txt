@@ -6,8 +6,7 @@ act'Целовать':
 	cls&gs'stat'&$func('get_images', 'poser_kiss', you, npc)&'Это ваша <<bf_meeting[npc]>>я встреча'&*pl'Вы целуетесь с парнем'
 	if agro[npc]<=80 and temp_bfsex[npc]>=5:temp_bfsex[npc]=0&soul[you]+=5&*pl'<<$name[npc]>> дарит вам кусочек души'
 	if npc=antey:
-		antey_count[you]+=1
-	    if money[you]<100000:money[you]+=50000&'<<$name[npc]>> дарит вам 500 шиллингов'
+		antey_count[you]+=1&if money[you]<100000:money[you]+=50000&'<<$name[npc]>> дарит вам 500 шиллингов'
 	end
 	act'Гулять по улице':
 		horny[npc]+=sexiness[you]/2&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1
@@ -15,15 +14,15 @@ act'Целовать':
 	    if extrovert[npc]=0:'<<$name[npc]>> упорно молчит и кое как выдавливает из себя дежурные фразы'
             if extrovert[npc]=1:'<<$name[npc]>> разговаривает короткими фразами и регулярно запинается'
             if extrovert[npc]=2:
-	        if positiv[npc]=2:
-				'<<$name[npc]>> очень смешно шутит и поднимает вам настроение'
-	        else
-				'<<$name[npc]>> с упоением болтает обо всем подряд'
-	        end
-	    end
-		if Z[you]=3:
-			wantgo=rand(0,2)
-		    if wantgo=0:
+				if positiv[npc]=2:
+					'<<$name[npc]>> очень смешно шутит и поднимает вам настроение'
+				else
+					'<<$name[npc]>> с упоением болтает обо всем подряд'
+				end
+			end
+			if Z[you]=3:
+				wantgo=rand(0,2)
+				if wantgo=0:
 				'<<$name[npc]>> предлагает прогулятся в сквере'
 		     	 act'Идти в сквер':
 					time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
@@ -42,9 +41,7 @@ act'Целовать':
 							'<<$name[npc]>> предлагает - Давай прямо тут, в кустиках.'&act'<b>Уйти</b>':gt 'preloc'
 							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
 							act'Согласится':
-								bfsex[npc]+=1&temp_bfsex[npc]+=1
-								X[npc]=2&Y[npc]=1&Z[npc]=3&H[npc]=0&R[npc]=0
-								X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+								bfsex[npc]+=1&temp_bfsex[npc]+=1&X[npc]=2&Y[npc]=1&Z[npc]=3&H[npc]=0&R[npc]=0&X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
 								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
 							end
 						end
@@ -69,9 +66,7 @@ act'Целовать':
 							'<<$name[npc]>> предлагает - Давай сходим в сауну'&act'<b>Уйти</b>':gt 'preloc'
 							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
 							act'Согласится':
-								bfsex[npc]+=1&temp_bfsex[npc]+=1
-								X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2
-								X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+								bfsex[npc]+=1&temp_bfsex[npc]+=1&X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2&X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
 								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
 							end
 						end
@@ -79,9 +74,7 @@ act'Целовать':
 							'<<$name[npc]>> предлагает - Пошли в номера'&act'<b>Уйти</b>':gt 'preloc'
 							act'Пошли к тебе':bfsex[npc]+=1&temp_bfsex[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&gt'go_to_npc_home'
 							act'Согласится':
-								bfsex[npc]+=1&temp_bfsex[npc]+=1
-								X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=3
-								X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
+								bfsex[npc]+=1&temp_bfsex[npc]+=1&X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=3&X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
 								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
 							end
 						end

@@ -41,9 +41,7 @@ if (dick[you]>0 or vag[you]>0) and  womenbrain[you]>30:
 				'Головка члена упирается в матку и его семя затекает внутрь'&*nl
 				if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
 				if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
-				creampie_cum[sss]=time+360
-				you_see_sex[sss]+=1
-				corr[sss]+=rand(2,8)
+				creampie_cum[sss]=time+360&you_see_sex[sss]+=1&corr[sss]+=rand(2,8)
 			end
 			if horny[you]<100:
 				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&'В девушку кончает какой-то хуй, а она стонет и принимет сперму в матку, и вас это заводит'

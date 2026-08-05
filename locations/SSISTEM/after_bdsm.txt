@@ -1,6 +1,5 @@
 ﻿horny[npc]=0&target_soul=2
-if lebeda_seed[you]>0:lebeda_seed[npc]+=1
-if lebeda_seed[npc]>0:lebeda_seed[you]+=1
+if lebeda_seed[npc]>0:lebeda_seed[you]+=2
 if cocksucking>0:cocksucking=0
 my_last_fucker[you]=npc&last_fuck_time[you]=time&gs'add_sex_stat', you, npc
 if temp_blow_fss>0:bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1

@@ -1,11 +1,8 @@
-﻿num=you&X[you]=ARGS[0]&Y[you]=ARGS[1]&Z[you]=ARGS[2]&H[you]=0&R[you]=0
-if b_slot[you]=0 and Z[you]!11:time+=5
+﻿num=you&X[you]=ARGS[0]&Y[you]=ARGS[1]&Z[you]=ARGS[2]&H[you]=0&R[you]=0&if b_slot[you]=0 and Z[you]!11:time+=5
 if ub_slot[you]>0:
-	if burden[you]>=burdenmax[you]:energy[you]-=3
-	if burden[you]<burdenmax[you]:energy[you]-=iif(burden[you]*2<burdenmax[you],1,2)
+	energy[you]-=iif(burden[you]<burdenmax[you],iif(burden[you]*2<burdenmax[you],1,2),3)
 else
-	if burden[you]>=burdenmax[you]:energy[you]-=10
-	if burden[you]<burdenmax[you]:energy[you]-=iif(burden[you]*2<burdenmax[you],1,5)
+	energy[you]-=iif(burden[you]<burdenmax[you],iif(burden[you]*2<burdenmax[you],1,5),10)
 end
 openinv=0&if Z[you]!11:time+=5
 gs'stat'&gs'walk_programm'&gt 'world'

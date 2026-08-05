@@ -5,12 +5,12 @@ $d_dirty_blow={
 		if skin[npc]>3 and skin[npc]<7:
 			if agro[npc]>=80:
 		        if you_dirty_slut[npc]<10 and CONFIG['DISABLE_SPIT'] = 0:
-				     destiny=rand(0,3)
-				 else
-				     destiny=rand(0,4)
-				 end
+				    destiny=rand(0,3)
+				else
+				    destiny=rand(0,4)
+				end
 		    else
-		         destiny=rand(0,2)
+		        destiny=rand(0,2)
 		    end
 		else
 			destiny=rand(0,1)&if agro[npc]>=80 and agro[npc]<90:destiny=rand(0,2)
@@ -50,12 +50,12 @@ $d_dirty_blow={
 				if oral_fixation[you]>0 and orgasm[you]<time:horny[you]+=oral_fixation[you]*2
 				cls&gs'stat'
 				if skin[npc]>3 and skin[npc]<7:
-			         '<center><video autoplay loop src="pic/sex/degraded/spec_blowb<<rand(0,11)>>.webm" ></video></center>'
+			       '<center><video autoplay loop src="pic/sex/degraded/spec_blowb<<rand(0,11)>>.webm" ></video></center>'
 			         '<<$name[npc]>> ебет вас в горло со всей силы, а потом прижимает вас к своим яйцам и вы облизываете его шары.'
-			     else
-			         '<center><video autoplay loop src="pic/sex/degraded/spec_blow<<rand(0,6)>>.webm" ></video></center>'
-			         '<<$name[npc]>> обхватывает вас ногами заставляя взять глубоко в горло член, а потом прижимает вас к своим яйцам и вы облизываете его шары.'
-			     end
+			    else
+			        '<center><video autoplay loop src="pic/sex/degraded/spec_blow<<rand(0,6)>>.webm" ></video></center>'
+			        '<<$name[npc]>> обхватывает вас ногами заставляя взять глубоко в горло член, а потом прижимает вас к своим яйцам и вы облизываете его шары.'
+			    end
 				if throat[you]<10:throat[you]=10
 				if dick[npc]>throat[you]:throat[you]+=1
 				hotthroat[you]+=1&spit_face[you]+=1&!'<<$name[npc]>> обхватывает вас ногами заставляя взять глубоко в горло член, а потом прижимает вас к своим яйцам и вы облизываете его шары.'
@@ -148,10 +148,10 @@ $d_hard_fss_start = {
 				act'Расстегнуть ширинку':
 					hardtimer+=1&cls&gs'stat'
 					if skin[npc]>3 and skin[npc]<7:
-				    	 '<center><video autoplay loop src="pic/sex/blackcock<<rand(0,24)>>.webm"></video></center>'&'Вы расстегиваете ширинку и вынимаете <<dick[npc]>> сантиметровый член.'
-				     else
-				         '<center><video autoplay loop src="pic/sex/foreplay/openup.webm" ></video></center>'&'Вы расстегиваете ширинку и вынимаете <<dick[npc]>> сантиметровый член.'
-				     end
+				    	'<center><video autoplay loop src="pic/sex/blackcock<<rand(0,24)>>.webm"></video></center>'&'Вы расстегиваете ширинку и вынимаете <<dick[npc]>> сантиметровый член.'
+				    else
+				        '<center><video autoplay loop src="pic/sex/foreplay/openup.webm" ></video></center>'&'Вы расстегиваете ширинку и вынимаете <<dick[npc]>> сантиметровый член.'
+				    end
 					act'...':gt $curloc
 				end
 			end
@@ -296,17 +296,17 @@ $d_hard_fss_pose_two = {
 		temp_blow_fss+=1&sexpower[npc]-=1&cls&gs'stat'
 		if h_slot[you]>0:
 			if h_slot[you]=1 or h_slot[you]=10:
-				 if skin[npc]>3 and skin[npc]<7:
-			         '<center><video autoplay loop src="pic/sex/bdsm/mask_blowb.webm" ></video></center>'
-			     else
-			         '<center><video autoplay loop src="pic/sex/bdsm/mask_blow<<rand(0,8)>>.webm" ></video></center>'
-			     end
+				if skin[npc]>3 and skin[npc]<7:
+			        '<center><video autoplay loop src="pic/sex/bdsm/mask_blowb.webm" ></video></center>'
+			    else
+			        '<center><video autoplay loop src="pic/sex/bdsm/mask_blow<<rand(0,8)>>.webm" ></video></center>'
+			    end
 			elseif h_slot[you]=6 or h_slot[you]=7:
-			     if skin[npc]>3 and skin[npc]<7:
-			         '<center><video autoplay loop src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
-			     else
-				     '<center><video autoplay loop src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
-				 end
+			    if skin[npc]>3 and skin[npc]<7:
+			        '<center><video autoplay loop src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
+			    else
+				    '<center><video autoplay loop src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
+				end
 			else
 			    "<<$iif(H[you]>0,$func('get_images', 'blowjob', you, npc),$func('get_images', 'public_blow', you, npc))>>"
 			end
@@ -335,9 +335,9 @@ $d_hard_fss_pose_two = {
 				    cls&if corr[you]<50:corr[you]+=1
 			        you_dirty_slut[npc]+=5&if agro[you]>50:agro[you]-=1
 					if skin[npc]>3 and skin[npc]<7:
-					     blacked[you]+=1&'<center><video autoplay loop src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'&'Вы старательно вылизываете черное очко.'
+					    blacked[you]+=1&'<center><video autoplay loop src="pic/sex/degraded/rimjobbbc<<rand(0,21)>>.webm" ></video></center>'&'Вы старательно вылизываете черное очко.'
 					else
-					     '<center><video autoplay loop src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'&'Вы старательно вылизываете очко.'
+					    '<center><video autoplay loop src="pic/sex/degraded/rimjob<<rand(0,27)>>.webm" ></video></center>'&'Вы старательно вылизываете очко.'
 					end
 					gs'fuck_anal_lick',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'...':gt $curloc
 				end
@@ -611,7 +611,7 @@ $d_hard_fss_pose_four = {
 						act'...':
 							temp_vag_fss+=1&sexpower[npc]-=1&cls&gs'stat'
 							if skin[npc]>3 and skin[npc]<7:
-							     blacked[you]+=1&'<center><video autoplay loop src="pic/sex/degraded/v_ragebbc<<rand(0,17)>>.webm" ></video></center>'&'<<$name[npc]>> прижимает вас и начинает яростно долбить.'
+							    blacked[you]+=1&'<center><video autoplay loop src="pic/sex/degraded/v_ragebbc<<rand(0,17)>>.webm" ></video></center>'&'<<$name[npc]>> прижимает вас и начинает яростно долбить.'
 							else
 							    '<center><video autoplay loop src="pic/sex/degraded/v_rage<<rand(0,26)>>.webm" ></video></center>'&'<<$name[npc]>> прижимает вас и начинает яростно долбить.'
 							end
@@ -894,7 +894,7 @@ $d_hard_fss_pose_finish = {
 		if lust[npc]<75:tipetodo=10
 		if grief=npc:tipetodo=2
 		if CONFIG['DISABLE_SPIT']=1:
-				tipetodo=rand(0,1)&if lust[npc]<75:tipetodo=10
+			tipetodo=rand(0,1)&if lust[npc]<75:tipetodo=10
 		end
 	!* --------------------------------- TYPE_0 --------------------------------- *!
 		if tipetodo=0:

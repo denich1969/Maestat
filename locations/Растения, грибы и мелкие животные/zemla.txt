@@ -7,13 +7,11 @@ if last_zemla['<<$loc[you]>>']>0:
 	end
 	if random=5:
 		act'Согнать паука':
-			time+=5&cls&'<center><img src="pic/sex/event/spider.jpg" ></center>'&'Паук укусил вас и скрылся. Место укуса теперь немного чешется.'
-			mutation[you]+=rand(5,25)
+			mutation[you]+=rand(5,25)&time+=5&cls&'<center><img src="pic/sex/event/spider.jpg" ></center>'&'Паук укусил вас и скрылся. Место укуса теперь немного чешется.'
 			act'Собирать ягоды дальше':time+=5&cls&gs'walker'&gs'stat'&last_malin['<<$loc[you]>>']=0&item_loc['53,<<$loc[you]>>']+=1&day_malin['<<$loc[you]>>']=daystart&gt $curloc
 		end
 	end	 
 else
 	'На кустах ничего нет'
 end
-gs'Item'&*nl ''&gs 'npconloc'
-act'Отойти':gt 'world'
+gs'Item'&*nl ''&gs 'npconloc'&act'Отойти':gt 'world'

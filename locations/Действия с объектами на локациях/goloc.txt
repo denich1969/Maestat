@@ -1,2 +1,1 @@
-﻿Ltipe=ARGS[0]
-gt'los'
+﻿Ltipe=ARGS[0]&gt'los'

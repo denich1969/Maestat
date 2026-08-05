@@ -23,8 +23,8 @@ if pol[you]>=1 and status_tipe[you]=3:$status[you]='ВЫ ОБОССАЛИСЬ'
 if status_tipe[you]>0 and status_time[you]>time:status_minut=status_time[you]-time
 if status_tipe[you]>0 and status_time[you]<=time:status_time[you]=0&$status[you]=''&status_tipe[you]=0
 if pisswasser[you]>=50:
-     if (dick[you]>1 and CONFIG['DISABLE_position']=0) or CONFIG['DISABLE_position']=1:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
-     if vag[you]>0 and CONFIG['DISABLE_position']=0 and pose[you]=2:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
+    if (dick[you]>1 and CONFIG['DISABLE_position']=0) or CONFIG['DISABLE_position']=1:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
+    if vag[you]>0 and CONFIG['DISABLE_position']=0 and pose[you]=2:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
 end
 if $status[you]!'':'<b><<$status[you]>></b>. Действует еще <<status_minut>> '+$func('plural',status_minut,'минута','минуты','минут')
 '<<$poser>>'

@@ -2,7 +2,7 @@
 	'<<$nick[npc]>> - Ах ты тварь! Я заставлю тебя страдать!'
 else
     if pol[you]>0:
-		 if sexiness[you]>50:
+		if sexiness[you]>50:
 			'<<$nick[npc]>> - потряси задницей, шлюшка!'
 			act'Кокетливо улыбнуться':
 				horny[npc]+=sexiness[you]/2&!statistics_flirt[you]+=1
@@ -28,8 +28,7 @@ else
 								act'Идти':
 									whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)
 									X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
-									X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
-									solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+									X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
 								end
 							end
 						end
@@ -43,8 +42,7 @@ else
 							act'Идти':
 								whore[you]+=1&know_whore['<<npc>>,<<you>>']+=1&last_sex[npc]=time+(60*5)
 								X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
-								X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
-								solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
+								X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]&solo=npc&horny[npc]=50&pose[you]=2&gt'sex'
 							end
 						end
 					end

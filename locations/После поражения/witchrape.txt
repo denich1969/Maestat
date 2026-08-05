@@ -1,7 +1,5 @@
 ﻿gs'stat'&feminize[you]+=20&gs'soulcraft',5
-t_slot[you]=20&l_slot[you]=18&b_slot[you]=10
-ub_slot[you]=2&ul_slot[you]=0
-'<center><img src="<<$d_view>>" ></center>'&'Ведьма злобно хохочет и на вас материализуются шмотки шлюхи.'
+t_slot[you]=20&l_slot[you]=18&b_slot[you]=10&ub_slot[you]=2&ul_slot[you]=0&'<center><img src="<<$d_view>>" ></center>'&'Ведьма злобно хохочет и на вас материализуются шмотки шлюхи.'
 if vag[you]=0:
 	vag[you]=1&dick[you]=0&dickd[you]=0&ball[you]=0&'Огонь охватывает ваши чресла, вы хватаетесь за промежность и чувствуете, что там больше нет вашего члена.'
 else

@@ -1,9 +1,9 @@
 ﻿gs'stat'&tentaklbist[you]+=1&feminize[you]+=5&gs'soulcraft',5&tentaklcurse[you]+=1
 '<center><video autoplay loop src="pic/sex/rape/tent.webm" ></video></center>'&'Чудовищные щупальца скрутили вас так, что вы не можете двигаться. '
 if tentakl=0:
-     if l_slot[you]=0:
+    if l_slot[you]=0:
 		tentakl=1&gt $curloc
-     else
+    else
 		if t_slot[you]>0 or l_slot[you]>0 or ut_slot[you]>0 or ul_slot[you]>0:
 			t_slot[you]=0&ut_slot[you]=0&ul_slot[you]=0&'<<$nick[npc]>> щупальцами рвёт вашу одежду'
 			if l_slot[you]>0:
@@ -18,11 +18,11 @@ if tentakl=0:
      end
 end
 if tentakl=1:
-     if ul_slot[you]>0:
-		 ul_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'Щупальца рвут в клочья ваши трусы'&act'Прекрати!':tentakl=2&gt $curloc
-     else
-		 tentakl=2&gt $curloc
-     end
+    if ul_slot[you]>0:
+		ul_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'Щупальца рвут в клочья ваши трусы'&act'Прекрати!':tentakl=2&gt $curloc
+    else
+		tentakl=2&gt $curloc
+    end
 end
 if tentakl=2:
 	if vag[you]>1:

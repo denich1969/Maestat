@@ -43,7 +43,7 @@ if sexpower[you]>0:
 				act'Лизать грудь':
 					horny[npc]+=5&cls&gs'stat'
 					if pol[you]=0:
-                        if skin[you]>4:
+                        if skin[you]>4 and skin[you]<7:
                             '<center><video autoplay loop src="pic/sex/poser/tits_suckb<<rand(0,1)>>.webm" ></video></center>'
                         else
                             '<center><video autoplay loop src="pic/sex/poser/tits_suck<<rand(0,10)>>.webm" ></video></center>'

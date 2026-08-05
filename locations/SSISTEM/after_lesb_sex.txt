@@ -1,6 +1,5 @@
 ﻿horny[npc]=0
-if lebeda_seed[you]>0:lebeda_seed[npc]+=1
-if lebeda_seed[npc]>0:lebeda_seed[you]+=1
+if lebeda_seed[you]>0:lebeda_seed[npc]+=2
 my_last_fucker[you]=npc&last_fuck_time[you]=time&gs'add_sex_stat', you, npc&lesb[npc]+=1&lesb[you]+=1
 if slave[npc]=you:submission[npc]+=1
 $global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я и <<$name[you]>> <<$surname[you]>> занимались сексом.'

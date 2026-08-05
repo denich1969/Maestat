@@ -13,25 +13,25 @@ else
 	if blunt_resist=1:
 		'<<$name[npc]>> не обращает внимания на ваш удар'
 	else
-		 if popad>=1:
-			 if clonV>0:
+		if popad>=1:
+			if clonV>0:
 				clonV-=1&'Вы попадаете в клона и клон рассеивается'
-			 else
-				 if uron<1:uron=1
-				 if superslut[you]=1:uron=uron+(uron/10)
-				 if popad=2:uron=uron*2
-				 if defenceV>0:
-					 if defenceV<uron:
+			else
+				if uron<1:uron=1
+				if superslut[you]=1:uron=uron+(uron/10)
+				if popad=2:uron=uron*2
+				if defenceV>0:
+					if defenceV<uron:
 						uron-=defenceV&defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
 						if defenceV>0:'Вы разбиваете защиту противника'
 						if popad=2:'Критическое попадание'
-					 else
+					else
 						defenceV-=uron&'Защита противника полностью поглощает урон и снижается теряя прочность'
-					 end
-				 else
+					end
+				else
 					'<<$name[npc]>> получает <<uron>> единиц урона'&health[npc]-=uron&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
-				 end
-			 end
+				end
+			end
 		else
 			'<<$name[npc]>> избегает урона'
 		end

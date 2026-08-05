@@ -5,8 +5,7 @@ if coliseum_loss>0:'<<coliseum_loss>> - поражений в колизее'
 if hour>=9 and hour<=21 and coliseumfightday!daystart:
 	act'Дратся в колизее с гладиатором':
 		coliseumfightday=daystart&bossfight=1&prise=100&cls&gs'stat'&!'<center><img src="pic/mob/misthund.jpg" ></center>'
-		'Вы записываетесь на бой против гладиатора и если победите, то получите приз <<prise>> искр.'&gs'gladiator'&!??????????????????
-		act'Выйти на бой в колизее':gt'before_fight'&!??????????????????
+		'Вы записываетесь на бой против гладиатора и если победите, то получите приз <<prise>> искр.'&gs'gladiator'&act'Выйти на бой в колизее':gt'before_fight'&!??????????????????
 	end
 end
 if slaverQW=1:

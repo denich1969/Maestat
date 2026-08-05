@@ -1054,11 +1054,6 @@
       <Location name="first_quest_talk"/>
       <Location name="mantalkwithwoman_port"/>
     </Folder>
-    <Folder name="walk маяк">
-      <Location name="ceeper_walk"/>
-      <Location name="belinda_walk"/>
-      <Location name="kapitan_walk"/>
-    </Folder>
     <Folder name="Черный квартал">
       <Location name="2_nord_east_gen"/>
       <Location name="blackmarket_gen"/>
@@ -1558,6 +1553,11 @@
       <Location name="belinda_talk"/>
       <Location name="kapitan_gen"/>
       <Location name="kapitan_talk"/>
+    </Folder>
+    <Folder name="walk маяк">
+      <Location name="ceeper_walk"/>
+      <Location name="belinda_walk"/>
+      <Location name="kapitan_walk"/>
     </Folder>
     <Folder name="НПС лес и город Нуатпа">
       <Location name="wizard_gen"/>

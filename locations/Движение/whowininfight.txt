@@ -7,46 +7,28 @@ if mob[w]=0 and beliver[w]=2:itsrainingday['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,
 if mob[s]=0 and beliver[s]=2:itsrainingday['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=time+120
 if magik[w]>0:
 	fight_tipe[w]=3
-     if magik[s]>0:
-         if magik[w]>=magik[s]:
-			mobwin=1
-         else
-			mobwin=0
-         end
-     else
+    if magik[s]>0:
+         mobwin=iif(magik[w]<magik[s],0,1)
+    else
 		mobwin=1
-     end
+    end
 else
-     if magik[s]>0:
-		 fight_tipe[w]=3
-		 mobwin=0
-     else
-         if w_slot[w]>0:
-			 fight_tipe[w]=2
-			 shoot_skill[w]+=1
-			 if w_slot[s]>0:
-			 shoot_skill[s]+=1
-			     if shoot_skill[w]>=shoot_skill[s]:
-					mobwin=1
-			     else
-					mobwin=0
-			     end
-			 else
+    if magik[s]>0:
+		fight_tipe[w]=3&mobwin=0
+    else
+        if w_slot[w]>0:
+			fight_tipe[w]=2&shoot_skill[w]+=1
+			if w_slot[s]>0:
+				shoot_skill[s]+=1&mobwin=iif(shoot_skill[w]<shoot_skill[s],0,1)
+			else
 				mobwin=1
-			 end
-         else
-             if w_slot[s]>0:
-				 fight_tipe[w]=2
-				 shoot_skill[s]+=1
-				 mobwin=0
-			 else
-				fight_tipe[w]=1
-				 if batl[w]>=batl[s]:
-					mobwin=1
-				 else
-					mobwin=0
-				 end
-			 end
-         end
-     end
+			end
+        else
+            if w_slot[s]>0:
+				fight_tipe[w]=2&shoot_skill[s]+=1&mobwin=0
+			else
+				fight_tipe[w]=1&mobwin=iif(batl[w]<batl[s],0,1)
+			end
+        end
+    end
 end

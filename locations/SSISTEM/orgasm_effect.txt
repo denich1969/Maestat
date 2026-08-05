@@ -57,8 +57,7 @@ if args[0]>0 and args[1]>0:
 	!if magik[args[1]]>magik[args[0]] and demon_dick[args[0]]>0: magik_exp[args[0]]+=(magik[args[1]]-magik[args[0]])/20
 	!if magik[args[0]]>magik[args[1]] and demon_dick[args[1]]>0: magik_exp[args[1]]+=(magik[args[0]]-magik[args[1]])/20
 end
-horny[args[1]]-=200+temp_orgazm[args[1]]*25
-if horny[args[1]]>100:horny[args[1]]=100
+horny[args[1]]-=200+temp_orgazm[args[1]]*25&if horny[args[1]]>100:horny[args[1]]=100
 if horny[args[1]]<=0 or args[2]=1:horny[args[1]]=0
 orgasm[args[1]]=time+60&orgasm_times[args[1]]+=1
 if manamax[args[1]]>0 and args[1]!args[0]:mana[args[1]]+=soul[args[1]]

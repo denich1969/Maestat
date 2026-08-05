@@ -1,13 +1,5 @@
-﻿$nameloc[you]=$curloc
-gs'stat'&'Полки с бельем'&!gs'Item'
-*pl''&!gs 'npconloc'
-act'Отойти':gt 'preloc'
-$utop_loc=''
-$ulow_loc=''
-$uboot_loc=''
-clo=1
-clomax=arrsize('$ut_name')
-newgenut=0
+﻿$nameloc[you]=$curloc&gs'stat'&'Полки с бельем'&*pl''&!gs'Item'&!gs 'npconloc'
+newgenut=0&clo=1&clomax=arrsize('$ut_name')&$utop_loc=''&$ulow_loc=''&$uboot_loc=''&act'Отойти':gt 'preloc'
 if today_utgeneratar['<<$loc[you]>>']!daystart:today_utgeneratar['<<$loc[you]>>']=daystart&newgenut=1
 :markutoptheloc
     if newgenut=1 and sexy_ut[clo]<60:uthere['<<clo>>,<<$loc[you]>>']=rand(0,1)

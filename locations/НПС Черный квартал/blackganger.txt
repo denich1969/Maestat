@@ -1,6 +1,5 @@
 ﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&mob[i]=4&mobexp[i]=50&!номер моба для разговора
-tipemobpic[i]=1&picture[i]=rand(15,25)&!номер типа фотки и фотки
-gs'negr_man_name'&$name[i]=$genname&gs'negr_surname'&$surname[i]=$gensurname&$basestatus[i]=' чешет яйца'
+gs'negr_man_name'&$name[i]=$genname&gs'negr_surname'&$surname[i]=$gensurname&$basestatus[i]=' чешет яйца'&tipemobpic[i]=1&picture[i]=rand(15,25)&!номер типа фотки и фотки
 tipe=rand(0,10)&!$title[i]=$iif(tipe=0,'Роад дог. ',$iif(tipe=1,'Ганста. ',$iif(tipe=2,'Олд ганста. ',$iif(tipe=3,'Стрит плэя. ',$iif(tipe=4,'Пушер. ',$iif(tipe=5,'Бро. ',$iif(tipe=6,'Хоуми. ',$iif(tipe=7,'Баста. ',$iif(tipe=8,'Туг. ',$iif(tipe=9,'Ориджинал ганста. ','Плэя. '))))))))))
 if tipe=0:$nick[i]='Роад дог. '
 if tipe=1:$nick[i]='Ганста. '

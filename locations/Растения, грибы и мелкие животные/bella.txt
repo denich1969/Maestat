@@ -7,20 +7,19 @@ if last_bella['<<$loc[you]>>']>0:
 		act'Собирать цветы беладонны':
 			time+=30&cls&gs'walker'&gs'stat'&last_bella['<<$loc[you]>>']=0&item_loc['38,<<$loc[you]>>']+=max(1,lvltravnik[you])&day_bella['<<$loc[you]>>']=daystart
 			"В течение получаса вы собирали беладонну и собрали <<item_loc['38,<<$loc[you]>>']>> порций"&bellanum=item_loc['38,<<$loc[you]>>']+item['38']
-			 'Всего у вас <<bellanum>> порций беладонны'
-			 if fat[you]>10:fat[you]-=1
-			 if fat[you]>100:fat[you]-=1
-			 if fat[you]>500:fat[you]-=2
-			 if fat[you]>1000:fat[you]-=2
-			 if fat[you]>1500:fat[you]-=3
-			 if fat[you]>2000:fat[you]-=3
-			 if fat[you]>2500:fat[you]-=4
-			 if fat[you]>3000:fat[you]-=4
-			exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'
-			if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
+			'Всего у вас <<bellanum>> порций беладонны'
+			if fat[you]>10:fat[you]-=1
+			if fat[you]>100:fat[you]-=1
+			if fat[you]>500:fat[you]-=2
+			if fat[you]>1000:fat[you]-=2
+			if fat[you]>1500:fat[you]-=3
+			if fat[you]>2000:fat[you]-=3
+			if fat[you]>2500:fat[you]-=4
+			if fat[you]>3000:fat[you]-=4
+			exptravnik[you]+=1&'Навык сбора трав <<lvltravnik[you]>>, опыт <<exptravnik[you]>>'&if lvltravnik<11:exptravnik[you]+=max(1,rand((lvltravnik[you]/7),(lvltravnik[you]/5)))
 			sweat[you]+=2&gt $curloc
 		end
-	 end
+	end
 else
 	'На кустах ничего нет'
 end

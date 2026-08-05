@@ -118,7 +118,7 @@ act'Сменить форму носа <<$name[npc]>>':
 end
 if dick[npc]>1 and ball[npc]<100 and ball[npc]>1:
 	'Усилить <<ball[npc]>> <<$name[npc]>> потенцию'
-	 act'Усилить потенцию <<$name[npc]>>':
+	act'Усилить потенцию <<$name[npc]>>':
 		ball[npc]+=10&cls&gs'stat'&'<<$name[npc]>> раздевшись, легли в автодок, вам сделали укол и начались какие-то манипуляции.'&act'Встать':gt $curloc
 	end
 end

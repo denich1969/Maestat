@@ -1,4 +1,1 @@
-﻿$nameloc[you]=$curloc
-gs'stat'&'Лабораторное оборудование'
-gs'Item'&*pl''&gs 'npconloc'
-act'Уйти':gt 'preloc'
+﻿$nameloc[you]=$curloc&gs'stat'&'Лабораторное оборудование'&gs'Item'&*pl''&gs 'npconloc'&act'Уйти':gt 'preloc'

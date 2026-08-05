@@ -1,8 +1,4 @@
-﻿if $ARGS[0]>1:
-	pokazatel=$ARGS[0]
-else
-	pokazatel=1
-end
+﻿pokazatel=iif($ARGS[0]>1,$ARGS[0],1)
 if beliver[you]=2: 
 	if npc=lord_dagon:
 		soul[you]+=1
@@ -12,9 +8,7 @@ if beliver[you]=2:
 else	
 	if pubis_t[you]>1 or tongue_p[you]>1:
 		 if pubis_t[you]>1:
-			if soul[you]>20:
-				soul[you]-=rand(0,rand(0,1))
-			end
+			if soul[you]>20:soul[you]-=rand(0,rand(0,1))
 		 else
 			soul[you]-=rand(pokazatel/2,pokazatel)
 		 end

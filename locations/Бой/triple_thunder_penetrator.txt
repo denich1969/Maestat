@@ -12,26 +12,26 @@ if itsrainingday['<<$loc[you]>>']>=time:health[you]-=uron/100&'Из-за дож�
 if portal_defV>0:
 	'Молния уходит в портал и никакого вреда не наносит'
 else
-	 if popad>=1:
-	     if electro_resist[npc]>0:elr=iif(100-electro_resist[npc]>100,100,100-electro_resist[npc])&uron=uron*elr/100&'Защита от электричества противника снижает урон молний'
-	 	 if clonV>0:clonV-=1&uron=uron/2&'Молния попадает в клона и клон исчезает разряжая чать силы удара молнии'
-		 if uron<1:uron=1
-		 if superslut[you]=1:uron=uron+(uron/10)
-		 if popad=2:uron=uron*2
-		 if defenceV>0:
-			 if defenceV<uron*2:
+	if popad>=1:
+	    if electro_resist[npc]>0:elr=iif(100-electro_resist[npc]>100,100,100-electro_resist[npc])&uron=uron*elr/100&'Защита от электричества противника снижает урон молний'
+	 	if clonV>0:clonV-=1&uron=uron/2&'Молния попадает в клона и клон исчезает разряжая чать силы удара молнии'
+		if uron<1:uron=1
+		if superslut[you]=1:uron=uron+(uron/10)
+		if popad=2:uron=uron*2
+		if defenceV>0:
+			if defenceV<uron*2:
 				defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
 				if defenceV>0:'Вы разбиваете защиту противника'
 				if popad=2:'Критическое попадание'
-			 else
-				 defenceV-=uron*2&'Защита противника полностью поглощает урон и снижается теряя прочность'&health[npc]-=rand(10,20)&'Защита от удара переполняется энергией и наносит урон противнику'
-			 end
-		 else
+			else
+				defenceV-=uron*2&'Защита противника полностью поглощает урон и снижается теряя прочность'&health[npc]-=rand(10,20)&'Защита от удара переполняется энергией и наносит урон противнику'
+			end
+		else
 			'<<$name[npc]>> получает <<uron>> единиц урона'&health[npc]-=uron&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
 		end
-	 else
+	else
 		'<<$name[npc]>> избегает урона'
-	 end
+	end
 end
 uron=mlev[you]*200&if uron<1:uron=1
 if superslut[you]=1:uron=uron+(uron/10)
@@ -45,26 +45,26 @@ if itsrainingday['<<$loc[you]>>']>=time:health[you]-=uron/100&'Из-за дож�
 if portal_defV>0:
 	'Молния уходит в портал и никакого вреда не наносит'
 else
-	 if popad>=1:
-		 if electro_resist[npc]>0:elr=iif(100-electro_resist[npc]>100,100,100-electro_resist[npc])&uron=uron*elr/100&'Защита от электричества противника снижает урон молний'
-	 	 if clonV>0:'Молния попадает в клона и клон исчезает разряжая чать силы удара молнии'&clonV-=1&uron=uron/2
-		 if uron<1:uron=1
-		 if superslut[you]=1:uron=uron+(uron/10)
-		 if popad=2:uron=uron*2
-		 if defenceV>0:
-			 if defenceV<uron*2:
+	if popad>=1:
+		if electro_resist[npc]>0:elr=iif(100-electro_resist[npc]>100,100,100-electro_resist[npc])&uron=uron*elr/100&'Защита от электричества противника снижает урон молний'
+	 	if clonV>0:'Молния попадает в клона и клон исчезает разряжая чать силы удара молнии'&clonV-=1&uron=uron/2
+		if uron<1:uron=1
+		if superslut[you]=1:uron=uron+(uron/10)
+		if popad=2:uron=uron*2
+		if defenceV>0:
+			if defenceV<uron*2:
 				defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
-				 if defenceV>0:'Вы разбиваете защиту противника'
-				 if popad=2:'Критическое попадание'
-			 else
+				if defenceV>0:'Вы разбиваете защиту противника'
+				if popad=2:'Критическое попадание'
+			else
 				defenceV-=uron*2&'Защита противника полностью поглощает урон и снижается теряя прочность'&health[npc]-=rand(10,20)&'Защита от удара переполняется энергией и наносит урон противнику'
-			 end
-		 else
+			end
+		else
 			'<<$name[npc]>> получает <<uron>> единиц урона'&health[npc]-=uron&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
-		 end
-	 else
+		end
+	else
 		'<<$name[npc]>> избегает урона'
-	 end
+	end
 end
 uron=mlev[you]*200&if uron<1:uron=1
 if superslut[you]=1:uron=uron+(uron/10)
@@ -78,25 +78,25 @@ if itsrainingday['<<$loc[you]>>']>=time:health[you]-=uron/100&'Из-за дож�
 if portal_defV>0:
 	'Молния уходит в портал и никакого вреда не наносит'
 else
-	 if popad>=1:
-	     if electro_resist[npc]>0:elr=iif(100-electro_resist[npc]>100,100,100-electro_resist[npc])&uron=uron*elr/100&'Защита от электричества противника снижает урон молний'
-	 	 if clonV>0:'Молния попадает в клона и клон исчезает разряжая чать силы удара молнии'&clonV-=1&uron=uron/2
-		 if uron<1:uron=1
-		 if superslut[you]=1:uron=uron+(uron/10)
-		 if popad=2:uron=uron*2
-		 if defenceV>0:
-			 if defenceV<uron*2:
+	if popad>=1:
+	    if electro_resist[npc]>0:elr=iif(100-electro_resist[npc]>100,100,100-electro_resist[npc])&uron=uron*elr/100&'Защита от электричества противника снижает урон молний'
+	 	if clonV>0:'Молния попадает в клона и клон исчезает разряжая чать силы удара молнии'&clonV-=1&uron=uron/2
+		if uron<1:uron=1
+		if superslut[you]=1:uron=uron+(uron/10)
+		if popad=2:uron=uron*2
+		if defenceV>0:
+			if defenceV<uron*2:
 				defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
-				 if defenceV>0:'Вы разбиваете защиту противника'
-				 if popad=2:'Критическое попадание'
-			 else
+				if defenceV>0:'Вы разбиваете защиту противника'
+				if popad=2:'Критическое попадание'
+			else
 				defenceV-=uron*2&'Защита противника полностью поглощает урон и снижается теряя прочность'&health[npc]-=rand(10,20)&'Защита от удара переполняется энергией и наносит урон противнику'
-			 end
-		 else
+			end
+		else
 			'<<$name[npc]>> получает <<uron>> единиц урона'&health[npc]-=uron&stunV=iif(stunV=0,rand(0,2),rand(1,2))&if stunV>0:'<<$name[npc]>> падает от удара'
-		 end
-	 else
+		end
+	else
 		'<<$name[npc]>> избегает урона'
-	 end
+	end
 end
 gs'stat'&act'Далее':gt'fight'

@@ -9,10 +9,10 @@
 		'Да, ты сможешь из своих доверенных делать магов, даже если они не способны в магии. И эти маги могут тебе пригодиться в бою, если проиграешь, то можешь просто поглотить силу.'
 		act'<b>Я подумаю</b>':gt 'preloc'
 		act'<b>Я хочу эту силу</b>':
-			 blackedGangQW=130&blackfriend+=1&friends['<<npc>>,<<you>>']+=100&friends['<<you>>,<<npc>>']+=100&blackrunepower[you]=1&brp_girl[you]=girl[you]
-			 time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> рисует в воздухе руну и вы обретаете новую сил'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
+			blackedGangQW=130&blackfriend+=1&friends['<<npc>>,<<you>>']+=100&friends['<<you>>,<<npc>>']+=100&blackrunepower[you]=1&brp_girl[you]=girl[you]
+			time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> рисует в воздухе руну и вы обретаете новую сил'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
 end
 if negrec=npc and blackedGangQW=100:act'<b>Ты и твоя руна должны исчезнуть</b>':gs'progcurse'&gt 'prefight'
 if blackedGangQW=110:
@@ -55,9 +55,9 @@ if blackedGangQW>=1 and blackedGangQW<100 and Z[you]=1:
 			'<<$name[npc]>> - вообще не в курсе.'
 		end
 		if blackedGangQW=4 and visioner[you]>0 and mana[you]>=50 and master[npc]=0:
-			 act'Использовать дар':
-				 mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
-				 vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Коснувшись руки, вас охватывает виденье.'
+			act'Использовать дар':
+				mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+				vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Коснувшись руки, вас охватывает виденье.'
 			    if negrec=npc:
 					 blackedGangQW=5&'Вы рисуете черную руну на алатырь камне в лесу Блэкберри и это не просто колдовство, это становится законом природы. '
 					'Вы сможете постепенно захватить город, аккумулировать огромные силы и в нужный момент просто подмять все под себя. При этом никто даже в серьез не сможет рассматривать угрозу.'
@@ -73,13 +73,13 @@ end
 if popescu=npc:
 	if popescu_day>0:
 		shilopl=popescu_dohod*popescu_day&'<<$name[npc]>> - Я должна тебе <<shilopl/100>> шиллингов'
-		 act'<b>Забрать деньги</b>':
+		act'<b>Забрать деньги</b>':
 		    if magik[npc]>=30 and magik[you]<29:
-				 popescu_dohod=0&popescu_day=0
-				 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> презрительно смотрит на вас - у меня есть идея получше. Как насчет того, что я выпью тебя досуха?'
-				 act'Драться':cant_fight_run=1&gs'progcurse'&gt 'prefight'
+				popescu_dohod=0&popescu_day=0
+				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> презрительно смотрит на вас - у меня есть идея получше. Как насчет того, что я выпью тебя досуха?'
+				act'Драться':cant_fight_run=1&gs'progcurse'&gt 'prefight'
 		    else
-				 money[you]+=shilopl&popescu_day=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - отдает вам деньги.'&act'<b>Уйти</b>':gt 'preloc'
+				money[you]+=shilopl&popescu_day=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - отдает вам деньги.'&act'<b>Уйти</b>':gt 'preloc'
 		    end
 		end
 	end
@@ -173,9 +173,8 @@ if X[npc]=3 and Y[npc]=0 and Z[npc]=1 and H[npc]=1:
 					'- Что еще тебе рассказать? Почему я яйца не брею? Или как я имею всех в этом баре в своих фантазиях? Нахуй иди и не беси меня тупыми вопросами, не пиили с одной бутылки!'
 				else
 					'<<$name[npc]>> ухмыляется - Что сказать, разливное стоит дорого, а бутылочное дешевое. Плюс к берегу регулярно прибивает с десяток таких вот пузырей. Онли бизнес и никакого пиздежа. '
-					'Если хочешь, можешь брать по одной во время обеда, с меня точно не убудет, а твоя довольная и пьяная рожа нормально сыграет на рекламу. Ну так что?'
+					'Если хочешь, можешь брать по одной во время обеда, с меня точно не убудет, а твоя довольная и пьяная рожа нормально сыграет на рекламу. Ну так что?'&act'<b>Отказаться</b>':gt 'preloc'
 					act'Да чего тут думать? Давай, конечно!':alkofree=1&gt'preloc'
-					act'<b>Отказаться</b>':gt 'preloc'
 				end
 				act'<b>Уйти</b>':gt 'preloc'
 			end
@@ -405,13 +404,10 @@ if martamarsh=npc:
 				WhoreWife=WhoreToOneDay&WhoreToOneDay=0&WhoreToOneDayEnd=daystart&NewWhoreYou=1&gs 'cleanfate'
 				ex_girlfriend['<<WhoreWife>>,<<you>>']=100&friends['<<WhoreWife>>,<<you>>']=100
 				know['<<WhoreWife>>,<<cloint>>']=100&sexpartner['<<WhoreWife>>,<<you>>']=100&sexpartner['<<WhoreWife>>,<<you>>']=100
-				times_talk['<<WhoreWife>>,<<you>>']=100&know_whore['<<WhoreWife>>,<<you>>']=100&watch_you_slut['<<WhoreWife>>,<<you>>']=100
-				you_dirty_slut[WhoreWife]=100&horny[you]=105
+				times_talk['<<WhoreWife>>,<<you>>']=100&know_whore['<<WhoreWife>>,<<you>>']=100&watch_you_slut['<<WhoreWife>>,<<you>>']=100&you_dirty_slut[WhoreWife]=100&horny[you]=105
 				gs'female_gen',you
-				lips[you]=rand(2,4)&whore[you]=1
-				npc=WhoreWife&whoreboss[you]=npc&vag[you]=vag[npc]&anus[you]=anus[npc]
-				t_slot[you]=t_slot[npc]&l_slot[you]=l_slot[npc]&b_slot[you]=b_slot[npc]
-				ul_slot[you]=ul_slot[npc]
+				lips[you]=rand(2,4)&whore[you]=1&npc=WhoreWife&whoreboss[you]=npc&vag[you]=vag[npc]&anus[you]=anus[npc]
+				t_slot[you]=t_slot[npc]&l_slot[you]=l_slot[npc]&b_slot[you]=b_slot[npc]&ul_slot[you]=ul_slot[npc]
 				X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
 				X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]
 				MSG('Вас окутала странная черно-розовая волна, которая словно стерла вас и создала заново. Вы поняли, что изменились не только внешне но и внутренне. Что ж - ваше приключение началось.')

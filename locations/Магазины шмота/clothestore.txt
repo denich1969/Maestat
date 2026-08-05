@@ -1,6 +1,4 @@
-﻿$nameloc[you]=$curloc
-gs'stat'&'Вешалки с одеждой'&!gs'Item'
-*pl''&!gs 'npconloc'
+﻿$nameloc[you]=$curloc&gs'stat'&'Вешалки с одеждой'&*pl''&!gs'Item'&!gs 'npconloc'
 act'Отойти':gt 'preloc'
 $clo_loc=''&clo=1&clomax=arrsize('$t_name')&newgenclo=0
 if today_clogeneratar['<<$loc[you]>>']!daystart:today_clogeneratar['<<$loc[you]>>']=daystart&newgenclo=1

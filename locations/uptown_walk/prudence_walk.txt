@@ -10,7 +10,7 @@ else
 			$destination[w]='дом'&gs'destination'&$think[w]='хочет домой'&gs'walk_dest'&!вне дома
         end
     else
-        $think[w]='думает о уга буга'&$destination[w]='бар наваждение'
+        $think[w]='думает об уга буга'&$destination[w]='бар наваждение'
         if $destination[w]='прогулка':
 			$think[w]='думает о прогулке'&gs'walk_full_rand'
         else

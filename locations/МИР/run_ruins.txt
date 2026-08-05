@@ -2,9 +2,7 @@
 act"Дотронуться":
 	cls&gs'stat'
 	if demon_dick[you]<1:
-		"Теплое ощущение прокатилось по вашему телу"
-		demon_dick[you]=1
-		act'Что это?':gt 'preloc'
+		"Теплое ощущение прокатилось по вашему телу"&demon_dick[you]=1&act'Что это?':gt 'preloc'
 	else
 		"Ничего не происходит"
 	end
