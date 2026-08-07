@@ -1,4 +1,4 @@
-﻿gs'stat'&cls&sutener=whoreboss[sladkovamasha]
+﻿gs'stat'&cls&sutener=whoreboss[sladkovamasha]&whoreboss[you]=sutener
 if you=sister:
 	'<center><img src="pic/misc/kafeDuet.jpg" ></center>' 
 	'Вы и <<$name[npc]>> пришли в кафе, где сидели больше часа, все время беседуя ни о чём и выпивая легкие коктейли. Однако довольно скоро вы ощутили, что опьянение довольно сильно бьет вам в голову.'
@@ -18,7 +18,7 @@ act'Спасибо, <<$name[npc]>>... Ик...':
 	X[tbigg]=X[sutener]&Y[tbigg]=Y[sutener]&Z[tbigg]=Z[sutener]&H[tbigg]=H[sutener]&R[tbigg]=R[sutener]
 	X[mgreen]=X[sutener]&Y[mgreen]=Y[sutener]&Z[mgreen]=Z[sutener]&H[mgreen]=H[sutener]&R[mgreen]=R[sutener]
 	ball[tbigg] = 55&ball[mgreen] = 55&ball[sutener]=55&agro[tbigg]+=45&agro[mgreen]+=45&agro[sutener]+=45&power[tbigg]+=45&power[mgreen]+=45&power[sutener]+=45
-	sluttySlmashaQW=5&$name[you]='Ротанна'&$surname[you]='Эбони'	&spec_face_pic[you]=4&face_pic[you]=rand(1,21)&if face[you]<40: face[you]+=rand(40,55)
+	sluttySlmashaQW=5&$name[you]='Ротанна'&$surname[you]='Эбони'&spec_face_pic[you]=4&face_pic[you]=rand(1,21)&face[you]+=iif(face[you]<40,rand(40,55),0)
 	rndfem=rand(8,18)&feminize[you]+=rndfem&tits[you]+=rand(7,15)&ass[you]+=rand(15,25)&vag[you]=1&dick[you]=0&dickd[you]=0&ball[you]=0
 	womenbrain[you]+=50&pubis_t[you]=5	&lips[you]+=2&skin[you]=6&r_leg_t[you]=1&solo=0&horny[sutener]=25&horny[tbigg]=25&horny[mgreen]=25
 	pose[you]=2&whoreboss[you]=sutener&iwhore[you]=sutener&know_whore['<<mgreen>>,<<you>>']+=100&know_whore['<<tbigg>>,<<you>>']+=100&know_whore['<<sutener>>,<<you>>']+=100

@@ -152,6 +152,8 @@
       <Location name="image_preview"/>
       <Location name="get_images"/>
       <Location name="dick_fig"/>
+      <Location name="vag_fig"/>
+      <Location name="anus_fig"/>
     </Folder>
     <Folder name="Статы">
       <Location name="stat"/>

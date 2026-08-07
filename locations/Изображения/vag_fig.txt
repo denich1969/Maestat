@@ -1,0 +1,12 @@
+﻿if vag[args[0]]=1 and vag[args[0]]=1:$vag_txt[args[0]]='<<$name[args[0]]>> - девственница'&vag_pic[args[0]]=0
+if vag[args[0]]>=2 and vag[args[0]]<15:$vag_txt[args[0]]='<<$name[args[0]]>> имеет более не невинное, но ещё узкое влагалище'&vag_pic[args[0]]=1
+if vag[args[0]]>=15 and vag[args[0]]<35:$vag_txt[args[0]]='<<$name[args[0]]>> имеет эластичное влагалище, познавшее не один крепкий член'&vag_pic[args[0]]=2
+if vag[args[0]]>=35 and vag[args[0]]<55:$vag_txt[args[0]]='<<$name[args[0]]>> имеет слегка приоткрытое эластичное влагалище опытной женщины'&vag_pic[args[0]]=3
+if vag[args[0]]>=55 and vag[args[0]]<75:$vag_txt[args[0]]='<<$name[args[0]]>> имеет мокрую вагину опытной и страстной женщины;'&vag_pic[args[0]]=4
+if vag[args[0]]>=75 and vag[args[0]]<90:$vag_txt[args[0]]='<<$name[args[0]]>> имеет потасканную приоткрытую и податливую пизду, познавшую немало крепких хуёв'&vag_pic[args[0]]=5
+if vag[args[0]]>=90 and vag[args[0]]<110:$vag_txt[args[0]]='<<$name[args[0]]>> имеет рыхлую мягкую пизду, регулярно принимающую толстые крепкие хуи'&vag_pic[args[0]]=6
+if vag[args[0]]>=110 and vag[args[0]]<160:$vag_txt[args[0]]='<<$name[args[0]]>> имеет раздолбанную широкую сочащуюся пизду, часто принимающую толстые крепкие хуи, иногда сразу по несколько'&vag_pic[args[0]]=7
+if vag[args[0]]>=161:$vag_txt[args[0]]='<<$name[args[0]]>> имеет широченную, как зияющая пропасть, пиздень шлюхи, разъёбаную множеством хуёв во время ежедневных секс-марафонов'&vag_pic[args[0]]=8
+if skin[args[0]]>3:$vag_pic[args[0]]='<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[args[0]]>><<vag_pic[args[0]]>>.jpg"  width="100" height="100"></center>'
+if skin[args[0]]<4:$vag_pic[args[0]]='<center><img src="pic/vag/<<vag_tipe[args[0]]>><<vag_pic[args[0]]>>.jpg"  width="100" height="100"></center>'
+$vag_txt[args[0]]+=$vag_pic[args[0]]

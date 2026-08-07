@@ -36,7 +36,7 @@ if(girlfriend[you]=npc or girlfriend[npc]=you or boyfriend[you]=npc or boyfriend
 		end
 	end
 !Для всего что не в отношениях
-elseif (girlfriend[npc]!you or boyfriend[npc]!you or husband[npc]!you or wife[npc]!you) and forbidsex[npc]=0 and dom[you]=>30:
+elseif (girlfriend[npc]!you or boyfriend[npc]!you or husband[npc]!you or wife[npc]!you) and forbidsex[npc]=0 and dom[you]>dom[npc]+10:
 	if wife[npc]=you or mother[npc]=you:
 		$text_act="Не позорь нашу семью, я запрещаю тебе трахаться со всеми подряд."
 	elseif girlfriend[npc]!you or boyfriend[npc]!you or husband[npc]!you or sexpartner['<<npc>>,<<you>>']>0:

@@ -66,7 +66,7 @@ if sluttySisQW>5 and npc=sister:
 		end
 	end
 	if sluttySisQW=9:
-		act'<b>А что за ведьмы помогала тебе меня превратить в девушку?</b>':
+		act'<b>А что за ведьма помогала тебе меня превратить в девушку?</b>':
 			cls&'<center><img src="<<$d_view>>" ></center>'
 			'<<$name[npc]>> усмехается - <<$name[you]>>, ну какая из тебя девушка? Ты уже блядинка, смирись с этим.'
 			act'Ну пожалуйста!':
@@ -309,7 +309,8 @@ if dick[you]>1 and pol[npc]>0 and brother[you]!npc and father[you]!npc and mothe
 							end
 						end
 					else
-						if orgasm[npc]=0:'<<$name[npc]>> окидывает вас насмешливым взглядом - Подрасти немного, мальчик.'
+						if orgasm[npc]=0 and age[you]<age[npc] and pol[you]=0:'<<$name[npc]>> окидывает вас насмешливым взглядом - Подрасти немного, мальчик.'
+						if orgasm[npc]=0 and age[npc]<=age[you]:'<<$name[npc]>> окидывает вас насмешливым взглядом - мне приятно, твоё внимание, но мы ещё недостаточно знакомы.'
 					end
 				end
 			end

@@ -333,7 +333,7 @@ if anus[num]>=10 and anus[num]<20:$anus[num]='Анус в виде звездо�
 if anus[num]>=20 and anus[num]<40:$anus[num]='Рабочий анус в виде щелки'&anus_pic[num]=3
 if anus[num]>=40 and anus[num]<80:$anus[num]='Раздолбанный анус в виде щели'&anus_pic[num]=4
 if anus[num]>=80 and anus[num]<150:$anus[num]='Сильно поношенная анальная дырка'&anus_pic[num]=5
-if anus[num]>=150:$anus[num]='Не закрывающаяся разъебанная дыра в жопе'&anus_pic[num]=5
+if anus[num]>=150:$anus[num]='Не закрывающаяся разъебанная дыра в жопе'&anus_pic[num]=6
 $full_genital[num]=$genital[num]+' '+$anus[num]
 !if l_slot[num]>0 or (ul_slot[num]>0) or (t_slot[num]>0 and long_t[t_slot[num]]>0 and sheer[t_slot[num]]=0):
 if (l_slot[num]>0 or ul_slot[num]>0 or (t_slot[num]>0 and long_t[t_slot[num]]>0 and sheer[t_slot[num]]=0)) and $UCASE($ARGS[0]) ! 'RETURN_DESC':$genital[num]=''&$anus[num]=''

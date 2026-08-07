@@ -113,7 +113,7 @@ if pol[npc]>0 and dick[you]>0 and l_slot[you]=0 and (t_slot[you]=70 or t_slot[yo
 	act'Ку-Ку!':
 		 cls&gs'stat'
 		 if skin[you]<4:
-			gs 'dick_fig','you'&!Изображения члена в зависимости от размеров
+			gs 'dick_fig',you&!Изображения члена в зависимости от размеров
 		else
 			'<center><video autoplay loop src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
 		end

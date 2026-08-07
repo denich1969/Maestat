@@ -288,7 +288,7 @@ $d_hard_fss_pose_two = {
 	if skin[npc]>3 and skin[npc]<7:
 		'<center><video autoplay loop src="pic/sex/bbc/before_blow<<rand(0,29)>>.webm" ></video></center>'
 	else
-		gs 'dick_fig','npc'&!Изображения члена в зависимости от размеров
+		gs 'dick_fig',npc&!Изображения члена в зависимости от размеров
 	end
 	'<b>Вы на коленях</b>'
 	act'Сосать':

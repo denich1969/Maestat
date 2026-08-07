@@ -330,9 +330,9 @@ if hod=0:
 	act'Выжидать':hod=1&energy[you]+=5&gt $curloc
 	if energy[you]>=50 and pose[you]=1 and cant_fight_run=0:
 		act'Убежать':
-			hod=1&rander=rand(1,10)&if stunV>0:rander=0
-		    if rander<8:
-				energy[you]-=50&busy[you]=0&run[you]+=1&gt 'preloc'
+			hod=1&if stunV>0:rander=0
+		    if rand(1,10)<8:
+				energy[you]-=50&busy[you]=0&run[you]+=1&X[you]+=rand(1)&Y[you]+=iif(X[you]>0,rand(1),1)&H[you]=0&gt 'world'
 		    else
 				energy[you]-=50&gt $curloc
 		    end

@@ -166,19 +166,19 @@ if sex_scene_npc[args[100]]>0:
 			if sex_last_orgazm[sex_cel]>0 and $args[2]='':
 				if dick[sex_cel]=0:
 					if oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0 or oral_throat_spec_fuckers_horny_isset[sex_cel]>0: 
-						if sex_cel!you:'<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
-						if sex_cel=you:'<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
+						if sex_cel!you:*nl '<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
+						if sex_cel=you:*nl '<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
 					else
-						if sex_cel!you:'<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
-						if sex_cel=you:'<b>Вы изгибаете в оргазме и громко стонете</b>'
+						if sex_cel!you:*nl '<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
+						if sex_cel=you:*nl '<b>Вы изгибаете в оргазме и громко стонете</b>'
 					end
 				else	
 					if oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0 or oral_throat_spec_fuckers_horny_isset[sex_cel]>0: 
-						if sex_cel!you:'<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
-						if sex_cel=you:'<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
+						if sex_cel!you:*nl '<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
+						if sex_cel=you:*nl '<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
 					else
-						if sex_cel!you:'<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
-						if sex_cel=you:'<b>Вы изгибаете в оргазме и громко стонете</b>'
+						if sex_cel!you:*nl '<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
+						if sex_cel=you:*nl '<b>Вы изгибаете в оргазме и громко стонете</b>'
 					end
 				end	
 			end

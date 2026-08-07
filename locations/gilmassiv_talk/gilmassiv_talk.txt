@@ -9,12 +9,10 @@
 				t_slot[npc]=rand(31,36)&tipelow=rand(0,2)&l_slot[npc]=iif(tipelow=0,rand(15,22),iif(tipelow=1,rand(45,51),rand(70,79)))&b_slot[npc]=rand(34,36)&ut_slot[npc]=0&ul_slot[npc]=0&ub_slot[npc]=0
 				gs'add_sex_stat',bocman,npc&if vag[npc]>0:vag[npc]+=1&vagsex[npc]+=1&avagsex[bocman]+=1
 				anus[npc]+=1&anal[npc]+=1&aanal[bocman]+=1&bj[npc]+=1&abj[bocman]+=1&if throat[npc]<10:throat[npc]=10
-				if dick[bocman]>throat[npc]:throat[npc]+=1
-				$surnamemylastfucker[npc]=$surname[bocman]
+				$surnamemylastfucker[npc]=$surname[bocman]&if dick[bocman]>throat[npc]:throat[npc]+=1
 				$global_npc_log[bocman]+='<br>'&$global_npc_log[bocman]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> была выебана мной и опущена до шлюх'
 				$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[bocman]>> <<$surname[bocman]>> выебал меня и опустил меня до шлюх.'
-				X[npc]=X[bocman]&Y[npc]=Y[bocman]&Z[npc]=Z[bocman]&H[npc]=H[bocman]&R[npc]=R[bocman]
-				X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&act'Уйти':gt'preloc'
+				X[npc]=X[bocman]&Y[npc]=Y[bocman]&Z[npc]=Z[bocman]&H[npc]=H[bocman]&R[npc]=R[bocman]&X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&act'Уйти':gt'preloc'
             end
         end
     end

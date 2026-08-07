@@ -36,7 +36,7 @@ if sexpower[npc]>0:
 		if skin[npc]>3 and skin[npc]<7:
 			'<center><video autoplay loop src="pic/sex/bbc/before_blow<<rand(0,29)>>.webm" ></video></center>'
 		else
-			gs 'dick_fig','npc'&!Изображения члена в зависимости от размеров
+			gs 'dick_fig',npc&!Изображения члена в зависимости от размеров
 		end
 		'<b>Вы на коленях</b>'
 		if you_dirty_slut[npc]>=10 or corrupto>=75:

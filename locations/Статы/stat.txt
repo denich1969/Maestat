@@ -295,7 +295,7 @@ if visout_panties[you]=4 and (UI_ELEMENT_STATE[89]=0 or CONFIG['UI_EDITOR'] = 1)
 end
 if visout_panties[you]=5 and (UI_ELEMENT_STATE[89]=0 or CONFIG['UI_EDITOR'] = 1):
 	forhorn[you]+=25&$view_nudepant='<center><video autoplay loop src="pic/clo/nopant/pant4.webm"  ></video></center>'
-	pl'<b>Все видят<a href="exec:$view_nudepant"> ваши трусики</b>' + $func("generate_links", 89, 14)
+	if pol[you]>0:pl'<b>Все видят<a href="exec:$view_nudepant"> ваши трусики</b>' + $func("generate_links", 89, 14)
 end
 if visible_nipple[you]=1 and (UI_ELEMENT_STATE[10]=0 or CONFIG['UI_EDITOR'] = 1):
     if t_slot[you]=32:

@@ -446,12 +446,12 @@ act'Посмотреть между ног':
 				if vag_tipe[you]=2:$genitaliihh='волосатая'
 				'<center><img src="pic/sex/germo.jpg" ></center>'&'Вы посмотрели между ног, где помимо пениса <<dick[you]>> см. длинны, видна и <<$genitaliihh>> женская пизда.'
 			else
-				gs 'dick_fig','you'&!Изображения члена в зависимости от размеров
-				'Вы осмотрели свой член. Он длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
+				gs 'dick_fig',you&!Изображения члена в зависимости от размеров
+				'Вы осмотрели свой член длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
 			end
 		else
 			'<center><video autoplay loop src="pic/sex/blackcockshow<<rand(0,10)>>.webm"></video></center>'
-			'Вы осмотрели свой член. Он длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
+			'Вы осмотрели свой член длиной <<dick[you]>> сантиметров и толщиной <<dickd[you]/10>>,<<dickd[you] mod 10>> сантиметров.'
 		end
 	else
 		if vag[you]<1:
@@ -484,11 +484,7 @@ act'Посмотреть анус':
 		$gend='m'
 		if pol[you]>0 and dick[you]>0:$gend='s'
 		if vag[you]>=1:$gend=''
-		if vag[you]>0 and rand(1,3)=2:
-			'<center><video autoplay loop src="pic/anus/<<anus_pic[you]>>.webm" ></video></center>'
-		else
-			'<center><img src="pic/anus/<<$gend>><<$colorSkin>><<anus_pic[you]>>.jpg" ></center>'
-		end
+		$iif(vag[you]>0 and rand(1,3)=2,'<center><video autoplay loop src="pic/anus/<<anus_pic[you]>>.webm" ></video></center>','<center><img src="pic/anus/<<$gend>><<$colorSkin>><<anus_pic[you]>>.jpg" ></center>')
 		'Вы наклонились и осмотрели свой анус. <<$anus[you]>>'
 	   	if item[130]>0:
 			act'Засунуть анальную затычку':

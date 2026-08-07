@@ -23,7 +23,7 @@ if pol[npc]>0:
 			anal_mass['<<you>>,<<npc>>']+=1&anal[npc]+=1&aanal[you]+=1&!p_anal['<<npc>>,<<you>>']+=1
 			$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> избил меня и изнасиловал.'
 			$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> была избита мной и изнасилована в жопу.'
-			gs'stat'
+			gs'stat'&if anus[npc]=1:anal_deflorator[npc]=you
 			if dick[npc]=0:'<center><video autoplay loop src="pic/sex/degraded/fucked<<rand(0,41)>>.webm" ></video></center>'
 			if dick[npc]>0:'<center><video autoplay loop src="pic/sex/degraded/fuckeds<<rand(0,4)>>.webm" ></video></center>'
 			'Вы прижали всем весом к земле свою несчастную жертву и уперлись ей стояком в нежную дырочку. Тугой анус не выдержал и впустил в себя ваш член. '

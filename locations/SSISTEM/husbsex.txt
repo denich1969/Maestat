@@ -28,9 +28,9 @@ $d_js_cum={
 $d_js_anal={
 	act'Трахнуть в жопу':
 		corr[npc]+=10&anal_mass['<<you>>,<<npc>>']+=1&anal[npc]+=1&aanal[you]+=1&if manamax[you]>0:mana[you]+=soul[you]
-		sexpower[you]-=1&!p_anal['<<npc>>,<<you>>']+=1
-		cls&gs'stat'&$func('get_images', 'anal_fuck_dog', npc, you)&'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'
-		gs'fuck_anal',you,npc&gs'fuck_final',in_sex[you]&gs'stat'
+		sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'anal_fuck_dog', npc, you)
+		'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'&anus[npc]+=1&if anus[npc]=1:anal_deflorator[npc]=you
+		gs'fuck_anal',you,npc&gs'fuck_final',in_sex[you]&gs'stat'&!p_anal['<<npc>>,<<you>>']+=1
 		if sexpower[you]<=0:
 			act'Кончить внутрь':
 				horny[you]=0&cls&gs'stat'&$func('get_images', 'anal_cream_dog', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей в задницу'&act'Уйти':gt 'preloc'
@@ -42,13 +42,9 @@ $d_js_anal={
 $d_js_sex={
  if vag[npc]>0:
 	act'Оттрахать':
-		vag_mass['<<you>>,<<npc>>']+=1&vagsex[npc]+=1&avagsex[you]+=1&energy[you]+=100&sexpower[you]-=1
-		cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)&'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет когда вы ее трахаете'
-		if vag[npc]=1:
-			'<<$name[npc]>> стонет, вы чувствуете что рвете ей девственную плеву и ваш член обагряет кровь'
-		else
-			'<<$name[npc]>> стонет пока вы ее трахаете'
-		end
+		vag_mass['<<you>>,<<npc>>']+=1&vagsex[npc]+=1&avagsex[you]+=1&energy[you]+=100&sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
+		$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
+		'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
 		gs'fuck_vag',you,npc&gs'fuck_final',in_sex[you]&gs'stat'
 		if sexpower[you]<=0:
 			act'Кончить внутрь':
@@ -65,12 +61,9 @@ $d_js_sex={
 $d_js_sex_second={
  if vag[npc]>0:
 	act'Оттрахать':
-		sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)&'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет когда вы ее трахаете'
-		if vag[npc]=1:
-			'<<$name[npc]>> стонет, вы чувствуете что рвете ей девственную плеву и ваш член обагряет кровь'
-		else
-			'<<$name[npc]>> стонет пока вы ее трахаете'
-		end
+		sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
+		$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
+		'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
 		gs'fuck_vag',you,npc&gs'fuck_final',in_sex[you]&gs'stat'
 		if sexpower[you]<=0:
 			act'Кончить внутрь':
@@ -88,7 +81,7 @@ gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> обним�
 if dick[you]>1:
 	act'Дать в рот':
 		bj_mass['<<you>>,<<npc>>']+=1&bj[npc]+=1&abj[you]+=1&health[you]+=50&sexpower[you]-=1
-		cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'
+		cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'&if bj[npc]=0:oral_deflorator[npc]=you
 		gs'fuck_oral',you,npc&gs'fuck_final',in_sex[you]&gs'stat'&if sexpower[you]<=0:dynamic $d_js_cum	
 		if ball[you]>=50:dynamic $d_js_sex&dynamic $d_js_anal
 	end	
@@ -98,8 +91,9 @@ else
 	$d_fingering_lesb={
 		act'Трахнуть пальцами':
 			if agro[npc]>0:agro[npc]-=1
-			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/lesb/finger<<rand(0,1)>>.webm" ></video></center>'
-			'Засунув пальцы в вагину своей жены, вы начали ее ебать рукой, от чего <<$name[npc]>> быстро завелась и кончила.'&act'Уйти':gt 'preloc'
+			$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваши пальцы обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
+			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/lesb/finger<<rand(0,1)>>.webm" ></video></center>'&act'Уйти':gt 'preloc'
+			'Засунув пальцы в вагину своей жены, вы начали ее ебать рукой'&*nl $defl&*nl'<<$name[npc]>> быстро завелась и кончила.'&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
 		end
 	}
 	act'Целовать':

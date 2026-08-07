@@ -1,4 +1,6 @@
 ﻿'<center><img src="pic/loc/komod.jpg" ></center>'
+if money[you]>0:act'Положить деньги в комод':moneykomod+=money[you]&money[you]=0&cls&gs'stat'&gt 'world'
+if moneykomod>0:'В комоде лежит <<moneykomod>> центов'&act'Забрать деньги из комода':money[you]+=moneykomod&moneykomod=0&cls&gs'stat'&gt 'world'
 act'Рыться в комоде':
 	rndel=iif(goldpoison=1,rand(5,9),rand(1,9))
 	if rndel=7:

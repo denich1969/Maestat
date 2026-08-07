@@ -3,10 +3,7 @@ if openmouth=0:
 	'<center><img src="<<$d_view>>" ></center>'&act'Рот открой':openmouth=1&gt $curloc
 	if $slavename[npc]='':'<b><<$name[npc]>> стоит покорно глядя в пол</b>'&$tempname=$name[npc]
 	if $slavename[npc]!'':'<b><<$slavename[npc]>> стоит покорно глядя в пол</b>'&$tempname=$slavename[npc]
-	if agro[npc]<25:needhum=10
-	if agro[npc]>=25 and agro[npc]<50:needhum=50
-	if agro[npc]>=50 and agro[npc]<75:needhum=100
-	if agro[npc]>=75:needhum=200
+	needhum=iif(agro[npc]<25,10,iif(agro[npc]>=25 and agro[npc]<50,50,iif(agro[npc]>=50 and agro[npc]<75,100,200)))
 	if humiliate[npc]>=needhum*10:'Рабыня плачет и умоляет прекратить экзекуцию'
 	if humiliate[npc]>needhum and humiliate[npc]<needhum*10:'Глаза рабыни влажные и она кажется готова заплакать'
 	if humiliate[npc]<=needhum:'Рабыня хмурится и испытывает неловкость'
@@ -15,14 +12,8 @@ else
 	'<center><img src="pic/sex/bdsm/open<<temphcol>>.jpg" ></center>'&'Рабыня раскрыла рот и вытащила язык'&act'Рот закрой':openmouth=0&gt $curloc
 end
 act'Пощечина':
-    if selfrespect[npc]=0:humiliate[npc]+=1
-    if selfrespect[npc]=1:humiliate[npc]+=5
-    if selfrespect[npc]=2:humiliate[npc]+=10
-    if brave[npc]=0:humiliate[npc]+=10
-    if brave[npc]=1:humiliate[npc]+=5
-    if brave[npc]=2:humiliate[npc]+=1
-    humiliate[npc]+=lust[npc]/10
-	cls&gs'stat'
+	humiliate[npc]+=iif(selfrespect[npc]=0,1,iif(selfrespect[npc]=1,5,iif(selfrespect[npc]=2,10,0)))&humiliate[npc]+=iif(brave[npc]=0,10,iif(brave[npc]=1,5,iif(brave[npc]=2,1,0)))
+    humiliate[npc]+=lust[npc]/10&cls&gs'stat'
 	if skin[you]>4 and skin[you]<7:
 		'<center><video autoplay loop src="pic/sex/degraded/bbcslap<<rand(0,8)>>.webm" ></video></center>'&'Вы отвешиваете звонкую пощечину и рабыня хватается за лицо'
 	else
@@ -31,17 +22,11 @@ act'Пощечина':
 	act'...':gt $curloc
 end
 act'Плюнуть':
-	if selfrespect[npc]=0:humiliate[npc]+=1
-	if selfrespect[npc]=1:humiliate[npc]+=10
-	if selfrespect[npc]=2:humiliate[npc]+=15
-	if brave[npc]=0:humiliate[npc]+=5
-	if brave[npc]=1:humiliate[npc]+=2
-	if brave[npc]=2:humiliate[npc]+=1
-	humiliate[npc]+=lust[npc]/10
-	cls&gs'stat'
+	humiliate[npc]+=iif(selfrespect[npc]=0,1,iif(selfrespect[npc]=1,10,iif(selfrespect[npc]=2,15,0)))&humiliate[npc]+=iif(brave[npc]=0,5,iif(brave[npc]=1,2,iif(brave[npc]=2,1,0)))
+	humiliate[npc]+=lust[npc]/10&cls&gs'stat'
 	if pol[you]>0:'<center><video autoplay loop src="pic/sex/bdsm/spit_lesb0.webm" ></video></center>'
 	if pol[you]=0:
-		if skin[you]>4:
+		if skin[you]>4 and skin[you]<7:
 			'<center><video autoplay loop src="pic/sex/degraded/bbcspit<<rand(0,5)>>.webm" ></video></center>'&'Вы харкаете в лицо своей рабыне'
 		else
 			'<center><video autoplay loop src="pic/sex/degraded/spit<<rand(0,6)>>.webm" ></video></center>'&'Вы харкаете в лицо своей рабыне'
@@ -50,44 +35,26 @@ act'Плюнуть':
 	act'...':gt $curloc
 end
 act'Вылижи мне обувь!':
-    if selfrespect[npc]=0:humiliate[npc]+=1
-    if selfrespect[npc]=1:humiliate[npc]+=15
-    if selfrespect[npc]=2:humiliate[npc]+=20
-    if brave[npc]=0:humiliate[npc]+=1
-    if brave[npc]=1:humiliate[npc]+=2
-    if brave[npc]=2:humiliate[npc]+=3
-    humiliate[npc]+=lust[npc]/10
-	cls&gs'stat'&act'...':gt $curloc
+	humiliate[npc]+=iif(selfrespect[npc]=0,1,iif(selfrespect[npc]=1,15,iif(selfrespect[npc]=2,20,0)))&humiliate[npc]+=iif(brave[npc]=0,1,iif(brave[npc]=1,2,iif(brave[npc]=2,3,0)))
+    humiliate[npc]+=lust[npc]/10&cls&gs'stat'&act'...':gt $curloc
 	if pol[you]>0:'<center><video autoplay loop src="pic/sex/degraded/licklesb.webm" ></video></center>'&*nl'Рабыня встает на колени и начинает облизывать вашу обувь'
 	if pol[you]=0:'<center><video autoplay loop src="pic/sex/degraded/lick.webm" ></video></center>'&*nl'Раб встает на колени и начинает облизывать вашу обувь'
 end
 if energy[you]>=10:
 	act'Порка!':
-		energy[you]-=10
-		if selfrespect[npc]=0:humiliate[npc]+=10
-		if selfrespect[npc]=1:humiliate[npc]+=25
-		if selfrespect[npc]=2:humiliate[npc]+=50
-		if brave[npc]=0:humiliate[npc]+=50
-		if brave[npc]=1:humiliate[npc]+=25
-		if brave[npc]=2:humiliate[npc]+=10
-		humiliate[npc]+=lust[npc]/10
-		cls&gs'stat'&act'...':gt $curloc
+		humiliate[npc]+=iif(selfrespect[npc]=0,10,iif(selfrespect[npc]=1,25,iif(selfrespect[npc]=2,50,0)))&humiliate[npc]+=iif(brave[npc]=0,50,iif(brave[npc]=1,25,iif(brave[npc]=2,10,0)))
+		humiliate[npc]+=lust[npc]/10&energy[you]-=10&cls&gs'stat'&act'...':gt $curloc
 		if pol[you]>0:'<center><video autoplay loop src="pic/sex/bdsm/lesb_spank0.webm" ></video></center>'&*nl'Вы положили рабыню к себе на колени и начали пороть ей задницу'
 		if pol[you]=0:'<center><video autoplay loop src="pic/sex/bdsm/dom_spank0.webm" ></video></center>'&*nl'Вы положили раба  к себе на колени и начали пороть его задницу'
 	end
 end
 $d_endslave={
 	if humiliate[npc]>=needhum*10:
-		humiliate[npc]=0
-	    if agro[npc]>0:agro[npc]-=1
-		if agro[npc]<25:submission[npc]+=25
-		if agro[npc]>=25 and agro[npc]<50:submission[npc]+=10
-		if agro[npc]>=50 and agro[npc]<75:submission[npc]+=5
-		if agro[npc]>=75:submission[npc]+=1
+		humiliate[npc]=0&if agro[npc]>0:agro[npc]-=1
+		submission[npc]+=iif(agro[npc]<25,25,iif(agro[npc]>=25 and agro[npc]<50,10,iif(agro[npc]>=50 and agro[npc]<75,5,1)))
 	end
 	if humiliate[npc]>needhum and humiliate[npc]<needhum*10:
-		humiliate[npc]=0
-		if agro[npc]>0:agro[npc]-=1
+		humiliate[npc]=0&if agro[npc]>0:agro[npc]-=1
 		submission[npc]+=1
 	end
 	if humiliate[npc]<=needhum:
@@ -129,14 +96,12 @@ if energy[you]>=50:
 			act'Ввести кулак':
 				cls&gs'stat'&act'Вынуть':gt $curloc
 				if anus[npc]>=40:
-					if pol[you]>0:'<center><video autoplay loop src="pic/sex/lesb/anal_fist1.webm" ></video></center>'
-					if pol[you]=0:'<center><video autoplay loop src="pic/sex/fisting/1.webm" ></video></center>'
+					$iif(pol[you]=0,'<center><video autoplay loop src="pic/sex/fisting/1.webm" ></video></center>','<center><video autoplay loop src="pic/sex/lesb/anal_fist1.webm" ></video></center>')
 					anus[npc]+=1&humiliate[npc]+=5&'Ваш кулак спокойно входит в попу рабыни'
 				end
 				if anus[npc]>=20 and anus[npc]<40:
 					anus[npc]+=5&humiliate[npc]+=20
-					if pol[you]>0:'<center><video autoplay loop src="pic/sex/lesb/anal_fist0.webm" ></video></center>'
-					if pol[you]=0:'<center><video autoplay loop src="pic/sex/fisting/3.webm" ></video></center>'
+					$iif(pol[you]=0,'<center><video autoplay loop src="pic/sex/fisting/3.webm" ></video></center>','<center><video autoplay loop src="pic/sex/lesb/anal_fist0.webm" ></video></center>')
 					'Попка постепенно сдается и ваш кулак проходит внутрь'
 				end
 			end
@@ -148,8 +113,7 @@ if item[31]>0 and energy[you]>50:
 	act'Дилдо в попу':
 		energy[you]-=50&cls&gs'stat'&act'...':gt $curloc
 		if anus[npc]>=30:
-			if pol[you]=0:'<center><video autoplay loop src="pic/sex/fisting/dildo_hard.webm" ></video></center>'
-			if pol[you]>0:'<center><video autoplay loop src="pic/sex/lesb/dildo_anal0.webm" ></video></center>'
+			$iif(pol[you]=0,'<center><video autoplay loop src="pic/sex/fisting/dildo_hard.webm" ></video></center>','<center><video autoplay loop src="pic/sex/lesb/dildo_anal0.webm" ></video></center>')
 		else
 			'<center><video autoplay loop src="pic/sex/lesb/dildo_anal0.webm" ></video></center>'
 		end

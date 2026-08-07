@@ -8,7 +8,7 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 	else
 		act'Навалить на клыка':
 			sexpower[you]-=1&temp_blow+=1&cls&gs'stat'
-			if skin[you]>4:
+			if skin[you]>4 and skin[you]<7:
 				'<center><video autoplay loop src="pic/sex/public/bbc_blow<<rand(0,21)>>.webm" ></video></center>'
 		    else
 				'<center><video autoplay loop src="pic/sex/public/blow<<rand(0,27)>>.webm" ></video></center>'
@@ -39,24 +39,12 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 			act'Выебать в пизду':
 				temp_vag+=1&sexpower[you]-=1&cls&gs'stat'
 				if skin[you]>4 and skin[you]<7:
-				    if rand(1)=1:
-				         '<center><video autoplay loop src="pic/sex/public/bbc_p<<rand(0,12)>>.webm" ></video></center>'
-				    else
-				        '<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(1,16)>>.webm" ></video></center>'
-				    end
+				    $iif(rand(1)=1,'<center><video autoplay loop src="pic/sex/public/bbc_p<<rand(0,12)>>.webm" ></video></center>','<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(1,16)>>.webm" ></video></center>')
 				 else
-				    if rand(1)=1:
-				         '<center><video autoplay loop src="pic/sex/public/p<<rand(0,20)>>.webm" ></video></center>'
-				    else
-				        '<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
-				    end
+				    $iif(rand(1)=1,'<center><video autoplay loop src="pic/sex/public/p<<rand(0,20)>>.webm" ></video></center>','<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>')
 				end
-				'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет когда вы ее трахаете'
-				if vag[npc]=1:
-					'<<$name[npc]>> стонет, вы чувствуете что рвете ей девственную плеву и ваш член обагряет кровь'
-				else
-					'<<$name[npc]>> стонет пока вы ее трахаете'
-				end
+				$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
+				'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
 				gs'fuck_vag',you,npc
 				args[10]=func('fuck_final',in_sex[you])&!Ситуативный бонус
 				horny[npc]+=horny[npc]*(corr[npc]-50)/100
@@ -66,7 +54,7 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 					act'...':gt $curloc
 					act'Залить в глотку феминизатор':
 						item[79]-=1&burden[you]-=item_burden[79]&cls&gs'stat'&feminize[npc]+=5&if agro[npc]>20:agro[npc]-=1
-						if skin[you]>4:
+						if skin[you]>4 and skin[you]<7:
 						    '<center><video autoplay loop src="pic/sex/vag_fem_bbc<<rand(0,6)>>.webm" ></center>'
 						    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 						else
@@ -91,39 +79,29 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 				    if dick[npc]>0:
 				        '<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>'
 				    else
-				        if rand(1)=1:
-				            '<center><video autoplay loop src="pic/sex/public/bbc_a<<rand(0,7)>>.webm" ></video></center>'
-				        else
-				            '<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>'
-				        end
+				        $iif(rand(1)=1,'<center><video autoplay loop src="pic/sex/public/bbc_a<<rand(0,7)>>.webm" ></video></center>','<center><video autoplay loop src="pic/sex/public/bbc_s<<rand(0,16)>>.webm" ></video></center>')
 				    end
 				else
 				    if dick[npc]>0:
 				        '<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
 				    else
-				        if rand(1)=1:
-				            '<center><video autoplay loop src="pic/sex/public/a<<rand(0,4)>>.webm" ></video></center>'
-				        else
-				            '<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>'
-				        end
+				        $iif(rand(1)=1,'<center><video autoplay loop src="pic/sex/public/a<<rand(0,4)>>.webm" ></video></center>','<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>')
 				    end
 				end
-				'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу.'
+				'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу.'&if anus[npc]=1:anal_deflorator[npc]=you
 				if dickd[you]>anus[npc]:
-					anus[npc]+=3&'<<$name[npc]>> морщится от боли и напрягается когда член трахает ее узкую попу'
+					anus[npc]+=iif(anus[npc]=1,1,3)&'<<$name[npc]>> морщится от боли и напрягается когда член трахает ее узкую попу'
 				else
-					'<<$name[npc]>> стонет при каждом движении члена в ее попке'
+					anus[npc]+=1&'<<$name[npc]>> стонет при каждом движении члена в ее попке'
 				end
 				gs'fuck_anal',you,npc
 				args[10]=func('fuck_final',in_sex[you])
 				if anal_fixation[npc]>0 and orgasm[npc]<time:horny[npc]+=anal_fixation[npc]*(corr[npc]-50)/100
 				if horny[npc]<0:horny[npc]=0&'<<$name[npc]>> дергаеться и озираеться, ей явно не нравиться делать это на улице'	
 				act'...':gt $curloc
-				!if func('analslut',you,npc)>0 and sexpower[you]>0 and item[79]>0 and (ass_bonus_num[npc]<30 or tits[npc]<26) and (lust[npc]>=90 or agro[npc]<=10):
 				if args[10]>0 and sexpower[you]>0 and item[79]>0 and (ass_bonus_num[npc]<30 or tits[npc]<26) and (lust[npc]>=90 or agro[npc]<=10):
 					act'Залить в глотку феминизатор':
-						item[79]-=1&burden[you]-=item_burden[79]&cls&gs'stat'&feminize[npc]+=5
-						if agro[npc]>20:agro[npc]-=1
+						item[79]-=1&burden[you]-=item_burden[79]&cls&gs'stat'&feminize[npc]+=5&agro[npc]-=iif(agro[npc]>20,1,0)
 						if skin[you]>4:
 							'<center><video autoplay loop src="pic/sex/anal_fem_bbc<<rand(0,16)>>.webm" ></center>'
 							'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'

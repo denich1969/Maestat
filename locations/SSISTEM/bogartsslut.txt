@@ -15,8 +15,11 @@ act'Дрочить':
 		if horny[you]<100:
 			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/dcum<<rand(0,2)>>.webm" ></video></center>'
 			'<<$name[sss]>> поворачивает голову в вашу сторону, встает и садится киской на член'&*nl'<<$name[ddd]>> <<$surname[ddd]>> спускает в девушку, заливая ее матку своим семенем.'&*nl
-			if pol[you]=0:'<center><video autoplay loop src="pic/vids/podsm4.webm" ></video></center> Одной рукой девушка сжимает ваше горло, второй дрочит ваш член<br>
-				- Извращенец, твоя <<$status[sss]>> скачет на хую а ты дрочишь<br>- Смотри как твоя <<$status[sss]>> принимает чужую сперму в матку и кончай от моей руку '
+			if pol[you]=0:
+				'<center><video autoplay loop src="pic/vids/podsm4.webm" ></video></center> Одной рукой девушка сжимает ваше горло, второй дрочит ваш член<br>'
+				if $status[sss]!'':'- Извращенец, твоя <<$status[sss]>> скачет на хую, а ты дрочишь<br>'&*nl'- Смотри как твоя <<$status[sss]>> принимает чужую сперму в матку и кончай от моей руки '
+				if $status[sss]='':'- Извращенец, она скачет на хую, а ты дрочишь<br>'&*nl' - Смотри как она принимает сперму в матку и кончай от моей руки '
+			end
 			if pol[you]=1:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
 			creampie_cum[sss]=time+360&act'<b>Уйти</b>':gt 'preloc'
 		else

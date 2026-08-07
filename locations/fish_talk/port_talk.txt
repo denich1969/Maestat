@@ -993,7 +993,7 @@ if sportgirl=npc and (daystart>1 or hour>20) and sportzalQW<100:
 	end
 end
 if smartgirl=npc and (daystart>1 or hour>20):
-	if StealQW=0:
+	if StealQW=0 and know['<<you>>,<<captain>>']>0:
 		act'Как ты думаешь, как капитан находит сюда дорогу в этих туманах?':
 			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> задумывается - наверное у него есть что-то вроде компаса.'
 			   'Хороший вопрос, надо бы выяснить, вдруг получится вернуться домой.'&StealQW=1&act'<b>Закончить разговор</b>':gt 'preloc'

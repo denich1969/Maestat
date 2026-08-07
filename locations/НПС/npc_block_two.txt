@@ -10,9 +10,8 @@
 					end
 				else
 					act'Я хочу занятся с тобой сексом':
-						if sluttySisQW=3 and npc=sister and you=brother:sistersex+=1
-						friends[npc]+=1&gs'drop_follower'&gs'sexpower'&if blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:gt'justsex'
-						!if blocksex['<<$loc[you]>>']=1 or blocksexH['<<$loc[you]>>']=1:'Здесь запрещено, идём в другое место'&gt $curloc
+						friends[npc]+=1&gs'drop_follower'&gs'sexpower'&if blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:sistersex+=iif(sluttySisQW=3 and npc=sister and you=brother,1,0)&gt'justsex'
+						if blocksex['<<$loc[you]>>']=1 or blocksexH['<<$loc[you]>>']=1:'Здесь запрещено, идём в другое место'&gt $curloc
 					 end
 				end
 			end

@@ -1,5 +1,4 @@
-﻿anus[you]+=rand(7,12)&anal_egg[you]=0&egg[you]+=1&lastsex=time&tits[you]+=1&ass[you]+=rand(1,2)&if dick[you]>5:dick[you]-=1
-face[you]+=rand(2,5)&if dickd[you]>25:dickd[you]-=1
+﻿anus[you]+=rand(7,12)&anal_egg[you]=0&egg[you]+=1&lastsex=time&tits[you]+=1&ass[you]+=rand(1,2)&dick[you]-=iif(dick[you]>5,1,0)&dickd[you]-=iif(dickd[you]>25,1,0)&face[you]+=rand(2,5)
 if fat[you]>1000:fat[you]-=9
 if fat[you]>1500:fat[you]-=9
 if fat[you]>2000:fat[you]-=9
