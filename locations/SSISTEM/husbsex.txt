@@ -44,7 +44,8 @@ $d_js_sex={
 	act'Оттрахать':
 		vag_mass['<<you>>,<<npc>>']+=1&vagsex[npc]+=1&avagsex[you]+=1&energy[you]+=100&sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
 		$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
-		'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
+		if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_<<rand(3,5)>>.jpg"  width="200" height="200"></center>'
+		'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
 		gs'fuck_vag',you,npc&gs'fuck_final',in_sex[you]&gs'stat'
 		if sexpower[you]<=0:
 			act'Кончить внутрь':
@@ -63,7 +64,8 @@ $d_js_sex_second={
 	act'Оттрахать':
 		sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
 		$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
-		'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
+		if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_<<rand(3,5)>>.jpg"  width="200" height="200"></center>'
+		'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
 		gs'fuck_vag',you,npc&gs'fuck_final',in_sex[you]&gs'stat'
 		if sexpower[you]<=0:
 			act'Кончить внутрь':
@@ -80,8 +82,8 @@ $d_js_sex_second={
 gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> обнимает вас.'
 if dick[you]>1:
 	act'Дать в рот':
-		bj_mass['<<you>>,<<npc>>']+=1&bj[npc]+=1&abj[you]+=1&health[you]+=50&sexpower[you]-=1
-		cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'&if bj[npc]=0:oral_deflorator[npc]=you
+		bj_mass['<<you>>,<<npc>>']+=1&bj[npc]+=1&abj[you]+=1&health[you]+=50&sexpower[you]-=1&if bj[npc]=1 and throat[npc]<5:oral_deflorator[npc]=you&throat[npc]=5&gs 'oral_fig',npc
+		cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'&if bj[npc]=0:oral_deflorator[npc]=you&throat[npc]=5
 		gs'fuck_oral',you,npc&gs'fuck_final',in_sex[you]&gs'stat'&if sexpower[you]<=0:dynamic $d_js_cum	
 		if ball[you]>=50:dynamic $d_js_sex&dynamic $d_js_anal
 	end	

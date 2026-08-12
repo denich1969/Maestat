@@ -183,13 +183,15 @@ end
 if sexpartner['<<npc>>,<<you>>']>0 and bj_mass['<<you>>,<<npc>>']>0 and anal_mass['<<you>>,<<npc>>']>0 and (piss_mass['<<you>>,<<npc>>']>0 or CONFIG['DISABLE_PEE']=1) and orgasm[npc]>0:
 	'<<$name[npc]>> ваша нижняя которую вы можете иметь как хотите'&if mysubslut[npc]=0:mysubslut[npc]=1
 end
-if know_whore['<<npc>>,<<you>>']>0:'Знает что вы шлюха'
+gs 'oral_fig',npc&gs 'vag_fig',npc&gs 'anus_fig',npc&if know_whore['<<npc>>,<<you>>']>0:'Знает что вы шлюха'
 $iif(father[you]=npc,'<i>Ваш отец</i>','')&$iif(mother[you]=npc,'<i>Ваша мать</i>','')&$iif(sister[you]=npc,'<i>Ваш брат</i>','')&$iif(brother[you]=npc,'<i>Ваша сестра</i>','')
 if rapist['<<you>>,<<npc>>']=0:
-	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=0 and husband[you]!npc:'<b>Любовник</b>'&'<<$anus_txt[npc]>>'
-	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=1 and husband[you]!npc:'<b>Любовница</b>'&'<<$vag_txt[npc]>>'&'<<$anus_txt[npc]>>'
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=0 and husband[you]!npc:'<b>Любовник</b>'&'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=1 and husband[you]!npc:'<b>Любовница</b>'&'<<$vag_txt[npc]>>'&'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
 else
 	$iif(pol[npc]=0,'<b>Несчастный, которого вы изнасиловали</b>','<b>Несчастная, которую вы изнасиловали</b>')
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=0 and husband[you]!npc:'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=1 and husband[you]!npc:'<<$vag_txt[npc]>>'&'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
 end
 if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=90:'<i>Лучший друг</i>'
 if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=90:'<i>Лучшая подруга</i>'

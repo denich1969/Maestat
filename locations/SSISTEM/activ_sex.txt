@@ -6,32 +6,12 @@
 if sexpower[you]>0:
 	'Ваша сексуальная энергия <<sexpower[you]>>.'&*pl'Вы видите:'
 	if dick[npc]>0:
-		'<<dick[npc]>>-сантиметровый член <<$name[npc]>>;'
+		'<<$name[npc]>> имеет <<dick[npc]>>-сантиметровый член '
 	else
-		!if vag[npc]=1 and vag[npc]=1:$vag_txt[npc]='<<$name[npc]>> - девственница'&vag_pic[npc]=0
-		!if vag[npc]>=2 and vag[npc]<15:$vag_txt[npc]='<<$name[npc]>> имеет более не невинное, но ещё узкое влагалище'&vag_pic[npc]=1
-		!if vag[npc]>=15 and vag[npc]<35:$vag_txt[npc]='<<$name[npc]>> имеет эластичное влагалище, не раз познавшее крепкий член'&vag_pic[npc]=2
-		!if vag[npc]>=35 and vag[npc]<55:$vag_txt[npc]='<<$name[npc]>> имеет слегка приоткрытое эластичное влагалище опытной женщины'&vag_pic[npc]=3
-		!if vag[npc]>=55 and vag[npc]<75:$vag_txt[npc]='<<$name[npc]>> имеет мокрую вагину опытной и страстной женщины;'&vag_pic[npc]=4
-		!if vag[npc]>=75 and vag[npc]<90:$vag_txt[npc]='<<$name[npc]>> имеет потасканную приоткрытую и податливую пизду, познавшую немало крепких хуёв'&vag_pic[npc]=5
-		!if vag[npc]>=90 and vag[npc]<110:$vag_txt[npc]='<<$name[npc]>> имеет рыхлую мягкую пизду, регулярно принимающую толстые крепкие хуи'&vag_pic[npc]=6
-		!if vag[npc]>=110 and vag[npc]<160:$vag_txt[npc]='<<$name[npc]>> имеет раздолбанную широкую сочащуюся пизду, часто принимающую толстые крепкие хуи, иногда сразу по несколько'&vag_pic[npc]=7
-		!if vag[npc]>=161:$vag_txt[npc]='<<$name[npc]>> имеет широченную, как зияющая пропасть, пиздень шлюхи, разъёбаную множеством хуёв во время ежедневных секс-марафонов'&vag_pic[npc]=8
-		!if skin[npc]>3:$vag_pic[npc]='<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[you]>><<vag_pic[npc]>>.jpg"  width="100" height="100"></center>'
-		!if skin[npc]<4:$vag_pic[npc]='<center><img src="pic/vag/<<vag_tipe[you]>><<vag_pic[npc]>>.jpg"  width="100" height="100"></center>'
-		!$vag_txt[npc]+=$vag_pic[npc]&
 		gs 'vag_fig',npc&if vag[npc]>0 and pose[npc]=3:$vag_txt[npc]
 	end
-	if anus[npc]>0:
-		!$anus_pic[npc]='<center><img src="pic/anus/<<$colorSkin>><<anus_pic[npc]>>.jpg"  width="100" height="100"></center>'
-		!if anus[npc]=1:$anus_txt[npc]='<<$name[npc]>> имеет девственный анус'+$anus_pic[npc]
-		!if anus[npc]>=2 and anus[npc]<10:$anus_txt[npc]='<<$name[npc]>> имеет вход в анус в форме маленькой щелочки'+$anus_pic[npc]
-		!if anus[npc]>=10 and anus[npc]<20:$anus_txt[npc]='<<$name[npc]>> имеет вход в анус в форме звёздочки'+$anus_pic[npc]
-		!if anus[npc]>=20 and anus[npc]<30:$anus_txt[npc]='<<$name[npc]>> имеет рабочий анус со входом в форме заметной щёлки'+$anus_pic[npc]
-		!if anus[npc]>=30 and anus[npc]<50:$anus_txt[npc]='<<$name[npc]>> имеет раздолбанный припухший анус со входом  в форме раскрытой щели'+$anus_pic[npc]
-		!if anus[npc]>=50:$anus_txt[npc]='<<$name[npc]>> имеет незакрывающуюся разъебанную дыру в жопе'+$anus_pic[npc]
-		gs 'anus_fig',npc&if pose[npc]=4:$anus_txt[npc]
-	end
+	if pose[npc]=4:*clr&gs 'anus_fig',npc&$anus_txt[npc]
+	gs 'oral_fig',npc&if pose[npc]=2:*clr&$oral_txt[npc]
 	'Возбуждение <<$name[npc]>> - <<horny[npc]>> из 200.'
 	if pose[you]=1:
 		if pose[npc]<=1:
@@ -126,7 +106,8 @@ if sexpower[you]>0:
 							else
 								temp_vag+=1&sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
 								$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
-								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
+								if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_3.jpg"  width="200" height="200"></center>'
+								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you
 								gs'fuck_vag',you,npc&args[10]=func('fuck_final',in_sex[you])
 								if sexpower[you]>0:
 									act'...':gt $curloc
@@ -189,7 +170,8 @@ if sexpower[you]>0:
 							else
 								temp_vag+=1&sexpower[you]-=1&cls&$func('get_images', 'vag_fuck_dog', npc, you)
 								$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
-								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
+								if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_4.jpg"  width="200" height="200"></center>'
+								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you
 								gs'fuck_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
 								if sexpower[you]>0:
 									act'...':gt $curloc
@@ -222,8 +204,7 @@ if sexpower[you]>0:
 							if sexpower[you]>1:sexpower[you]-=1
 							cls&gs'can_varian_sex',you,npc&gs'stat'&act'Уйти':gt 'activ_sex'
 							if candoanal[npc]>0:
-								if slave[npc]=you:submission[npc]+=1
-								anus[npc]+=1&anal_gape[npc]=1&'<center><video autoplay loop src="pic/sex/fisting/<<rand(0,5)>>.webm" ></video></center>'
+								submission[npc]+=iif(slave[npc]=you,1,0)&anus[npc]+=1&anal_gape[npc]=1&'<center><video autoplay loop src="pic/sex/fisting/<<rand(0,5)>>.webm" ></video></center>'
 								if agro[npc]<=20:'<<$name[npc]>> спокойно позволяет вам запихивать пальцы в свою задницу.'
 								if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> терпит, когда вы пихаете ей пальцы в зад.'
 								if agro[npc]>=50:'<<$name[npc]>> старается убрать вашу руку, когда вы пихаете ей пальцы в зад.'
@@ -333,7 +314,7 @@ if sexpower[you]>0:
 				sexpower[you]-=1&agro[npc]+=1&cls&gs'stat'
 				$iif(pol[you]=0,'<center><video autoplay loop src="pic/sex/pegging/5.<<rand(3)>>.webm" ></video></center>','<center><video autoplay loop src="pic/sex/lesbanalmiss/<<rand(1)>>.webm" ></video></center>')
 				'<<$name[npc]>> упирается страпоном вам в попу и медленно вводит его внутрь.'
-				$iif(40>anus[you],'Вам очень больно и вы стонете, упрашивая девушку помедленнее.','Вы стонете, когда девушка дрючит вас страпоном в задницу.')&!anus[you]+=3
+				$iif(40>anus[you],'Вам очень больно и вы стонете, упрашивая девушку помедленнее.','Вы стонете, когда девушка дрючит вас страпоном в задницу.')
 				gs'fuck_anal',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
 				if sexpower[you]>0:
 					act'Уйти':gt 'activ_sex'

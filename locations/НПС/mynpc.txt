@@ -117,16 +117,14 @@ if satansToyQW[you]=3 and pol[npc]>0 and vag[npc]>1:
 						dominant_fucker=twardovski&submissive_slut=agen_who_kill_twardovski&girl[dominant_fucker]+=1&guy[submissive_slut]+=1
 						sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=1&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=1
 						vagsex[submissive_slut]+=1&avagsex[dominant_fucker]+=1&bj[submissive_slut]+=1&abj[dominant_fucker]+=1
-						sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker
-						sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
-						time+=5&cls&gs'stat'&'<center><img src="pic/face/5/78.jpg" ></center>'
+						sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+						time+=5&cls&gs'stat'&'<center><img src="pic/face/5/78.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 						'В кафе входит ваша агентка под ручку с паном Твердовским, но как только они переступают порог, довольное лицо Твердовского перекашивает гримаса и он бормочет - Стоп. Что это со мной?'
 						'Из-за стола поднялся Люкс Эосфор и подошел к Твердовскому - Это ты почувствовал, как у тебя душа от тела отделилась.'
 						'<<$name[npc]>> отпрянул - Что? Но в договоре было прописано, что я получаю силу в обмен на душу, а душу отдам только находясь в Риме.'
 						'Эосфор вальяжно усмехнулся - Это и есть Рим. Кафе "Рим". И твоя душа целиком и полностью теперь принадлежат Сатане.'
-						'Пан попытался убежать, но ноги подкосились и он упал. К нему подошел Люкс и присел на корточки - Договор закрыт.'
-						'Пан Твердовский протяжно завыл и его вой оборвался на полуноте, а его бездыханное тело осталось на полу. Люкс встал с довольной физиономией и, подмигнув вам, вышел из кафе.'
-						act'<b>Уйти</b>':gt 'preloc'
+						'Пан попытался убежать, но ноги подкосились и он упал. '&*nl'К нему подошел Люкс и присел на корточки - Договор закрыт.'
+						'Пан Твердовский протяжно завыл и его вой оборвался на полуноте, а его бездыханное тело осталось на полу. '&*nl'Люкс встал с довольной физиономией и, подмигнув вам, вышел из кафе.'
 					 end
 				 end
 			 end

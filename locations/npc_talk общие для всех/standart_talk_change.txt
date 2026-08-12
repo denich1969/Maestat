@@ -62,8 +62,7 @@ if vag[you]>0 and vag[npc]>0:
 		drinkpee[npc]+=100&peecover[npc]+=100&pee[npc]+=100&piss_mass['<<npc>>,<<you>>']+=1
 		open_mouth[npc]=1&open_anus[npc]=1&open_vag[npc]=1&sexpartner['<<npc>>,<<you>>']+=1&lowered_status['<<npc>>,<<you>>']+=100
 		lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&horny[you]+=100&corr[you]+=100&lesb[you]+=1
-		drinkpee[you]+=100&peecover[you]+=100&pee[you]+=100
-		open_mouth[you]=1&open_anus[you]=1&open_vag[you]=1&gs'stat'&act'...':gt $curloc
+		drinkpee[you]+=100&peecover[you]+=100&pee[you]+=100&open_mouth[you]=1&open_anus[you]=1&open_vag[you]=1&gs'stat'&act'...':gt $curloc
 	end
 end
 if vag[you]=0 and vag[npc]>0:

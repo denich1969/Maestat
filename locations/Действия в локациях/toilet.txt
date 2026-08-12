@@ -73,10 +73,7 @@ else
 						end
 						if womenbrain[you]<80 or insmout_gangwhore=1:
 							act'Сосать жестко':
-								cum_face[you]+=3&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(5,10)
-								if dick[you]<5:pert = 1
-								if dick[you]>=5:pert = 2
-								cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)&
+								cum_face[you]+=3&glory[you]+=1&horny[you]=0&lastsex=time&feminize[you]+=rand(5,10)&pert=iif(dick[you]<5,1,2)&cls&gs'stat'&$func('get_images', 'glory_blow_deep', you)
 								'Вы с силой начинаете отсасывать свой член стараясь его втянуть в себя как можно сильнее, ощущая дикое возбуждение и удовольствие от нечеловеческого отсоса. '
 								'На какой-то миг вам начинает казаться, что член словно стал больше и уже плотно входит в ваш жадный рот. '
 								'Возбуждение уже окончательно туманит ваш разум и вы продолжаете сосать член как необузданная нимфоманка, не замечая ничего вокруг...'

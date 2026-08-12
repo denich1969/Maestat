@@ -44,7 +44,8 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 				    $iif(rand(1)=1,'<center><video autoplay loop src="pic/sex/public/p<<rand(0,20)>>.webm" ></video></center>','<center><video autoplay loop src="pic/sex/public/s<<rand(0,36)>>.webm" ></video></center>')
 				end
 				$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
-				'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
+				if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_<<rand(3,5)>>.jpg"  width="200" height="200"></center>'
+				'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
 				gs'fuck_vag',you,npc
 				args[10]=func('fuck_final',in_sex[you])&!Ситуативный бонус
 				horny[npc]+=horny[npc]*(corr[npc]-50)/100
@@ -56,10 +57,10 @@ if sexpower[you]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>'
 						item[79]-=1&burden[you]-=item_burden[79]&cls&gs'stat'&feminize[npc]+=5&if agro[npc]>20:agro[npc]-=1
 						if skin[you]>4 and skin[you]<7:
 						    '<center><video autoplay loop src="pic/sex/vag_fem_bbc<<rand(0,6)>>.webm" ></center>'
-						    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
+						    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали её голову и влили пузырек феминизатора, который она проглотила'
 						else
 						    '<center><video autoplay loop src="pic/sex/vag_fem<<rand(0,13)>>.webm" ></center>'
-						    'Пока она в прострации от удовольствия, вы не переставая ее трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
+						    'Пока она в прострации от удовольствия, вы не переставая её трахать, задрали ее голову и влили пузырек феминизатора, который она проглотила'
 						end
 						act'Далее':gt 'activ_sex'
 					end

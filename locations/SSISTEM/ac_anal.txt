@@ -1,7 +1,6 @@
 ﻿cls&gs'can_varian_sex',you,npc
 if candoanal[npc]>0:
-	anal_gape[npc]=1&if dontwannaanal[npc]>0:dontwannaanal[npc]=0
-	temp_dirt_cock[you]+=1
+	temp_dirt_cock[you]+=1&anal_gape[npc]=1&if dontwannaanal[npc]>0:dontwannaanal[npc]=0
 	if pose[you]=3:
 		temp_anal+=1&sexpower[you]-=1&cls&$func('get_images', 'anal_fuck_cow', npc, you)&*pl'<<$name[npc]>> садится на ваш член попой и он входит в колечко ее ануса.'
 		if dickd[you]>anus[npc]:
@@ -16,8 +15,7 @@ if candoanal[npc]>0:
 			act'...':gt 'activ_sex'
 			if dom[you]>=90:
 				act'Задрать ей ноги':
-					if slave[npc]=you:submission[npc]+=1
-					cls&$func('get_images', 'anal_fuck_cow_flex', npc, you)&*pl'<<$name[npc]>> стонет когда вы подхватываете ее и начинаете ебать ее в жопу'
+					submission[npc]+=iif(slave[npc]=you,1,0)&cls&$func('get_images', 'anal_fuck_cow_flex', npc, you)&*pl'<<$name[npc]>> стонет когда вы подхватываете ее и начинаете ебать ее в жопу'
 					gs'fuck_anal_lift_legs',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
 				end
 			end

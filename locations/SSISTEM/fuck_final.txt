@@ -15,7 +15,6 @@ dynamic("<куда>_<name_position>_<<args[1]>>[]=<<args[0]>>")
 переменные <куда>_<name_position>_horny и <куда>_<name_position>_horny_isset генерируються автоматом при отработки сцены в локации fuck_final_dinamics->$sex_dinamic
 архитектура ДП (больше 1 члена в рот, киску, попку), не реализованна, работать будет, но расчеты возбуждения будут не точными и с описанием могут быть проблемы, хотя ее можно сюда внедрить (если перепилить все динамики в локации fuck_final_dinamics переписав их с поправкой на колличество одновоременного проникновения) т.к. колличество врятли будет больше 3 можно всех передавать как аргументы и чекать их колличество
 архитектура поддерживает несколько сцен секса одновременно (у каждой сцены есть id) есть возможность проводить секс сеансы для всех нпс в фоне (в дополнительном потоке) чтоб понять на сколько партнеры удовлетворяют друг друга, что можно использовать в ивентах, да и статы будут соответствено расти"
-
 !0 - id сцены
 !1 - нужно ли сбрасывать сцену? (0 - сброс, 1 не сбрасывать, но нужно ее все равно сбросить вручную позже (до повторного вызова этой локации), хотя бы возбуждение, делаеться в локации reset_fuck) 
 gs'fuck_final_dinamics'&!перенести в локацию загрузки
@@ -77,12 +76,7 @@ if sex_scene_npc[args[100]]>0:
 	!тот или те кто ебет sex_cel кончили (sex_cel как правило в групповухах ГГ, а в дуэте пассив)
 	if sex_cum_slot[sex_cel]>0 and horny[sex_cel]+sex_horny_cikl[sex_cel]>100:sex_horny_cikl[sex_cel]+=lust[sex_cel]&!чтоб кончилил одновременно
 	if arrsize("sex_gangs_<<sex_cel>>")>0:
-		if sex_cel = you:
-			$ARGS[200]='вы'
-		else
-			if pol[sex_cel]=0:$ARGS[200]='он'
-			if pol[sex_cel]>0:$ARGS[200]='она'
-		end	
+		$ARGS[200]=$iif(sex_cel = you,'вы',$iif(pol[sex_cel]=0,'он','она'))
 		if vag[sex_cel]>0:$ARGS[201]='киску'
 		if dick[sex_cel]>0:$ARGS[201]=$func("get_stat_desc","get_dick_word", sex_cel)
 		if arrsize("vag_jerk_fuckers_<<sex_cel>>")=0:
@@ -107,11 +101,7 @@ if sex_scene_npc[args[100]]>0:
 	horny[sex_cel]+=sex_horny_cikl[sex_cel]&!"финальный этап "+$name[sex_cel]+ ' '+horny[sex_cel]+" "+arrsize("sex_gangs_<<sex_cel>>")&!if sex_cum_slot[sex_cel]
 	!if sex_oral_slot[sex_cel]=0 and horny[sex_cel]>200:"<b>Глк-глк, Фаа!</b>"
 	if in_sex[sex_cel]=in_sex[you]:
-		if sex_cel = you:
-			$ARGS[200]='вы'
-		else
-			$ARGS[200]=$iif(pol[sex_cel]=0,'он','она')
-		end			
+		$ARGS[200]=$iif(sex_cel = you,'вы',$iif(pol[sex_cel]=0,'он','она'))	
 		!для позы минета или горлового
 		if oral_fixation[sex_cel]>100 and temp_oral[sex_cel]=1 and sex_oral_slot_horny[sex_cel]>100 and (oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0):
 			if sex_cel=you:"<font color='pink'><b>Ощутив во рту мясистый, пульсирющий хуй, вы принялись его жадно обсасывать</b></font>"
@@ -166,19 +156,15 @@ if sex_scene_npc[args[100]]>0:
 			if sex_last_orgazm[sex_cel]>0 and $args[2]='':
 				if dick[sex_cel]=0:
 					if oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0 or oral_throat_spec_fuckers_horny_isset[sex_cel]>0: 
-						if sex_cel!you:*nl '<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
-						if sex_cel=you:*nl '<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
+						*nl $iif(sex_cel!you, '<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>','<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>')
 					else
-						if sex_cel!you:*nl '<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
-						if sex_cel=you:*nl '<b>Вы изгибаете в оргазме и громко стонете</b>'
+						*nl $iif(sex_cel!you,'<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>','<b>Вы изгибаете в оргазме и громко стонете</b>')
 					end
 				else	
 					if oral_fuckers_horny_isset[sex_cel]>0 or oral_throat_fuckers_horny_isset[sex_cel]>0 or oral_throat_spec_fuckers_horny_isset[sex_cel]>0: 
-						if sex_cel!you:*nl '<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>'
-						if sex_cel=you:*nl '<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>'
+						*nl $iif(sex_cel!you, '<b><<$name[sex_cel]>> мычит с членом во рту, изгибаясь в оргазме</b>', '<b>Вы мычите с членом во рту, изгибаясь в оргазме</b>')
 					else
-						if sex_cel!you:*nl '<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>'
-						if sex_cel=you:*nl '<b>Вы изгибаете в оргазме и громко стонете</b>'
+						*nl $iif(sex_cel!you,'<b><<$name[sex_cel]>> изгибается в оргазме и громко стонет</b>','<b>Вы изгибаете в оргазме и громко стонете</b>')
 					end
 				end	
 			end
@@ -189,28 +175,17 @@ if sex_scene_npc[args[100]]>0:
 			args[25]=dyneval("result = sex_gangs_<<sex_cel>>[0]")
 			if sex_cel!args[25]:
 				if master[sex_cel]>0 and fuckgiftday[sex_cel]!daystart:
-					fuckgiftday[sex_cel]=daystart&magik[args[25]]+=1
-					if args[25]=you:'Богиня одаривает вас каналом магии'
-					if sex_cel=you:'Вы одариваете <<$name[sex_gangs[0]]>> каналом магии'
+					fuckgiftday[sex_cel]=daystart&magik[args[25]]+=1&$iif(args[25]=you,'Богиня одаривает вас каналом магии','')&if sex_cel=you:'Вы одариваете <<$name[sex_gangs[0]]>> каналом магии'
 				end
 				if master[args[25]]>0 and fuckgiftday[args[25]]!daystart:
-					fuckgiftday[args[25]]=daystart&magik[sex_cel]+=1
-					if sex_cel=you:'Бог одаривает вас каналом магии'
-					if args[25]=you:'Вы одаряете <<$name[args[25]]>> каналом магии'
+					fuckgiftday[args[25]]=daystart&magik[sex_cel]+=1&$iif(sex_cel=you,'Бог одаривает вас каналом магии','')&if args[25]=you:'Вы одаряете <<$name[args[25]]>> каналом магии'
 				end
-				
 				if args[25]>0 and sex_cel>0:
 					if master[sex_cel]>0 and magik[args[25]]>0 and sex_cel!borisbogart:
-						args[50]=(magik[sex_cel]-magik[args[25]])/20
-						if args[50]>0:
-							magik_exp[args[25]]+=args[50]&if args[25]=you:"Вы чувствуете как ваша сила растет"
-						end
+						args[50]=(magik[sex_cel]-magik[args[25]])/20&if args[50]>0:magik_exp[args[25]]+=args[50]&$iif(args[25]=you,"Вы чувствуете как ваша сила растет","")
 					end	
 					if master[args[25]]>0 and magik[sex_cel]>0 and args[25]!borisbogart:
-						args[50]=(magik[args[25]]-magik[sex_cel])/20
-						if args[50]>0:
-							magik_exp[sex_cel]+=args[50]&if sex_cel=you:"Вы чувствуете как ваша сила растет"
-						end
+						args[50]=(magik[args[25]]-magik[sex_cel])/20&if args[50]>0:magik_exp[sex_cel]+=args[50]&$iif(sex_cel=you,"Вы чувствуете как ваша сила растет","")
 					end	
 				end
 			end
@@ -243,33 +218,20 @@ if sex_scene_npc[args[100]]>0:
 			if anal_lift_legs_fuckers_horny_isset[sex_cel]>0:anal_fixation[sex_cel]+=1&args[10]+=1&!с поднятыми ногами
 			if anal_slap_face_fuckers_horny_isset[sex_cel]>0:anal_fixation[sex_cel]+=1&args[10]+=1&!удар по лицу во время анала
 			if anal_spit_face_fuckers_horny_isset[sex_cel]>0:anal_fixation[sex_cel]+=1&piss_fixation[sex_cel]+=rand(1)&args[10]+=1&!плевок во время анала
-			!анилингус
-			if anal_lick_fuckers_horny_isset[sex_cel]>0: 
-			end
-			if handjob_fuckers_horny_isset[sex_cel]>0:
-				!работа ручками
-			end
+			!if anal_lick_fuckers_horny_isset[sex_cel]>0:&!анилингус
+			!if handjob_fuckers_horny_isset[sex_cel]>0:&!работа ручками
 			if cum_anus_fuckers_horny_isset[sex_cel]>0:cum_fixation[sex_cel]+=1&!накачали в задницу
 			if cum_oral_fuckers_horny_isset[sex_cel]>0:cum_fixation[sex_cel]+=1&!накачали в рот
-			!накочали в киску
-			if cum_vag_fuckers_horny_isset[sex_cel]>0: 
-			end
+			!if cum_vag_fuckers_horny_isset[sex_cel]>0:&!накочали в киску
 			if cum_face_fuckers_horny_isset[sex_cel]>0:cum_fixation[sex_cel]+=1&!обкончали лицо
-			if cum_ass_fuckers_horny_isset[sex_cel]>0: 
-				!обкончали задницу
-			end
-			if piss_horny_isset[sex_cel]>0: 
-				!обоссали
-			end
-			if args[10]>0:maso_fixation[sex_cel]+=1
-			horny[sex_cel]=0
+			!if cum_ass_fuckers_horny_isset[sex_cel]>0:&!обкончали задницу
+			!if piss_horny_isset[sex_cel]>0:&!обоссали
+			maso_fixation[sex_cel]+=iif(args[10]>0,1,0)&horny[sex_cel]=0
 		end
 	else
 		temp_orgazm[sex_cel]=0
 	end	
-	if sex_cum_slot[sex_cel]>0:
-		!"orgasm[sex_cel] "+orgasm[sex_cel]&!"time "+time
-	end
+	!if sex_cum_slot[sex_cel]>0:&!"orgasm[sex_cel] "+orgasm[sex_cel]&!"time "+time
 	args[100]+=1&jump'sex_scene_npc_f'
 end	
 !"reset scene "+args[0]
