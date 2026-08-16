@@ -11,13 +11,7 @@ if w!you and dead[w]=0 and cantwalk[w]=0 and Z[w]=Z[you]:
 		if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0:
 			naprav=0&wantgofight=0
 			if agro[w]=0 and corr[w]>=100 and horny[w]>=50:wantgofight=rand(0,1)
-			if agro[w]=1:
-				if corr[w]>=100:
-					wantgofight=1
-				else
-					wantgofight=rand(0,1)
-				end
-			end
+			if agro[w]=1:wantgofight=iif(corr[w]>=100,1,rand(0,1))
 			if agro[w]=2:wantgofight=1
 			if corr[w]>=500:wantgofight=1
 		    if wantgofight=1:
@@ -26,20 +20,16 @@ if w!you and dead[w]=0 and cantwalk[w]=0 and Z[w]=Z[you]:
 				if Y[w]+1=Y[you]:naprav=3
 				if Y[w]-1=Y[you]:naprav=4
 				if naprav=1 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>']=0:
-					if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на восток'
-					X[w]+=1
+					$walklog+=$iif(X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you],'<br><<$nick[w]>> идет на восток','')&X[w]+=1
 				end
 				if naprav=2 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>']=0:
-					if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на запад'
-					X[w]-=1
+					$walklog+=$iif(X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you],'<br><<$nick[w]>> идет на запад','')&X[w]-=1
 				end
 				if naprav=3 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>']=0:
-					if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на север'
-					Y[w]+=1
+					$walklog+=$iif(X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you],'<br><<$nick[w]>> идет на север','')&Y[w]+=1
 				end
 				if naprav=4 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>']=0:
-					if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you]:$walklog+='<br>'&$walklog+='<<$nick[w]>> идет на юг'
-					Y[w]-=1
+					$walklog+=$iif(X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you],'<br><<$nick[w]>> идет на юг','')&Y[w]-=1
 				end
 			end
 		end

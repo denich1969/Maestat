@@ -449,9 +449,9 @@ end
 if $ARGS[0] = 'GET_WEIGHT_TEXT':
     ARGS['GET_PERCENT_OF'] = func('util_func', 'get_percent_of', burden[you], burdenmax[you])
 	$ARGS['WEIGHT_COLOR'] = $func('util_func', 'interpolate_color_all', ARGS['GET_PERCENT_OF'], 14, 164, 6, 225, 8, 8)
-	$RESULT='<font color="<<$ARGS[''WEIGHT_COLOR'']>>"><<$func("util_func", "get_float", burden[you]/10)>></font>/<<$func("util_func", "get_float", burdenmax[you]/10)>>'
+	$RESULT='<font color="<<$ARGS[''WEIGHT_COLOR'']>>"><<$func("util_func", "get_float", burden[you]/10)>> кг.</font>/<<$func("util_func", "get_float", burdenmax[you]/10)>>'
 end
-if $ARGS[0] = 'GET_WEIGHT_TEXT_ALL':$RESULT='<font color="green"><<$func("util_func", "get_float", ARGS[1])>></font><img width="12" src="pic/misc/UI/icons/weight.png">'
+if $ARGS[0] = 'GET_WEIGHT_TEXT_ALL':$RESULT='<font color="green"><<$func("util_func", "get_float", ARGS[1]/10)>> кг.</font><img width="12" src="pic/misc/UI/icons/weight.png">'
 if $ARGS[0] = 'GET_MSG_FOR_CLOTHES':
 	$ARGS['GET_ITEM_DESC']=$func('util_func', 'get_item_description', $ARGS[1], ARGS[2])&msg('<img src="pic/clo/<<$ARGS[1]>>/<<ARGS[2]>>.jpg"><br><<$ARGS["GET_ITEM_DESC"]>>')
 end

@@ -1,5 +1,5 @@
 ﻿if mardukenemy[you]>0:
-	'<<$nick[npc]>> - Ах ты тварь! Я заставлю тебя страдать!'
+	'<<$title[npc]>> - Ах ты тварь! Я заставлю тебя страдать!'
 else
     if pol[you]>0:
 		if sexiness[you]>50:
@@ -49,10 +49,10 @@ else
 				end
 			end
 		else
-			'<<$nick[npc]>> - стремная сучка!'
+			'<<$title[npc]>> - стремная сучка!'
 		end
 	else
-		'<<$nick[npc]>> - отвали!'
+		'<<$title[npc]>> - отвали!'
     end
 	act'<b>Уйти</b>':gt 'preloc'
 end

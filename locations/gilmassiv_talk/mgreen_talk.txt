@@ -161,7 +161,6 @@ if whoreboss[you]!npc and blackedgreen=0 and r_leg_t[you]=1:
 		act'Драться':gs'progcurse'&gt 'prefight'
 	end
 end
-
 if blackedgreen=1:dynamic $d_mgreen
 $d_mgreen={
 	'Улыбаясь Митч говорит - Привет, сучка, вот мы и снова встретились. Пора выполнять свои обязанности.'&*pl'- Гони сюда 30 шиллингов и вставай на колени перед своим господином.'

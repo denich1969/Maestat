@@ -1,41 +1,12 @@
 ﻿$lastloc[you]=$curloc&time+=5&gs'stat'&num=npc&walker_cooldown[npc]=time+30&mobtalk[npc]=time+15&busy[you]=1&talk_with[npc]+=1
 if cantwalk[npc]>0:cantwalk[npc]=0
-if cantwalk_num=npc:&cantwalk_num=0&cantwalk[npc]=0
-if npc=soulslut:slave[npc]=soulmaster
-if npc=soulmistress:slave[npc]=soulmaster
+if cantwalk_num=npc:cantwalk_num=0&cantwalk[npc]=0
+if npc=soulslut or npc=soulmistress:slave[npc]=soulmaster
 if npc=dukevalorama:anal_lover[npc]=1
-if arhivson=npc:blok_bf[npc]=1
-if blackganger[npc]>0:blok_bf[npc]=1
-if addboss=npc:blok_bf[npc]=1
-if addkiller=npc:blok_bf[npc]=1
-if borisbogart=npc:blok_bf[npc]=1
-if blackwood=npc:blok_bf[npc]=1
-if cavendish=npc:blok_bf[npc]=1
-if germiona=npc:blok_bf[npc]=1
-if soulmaster=npc:blok_bf[npc]=1
-if soulmistress=npc:blok_bf[npc]=1
-if serena=npc:blok_bf[npc]=1
-if pornstar=npc:blok_bf[npc]=1
-if powerup=npc:blok_bf[npc]=1
-if powerupwife=npc:blok_bf[npc]=1
-if lebeda=npc:blok_bf[npc]=1
-if gruberwife=npc:blok_bf[npc]=1
-if femas=npc:blok_bf[npc]=1
-if tiler=npc:blok_bf[npc]=1
-if necromancer=npc:blok_bf[npc]=1
-if grief=npc:blok_bf[npc]=1
-if sparrow=npc:blok_bf[npc]=1
-if captain=npc:blok_bf[npc]=1
-if addams=npc:blok_bf[npc]=1
-if obedmarsh=npc:blok_bf[npc]=1
-if spec_face_pic[npc]=6:
-	if face[npc]<=20:face_pic[npc]=4
-	if face[npc]>20 and face[npc]<=40:face_pic[npc]=3
-	if face[npc]>40 and face[npc]<=60:face_pic[npc]=2
-	if face[npc]>60 and face[npc]<=80:face_pic[npc]=1
-	if face[npc]>80:face_pic[npc]=0
-	pic_hcol[npc]=hcol[npc]
-end
+if arhivson=npc or blackganger[npc]>0 or addboss=npc or addkiller=npc or borisbogart=npc or blackwood=npc or cavendish=npc or germiona=npc or soulmaster=npc:blok_bf[npc]=1
+if soulmistress=npc or serena=npc or pornstar=npc or powerup=npc or powerupwife=npc or lebeda=npc or gruberwife=npc or femas=npc:blok_bf[npc]=1
+if tiler=npc or necromancer=npc or grief=npc or sparrow=npc or captain=npc or addams=npc or obedmarsh=npc:blok_bf[npc]=1
+if spec_face_pic[npc]=6:face_pic[npc]=iif(face[npc]<=20,4,iif(face[npc]>20 and face[npc]<=40,3,iif(face[npc]>40 and face[npc]<=60,2,iif(face[npc]>60 and face[npc]<=80,1,0))))&pic_hcol[npc]=hcol[npc]
 if dicksolomon=npc and pol[you]>0 and age[you]<23 and know['<<npc>>,<<you>>']>0 and fuckoffdick[you]=0 and solomonkinkday[npc]!daystart and vag[you]>0 and sexpartner['<<npc>>,<<you>>']=0:
     gt'kinksolomon'
 end
@@ -300,19 +271,10 @@ if mob[npc]=0:
 else
 	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!мобы
 	if $surname[npc]!'':'<b><center><<$nick[npc]>></center></b>'
-	if know['<<npc>>,<<you>>']>0:
-		if $surname[npc]='':'<b><center><<$nick[npc]>> <<$name[npc]>></center></b>'
-		if $surname[npc]!'':'<b><center><<$nick[npc]>><<$name[npc]>> <<$surname[npc]>></center></b>'
-	end
+	if know['<<npc>>,<<you>>']>0:$iif($surname[npc]='','<b><center><<$nick[npc]>> <<$name[npc]>></center></b>','<b><center><<$nick[npc]>><<$name[npc]>> <<$surname[npc]>></center></b>')
 	gs'gen_d_view'&'<center><img src="<<$d_view>>" ></center>'
-	if cum_face[npc]>time:
-		if visualpol[npc]=0:'<b>У него на лице видно сперму</b>'
-		if visualpol[npc]>0:'<b>У нее на лице видно сперму</b>'
-	end
-	if peecover[npc]>time:
-		if visualpol[npc]=0:'<b>У него мокрое от мочи лицо</b>'
-		if visualpol[npc]>0:'<b>У нее мокрое от мочи лицо</b>'
-	end
+	if cum_face[npc]>time:$iif(visualpol[npc]=0,'<b>У него на лице видно сперму</b>','<b>У неё на лице видно сперму</b>')
+	if peecover[npc]>time:$iif(visualpol[npc]=0,'<b>У него мокрое от мочи лицо</b>','<b>У нее мокрое от мочи лицо</b>')
 	if win[npc]>0 or loss[npc]>0:'Побед и поражений <<win[npc]>>-<<loss[npc]>>'
 	if sexpartner['<<npc>>,<<you>>']>0 and sexpartner['<<you>>,<<npc>>']>0:
 		'<<$nick[npc]>> и вы, занимались сексом вместе <<sexpartner[''<<npc>>,<<you>>'']>> раз'&!'<a href="exec:time+=5&gt ''sexsbros''">Тестовый сброс секс статистик</a>'
@@ -337,8 +299,7 @@ else
 		if guy[npc]>0:'Было <<guy[npc]>> парней'
 		if girl[npc]>0:'Было <<girl[npc]>> девушек'
 		if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занимался лесбийским сексом'
-		if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосал член'
-		if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосал член, из этого <<glory[npc]>> раз сосала член в глорихоле'
+		if bj[npc]>0:$iif(glory[npc]=0,'<<$name[npc]>> <<bj[npc]>> раз сосал член','<<$name[npc]>> <<bj[npc]>> раз сосал член, из этого <<glory[npc]>> раз сосала член в глорихоле')
 		if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давал в рот'
 		if glory_bj[npc]>0:'<<$name[npc]>> отсосал <<glory_bj[npc]>> хуев в глорихоле'
 		if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз'
@@ -353,8 +314,7 @@ else
 	end
 	if visualpol[npc]>0:
 		if lesb[npc]>0:'<<$name[npc]>> <<lesb[npc]>> раз занималась лесбийским сексом'
-		if bj[npc]>0 and glory[npc]=0:'<<$name[npc]>> <<bj[npc]>> раз сосала член'
-		if bj[npc]>0 and glory[npc]>0:'<<$name[npc]>> <<bj[npc]>> раз сосала член, из этого <<glory[npc]>> раз сосала член в глорихоле'
+		if bj[npc]>0:$iif(glory[npc]=0,'<<$name[npc]>> <<bj[npc]>> раз сосала член','<<$name[npc]>> <<bj[npc]>> раз сосала член, из этого <<glory[npc]>> раз сосала член в глорихоле')
 		if abj[npc]>0:'<<$name[npc]>> <<abj[npc]>> раз давала в рот'
 		if glory_bj[npc]>0:'<<$name[npc]>> отсосала <<glory_bj[npc]>> хуев в глорихоле'
 		if vagsex[npc]>0:'Ее трахали во влагалище <<vagsex[npc]>> раз'
@@ -435,7 +395,7 @@ else
 		if mob[npc]=58:gs'npc_dominatrix'
 	end
 	if mob_sleep[npc]>time and blockEv!time:act'<b>Уйти</b>':gt 'preloc'
-	!if follower[you]!npc and nofight[npc]=0 and alko[you]<=10:act'<b>Драться</b>':gs'progcurse'&gt 'prefight'
+	if follower[you]!npc and nofight[npc]=0 and alko[you]<=10:act'<b>Драться</b>':gs'progcurse'&gt 'prefight'
 end
 if item[29]>0 and corr[npc]>=100 and corr[npc]<500:
 	act'Очистить от скверны разломив рунный камень':

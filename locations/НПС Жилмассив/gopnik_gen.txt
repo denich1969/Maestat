@@ -1,15 +1,15 @@
 ﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&mob[i]=1&mobexp[i]=10&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0
 visualpol[i]=0&gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname&tipemobpic[i]=1&picture[i]=rand(1,9)&!номер типа фотки и номер фотки
 tipe=rand(0,8)&$title[i]='типичный житель русского города неопределённого вида деятельности'
-if tipe=0:$nick[i]='Гопник'
-if tipe=1:$nick[i]='Пацанчик'
-if tipe=2:$nick[i]='Хулиган'
-if tipe=3:$nick[i]='Четкий пацан'
-if tipe=4:$nick[i]='Паренек'
-if tipe=5:$nick[i]='Поцик'
-if tipe=6:$nick[i]='Пацан'
-if tipe=7:$nick[i]='Гопарь'
-if tipe=8:$nick[i]='Четкий поцик'
+if tipe=0:$nick[i]='Гопник.'
+if tipe=1:$nick[i]='Пацанчик.'
+if tipe=2:$nick[i]='Хулиган.'
+if tipe=3:$nick[i]='Четкий пацан.'
+if tipe=4:$nick[i]='Паренек.'
+if tipe=5:$nick[i]='Поцик.'
+if tipe=6:$nick[i]='Пацан.'
+if tipe=7:$nick[i]='Гопарь.'
+if tipe=8:$nick[i]='Четкий поцик.'
 $basestatus[i]=' пьет пиво'&if rand(1)=0:$basestatus[i]=' лузгает семки'
 if totalpogonalo=0:$pogonalo[i]='Гвоздь'
 if totalpogonalo=1:$pogonalo[i]='Шершавый'
@@ -117,7 +117,7 @@ face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&faceti
 dick[i]=rand(12,20)&dickd[i]=rand(30,45)&ball[i]=rand(40,70)
 dicklongrand=rand(1,100)&dick[i]=iif(dicklongrand<=80,rand(12,17),iif(dicklongrand>80 and dicklongrand<=90,rand(7,13),iif(dicklongrand>90 and dicklongrand<100,rand(18,25),rand(25,28))))
 rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(600,1600)&skin[i]=rand(0,3)
-$nick[i]+=$iif(rost[i]<170,' Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
+$nick[i]+=$iif(rost[i]<170,' Небольшого роста',$iif(rost[i]>185,' Высокий',' Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
 face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)
 age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50&reflex[i]=rand(40,50)&$nick[i]+=$iif(age[i]<25,' парень',' мужчина')
 healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80

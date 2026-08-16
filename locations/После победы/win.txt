@@ -13,7 +13,7 @@ $fightlog[you]+='<br>'
 $fightlog[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[you]>>-<<loss[you]>> vs <<$name[npc]>> <<$surname[npc]>>. <<win[npc]>>-<<loss[npc]>>'
 $fightlog[npc]+='<br>'
 $fightlog[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#ff0000>Поражение</font> <<win[npc]>>-<<loss[npc]>> vs <<$name[you]>> <<$surname[you]>>. <<win[you]>>-<<loss[you]>>'
-'<center><b>Победа!</b></center>'&gs'gen_d_view'&'<center><img src="<<$d_view>>" ></center>'&!вывод картинки второстепенных НПС и мобов
+'<center><b>Победа!</b></center>'&gs'gen_d_view'&*clr&'<center><img src="<<$d_view>>" ></center>'&!вывод картинки второстепенных НПС и мобов
 if magworld[Znow]>0:'Крохотная часть души проигравшего вам соперника теперь принадлежит вам'
 if fight_for_forbid = 1:
 	fight_for_forbid = 0&forbidsex[npc] = 1&dom[you]+=30&"Ладно...хорошо, я сделаю как ты скажешь - <<$name[npc]>> не решается поднять глаза, больше обращая внимания не свои травмы."

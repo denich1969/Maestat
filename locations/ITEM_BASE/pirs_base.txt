@@ -1,0 +1,11 @@
+﻿i=286&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Штанга в язык'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=287&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Колечко в нос'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=288&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Большое кольцо в нос'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=289&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Штанги в соски'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=290&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Кольца в соски'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=291&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Огромные кольца в соски'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=292&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Штанга в клитор'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=293&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Колечки в клитор'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=294&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Набор пирсинга для вагины'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+i=295&$item_name[i]='<<$ARGS["PIRS_ICON"]>> Пирсинг: Колокольчик в клитор'&can_use_item[i]=47&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=10&!вес
+!$ARGS['PIRS_ICON']='<img width="15" height="auto" src="pic/misc/UI/icons/pirs.png">'

@@ -21,29 +21,29 @@
 		!if loc_for_drop=1 and item[iteminv]>=10:$invitem+=" &#8596 <a href='exec: gt""dropallitem"", <<iteminv>>'><b><font color='red'>Бросить все</font></b></a>"
 		if loc_for_drop=0 and $item_name[iteminv]!$item_text[iteminv]:$invitem+="<<$item_name[iteminv]>> <<$item_text[iteminv]>> <<item[iteminv]>> шт"
 		if loc_for_drop=0 and $item_name[iteminv]=$item_text[iteminv]:$invitem+="<<$item_name[iteminv]>> <<item[iteminv]>> шт"
-        if can_eat[iteminv]>0:
+        if can_use_item[iteminv]>0:
             $invitem_caneat+='<br>'
 			if loc_for_drop=1 and $item_name[iteminv]!$item_text[iteminv]:$invitem_caneat+="Бросить <a href='exec: gt""dropitem"", <<iteminv>>'><b><<$item_name[iteminv]>></b></a>. <<$item_text[iteminv]>> <b><<item[iteminv]>></b> шт"
 			if loc_for_drop=1 and $item_name[iteminv]=$item_text[iteminv]:$invitem_caneat+="Бросить <a href='exec: gt""dropitem"", <<iteminv>>'><b><<$item_name[iteminv]>></b></a>.  <b><<item[iteminv]>></b> шт"
 			if loc_for_drop=0 and $item_name[iteminv]!$item_text[iteminv]:$invitem_caneat+="<<$item_name[iteminv]>> <<$item_text[iteminv]>> <<item[iteminv]>> шт"
 			if loc_for_drop=0 and $item_name[iteminv]=$item_text[iteminv]:$invitem_caneat+="<<$item_name[iteminv]>> <<item[iteminv]>> шт"
-			caneat=can_eat[iteminv]
-            if $item_eat[iteminv]!'Съесть':
-				$invitem+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
-				$invitem_caneat+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
+			caneat=can_use_item[iteminv]
+            if $item_use[iteminv]!'Съесть':
+				$invitem+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_use[iteminv]>></font></b></a>"
+				$invitem_caneat+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_use[iteminv]>></font></b></a>"
             else
                 if hunger[you]>1:
-					$invitem+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
-					$invitem_caneat+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_eat[iteminv]>></font></b></a>"
+					$invitem+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_use[iteminv]>></font></b></a>"
+					$invitem_caneat+=" <a class='plain' href='exec: gs""item_use"",<<caneat>>,<<iteminv>>'><b><font color='green'><<$item_use[iteminv]>></font></b></a>"
                 else
 					$invitem+=" <i>(вы сыты)</i>"
 					$invitem_caneat+=" <i>(вы сыты)</i>"
                 end
             end
         end
-		if can_eat[iteminv]>0 and loc_for_drop=1:$invitem+=' &#8596 '
+		if can_use_item[iteminv]>0 and loc_for_drop=1:$invitem+=' &#8596 '
 		if loc_for_drop=1:$invitem+="<a class='plain' href='exec: gt""dropitem"", <<iteminv>>'><img width='13' height='auto' src='pic/misc/UI/icons/drop_item.png'></a>"
-		!if clo_item[iteminv]>0:$invitem+=" <a href='exec: gs""item_clo"",<<iteminv>>'><b><<$item_eat[iteminv]>></b></a>"
+		!if clo_item[iteminv]>0:$invitem+=" <a href='exec: gs""item_clo"",<<iteminv>>'><b><<$item_use[iteminv]>></b></a>"
         burden[you]+=item_burden[iteminv]*item[iteminv]
      end
 	iteminv+=1&if iteminv<=itemmax:jump'markiteminv'

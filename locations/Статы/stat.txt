@@ -362,7 +362,7 @@ if (UI_ELEMENT_STATE[22]=0 or CONFIG['UI_EDITOR'] = 1):
 end
 !* ------------------------------ НАГРУЖЕННОСТЬ ----------------------------- *!
 if burden[you]<0:burden[you]=0
-if (UI_ELEMENT_STATE[23]=0 or CONFIG['UI_EDITOR'] = 1):pl'<b><img width="15" height="auto" src="pic/misc/UI/icons/weight.png">Нагрузка: <<func("util_func", "get_weight_text")>></b>' + $func("generate_links", 23, 14)+' кг.'
+if (UI_ELEMENT_STATE[23]=0 or CONFIG['UI_EDITOR'] = 1):pl'<b><img width="15" height="auto" src="pic/misc/UI/icons/weight.png">Нагрузка: <<func("util_func", "get_weight_text")>></b>' + $func("generate_links", 23, 14)+'<b> кг.</b>'
 if burden[you]>burdenmax[you]:
 	if (UI_ELEMENT_STATE[24]=0 or CONFIG['UI_EDITOR'] = 1):pl'<b>ВЫ ПЕРЕГРУЖЕНЫ.</b>' + $func("generate_links", 24, 14)
 	ARGS['CALC_WEIGHT_PERCENT'] = (burden[you] * 100 / burdenmax[you]) - 100&if ARGS['CALC_WEIGHT_PERCENT']>50:ARGS['CALC_WEIGHT_PERCENT']=50

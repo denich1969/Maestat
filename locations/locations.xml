@@ -232,6 +232,7 @@
     </Folder>
     <Folder name="ITEM_BASE">
       <Location name="item_base"/>
+      <Location name="pirs_base"/>
       <Location name="hat_base"/>
       <Location name="w_base"/>
       <Location name="m_base"/>

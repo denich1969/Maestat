@@ -1,7 +1,7 @@
 ﻿if rand(1)=0:
 	lvl[i]=1&soul[i]=100&rubl[you]=5000000&item[26]=1
 	master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0
-	$title[i]=''&gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname
+	$title[i]=''&gs'ru_man_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname&$nation[i]=' русский'
 	face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 	dick[i]=rand(8,28)&dickd[i]=rand(30,50)&ball[i]=rand(30,100)&vag[i]=0&ass[i]=2&tits[i]=0&nip[i]=8
 	rost[i]=rand(165,195)&fat[i]=rand(800,1500)&mus[i]=rand(1000,2500)&skin[i]=rand(0,3)
@@ -18,7 +18,7 @@
 else
 	lvl[i]=1&soul[i]=100&rubl[you]=5000000&item[26]=1
 	master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0
-	$title[i]=''&gs'ru_woman_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname_f
+	$title[i]=''&gs'ru_woman_name'&$name[i]=$genname&gs'ru_surname'&$surname[i]=$gensurname_f&$nation[i]=' русская'
 	face[i]=rand(55,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 	dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,38)&tits[i]=rand(10,25)&nip[i]=rand(30,70)
 	rost[i]=rand(155,180)&fat[i]=rand(1000,3000)&mus[i]=rand(600,1200)&skin[i]=rand(0,3)

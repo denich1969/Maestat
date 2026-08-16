@@ -14,7 +14,7 @@ if dick[you]>1:
 			avagsex[you]+=1&vagsex[npc]+=1&energy[you]+=100&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
 			$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
 			if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_<<rand(3,5)>>.jpg"  width="200" height="200"></center>'
-			'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you&!vag[npc]+=1
+			'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&$defl_pic&!vag[npc]+=1
 			act'Кончить внутрь':
 				horny[you]=0&cls&gs'stat'&$func('get_images', 'vag_cream_mis', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей внутрь'&act'Уйти':gt 'preloc'
 			end

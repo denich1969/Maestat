@@ -18,17 +18,21 @@
 			 ass[i]=2&vag[i]=0&tit[i]=0&nip[i]=8&hlong[i]=10&hcol[i]=0&rost[i]=rand(165,195)&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)&skin[i]=rand(4,6)
 		 end
 	end"
-	gs'child_gen',you&$nick[i]='Ваш ребенок'&'Вскоре из вашей вагины показалась голова ребенка, затем еще потужась вы родили крепенького малыша.'
-	 if soul[you]<100:gs'soulcraft',100&dead[i]=2&'Законы этого мира неумолимы и душа ребенка должна образоваться из вашей души, а вашей души не хватает даже вам. Ребенок умирает прямо на ваших руках.'
-	inseminate[you]=0&pregnant_day[you]=0&contact[i]=you&my_contact[]=i
-	act'Рассмотреть ребенка':
-		cls&!child[you]+=1!$nick[i]='<<$name[i]>> <<$surname[i]>>'&$fullname[i]='<<$name[i]>> <<$surname[i]>>'
-		if pol[i]>0:'Это девочка'&gs'ru_woman_name'&$name[i]=$genname
-		if pol[i]=0:'Это мальчик'&gs'ru_man_name'&$name[i]=$genname
-		$iif(skin[i]>3 and skin[i]<7,'У вашего малыша черная кожа','У вашего малыша светлая кожа')
-		act'Дать имя':
-			cls&$name[i]=input("Дайте имя малышу")&if $name[i]='':$name[i]='Женя'
-			$iif(pol[i]>0,'Это девочка по имени <<$name[i]>>','Это мальчик по имени <<$name[i]>>')&npc=i&act'Принять имя':gt 'npc'
+	gs'child_gen',you&'Вскоре из вашей вагины показалась голова ребенка, затем ещё потужась вы родили крепенького малыша.'
+	if soul[you]<100:
+		gs'soulcraft',100&dead[i]=2&'Законы этого мира неумолимы и душа ребенка должна образоваться из вашей души, а вашей души не хватает даже вам. Ребенок умирает прямо на ваших руках.'
+		inseminate[you]=0&pregnant_day[you]=0&act'Отдыхать':time+=15&gt 'preloc'
+	else
+		gs'soulcraft',100&soul[you]-=100&inseminate[you]=0&pregnant_day[you]=0&contact[i]=you&my_contact[]=i&
+		act'Рассмотреть ребенка':
+			cls&!child[you]+=1!$nick[i]='<<$name[i]>> <<$surname[i]>>'&$fullname[i]='<<$name[i]>> <<$surname[i]>>'
+			!if pol[i]>0:'Это девочка'&gs'ru_woman_name'&$name[i]=$genname
+			!if pol[i]=0:'Это мальчик'&gs'ru_man_name'&$name[i]=$genname
+			$iif(skin[i]>3 and skin[i]<7,'У вашего малыша черная кожа','У вашего малыша светлая кожа')&!msg 'мать<<$nation[args[0]]>>, имя: <<$name[i]>>'
+			act'Дать имя':
+				cls&$name[i]=input("Дайте имя малышу")&if $name[i]='':$name[i]='Женя'
+				$iif(pol[i]>0,'Это девочка по имени <<$name[i]>>','Это мальчик по имени <<$name[i]>>')&npc=i&act'Принять имя':gt 'npc'
+			end
 		end
 	end
 end

@@ -71,7 +71,7 @@ if args[0]=14:
 end
 if args[0]=15:
 	eatitem=args[1]
-    if Z[you]<11 or Z[you]=100 and Z[you]=7777 or (Z[you]>=700 and Z[you]<800):
+    if Z[you]<11 or Z[you]=100 or Z[you]=7777 or (Z[you]>=700 and Z[you]<800):
 		msg("Нет сети")
 	else
 		msg("Никто не присылал сообщений")
@@ -181,16 +181,14 @@ if args[0]=37:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&health[you]=hea
 if args[0]=38:spore[you]+=1&health[you]=healthmax[you]&energy[you]=energyMax[you]&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&clr&gs'eat'&dynamic $d_inv
 if args[0]=39:eatitem=args[1]&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&lust[you]+=1&corr[you]+=1&horny[you]+=50&clr&dynamic $d_inv&!возбудитель
 if args[0]=40:
-	eatitem=args[1]
-	item[eatitem]-=1&burden[you]-=item_burden[eatitem]
+	eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
 	if fat[you]>20:fat[you]-=10
 	if fat[you]>=5000:fat[you]-=300
 	if fat[you]>=4000:fat[you]-=250
 	if fat[you]>=3000:fat[you]-=200
 	if fat[you]>=2000:fat[you]-=150
 	if fat[you]>=1000:fat[you]-=100
-	if ass[you]<20 and ass[you]>2:ass[you]-=1
-	clr&dynamic $d_inv&!жиросжигатель
+	ass[you]-=iif(ass[you]<20 and ass[you]>2,1,0)&clr&dynamic $d_inv&!жиросжигатель
 end
 if args[0]=41:
 	eatitem=args[1]&if busy[you]=0:gt'blowbook'

@@ -1,4 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0
 $title[i]='Проститутка из чёрного квартала'&gs'name_nations',rand(1,9),1,i&$nick[i]='Уличная шлюха. '
 face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=50&anus[i]=50&ass[i]=rand(26,38)&nip[i]=rand(30,70)&tits[i]=rand(10,21)

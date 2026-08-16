@@ -117,12 +117,10 @@ if stavrogin=npc:
 		end
     end
 end
-if detective=npc:
-	if shoot_skill[you]<100:
-		act'Научи меня стрелять':
-			sportman_trening[you]+=1&shoot_skill[you]+=25&energy[you]-=50&if fat[you]>10:fat[you]-=5
-			sportiv[you]+=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> учит вас стрелять.'&act'<b>Уйти</b>':gt 'preloc'
-		end
+if detective=npc and shoot_skill[you]<100:
+	act'Научи меня стрелять':
+		sportman_trening[you]+=1&shoot_skill[you]+=25&energy[you]-=50&if fat[you]>10:fat[you]-=5
+		sportiv[you]+=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> учит вас стрелять.'&act'<b>Уйти</b>':gt 'preloc'
 	end
 end
 if prudencelover=npc:
@@ -157,43 +155,35 @@ if blackwood=npc:
 		end
     end
 end
-if gilman=npc:
-    if work[you]=25:
-		act'<b>Расскажи про стриптиз</b>':
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
-			'<<$name[npc]>> - Я тут охраняю, что бы клиенты сильно не борзели. А то в городе народ дикий, всякое тут бывает. Но если девочка сама не против потрахаться с клиентом, то я не вмешиваюсь.'
-		end
-    end
+if gilman=npc and work[you]=25:
+	act'<b>Расскажи про стриптиз</b>':
+		time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+		'<<$name[npc]>> - Я тут охраняю, что бы клиенты сильно не борзели. А то в городе народ дикий, всякое тут бывает. Но если девочка сама не против потрахаться с клиентом, то я не вмешиваюсь.'
+	end
 end
-if stripme=you and work[you]=25 and supersex=npc:
-    if hour<16 and energy[you]>30 and dance[you]<500:
-		act'<b>Научи меня танцевать</b>':
-			energy[you]-=30&dance[you]+=rand(5,15)&fat[you]-=rand(1,10)&if Ass[you]>17: Ass[you]-=rand(1,2)
-			mus[you]+=rand(1,10)&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&! if ass[you]<42:ass[you]+=1
-			'<<$name[npc]>> показывает вам танцевальные движения и заставляет их повторять указывая на ваши ошибки. За час вы устаете, но изучаете кое что новое.'&act'<b>Уйти</b>':gt 'preloc'
-		end
-    end
+if stripme=you and work[you]=25 and supersex=npc and hour<16 and energy[you]>30 and dance[you]<500:
+	act'<b>Научи меня танцевать</b>':
+		energy[you]-=30&dance[you]+=rand(5,15)&fat[you]-=rand(1,10)&if Ass[you]>17: Ass[you]-=rand(1,2)
+		mus[you]+=rand(1,10)&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&! if ass[you]<42:ass[you]+=1
+		'<<$name[npc]>> показывает вам танцевальные движения и заставляет их повторять указывая на ваши ошибки. За час вы устаете, но изучаете кое что новое.'&act'<b>Уйти</b>':gt 'preloc'
+	end
 end
-if work[npc]=25:
-    if work[you]=25:
-		act'<b>Расскажи про стриптиз</b>':
-			time+=5&cls&gs'stat'& '<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Одеваешся сексуально, наводишь макияж и ждеш толпы парней. А там танцуешь у шеста и получаешь чаевые.'
-			act'<b>Уйти</b>':gt 'preloc'
-		end
-    end
+if work[npc]=25 and work[you]=25:
+	act'<b>Расскажи про стриптиз</b>':
+		time+=5&cls&gs'stat'& '<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Одеваешся сексуально, наводишь макияж и ждеш толпы парней. А там танцуешь у шеста и получаешь чаевые.'
+		act'<b>Уйти</b>':gt 'preloc'
+	end
 end
-if demon_slave[you]>1:
-    if mrblood=npc or mrflesh=npc:
-        act'Меня терзают странные желания':
-			X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
-			X[mrblood]=X[npc]&Y[mrblood]=Y[npc]&Z[mrblood]=Z[npc]&H[mrblood]=H[npc]&R[mrblood]=R[npc]
-			X[mrflesh]=X[npc]&Y[mrflesh]=Y[npc]&Z[mrflesh]=Z[npc]&H[mrflesh]=H[npc]&R[mrflesh]=R[npc]
-			X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&horny[mrblood]=50&horny[mrflesh]=50&X=X[npc]&Y=Y[npc]&Z=Z[npc]&H=H[npc]&R=R[npc]
-			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Меня мучают потаенные желания.'&'<<$name[npc]>> хищно улыбается вам - Нижняя шлюха! Наконец то ты поняла свое место! '
-			'Ты наша рабыня и без регулярного наказания тебе будет плохо. Пирсинг может облегчить твои мучения. И каждая групповуха с нами, верховными демонами надолго облегчит твою тягу.'
-			solo=0&pose[you]=2&demon_slave[you]=1&demon_gangbang[you]+=1&act'На колени':gt'sex'
-		end
-    end
+if demon_slave[you]>1 and (mrblood=npc or mrflesh=npc):
+    act'Меня терзают странные желания':
+		X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
+		X[mrblood]=X[npc]&Y[mrblood]=Y[npc]&Z[mrblood]=Z[npc]&H[mrblood]=H[npc]&R[mrblood]=R[npc]
+		X[mrflesh]=X[npc]&Y[mrflesh]=Y[npc]&Z[mrflesh]=Z[npc]&H[mrflesh]=H[npc]&R[mrflesh]=R[npc]
+		X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&horny[mrblood]=50&horny[mrflesh]=50&X=X[npc]&Y=Y[npc]&Z=Z[npc]&H=H[npc]&R=R[npc]
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Меня мучают потаенные желания.'&'<<$name[npc]>> хищно улыбается вам - Нижняя шлюха! Наконец то ты поняла свое место! '
+		'Ты наша рабыня и без регулярного наказания тебе будет плохо. Пирсинг может облегчить твои мучения. И каждая групповуха с нами, верховными демонами надолго облегчит твою тягу.'
+		solo=0&pose[you]=2&demon_slave[you]=1&demon_gangbang[you]+=1&act'На колени':gt'sex'
+	end
 end
 if goodoldtimesQW=21:
     if mrblood=npc or mrflesh=npc:

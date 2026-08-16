@@ -46,8 +46,7 @@ if sss=sister and ddd=borisbogart  and $loc[sss]=$loc[ddd]:
     end
 end
 if sss=sladkovamasha and ddd=borisbogart  and $loc[sss]=$loc[ddd]:
-    if sluttySlmashaQW=0:sluttySlmashaQW=1
-    'Нифига себе, <<$name[sss]>> хуесоска Богарта'
+    'Нифига себе, <<$name[sss]>> хуесоска Богарта'&if sluttySlmashaQW=0:sluttySlmashaQW=1
     if item[26]>0:
         'Так, у меня есть смартфон, можно сфоткать эту блядь'
         act'Сфоткать':

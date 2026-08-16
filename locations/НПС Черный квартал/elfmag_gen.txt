@@ -1,4 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&elfmag=i&lvl[i]=1&soul[i]=10000&master[i]=0&delusion[i]=0&magik[i]=19&beliver[i]=0
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&elfmag=i&lvl[i]=1&soul[i]=10000&master[i]=0&delusion[i]=0&magik[i]=19&beliver[i]=0&$nation[i]=' эльф'
 $title[i]='Дилер'&$history[i]='Я попал в это ужасное место и не могу найти отсюда выход.'&$name[i]='Эльдамиль'&$surname[i]='Серебрянный туман'&$nick[i]='Белый эльф'&spec_face_pic[i]=5&face_pic[i]=120
 face[i]=20&gla[i]=0&glacol[i]=6&nose[i]=0
 dick[i]=18&dickd[i]=45&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0

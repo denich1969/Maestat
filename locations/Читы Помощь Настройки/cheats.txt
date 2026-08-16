@@ -285,7 +285,7 @@ IF $ARGS[0]='Shop_showItemTab':
 			!$J_Patrons+='<td align="right">'+IIF($J_text['урон']='','',$J_text['урон'])+'</td>'
 			$J_Patrons+='<td align="right"><<item_burden[jcur_i]>></td>'&$J_Patrons+='</tr>'
 		else
-			$J_text['тип']=$iif(can_eat[jcur_i]=0,'items',$iif(can_eat[jcur_i]=1 or can_eat[jcur_i]=2,'food','other'))
+			$J_text['тип']=$iif(can_use_item[jcur_i]=0,'items',$iif(can_use_item[jcur_i]=1 or can_use_item[jcur_i]=2,'food','other'))
 			$J_text['добавить']+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,1  & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>''">+1</a>, '
 			$J_text['добавить']+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,5  & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>''">+5</a>, '
 			$J_text['добавить']+='<a href="exec:gs ''TechLoc'',''BuyItem'',<<jcur_i>>,10 & gs $curloc,''Shop_showItemTab'',''<<$ARGS[1]>>''">+10</a>'

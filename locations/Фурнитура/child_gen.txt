@@ -1,22 +1,24 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&pol[i]=rand(0,1)&mother[i]=args[0]&father[i]=inseminate[args[0]]&fat=father[i]
-if demon_dick[args[0]]>0:pol[i]=1&demon_dick[i]=1&magik[i]=rand(magik[mother[i]],magik[father[i]])
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&pol[i]=rand(1)&mother[i]=args[0]&father[i]=inseminate[args[0]]&fat=father[i]
+if demon_dick[args[0]]>0:pol[i]=1&demon_dick[i]=1&magik[i]=rand(magik[args[0]],magik[fat])
 if kid_first[args[0]]=0:kid_first[args[0]]=i
 if kid_first[args[0]]=1 and kid_second[args[0]]=0:kid_second[args[0]]=i
 if kid_first[fat]=0:kid_first[fat]=i&child[fat]=1&child[args[0]]=1
 if kid_first[fat]=1 and kid_second[fat]=0:kid_second[fat]=i&child[fat]=2&child[args[0]]=2
-if kid_first[fat]=1 and kid_second[fat]=1:child[fat]+=1&kid_num[fat]=i&child[args[0]]+=1&kid_num[args[0]]=i&childii[f]=child[args[0]]
+if kid_first[fat]=1 and kid_second[fat]=1:child[fat]+=1&kid_num[fat]=i&child[args[0]]+=1&kid_num[args[0]]=i&childii[fat]=child[args[0]]
 !kid_ii=1
 !:markrid
 !kid_'<<kid_ii>>'[args[0]]=i&kid_num[fat]=i&kid_ii+=1&if kid_ii<=max(kid_num[fat],kid_num[args[0]])
 !if args[0]!you:total_generated_female+=1&!не уверен что это
 cantwalk[i]=1
-if pol[i]=0:face[i]=rand(0,40)&total_generated_male+=1&gs $iif($nation[father[i]]=' русский' or $nation[mather[i]]=' русская','ru_man_name','man_name')
-if pol[i]=1:face[i]=rand(60,100)&total_generated_female+=1&gs $iif($nation[father[i]]=' русский' or $nation[mather[i]]=' русская','ru_woman_name','woman_name')
+if pol[i]=0:face[i]=rand(0,40)&total_generated_male+=1&gs $iif($nation[fat]=' русский' or $nation[args[0]]=' русская','ru_man_name','man_name')
+if pol[i]=1:face[i]=rand(60,100)&total_generated_female+=1&gs $iif($nation[fat]=' русский' or $nation[args[0]]=' русская','ru_woman_name','woman_name')
 skin[i]=iif(rand(1)=0,skin[args[0]],skin[fat])&hcol[i]=iif(rand(1)=0,hcol[args[0]],hcol[fat])
 gla[i]=iif(rand(1)=0,gla[args[0]],gla[fat])&glacol[i]=iif(rand(1)=0,glacol[args[0]],glacol[fat])
 nose[i]=iif(rand(1)=0,nose[args[0]],nose[fat])&scull[i]=scull[args[0]]&cheeks[i]=cheeks[args[0]]&lips[i]=iif(rand(1)=0,lips[args[0]],lips[fat])
-$name[i]=$genname&$surname[i]=$iif($surname[fat]!'',$surname[fat],$surname[args[0]])&$surname[i]=$iif(husband[args[0]]!fat and husband[args[0]]!0,$surname[husband[args[0]]],$surname[fat])
-skin[i]=rand(skin[mother[i]],skin[father[i]])
+$name[i]=$genname
+if pol[i]=0:$surname[i]=$iif($surname[fat]!'',$surname[fat],$surname[args[0]])&$surname[i]=$iif(husband[args[0]]!fat and husband[args[0]]!0,$gensurname[husband[args[0]]],$gensurname[fat])
+if pol[i]>0:$surname[i]=$iif($surname[fat]!'',$gensurname_f[fat],$surname[args[0]])&$surname[i]=$iif(husband[args[0]]!fat and husband[args[0]]!0,$gensurname_f[husband[args[0]]],$gensurname_f[fat])
+skin[i]=rand(skin[args[0]],skin[fat])
 if pol[i]=0:
 	womenbrain[i]=0&dick[i]=rand(12,14)&dickd[i]=rand(30,55)&ball[i]=rand(30,100)&ass[i]=2&vag[i]=0&tit[i]=0&nip[i]=8
 	dicklongrand=rand(1,100)&dick[i]=iif(dicklongrand<=80,rand(12,17),iif(dicklongrand>80 and dicklongrand<=90,rand(7,13),iif(dicklongrand>90 and dicklongrand<100,rand(18,25),rand(25,28))))
@@ -41,7 +43,7 @@ if demon_dick[i]>0:
 	if brave[i]<1:brave[i]=1
 end
 Xhome[i]=Xhome[args[0]]&Yhome[i]=Yhome[args[0]]&Zhome[i]=Zhome[args[0]]&Hhome[i]=Hhome[args[0]]&Rhome[i]=Rhome[args[0]]
-X[i]=X[args[0]]&Y[i]=Y[args[0]]&Z[i]=Z[args[0]]&H[i]=H[args[0]]&R[i]=R[args[0]]&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&$history_m[i]=$iif(mother[i]=you,'Ты была моя мать и там','Там была моя мать')
+X[i]=X[args[0]]&Y[i]=Y[args[0]]&Z[i]=Z[args[0]]&H[i]=H[args[0]]&R[i]=R[args[0]]&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&$history_m[i]=$iif(args[0]=you,'Ты была моя мать и там','Там была моя мать')
 if pol[i]=0:
 	t_slot[i]=rand(1,7)&l_slot[i]=rand(1,8)&b_slot[i]=rand(1,5)&ul_slot[i]=5
 	$history[i]='Я рос в виртуальной реальности, хотя я не замечал этого. '+$history_m[i]+', хотя теперь я понимаю что это была лишь цифровая копия. Там все было как на самом деле, дом, школа.'
@@ -55,14 +57,14 @@ if Zhome[i]=2:ne_world[]=i
 if Zhome[i]=3:e_world[]=i
 if Zhome[i]=4:se_world[]=i
 if Zhome[i]=5:s_world[]=i
-know['<<i>>,<<args[0]>>']+=1&know['<<args[0]>>,<<i>>']+=1&if husband[args[0]]=father[i] or boyfriend_num[args[0]]=father[i]:know['<<i>>,<<fat>>']+=1&know['<<fat>>,<<i>>']+=1
+know['<<i>>,<<args[0]>>']+=1&know['<<args[0]>>,<<i>>']+=1&if husband[args[0]]=fat or boyfriend_num[args[0]]=fat:know['<<i>>,<<fat>>']+=1&know['<<fat>>,<<i>>']+=1
 if Zhome[i]=1:work[i]=1&!рыбный завод
 if Zhome[i]=2:work[i]=iif(work[args[0]]=2,2,iif(work[args[0]]=3,3,rand(2,3)))&!электростанция или кирпичный завод
 if Zhome[i]=3:work[i]=100&klass_A+=1&klass[i]=1&!школа
 if Zhome[i]=4:work[i]=iif(work[args[0]]=20,20,iif(work[args[0]]=21,21,iif(work[args[0]]=22,22,iif(work[args[0]]=23,23,iif(work[args[0]]=24,24,rand(20,24))))))&!теплица, рынок, столярка, хлебозавод, винозавод
 if Zhome[i]=5:work[i]=iif(work[args[0]]=50,50,iif(work[args[0]]=51,51,iif(work[args[0]]=52,52,rand(50,52))))&!телепорт, химлаб, души
-walkprog[i]=iif(Zhome[i]=1 or Zhome[i]=2 or Zhome[i]=3 or Zhome[i]=4 or Zhome[i]=5,90,0)&!"БАГ ЧТО С ЭТИМ ДЕЛАТЬ???? КАКУЮ ЗАДАТЬ ПРОГРАММУ?"!Ckexfqyj задать программу из программ жителей района
+walkprog[i]=iif(Zhome[i]=1 or Zhome[i]=2 or Zhome[i]=3 or Zhome[i]=4 or Zhome[i]=5,90,0)&!"БАГ ЧТО С ЭТИМ ДЕЛАТЬ???? КАКУЮ ЗАДАТЬ ПРОГРАММУ?"!задать программу из программ жителей района
 can_drive[i]=args[0]
-if args[0]=you or father[i]=you:puppil[]=i&my_puppil[i]=1&total_puppil+=1&!возможность переселения
-if demon_dick[mother[i]]>0:demon_dick_queen[i]=mother[i]
+if args[0]=you or fat=you:puppil[]=i&my_puppil[i]=1&total_puppil+=1&!возможность переселения
+if demon_dick[args[0]]>0:demon_dick_queen[i]=args[0]
 age[i]=18&child[args[0]]+=1

@@ -209,6 +209,15 @@ if $ARGS[0] ! '':
 			if sluttySisQW=5:msg("Сестра мне жестко отомстила.")
 			if sluttySisQW>5:msg("Женская месть: страшная сила. Сестра превратила меня в девку...")
 		}
+		$d_mashaqw={
+			if sluttySlmashaQW=1:msg("Маша Сладкова сосет хуй Богарту, но у меня нет доказательств.")
+			if sluttySlmashaQW=2:msg("У меня есть фото Маши с хуем во рту.")
+			if sluttySlmashaQW=3:msg("Маше видела фотку.")
+			if sluttySlmashaQW=4:msg("Маша мне жестко отомстила за отказ отлизать.")
+			if sluttySlmashaQW=5:msg("Маша объяснила мне почему она так поступила.")
+			if sluttySlmashaQW=7:msg("Вы пожаловались на то, что с вами случилось...")
+			if sluttySlmashaQW=100:msg("Вы вернули себе первоначальный облик...")
+		}
 		$d_uberSolderQW={
 			if uberSolderQW[you]=1:msg("Фрэнк Висконти намекал, что он что-то знает, касающееся меня.")
 			if uberSolderQW[you]=2:msg("Фрэнк сказал, чтобы я проверил учительскую в школе часов в 8 утра по будням.")
@@ -322,6 +331,7 @@ if $ARGS[0] ! '':
 			if punishedQW>=1:pl'<a href="exec:dynamic $d_punishedQW">Пониженный</a>'
 			if cuntmanQW>=1 and cuntmanQW<100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
 			if sluttySisQW>=1 and sluttySisQW<3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
+			if sluttySlmashaQW>=1 and sluttySlmashaQW<100:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
 			if IamMilfQW>=1 and IamMilfQW<100:pl'<a href="exec:dynamic $d_iammilfqw">Моя жизнь</a>'
 			if lebeda_birdQW>=1 and lebeda_birdQW<100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды</a>'
 			if prophecyQW>=1 and prophecyQW<100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество</a>'
@@ -362,6 +372,7 @@ if $ARGS[0] ! '':
 			if autodocQW>=100:pl'<a href="exec:dynamic $d_autodocQW">Обновление автодока</a>'
 			if cuntmanQW>=100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
 			if sluttySisQW>=3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
+			if sluttySlmashaQW>=100:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
 			if lebeda_birdQW=100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды.</a>'
 			if prophecyQW>=100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество.</a>'
 			if against_portal>=4:pl'<a href="exec:dynamic $d_antiportalQW">Портальная магия.</a>'

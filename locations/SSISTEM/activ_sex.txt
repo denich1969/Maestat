@@ -107,7 +107,7 @@ if sexpower[you]>0:
 								temp_vag+=1&sexpower[you]-=1&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
 								$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
 								if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_3.jpg"  width="200" height="200"></center>'
-								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you
+								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&$defl_pic
 								gs'fuck_vag',you,npc&args[10]=func('fuck_final',in_sex[you])
 								if sexpower[you]>0:
 									act'...':gt $curloc
@@ -171,7 +171,7 @@ if sexpower[you]>0:
 								temp_vag+=1&sexpower[you]-=1&cls&$func('get_images', 'vag_fuck_dog', npc, you)
 								$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
 								if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_4.jpg"  width="200" height="200"></center>'
-								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&$defl_pic&if vag[npc]=1:deflorator[npc]=you
+								'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&$defl_pic
 								gs'fuck_vag',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
 								if sexpower[you]>0:
 									act'...':gt $curloc

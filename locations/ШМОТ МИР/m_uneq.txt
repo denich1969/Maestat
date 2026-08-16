@@ -1,1 +1,1 @@
-﻿clo=ARGS[0]&item[clo]+=1&burden[you]+=item_burden[clo]&m_slot[you]=0&uron_weapon_m[you]=0&$item_m_name[clo]=''&gt 'preloc'
+﻿clo=ARGS[0]&item[clo]+=1&burden[you]+=item_burden[clo]&m_slot[you]=0&uron_weapon_m[you]=0&$item_name[clo]=''&gt 'preloc'
