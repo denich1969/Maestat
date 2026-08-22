@@ -1,2 +1,2 @@
-﻿if ban_l[you]=0:item_l[ARGS[0]]+=1&burden[you]+=item_l_burden[ARGS[0]]&l_slot[you]=0
+﻿if ban_l[you]=0:item_l[args[0]]+=1&burden[you]+=item_l_burden[args[0]]&l_slot[you]=0
 gt'preloc'

@@ -1,1 +1,1 @@
-﻿it = ARGS[0]&clr&item_ul[it]-=1&burden[you]-=item_ul_burden[it]&item_loc_ul['<<it>>,<<$loc[you]>>']+=1&gt 'preloc'
+﻿clr&item_ul[args[0]]-=1&burden[you]-=item_ul_burden[args[0]]&item_loc_ul['<<args[0]>>,<<$loc[you]>>']+=1&gt 'preloc'

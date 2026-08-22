@@ -217,7 +217,7 @@ if L['<<$loc[you]>>']>0:
 	las+=1&if las<L['<<$loc[you]>>']:jump'marklas'
 	'<<$los_loc>>'
 end
-if charon['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'К пирсу пришвартован пакетбот "Харон" '+ "(<a href='exec:  gt""moveToHclo"", <<i>>'>Каюта капитана</a>)"
+if charon['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'К пирсу пришвартован пакетбот "Харон" '+ "(<a href='exec:  gt""moveToHclo"", <<0>>'>Каюта капитана</a>)"
 !!!!!!!!!!!!!!!!!!порталы
 if under['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''under''">Станция метро</a>'
 if kartina['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''kartina''">Картина с большой луной в ночном небе</a>'
@@ -287,7 +287,8 @@ if sportzal['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']
 if witchkotel['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''witchkotel''">Ведьмин котел над очагом</a>'
 if bartable['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''bartable''">Барная стойка</a>'
 if taberntable['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''taberntable''">Барная стойка</a>'
-if bar_shepot['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0 and sallivan_work=1:'<a href="exec:time+=5&gt ''bar_shepot''">Работать за стойкой</a>'
+if bar_shepot['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0 and sallivan_work=1 and hour>=9 and hour<=21:'<a href="exec:time+=5&gt ''bar_shepot''">Работать за стойкой</a>'
+if bar_shepot['<<$loc[you]>>']>=1 and (hour<9 or hour>21):'<b><p style="color: red; font-size: 20px;">Официанты работают с 9 до 21</p></b>'
 if agency['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0 and agency_ud[you]>0:'<a href="exec:time+=5&gt ''agency''">Ваш рабочий стол</a>'
 if bookstore['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1))  and busy[you]=0:'<a href="exec:time+=5&gt ''bookstore''">Прилавок</a>'
 if arsenal['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''arsenal''">Прилавок</a>'
@@ -368,8 +369,8 @@ if knowlist>0 and list['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABL
 if hut['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0 and searshed['<<$loc[you]>>']=0:'<a href="exec:time+=5&gt ''hut''">Шалаш из палок и листьев</a>'
 if hut['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0 and searshed['<<$loc[you]>>']>0:'<a href="exec:time+=5&gt ''hut''">Шалаш из палок и листьев</a> (обыскано)'
 if swordstoun['<<$loc[you]>>']>=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''swordstoun''">Меч воткнутый в камень</a>'
-if portal['<<$loc[you]>>']>=1 and portal['<<$loc[you]>>']<7777 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0 and Z[you]<200:'<a href="exec:time+=5&gt ''portal''">Портал</a>'
-if portal['<<$loc[you]>>']>=7777 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''portal_7777''">Странный портал</a>'
+if portal['<<$loc[you]>>']>0 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0 and Z[you]<200:'<a href="exec:time+=5&gt ''portal''">Портал</a>'
+if portal['<<$loc[you]>>']=210 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''portal_210''">Странный портал</a>'
 if altar['<<$loc[you]>>']=1 and  ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''altar''">Алтарь</a>'
 if koluchka['<<$loc[you]>>']=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''koluchka''">Колючки</a>'
 if koluchka['<<$loc[you]>>']=1 and koluchka_time['<<$loc[you]>>']<time:
@@ -652,10 +653,10 @@ if medusa_pouder_timer[you]>0:
 					if tit[you]>5:
 						 '<center><video autoplay loop src="pic/sex/solo/wank<<rand(12,23)>>.webm" ></video></center>'
 					else
-						if skin[you]>4:
-							'<center><video autoplay loop src="pic/sex/solo/wankbbc<<rand(0,5)>>.webm" ></video></center>'
+						if skin[you]>4 and skin[you]<7:
+							'<center><video autoplay loop src="pic/sex/solo/wankbbc<<rand(5)>>.webm" ></video></center>'
 						else
-							'<center><video autoplay loop src="pic/sex/solo/wankm<<rand(0,3)>>.webm" ></video></center>'
+							'<center><video autoplay loop src="pic/sex/solo/wankm<<rand(3)>>.webm" ></video></center>'
 						end
 					end
 				else
@@ -687,3 +688,53 @@ if whoreboss[sladkovamasha]>0 and hour>=23 and hour<24:
 	X[w]=Xhome[sladkovamasha]&Y[w]=Yhome[sladkovamasha]&Z[w]=Zhome[sladkovamasha]&H[w]=Hhome[sladkovamasha]&R[w]=Rhome[sladkovamasha]
 	if action_tipe[w]=0  and sextimer[s]<time:gs'locationhard_sex'
 end
+if StealQW>5 and lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=0 and key['<<you>>,<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=0:
+	if ($locnameR['<<$loc[you]>>']='Прихожая' or R[you]=0) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0 and H[you]>0:
+		act '<b><p style="color: red;">обшарить помещение</p></b>':
+			hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
+			if rand(1)=1:tt=rand(1,131)&item_loc_t['<<tt>>,<<$loc[you]>>']=1&'<<$t_name[tt]>>'
+			if rand(1)=1:tt=rand(1,68)&item_loc_b['<<tt>>,<<$loc[you]>>']=1&'<<$b_name[tt]>>'
+			if rand(1)=1:tt=rand(1,121)&item_loc_l['<<tt>>,<<$loc[you]>>']=1&'<<$l_name[tt]>>'
+			gt $curloc
+		end
+		if hacking['<<$loc[you]>>']=1:delact 'обшарить помещение'
+		act'Выйти и закрыть дверь':
+			$buildingsList = " <<$locnameH['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']>> (<a href='exec:  gt""moveToHclo"", <<H[you]>>'>""</a>)"
+			lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1&cls&H[you]=0&gt 'world'
+		end	
+	end
+	if R[you]>0:
+		if ($locnameR['<<$loc[you]>>']='Спальная' or R[you]=3) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
+			act '<b><p style="color: red;">обшарить помещение</p></b>':
+				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
+				if rand(1)=1:tt=rand(1,26)&item_loc_ut['<<tt>>,<<$loc[you]>>']=1&'<<$ut_name[tt]>>'
+				if rand(1)=1:tt=rand(1,29)&item_loc_ub['<<tt>>,<<$loc[you]>>']=1&'<<$ub_name[tt]>>'
+				if rand(1)=1:tt=rand(1,41)&item_loc_ul['<<tt>>,<<$loc[you]>>']=1&'<<$ul_name[tt]>>'
+				gt $curloc
+			end	
+		end
+		if ($locnameR['<<$loc[you]>>']='Гостиная' or R[you]=4) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
+			act '<b><p style="color: red;">обшарить помещение</p></b>':
+				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
+				if rand(1)=1:tt=rand(85,87)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				gt $curloc
+			end
+		end
+		if ($locnameR['<<$loc[you]>>']='Кухня' or R[you]=1) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
+			act '<b><p style="color: red;">обшарить помещение</p></b>':
+				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
+				if rand(1)=1:tt=rand(32,34)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				
+				gt $curloc
+			end
+		end
+		if ($locnameR['<<$loc[you]>>']='Библиотека' or R[you]=5) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
+			act '<b><p style="color: red;">обшарить помещение</p></b>':
+				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
+				if rand(1)=1:tt=rand(11,12)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				gt $curloc
+			end
+		end
+	end
+end
+if StealQW>5 and $loc[you]='3,0,1,0,0' and lock['3,0,1,0']=0 and total_npc_on_loc=0:act'Украсть магический кристалл':rome_pass=1&StealQW=7&delact 'Украсть магический кристалл'

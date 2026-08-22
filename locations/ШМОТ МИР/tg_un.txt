@@ -1,2 +1,2 @@
-﻿if ban_tg[you]=0:clo=ARGS[0]&item_tg[clo]+=1&burden[you]+=item_tg_burden[clo]&tg_slot[you]=0
+﻿if ban_tg[you]=0:item_tg[args[0]]+=1&burden[you]+=item_tg_burden[args[0]]&tg_slot[you]=0
 gt'preloc'

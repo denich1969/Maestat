@@ -5,7 +5,7 @@ if maxPositionH['<<X[you]>>,<<Y[you]>>,<<Z[you]>>']>0:
 		$buildingsList += "<br>"
 		if ((pose[you]!1 and CONFIG['DISABLE_position']=0) or (energy[you]<1 and CONFIG['DISABLE_position']=1)):$buildingsList += " <<$locnameH['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<i>>']>>"
         if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-            if lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<i>>']=0 or lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<i>>']>0 and key['<<you>>,<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<i>>']>0:
+            if lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<i>>']=0 or key['<<you>>,<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<i>>']>0:
                 if Xhome[you]=X[you] and Yhome[you]=Y[you] and Zhome[you]=Z[you] and Hhome[you]=i:
 					$buildingsList += "<a href='exec:  gt""moveToH"", <<i>>'> Ваш дом</a>"&!key['<<you>>,<<Xhome[you]>>,<<Yhome[you]>>,<<Zhome[you]>>,<<Hhome[you]>>']
                 else

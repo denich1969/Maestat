@@ -53,7 +53,7 @@ end
 if $npc_loc='' and total_npc_on_loc=0:
 	if horny[you]>=50 and energy[you]>=5 and dick[you]>1 and ball[you]>1:
 		act'Дрочить член':
-			jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'
+			jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'&gs'stat'&act'Встать':gt 'world'
 			if dick[you]>5:
 				if tit[you]>5:
 					'<center><video autoplay loop src="pic/sex/solo/wank<<rand(12,23)>>.webm" ></video></center>'
@@ -73,7 +73,6 @@ if $npc_loc='' and total_npc_on_loc=0:
 				'Пока вы самоудовлетворяетесь, вас не оставляет чувство чьего-то взгляда, а когда вы кончили, то вам показалось, что кто-то еще вдали и посмеялся... Странно это...'
 				dick[you]-=rand(0,1)&nip[you]+=1&if face[you]<50:face[you]+=1
 			end
-			gs'stat'&act'Встать':gt 'world'
 		end
 	end
 	if horny[you]>=50 and energy[you]>=5 and vag[you]>0:

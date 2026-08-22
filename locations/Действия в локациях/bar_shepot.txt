@@ -1,4 +1,4 @@
-﻿$nameloc[you]=$curloc&gs'stat'&'Барная стойка в "Шепоте"'&gs'Item'&gs 'npconloc'&act'Уйти':gt 'preloc'
+﻿$nameloc[you]=$curloc&gs'stat'&'Барная стойка в "Шепоте"'&gs'Item'&gs 'npconloc'&!act'Уйти':gt 'preloc'
 if sallivan_work=1:
 	if hour>=9 and hour<=21:
 	    if energy[you]>=20:
@@ -9,8 +9,7 @@ if sallivan_work=1:
 					energy[you]-=(20+total_npc_on_loc*2)&money[you]+=sallivansalary
 					'Вы работаете <<$text>> принимая заказы у посетителей, и разнося им готовые блюда, вытирая столы и выполняя несложные поручения от Салливана. '
 					'За час работы вы получаете <<sallivansalary/100>> шиллингов и <<sallivansalary mod 100>> пенсов.'
-					if pol[you]>0:chai=total_npc_on_loc*rand(5,35)
-					if pol[you]=0:chai=total_npc_on_loc*rand(1,10)
+					chai=iif(pol[you]>0,total_npc_on_loc*rand(5,35),total_npc_on_loc*rand(1,10))
 					money[you]+=chai&ExpWorkSallivan+=1&gs'stat'&'Клиенты нехотя оставляют вам <<chai/100>> шиллингов и <<chai mod 100>> пенсов чаевых'
 				else
 					energy[you]-=20&money[you]+=sallivansalary&'Клиентов в баре нет и вы работаете только на кухне и по уборке, получая <<sallivansalary/100>> шиллингов и <<sallivansalary mod 100>> пенсов.'
@@ -51,6 +50,10 @@ if sallivan_work=1:
 					act'Передохнуть':time+=5&busy[you]=0&gt 'world'
 				end
 			end
+		else 
+			'<b><p style="color: red; font-size: 20px;">Вы слишком сильно устали, чтобы работать</p></b>'&act'Уйти':gt 'preloc'	
 		end
+	else
+		'Официанты работают с 9 до 21'
 	end
 end

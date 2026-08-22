@@ -450,7 +450,7 @@ if mabuta=npc:
 			act'<b>Уйти</b>':gt 'preloc'
 			if money[you]>=100000:
 				act'<b>Учиться у медвежатников</b>':
-					money[you]-=100000&StealQW=6&exp_Steal[you]=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					money[you]-=100000&StealQW=6&exp_Steal[you]=1&time+=60&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 					'Мабута взял у вас деньги и позвонил по телефону. Вскоре пришёл здоровенный мужик и показал вам основные приёмы взламывания замков.'
 				end	 
 			end
@@ -460,7 +460,7 @@ if mabuta=npc:
 		'Вы говорите, что хотите купить отмычки. Мабута вызывает медвежатника.'
 		if money[you]=>100:
 			act 'Купить отмычки':
-				time+=5&tempshop = input ("Сколько вы хотите купить отмычек (1 шиллинг за 1 отмычку )?")
+				time+=5&tempshop = input ("Сколько вы хотите купить отмычек (1 шиллинг за 1 отмычку )?")&!act'<b>Уйти</b>':gt 'preloc'
 				if tempshop*100>money[you] or tempshop<0:
 					msg'У вас нет такого количества шиллингов.'&gt $CURLOC
 				else

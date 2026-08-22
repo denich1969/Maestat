@@ -15,17 +15,14 @@ if master[you]>0:act'<b>Всмотреться в свои глаза</b>':gt'vo
 if master[you]=100:
 	act'<b>Всмотреться</b>':
 		cls&gs'stat'&'Вам доступны тайные пути среди зеркальных коридоров'
-		act'<b>Маяк</b>':X[you]=0&Y[you]=0&Z[you]=1&H[you]=0&R[you]=0&gt 'preloc'
-		act'<b>Клуб Реликт</b>':X[you]=2&Y[you]=1&Z[you]=2&H[you]=0&R[you]=0&gt 'preloc'
-		act'<b>Улица Грез</b>':X[you]=3&Y[you]=1&Z[you]=3&H[you]=0&R[you]=0&gt 'preloc'
-		act'<b>Аптаун</b>':X[you]=2&Y[you]=2&Z[you]=4&H[you]=0&R[you]=0&gt 'preloc'
-		act'<b>Церковь святого Иуды</b>':X[you]=2&Y[you]=2&Z[you]=5&H[you]=0&R[you]=0&gt 'preloc'
+		act'<b>Отель у моря</b>':mana[you]-=100&X[you]=0&Y[you]=0&Z[you]=771&H[you]=0&R[you]=0&gt 'preloc'
+		act'<b>Домой</b>':X[you]=100&Y[you]=100&Z[you]=210&H[you]=1&R[you]=0&gt 'preloc'
 	end
 end
 if master[you]=1:
 	act'<b>Всмотреться</b>':
 		cls&gs'stat'&'Вам доступны тайные пути среди зеркальных коридоров'
-		act'<b>Домой</b>':X[you]=3&Y[you]=3&Z[you]=0&H[you]=1&R[you]=0&gt 'preloc'
+		act'<b>Домой</b>':X[you]=3&Y[you]=3&Z[you]=200&H[you]=1&R[you]=0&gt 'preloc'
 		act'<b>Луна</b>':X[you]=3&Y[you]=3&Z[you]=7777&H[you]=1&R[you]=1&gt 'preloc'
 		if rememberme>0 and mana[you]>=100:
 			act'<b>Отель у моря</b>':mana[you]-=100&X[you]=0&Y[you]=0&Z[you]=100&H[you]=0&R[you]=0&gt 'preloc'
@@ -190,7 +187,8 @@ if tot_aristokrat[you]>0:
 end
 if sfera_amulet[you]>0:'На руке одет браслет с рунами, дающий вам: <b><<sfera_amulet[you]>></b> единиц защиты при входе в бой'
 $full=''
-if h_slot[you]>0:hattemp=h_slot[you]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'&$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
+if h_slot[you]>0:$d_hat_view='view"pic/clo/hat/<<h_slot[you]>>.jpg"'&$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<h_slot[you]>>.jpg" ></a>'&' <a href="exec:gt''hat_un'',<<h_slot[you]>>">снять</a>'
+if c_slot[you]>0:$d_coat_view='view"pic/clo/coat/<<c_slot[you]>>.jpg"'&$full+='<a href="exec:dynamic $d_coat_view"><img src="pic/clo/coat/<<c_slot[you]>>.jpg" ></a>'&'<a href="exec:gt''coat_un'',<<c_slot[you]>>">снять</a>'
 if t_slot[you]>0:
 	toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
 	!'<<$t_sexy[toptemp]>>'
@@ -212,6 +210,8 @@ if b_slot[you]>0:
 	!if aristokrat_b[boottemp]>0:'Офисная обувь'
 	!if sport_b[boottemp]>0:'Спортивная обувь'
 end
+if collar[you]=1:'У вас на шее кожанный ошейник'
+if collar[you]=2:'У вас на шее металический ошейник'
 if plug[you]=2:$plug_view='view"pic/bodymod/view_plug2.jpg"'&$full+='<a href="exec:dynamic $plug_view"><img src="pic/bodymod/view_plug2.jpg" height="150"></a>'
 '<<$full>>'
 $under=''

@@ -1,1 +1,1 @@
-﻿cls&item_loc_t['<<ARGS[0]>>,<<$loc[you]>>']-=1&item_loc['1,<<$loc[you]>>']+=1&gt 'preloc'
+﻿cls&item_loc_t['<<args[0]>>,<<$loc[you]>>']-=1&item_loc['1,<<$loc[you]>>']+=1&gt 'preloc'

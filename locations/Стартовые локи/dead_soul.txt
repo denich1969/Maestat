@@ -49,8 +49,7 @@ if r_ass_t[you]>0:'Татуировка на правой ягодице - <img 
 if l_leg_t[you]>0:'Татуировка на левой ноге - <img src="pic/tattoo/l_leg_t_<<l_leg_t[you]>>.jpg" >'
 if r_leg_t[you]>0:'Татуировка на правой ноге - <img src="pic/tattoo/r_leg_t_<<r_leg_t[you]>>.jpg" >'
 'Побед <<win[you]>>, поражений <<loss[you]>>, бегств <<run[you]>>'
-if guy[you]>0:'У вас было <<guy[you]>> парней'
-if girl[you]>0:'У вас было <<girl[you]>> девушек'
+$iif(guy[you]>0,'У вас было <<guy[you]>> парней','У вас не было ни одного парня')&*pl $iif(girl[you]>0,'У вас было <<girl[you]>> девушек','У вас не было ни одной девушки')
 if shemale[you]>0:'У вас было <<shemale[you]>> шимейлов'
 if tentacle[you]>0:'Вас <<tentacle[you]>> раз насиловали тентакли, <<t_anal[you]>> раз в попу, <<t_bj[you]>> раз в рот'
 if ork[you]>0:'Вас <<ork[you]>> раз трахали орки'

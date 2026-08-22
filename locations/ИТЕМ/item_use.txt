@@ -9,12 +9,12 @@ if args[0]=3:
 	clr&dynamic $d_inv
 end
 if args[0]=4:
-	temp_amulet=0
+	temp_amulet=0&if amulet[you]>0:msg("Вы не можете повесить амулет на шею")
 	if amulet[you]=0:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&amulet[you]=args[1]&temp_amulet=1&msg("Вы надели амулет на шею")
-	if amulet[you]>0:msg("Вы не можете повесить амулет на шею")
+	
 	clr&dynamic $d_inv
 end
-if args[0]=5:eatitem=args[1]&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&item[1]+=1&burden[you]+=item_burden[1]&clr&dynamic $d_inv&!действие итема: порвать на тряпки
+if args[0]=5:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[1]+=1&burden[you]+=item_burden[1]&clr&dynamic $d_inv&!действие итема: порвать на тряпки
 if args[0]=6:
 	if m_slot[you]>0:
 		clo=m_slot[you]&item[clo]+=1&burden[you]+=item_burden[clo]&m_slot[you]=0&uron_weapon_m[you]=0&$item_m_name[clo]=''&!убираем
@@ -40,9 +40,8 @@ if args[0]=7:
 end
 if args[0]=8:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[12]+=1&burden[you]+=item_burden[12]&clr&dynamic $d_inv&!порвать книгу на бумагу
 if args[0]=9:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[15]+=1&burden[you]+=item_burden[15]&item[16]+=1&burden[you]+=item_burden[16]&clr&dynamic $d_inv
-if args[0]=10:
-    if item[15]>0 and item[16]>0:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[16]-=1&burden[you]-=item_burden[16]&item[14]+=1&burden[you]+=item_burden[14]
-	clr&dynamic $d_inv&!собрать станок
+if args[0]=10 and item[15]>0 and item[16]>0:
+	item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[16]-=1&burden[you]-=item_burden[16]&item[14]+=1&burden[you]+=item_burden[14]&clr&dynamic $d_inv&!собрать станок
 end
 if args[0]=11:
     if cum_face[you]>0 and status_tipe[you]>0:
@@ -65,19 +64,12 @@ if args[0]=12:
 end
 if args[0]=13:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&clr&gs'drink'&gs'eat'&dynamic $d_inv&!действие итема!есть и пить
 if args[0]=14:
-    if master[you]=1:useminihome+=1&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item_loc['<<args[1]>>,<<$loc[you]>>']=1&X[you]=100&Y[you]=100&Z[you]=7777&clr&gt'world'&!в квартиру
+    if master[you]=100:useminihome+=1&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item_loc['<<args[1]>>,<<$loc[you]>>']=1&X[you]=100&Y[you]=100&Z[you]=210&clr&gt'world'&!в квартиру
+    if master[you]=1:useminihome+=1&item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item_loc['<<args[1]>>,<<$loc[you]>>']=1&X[you]=3&Y[you]=3&Z[you]=200&H[you]=2&clr&gt'world'&!в квартиру
     if master[you]=0:msg("Маленькая и прочная модель дома")
 	dynamic $d_inv
 end
-if args[0]=15:
-	eatitem=args[1]
-    if Z[you]<11 or Z[you]=100 or Z[you]=7777 or (Z[you]>=700 and Z[you]<800):
-		msg("Нет сети")
-	else
-		msg("Никто не присылал сообщений")
-    end
-	clr&dynamic $d_inv&!смартфон
-end
+if args[0]=15:eatitem=args[1]&msg($iif(Z[you]<11 or Z[you]=100 or Z[you]=7777 or (Z[you]>=700 and Z[you]<800),"Нет сети","Никто не присылал сообщений"))&clr&dynamic $d_inv&!смартфон
 if args[0]=16:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&health[you]=healthmax[you]&clr&dynamic $d_inv&!лечка
 if args[0]=17:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&energy[you]+=50&clr&dynamic $d_inv&!малое восстановление
 if args[0]=18:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&energy[you]=energymax[you]&clr&dynamic $d_inv&!полное восстановление
@@ -85,9 +77,8 @@ if args[0]=19:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&health[you]+=50
 if args[0]=20:
 	clr&eatitem=args[1]&!гримуар ведьмы
     if knowlanguage[you]>0:
-        if daygrimuar!daystart:
-            if canbewitch[you]=0 and magik[you]<3:canbewitch[you]=1&magik[you]+=1
-			daygrimuar=daystart&mana[you]=manamax[you]&msg("После прочтения гримуара вас охватывает магическая энергия.")
+        if daygrimuar!daystart: 
+			daygrimuar=daystart&mana[you]=manamax[you]&msg("После прочтения гримуара вас охватывает магическая энергия.")&if canbewitch[you]=0 and magik[you]<3:canbewitch[you]=1&magik[you]+=1
         else
 			msg("Вы читаете тексты полные ужасных тайн повергающих в пучину кошмаров черной магии.")
         end
@@ -98,11 +89,11 @@ if args[0]=20:
 end
 if args[0]=21:
 	clr&eatitem=args[1]&!перемещение
-     if H[you]>0:
+    if H[you]>0:
 		msg("Портал не работает в помещении")
-     else
+    else
 		gt'portal'
-     end
+    end
 	dynamic $d_inv
 end
 if args[0]=22:
@@ -219,6 +210,11 @@ if args[0]=47:
 	sfera_fiz+=10000&sfera_psih+=1000&sfera_antigrav+=1000&clr&dynamic $d_inv&!Магическое яйцо
 end
 if args[0]=48:clr&gs'util_func', 'equip_piercing', args[1]&dynamic $d_inv&!пирсинг
+!if args[0]=49:!сделать розочку из бутылки
+!if args[0]=50:!разжечь костёр или газовую плиту
+!if args[0]=51:!изучить руну на камне. Что можно делать с рунным камнем без алтаря?
+!if args[0]=52:!сделать отравленный шип
+!if args[0]=57:!что происходит при сжатии алмаза?
 if args[0]=171:clr&GS 'Shift_Z_Rus_Handler'&dynamic $d_inv&!записки охотника!eatitem=args[1]
 if args[0]=999:
 	item[args[1]]-=1&burden[you]-=item_burden[args[1]]&lust[you]+=1&corr[you]+=1&horny[you]+=50

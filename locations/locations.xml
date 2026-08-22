@@ -98,7 +98,6 @@
       <Location name="preloc"/>
       <Location name="god_start"/>
       <Location name="princess_start"/>
-      <Location name="princesswin"/>
       <Location name="roma_start"/>
       <Location name="romastory"/>
       <Location name="pre_master"/>
@@ -232,7 +231,11 @@
     </Folder>
     <Folder name="ITEM_BASE">
       <Location name="item_base"/>
+      <Location name="modifier_base"/>
+      <Location name="book_base"/>
+      <Location name="ring_base"/>
       <Location name="pirs_base"/>
+      <Location name="amulet_base"/>
       <Location name="hat_base"/>
       <Location name="w_base"/>
       <Location name="m_base"/>
@@ -320,7 +323,11 @@
       <Location name="dropitem_ut"/>
       <Location name="dropitem_ul"/>
       <Location name="dropitem_ub"/>
+      <Location name="item_loc_take_m"/>
+      <Location name="item_loc_take_w"/>
       <Location name="item_loc_take_h"/>
+      <Location name="item_loc_take_tg"/>
+      <Location name="item_loc_take_tz"/>
       <Location name="item_loc_take_t"/>
       <Location name="item_loc_take_l"/>
       <Location name="item_loc_take_b"/>
@@ -346,6 +353,8 @@
       <Location name="ut_un"/>
       <Location name="ul_un"/>
       <Location name="ub_un"/>
+      <Location name="item_loc_ripe_tg"/>
+      <Location name="item_loc_ripe_tz"/>
       <Location name="item_loc_ripe_t"/>
       <Location name="item_loc_ripe_l"/>
       <Location name="item_loc_ripe_ut"/>
@@ -873,7 +882,6 @@
     <Folder name="МИР">
       <Location name="world"/>
       <Location name="deadgrave"/>
-      <Location name="moveToZ"/>
       <Location name="unicorn"/>
       <Location name="onehandband"/>
       <Location name="hunterdesk"/>
@@ -888,11 +896,12 @@
       <Location name="onStreet"/>
       <Location name="inHouse"/>
       <Location name="moveToHclo"/>
-      <Location name="moveToH"/>
       <Location name="inRoom"/>
-      <Location name="proverkaH"/>
-      <Location name="moveToR"/>
       <Location name="QwestOnLoc"/>
+      <Location name="moveToZ"/>
+      <Location name="moveToR"/>
+      <Location name="moveToH"/>
+      <Location name="proverkaH"/>
     </Folder>
     <Folder name="Действия с объектами на локациях">
       <Location name="EventLoc"/>
@@ -935,7 +944,7 @@
       <Location name="moonqwportret"/>
       <Location name="karta"/>
       <Location name="kartina"/>
-      <Location name="portal_7777"/>
+      <Location name="portal_210"/>
       <Location name="dagon_portal"/>
       <Location name="under"/>
     </Folder>
@@ -1596,9 +1605,15 @@
       <Location name="200_world_gen"/>
       <Location name="school_gen"/>
       <Location name="hero_home_gen"/>
+      <Location name="princesswin"/>
+      <Location name="truewin"/>
       <Location name="bum_gen"/>
       <Location name="generator_master"/>
-      <Location name="master_kuh"/>
+      <Location name="room_gen"/>
+      <Location name="gamewin"/>
+      <Location name="master_hunt"/>
+      <Location name="master_skver"/>
+      <Location name="master_street"/>
     </Folder>
     <Folder name="НПС реальный мир">
       <Location name="male_w_gen"/>
@@ -1611,13 +1626,6 @@
       <Location name="elis_gen"/>
       <Location name="demonboss_gen"/>
       <Location name="lillith_gen"/>
-      <Location name="master_room"/>
-      <Location name="master_small"/>
-      <Location name="master_toilet"/>
-      <Location name="master_skver"/>
-      <Location name="master_street"/>
-      <Location name="master_korr"/>
-      <Location name="master_hunt"/>
       <Location name="losgen"/>
       <Location name="freegirl"/>
     </Folder>
@@ -1644,8 +1652,12 @@
       <Location name="forced_qwest"/>
     </Folder>
     <Folder name="Город">
-      <Location name="room_gen"/>
       <Location name="1_world_gen"/>
+      <Location name="master_korr"/>
+      <Location name="master_toilet"/>
+      <Location name="master_small"/>
+      <Location name="master_room"/>
+      <Location name="master_kuh"/>
       <Location name="svalka_gen"/>
       <Location name="public_build"/>
       <Location name="2_world_gen"/>
@@ -1710,6 +1722,9 @@
       <Location name="godpoweraction"/>
       <Location name="godreturn"/>
       <Location name="fightforwoman"/>
+    </Folder>
+    <Folder name="Демоника">
+      <Location name="pigman_gen"/>
     </Folder>
   </Structure>
 </QGen-project>

@@ -34,8 +34,8 @@ else
 				if superslut[you]=1:uron=uron+(uron/10)
 				if popad=2:uron=uron*2
 				if mslot=25 and mob[npc]=1:uron=uron*2
-				if uronstraf[you]>0 and uronstraf[you]<10:$iif(pol[you]>0,'Грудь и попа немного мешают вам в бою','Ваши мышци настолько слабы, что даже задница мешают вам в бою')
-				if uronstraf[you]>=10:$iif(pol[you]>0,'Сиськи с задницей мешают вам в бою','Ваши мышци настолько слабы, что даже задница мешают вам в бою')
+				if uronstraf[you]>0 and uronstraf[you]<10:$iif(pol[you]>0,'Грудь и попа немного мешают вам в бою','Задница немного мешают вам в бою')
+				if uronstraf[you]>=10:$iif(pol[you]>0,'Сиськи с задницей мешают вам в бою','Задница немного мешают вам в бою')
 				if defenceV>0:
 					if defenceV<uron:
 						uron-=defenceV&defenceV=0

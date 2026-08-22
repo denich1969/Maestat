@@ -17,7 +17,7 @@ $item_m_name=$item_name[i]&$item_text[i]='Обычная плеть'&tipe_melee_
 i=40&$item_name[i]='Топор'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500
 $item_m_name=$item_name[i]&$item_text[i]='Обычный топор'&tipe_melee_item[i]=1&uron_m_item[i]=100&!0- тупое&!1-острое!количество урона
 i=41&$item_name[i]='Меч'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=2000&!вес
-$item_m_name=$item_name[i]&$item_text[i]='Обычный меч'&tipe_melee_item[i]=1&uron_m_item[i]=120&!0- тупое&!1-острое!количество урона
+$item_m_name=$item_name[i]&$item_text[i]='Обычный хороший меч'&tipe_melee_item[i]=1&uron_m_item[i]=120&!0- тупое&!1-острое!количество урона
 i=42&$item_name[i]='Рапира'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=600&!вес
 $item_m_name=$item_name[i]&$item_text[i]='Обыкновенная рапира'&tipe_melee_item[i]=1&uron_m_item[i]=120&!0- тупое&!1-острое!количество урона
 i=43&$item_name[i]='Сабля'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1000&!вес
@@ -26,14 +26,14 @@ i=44&$item_name[i]='Катана'&can_use_item[i]=6&$item_use[i]='Взять в 
 $item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=1&uron_m_item[i]=150&!0- тупое&!1-острое!количество урона
 i=45&$item_name[i]='Молот'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1600&!вес
 $item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=0&uron_m_item[i]=150&!0- тупое!1-острое!количество урона
-i=46&$item_name[i]='Палка'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1000&!вес
-$item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=0&uron_m_item[i]=30&!0- тупое!1-острое!количество урона
+i=46&$item_name[i]='Палка'&$item_m_name_oi[i]='палкой'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1000&!вес
+$item_m_name=$item_name[i]&$item_text[i]='Обыкновенная узловатая палка.'&tipe_melee_item[i]=0&uron_m_item[i]=30&!0- тупое!1-острое!количество урона
 i=47&$item_name[i]='Доска'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1000&!вес
 $item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=0&uron_m_item[i]=30&!0- тупое!1-острое!количество урона
 i=48&$item_name[i]='Доска с гвоздями'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1200&!вес
 $item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=0&uron_m_item[i]=50&!0- тупое!1-острое!количество урона
 i=55&$item_name[i]='Скипетр'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=600&!вес
-$item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=0&uron_m_item[i]=200&!0- тупое!1-острое!количество урона
+$item_m_name=$item_name[i]&$item_text[i]='Символ власти.'&tipe_melee_item[i]=0&uron_m_item[i]=250&!0- тупое!1-острое!количество урона
 i=64&$item_name[i]='Монтировка'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500&!вес
 $item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=0&uron_m_item[i]=100&!0- тупое!1-острое!количество урона
 i=74&$item_name[i]='Багор'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=5000&!вес
@@ -74,33 +74,41 @@ i=128&$item_name[i]='Эльфийский меч'&$item_m_name_oi[i]='мечом
 $item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=1&uron_m_item[i]=180&!0- тупое&!1-острое!количество урона
 i=150&$item_name[i]='Арбалет'&$item_m_name_oi[i]='арбалетом'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500&!вес
 $item_m_name=$item_name[i]&$item_text[i]=$item_name[i]&tipe_melee_item[i]=0&uron_m_item[i]=350&!0- тупое&!1-острое!количество урона
-i=260&$item_name[i]='Узловатая палка'&$item_m_name_oi[i]='палкой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=1000
+i=260&$item_name[i]='Узловатая палка'&$item_m_name_oi[i]='палкой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1000
 $item_m_name=$item_name[i]&$item_m_text[i]='Узловатая палка с сучками.'&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=0&uron_m_item[i]=50&!0- тупое&!1-острое!количество урона
-i=261&$item_name[i]='Старая сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=1500&!вес
+i=261&$item_name[i]='Старая сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500&!вес
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=100&!0- тупое&!1-острое!количество урона
-i=262&$item_name[i]='Обычная сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=1500&!вес
+i=262&$item_name[i]='Обычная сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500&!вес
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=150&!0- тупое&!1-острое!количество урона
-i=263&$item_name[i]='Хорошая сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=1500&!вес
+i=263&$item_name[i]='Хорошая сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500&!вес
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=200&!0- тупое&!1-острое!количество урона
-i=264&$item_name[i]='Отличная сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=1500
+i=264&$item_name[i]='Отличная сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=250&!0- тупое&!1-острое!количество урона
-i=265&$item_name[i]='Легендарная сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=1500
+i=265&$item_name[i]='Легендарная сабля охотника'&$item_name_oi[i]='саблей'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=300
-i=266&$item_name[i]='Кувалда'&$item_name_oi[i]='кувалдой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=2500
+i=266&$item_name[i]='Кувалда'&$item_name_oi[i]='кувалдой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=2500
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=0&uron_m_item[i]=250
-i=267&$item_name[i]='Топор'&$item_name_oi[i]='топором'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=2500
-$item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=250
-i=268&$item_name[i]='Старая рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=650
+i=267&$item_name[i]='Топор'&$item_name_oi[i]='топором'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=2500
+$item_m_name=$item_name[i]&$item_m_text[i]='Отличный топор.'&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=250
+i=268&$item_name[i]='Старая рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=650
 $item_m_name=$item_name[i]&$item_m_text[i]=''&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=200
-i=269&$item_name[i]='Обычная рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=650
+i=269&$item_name[i]='Обычная рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=650
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=400
-i=270&$item_name[i]='Хорошая рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=650
+i=270&$item_name[i]='Хорошая рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=650
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=700
-i=271&$item_name[i]='Отличная рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=650
+i=271&$item_name[i]='Отличная рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=650
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=1000
-i=272&$item_name[i]='Легендарная рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=650
+i=272&$item_name[i]='Легендарная рапира охотника'&$item_name_oi[i]='рапирой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=650
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=1200
-i=273&$item_name[i]='Электродубина'&$item_name_oi[i]='дубиной'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=350&!вес
+i=273&$item_name[i]='Электродубина'&$item_name_oi[i]='дубиной'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=350&!вес
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=0&uron_m_item[i]=600
-i=274&$item_name[i]='Труба'&$item_name_oi[i]='трубой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_m_burden[i]=250&!вес
+i=274&$item_name[i]='Труба'&$item_name_oi[i]='трубой'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=250&!вес
 $item_m_name=$item_name[i]&$item_m_text[i]=$item_name[i]&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=0&uron_m_item[i]=80
+i=275&$item_name[i]='Топор гнолла'&$item_m_name_oi[i]='топором'&$item_m_use[i]='Взять'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1500&!вес
+$item_m_name=$item_name[i]&$item_m_text[i]='Грубый топор насаженный на крепкую палку.'&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=100
+i=276&$item_name[i]='Полицейска дубинка'&$item_m_name_oi[i]='дубинкой'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=700
+$item_m_name=$item_name[i]&$item_text[i]='Дубинка'&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=0&uron_m_item[i]=50&!0- тупое!1-острое!количество урона
+i=277&$item_name[i]='Ржавый меч'&$item_m_name_oi[i]='мечом'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=1800&!вес
+$item_m_name=$item_name[i]&$item_text[i]='Все ещё крепкий, но ржавый меч.'&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=100&!0- тупое&!1-острое!количество урона
+i=278&$item_name[i]='Фамильный меч Кастора'&$item_m_name_oi[i]='мечом'&can_use_item[i]=6&$item_use[i]='Взять в руку'&item_burden[i]=2000&!вес
+$item_m_name=$item_name[i]&$item_text[i]='Отличный меч.'&clo_m_item[i]=5&item_m_max[i]=5&tipe_melee_item[i]=1&uron_m_item[i]=160&!0- тупое&!1-острое!количество урона

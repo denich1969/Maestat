@@ -1,6 +1,6 @@
-﻿takeitem=ARGS[0]&cls
-if burden[you]+item_ul_burden[takeitem]<=burdenmax[you]:
-	burden[you]+=item_ul_burden[takeitem]&item_loc_ul['<<takeitem>>,<<$loc[you]>>']-=1&item_ul[takeitem]+=1&!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
+﻿cls
+if burden[you]+item_ul_burden[args[0]]<=burdenmax[you]:
+	burden[you]+=item_ul_burden[args[0]]&item_loc_ul['<<args[0]>>,<<$loc[you]>>']-=1&item_ul[args[0]]+=1&!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
 else
 	msg("Слишком тяжело")
 end

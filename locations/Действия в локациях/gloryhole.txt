@@ -12,11 +12,8 @@
 			if func('oralslut',-1,you)=1:horny[you]=0
 		end
 		temp_orgazm[you]=0
-		if frank_viscontiQW=5:
-			act'Ждать следующий':gt'gloryhole'
-		else
-			act'Встать':gt 'preloc'
-		end
+		if frank_viscontiQW=5:act'Ждать следующий':gt'gloryhole'
+		if frank_viscontiQW!5:act'Встать':gt 'preloc'
 	end
 }
 if CONFIG['DISABLE_position']=1 and $worldloc[you] ! '':$worldloc[you] = ''&pose = 1

@@ -9,8 +9,8 @@ act'<<$textsea>>':
 			'<center><img src="pic/event/see/fishillusion.jpg" ></center>'
 			'Таинственная незнакомка подплыла к вам и протянув руки к вашему лицу, лишь коснулась его и махнув хвостом, отправила вас обратно к поверхности...'
 			act'Всплывать':
-				dagongene+=5&seeevent=1&horny[you]=99&health[you]=healthmax[you]/2&act'...':gt 'preloc'
-				time+=15&cls&'Сила русалки вытолкнула вас поближе к берегу, где вы и расплостались, пытаясь понять, что за диво вы только что видели...'&'<center><img src="pic/event/see/end2.jpg" ></center>'
+				dagongene+=5&seeevent=1&horny[you]=99&health[you]=healthmax[you]/2&time+=15&cls&act'...':gt 'preloc'
+				'Сила русалки вытолкнула вас поближе к берегу, где вы и расплостались, пытаясь понять, что за диво вы только что видели...'&'<center><img src="pic/event/see/end2.jpg" ></center>'
 			end
 		end
 		if seeevent=1 and dagongene<40:

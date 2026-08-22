@@ -2,8 +2,7 @@
 act'Сесть на трон':
 	time+=5&cls&gs'stat'&act'...':gt'preloc'
 	if h_slot[you]=2 and t_slot[you]!24 and dressonce!daystart and item[57]>0 and item_loc_t['24,<<$loc[you]>>']=0:
-		dressonce=daystart&!item_loc_t['24,<<$loc[you]>>']=1
-		if you!princess: item_loc_t['133,<<$loc[you]>>']=1&'Рядом с троном упало платье принцессы'
+		dressonce=daystart&if you!princess: item_loc_t['133,<<$loc[you]>>']=1&'Рядом с троном упало платье принцессы'
 	end
     if throntime<time:
 		if h_slot[you]=2 and t_slot[you]=24 and scipetronce!daystart and m_slot[you]!55 and item_loc['55,<<$loc[you]>>']=0:

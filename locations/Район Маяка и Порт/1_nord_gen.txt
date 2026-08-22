@@ -142,7 +142,7 @@ elseif X=3 and Y=3:
 	R=1&gs 'toilet_gen',6&!gs 'toilet_gen',уровень туалета
 	H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Дом Ожеронов'&lock['<<$templocH>>']=1&privat['<<$templocH>>']=1&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Холл'&$lname['<<$temploc>>']='Холл'&$lname_go['<<$temploc>>']='в холл'
-	$locopis['<<$temploc>>']='Не большой но уютный дом'&np['<<$temploc>>']=0&mirror['<<$temploc>>']=1&gs'ogeron'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
+	$locopis['<<$temploc>>']='Небольшой, но уютный дом'&np['<<$temploc>>']=0&mirror['<<$temploc>>']=1&gs'ogeron'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 	R=1&gs 'toilet_gen',6&R=0&!gs 'toilet_gen',уровень туалета
 elseif X=4 and Y=1:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Трущобы Инсмутцев'&$lname['<<$temploc>>']='Трущобы Инсмутцев'

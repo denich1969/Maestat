@@ -9,7 +9,7 @@ if bartable['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=3:
 end
 BT = bartable['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']
 if BT=2 or BT=4:
-	*nl'Пиво - 1 шиллинг'&*nl'Еда - 80 пенсов'
+	*nl'Пиво - 1 шиллинг'&$iif(alkofree=1 and BT=4,'<p style="color: red;">Еда - 80 пенсов и выпивка бесплатно</p>','<p>Еда - 80 пенсов</p>')
 	if money[you]>=100:
 		act'Купить пиво 1 шиллинг':
 			money[you]-=100&item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'&act'<b>Уйти</b>':gt $curloc
@@ -17,32 +17,22 @@ if BT=2 or BT=4:
 	end
 	if money[you]>=80:
 		act'Поесть 80 пенсов':
-			money[you]-=80&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&! 'Вы заплатили деньги и взяли тарелку каши с рыбой.'
+			money[you]-=80&time+=15&cls&gs'eat'&gs'drink'&gs'stat'&act'<b>Уйти</b>':gt $curloc
 			if alkofree=1 and BT=4:
 				alko[you]+=rand(5,15)&'Вы заплатили деньги и взяли тарелку каши с рыбой, а так же обещанный вам бокал крепкого пива.'
-				if face[you]>60:
-					'<center><img src="pic/misc/portbareatdrinkwoman.jpg" ></center>'
-				else
-					'<center><img src="pic/misc/portbareatdrinkman.jpg" ></center>'
-				end
+				$iif(face[you]>60,'<center><img src="pic/misc/portbareatdrinkwoman.jpg" ></center>','<center><img src="pic/misc/portbareatdrinkman.jpg" ></center>')
 			else
 				'Вы заплатили деньги и взяли тарелку каши с рыбой.'&'<center><img src="pic/misc/portbareat<<rand(1,2)>>.jpg" ></center>'
 			end
-			act'<b>Уйти</b>':gt $curloc
-		 end
+		end
 	end
 	if money[you]>=150:
 		act'Поесть и выпить за 1,5 шиллинга':
-			cls
-			if face[you]>60:
-				'<center><img src="pic/misc/portbareatdrinkwoman.jpg" ></center>'
-			else
-				'<center><img src="pic/misc/portbareatdrinkman.jpg" ></center>'
-			end
+			cls&$iif(face[you]>60,'<center><img src="pic/misc/portbareatdrinkwoman.jpg" ></center>','<center><img src="pic/misc/portbareatdrinkman.jpg" ></center>')
 			'Вы заплатили деньги и взяли тарелку каши с рыбой и бокал крепкого пива.'&money[you]-=150&time+=15&alko[you]+=rand(7,15)&gs'eat'&gs'drink'&gs'stat'&act'<b>Уйти</b>':gt $curloc
 		end
 	end
-	if sallivan_work=1 and bar_shepot['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:act'Работать за стойкой': gt 'bar_shepot'
+	if sallivan_work=1 and bar_shepot['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1 and hour>9 and hour<21:act'Работать за стойкой': gt 'bar_shepot'
 	act'<b>Уйти</b>':gt 'preloc'
 end
 if bartable['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:

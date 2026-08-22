@@ -12,7 +12,7 @@ if makeup[you]=0 and pol[you]>0:'У вас нет макияжа'
 if makeup[you]=1:'У вас легкий макияж'
 if makeup[you]=2:'У вас тяжелый	макияж'
 'Сексуальность <<sexiness[you]>>'
-if sexiness[you]=0 and pol[you]>0:'Я выгляжу целомудренной как монашка'
+if sexiness[you]=0 and pol[you]>0:'Я выгляжу целомудренной, как монашка'
 if sexiness[you]>0 and sexiness[you]<=10 and pol[you]=0:'Я выгляжу как трап'
 if sexiness[you]>0 and sexiness[you]<=10 and pol[you]>0:'Я выгляжу влекущей и цветущей'
 if sexiness[you]>10 and sexiness[you]<=50:'Я выгляжу сексуально'
@@ -44,7 +44,7 @@ if lr_ass_t[you]>0:'Татуировка по всей заднице - <img src
 if r_ass_t[you]>0:'Татуировка на правой ягодице - <img src="pic/tattoo/r_ass_t_<<r_ass_t[you]>>.jpg" >'
 if l_leg_t[you]>0:'Татуировка на левой ноге - <img src="pic/tattoo/l_leg_t_<<l_leg_t[you]>>.jpg" >'
 if r_leg_t[you]>0:'Татуировка на правой ноге - <img src="pic/tattoo/r_leg_t_<<r_leg_t[you]>>.jpg" >'&*nl
-'<<lvl[you]>>й уровень. Опыт <<exp[you]>>/<<expneed[you]>>'&*pl'Жизнь <<health[you]>>/<<healthmax[you]>>'&*pl'Энергия <<energy[you]>>/<<energymax[you]>>'
+'<<lvl[you]>>-й уровень. Опыт <<exp[you]>>/<<expneed[you]>>'&*pl'Жизнь <<health[you]>>/<<healthmax[you]>>'&*pl'Энергия <<energy[you]>>/<<energymax[you]>>'
 if manamax[you]>0:*pl'Мана <<mana[you]>>/<<manamax[you]>>'&*nl
 if second_life[you]>0:*pl'<<second_life[you]>> число прожитых жизней.'
 if hunter[you]>0 or magik[you]>0 or insight[you]>0:
@@ -53,16 +53,13 @@ if hunter[you]>0 or magik[you]>0 or insight[you]>0:
 	if magik[you]>=5:'<b><<magik[you]>></b> каналов магии'
 	$iif(soul[you]>=20,'Ваша душа <<soul[you]>>% от человеческой души','Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>')
 end
-'Живучесть <<vital[you]>>'&*nl'Мускулатура <<mus[you]>>'
-if soulpower[you]>0:'Сила духа дающая бонус к урону, грузоподъемности и выносливости <<soulpower[you]>>'
-if will[you]>0:'Воля <<will[you]>>, параметр удержания канала магии'
+'Живучесть <<vital[you]>>'&*nl'Мускулатура <<mus[you]>>'&if soulpower[you]>0:'Сила духа дающая бонус к урону, грузоподъемности и выносливости <<soulpower[you]>>'
+if will[you]>0 and magik[you]>0:'Воля <<will[you]>>, параметр удержания канала магии'
 if fight_skill[you]>0:'Навыки рукопашного боя <<fight_skill[you]>>'
 if shoot_skill[you]>0:'Навык стрельбы <<shoot_skill[you]>>'
-'Рефлексы <<reflex[you]>>'
-if gro[you]>0:*pl'Агрессивность <<agro[you]>>'
-*pl'Развращенность <<corr[you]>>'&*pl'Похоть <<lust[you]>>'&*pl'<b>Побед <<win[you]>>, поражений <<loss[you]>>, бегств <<run[you]>></b>'
-if guy[you]>0:'У вас было <<guy[you]>> парней'
-if girl[you]>0:'У вас было <<girl[you]>> девушек'
+'Рефлексы <<reflex[you]>>'&if gro[you]>0:*pl'Агрессивность <<agro[you]>>'
+*pl'Развращенность <<corr[you]>>'&*pl'Похоть <<lust[you]>>'&*nl'<b>Побед <<win[you]>>, поражений <<loss[you]>>, бегств <<run[you]>></b>'
+$iif(guy[you]>0,'У вас было <<guy[you]>> парней','У вас не было ни одного парня')&*pl $iif(girl[you]>0,'У вас было <<girl[you]>> девушек','У вас не было ни одной девушки')
 if shemale[you]>0:'У вас было <<shemale[you]>> шимейлов'
 if tentacle[you]>0:'Вас <<tentacle[you]>> раз насиловали тентакли, <<t_anal[you]>> раз в попу, <<t_bj[you]>> раз в рот'
 if ork[you]>0:'Вас <<ork[you]>> раз трахали орки'

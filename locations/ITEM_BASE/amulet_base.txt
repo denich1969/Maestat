@@ -1,0 +1,6 @@
+﻿i=90&$item_name[i]='Оберег от колючек'&can_use_item[i]=4&$item_use[i]='Повесить на шею'&$item_text[i]=''&item_burden[i]=10&!вес
+i=132&$item_name[i]='Малый грозовой амулет'&can_use_item[i]=4&$item_use[i]='Повесить на шею'&$item_text[i]=''&item_burden[i]=30&!вес
+i=133&$item_name[i]='Грозовой амулет'&can_use_item[i]=4&$item_use[i]='Повесить на шею'&$item_text[i]=''&item_burden[i]=50&!вес
+i=134&$item_name[i]='Большой грозовой амулет'&can_use_item[i]=4&$item_use[i]='Повесить на шею'&$item_text[i]=''&item_burden[i]=60&!вес
+i=135&$item_name[i]='Великий грозовой амулет'&can_use_item[i]=4&$item_use[i]='Повесить на шею'&$item_text[i]=''&item_burden[i]=70&!вес
+i=172&$item_name[i]='Амулет тропы света'&can_use_item[i]=4&$item_use[i]='Одеть на шею'&$item_text[i]=''&item_burden[i]=100&!вес

@@ -107,7 +107,7 @@ zit=1&$itemloc_ub=''&itemmax=arrsize('$ub_name')
 		if ub_slot[you]=0:$itemloc_ub+=' <a href="exec:gt ''item_loc_wear_ub'',<<zit>>">Надеть</a>'
 	end
 zit+=1&if zit<=itemmax:jump'markitemloc_ub'
-!{zit=1&$itemloc_w=''&itemmax=arrsize('$item_w_name')
+zit=1&$itemloc_w=''&itemmax=arrsize('$item_w_name')
 :markitemloc_w
 	if item_loc_w['<<zit>>,<<$loc[you]>>']>0:
 		$itemloc_w+='<br>'
@@ -128,7 +128,7 @@ zit=1&$itemloc_m=''&itemmax=arrsize('$item_name')
 			$itemloc_m+='<<$item_m_name[zit]>>, вес: <<$func("util_func", "get_weight_text_all", item_m_burden[zit])>>, <<item_loc_m[''<<zit>>,<<$loc[you]>>'']>>шт'
 		end
 	end
-zit+=1&if zit<=itemmax:jump'markitemloc_m'}
+zit+=1&if zit<=itemmax:jump'markitemloc_m'
 zit=1&$itemloc_h=''&itemmax=arrsize('$h_name')
 :markitemloc_h
 	if item_loc_h['<<zit>>,<<$loc[you]>>']>0:

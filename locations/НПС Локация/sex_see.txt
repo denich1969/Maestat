@@ -12,7 +12,7 @@ if (dick[you]>0 or vag[you]>0) and  womenbrain[you]>30:
 		if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
 	end
 	act'Дрочить':
-		cls&gs'stat'
+		cls&gs'stat'&act'<b>Уйти</b>':gt 'preloc'
 		if skin[ddd]>3 and skin[ddd]<7:
 			'<center><video autoplay loop src="pic/sex/bbc/miss/getto_pussy_l<<rand(0,55)>>.webm" ></video></center>'&'Вы смотрите как <<$name[ddd]>> вгоняет свой здоровенный член в вагину девушки'
 			'<<$name[sss]>> двигается навстречу, подмахивая в такт. Своими ножками она обхватывает ебаря, скрещивая их за его спиной'
@@ -44,14 +44,13 @@ if (dick[you]>0 or vag[you]>0) and  womenbrain[you]>30:
 				creampie_cum[sss]=time+360&you_see_sex[sss]+=1&corr[sss]+=rand(2,8)
 			end
 			if horny[you]<100:
-				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&'В девушку кончает какой-то хуй, а она стонет и принимет сперму в матку, и вас это заводит'
-				'<<$name[ddd]>> <<$surname[ddd]>> спускает в девушку'&*nl
+				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
+				'<<$name[ddd]>> <<$surname[ddd]>> спускает в девушку, а она стонет, и принимая сперму в матку, и вас это заводит'&*nl
 				if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Вы дрочите свой член'
 				if pol[you]=1:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Вы трете свою киску'
-				act'<b>Уйти</b>':gt 'preloc'
 			else
 				act'Кончить':
-					orgasm[you]=time&superslut[you]=0&horny[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&*nl
+					orgasm[you]=time&superslut[you]=0&horny[you]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/vag/mcum<<rand(0,14)>>.webm" ></video></center>'&*nl&act'<b>Уйти</b>':gt 'preloc'
 					if girlfriend_num[you]=sss:
 						'Вы видите как из киски вашей девушки вытекает сперма другого самца и вас трясет от возбуждения'&dom[sss]+=rand(1,3)&vag[sss]+=rand(1,dick[ddd]/3)&dom[you]-=rand(1,3)
 					else
@@ -59,30 +58,25 @@ if (dick[you]>0 or vag[you]>0) and  womenbrain[you]>30:
 					end
 					if pol[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/vids/podsm1.webm" ></video></center> Ваш член начинает пульсировать... Вы кончаете...'
 					if pol[you]=1 and vag[you]>0:'<center><video autoplay loop src="pic/vids/podsg<<rand(3,5)>>.webm" ></video></center> Ваша киска начинает пульсировать... Вы кончаете...'
-					act'<b>Уйти</b>':gt 'preloc'
 				 end
 				if girlfriend_num[you]=sss:act'<b>Остановиться и разобраться с этой шлюхой позже</b>':gt 'preloc'
 			end
 		end
 	end
-	act'<b>Уйти</b>':gt 'preloc'
+	!act'<b>Уйти</b>':gt 'preloc'
 elseif pol[you]=0 and dick[you]>0 and  womenbrain[you]<=30:
 	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. '&'Вот шлюха! Нахуй надо посылать такую блядь. Хуй стоит. Кого бы выебать? '
 	act'<b>Уйти искать подходящую бабу</b>':gt 'preloc'
 elseif  pol[you]=1 and vag[you]>0 and  womenbrain[you]<=30:
-	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. '&'Надо срочно найти ёбаря. '
-	act'<b>Уйти искать ёбаря</b>':gt 'preloc'
+	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. '&'Надо срочно найти ёбаря. '&act'<b>Уйти искать ёбаря</b>':gt 'preloc'
 elseif  pol[you]=0 and dick[you]=0 and  womenbrain[you]>30:
-	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется подрочить, но члена то нет. '
-	act'<b>Уйти</b>':gt 'preloc'
+	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется подрочить, но члена то нет. '&act'<b>Уйти</b>':gt 'preloc'
 elseif  pol[you]=0 and dick[you]=0 and vag[you]>0 and  womenbrain[you]<=30:
 	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется подрочить, но члена нет. Я не баба, блядь, чтобы пизду теребить! '
 	act'<b>Уйти</b>':gt 'preloc'
 elseif  pol[you]>0 and vag[you]=0 and  womenbrain[you]<=30:
-	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется ебаться, но пизды то нет. '
-	act'<b>Уйти</b>':gt 'preloc'
+	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется ебаться, но пизды то нет. '&act'<b>Уйти</b>':gt 'preloc'
 elseif  pol[you]>0 and vag[you]=0 and dick[you]>0 and  womenbrain[you]>30:
-	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется приключений на свою задницу.  '
-	act'<b>Уйти</b>':gt 'preloc'
+	horny[you]+=10&'Вы смотрите как <<$name[ddd]>> <<$surname[ddd]>> ебёт девушку. Это <<$name[sss]>> <<$surname[sss]>>. Вам хочется приключений на свою задницу.  '&act'<b>Уйти</b>':gt 'preloc'
 end
 "статус запрета у мужчины равен <<forbidsex[ddd]>>"&*nl"статус запрета у женщины равен <<forbidsex[sss]>>"&act'<b>Уйти</b>':gt 'preloc'

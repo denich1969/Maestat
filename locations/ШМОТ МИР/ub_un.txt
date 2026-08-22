@@ -1,1 +1,1 @@
-﻿item_ub[ARGS[0]]+=1&burden[you]+=item_ub_burden[ARGS[0]]&ub_slot[you]=0&gt'preloc'
+﻿item_ub[args[0]]+=1&burden[you]+=item_ub_burden[args[0]]&ub_slot[you]=0&gt'preloc'

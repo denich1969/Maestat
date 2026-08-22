@@ -1,0 +1,19 @@
+﻿$thatloc[you]=$curloc&Z[you]=210&gs'stat'&gs'Poser'&loc_for_drop=1&'<center><b>Прихожая</b></center>'
+'<center><img src="pic/loc/room/master_korr.jpg" ></center>'&'Прихожая с коридором откуда можно попасть в разные комнаты'
+'<a href="exec:time+=1&gt ''mirror''">Зеркало</a>'
+if pose[you]=1:
+    if resus=1:
+		act'<b>Уйти</b>':
+			time+=1&if useminihome=0:useminihome+=1&X[you]=5&Y[you]=5&Z[you]=210&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>'
+			gt'world'
+		end
+		act'<b>Дверной глазок</b>':time+=1&X[you]=4&Y[you]=5&Z[you]=210&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>'&gt'world'
+	else
+	 	act'<b>Уйти</b>':time+=5&gt'master_hunt'
+	end
+	act'<b>Гостинная</b>':time+=1&gt'master_room'
+	act'<b>Кухня</b>':time+=1&gt'master_kuh'
+	act'<b>Маленькая комната</b>':time+=1&gt'master_small'
+	act'<b>Туалет</b>':time+=1&gt'master_toilet'
+end
+gs'item'&gs'npconloc'

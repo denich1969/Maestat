@@ -19,7 +19,7 @@
 end
 if blackedGangQW>=1 and blackedGangQW<100 and Z[you]=3:
 	act'<b>Черная банда</b>':
-		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 	    if motherearth=npc:
 			'<<$name[npc]>> - Я чувствую как их окутывает сила рун. Она дает им силу и скрывает от глаз так, что даже я не могу прозреть их источник.'&if blackedGangQW=1:blackedGangQW=2
 	    elseif arhivman=npc:
@@ -71,8 +71,7 @@ if blackedGangQW>=1 and blackedGangQW<100 and Z[you]=3:
 		end
 		if blackedGangQW=4 and visioner[you]>0 and mana[you]>=50 and master[npc]=0:
 			act'Использовать дар':
-				mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
-				vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'
+				mana[you]-=50&visioner[you]+=iif(vision_times[npc]=0,1,0)&vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'&act'<b>Уйти</b>':gt 'preloc'
 			    if tbigg=npc:
 					'<center><img src="pic/face/5/32.jpg" ></center>'&'Вы разговариваете с черным магом - Эй, хоуми, ты реальные вещи говоришь или гонево? Мы с братвой действительно обретем силы?'
 					'Маг усмехнулся - Конечно, если вы будете моими учениками, то у вас будут силы и никто даже не станет вам сопротивляться. Но главное, что бы никто не знал, что это я организатор'
@@ -86,10 +85,8 @@ if blackedGangQW>=1 and blackedGangQW<100 and Z[you]=3:
 			    else
 					'<center><img src="<<$d_view>>" ></center>'&'Коснувшись руки, вас охватывает виденье.'&*nl'Какая то муть и вы понимаете, что ничего ценного в воспоминаниях про черную банду нет.'
 			    end
-				act'<b>Уйти</b>':gt 'preloc'
 			end
 	    end
-		act'<b>Уйти</b>':gt 'preloc'
 	end
 end
 if father=npc:
@@ -196,15 +193,15 @@ if uberSolderQW[you]=9 and npc=motherearth:
 	end
 end
 if sister=npc and you=father and cuntmanQW=1:
-	'<<$name[npc]>> не смотрит вам в глаза'
+	time+=10&cls&gs'stat'
     if talkwithdotbj=0:
 		act'<b>Что это было с Богартом?</b>':
-			talkwithdotbj=1&time+=10&cls&gs'stat'&' и бубнит - Я сама не понимаю как это произошло.'& '<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+			talkwithdotbj=1&'<<$name[npc]>> не смотрит вам в глаза и бубнит - Я сама не понимаю как это произошло.'& '<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 		end
     end
     if talkwithdotbj=2:
 		act'<b>Ты сосала у Богарта за деньги</b>':
-			talkwithdotbj=3&time+=10&cls&gs'stat'&' и бубнит - Я больше так не буду. Наверное.'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+			talkwithdotbj=3&'<<$name[npc]>> не смотрит вам в глаза и бубнит - Я больше так не буду. Наверное.'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 		end
     end
 end
@@ -229,14 +226,13 @@ if mgreen=npc:
 			end
 		end
 		act 'Я могу как-то освободиться от твоего сутенерства?':
-			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Можно, но мне нравится такая симпатичная'+$iif(skin[you]<4,' белая ',' ' )+'шлюха, как ты. '
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Можно, но мне нравится такая симпатичная'+$iif(skin[you]<4,' белая ',' ' )+'шлюха, как ты. '&act'Уйти':gt 'preloc'
 			'Поэтому, раньше я был готов за 3 косаря, теперь цена 5000 шиллингов для твоего выкупа.'&*nl '- А если нету такой суммы, давай цок-цок каблучками, виляй жопкой и зарабатывай, малышка.'		 
 			if money[you]>=500000:
 				act'Отдать деньги ради свободы':
 				    cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Подмигивая - Оставь татушку на память, зайка.'&whoreboss[you]=0&blackedgreen=100&money[you]-=500000&act'Уйти':gt 'preloc'
 				end				
 			end
-			act'Уйти':gt 'preloc'
         end
     end
 end
@@ -314,28 +310,28 @@ if bocman=npc:
     end
 	act'<b>Научи как рамсить</b>':
 		ramsskill[you]+=rand(5,15)&friends['<<npc>>,<<you>>']+=5&friends['<<you>>,<<npc>>']+=5
-		time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> объясняет вам значения слов и основные словесные обороты'
+		time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> объясняет вам значения слов и основные словесные обороты'&act'<b>Уйти</b>':gt 'preloc'
 	    if bocmanQW=0:
 			'В конце разговора боцман неожиданно спрашивает - А ты Машу Сладкову знаешь? Маленькая улыбчивая блондиночка.'
 	        if know['<<you>>,<<sladkovamasha>>']>0 and bocmanQW=0:
 				act'<b>Знаю, а что?</b>':
 					bocmanQW=1&time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-					'<<$name[npc]>> - Я эту телочку отшпендехорил как то, а сейчас она вообще не заходит ко мне. Увидишь ее, передай привет и спроси почему она меня избегает?'&act'<b>Уйти</b>':gt 'preloc'
+					'<<$name[npc]>> - Я эту телочку отшпендехорил как-то, а сейчас она вообще не заходит ко мне. Увидишь ее, передай привет и спроси почему она меня избегает?'&act'<b>Уйти</b>':gt 'preloc'
 				end
+			else
+				time+=5&cla&gs'stat'&act'<b>Нет!</b>':gt 'preloc'
 	        end
 	    end
-		act'<b>Уйти</b>':gt 'preloc'
 	end
 	if pol[you]=0 and bocman_work=0:
 		act'<b>Что по работе?</b>':
-			time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 		    if bocman_work_day=daystart:
 				'<<$name[npc]>> - Сегодня работы нет'
 		    else
 				bocman_work=1
 				'<<$name[npc]>> - Сгоняй в Блэкберри, на пивоварню, у меня договор с Леоном Брокком, короче возьми товар, и принеси мне, за работу получишь двадцатку. Только не надорвись по дороге.'
 		    end
-			act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if bocman_work=2:
@@ -473,8 +469,7 @@ if npc=frank_visconti:
     end
     if uberSolderQW[you]=1:
 		act'<b>Фрэнк, в чем дело?</b>':
-			uberSolderQW[you]=2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы прямо спросили у Фрэнка, что он знает касающееся вас'
-			'<<$name[npc]>> заерзал и забегал глазами '
+			uberSolderQW[you]=2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы прямо спросили у Фрэнка, что он знает касающееся вас'&*nl'<<$name[npc]>> заерзал и забегал глазами '
 			'- Эммм, если я скажу, ты мне не поверишь, короче у меня есть инфа, хмм, нет, тебе нужно самому это увидеть, ты как нибудь утром, часов в 8мь, в будний день загляни в учительскую школы. '
 			'Больше я тебе ничего не скажу. Но дам совет, не наломай дров.'&act'<b>Уйти</b>':gt 'preloc'
 		end
@@ -482,7 +477,6 @@ if npc=frank_visconti:
     if misticMMT!1 and misticMMT!2 and misticMMT!3:misticMMT=0
     if autodocQW=5:
 		act'Госпиталю нужен спонсор':
-			!autodocQW=6&!frank_visconti
 			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы рассказываете что госпиталю нужен спонсор, потому что нужно обновлять прошивку автодока, а это очень серьезные средства.'
 			'<<$name[npc]>> хмурится - Хмм, хорошо. Я стану спонсором, но с тем условием что я буду иметь доступ ко всем личным делам пациентов. Всех пациентов! Даже очень могущественных.'
 		    if pol[you]>0:
@@ -495,7 +489,8 @@ if npc=frank_visconti:
 			    end
 		    else
 		        if father=you:
-					autodocQW=iif(husband[you]=mother,6,10)&'<<$name[npc]>> - '&$iif(husband[you]=mother,'пришли мне свою женушку, подписать нужные документы.','Ладно, давай пробивай что там нужно, а я оплачу.')
+					autodocQW=iif(husband[you]=mother,6,10)
+					'<<$name[npc]>> - '+$iif(husband[you]=mother,'пришли мне свою женушку, подписать нужные документы.','Ладно, давай пробивай что там нужно, а я оплачу.')
 		        else
 					autodocQW=10&'<<$name[npc]>> - Ладно, давай пробивай что там нужно, а я оплачу.'
 		        end
@@ -563,11 +558,9 @@ if npc=frank_visconti:
 					'После этого начали сосать вялый писюн, который стал вставать у вас во рту, наполняя его мужской плотью.'
 					if you=sister:'Ваш отец работает в офисе Фрэнка и может спалить, что вы сосете хуй его боссу, это одновременно пугает и возбуждает.'
 					act'Сосать':
-						corr[you]+=1&if frank_viscontiQW=1:frank_viscontiQW=2
-						koefball[npc]=11-(ball[npc]/10)&empty_ball[npc]=time+(60*koefball[npc])&cum_face[you]+=1
-						cls&gs'stat'&'<center><video autoplay loop src="pic/sex/office/cum.webm" ></video></center>'&solo=npc&gs'fast_sex','minet',npc,you&temp_orgazm[you]=0
-						'Фрэнк кончает вам на губы, а вы ласкаете его залупу своим язычком и мягкими губками.'&money[you]+=20000
-						'Фрэнк сунул вам две сотни шиллингов - Свободна.'&act'Встать':gt'preloc'
+						corr[you]+=1&koefball[npc]=11-(ball[npc]/10)&empty_ball[npc]=time+(60*koefball[npc])&cum_face[you]+=1&if frank_viscontiQW=1:frank_viscontiQW=2
+						cls&gs'stat'&'<center><video autoplay loop src="pic/sex/office/cum.webm" ></video></center>'&solo=npc&gs'fast_sex','minet',npc,you&temp_orgazm[you]=0&act'Встать':gt'preloc'
+						'Фрэнк кончает вам на губы, а вы ласкаете его залупу своим язычком и мягкими губками.'&money[you]+=20000&*nl'Фрэнк сунул вам две сотни шиллингов - Свободна.'
 					end
 				end
             else
@@ -601,13 +594,12 @@ if npc=frank_visconti:
 					'<<$name[npc]>> - подойди ближе, шлюха, я хочу развлечься!'
 					act'Что вам угодно?':
 						last_sex_day[npc]=daystart&frank_viscontiQW=7&corr[you]+=5&tongue_p[you]=3&oral_fixation[you]+=1000&X[you]=3&Y[you]=1&Z[you]=2&H[you]=1&R[you]=0
-						cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_ton.webm" ></video></center>'
-						'Фрэнк телепортирует вас в салон татуировок и вас усаживают в кресло, после чего вам несколько раз прокалывают язык и вставляют в него три штанги.'
+						cls&gs'stat'&'<center><video autoplay loop src="pic/misc/pirs_ton.webm" ></video></center>'&act'Встать':gt'preloc'
+						'Фрэнк телепортирует вас в салон татуировок и вас усаживают в кресло, после чего вам несколько раз прокалывают язык и вставляют в него три штанги.'&!if lips[you]=3 and r_hand_t[you]=2:
 					    if lips[you]<3:lips[you]=3&'После чего вам делают уколы в губы и они становятся толстыми и мягкими.'
 					    if r_hand_t[you]=0:r_hand_t[you]=2&'Затем татуировщик вам сделал тату минетчицы на правой руке.'
 					    if hcol[you]<3:hcol[you]=3&'Татуировщик красит вам волосы в светлый цвет.'
 						money[you]+=20000&'Фрэнк сунул вам две сотни шиллингов - Теперь ты помеченная хуесоска. Глядя на тебя, двух мнений быть не может, твой рот - это помойка для хуев.'
-						act'Встать':gt'preloc'&!if lips[you]=3 and r_hand_t[you]=2:
 					end
                 end
                 if frank_viscontiQW=7:
@@ -696,10 +688,9 @@ end
 if bocman=npc:
     if bocmanQW=2:
         act'<b>Маша не хочет тебя видеть</b>':
-			bocmanQW=4&money[you]+=1000&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			bocmanQW=4&money[you]+=1000&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 			'<<$name[npc]>> дал вам червонец и сплюнул - Вот тупая сучка. Думает что если она хуй сосет у Богарта, то теперь стала какой то важной шишкой. '
 			'Но хрен с этой Машей, она шлюха по призванию. Короче, хочешь заработать еще червонец? Сгоняй в порт, спроси у Торнтона Марша, он владеет борделем, сколько будет купить шлюху.'
-			act'<b>Уйти</b>':gt 'preloc'
 		end
     end
     if bocmanQW=3 and dead[tornton]=0:
@@ -716,16 +707,13 @@ if bocman=npc:
 		end
     end
 end
-!if sladkovadot=npc:''
-!if victoria_visconti=npc:''
 if klass[npc]=1 and atestat[you]=0 and schooler[you]=1:
 	$iif(pol[npc]=0,'Одноклассник','Одноклассница')
 	act'Говорить об учебе':
-		time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+		time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 		if extrovert[npc]=2:friends['<<npc>>,<<you>>']+=5&friends['<<you>>,<<npc>>']+=5&'<<$name[npc]>> оживленно болтает с вами об учебе'
 		if extrovert[npc]=1:friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&'<<$name[npc]>> поддерживает разговор об учебе и слушает вас с интересом.'
 		if extrovert[npc]=0:'<<$name[npc]>> слушает вас с отсутствующим видом и никак не пытается поддержать разговор.'
-		act'<b>Уйти</b>':gt 'preloc'
 		if sladkovamasha=npc and you=sister:
 			if pol[you]>0:
 				'<<$name[npc]>> - в школе есть классные парни. Ты кого-нибудь присмотрела?'
@@ -770,17 +758,12 @@ if klass[npc]=1 and atestat[you]=0 and schooler[you]=1:
 		    if friends['<<sladkovamasha>>,<<you>>']>=50:
 				act'Я дружу с твоей сестрой':
 					if angry_sladkov=0:angry_sladkov=1
-					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 				    if guy[npc]<3: 
-						if pol[you]=0:
-							'<<$name[npc]>> пожимает плечами - Эта шлюшка дружит со всем, с чем можно потрахаться, тоже мне новость.'
-						else
-							'<<$name[npc]>> пожимает плечами - Моя сестра - шлюшка. Скажи мне кто твой друг и я скажу кто ты.'
-						end
+						'<<$name[npc]>> пожимает плечами - '+$iif(pol[you]=0,'Эта шлюшка дружит со всем, с чем можно потрахаться, тоже мне новость.','Моя сестра - шлюшка. Скажи мне кто твой друг и я скажу кто ты.')
 				    else
 						'<<$name[npc]>> пожимает плечами - Мы с ней не очень дружны. У нас с ней разные интересы.'
 				    end
-					act'<b>Уйти</b>':gt 'preloc'
 				end
 		    end
 		end
@@ -806,13 +789,12 @@ if povar=npc:
 		else
 			if pol[you]=0 and povar_work=0:
 				act'<b>Что по работе?</b>':
-					time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					time+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 					if povar_work_day=daystart:
 						'<<$name[npc]>> - Сегодня работы нет'
 					else
 						povar_work=1&'<<$name[npc]>> - Сходи на винзавод Батори, что в Аптауне, у меня с ними договор на поставки, возьми ящик и принеси его мне. Плачу 20 шиллингов'
 					end
-					act'<b>Уйти</b>':gt 'preloc'
 				end
 			end
 			if povar_work=2:
@@ -872,7 +854,7 @@ if borisbogart=npc and school_class['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>
 						'Вы встаете перед Богартом на колени и тот усмехается - А ты знаешь свое место, шлюха.'
 						act'Сосать':
 							if bogart_slut_reit[you]=0:bogart_slut_reit[you]=1&bogart_office_slut[you]+=1&horny[npc]=0&cls&gs'soulcraft'&my_last_fucker[you]=npc&last_fuck_time[you]=time
-							gs'add_sex_stat', you, npc&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1&
+							gs'add_sex_stat', you, npc&bj_mass['<<npc>>,<<you>>']+=1&bj[you]+=1&abj[npc]+=1
 							$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я впервые отсосала хуй Богарту.'
 							corr[you]+=5&time+=15&gs'stat'&'<center><video autoplay loop src="pic/sex/office/kneel<<rand(0,16)>>.webm" ></video></center>'
 							'Вы заняли свое место, на коленях между ног мужчины и стали расстегивать ему ширинку. '
@@ -885,8 +867,7 @@ if borisbogart=npc and school_class['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>
 									cum_face[you]+=1&$func('get_images', 'cum_on_face', you, npc)&'Богарт вынимает член из вашего рта и кончает вам на лицо, его сперма покрывает вашу физиономию и стекает вниз.'
 								end
 								if tipecum=1:$func('get_images', 'swallow', you, npc)&'Богарт кончает вам в рот, наполняя его спермой и вы все проглатываете.'
-								solo=npc&gs'fast_sex','minet',npc,you&temp_orgazm[you]=0&money[you]+=10000
-								'Богарт презрительно швыряет вам сотню шиллингов - На тебе салфетку, утрись.'&act'Встать':gt'preloc'
+								solo=npc&gs'fast_sex','minet',npc,you&temp_orgazm[you]=0&money[you]+=10000&'Богарт презрительно швыряет вам сотню шиллингов - На тебе салфетку, утрись.'&act'Встать':gt'preloc'
 							end
 						end
 					end
@@ -897,8 +878,7 @@ if borisbogart=npc and school_class['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>
 end
 if sportzal['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=2 and sportman=npc:
 	if can_do_sport[you]=1:
-	    if sexpartner['<<npc>>,<<you>>']>0:'<<$name[npc]>> - Для тебя любые тренировки бесплатны.'
-	    if sexpartner['<<npc>>,<<you>>']=0:'<<$name[npc]>> - Я персональный тренер, 5 шиллингов персональная тренировка.'
+	    '<<$name[npc]>> - '+$iif(sexpartner['<<npc>>,<<you>>']>0,'Для тебя любые тренировки бесплатны.','Я персональный тренер, 5 шиллингов персональная тренировка.')
 		if energy[you]>=50 and money[you]>=500:
 			act'Штанга':
 				energy[you]-=50&sportiv[you]+=1&mus[you]+=rand(15,35)&sportman_trening[you]+=1&if sexpartner['<<npc>>,<<you>>']=0:money[you]-=500
@@ -909,26 +889,15 @@ if sportzal['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=2 and spor
 					end
 				end
 				time+=60&cls&gs'stat'
-				if pol[you]>0:
-					'<center><video autoplay loop src="pic/misc/squat<<rand(0,4)>>.webm" ></video></center>'
-					'Взяв штангу, вы начали выполнять упражнения, развивая силу. <<$name[npc]>> показывает вам как правильно делать упражнения.'
-				else
-					'<center><video autoplay loop src="pic/misc/squatmen.webm" ></video></center>'
-					'Взяв штангу, вы начали выполнять упражнения, развивая силу. <<$name[npc]>> показывает вам как правильно делать упражнения.'
-				end
-				act'...':gt $curloc
+				$iif(pol[you]>0,'<center><video autoplay loop src="pic/misc/squat<<rand(4)>>.webm" ></video></center>','<center><video autoplay loop src="pic/misc/squatmen.webm" ></video></center>')
+				'Взяв штангу, вы начали выполнять упражнения, развивая силу. <<$name[npc]>> показывает вам как правильно делать упражнения.'&act'...':gt $curloc
 			end
 		end
 		if energy[you]>=50 and money[you]>=500:
 			act'Гонять вес':
-				sportman_trening[you]+=1&if sexpartner['<<npc>>,<<you>>']=0:money[you]-=500&energy[you]-=50&fat[you]-=iif(fat[you]>100,100,0)&if mus[you]>=2000:mus[you]-=5
-				sportiv[you]+=1&time+=60&cls&gs'stat'
-				if pol[you]>0:
-					'<center><video autoplay loop src="pic/misc/situps.webm" ></video></center>'&'<<$name[npc]>> гоняет вас как сидорову козу и вы жутко потеете.'
-				else
-					'<center><video autoplay loop src="pic/misc/situpsmen.webm" ></video></center>'&'<<$name[npc]>> гоняет вас как сидорову козу и вы жутко потеете.'
-				end
-				act'...':gt $curloc
+				sportiv[you]+=1&sportman_trening[you]+=1&if sexpartner['<<npc>>,<<you>>']=0:money[you]-=500&energy[you]-=50&fat[you]-=iif(fat[you]>100,100,0)&if mus[you]>=2000:mus[you]-=5
+				time+=60&cls&gs'stat'&$iif(pol[you]>0,'<center><video autoplay loop src="pic/misc/situps.webm" ></video></center>','<center><video autoplay loop src="pic/misc/situpsmen.webm" ></video></center>')
+				'<<$name[npc]>> гоняет вас как сидорову козу и вы жутко потеете.'&act'...':gt $curloc
 			end
 			if fight_skill[you]<100:
 				act'Изучить бой холодным оружием':
