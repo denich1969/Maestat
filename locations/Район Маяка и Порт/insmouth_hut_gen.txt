@@ -1,6 +1,6 @@
 ﻿maxPositionH['<<X>>,<<Y>>,<<Z>>']=5&H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Лачуга'&!ownerloc['<<$templocH>>']=you
 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&np['<<$temploc>>']=70&mirror['<<$temploc>>']=0
-$locname['<<$temploc>>']='Лачуга'&$lname['<<$temploc>>']='Лачуга'&$lname_go['<<$temploc>>']='в лачугу'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хивара.'
+$locname['<<$temploc>>']='Лачуга'&$lname['<<$temploc>>']='Лачуга'&$lname_go['<<$temploc>>']='в лачугу'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хибара.'
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
@@ -8,7 +8,7 @@ gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Развалина'&!ownerloc['<<$templocH>>']=you
-R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хивара.'
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хибара.'
 $locname['<<$temploc>>']='Лачуга'&$lname['<<$temploc>>']='Лачуга'&$lname_go['<<$temploc>>']='в лачугу'&np['<<$temploc>>']=70&mirror['<<$temploc>>']=0
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
@@ -17,7 +17,7 @@ gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Хибара'&!ownerloc['<<$templocH>>']=you
-R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хивара.'
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хибара.'
 $locname['<<$temploc>>']='Лачуга'&$lname['<<$temploc>>']='Лачуга'&$lname_go['<<$temploc>>']='в лачугу'&np['<<$temploc>>']=70&mirror['<<$temploc>>']=0
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
@@ -25,7 +25,7 @@ gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
-H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Домушка'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хивара.'&!ownerloc['<<$templocH>>']=you
+H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Домушка'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хибара.'&!ownerloc['<<$templocH>>']=you
 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Лачуга'&$lname['<<$temploc>>']='Лачуга'&$lname_go['<<$temploc>>']='в лачугу'&np['<<$temploc>>']=70&mirror['<<$temploc>>']=0
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
@@ -34,7 +34,7 @@ gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Сарай'&!ownerloc['<<$templocH>>']=you
-R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хивара.'
+R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locopis['<<$temploc>>']='Дрянная и провонявшая рыбой хибара.'
 $locname['<<$temploc>>']='Лачуга'&$lname['<<$temploc>>']='Лачуга'&$lname_go['<<$temploc>>']='в лачугу'&np['<<$temploc>>']=70&mirror['<<$temploc>>']=0
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R
 gs'insmouth_gen'&n_world[]=i&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R

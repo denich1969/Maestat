@@ -11,7 +11,6 @@ end
 if args[0]=4:
 	temp_amulet=0&if amulet[you]>0:msg("Вы не можете повесить амулет на шею")
 	if amulet[you]=0:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&amulet[you]=args[1]&temp_amulet=1&msg("Вы надели амулет на шею")
-	
 	clr&dynamic $d_inv
 end
 if args[0]=5:item[args[1]]-=1&burden[you]-=item_burden[args[1]]&item[1]+=1&burden[you]+=item_burden[1]&clr&dynamic $d_inv&!действие итема: порвать на тряпки
@@ -106,7 +105,7 @@ if args[0]=22:
 			msg("Вы читаете тексты полные ужасных тайн повергающих в пучину кошмаров черной магии.")
         end
     else
-		msg("В свитке Войнича текст написанный не существующими буквами и разные схемы не поддающиеся осмыслению.")
+		msg("В свитке Войнича вы видите текст написанный не существующими буквами и разные схемы не поддающиеся осмыслению.")
     end
 	dynamic $d_inv
 end

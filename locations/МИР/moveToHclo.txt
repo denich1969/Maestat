@@ -26,17 +26,24 @@ else
 					if 10-rand(1,11-lvlSteal[you])>5:
 						item[182]-=1&'Вы сломали отмычку'&act 'Попробовать снова':time+=1&gt $curloc&!gt'vzlom'
 					else
-						item[182]-=1&expSteal[you]+=1&'Вы смогли открыть замок'&lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>']=0
+						item[182]-=1&expSteal[you]+=1&cls&'Вы смогли открыть замок'&lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>']=0&!msg'<<args[0]>>'
 						$buildingsList = " <<$locnameH['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>']>> (<a href='exec:  gt""moveToHclo"", <<args[0]>>'>""</a>)"
-						act 'Отойти и осмотреться':delact 'обшарить помещение'&time+=1&cls&H[you]=0&gt'world'
-						if total_npc_on_loc=0:
-							act 'Войти внутрь':time+=1&cls&H[you]=args[0]&gt'world'
-						else
-							'Опять вокруг кто-то вертится!'
+						if args[0]=4 and item[245]=0:
+							act'Найти компас выйти и запереть дверь':rome_pass=1&item[245]=1&StealQW=7&delact 'Найти компас выйти и запереть дверь'&cls&gt'preloc'
 						end
-						act 'Закрыть и отойти':
-							$buildingsList = " <<$locnameH['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>']>> (<a href='exec:  gt""moveToHclo"", <<args[0]>>'>Заперто</a>)"
-							lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>']=1&time+=1&H[you]=0&cls&gt'preloc'
+						if args[0]=0 and item[245]=0:'Вам кажется, что кто-то идёт'
+						if args[0]=4 and item[245]=1:'В каюте капитана больше ничего нет'
+						act 'Отойти и осмотреться':delact 'обшарить помещение'&time+=1&cls&H[you]=0&gt'world'
+						if args[0]!4 and $loc[you]!'3,0,1,0,0':
+							if total_npc_on_loc=0:
+								act 'Войти внутрь':time+=1&cls&H[you]=args[0]&gt'world'
+							else
+								'Опять вокруг кто-то вертится!'
+							end
+							act 'Закрыть и отойти':
+								$buildingsList = " <<$locnameH['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>']>> (<a href='exec:  gt""moveToHclo"", <<args[0]>>'>Заперто</a>)"
+								lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>']=1&time+=1&H[you]=0&cls&gt'preloc'
+							end
 						end
 					end
 				end

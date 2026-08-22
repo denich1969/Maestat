@@ -217,7 +217,7 @@ if L['<<$loc[you]>>']>0:
 	las+=1&if las<L['<<$loc[you]>>']:jump'marklas'
 	'<<$los_loc>>'
 end
-if charon['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'К пирсу пришвартован пакетбот "Харон" '+ "(<a href='exec:  gt""moveToHclo"", <<0>>'>Каюта капитана</a>)"
+if charon['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'К пирсу пришвартован пакетбот "Харон" '+ "(<a href='exec:  gt""moveToHclo"", <<4>>'>Каюта капитана</a>)"
 !!!!!!!!!!!!!!!!!!порталы
 if under['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''under''">Станция метро</a>'
 if kartina['<<$loc[you]>>']>=1 and ((pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1)) and busy[you]=0:'<a href="exec:time+=5&gt ''kartina''">Картина с большой луной в ночном небе</a>'
@@ -692,9 +692,10 @@ if StealQW>5 and lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=0 and key['
 	if ($locnameR['<<$loc[you]>>']='Прихожая' or R[you]=0) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0 and H[you]>0:
 		act '<b><p style="color: red;">обшарить помещение</p></b>':
 			hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
-			if rand(1)=1:tt=rand(1,131)&item_loc_t['<<tt>>,<<$loc[you]>>']=1&'<<$t_name[tt]>>'
-			if rand(1)=1:tt=rand(1,68)&item_loc_b['<<tt>>,<<$loc[you]>>']=1&'<<$b_name[tt]>>'
-			if rand(1)=1:tt=rand(1,121)&item_loc_l['<<tt>>,<<$loc[you]>>']=1&'<<$l_name[tt]>>'
+			if rand(1)=1 and Z[you]!1:tt=rand(1,131)&item_loc_t['<<tt>>,<<$loc[you]>>']=1&'<<$t_name[tt]>>'
+			if rand(1)=1 and Z[you]!1:tt=rand(1,68)&item_loc_b['<<tt>>,<<$loc[you]>>']=1&'<<$b_name[tt]>>'
+			if rand(1)=1 and Z[you]!1:tt=rand(1,121)&item_loc_l['<<tt>>,<<$loc[you]>>']=1&'<<$l_name[tt]>>'
+			if Z[you]=1: msg 'вы тут ничего не найдёте'
 			gt $curloc
 		end
 		if hacking['<<$loc[you]>>']=1:delact 'обшарить помещение'
@@ -707,34 +708,36 @@ if StealQW>5 and lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=0 and key['
 		if ($locnameR['<<$loc[you]>>']='Спальная' or R[you]=3) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
 			act '<b><p style="color: red;">обшарить помещение</p></b>':
 				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
-				if rand(1)=1:tt=rand(1,26)&item_loc_ut['<<tt>>,<<$loc[you]>>']=1&'<<$ut_name[tt]>>'
-				if rand(1)=1:tt=rand(1,29)&item_loc_ub['<<tt>>,<<$loc[you]>>']=1&'<<$ub_name[tt]>>'
-				if rand(1)=1:tt=rand(1,41)&item_loc_ul['<<tt>>,<<$loc[you]>>']=1&'<<$ul_name[tt]>>'
+				if rand(1)=1 and Z[you]!1:tt=rand(1,26)&item_loc_ut['<<tt>>,<<$loc[you]>>']=1&'<<$ut_name[tt]>>'
+				if rand(1)=1 and Z[you]!1:tt=rand(1,29)&item_loc_ub['<<tt>>,<<$loc[you]>>']=1&'<<$ub_name[tt]>>'
+				if rand(1)=1 and Z[you]!1:tt=rand(1,41)&item_loc_ul['<<tt>>,<<$loc[you]>>']=1&'<<$ul_name[tt]>>'
+				if Z[you]=1: msg 'вы тут ничего не найдёте'
 				gt $curloc
 			end	
 		end
 		if ($locnameR['<<$loc[you]>>']='Гостиная' or R[you]=4) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
 			act '<b><p style="color: red;">обшарить помещение</p></b>':
 				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
-				if rand(1)=1:tt=rand(85,87)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				if rand(1)=1 and Z[you]!1:tt=rand(85,87)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				if Z[you]=1: msg 'вы тут ничего не найдёте'
 				gt $curloc
 			end
 		end
 		if ($locnameR['<<$loc[you]>>']='Кухня' or R[you]=1) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
 			act '<b><p style="color: red;">обшарить помещение</p></b>':
 				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
-				if rand(1)=1:tt=rand(32,34)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
-				
+				if rand(1)=1 and Z[you]!1:tt=rand(32,34)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				if Z[you]=1: msg 'вы тут ничего не найдёте'
 				gt $curloc
 			end
 		end
 		if ($locnameR['<<$loc[you]>>']='Библиотека' or R[you]=5) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
 			act '<b><p style="color: red;">обшарить помещение</p></b>':
 				hacking['<<$loc[you]>>']=1&!msg'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
-				if rand(1)=1:tt=rand(11,12)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				if rand(1)=1 and Z[you]!1:tt=rand(11,12)&item_loc['<<tt>>,<<$loc[you]>>']=1&'<<$item_name[tt]>>'
+				if Z[you]=1: msg 'вы тут ничего не найдёте'
 				gt $curloc
 			end
 		end
 	end
 end
-if StealQW>5 and $loc[you]='3,0,1,0,0' and lock['3,0,1,0']=0 and total_npc_on_loc=0:act'Украсть магический кристалл':rome_pass=1&StealQW=7&delact 'Украсть магический кристалл'

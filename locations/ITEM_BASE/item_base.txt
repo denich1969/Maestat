@@ -1,13 +1,12 @@
 ﻿! 0-Взять и положить в инвентарь для неиспользуемых предметов
-
-! 4-Повесить на шею для амулетов                             ! 3-Одеть на палец                                                                        ! 21-вставить в зад                     ! 47-вставить 
-! 5-Порвать тряпку                                                        ! 8-Порвать книгу                                                                            ! 20-Открыть и читать                ! 24-продать или отдать
+! 4-Повесить на шею для амулетов                             ! 3-Одеть на палец                                                                        ! 21-портальная машина      ! 47-вставить 
+! 5-Порвать тряпку                                                        ! 8-Порвать книгу                                                                            ! 20-гримуар ведьм               ! 24-алфавит
 ! 6-Взять в руку или руки как холодное оружие          ! 7-Взять в руку или руки как оружие дальнего боя                    
 ! 9-Разобрать (вставить лезвие в бритву)                  ! 10-Собрать (вытащить лезвие из бритвы)
 ! 11-Вытереться                                                             ! 12-Выстирать
-! 14-Осмотреть, Посмотреть                                        ! 15-Позвонить                                                                                 ! 46-Использовать                     ! 30-Камлать
-! 16-Употребить модификатор показателей ПеРСа  ! 17-Выпить зелье                                                                            ! 45-Варить
-! 18-Взломать замок                                                      ! 19-смазать
+! 14-портал домой						                                     ! 15-Позвонить                                                                                 ! 46-Использовать                     ! 30-трактат о душах
+! 16-модель дома															  ! 17-малое восстановление энергии                                             ! 45-Ведьмин котёл
+! 18-полное восстановление энергии                           ! 19-малое лечение
 gs 'm_base'&gs 'w_base'&gs 'pirs_base'&gs 'amulet_base'&gs 'ring_base'&gs 'book_base'&gs 'modifier_base'
 i=0&$item_name[i]='Имя итема'&can_use_item[i]=1&$item_use[i]='Употребить как-нибудь'&$item_text[i]='описание итема'&item_burden[i]=50&!вес
 i=1&$item_name[i]='Тряпка'&can_use_item[i]=11&$item_use[i]='Вытереться'&$item_text[i]='обыкновенная тряпка'&item_burden[i]=100&!вес
@@ -26,40 +25,40 @@ i=24&$item_name[i]='Игрушечный домик'&can_use_item[i]=14&$item_us
 i=26&$item_name[i]='Смартфон'&can_use_item[i]=15&$item_use[i]='Позвонить'&$item_text[i]=''&item_burden[i]=100&!вес
 i=29&$item_name[i]='Рунный камень'&can_use_item[i]=51&$item_use[i]='Осмотреть и взять'&$item_text[i]=''&item_burden[i]=100&!вес
 i=30&$item_name[i]='Шип'&can_use_item[i]=52&$item_use[i]='Осмотреть и взять'&$item_text[i]=''&item_burden[i]=10&!вес
-i=37&$item_name[i]='Бубен верхнего мира'&can_use_item[i]=30&$item_use[i]='Камлать'&$item_text[i]=''&item_burden[i]=400&!вес
+i=37&$item_name[i]='Бубен верхнего мира'&can_use_item[i]=85&$item_use[i]='Камлать'&$item_text[i]=''&item_burden[i]=400&!вес
 i=38&$item_name[i]='Пучок трав Беладонны'&can_use_item[i]=53&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=50&!вес
 i=39&$item_name[i]='Пучок трав Омела'&can_use_item[i]=54&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=50&!вес
 i=57&$item_name[i]='Пучок трав Цикута'&can_use_item[i]=55&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=50&!вес
 i=58&$item_name[i]='Пучок трав Мандрагоры'&can_use_item[i]=56&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=50&!вес
-i=65&$item_name[i]='Масло'&can_use_item[i]=19&$item_use[i]='Взять'&$item_text[i]='Машинное масло для смазки'&item_burden[i]=100&!вес
+i=65&$item_name[i]='Масло'&can_use_item[i]=83&$item_use[i]='Взять'&$item_text[i]='Машинное масло для смазки'&item_burden[i]=100&!вес
 i=69&$item_name[i]='Перемещающая машинка'&can_use_item[i]=21&$item_use[i]='Включить'&$item_text[i]=''&item_burden[i]=100&!вес
 i=82&$item_name[i]='Черная роза'&can_use_item[i]=31&$item_use[i]='Осмотреть'&$item_text[i]=''&item_burden[i]=50&!вес
 i=98&$item_name[i]='Продукты'&can_use_item[i]=60&$item_use[i]='Готовить'&$item_text[i]='Ингридиенты для приготовления пищи'&item_burden[i]=100&!вес
 i=123&$item_name[i]='Скатерть самобранка'&can_use_item[i]=0&$item_use[i]='Расстелить'&$item_text[i]=''&item_burden[i]=1000&!вес
-i=129&$item_name[i]='Анальный хвост'&can_use_item[i]=21&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=130&$item_name[i]='Анальная затычка'&can_use_item[i]=21&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=129&$item_name[i]='Анальный хвост'&can_use_item[i]=129&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=130&$item_name[i]='Анальная затычка'&can_use_item[i]=130&$item_use[i]='Вставить'&$item_text[i]=''&item_burden[i]=100&!вес
 i=143&$item_name[i]='Стационарный телефон'&can_use_item[i]=44&$item_use[i]='Установить'&$item_text[i]=''&item_burden[i]=200&!вес
 i=144&$item_name[i]='Ведьмин котел'&can_use_item[i]=45&$item_use[i]='Варить'&$item_text[i]=''&item_burden[i]=350&!вес
 i=145&$item_name[i]='Мел для пентаграммы'&can_use_item[i]=46&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=10&!вес
-i=151&$item_name[i]='Шокер'&can_use_item[i]=26&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=270&!вес
-i=151&$item_name[i]='Одеяло'&can_use_item[i]=26&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=2000&!вес
-i=153&$item_name[i]='Оковы'&can_use_item[i]=26&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=340&!вес
-i=154&$item_name[i]='Ловушки'&can_use_item[i]=26&$item_use[i]='Установить'&$item_text[i]=''&item_burden[i]=400&!вес
+i=151&$item_name[i]='Шокер'&can_use_item[i]=59&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=270&!вес
+i=151&$item_name[i]='Одеяло'&can_use_item[i]=76&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=2000&!вес
+i=153&$item_name[i]='Оковы'&can_use_item[i]=77&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=340&!вес
+i=154&$item_name[i]='Ловушки'&can_use_item[i]=78&$item_use[i]='Установить'&$item_text[i]=''&item_burden[i]=400&!вес
 i=156&$item_name[i]='Шкатулка'&can_use_item[i]=0&$item_use[i]='Рассмотреть'&$item_text[i]='Хранит в себе образ'&item_burden[i]=800&!вес
-i=160&$item_name[i]='Волшебный Фонарик'&can_use_item[i]=46&$item_use[i]='Включить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=166&$item_name[i]='Пустой шприц'&can_use_item[i]=0&$item_use[i]='Посмотреть'&$item_text[i]=''&item_burden[i]=10&!вес
-i=167&$item_name[i]='Укол'&can_use_item[i]=10&$item_use[i]='Сделать инъекцию'&$item_text[i]=''&item_burden[i]=20&!вес
+i=160&$item_name[i]='Волшебный Фонарик'&can_use_item[i]=80&$item_use[i]='Включить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=166&$item_name[i]='Пустой шприц'&can_use_item[i]=81&$item_use[i]='Посмотреть'&$item_text[i]=''&item_burden[i]=10&!вес
+i=167&$item_name[i]='Укол'&can_use_item[i]=82&$item_use[i]='Сделать инъекцию'&$item_text[i]=''&item_burden[i]=20&!вес
 
 i=174&$item_name[i]='Серебро'&can_use_item[i]=0&$item_use[i]='осмотреть'&$item_text[i]=''&item_burden[i]=10&!вес
 i=175&$item_name[i]='Бутылка рома'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес
 i=176&$item_name[i]='Бутылка молока'&can_use_item[i]=2&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=1250&!вес
-i=177&$item_name[i]='Бутылка зелья вагина инкриментум'&can_use_item[i]=16&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=178&$item_name[i]='Бутылка зелья пуэр эст моллис'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=179&$item_name[i]='Бутылка зелья сангуис бистия'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=177&$item_name[i]='Бутылка зелья вагина инкриментум'&can_use_item[i]=177&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=178&$item_name[i]='Бутылка зелья пуэр эст моллис'&can_use_item[i]=178&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=179&$item_name[i]='Бутылка зелья сангуис бистия'&can_use_item[i]=179&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
 !!!!!!!КРАФТ
 i=180&$item_name[i]='Звездный металл'&can_use_item[i]=0&$item_use[i]='пощупать'&$item_text[i]=''&item_burden[i]=1000&!вес
-i=181&$item_name[i]='Бутылка вытяжки'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=182&$item_name[i]='Отмычка'&can_use_item[i]=18&$item_use[i]='Вставить в замочную скважину'&$item_text[i]='Отмычка, которой можно открывать простые механические замки'&item_burden[i]=10&!вес
+i=181&$item_name[i]='Бутылка вытяжки'&can_use_item[i]=181&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=182&$item_name[i]='Отмычка'&can_use_item[i]=182&$item_use[i]='Осмотреть'&$item_text[i]='Отмычка, которой можно открывать простые механические замки'&item_burden[i]=10&!вес
 i=183&$item_name[i]='Порция берёзовых почек'&can_use_item[i]=0&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=20&!вес
 i=184&$item_name[i]='Порция горицвета'&can_use_item[i]=0&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=100&!вес
 i=185&$item_name[i]='Порция хвоща'&can_use_item[i]=0&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=100&!вес
@@ -70,28 +69,26 @@ i=189&$item_name[i]='Порция горного чая'&can_use_item[i]=0&$item
 i=190&$item_name[i]='Цветок пиона'&can_use_item[i]=0&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=100&!вес
 i=191&$item_name[i]='Порция валерианы лекарственной'&can_use_item[i]=0&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=100&!вес
 i=231&$item_name[i]='Бутылка виски'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес
-i=232&$item_name[i]='Зелье защиты разума'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=233&$item_name[i]='Зелье восстановления маны'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=234&$item_name[i]='Зелье дьявольской жизни'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=235&$item_name[i]='Божественная кровь'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
-i=236&$item_name[i]='Сияющий кристалл'&can_use_item[i]=26&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=50&!вес
-i=237&$item_name[i]='Коктейль молотова'&can_use_item[i]=25&$item_use[i]='Бросить'&$item_text[i]=''&item_burden[i]=750&!вес
-i=238&$item_name[i]='Синий шар'&can_use_item[i]=24&$item_use[i]='Сломать'&$item_text[i]=''&item_burden[i]=100&!вес
-i=239&$item_name[i]='Черное зеркало'&can_use_item[i]=26&$item_use[i]='Смотреть'&$item_text[i]=''&item_burden[i]=100&!вес
-i=240&$item_name[i]='Ухо зверя'&can_use_item[i]=24&$item_use[i]='Сломать'&$item_text[i]=''&item_burden[i]=50&!вес
-i=241&$item_name[i]='Яд'&can_use_item[i]=25&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
-i=242&$item_name[i]='Леденящая колба'&can_use_item[i]=25&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=244&$item_name[i]='Ошейник для Лиллит'&can_use_item[i]=26&$item_use[i]='Одеть'&$item_text[i]=''&item_burden[i]=300&!вес
-i=245&$item_name[i]='Компас'&can_use_item[i]=26&$item_use[i]='Использовать'&$item_text[i]='Навкрист'&item_burden[i]=0&!вес
-i=248&$item_name[i]='Возбудитель'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]='Афродизиак'&item_burden[i]=50&!вес
-i=249&$item_name[i]='Кляп'&can_use_item[i]=26&$item_use[i]='Заткнуть рот'&$item_text[i]=''&item_burden[i]=80&!вес
-i=250&$item_name[i]='Усыпляющий газ'&can_use_item[i]=25&$item_use[i]='Распылить'&$item_text[i]=''&item_burden[i]=100&!вес
-i=251&$item_name[i]='Дымовая шашка'&can_use_item[i]=25&$item_use[i]='Установить'&$item_text[i]=''&item_burden[i]=2200&!вес
+i=232&$item_name[i]='Зелье защиты разума'&can_use_item[i]=232&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=233&$item_name[i]='Зелье восстановления маны'&can_use_item[i]=233&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=234&$item_name[i]='Зелье дьявольской жизни'&can_use_item[i]=234&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=235&$item_name[i]='Божественная кровь'&can_use_item[i]=235&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=236&$item_name[i]='Сияющий кристалл'&can_use_item[i]=64&$item_use[i]='Использовать'&$item_text[i]=''&item_burden[i]=50&!вес
+i=237&$item_name[i]='Коктейль молотова'&can_use_item[i]=65&$item_use[i]='Бросить'&$item_text[i]=''&item_burden[i]=750&!вес
+i=238&$item_name[i]='Синий шар'&can_use_item[i]=66&$item_use[i]='Сломать'&$item_text[i]=''&item_burden[i]=100&!вес
+i=239&$item_name[i]='Черное зеркало'&can_use_item[i]=67&$item_use[i]='Смотреть'&$item_text[i]=''&item_burden[i]=100&!вес
+i=240&$item_name[i]='Ухо зверя'&can_use_item[i]=68&$item_use[i]='Сломать'&$item_text[i]=''&item_burden[i]=50&!вес
+i=241&$item_name[i]='Яд'&can_use_item[i]=69&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=242&$item_name[i]='Леденящая колба'&can_use_item[i]=70&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=244&$item_name[i]='Ошейник для Лиллит'&can_use_item[i]=71&$item_use[i]='Одеть'&$item_text[i]=''&item_burden[i]=300&!вес
+i=245&$item_name[i]='Компас'&can_use_item[i]=72&$item_use[i]='Использовать'&$item_text[i]='Навигационный кристалл или коротко Навкрист указывает направление на Вечный Рим'&item_burden[i]=10
+!i=248&$item_name[i]='Возбудитель'&can_use_item[i]=39&$item_use[i]='Выпить'&$item_text[i]='Афродизиак'&item_burden[i]=50&!вес
+i=249&$item_name[i]='Кляп'&can_use_item[i]=73&$item_use[i]='Заткнуть рот'&$item_text[i]=''&item_burden[i]=80&!вес
+i=250&$item_name[i]='Усыпляющий газ'&can_use_item[i]=74&$item_use[i]='Распылить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=251&$item_name[i]='Дымовая шашка'&can_use_item[i]=75&$item_use[i]='Установить'&$item_text[i]=''&item_burden[i]=2200&!вес
 !ЭТО РАЗДЕЛ ПОКУПКИ РУЧНЫХ ЖИВОТНЫХ
 i=253&$item_name[i]='Птица'&can_use_item[i]=61&$item_use[i]='подать команду'&$item_text[i]='питомец'&item_burden[i]=1100&!вес
 i=254&$item_name[i]='Ищейка'&can_use_item[i]=62&$item_use[i]='подать команду'&$item_text[i]='питомец'&item_burden[i]=36000&!вес
 i=255&$item_name[i]='Ретривер'&can_use_item[i]=63&$item_use[i]='подать команду'&$item_text[i]='питомец'&item_burden[i]=40000&!вес
 i=338&$item_name[i]='Ключ от подвала отеля'&can_use_item[i]=0&$item_use[i]='Осмотреть'&$item_text[i]=''&item_burden[i]=50&!вес
-!i=339&$item_name[i]='Набор отмычек'&can_use_item[i]=18&$item_use[i]='Вставить в замочную скважину'
-!$item_text[i]='Набор отмычек, которыми можно открывать простые механические замки'&item_burden[i]=50&!вес
 i=999&$item_name[i]='Яйцо морского монстра'&can_use_item[i]=999&$item_use[i]='Поглотить'&$item_text[i]=''&item_burden[i]=80&!вес
