@@ -3,10 +3,7 @@ soul[npc]-=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+
 if mob[npc]=0:
 	mobexp[npc]=10&if mlev[npc]>0:mobexp[npc]=(mlev[npc]*mlev[npc])*10
 end
-exp[you]+=mobexp[npc]
-if beliver[you]=4:
-	exp[you]+=mobexp[npc]*3&if magik[you]>0:magik_exp[you]+=1
-end
+exp[you]+=mobexp[npc]&if beliver[you]=4:exp[you]+=mobexp[npc]*3&magik_exp[you]+=iif(magik[you]>0,1,0)
 dom[you]+=1&loss[npc]+=1&horny[npc]=0&fightwinwer=0&cant_fight_run=0
 defenceV=0&sfera_psihV=0&sfera_fiz=0&defence_you=0&sfera_psih=0&fire_defence[you]=0&sfera_antigrav=0&clon=0
 $fightlog[you]+='<br>'

@@ -13,5 +13,5 @@ forbidsex[i]=0&if lust[i]>=75 and agro[i]>=75:alfa[i]=1&total_alfa+=1&!прис�
 !t_slot[i]=rand(1,10)&l_slot[i]=rand(1,7)&b_slot[i]=rand(1,5)&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=28
 t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
 Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&
-if you=princess:delusion[i]=0&corr[i]=0&agro[i]=0&face_pic[i]=536
-if you!princess:delusion[i]=1&mob[i]=66&mobexp[i]=10&corr[i]=100&agro[i]=rand(1,2)
+if delusion[i]=0:delusion[i]=0&corr[i]=0&agro[i]=0&face_pic[i]=536
+if delusion[i]=1:&mob[i]=66&mobexp[i]=10&corr[i]=100&agro[i]=rand(1,2)

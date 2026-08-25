@@ -12,7 +12,7 @@ if sss=sister and ddd=borisbogart  and $loc[sss]=$loc[ddd]:
 				act'Подсматривать':gs'bogartsslut'
             end
         else
-			'Хмм, будь у меня смартфон я бы сфоткал эту сучку с хуем во рту, тогда бы не отвертелась'
+			'Хмм, будь у меня смартфон я бы сфоткал эту сучку с хуем во рту, тогда бы не отвертелась'&!act'Подсматривать':gs'bogartsslut'
         end
     end
     if you=mother:

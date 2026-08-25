@@ -651,30 +651,28 @@ if martamarsh=npc:
 			act'Согласиться':martasexday[you]=daystart&iwanttobeaman=1&gt'marsh_femdom_go_to_npc_home'
 		end
      end
-    if sluttySisQW=10 and vag[you]>0 and dick[you]<1:
-		act'Рассказать про ситуацию с сестрой':
-			sluttySisQW=11&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+    if (sluttySisQW=10 or sluttySlmashaQW>4) and vag[you]>0 and dick[you]<1:
+		act'Рассказать про ситуацию':
+			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&if sluttySisQW=10:sluttySisQW=11
 			'<<$name[npc]>> ухмыляется разглядывая вас - А, так это ты тот самый мудак, что шантажировал невинную минетчицу? Ну и дебилом же ты была, красотуля моя. От меня ты теперь чего хочешь?'
 			act'Я хочу обратно стать парнем!':
 				cls&'<center><img src="<<$d_view>>" ></center>'
 				'<<$name[npc]>> улыбается хищно - Ну, это я могу, если у тебя есть 1000 шиллингов или ты готов немного поработать на мою семью. Будет у тебя твой член, как ты и хочешь. Ну, так что?'
 				act'А что надо будет делать?':
-					cls&'<center><img src="<<$d_view>>" ></center>'
+					cls&'<center><img src="<<$d_view>>" ></center>'&act'Отказаться и уйти':gt 'preloc'
 					'<<$name[npc]>> продолжая улыбаться - Просто поможешь моему брату в его бизнесе, но не переживай, член у тебя уже будет, тут я честная, все в рамках договора.'
 					act'Согласиться':
 						msg('Марта кивнула, щелкнула пальцами, и вы буквально провалились в какой-то портал, оказавшись в новой одежде, на коленях перед Торнтоном Маршем...')
 						dick[you]=5&ball[you]=15&vag[you]=0&whoreboss[you]=tornton&npc=tornton&lips[you]+=rand(1,2)&tits[you]=rand(10,21)&ass[you]=rand(10,30)&hlong[you]=rand(60,100)
-						if mus[you]>1000:mus[you]=1000
-						tongue_p[you]=1&if nip[you]<=30:nip[you]+=rand(25,40)
-						stamp_t[you]=5&nip_p[you]=3&home[you]=home[sister]
-						t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=21
+						tongue_p[you]=1&nip[you]+=iif(nip[you]<=30,rand(25,40),0)&stamp_t[you]=5&nip_p[you]=3&home[you]=home[sister]&if sluttySlmashaQW<100:sluttySlmashaQW=100
+						t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=21&if mus[you]>1000:mus[you]=1000
 						X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&solo=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
 					end	
-					act'Отказаться и уйти':gt 'preloc'
 				end
 				if money[you]>100000:
 					act'Я могу заплатить! Вот деньги':
-						dick[you]=5&ball[you]=15&vag[you]=0&money[you]-=100000&cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>>, взяв ваши деньги, кивает - '
+						dick[you]=5&ball[you]=15&vag[you]=0&money[you]-=100000&cls&'<center><img src="<<$d_view>>" ></center>'
+						'<<$name[npc]>>, взяв ваши деньги, кивает - '&if sluttySlmashaQW<100:sluttySlmashaQW=100
 						'Хорошо. Меня это устроит. Прислушайся к себе. Чувствуешь? Писюнчик уже на месте. Я свою часть работы выполнила, дальше ты сам.'&act'Уйти':gt 'preloc'
 					end
 				end
@@ -688,12 +686,14 @@ if martamarsh=npc:
 					'Ну, хорошо. Я готова полностью сделать тебя парнем за целых 1500 шиллингов, а то в роли парня, ты нам мало пригодишься, тут этого добра навалом.'
 					 if money[you]>150000:
 						act'Я могу заплатить! Вот деньги':
-							cls&'<center><img src="<<$d_view>>" ></center>'&dick[you]=5&ball[you]=15&vag[you]=0&money[you]-=150000&'<<$name[npc]>>, взяв ваши деньги, кивает '
+							cls&'<center><img src="<<$d_view>>" ></center>'&dick[you]=5&ball[you]=15&vag[you]=0&money[you]-=150000
+							'<<$name[npc]>>, взяв ваши деньги, кивает '&if sluttySlmashaQW<100:sluttySlmashaQW=100
 							'- Хорошо. Меня это устроит. Прислушайся к себе. Чувствуешь? Писюнчик уже на месте. Я свою часть работы выполнила, дальше ты сам.'&act'Уйти':gt 'preloc'
 						end
 					end
 					act'Ну, блин, и вообще ничего не сделать? Нет у меня таких денег.':
-						sluttySisQW=12&cls&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> пожимает плечами - Сейчас нет, потом будут. Приходи как накопишь.'&act'<b>Уйти</b>':gt 'preloc'
+						cls&'<center><img src="<<$d_view>>" ></center>'&if sluttySisQW=11:sluttySisQW=12
+						'<<$name[npc]>> пожимает плечами - Сейчас нет, потом будут. Приходи как накопишь.'&act'<b>Уйти</b>':gt 'preloc'
 					end
 					act'Ясно, забудь':gt 'preloc'
 				end
@@ -701,12 +701,12 @@ if martamarsh=npc:
 			act'Забудь':gt 'preloc'
 		end
     end
-    if sluttySisQW=12 and money[you]>150000 and vag[you]>0 and dick[you]<1:
+    if (sluttySisQW=12 or sluttySlmashaQW>4) and money[you]>150000 and vag[you]>0 and dick[you]<1:
 		act'Я накопил деньги на преображение!':
-			cls&'<center><img src="<<$d_view>>" ></center>'&sluttySisQW=13&SysterIsp=vag_mass['<<you>>,<<sister>>']&money[you]-=150000
-			'<<$name[npc]>> радостно улыбается – Ой, ты мой золотой пиздатый мальчик. Принес ведьме денежки. Ну давай, все как договаривались. Миг и готово!'
+			cls&'<center><img src="<<$d_view>>" ></center>'&SysterIsp=vag_mass['<<you>>,<<sister>>']&money[you]-=150000&if sluttySisQW=12:sluttySisQW=13
+			'<<$name[npc]>> радостно улыбается – Ой, ты мой золотой пиздатый мальчик. Принес ведьме денежки. Ну давай, все как договаривались. Миг и готово!'&if sluttySlmashaQW<100:sluttySlmashaQW=100
 			gs 'cleanfate'&gs'male_gen',you&lips[you]=rand(0,1)&home[you]=home[sister]&genderbendermarsha=daystart&sister[you]=sister&father[you]=father&mother[you]=mother
-			$surname[you]='Гросс'&act'Моргнуть':msg('Вы лишь моргнули на миг и тут же ощутили, что ваше тело полностью преобразилось!')&gt 'preloc'
+			$name[you]='Алекс'&$surname[you]='Гросс'&act'Моргнуть':msg('Вы лишь моргнули на миг и тут же ощутили, что ваше тело полностью преобразилось!')&gt 'preloc'
 		end
     end
     if tit[you]>3 and rand(1,3)=3:
@@ -749,8 +749,7 @@ if martamarsh=npc:
 		end
     end
     if Hhome[you]>0 and renter=martamarsh:
-		if dayrent>0:'<<$name[npc]>> - У тебя оплачено <<dayrent>> дней проживания'
-		if dayrent<=0:'<<$name[npc]>> - За тобой должок'
+		$iif(dayrent>0,'<<$name[npc]>> - У тебя оплачено <<dayrent>> дней проживания','<<$name[npc]>> - За тобой должок')
         act'Оплатить аренду жилья':
 			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Сутки проживания 5 шиллингов. Сколько суток оплатишь?'&act'<b>Уйти</b>':gt 'preloc'
 		    if money[you]>=500:
@@ -760,7 +759,7 @@ if martamarsh=npc:
 		    end
 		    if money[you]>=5000:
 				act'Десять суток 50 шиллингов':
-					 money[you]-=5000&dayrent+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> берет деньги и записывает оплату'&act'<b>Уйти</b>':gt 'preloc'
+					money[you]-=5000&dayrent+=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> берет деньги и записывает оплату'&act'<b>Уйти</b>':gt 'preloc'
 				end
 		    end
 		    act'...':gt'preloc'

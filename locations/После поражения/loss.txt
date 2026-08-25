@@ -20,14 +20,10 @@ if firstfoll>0:follower[firstfoll]=0&firstfoll=0
 if secfoll>0:follower[secfoll]=0&secfoll=0
 if threfoll>0:follower[threfoll]=0&threfoll=0
 '<center><b>Поражение</b></center>'&gs'gen_d_view'&'<center><img src="<<$d_view>>" ></center>'&!'Вы потеряли часть своей души'!вывод картинки второстепенных НПС и мобов
-if horny[you]>=100:'Чудовищно не нормальная похоть затуманивает ваш разум и вы не можете продолжать драться'
+if horny[you]>=100:'Чудовищно ненормальная похоть затуманивает ваш разум и вы не можете продолжать драться'
 if fight_for_forbid = 1:
 	fight_for_forbid = 0&!параметры для проверки лежат в локации forbidsexsystem!22112024
-	if you_gender_check="male":
-		"Пошёл ты, буду трахаться с кем захочу, мразь.- <<$name[npc]>> плюёт на вас и уходит по своим делам."&forbidsex[npc] = 0&dom[you]-=30
-	elseif you_gender_check="female":
-		"Пошла ты, буду трахаться с кем захочу, мразь.- <<$name[npc]>> плюёт на вас и уходит по своим делам."&forbidsex[npc] = 0&dom[you]-=30
-	end
+	$iif(you_gender_check="male",'Пошёл','Пошла')+' ты, буду трахаться с кем захочу, мразь.- <<$name[npc]>> плюёт на вас и уходит по своим делам.'&forbidsex[npc] = 0&dom[you]-=30
 end
 if r_hand_t[you]=0 and magworld[Znow]>0 and loss[you]>=10 and DeaActTat=0:r_hand_t[you]=1&'У вас зажгло кожу на правой руке и там материализовалась татуировка плачущей девушки клоуна'
 if w_slot[you]>0:w_slot[you]=0&uron_weapon_w[you]=0&w_patron_max[you]=0&w_patrontipe[you]=0
@@ -38,10 +34,8 @@ if mob[npc]=0:
 		deadtipe=1&'Шериф склоняется над вами - Ну вот никогда никто не понимает доброго слова, приходится принимать меры.'
 		'Шериф присаживается рядом с вами и зарядив револьвер упирает его вам в лоб'&act'....':gt'dead'
 	elseif mgreen=npc:
-		'Вы упали на колени. Митч подходит и ставит ногу на вашу голову - Эх, снова пришлось забрать силой то, что мне принадлежит. Ну ничего ты еще научишься.'
-		if r_leg_t[you]=0:'У вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
-		if r_leg_t[you]=0:r_leg_t[you]=1
-		if whoreboss[you]!npc:whoreboss[you]=mgreen
+		'Вы упали на колени. Митч подходит и ставит ногу на вашу голову - Эх, снова пришлось забрать силой то, что мне принадлежит. Ну ничего ты еще научишься.'&if whoreboss[you]!npc:whoreboss[you]=mgreen
+		if r_leg_t[you]=0:'У вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'&r_leg_t[you]=1
 		whore[you]+=1&act'....':gt'sex'
 	elseif soulmaster=npc:
 		'Открывается портал в ад и вашу душу вырывают из тела и бросают в адское пламя способное сжечь даже души'&act'....':gt'dead'
@@ -49,8 +43,7 @@ if mob[npc]=0:
 		'Вампирша вонзает свои клыки вам в горло'&act'....':gt'dead'
 	elseif antey=npc:
 	 	if uberSolderQW[you]>0:
-			uberSolderQW[you]=100&punishedQW=10&muggle[you]=1&l_leg_t[you]=2&earth_gem[antey]=1
-			'Антей любуется кольцом на своем пальце - Теперь я аватар. А ты станешь тупой шлюхой!'
+			uberSolderQW[you]=100&punishedQW=10&muggle[you]=1&l_leg_t[you]=2&earth_gem[antey]=1&'Антей любуется кольцом на своем пальце - Теперь я аватар. А ты станешь тупой шлюхой!'
 			'У вас резко болит бедро и на нем проступает татуировка и вы теряете связь с магическими каналами.'
 			'После этого Антей телепортирует вас в сауну'&horny[npc]=50&X[npc]=2&Y[npc]=0&Z[npc]=3&H[npc]=2&R[npc]=2
 			X[dukevalorama]=X[npc]&Y[dukevalorama]=Y[npc]&Z[dukevalorama]=Z[npc]&H[dukevalorama]=H[npc]&R[dukevalorama]=R[npc]

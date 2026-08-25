@@ -1,4 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&mob[i]=40&mobexp[i]=10&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&mob[i]=0&mobexp[i]=10&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0
 $title[i]='Обычная девушка'&gs'name_nations',rand(9),1,i&!gs'woman_name'&$name[i]=$genname&gs'surname'&$surname[i]=$gensurname&$nick[i]='Девушка'
 face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,38)&nip[i]=rand(30,70)&tits[i]=rand(10,21)
@@ -20,5 +20,4 @@ if class[i]=0:t_slot[i]=rand(12,16)&l_slot[i]=rand(23,26)&b_slot[i]=13&if rand(1
 if class[i]=1:t_slot[i]=rand(16,24)&l_slot[i]=rand(27,44)&b_slot[i]=rand(8,9)&!средний класс
 if class[i]=2:t_slot[i]=rand(25,30)&l_slot[i]=rand(9,14)&b_slot[i]=rand(17,19)&!элитный класс
 Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&walkprog[i]=0
-if you=princess and Z[i]=750:delusion[i]=0&mob[i]=40&mobexp[i]=10&corr[i]=0&dom[i]=rand(0,50)&agro[i]=0&!уровень агрессивности 0 нет, 1 иногда 2 всегда
-if you!princess and Z[i]=750:delusion[i]=1&mob[i]=40&mobexp[i]=10&corr[i]=100&dom[i]=rand(30,70)&agro[i]=rand(1,2)
+if Z[i]=750 and delusion[i]=1:mob[i]=40&mobexp[i]=10&corr[i]=100&dom[i]=rand(30,70)&agro[i]=rand(1,2)&!уровень агрессивности 0 нет, 1 иногда 2 всегда

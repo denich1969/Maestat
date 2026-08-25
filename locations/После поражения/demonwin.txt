@@ -13,18 +13,18 @@ l_ass_t[you]=1&'<<$nick[npc]>> достает раскаленное клейм�
 reflex[you]=20&corr[you]+=10&feminize[you]+=rand(3,6)&'<<$nick[npc]>> накладывает на вас заклинание'
 act'...':
 	master[you]=0&X=22&Y=15&Z=773&H=0&R=0&X[you]=X&Y[you]=Y&Z[you]=Z&H[you]=H&R[you]=R
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&horny[i]=50&mob[i]=45&mobexp[i]=10&total_pornacter+=1
 	gt'preloc'
 	dead[hildiglum]=0&X[hildiglum]=10&Y[hildiglum]=10&Z[hildiglum]=740&H[hildiglum]=0&R[hildiglum]=0
 	dead[grimglum]=0&X[grimglum]=10&Y[grimglum]=10&Z[grimglum]=740&H[grimglum]=0&R[grimglum]=0

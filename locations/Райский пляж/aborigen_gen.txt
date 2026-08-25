@@ -1,6 +1,6 @@
 ﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&mob[i]=2&mobexp[i]=50&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0
 gs'negr_man_name'&$name[i]=$genname&gs'negr_surname'&$surname[i]=$gensurname
-$title[i]='Туземец'&tipe=rand(2)&$nick[i]=iif(tipe=1,'Островитянин',iif(tipe=2,'Дикарь','Абориген'))&$basestatus[i]=' чешет яйца'&tipemobpic[i]=0&picture[i]=92&!номер типа фотки иномер фотки 
+$title[i]='Туземец'&tipe=rand(2)&$nick[i]=iif(tipe=1,'Островитянин',iif(tipe=2,'Дикарь','Абориген'))&$basestatus[i]=' чешет яйца'&tipemobpic[i]=1&picture[i]=92&!номер типа фотки иномер фотки 
 dick[i]=rand(18,28)&dickd[i]=rand(40,55)&ball[i]=rand(40,70)&!Половые признаки (член, вагина, жопа, грудь)
 rost[i]=rand(165,195)&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)&skin[i]=rand(4,6)
 healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)

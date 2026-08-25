@@ -34,10 +34,10 @@ if total_slut<15:X=4&Y=7&Z=770&H=0&R=0&gs'justgirl'&$title[i]='Пападанк�
 if total_whore<5:X=11&Y=2&Z=771&H=0&R=0&gs'justgirl'&$title[i]='Пападанка'
 if total_client<20:
 	X=4&Y=5&Z=771&H=0&R=0
-	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
-	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
-	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
-	gs'domale_gen'&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&walkprog[i]=0&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&walkprog[i]=0&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&walkprog[i]=0&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
+	gs'domale_gen'&walkprog[i]=0&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
 end
-if need_pornakter>0:need_pornakter-=1&X=10&Y=10&Z=773&H=0&R=0&gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
+if need_pornakter>0:need_pornakter-=1&X=10&Y=10&Z=773&H=0&R=0&gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
 !if total_slut<=1:X=rand(1,9)&Y=rand(1,9)&Z=770&gs'slut'

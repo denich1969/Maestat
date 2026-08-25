@@ -6,13 +6,11 @@ if sss=sister and ddd=borisbogart:
 			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/pee/<<rand(0,35)>>.webm" ></video></center>'
 			'Богарт внезапно вынул хуй изо рта вашей сестры и стал ссать ей в рот, а та набирала полный рот мочи и проглатывала.'
 			act'Подглядывать':
-				action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0
-				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
+				action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/cum_toilet.webm" ></video></center>'
 				'Богарт сует вашу сестру лицом в унитаз и кончает ей на лицо, а затем окунает в унитаз и смывает воду.'&act'Уйти':gt'preloc'
 			end
 		end
-        if sluttySisQW=0:sluttySisQW=1
-        'Моей сестре наваливают в рот прямо в общественном сортире, ну она и шалава'
+        'Моей сестре наваливают в рот прямо в общественном сортире, ну она и шалава'&if sluttySisQW=0:sluttySisQW=1
         if item[26]>0:
 			'Так, у меня есть смартфон, можно сфоткать эту шалаву'
             act'Сфоткать':
@@ -25,9 +23,7 @@ if sss=sister and ddd=borisbogart:
     end
     if you=mother:'Боже, моя дочка сосет в общественном сортире'
     if you=father:
-		cangopre=0
-		if uberSolderQW[you]<3:uberSolderQW[you]=3
-		'Богарт наваливает на ротан моей дочери!'
+		cangopre=0&'Богарт наваливает на ротан моей дочери!'&if uberSolderQW[you]<3:uberSolderQW[you]=3
         if cuntmanQW=0:
 			act'Ах ты старый козел!':
 				action_tipe[ddd]=0&action_tipe[sss]=0&aktive_tipe[ddd]=0&aktive_tipe[sss]=0

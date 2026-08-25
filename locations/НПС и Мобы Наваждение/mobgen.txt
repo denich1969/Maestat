@@ -1,4 +1,4 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i&lvl[i]=1&soul[i]=100&mob[i]=51&mobexp[i]=10&tipemobpic[i]=1&picture[i]=200&$nick[i]='Тентакль'&total_tentacle+=1
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&demon[]=i&lvl[i]=1&soul[i]=100&mob[i]=14&mobexp[i]=10&tipemobpic[i]=1&picture[i]=200&$nick[i]='Тентакль'&total_tentacle+=1
 txtrand=rand(0,11)&corr[i]=1000
 if txtrand=0:$name[i]='Красный'&picture[i]=201
 if txtrand=1:$name[i]='Багряный'&picture[i]=202
