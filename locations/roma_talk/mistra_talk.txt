@@ -1,5 +1,4 @@
-﻿loc_for_drop=0&gs'stat'&'<b><center>Магазин редкостей Мистры</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'''&!$loc[you]=$curloc
-gs'npconloc'&gs'item'
+﻿loc_for_drop=0&gs'stat'&'<b><center>Магазин редкостей Мистры</center></b>'&gs'npconloc'&gs'item'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'''&!$loc[you]=$curloc
 if nuat[you]>0:
 	act'Показать нуаты':
 		iskrmist=0&cls&gs'stat'&act'Нет, так не пойдет':gt $curloc

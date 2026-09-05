@@ -1,6 +1,5 @@
 ﻿if rand_man_gen=0:
-	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&rand_man=i&lvl[i]=1&soul[i]=100
-	!face_npc[i]=1&face_pic[i]=8&!фотки
+	npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&rand_man=i&lvl[i]=1&soul[i]=100&!face_npc[i]=1&face_pic[i]=8&!фотки
 	$name[i]='Незнакомец'&$surname[i]='Мужчина'
 	face[i]=10&gla[i]=0&glacol[i]=4&nose[i]=3&lips[i]=0
 	dick[i]=25&dickd[i]=55&ball[i]=100&
@@ -15,5 +14,4 @@
 	cantvag[i]=1&can_bj[i]=0&can_anal[i]=0
 	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0
 end
-!sex_times['<<you>>,<<i>>']=0&sex_times['<<i>>,<<you>>']=0
-!energy[rand_man]=energymax[rand_man]
+!sex_times['<<you>>,<<i>>']=0&sex_times['<<i>>,<<you>>']=0&energy[rand_man]=energymax[rand_man]

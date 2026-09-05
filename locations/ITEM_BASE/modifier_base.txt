@@ -1,0 +1,47 @@
+﻿! 1-Съесть и утолить голод      ! 2-Выпить и утолить жажду      для пищевых продуктов           ! 26-выпить алкоголь
+i=3&$item_name[i]='Бутылка с водой'&can_use_item[i]=2&$item_use[i]='Выпить воду'&$item_text[i]='(В бутылку налита чистая и прохладная вода)'&item_burden[i]=750&!вес
+i=22&$item_name[i]='Банан'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=200&!вес
+i=23&$item_name[i]='Апельсин'&can_use_item[i]=13&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=200&!вес
+i=28&$item_name[i]='Лекарственные листья'&can_use_item[i]=16&$item_use[i]='Употребить'&$item_text[i]='100 грамм лекарственных листьев'&item_burden[i]=100&!вес
+i=32&$item_name[i]='Бургер'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=200&!вес
+i=33&$item_name[i]='Пицца'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]='Тонкая 30-сантиметровая пицца'&item_burden[i]=600&!вес
+i=34&$item_name[i]='Бутылка колы'&can_use_item[i]=2&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес
+i=36&$item_name[i]='Зелье защиты от ужаса'&can_use_item[i]=84&$item_use[i]='Употребить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=49&$item_name[i]='Зелье малого отдохновения'&can_use_item[i]=17&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=50&$item_name[i]='Зелье отдохновения'&can_use_item[i]=18&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=51&$item_name[i]='Зелье малого лечения'&can_use_item[i]=19&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=52&$item_name[i]='Земляника'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]='100 грамм земляники'&item_burden[i]=100&!вес
+i=53&$item_name[i]='Малина'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]='100 грамм  малины'&item_burden[i]=100&!вес
+i=54&$item_name[i]='Черника'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]='100 грамм  черники'&item_burden[i]=100&!вес
+i=59&$item_name[i]='Сушеные жабы'&can_use_item[i]=58&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=100&!вес
+i=60&$item_name[i]='Пиявки'&can_use_item[i]=58&$item_use[i]='Забрать'&$item_text[i]=''&item_burden[i]=50&!вес
+i=61&$item_name[i]='Рыба'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=300&!вес
+i=62&$item_name[i]='Мясо'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=300&!вес
+i=63&$item_name[i]='Бутылка пива'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес
+i=66&$item_name[i]='Початок кукурузы'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=200&!вес
+i=67&$item_name[i]='Селедка'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=300&!вес
+i=68&$item_name[i]='Кристал маны'&can_use_item[i]=36&$item_use[i]='Сломать'&$item_text[i]=''&item_burden[i]=10&!вес
+i=71&$item_name[i]='Малое зелье отвода глаз'&can_use_item[i]=23&$item_use[i]='Выпить'&$item_text[i]='(Зелье позволяет вам не выделяться из толпы)'&item_burden[i]=100&!вес
+i=73&$item_name[i]='Зелье отвода глаз'&can_use_item[i]=25&$item_use[i]='Выпить'&$item_text[i]='(Зелье позволяет вам не выделяться из толпы)'&item_burden[i]=100&!вес
+i=78&$item_name[i]='Феромоны самца'&can_use_item[i]=27&$item_use[i]='Выпить'&$item_text[i]='(Зелье позволяет получить расположение дам)'&item_burden[i]=100&!вес
+i=79&$item_name[i]='Феминайзер'&can_use_item[i]=28&$item_use[i]='Выпить'&$item_text[i]='(Зелье изменяет тело по женскому типа)'&item_burden[i]=100&!вес
+i=80&$item_name[i]='Манайзер'&can_use_item[i]=29&$item_use[i]='Выпить'&$item_text[i]='(Зелье изменяет тело по мужскому типу)'&item_burden[i]=100&!вес
+i=85&$item_name[i]='Пыльца фей'&can_use_item[i]=34&$item_use[i]='Понюхать'&$item_text[i]=''&item_burden[i]=10&!вес
+i=89&$item_name[i]='Лунный камень'&can_use_item[i]=79&$item_use[i]='Сжать'&$item_text[i]=''&item_burden[i]=10&!вес
+i=91&$item_name[i]='Алмаз'&can_use_item[i]=57&$item_use[i]='Сжать'&$item_text[i]=''&item_burden[i]=10&!вес
+i=92&$item_name[i]='Заряженная роза'&can_use_item[i]=35&$item_use[i]='Сжать'&$item_text[i]=''&item_burden[i]=50&!вес
+i=93&$item_name[i]='Зелье леченья'&can_use_item[i]=37&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=95&$item_name[i]='Приворотное зелье'&can_use_item[i]=0&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=97&$item_name[i]='Гриб'&can_use_item[i]=38&$item_use[i]='Съесть'&$item_text[i]='100 грамм приготовленных грибов'&item_burden[i]=100&!вес
+i=100&$item_name[i]='Возбудитель'&can_use_item[i]=39&$item_use[i]='Выпить'&$item_text[i]='Афродизиак'&item_burden[i]=100&!вес
+i=138&$item_name[i]='Жиросжигатель'&can_use_item[i]=40&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=146&$item_name[i]='Магическое яйцо'&can_use_item[i]=47&$item_use[i]='Сьесть'&$item_text[i]=''&item_burden[i]=80&!вес
+i=155&$item_name[i]='Яйцо'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]='Птичье яйцо'&item_burden[i]=50&!вес
+i=161&$item_name[i]='Картошка'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=100&!вес
+i=162&$item_name[i]='Соленый гриб'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=50&!вес
+i=163&$item_name[i]='Квашеная капуста'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=100&!вес
+i=164&$item_name[i]='Соленый огурец'&can_use_item[i]=1&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=100&!вес
+i=165&$item_name[i]='Бутылка самогонки'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=168&$item_name[i]='Слива'&can_use_item[i]=13&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=50&!вес
+i=169&$item_name[i]='Клубника'&can_use_item[i]=13&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=30&!вес
+i=252&$item_name[i]='Тоник'&can_use_item[i]=2&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес

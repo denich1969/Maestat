@@ -1,6 +1,5 @@
 ﻿:markdrowdom
 domrand=rand(0,29)
-
 if domrand=0:$dom='Ален'
 if domrand=1:$dom='Але'
 if domrand=2:$dom='Араб'
@@ -31,8 +30,6 @@ if domrand=26:$dom='Райлин'
 if domrand=27:$dom='Тэкен'
 if domrand=28:$dom='Тор'
 if domrand=29:$dom='Зау'
-
-
 prirand=rand(0,29)
 if prirand=0:$pri='афин'
 if prirand=1:$pri='ана'
@@ -64,19 +61,12 @@ if prirand=26:$pri='вал'
 if prirand=27:$pri='ввир'
 if prirand=28:$pri='зинге'
 if prirand=29:$pri='т'
-
 $temp_name_drow_dom=$dom+$pri
 !'if drowdom>0:
-dd=1
-:markdrowdomprov
-     if $temp_name_drow_dom=$name_drow_dom[dd]:jump'markdrowdom'
-dd+=1
-     if dd<=drowdom:jump'markdrowdomprov' 
-drowdom+=1
-$name_drow_dom[drowdom]=$temp_name_drow_dom
+	dd=1
+	:markdrowdomprov
+		if $temp_name_drow_dom=$name_drow_dom[dd]:jump'markdrowdom'
+	dd+=1&if dd<=drowdom:jump'markdrowdomprov' 
+	drowdom+=1&$name_drow_dom[drowdom]=$temp_name_drow_dom
 end
-if drowdom=0:
-drowdom+=1
-$name_drow_dom[drowdom]=$temp_name_drow_dom    
-end
-'
+if drowdom=0:drowdom+=1&$name_drow_dom[drowdom]=$temp_name_drow_dom    '

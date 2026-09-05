@@ -1,17 +1,8 @@
-﻿clo=ARGS[0]
-
-if ban_h[you]=0:
+﻿if ban_h[you]=0:
 	if h_slot[you]=0:
-	item_h[clo]-=1
-	burden[you]-=item_h_burden[clo]
-	h_slot[you]=clo
+		item_h[args[0]]-=1&burden[you]-=item_h_burden[args[0]]&h_slot[you]=args[0]
 	else
-	clothednow=h_slot[you]
-	item_h[clothednow]+=1
-	burden[you]+=item_h_burden[clothednow]
-	item_h[clo]-=1
-	burden[you]-=item_h_burden[clo]
-	h_slot[you]=clo
+		item_h[h_slot[you]]+=1&burden[you]+=item_h_burden[h_slot[you]]&item_h[args[0]]-=1&burden[you]-=item_h_burden[args[0]]&h_slot[you]=args[0]
 	end
 end
 gt'world'

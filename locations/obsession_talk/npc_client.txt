@@ -11,27 +11,24 @@ else
 		if horny[npc]<50:
 			'Клиент с интересом смотрит на вас'&act'<b>Уйти</b>':gt 'preloc'
 			act'Поговорить':
-				cls&gs'stat'&'Клиент говорит вам - Это отличное место что бы трахать шлюх. Если ты шлюха, то ты пришла по адресу.'&!'<center><img src="<<$d_view>>" ></center>'
+				cls&gs'stat'&'Клиент говорит вам - Это отличное место что бы трахать шлюх. Если ты шлюха, то ты пришла по адресу.'&act'<b>Уйти</b>':gt 'preloc'
 				if fucker[npc]>0:'Клиент гордо говорит что он отъебал уже <<fucker[npc]>> шлюшек'
-				act'<b>Уйти</b>':gt 'preloc'
 			end
 			if whore[you]>0:
 				act'Соблазнять':
-					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 					if sexiness[you]>=90 and cum_face[you]=0:
 						'Клиент оценивающе смотрит на вас - Классная шлюха, даю 100 гульденов.'
 					 	act'Секс за 100 гульденов':solo=npc&horny[npc]=50&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
 					else
 						'Клиент скептически говорит вам - Отвали шмара, я пока не в настроении.'
 					end
-					act'<b>Уйти</b>':gt 'preloc'
 				end
 			end
 		else
 			if pol[you]>0:
-				'Клиент напряженно пялится на вас и вы замечаете что у него стоит член - Эй шлюха, даю 100 гульденов'
+				'Клиент напряженно пялится на вас и вы замечаете что у него стоит член - Эй шлюха, даю 100 гульденов'&dynamic $d_fear
 				act'Секс за 100 гульденов':solo=npc&gulden[you]+=10000&pose[you]=2&whore[you]+=1&gt'sex'
-				dynamic $d_fear
 			else
 				'Иди выеби уже кого-нибудь.'&act'<b>Уйти</b>':gt 'preloc'
 			end

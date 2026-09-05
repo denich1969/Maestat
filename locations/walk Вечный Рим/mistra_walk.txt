@@ -4,7 +4,7 @@ if mob_sleep[w]>=time and mob_busy[w]>0:
 	mob_busy[w]=0
 else
     if hour>=22 or hour<=6:
-		!спит дома
+		$doing[w]='Спит'
 	else
 		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:$doing[w]='стоит за стойкой'&$loc[w]='2,2,404,7,3'&!$loc[w]='slaverhouse'
 	end

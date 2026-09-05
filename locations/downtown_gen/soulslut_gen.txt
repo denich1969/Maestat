@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&soulslut=i&lvl[i]=1&soul[i]=666&work[i]=52&subwork[i]=50
-master[i]=0&delusion[i]=0&magik[i]=14&beliver[i]=13
-spec_face_pic[i]=5&face_pic[i]=80
-$name[i]='Барби'&$surname[i]='Долл'&$nick[i]='Блондинка бимбо'&$title[i]=''&$history[i]='Я служу Эосфору, владельцу общества торговли душами.'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&soulslut=i&lvl[i]=1&soul[i]=666&work[i]=52&subwork[i]=50&master[i]=0&delusion[i]=0&magik[i]=14&beliver[i]=13
+$name[i]='Барби'&$surname[i]='Долл'&$nick[i]='Блондинка бимбо'&$title[i]=''&$history[i]='Я служу Эосфору, владельцу общества торговли душами.'&spec_face_pic[i]=5&face_pic[i]=80
 face[i]=100&gla[i]=3&glacol[i]=4&nose[i]=1&lips[i]=3&scull[i]=0&cheeks[i]=0
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=50&anus[i]=50&throat[i]=30&ass[i]=40&nip[i]=40&tits[i]=25
 rost[i]=170&fat[i]=1800&mus[i]=800&skin[i]=1

@@ -1,8 +1,6 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&soulmaster=i&lvl[i]=15&soul[i]=666&work[i]=52&subwork[i]=100&soul_gem[i]=1
-master[i]=0&delusion[i]=0&magik[i]=31&beliver[i]=13
-spec_face_pic[i]=5&face_pic[i]=78
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&soulmaster=i&lvl[i]=15&soul[i]=666&work[i]=52&subwork[i]=100&soul_gem[i]=1&master[i]=0&delusion[i]=0&magik[i]=31&beliver[i]=13
 $title[i]=''&$history[i]='Я мастер душ и мне принадлежит общество торговли душами.'
-$name[i]='Люкс'&$surname[i]='Эосфор'&$nick[i]='Вальяжный мужчина с глубоко порочными глазами'
+$name[i]='Люкс'&$surname[i]='Эосфор'&$nick[i]='Вальяжный мужчина с глубоко порочными глазами'&spec_face_pic[i]=5&face_pic[i]=78
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=26&dickd[i]=50&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rost[i]=196&fat[i]=800&mus[i]=2000&skin[i]=1

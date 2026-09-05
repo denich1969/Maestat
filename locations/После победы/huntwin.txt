@@ -12,10 +12,8 @@ act'Обернуться':
     if water_gem[you]=1 and fire_gem[you]=1 and earth_gem[you]=1 and wind_gem[you]=1 and soul_gem[you]=1:
 		'Позади вас стоит татуировщик Пабло - Помнишь свое обещание отказатся от сбора Маестата и раздать 4 из 5-ти колец?'
 		act'Выполнить обещание':
-			npc=runemaster&magik[runemaster]+=5&fire_gem[you]=0&fire_gem[runemaster]=1
-			magik[martamarsh]+=5&water_gem[you]=0&water_gem[martamarsh]=1
-			dead[lebeda]=0&wind_gem[you]=0&wind_gem[lebeda]=1
-			magik[teleportboss]+=3&soul_gem[you]=0&soul_gem[teleportboss]=1
+			npc=runemaster&magik[runemaster]+=5&fire_gem[you]=0&fire_gem[runemaster]=1&magik[martamarsh]+=5&water_gem[you]=0&water_gem[martamarsh]=1
+			dead[lebeda]=0&wind_gem[you]=0&wind_gem[lebeda]=1&magik[teleportboss]+=3&soul_gem[you]=0&soul_gem[teleportboss]=1
 			prophecyQW=100&cls&gs'stat'&'<center><b><font size=big>КОНЦОВКА СПОКОЙСТВИЕ</a></font></b></center>'&'<center><img src="pic/face/5/45.jpg" ></center>'
 			'Вы отдали кольцо огня Пабло. Пабло довольно кивает, кольцо воды отдай Марте Марш.'&'Кольцо воды с вашей руки просто исчезает.'
 			'Пабло усмехается - А ты знаешь, Лебеда жива. Она спряталась в Великом Дубе и готовится сбежать из мира в любой момент, отдай кольцо воздуха ей, чтобы городу было что есть.'
@@ -26,9 +24,9 @@ act'Обернуться':
 			cls&'<center><img src="pic/face/5/45.jpg" ></center>'&'Пабло грустно кивнул - Тогда мне придется тебя убить. Маестат - это духовная черная дыра, это отсутствие баланса. А я должен хранить баланс.'
 			npc=runemaster&act'Драться':cant_fight_run=1&gs'progcurse'&gt 'prefight'
 		end
-     else
+    else
 		prophecyQW=110&'Позади вас стоит татуировщик Пабло - Поздравляю с победой! Маестат тебе не удалось собрать, но это победа. Теперь у тебя есть свобода, есть жизнь и сила. '
 		'Лучшее, как известно, - враг хорошего. Держись за свою синицу в руках, журавль в небе зачастую кончается неаппетитным трупом. '
 		'Джофри имел всё, но амбиции не дали ему довольствоваться тем, что он имел. Захотел быть владыкой Маестата и чтобы боги у него были на посылках.'&act'Уйти':gt'preloc'
-     end
+    end
 end

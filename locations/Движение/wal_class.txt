@@ -1,64 +1,56 @@
 ﻿if block_blackrule=1:
-     if wantblackcock[w]>0:wantblackcock[w]=0
-     if r_leg_t[w]=1:r_leg_t[w]=0
-     if whore[w]>0 and whoreboss[w]=tbigg:exwhore[w]=whoreboss[w]&whore[w]=0&whoreboss[w]=0
-     if whore[w]>0 and whoreboss[w]=mgreen:exwhore[w]=whoreboss[w]&whore[w]=0&whoreboss[w]=0
-     if whore[w]>0 and whoreboss[w]=dlong:exwhore[w]=whoreboss[w]&whore[w]=0&whoreboss[w]=0
+    if wantblackcock[w]>0:wantblackcock[w]=0
+    if r_leg_t[w]=1:r_leg_t[w]=0
+    if whore[w]>0 and whoreboss[w]=tbigg:exwhore[w]=whoreboss[w]&whore[w]=0&whoreboss[w]=0
+    if whore[w]>0 and whoreboss[w]=mgreen:exwhore[w]=whoreboss[w]&whore[w]=0&whoreboss[w]=0
+    if whore[w]>0 and whoreboss[w]=dlong:exwhore[w]=whoreboss[w]&whore[w]=0&whoreboss[w]=0
 end
 if megamentQW=1 and dead[sladkovadot]=0 and dead[sparrow]=0:
-	 whore[sladkovadot]=0&whoreboss[sladkovadot]=0
-	 r_leg_t[sladkovadot]=0
-	 if stamp_t[w]>0:stamp_t[w]=0
-	 wantblackcock[sladkovadot]=0
-	 husband[sparrow]=sladkovadot&husband[sladkovadot]=sparrow
+	whore[sladkovadot]=0&whoreboss[sladkovadot]=0
+	r_leg_t[sladkovadot]=0&if stamp_t[w]>0:stamp_t[w]=0
+	wantblackcock[sladkovadot]=0&husband[sparrow]=sladkovadot&husband[sladkovadot]=sparrow
 end
 if elderdot=i and grief>0 and friends['<<elderdot>>,<<grief>>']<100:friends['<<elderdot>>,<<grief>>']=100&friends['<<grief>>,<<elderdot>>']=100
 if soul[w]>maxsoul[w] and maxsoul[w]>0 and mob[w]=0:soul_loc['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']+=1&soul[w]-=1
 if whore[w]>0:
-	 if whoreboss[w]=0:
-		 if Z[w]=1 and dead[tornton]=0:whoreboss[w]=tornton
-		 if Z[w]=2 and dead[mabuta]=0:whoreboss[w]=mabuta
-		 if Z[w]=3 and dead[bocman]=0:whoreboss[w]=bocman
-		 if Z[w]=4 and dead[gruber]=0:whoreboss[w]=gruber
-		 if Z[w]=5 and dead[soulmaster]=0:whoreboss[w]=soulmaster
-	 end
-	 wbs=whoreboss[w]
-	 if dead[wbs]>0:whoreboss[w]=0
+	if whoreboss[w]=0:
+		if Z[w]=1 and dead[tornton]=0:whoreboss[w]=tornton
+		if Z[w]=2 and dead[mabuta]=0:whoreboss[w]=mabuta
+		if Z[w]=3 and dead[bocman]=0:whoreboss[w]=bocman
+		if Z[w]=4 and dead[gruber]=0:whoreboss[w]=gruber
+		if Z[w]=5 and dead[soulmaster]=0:whoreboss[w]=soulmaster
+	end
+	wbs=whoreboss[w]
+	if dead[wbs]>0:whoreboss[w]=0
 end
 if odri=w:
-	 lebeda_seed[w]=0
-	 wantblackcock[w]=0
-	 if r_leg_t[w]=1:r_leg_t[w]=0
-	 if stamp_t[w]>0:stamp_t[w]=0
-	 if whore[w]>0:whore[w]=0
-	 if whoreboss[w]>0:whoreboss[w]=0
+	lebeda_seed[w]=0&wantblackcock[w]=0&if r_leg_t[w]=1:r_leg_t[w]=0
+	if stamp_t[w]>0:stamp_t[w]=0
+	if whore[w]>0:whore[w]=0
+	if whoreboss[w]>0:whoreboss[w]=0
 end
 if martamarsh=w:
-	 lebeda_seed[w]=0
-	 wantblackcock[w]=1
-	 if r_leg_t[w]=1:r_leg_t[w]=0
-	 if stamp_t[w]>0:stamp_t[w]=0
-	 if whore[w]>0:whore[w]=0
-	 if whoreboss[w]>0:whoreboss[w]=0
+	lebeda_seed[w]=0&wantblackcock[w]=1&if r_leg_t[w]=1:r_leg_t[w]=0
+	if stamp_t[w]>0:stamp_t[w]=0
+	if whore[w]>0:whore[w]=0
+	if whoreboss[w]>0:whoreboss[w]=0
 end
 if lebeda=w:
-	 lebeda_seed[w]=0
-	 wantblackcock[w]=0
-	 if r_leg_t[w]=1:r_leg_t[w]=0
-	 if stamp_t[w]>0:stamp_t[w]=0
-	 if whore[w]>0:whore[w]=0
-	 if whoreboss[w]>0:whoreboss[w]=0
+	lebeda_seed[w]=0&wantblackcock[w]=0&if r_leg_t[w]=1:r_leg_t[w]=0
+	if stamp_t[w]>0:stamp_t[w]=0
+	if whore[w]>0:whore[w]=0
+	if whoreboss[w]>0:whoreboss[w]=0
 end	 
 if lebeda_seed[w]>0:
-	 if addboss=w:lebeda_seed[w]=0
-	 if soulmaster=w:lebeda_seed[w]=0
-     if lebeda_seed[w]>0:
-         if dead[lebeda]>0:
-	         if mutation[w]<lebeda_seed[w]:mutation[w]+=1
-	         agro[w]+=10
-         end
-	     if dead[lebeda]=0 and mutation[w]>0:mutation[w]=0
-	 end
+	if addboss=w:lebeda_seed[w]=0
+	if soulmaster=w:lebeda_seed[w]=0
+    if lebeda_seed[w]>0:
+        if dead[lebeda]>0:
+	        if mutation[w]<lebeda_seed[w]:mutation[w]+=1
+	        agro[w]+=10
+        end
+	    if dead[lebeda]=0 and mutation[w]>0:mutation[w]=0
+	end
 end
 if mutation[w]>=100:madness[w]+=1
 if blackganger[w]>=1:horny[w]=100
@@ -156,25 +148,11 @@ if weaponmaster[w]=0 and master[w]=0:
 		sfera_amulet[w]=1000
     else
 		if Z[w]=1:
-			if m_slot[w]=0:
-				tipew=rand(0,4)
-				if tipew=0:m_slot[w]=27
-				if tipew=1:m_slot[w]=40
-				if tipew=2:m_slot[w]=46
-				if tipew=3:m_slot[w]=47
-				if tipew=4:m_slot[w]=48
-			end
+			if m_slot[w]=0:tipew=rand(0,4)&m_slot[w]=iif(tipew=0,27,iif(tipew=1,40,iif(tipew=2,46,iif(tipew=3,47,48))))
 		end
 		if Z[w]=2:
 			if m_slot[w]=0:m_slot[w]=rand(41,45)
-			if w_slot[w]=0:
-				tipew=rand(0,4)
-				if tipew=0:w_slot[w]=9
-				if tipew=1:w_slot[w]=104
-				if tipew=2:w_slot[w]=106
-				if tipew=3:w_slot[w]=107
-				if tipew=4:w_slot[w]=108
-			end
+			if w_slot[w]=0:tipew=rand(0,4)&w_slot[w]=iif(tipew=0,9,iif(tipew=1,104,iif(tipew=2,106,iif(tipew=3,107,108))))
 			if mob[w]=0:
 				sfera_amulet[w]=iif(rand(1)=0,500,1000)
 			else
@@ -184,15 +162,7 @@ if weaponmaster[w]=0 and master[w]=0:
 		if Z[w]>=3 and Z[w]<=5:
 			if m_slot[w]=0:m_slot[w]=rand(41,45)
 			if w_slot[w]=0:
-				tipew=rand(0,10)
-				if tipew>=7:
-					tipew=rand(0,4)
-					if tipew=0:w_slot[w]=9
-					if tipew=1:w_slot[w]=104
-					if tipew=2:w_slot[w]=106
-					if tipew=3:w_slot[w]=107
-					if tipew=4:w_slot[w]=108
-				end
+				tipew=rand(0,10)&if tipew>=7:tipew=rand(4)&w_slot[w]=iif(tipew=0,9,iif(tipew=1,104,iif(tipew=2,106,iif(tipew=3,107,108))))
 			end
 			if mob[w]=0:
 				sftemp=rand(0,10)

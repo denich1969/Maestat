@@ -1,8 +1,6 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&spiro=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0
-master[i]=0&delusion[i]=0&magik[i]=17&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=88
-$title[i]=''&$history[i]='Я просто очередной охотник из коллегии. Когда-то очнулся на корабле, постепенно пробился и кое-чему научился. Так, кручусь понемногу среди сильных города сего, пытаюсь выжить.'
-$name[i]='Стиви'&$surname[i]='Спиро'&$nick[i]='Проницательный охотник'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&spiro=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0&master[i]=0&delusion[i]=0&magik[i]=17&beliver[i]=0
+$history[i]='Я просто очередной охотник из коллегии. Когда-то очнулся на корабле, постепенно пробился и кое-чему научился. Так, кручусь понемногу среди сильных города сего, пытаюсь выжить.'
+$name[i]='Стиви'&$surname[i]='Спиро'&$nick[i]='Проницательный охотник'&$title[i]='Охотник за головами'&spec_face_pic[i]=5&face_pic[i]=88
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=19&dickd[i]=50&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rost[i]=182&fat[i]=800&mus[i]=1000&skin[i]=1

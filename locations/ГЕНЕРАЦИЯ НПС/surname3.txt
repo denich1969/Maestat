@@ -300,6 +300,4 @@ if gra=297:$gensurname='Песковский'&$gensurname_f='Песковска�
 if gra=298:$gensurname='Веденин'&$gensurname_f='Веденина'
 if gra=299:$gensurname='Веньяминов'&$gensurname_f='Веньяминова'
 if gra=300:$gensurname='Незус'&$gensurname_f='Незус'
-
 if $gensurname_f='':$gensurname_f=$gensurname+'а'
-

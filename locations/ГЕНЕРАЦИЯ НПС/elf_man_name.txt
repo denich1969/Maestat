@@ -100,22 +100,3 @@ if gra=97:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=98:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=99:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=100:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -205,25 +205,4 @@ if sufrand=97:$suf='враэ'
 if sufrand=98:$suf='вир'
 if sufrand=99:$suf='зинэ'
 if sufrand=100:$suf=''
-
-
 $genname=$pri+$suf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

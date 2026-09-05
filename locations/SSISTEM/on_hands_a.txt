@@ -78,10 +78,8 @@ act'Стонать':
 			gs'stat'&$func('get_images', 'anal_cream_dog', you, anal_fucker)&'Вам кончили в попку'
 			gs'fuck_cum_anus',anal_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам кончили в раздолбанную попку. '
 			act'...':
-				empty_ball[anal_fucker]=time+(60*koefball[anal_fucker])
-				if vag[you]>0:open_vag[you]=1
-				if dick[you]>2:dick[you]-=rand(1,2)
-				open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&gt 'sex'
+				empty_ball[anal_fucker]=time+(60*koefball[anal_fucker])&if vag[you]>0:open_vag[you]=1
+				open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&dick[you]-=iif(dick[you]>2,rand(1,2),0)&gt 'sex'
 			end
 		end
 	end

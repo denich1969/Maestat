@@ -209,6 +209,16 @@ if $ARGS[0] ! '':
 			if sluttySisQW=5:msg("Сестра мне жестко отомстила.")
 			if sluttySisQW>5:msg("Женская месть: страшная сила. Сестра превратила меня в девку...")
 		}
+		$d_mashaqw={
+			if sluttySlmashaQW=1:msg("Маша Сладкова сосет хуй Богарту, но у меня нет доказательств.")
+			if sluttySlmashaQW=2:msg("У меня есть фото Маши с хуем во рту.")
+			if sluttySlmashaQW=3:msg("Маша видела фотку.")
+			if sluttySlmashaQW=4:msg("Вы поговорили с Машей после показа фотки, она предложила продолжить общение, но вы отказались.")
+			if sluttySlmashaQW=5:msg("После согласия продолжить общение Маша сделала меня шлюхой.")
+			if sluttySlmashaQW=6:msg("Маша объяснила мне почему она так поступила.")
+			if sluttySlmashaQW=7:msg("Вы пожаловались на то, что с вами случилось...")
+			if sluttySlmashaQW=100:msg("Вы вернули себе первоначальный облик...")
+		}
 		$d_uberSolderQW={
 			if uberSolderQW[you]=1:msg("Фрэнк Висконти намекал, что он что-то знает, касающееся меня.")
 			if uberSolderQW[you]=2:msg("Фрэнк сказал, чтобы я проверил учительскую в школе часов в 8 утра по будням.")
@@ -322,6 +332,7 @@ if $ARGS[0] ! '':
 			if punishedQW>=1:pl'<a href="exec:dynamic $d_punishedQW">Пониженный</a>'
 			if cuntmanQW>=1 and cuntmanQW<100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
 			if sluttySisQW>=1 and sluttySisQW<3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
+			if sluttySlmashaQW>=1 and sluttySlmashaQW<100:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
 			if IamMilfQW>=1 and IamMilfQW<100:pl'<a href="exec:dynamic $d_iammilfqw">Моя жизнь</a>'
 			if lebeda_birdQW>=1 and lebeda_birdQW<100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды</a>'
 			if prophecyQW>=1 and prophecyQW<100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество</a>'
@@ -362,6 +373,7 @@ if $ARGS[0] ! '':
 			if autodocQW>=100:pl'<a href="exec:dynamic $d_autodocQW">Обновление автодока</a>'
 			if cuntmanQW>=100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
 			if sluttySisQW>=3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
+			if sluttySlmashaQW>=100:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
 			if lebeda_birdQW=100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды.</a>'
 			if prophecyQW>=100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество.</a>'
 			if against_portal>=4:pl'<a href="exec:dynamic $d_antiportalQW">Портальная магия.</a>'
@@ -400,8 +412,7 @@ if $ARGS[0] ! '':
 	!* ---------------------------- ПЕРСОНАЖ/ОПИСАНИЕ --------------------------- *!
     if $ARGS[0] = 'ПЕРСОНАЖ' or $ARGS[0] = 'ОПИСАНИЕ':
 		clr&p'<<func("generate_links", 1, 13, "ОПИСАНИЕ")>>'&num=you&gs'body', 'IN_PREVIEW'&clotemp=clonum[you]&openinv=0
-		pl'<<$name[you]>> <<$surname[you]>>'&!if $nick[you]!'':pl'<<$nick[you]>>'
-		pl'<<$opis[you]>>'
+		pl'<<$name[you]>> <<$surname[you]>>'&pl'<<$opis[you]>>'&!if $nick[you]!'':pl'<<$nick[you]>>'
 		if defence[you]>0:pl'Защита <<defence[you]>>ед.'
 		if $l_hand_t[you]!'':pl'Татуировка на левой руке - <<$l_hand_t[you]>>.'
 		if $r_hand_t[you]!'':pl'Татуировка на правой руке - <<$r_hand_t[you]>>.'
@@ -423,11 +434,7 @@ if $ARGS[0] ! '':
 					pl'Патроны <<w_patron_load[you]>>/<<w_patron_max[you]>>'
 					if w_patron_load[you]<w_patron_max[you]:
 						needpatron=w_patron_max[you]-w_patron_load[you]&patrontipe=w_patrontipe[you]
-						if item[patrontipe]>0:
-							pl'У вас <<item[patrontipe]>> патронов в запасе, <a href="exec:gt''reload'',<<patrontipe>>">Перезарядить</a>'
-						else
-							pl'У вас нет патронов для данного оружия.'
-						end
+						pl $iif(item[patrontipe]>0,'У вас <<item[patrontipe]>> патронов в запасе, <a href="exec:gt''reload'',<<patrontipe>>">Перезарядить</a>','У вас нет патронов для данного оружия.')
 					end
 				end
 			end
@@ -538,7 +545,7 @@ if $ARGS[0] ! '':
 	end
 	if $ARGS[0] = 'ХАРАКТЕРИСТИКИ':
 		clr&p'<<func("generate_links", 1, 13, "ХАРАКТЕРИСТИКИ")>>'&num=you&gs'body'&pl'<center><b><<$selobj>></b></center>'
-		pl $iif(muggle[you]>=1,'У вас нет никакого магического дара','<<lvl[you]>>й уровень. Опыт <<exp[you]>>/<<expneed[you]>>')
+		pl $iif(muggle[you]>=1,'У вас нет никакого магического дара','<<lvl[you]>>-й уровень. Опыт <<exp[you]>>/<<expneed[you]>>')
 		if demon_dick[you]>0:
 			pl "Уровень "+IIF(pol[you]=0,'Инкуба', 'Суккуба')+": <b>" + demon_dick[you] + "</b> ("+soul[you]+"/"+demon_dick_soul_need[you]+")"
 			pl "Насыщение душами: <b>" + demon_dick_stomath[you] + "</b> ("+demon_dick_stomath_max[you]+")"
@@ -565,30 +572,16 @@ if $ARGS[0] ! '':
 			if magik[you]>=5:pl'<b><<magik[you]>></b> каналов магии.'
 		end
 		if hunter[you]>0 or magik[you]>0 or insight[you]>0:
-			if soul[you]>=20:
-				pl'Ваша душа <<soul[you]>>% от человеческой души'
-			else
-				pl'Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>'
-			end
+			pl $iif(soul[you]>=20,'Ваша душа <<soul[you]>>% от человеческой души','Ваша душа <<soul[you]>>% от человеческой души <b>Слишком маленькая душа</b>')
 		end
-		pl'Живучесть <<vital[you]>>'
-		pl'Мускулатура <<mus[you]>>'
+		pl'Живучесть <<vital[you]>>'&pl'Мускулатура <<mus[you]>>'
 		if soulpower[you]>0:pl'Сила духа, дающая бонус к урону, грузоподъемности и выносливости <<soulpower[you]>>.'
 		if will[you]>0:pl'Воля <<will[you]>>'&!', параметр удержания канала магии ? Что это даёт в других играх?'
 		if fight_skill[you]>0:pl'Навыки рукопашного боя <<fight_skill[you]>>'
 		if shoot_skill[you]>0:pl'Навык стрельбы <<shoot_skill[you]>>'
-		pl'Физиологические рефлексы <<reflex[you]>>'
-		pl'Текущая реакция, использующаяся в бою <<react[you]>>'
-		pl'Доминантность <<dom[you]>>'
-		pl'Агресивность <<agro[you]>>'
-		if corr[you]<10:$corr_txt[you]='Зажатая'
-		if corr[you]>=10 and corr[you]<25:$corr_txt[you]='Стыдливая'
-		if corr[you]>=25 and corr[you]<50:$corr_txt[you]='Игривая'
-		if corr[you]>=50 and corr[you]<75:$corr_txt[you]='Пошлая'
-		if corr[you]>=75:$corr_txt[you]='Блядь'
-		if pol[you]>0:pl'Развращенность <<corr[you]>>. <<$corr_txt[you]>>'
-		if pol[you]=0:pl'Развращенность <<corr[you]>>.'
-		pl'Похоть <<lust[you]>>'
+		pl'Физиологические рефлексы <<reflex[you]>>'&pl'Текущая реакция, использующаяся в бою <<react[you]>>'&pl'Доминантность <<dom[you]>>'&pl'Агресивность <<agro[you]>>'
+		$corr_txt[you]=$iif(corr[you]<10,'Зажатая',$iif(corr[you]>=10 and corr[you]<25,'Стыдливая',$iif(corr[you]>=25 and corr[you]<50,'Игривая',$iif(corr[you]>=50 and corr[you]<75,'Пошлая','Блядь'))))
+		pl $iif(pol[you]>0,'Развращенность <<corr[you]>>. <<$corr_txt[you]>>','Развращенность <<corr[you]>>.')&pl'Похоть <<lust[you]>>'
 		if visioner[you]>0:pl'Дар <<visioner[you]>>'
 		if implant_speed[you]>0:pl'Ваш имплант, увеличивающий рефлексы <<implant_speed[you]>>-го уровня.'
 		if implant_power[you]>0:pl'Ваш имплант, увеличивающий силу удара <<implant_power[you]>>-го уровня.'
@@ -613,10 +606,8 @@ if $ARGS[0] ! '':
 		if perk_cumnpc[you]>0:pl"Когда вы или партнер кончает, то вы получаете <<perk_cumnpc[you]*10>> xp"
 		if demon_dick[you]>0:
 			$args[200]=$IIF(pol[you]=0,"Инкуба","Суккуба")
-			pl"<i>Способности <<$args[200]>>:</i>"
-			pl"- 1 раз в день, вы получаете опыт, в зависимости от 'качества' оргазма и уровня <<$args[200]>>(Как в активной, так и в пассивной форме)"
-			pl"- Во время пассивного оргазма тело выробатывает женские гормоны"
-			pl"- Во время активного оргазма тело выробатывает мужские гормоны если тело имеет мужскую форму"
+			pl"<i>Способности <<$args[200]>>:</i>"&pl"- 1 раз в день, вы получаете опыт, в зависимости от 'качества' оргазма и уровня <<$args[200]>>(Как в активной, так и в пассивной форме)"
+			pl"- Во время пассивного оргазма тело выробатывает женские гормоны"&pl"- Во время активного оргазма тело выробатывает мужские гормоны если тело имеет мужскую форму"
 			if demon_dick[you]>1:pl"- Во время бурного секса повышает вашу физическую форму"
 			if demon_dick[you]>2:pl"- Во время оргазма восстанавливает энергию"
 			if demon_dick[you]>3:pl"- Ваши флюиды могут усилить потенцию мужчины"
@@ -633,12 +624,7 @@ if $ARGS[0] ! '':
 		end
 	end
 	if $ARGS[0]='ВВОД КОМАНД' or $ARGS[0] = 'КОМАНДА':$ARGS['INPUT'] = INPUT ('Введите команду')&UNSEL&$ARGS['COMMAND'] = DYNEVAL($ARGS['INPUT'])
-	if $ARGS[0]='АВАРИЙКА':X[you]=XHome[you]&Y[you]=YHome[you]&Z[you]=ZHome[you]&H[you]=0&R[you]=0&gt 'world'
-	if $ARGS[0]='UI ТОГГЛЕР':
-		if CONFIG['UI_EDITOR'] = 1:
-			CONFIG['UI_EDITOR'] = 0&gs'stat'
-		else
-			CONFIG['UI_EDITOR'] = 1&gs'stat'
-		end
-	end
+	if $ARGS[0]='АВАРИЙКА' and RHome[you]>0:X[you]=XHome[you]&Y[you]=YHome[you]&Z[you]=ZHome[you]&H[you]=0&R[you]=0&gt 'world'
+	if $ARGS[0]='АВАРИЙКА' and RHome[you]=0:H[you]=0&gt 'world'
+	if $ARGS[0]='UI ТОГГЛЕР':CONFIG['UI_EDITOR']=$iif(CONFIG['UI_EDITOR']=1,0,1)&gs'stat'
 end

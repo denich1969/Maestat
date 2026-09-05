@@ -10,6 +10,9 @@ if pose[you]=2:
 end
 if pose[you]=3:$poser='<b>Вы лежите на спине</b>'&	$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a>'
 if pose[you]>=4:$poser='<b>Вы стоите на четвереньках</b>'&$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a>'
+!if pose[you]=5:pl'<b><i>Вы сидите на попе</i></b>'&pl'<a href="exec:pose[you]=2&gt ''in_pose''">на колени</a>'&pl'<a href="exec:pose[you]=4&gt ''in_pose''">лечь на спину</a>'
+!if pose[you]=6:pl'<b><i>Вы стоите наклонившись вперед в позе садовода</i></b>'&pl'<a href="exec:pose[you]=0&gt ''in_pose''">Выпрямится</a>'
+!if pose[you]=7:pl'<b><i>Вы сидите на корточках</i></b>'&pl'<a href="exec:pose[you]=0&gt ''in_pose''">встать</a>'&pl'<a href="exec:pose[you]=3&gt ''in_pose''">сесть</a>'
 if pose[you]=0:pose[you]=1&$poser+= ' <a href="exec:dynamic $d_sitdown">Сесть</a>'&if Z[you]!200:$poser='<b>У вас кружится голова</b>'
 $d_pissloc={
 	time+=2&pisswasser[you]=0&$d_pissloc2='<center><video autoplay loop src="pic/event/piss<<rand(0,17)>>.webm" ></video></center>'&$d_pissloc2&pissonloc['<<$loc[you]>>']=time+120&gs'walker'&gt 'preloc'}
@@ -23,8 +26,8 @@ if pol[you]>=1 and status_tipe[you]=3:$status[you]='ВЫ ОБОССАЛИСЬ'
 if status_tipe[you]>0 and status_time[you]>time:status_minut=status_time[you]-time
 if status_tipe[you]>0 and status_time[you]<=time:status_time[you]=0&$status[you]=''&status_tipe[you]=0
 if pisswasser[you]>=50:
-     if (dick[you]>1 and CONFIG['DISABLE_position']=0) or CONFIG['DISABLE_position']=1:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
-     if vag[you]>0 and CONFIG['DISABLE_position']=0 and pose[you]=2:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
+    if (dick[you]>1 and CONFIG['DISABLE_position']=0) or CONFIG['DISABLE_position']=1:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
+    if vag[you]>0 and CONFIG['DISABLE_position']=0 and pose[you]=2:$poser+= '<br>'&$poser+= ' <a href="exec:dynamic $d_pissloc">Пописать</a>'
 end
 if $status[you]!'':'<b><<$status[you]>></b>. Действует еще <<status_minut>> '+$func('plural',status_minut,'минута','минуты','минут')
 '<<$poser>>'

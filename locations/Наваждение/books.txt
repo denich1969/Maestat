@@ -19,12 +19,11 @@ if item[56]>0 and knowlanguage[you]=0:
 end
 if knowsitokQW=0 and knowlanguage[you]=1 and knowpowerbarrier>0:
     act'Искать способ открыть силовое поле особняка':
-		time+=60&cls&gs'stat'
+		time+=60&cls&gs'stat'&act'Уйти':gt 'preloc'
         if item[56]>1:
 			knowsitokQW=1&'Используя два гримуара вы расшифровывает устройство свитка открытия силового поля. Для этого вам нужен рунный камень, бумага и лаборатория.'
         else
 			'Вам мало одного гримуара для расшифровки, информации явно не хватает'
         end
-    act'Уйти':gt 'preloc'
     end
 end

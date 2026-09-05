@@ -40,14 +40,8 @@ end
 if vag[s]>0:vag[s]+=1&vagsex[s]+=1&avagsex[w]+=1
 anus[s]+=1&anal[s]+=1&aanal[w]+=1&bj[s]+=1&abj[w]+=1
 if throat[s]<10:throat[s]=10
-if dick[w]>throat[s]:throat[s]+=1
-$surnamemylastfucker[s]=$surname[w]&$global_npc_log[w]+='<br>'
-if whore[s]>0:
-	$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> дала мне за деньги.'
-else
-	$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> была выебана мной'
-end
-$global_npc_log[s]+='<br>'
+throat[s]+=iif(dick[w]>throat[s],1,0)&$surnamemylastfucker[s]=$surname[w]&$global_npc_log[w]+='<br>'
+$global_npc_log[w]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[s]>> <<$surname[s]>> '+$iif(whore[s]>0,'дала мне за деньги.','была выебана мной')&$global_npc_log[s]+='<br>'
 if whore[s]>0:
 	insemrand=rand(1,10)&father_npc_child=w&money[s]+=5000&$global_npc_log[s]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[w]>> <<$surname[w]>> трахал меня за деньги.'
 	if inseminate[s]=0 and spiral[s]=0 and inseminateON[s]=1 and vag[s]>0 and insemrand=10:inseminate[s]=w

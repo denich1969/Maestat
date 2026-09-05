@@ -300,6 +300,4 @@ if gra=297:$gensurname=''&$gensurname_f=''
 if gra=298:$gensurname=''&$gensurname_f=''
 if gra=299:$gensurname=''&$gensurname_f=''
 if gra=300:$gensurname=''&$gensurname_f=''
-
 if $gensurname_f='':$gensurname_f=$gensurname+'а'
-

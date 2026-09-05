@@ -15,13 +15,7 @@ healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=200&energy[i]=en
 visualpol[i]=1&pol[i]=1&gs'body'&total_generated_female+=1&total_freegirl+=1
 bisex[i]=iif(rand(1,100)>=70,1,0)&agro[i]=rand(1,90)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=50&dom[i]=rand(30,70)&!характер
 bisexwomantotal+=iif(bisex[i]>0,1,0)&womenbrain[i]=rand(70,100)&!lust[i]=iif(bisex[i]>0,rand(40,100),0)&lust[i]+=iif(extrovert[i]=2,10,0)&lust[i]+=iif(ratio[i]=0,10,0)&forbidsex[i]=0&!нет запрета
-if bisex[i]=0:
-     if age[i]<27:
-		templust=rand(1,100)&lust[i]=iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50)))
-	 else
-		templust=rand(1,100)&lust[i]=iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70)))
-     end
-end
+if bisex[i]=0:templust=rand(1,100)&lust[i]=iif(age[i]<27,iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50))),iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70))))
 if lust[i]>=75 and agro[i]>=75:misstress[i]=1&total_misstress+=1
 if lust[i]>=75 and agro[i]>=50 and agro[i]<75:femwhore[i]=1&total_femwhore+=1
 if lust[i]>=75 and agro[i]<50:subslut[i]=1&total_subslut+=1&!Конец характер

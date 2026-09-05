@@ -8,9 +8,7 @@ if ass[args[0]]<0:ass[args[0]]=0
 if tits[args[0]]>titsMax:tits[args[0]]=titsMax
 if tits[args[0]]<0:tits[args[0]]=0
 if pol[args[0]]=0:
-	musNorm[args[0]]=musNorm*20/10*rost[args[0]]/1800
-	fatNorm[args[0]]=fatNorm*rost[args[0]]/1800*8/10
-	!иначе при переходе от мужика к женщине может быть баг
+	musNorm[args[0]]=musNorm*20/10*rost[args[0]]/1800&fatNorm[args[0]]=fatNorm*rost[args[0]]/1800*8/10&!иначе при переходе от мужика к женщине может быть баг
 	!if mus[args[0]]-musNorm[args[0]]>=200:musNorm[args[0]]=musNorm[args[0]]=mus[args[0]]+100
 	!if musNorm[args[0]]-mus[args[0]]>=200:musNorm[args[0]]=musNorm[args[0]]=mus[args[0]]-100
 else
@@ -29,11 +27,7 @@ args[72]=args[71]*(20+10*fem[args[0]]/femMax)/100&!идеальные бедра
 !сколько жира уйдет в сиськи (при titsMax=540 90%)
 !Обратите внимание, что если жира больше чем норма, то он пойдет не в сиськи!! (это сделанно чтоб персонаж не состоял из одних сисек, если вдруг решит растолстеть)
 !у низних (миниатюрных) персонажей даже 3 размер груди может быть впечатляющим
-if fat[args[0]]<=fatNorm[args[0]]:
-	args[38]=IIF(tits[args[0]]<titsMax,fat[args[0]]*tits[args[0]]/600,fat[args[0]]*titsMax/600)
-else	
-	args[38]=IIF(tits[args[0]]<titsMax,fatNorm[args[0]]*tits[args[0]]/600,fatNorm[args[0]]*titsMax/600)
-end
+args[38]=iif(fat[args[0]]<=fatNorm[args[0]],IIF(tits[args[0]]<titsMax,fat[args[0]]*tits[args[0]]/600,fat[args[0]]*titsMax/600),args[38]=IIF(tits[args[0]]<titsMax,fatNorm[args[0]]*tits[args[0]]/600,fatNorm[args[0]]*titsMax/600))
 args[40]= fat[args[0]] - args[38]&!жир распределенный по телу
 args[35]=args[40]*20/100&!плечи (жир)
 args[36]=args[40]*(60-40*fem[args[0]]/femMax)/100&!талия (жир)
@@ -48,21 +42,18 @@ if pol[args[0]]>0 and weigth[args[0]]>0 and waist[args[0]]>0:
 	if (args[79]<15 and musNorm[args[0]]<mus[args[0]]*11/10):
 		musNorm[args[0]]+=25&!если задница отклоняеться менее чем на 15% нужно увеличить её
 		if musNorm_temp[args[0]]<0:musNorm[args[0]]=mus[args[0]]&musNorm_temp[args[0]]=0
-		musNorm_temp[args[0]]+=1
-		!if husband[you]=args[0]:$name[args[0]]+" оптимальная мускулатура "+musNorm[args[0]]+" ++ "+args[79]
+		musNorm_temp[args[0]]+=1&!if husband[you]=args[0]:$name[args[0]]+" оптимальная мускулатура "+musNorm[args[0]]+" ++ "+args[79]
 		!if args[78]<100:jump'test'
 	else	
 		if (args[79]>15 and musNorm[args[0]]>mus[args[0]]*9/10 and musNorm[args[0]]>musNorm*rost[args[0]]/1800/2):
 			musNorm[args[0]]-=25&!если задница отклоняеться более чем на 15% нужно уменьшить её
 			if musNorm_temp[args[0]]>0:musNorm[args[0]]=mus[args[0]]&musNorm_temp[args[0]]=0
-			musNorm_temp[args[0]]-=1
-			!if husband[you]=args[0]:$name[args[0]]+" оптимальная мускулатура "+musNorm[args[0]]+" -- "+args[79]
+			musNorm_temp[args[0]]-=1&!if husband[you]=args[0]:$name[args[0]]+" оптимальная мускулатура "+musNorm[args[0]]+" -- "+args[79]
 			!if args[78]<100:jump'test'
 		end			
 	end
 	if waist_bonus[args[0]]>-2 and tit[args[0]]<2+lust[args[0]]/20 and tit[args[0]]<7 and fatNorm[args[0]]<fat[args[0]]*11/10:
-		fatNorm[args[0]]+=25
-		if fatNorm_temp[args[0]]<0:fatNorm[args[0]]=fat[args[0]]&fatNorm_temp[args[0]]=0
+		fatNorm[args[0]]+=25&if fatNorm_temp[args[0]]<0:fatNorm[args[0]]=fat[args[0]]&fatNorm_temp[args[0]]=0
 		fatNorm_temp[args[0]]+=1
 	else
 		if (tit[args[0]]>2+lust[args[0]]/20 or breast_b[args[0]]>breastSizeE+1) and fatNorm[args[0]]>fat[args[0]]*9/10:

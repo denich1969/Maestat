@@ -63,24 +63,24 @@ if know_whore['<<npc>>,<<you>>']=0:
 	            act'<b>Переодеться в сбрую</b>':
 					letherslut[you]=1&solo=npc&horny[npc]=50&pose[you]=2&X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
 					X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
-					 if t_slot[you]>0:
+					if t_slot[you]>0:
 						clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
-					 end
-					 if l_slot[you]>0:
+					end
+					if l_slot[you]>0:
 						clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
-					 end
-					 if b_slot[you]>0:
+					end
+					if b_slot[you]>0:
 						clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
-					 end
-					 if ut_slot[you]>0:
+					end
+					if ut_slot[you]>0:
 						clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$loc[you]>>']+=1
-					 end
-					 if ul_slot[you]>0:
+					end
+					if ul_slot[you]>0:
 						clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
-					 end
-					 if ub_slot[you]>0:
+					end
+					if ub_slot[you]>0:
 						clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
-					 end
+					end
 					ut_slot[you]=4&ul_slot[you]=17&if h_slot[you]=0:h_slot[you]=10
 					cls&gs'stat'&'<center><img src="pic/sex/bdsm/before.jpg" ></center>'&'<<$name[npc]>> ведет вас к себе и вы одеваете сбрую из кожанных ремней.'
 					if h_slot[you]=10:'В довершение вы одевате кожанную маску с прорезью для рта и глаз.'
@@ -135,9 +135,9 @@ if know_whore['<<npc>>,<<you>>']=0:
 else
 	'<<$name[npc]>> ухмыляется - Привет шлюшка, развлечемся? Даю <<max(sexiness[you]/2,1)>> шиллингов.'
 	act'Пошли к тебе':money[you]+=sexiness[you]/2*100&know_whore['<<npc>>,<<you>>']+=1&gt $iif(Z[you]=3,'go_to_npc_home_gm','go_to_npc_home')
-	 act'Могу отсосать':
-		 know_whore['<<npc>>,<<you>>']+=1&money[you]+=sexiness[you]/3*100&pose[you]=2
-		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'&gs'block_quick', 'give_bj'
-	 end
+	act'Могу отсосать':
+		know_whore['<<npc>>,<<you>>']+=1&money[you]+=sexiness[you]/3*100&pose[you]=2
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> <<$surname[npc]>> ухмыляется - Тоже не плохо. Но заплачу я поменьше.'&gs'block_quick', 'give_bj'
+	end
 end
 act'<b>Уйти</b>':gt 'preloc'

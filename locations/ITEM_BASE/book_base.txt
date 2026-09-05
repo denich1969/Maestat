@@ -1,0 +1,12 @@
+﻿i=11&$item_name[i]='Книга'&can_use_item[i]=8&$item_use[i]='Порвать'&$item_text[i]=''&item_burden[i]=300
+i=12&$item_name[i]='Бумага'&can_use_item[i]=0&$item_use[i]='Взять в руку'&$item_text[i]=''&item_burden[i]=10&!вес листа бумаги формата А4=5 грамм
+i=56&$item_name[i]='Гримуар ведьм'&can_use_item[i]=20&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=400&!вес
+i=70&$item_name[i]='Свиток Войнича'&can_use_item[i]=22&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=1500&!вес
+i=72&$item_name[i]='Свиток мистического алфавита'&can_use_item[i]=24&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=100&!вес
+i=81&$item_name[i]='Трактат о душах'&can_use_item[i]=30&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=1000&!вес
+i=83&$item_name[i]='Гримуар истинной формы'&can_use_item[i]=32&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=400&!вес
+i=84&$item_name[i]='Книга "Маестат как высшая цель"'&can_use_item[i]=33&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=300&!вес
+i=140&$item_name[i]='Книга вафлёрш'&can_use_item[i]=41&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=400&!вес
+i=141&$item_name[i]='Записка'&can_use_item[i]=42&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=50&!вес
+i=142&$item_name[i]='Папка'&can_use_item[i]=43&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=200&!вес
+i=171&$item_name[i]='Записки охотника'&can_use_item[i]=171&$item_use[i]='Открыть'&$item_text[i]=''&item_burden[i]=200&!вес

@@ -76,7 +76,7 @@ else
 			np['<<$temploc>>']=503&can_drink['<<$temploc>>']=2&lake['<<$temploc>>']=1&list['<<$temploc>>']=rand(1)&if rand(1,100)>=90:gs'mobgen'
 		end
 		if X=7 and Y=5:altar['<<$temploc>>']=1&gs'WitchJungle'
-		if X=4 and Y=7:portal['<<$temploc>>']=7777
+		if X=4 and Y=7:portal['<<$temploc>>']=210
 		if X=7 and Y=7:swordstoun['<<$temploc>>']=1
 		if X=4 and Y=4:cladka['<<$temploc>>']=2
 		if X=0 and Y=3:cladka['<<$temploc>>']=2

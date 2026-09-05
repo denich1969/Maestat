@@ -19,11 +19,8 @@ if autodocQW=100:
 				if money[you]>=100000:
 					act'Форсировать имплант':
 						money[you]-=100000&lebeda_seed[you]-=10&if lebeda_seed[you]<0:lebeda_seed[you]=0
-						age[you]+=5&if mus[you]>500:mus[you]-=200
-						health[you]=10&mana[you]=0&energy[you]=10
-						if dick[you]>10:dick[you]-=rand(1,5)
-						if dickd[you]>20:dickd[you]-=rand(1,3)
-						if ball[you]>10:ball[you]-=rand(1,5)
+						age[you]+=5&mus[you]-=iif(mus[you]>500,200,0)&health[you]=10&mana[you]=0&energy[you]=10
+						dick[you]-=iif(dick[you]>10,rand(1,5),0)&dickd[you]-=iif(dickd[you]>20,rand(1,3),0)&ball[you]-=iif(ball[you]>10,rand(1,5),0)
 						cls&gs'stat'&'Вы подключили имплант к автодоку и тот заработал на полную мощь. Ощущения начались просто капец какие. '
 						'Вас чуть ли не начало выворачивать наизнанку и через некоторое время вы поняли ,что больше вынести этого не в состоянии.'&act'Хватит!':gt $curloc
 					end
@@ -109,11 +106,11 @@ if child_on_hand[you]>0:
 			X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]&child_on_hand[you]=0&age[npc]=18
 		    if pol[npc]=0:
 				face_pic[npc]=rand(1,400)&t_slot[npc]=4&l_slot[npc]=5&b_slot[npc]=3
-				$history[npc]='	Я рос в виртуальной реальности, хотя я не замечал этого. Ты была моя мать и там, хотя теперь я понимаю что это была лишь цифровая копия. 
+				$history[npc]='	Я рос в виртуальной реальности, хотя я не замечал этого. Ты была моя мать и там, хотя теперь я понимаю, что это была лишь цифровая копия. 
 										Там все было как на самом деле, дом, школа.'
 		    else
 				face_pic[npc]=rand(1,100)&t_slot[npc]=13&l_slot[npc]=23&b_slot[npc]=3
-				$history[npc]='	Я росла в виртуальной реальности, хотя я не замечала этого. Ты была моя мать и там, хотя теперь я понимаю что это была лишь цифровая копия. 
+				$history[npc]='	Я росла в виртуальной реальности, хотя я не замечала этого. Ты была моя мать и там, хотя теперь я понимаю, что это была лишь цифровая копия. 
 										Там все было как на самом деле, дом, школа.'
 		    end
 		    n_world[]=npc&ne_world[]=npc&e_world[]=npc&se_world[]=npc&s_world[]=npc&cantwalk[npc]=0

@@ -1,0 +1,19 @@
+﻿i=86&$item_name[i]='Серебряное кольцо'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!реальный средний вес кольца около 5 грамм
+i=87&$item_name[i]='Золотое кольцо'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=88&$item_name[i]='Кольцо с драгоценным камнем'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=118&$item_name[i]='Кольцо воды'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=119&$item_name[i]='Кольцо Приапа'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=120&$item_name[i]='Кольцо малой лунной тропы'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=121&$item_name[i]='Кольцо реакции'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=122&$item_name[i]='Кольцо лунной тропы'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=131&$item_name[i]='Фамильное кольцо Пратчетов'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=136&$item_name[i]='Кольцо Саваофа'&can_use_item[i]=3&$item_use[i]='Надеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=137&$item_name[i]='Кольцо Луны'&can_use_item[i]=3&$item_use[i]='Надеть'&$item_text[i]=''&item_burden[i]=10&!вес
+i=139&$item_name[i]='Кольцо Шокер'&can_use_item[i]=3&$item_use[i]='Надеть'&$item_text[i]=''&item_burden[i]=10&!вес
+i=147&$item_name[i]='Кольцо Древнего Бога'&can_use_item[i]=3&$item_use[i]='Надеть'&$item_text[i]=''&item_burden[i]=10&!вес
+i=148&$item_name[i]='Кольцо Госпожи'&can_use_item[i]=3&$item_use[i]='Надеть'&$item_text[i]=''&item_burden[i]=10&!вес
+i=149&$item_name[i]='Кольцо бессмертия'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=157&$item_name[i]='Резиновое кольцо'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=158&$item_name[i]='Кольцо мула'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=159&$item_name[i]='Кольцо похоти'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=243&$item_name[i]='Кольцо защиты от огня'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес

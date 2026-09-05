@@ -1,5 +1,4 @@
 ﻿gra=rand(0,305)
-
 if gra=1:$genname='Эбигейл'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=2:$genname='Ада'
 if gra=3:$genname='Эда'

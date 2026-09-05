@@ -4,36 +4,34 @@ if (hour>=22 or hour<6) and ((Z[you]>0 and Z[you]<101) or Z[you]>=700):
 		
     ! else
 		'Спать в одежде неудобно'
-		 act'Раздеться  и лечь спать':
-			 if t_slot[you]>0:
+		act'Раздеться  и лечь спать':
+			if t_slot[you]>0:
 				clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
-			 end
-			 if l_slot[you]>0:
+			end
+			if l_slot[you]>0:
 				clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
-			 end
-			 if b_slot[you]>0:
+			end
+			if b_slot[you]>0:
 				clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
-			 end
-			 gt'sleep_walk'
-			 !act'Спать':gt'sleep_walk'
+			end
+			gt'sleep_walk'
+			!act'Спать':gt'sleep_walk'
 			!gt $curloc
-		 end
-     end
-     act'Спать в одежде':gt'sleep_clo'
+		end
+    end
+    act'Спать в одежде':gt'sleep_clo'
 end
 if can_sleep['<<$loc[you]>>']=1 and Z[you]>=200 and Z[you]<300 and (hour>=22 or hour<6):act'Приготовиться ко сну':gs 'bed'
-if magik[you]<7 and  Z[you]>0 and Z[you]<101:
-	if mana[you]>0:
-		'Можно помедитировать, чтобы открыть новый канал.'
-		act'Медитация':
-			time+=60&cls&gs'stat'&!'<center><img src="<<$d_view>>" ></center>'
-			if rand(manamax[you])>mana[you]:
-				'Вы собрали образ в сознании но он получился не стабильный и вам не хватило маны завершить его'
-			else
-				magik_exp[you]+=1&"Вы погружаетесь в медитацию и смогли получить частичку опыта до следующего уровня"
-			end
-			mana[you]=0&act'<b>Уйти</b>':gt 'preloc'
+if magik[you]<7 and  Z[you]>0 and Z[you]<101 and mana[you]>0:
+	'Можно помедитировать, чтобы открыть новый канал.'
+	act'Медитация':
+		time+=60&cls&gs'stat'&!'<center><img src="<<$d_view>>" ></center>'
+		if rand(manamax[you])>mana[you]:
+			'Вы собрали образ в сознании но он получился не стабильный и вам не хватило маны завершить его'
+		else
+			magik_exp[you]+=1&"Вы погружаетесь в медитацию и смогли получить частичку опыта до следующего уровня"
 		end
+		mana[you]=0&act'<b>Уйти</b>':gt 'preloc'
 	end
 end
 if energy[you]<energyMax[you]:
@@ -43,11 +41,11 @@ if energy[you]<energyMax[you]:
 		if pol[you]=0:'<center><video autoplay loop src="pic/misc/tired-lazy-man.webm" ></video></center>'&!wait 500
 		if exp[you]>=expneed[you] and muggle[you]=0:gt'newlevel'
 		if TargetLebeda=2:
-			 if face[you]<75:face[you]+=rand(7,10)
-			 if ass[you]<36:ass[you]+=rand(1,5)
-			 if tits[you]<20:tits[you]+=rand(1,5)
-			 if hlong[you]<70:hlong[you]+=rand(1,5)
-			 if face[you]>=75 and ass[you]>=36 and tits[you]>=20 and hlong[you]>=70 and dick[you]>3:dick[you]-=rand(2,4)&nip[you]+=rand(1,3)
+			if face[you]<75:face[you]+=rand(7,10)
+			if ass[you]<36:ass[you]+=rand(1,5)
+			if tits[you]<20:tits[you]+=rand(1,5)
+			if hlong[you]<70:hlong[you]+=rand(1,5)
+			if face[you]>=75 and ass[you]>=36 and tits[you]>=20 and hlong[you]>=70 and dick[you]>3:dick[you]-=rand(2,4)&nip[you]+=rand(1,3)
 		end
 		act'Встать':gt 'world'
 	end
@@ -55,7 +53,7 @@ end
 if $npc_loc='' and total_npc_on_loc=0:
 	if horny[you]>=50 and energy[you]>=5 and dick[you]>1 and ball[you]>1:
 		act'Дрочить член':
-			jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'
+			jerk[you]+=1&horny[you]=0&energy[you]-=5&time+=15&cls&gs'stat'&gs'stat'&act'Встать':gt 'world'
 			if dick[you]>5:
 				if tit[you]>5:
 					'<center><video autoplay loop src="pic/sex/solo/wank<<rand(12,23)>>.webm" ></video></center>'
@@ -67,23 +65,21 @@ if $npc_loc='' and total_npc_on_loc=0:
 					end
 				end
 					'Вы достали свой стоячий член длинной <<dick[you]>> сантиметров и начали его дрочить, пока наконец не кончили.'
-			 else
+			else
 				'<center><video autoplay loop src="pic/sex/solo/wank<<rand(0,11)>>.webm" ></video></center>'
 				'Вы теребите пальчиками свой крошечный членик длинной <<dick[you]>> сантиметров и практически моментально ваш бесполезный отросток кончает маленькой капелькой семени.'
-			 end
-			 if insmouth_loc_num>0 or (X[you]=3 and Y[you]=0 and Z[you]=1 and H[you]=2 and R[you]=0):
+			end
+			if insmouth_loc_num>0 or (X[you]=3 and Y[you]=0 and Z[you]=1 and H[you]=2 and R[you]=0):
 				'Пока вы самоудовлетворяетесь, вас не оставляет чувство чьего-то взгляда, а когда вы кончили, то вам показалось, что кто-то еще вдали и посмеялся... Странно это...'
 				dick[you]-=rand(0,1)&nip[you]+=1&if face[you]<50:face[you]+=1
-			 end
-			 gs'stat'&act'Встать':gt 'world'
+			end
 		end
 	end
 	if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
 		act'Тереть клитор':
-			if dick[you]>1:dick[you]-=rand(0,1)&face[you]+=rand(0,1)
+			dick[you]-=iif(dick[you]>1,rand(1),0)&face[you]+=iif(dick[you]>1,rand(0,1),0)
 			jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/shlik<<rand(6)>>.webm" ></video></center>'
-			'Вы раздвигаете ножки и начинаете теперить свою мокренькую пизденку, иногда похлопывая лапошкой по своей пизде у вас начинают трястись ноги и закатываться глаза'
-			cumfrase=rand(1,4)
+			'Вы раздвигаете ножки и начинаете теперить свою мокренькую пизденку, иногда похлопывая лапошкой по своей пизде у вас начинают трястись ноги и закатываться глаза'&cumfrase=rand(1,4)
 			if cumfrase=1:'<b>Ах-ах, Ах-ах, Ах-ах.</b>'
 			if cumfrase=2:'<b>Даааа, сука.</b>'
 			if cumfrase=3:'<b>О-о-о-о ааааааа, дааа блять.</b>'
@@ -171,18 +167,15 @@ if $npc_loc='' and total_npc_on_loc=0:
 					if anus[you]>=30 and anus[you]<40:anus[you]+=2
 					if anus[you]>=40:anus[you]+=1
 					if horny[you]>100:
-						cls
-						horny[you]=0
+						cls&horny[you]=0&cumfrase=rand(1,4)&act'Встать':gt 'world'
 						if vag[you]>0 and dick[you]=0:'<center><video autoplay loop src="pic/sex/solo/analorg<<rand(0,1)>>.webm"></video></center>'
 						if vag[you]=0 and dick[you]>0:'<center><video autoplay loop src="pic/sex/solo/analorg_s_<<rand(0,12)>>.webm" ></video></center>'
 						if vag[you]>0 and dick[you]=0:'Неожиданная волна тепла и трепета захлестывает вас и вы судорожно схватившись за клитор, содрогаетесь в оргазме не переставая мастурбировать...'
 						if vag[you]=0 and dick[you]>0:'Неожиданная волна тепла и трепета захлестывает вас, и из вашего <<func("get_stat_desc", "get_dick_word", you, 1)>> вылетают струи спермы...'
-						cumfrase=rand(1,4)
 						if cumfrase=1:'<b>Ах-ах, Ах-ах, Ах-ах.</b>'
 			            if cumfrase=2:'<b>Даааа, сука.</b>'
 			            if cumfrase=3:'<b>О-о-о-о ааааааа, дааа блять.</b>'
 			            if cumfrase=4:'<b>Ммхмхмммх, каааайф - простанываешь ты.</b>'
-						act'Встать':gt 'world'
 					end
 					act'Встать':gt 'world'
 				end
@@ -190,16 +183,13 @@ if $npc_loc='' and total_npc_on_loc=0:
 			if hotthroat[you]=0:
 				act'Заглатывать дилдо':
 					hotthroat[you]+=5&jerk[you]+=1&energy[you]+=5&time+=15&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/dildo_blow<<rand(0,17)>>.webm" ></video></center>'
-					'Стараясь сдерживать рвотный рефлекс вы заглатываете дилдак так глубоко, как можете.'&*pl"<b>Глк-глк, глк-глк, глк-глк, глк-глк, глк-глк,</b>"
-					dildothroat=rand(1,4)
+					'Стараясь сдерживать рвотный рефлекс вы заглатываете дилдак так глубоко, как можете.'&*pl"<b>Глк-глк, глк-глк, глк-глк, глк-глк, глк-глк,</b>"&dildothroat=rand(1,4)
 			        if dildothroat=1:'Ты пытаешь полностью заглатить этот дилдо, на глазах выступают слезы, а сама начинаешь задыхаться от перекрывания воздуха членом в твоей глотке.'
 			        if dildothroat=2:'Как настоящая хуесоска ты с интузиазмом насаживаешься своим горлом на резиновый член.'
 			        if dildothroat=3:'От сильнейшего унижения и одновремено от максимального кайфа ты начинашь терять сознание, теребя свою мокренькую пизденку.'
 			        if dildothroat=4:'Стоя на коленях ты насасываешь большой резиновый член, издавая характерные хвуки хлюпанья, как последняя блядина. Чтобы сейчас сказали о тебе твои родители?'
 				    if throat[you]<10:throat[you]=10
-					throat[you]+=1
-					gs'oralslut',you,you
-					act'Встать':gt 'world'
+					throat[you]+=1&gs'oralslut',you,you&act'Встать':gt 'world'
 				end
 			end
 		end

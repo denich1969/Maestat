@@ -11,7 +11,7 @@ elseif Y=0:
 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 	!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Порт'&$lname['<<$temploc>>']='Порт'&$locopis['<<$temploc>>']='Городской порт в котором стоят на якоре торговые корабли'&np['<<$temploc>>']=572&can_swim['<<$temploc>>']=1
-	gs'mobgen'&if rand(5)=0:gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+	gs'mobgen'&if rand(5)=0:gs'domale_gen'&walkprog[i]=0&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
 else
     if X=1 and Y=6:
      	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
@@ -22,9 +22,9 @@ else
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Таверна'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Таверна'
 		$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Таверна'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Таверна'
 		mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&can_drink['<<$temploc>>']=1& tabern['<<$temploc>>']=1&gs'swordmaster'
-		gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
-		gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
-		gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+		gs'domale_gen'&walkprog[i]=0&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+		gs'domale_gen'&walkprog[i]=0&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+		gs'domale_gen'&walkprog[i]=0&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
 	elseif X=3 and Y=6:
 	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
@@ -80,8 +80,8 @@ else
 			$locname['<<$temploc>>']='Городская улица'&$lname['<<$temploc>>']='Городская улица'&$locopis['<<$temploc>>']='Узкая улочка древнего города'
 	    end
 		np['<<$temploc>>']=rand(562,570)
-		if rand(10)=0:gs'domale_gen'&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
-		if rand(5)=0:gs'dofemale_gen'&$title[i]='Жительница столицы королевства'&total_towngirl+=1&obsession_world[]=i&walkprog[i]=0
+		if rand(10)=0:gs'domale_gen'&walkprog[i]=0&$title[i]='Житель столицы королевства'&total_townman+=1&obsession_world[]=i&walkprog[i]=0
+		if rand(5)=0:gs'dofemale_gen'&walkprog[i]=0&$title[i]='Жительница столицы королевства'&total_towngirl+=1&obsession_world[]=i&walkprog[i]=0
 		if rand(15)=0:gs'guard'&$title[npc]='Гвардеец королевства'
 	end
 end

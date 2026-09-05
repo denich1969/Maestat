@@ -1,7 +1,1 @@
-﻿it = ARGS[0]
-clr
-tempitem=item[it]
-item[it]-=tempitem
-burden[you]-=item_burden[it]*tempitem
-item_loc['<<it>>,<<$loc[you]>>']+=tempitem
-gt 'preloc'
+﻿clr&tempitem=item[ARGS[0]]&item[ARGS[0]]-=tempitem&burden[you]-=item_burden[ARGS[0]]*tempitem&item_loc['<<ARGS[0]>>,<<$loc[you]>>']+=tempitem&gt 'preloc'

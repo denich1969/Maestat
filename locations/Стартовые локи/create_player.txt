@@ -29,11 +29,10 @@
     act'Старт за Аватар богини луны':i=you&CONFIG['IN_START_SCREEN']=0&gt'god_start'
     act'Случайно':i=you&CONFIG['IN_START_SCREEN']=0&gt'self_random'}
     act'Калькулятор тела (Для разрабов)':
-		pol[1]=1&fem[1]=1000&rost[1]=1800&mus[1]=20000&fat[1]=5000&ass[1]=assMax&tits[1]=titsMax&gt'calc_body_test'
-		args[20]=0
+		pol[1]=1&fem[1]=1000&rost[1]=1800&mus[1]=20000&fat[1]=5000&ass[1]=assMax&tits[1]=titsMax&gt'calc_body_test'&args[20]=0
 		:label
 			gs'body_size',1
-			args[20]+=1&if args[20]<3:jump'label'
+		args[20]+=1&if args[20]<3:jump'label'
 		gt'calc_body_test'
 	end
     !act'Играть за девушку':i=you&gt'pre_master_f'
@@ -53,7 +52,9 @@
       '<center><a class="plain" href="exec:gt''create_player'',{5}"><H2><div><u>Старт в Вечном Риме</u></div></H2></a></center>'
      '	Старт в Вечном Риме только для тех кто хочет посмотреть на ход разработки. РЕАЛИЗОВАНО ЧАСТИЧНО (планируется перенести контент из нескольких игр). желающие могут продолжить'
       '<center><a class="plain" href="exec:gt''create_player'',{6}"><H2><div><u>Старт в Реальном мире</u></div></H2></a></center>'
-     '	Старт в Реальном мире только для тех кто хочет протестировать результат. Предполагаются различные варианты попадания в магический мир (Предупреждение: в сквере орудует опасный маньяк, а бродить по ночным улицам крайне опасно из-за гонщиков). РЕАЛИЗОВАНО ЧАСТИЧНО. желающие могут переносить из других игр любой контент по реальному миру (мужика вроде Харитонова из Альбедо, бабу из деффки и т.д.).'
+     '	Старт в Реальном мире только для тех кто хочет протестировать результат. Предполагаются различные варианты попадания в магический мир '
+	'	(Предупреждение: в сквере орудует опасный маньяк, а бродить по ночным улицам крайне опасно из-за гонщиков). '
+	'	РЕАЛИЗОВАНО ЧАСТИЧНО. желающие могут переносить из других игр любой контент по реальному миру (мужика вроде Харитонова из Альбедо, бабу из деффки и т.д.).'
     !end
     if $args[0]=1:
 		cla&cls&'Выберите пол героя'&!тут, по-хорошему, можно настроить боевые навыки персонажа
@@ -110,17 +111,13 @@ if kre=1:
         $surname[you]=input("Введите фамилию")&if $surname[you]='' or $surname[you]=' ':gs'ru_surname'&$surname[you]=$iif(pol=0,$gensurname,$gensurname_f)
 		'<<$name[you]>> <<$surname[you]>>'
 		act'Не верно':gt $curloc
-		act'Верно':
-			if pol=0:rost[you]=rand(160,190)
-			if pol=1:rost[you]=rand(155,170)
-			kre=2&gt $curloc
-        end
+		act'Верно':rost[you]=iif(pol=0,rand(160,190),rand(155,170))&kre=2&gt $curloc
     end
 end
 if kre=2:
 	'<<$name[you]>> <<$surname[you]>>'&act'Подтвердить рост':kre=3&gt $curloc
-	if pol=0:'Мужской пол'&'<center><img src="pic/misc/rostman.jpg"></center>'
-	if pol=1:'Женский пол'&'<center><img src="pic/misc/rostwoman.jpg"></center>'
+	if pol=0:'Мужской пол'&'<center><img src="pic/misc/rostman.jpg"></center>'&$nation[you]=' русский'
+	if pol=1:'Женский пол'&'<center><img src="pic/misc/rostwoman.jpg"></center>'&$nation[you]=' русская'
 	'Рост <<rost[you]>> см'
 	if rost[you]<205:act'Увеличить на 1см':rost[you]+=1&gt $curloc
 	if rost[you]<200:act'Увеличить на 5см':rost[you]+=5&gt $curloc
@@ -253,8 +250,7 @@ if kre=11:
 		end
 		kre=5&gt $curloc
     end
-    $inzr = 'Да я просто местный извращенец, гуляю по парку, смотрю на людей, фантазирую...'&if pol[you]=1:$inzr = 'Да я просто местная блядь, гуляю по парку, смотрю на людей, фантазирую...'
-    act'<b><<$inzr>></b>':
+    act'<b><<$iif(pol[you]=0,"Да я просто местный извращенец, гуляю по парку, смотрю на людей, фантазирую...","Да я просто местная блядь, гуляю по парку, смотрю на людей, фантазирую...")>></b>':
 		reflex[you]=20&lust[you]=50&corr[you]=50&horny[you]=100
 		if pol[you]=0:
 			t_slot[you]=70&l_slot[you]=rand(1,3)&b_slot[you]=33&ut_slot[you]=0&ul_slot[you]=6&ub_slot[you]=rand(0,9)

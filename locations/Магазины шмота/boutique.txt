@@ -1,5 +1,4 @@
-﻿$nameloc[you]=$curloc
-gs'stat'&'Прилавок бутика'
+﻿$nameloc[you]=$curloc&gs'stat'&'Прилавок бутика'
 $clo_loc=''&clo=1&clomax=arrsize('$t_name')
 :markclothelocssb
     if aristokrat_t[clo]>0:clohere['<<clo>>,<<$loc[you]>>']=1
@@ -15,6 +14,4 @@ clo+=1&if clo<clomax:jump'marklowthelocssb'
     if aristokrat_b[clo]>0:boothere['<<clo>>,<<$loc[you]>>']=1
     if boothere['<<clo>>,<<$loc[you]>>']>0 and pol[you]=pol_b[clo]:$boot_loc+='<a href="exec:gt''gotobootssb'',<<clo>>"><img src="pic/clo/boot/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
 clo+=1&if clo<clomax:jump'markbootthelocssb'
-*pl''&'<<$boot_loc>>'&gs'Item'
-*pl''&gs 'npconloc'
-act'Отойти':gt 'preloc'
+*pl''&'<<$boot_loc>>'&gs'Item'&*pl''&gs 'npconloc'&act'Отойти':gt 'preloc'

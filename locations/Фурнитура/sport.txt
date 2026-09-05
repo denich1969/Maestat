@@ -1,60 +1,33 @@
 ﻿if can_do_sport[you]=1:
-	 if energy[you]>=50:
-		 act'Отжиматься':
-			 energy[you]-=50&sportiv[you]+=1
-			 if pol[you]=0 and horny[you]>49:
-				mus[you]+=2&sportiv[you]+=1&horny[you]=25&if fat[you]>10:fat[you]-=1
-			 else
-				mus[you]+=1
-			 end
-			time+=5&cls&gs'stat'
-			if pol[you]>0:
-				 '<center><video autoplay loop src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
-			else
-				 '<center><video autoplay loop src="pic/misc/pushupmen<<rand(0,2)>>.webm" ></video></center>'&'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'
+	if energy[you]>=50:
+		act'Отжиматься':
+			energy[you]-=50&sportiv[you]+=1&mus[you]+=iif(pol[you]=0 and horny[you]>49,2,1)&if pol[you]=0 and horny[you]>49:sportiv[you]+=1&horny[you]=25&fat[you]-=iif(fat[you]>10,1,0)
+			cls&$iif(pol[you]>0,'<center><video autoplay loop src="pic/misc/pushups<<rand(2)>>.webm" ></video></center>','<center><video autoplay loop src="pic/misc/pushupmen<<rand(2)>>.webm" ></video></center>')
+			'Вы уперлись руками в пол, выпрямили ноги и стали отжиматься от пола, пока не выдохлись.'&time+=5&gs'stat'&act'...':gt $curloc
+		end
+		if health[you]>25:
+			act'Провести часовую тренировку':
+				energy[you]=1&health[you]-=rand(5,10)&sportiv[you]+=5&ass[you]-=iif(ass[you]>21,rand(1,2),0)&mus[you]+=iif(pol[you]=0 and horny[you]>49,10,5)
+				if pol[you]=0 and horny[you]>49:sportiv[you]+=3&fat[you]-=iif(fat[you]>10,5,0)
+				cls&$iif(pol[you]>0,'<center><video autoplay loop src="pic/misc/pushups<<rand(2)>>.webm" ></video></center>','<center><video autoplay loop src="pic/misc/pushupmen<<rand(2)>>.webm" ></video></center>')
+				'Вы отжимались пока не выдохлись, но после небольшого перерыва - повторили процедуру и так 5 раз подряд, пока совсем не выбились из сил.'&time+=65&gs'stat'&act'...':gt $curloc
 			end
-			act'...':gt $curloc
-		 end
-		 if health[you]>25:
-			 act'Провести часовую тренировку':
-				 energy[you]=1&health[you]-=rand(5,10)&sportiv[you]+=5&if ass[you]>21:ass[you]-=rand(1,2)		
-				 if pol[you]=0 and horny[you]>49:
-					mus[you]+=10&sportiv[you]+=3&if fat[you]>10:fat[you]-=5
-				 else
-					mus[you]+=5
-				 end
-				 time+=65&cls&gs'stat'
-				if pol[you]>0:
-					 '<center><video autoplay loop src="pic/misc/pushups<<rand(0,2)>>.webm" ></video></center>'
-					 'Вы отжимались пока не выдохлись, но после небольшого перерыва - повторили процедуру и так 5 раз подряд, пока совсем не выбились из сил.'
-				else
-					 '<center><video autoplay loop src="pic/misc/pushupmen<<rand(2)>>.webm" ></video></center>'
-					 'Вы отжимались пока не выдохлись, но после небольшого перерыва - повторили процедуру и так 5 раз подряд, пока совсем не выбились из сил.'
-			    end
-				 act'...':gt $curloc
-			 end
-		 end
-	 end
-	 if energy[you]>=50:
-		 act'Упражнения на пресс':
-			 energy[you]-=50&if fat[you]>10:fat[you]-=1
-			 sportiv[you]+=1&time+=5&cls&gs'stat'
-			if pol[you]>0:'<center><video autoplay loop src="pic/misc/situps.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
-			if pol[you]=0: '<center><video autoplay loop src="pic/misc/situpsmen.webm" ></video></center>'&'Вы начали делать упражнения на пресс.'
-			 act'...':gt $curloc
-		 end
-	 end
-	 if energy[you]>=50:
+		end
+	end
+	if energy[you]>=50:
+		act'Упражнения на пресс':
+			cls&$iif(pol[you]>0,'<center><video autoplay loop src="pic/misc/situps.webm" ></video></center>','<center><video autoplay loop src="pic/misc/situpsmen.webm" ></video></center>')
+			time+=5&sportiv[you]+=1&energy[you]-=50&fat[you]-=iif(fat[you]>10,1,0)&'Вы начали делать упражнения на пресс.'&gs'stat'&act'...':gt $curloc
+		end
+	end
+	if energy[you]>=50:
 		act'Приседать':
-			energy[you]-=25&if fat[you]>10:fat[you]-=1
-			sportiv[you]+=1&mus[you]+=1&if ass[you]<20:ass[you]+=1
-			 if ass[you]>=20 and ass[you]<30:
-				 tempass[you]+=1&if tempass[you]>=20:tempass[you]=0&ass[you]+=1
-			 end
-			time+=5&cls&gs'stat'&!if pol[you]>0:'<center><video autoplay loop src="pic/misc/squat2.webm" ></video></center>'
-			if pol[you]>0:'<center><video autoplay loop src="pic/misc/squatdom<<rand(1)>>.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
-			if pol[you]=0:'<center><video autoplay loop src="pic/misc/squatdommen.webm" ></video></center>'&'Вы приседаете, пока не выдохлись.'
-			act'...':gt $curloc
+			energy[you]-=25&fat[you]-=iif(fat[you]>10,1,0)&sportiv[you]+=1&mus[you]+=1&ass[you]+=iif(ass[you]<20,1,0)
+			if ass[you]>=20 and ass[you]<30:
+				tempass[you]+=1&if tempass[you]>=20:tempass[you]=0&ass[you]+=1
+			end
+			cls&$iif(pol[you]>0,'<center><video autoplay loop src="pic/misc/squatdom<<rand(1)>>.webm" ></video></center>','<center><video autoplay loop src="pic/misc/squatdommen.webm" ></video></center>')
+			time+=5&'Вы приседали до тех пор, пока не выдохлись.'&gs'stat'&act'...':gt $curloc
 		end
 	end
 	!"smartgirl

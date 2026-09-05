@@ -1,39 +1,28 @@
-﻿if portal_defV>0:portal_defV-=1
-if portal_def>0:portal_def-=1
-if cooldown_frbr>0:cooldown_frbr-=1
-if necromancer=npc and stunV>0:stunV=0
+﻿portal_defV-=iif(portal_defV>0,1,0)&portal_def-=iif(portal_def>0,1,0)&cooldown_frbr-=iif(cooldown_frbr>0,1,0)&if necromancer=npc and stunV>0:stunV=0
 if godhand_defV>0:
-	defenceV=100500&	sfera_psihV=1000&	firedefV=50000&	godhand_defV-=1
-     if godhand_defV<=0:godhand_defV=0&defenceV=0&sfera_psihV=0&firedefV=0
+	defenceV=100500&sfera_psihV=1000&firedefV=50000&godhand_defV-=1&if godhand_defV<=0:godhand_defV=0&defenceV=0&sfera_psihV=0&firedefV=0
 end
 if godhand_def>0:
-	sfera_fiz=100500&sfera_psih=1000&	firedef=50000&	godhand_def-=1
-     if godhand_def<=0:godhand_def=0&sfera_fiz=0&sfera_psih=0&firedef=0
+	sfera_fiz=100500&sfera_psih=1000&firedef=50000&godhand_def-=1&if godhand_def<=0:godhand_def=0&sfera_fiz=0&sfera_psih=0&firedef=0
 end
 if infinitmana[npc]>0:mana[npc]=manamax[npc]
 if immortal[npc]=1:health[npc]=healthmax[npc]
-if cooldown_prth>0:cooldown_prth-=1
-if cooldown_trth>0:cooldown_trth-=1
-if autoloss=1:autoloss=0&health[you]=0
-if regenerator=1:
-     if health[you]<healthmax[you] and health[you]>0:
-     needhealth=healthmax[you]-health[you]
-         if needhealth<=mana[you]:
-			 mana[you]-=needhealth&health[you]=healthmax[you]&'Вы регенерируете'
-         else
-			 regenerator=0&'Обкаст регенерации спадает с вас'
-         end
-     end
+cooldown_prth-=iif(cooldown_prth>0,1,0)&cooldown_trth-=iif(cooldown_trth>0,1,0)&if autoloss=1:autoloss=0&health[you]=0
+if regenerator=1 and health[you]<healthmax[you] and health[you]>0:
+	needhealth=healthmax[you]-health[you]
+    if needhealth<=mana[you]:
+		mana[you]-=needhealth&health[you]=healthmax[you]&'Вы регенерируете'
+    else
+		regenerator=0&'Обкаст регенерации спадает с вас'
+    end
 end
-if regeneratorV=1:
-     if health[npc]<healthmax[npc] and health[npc]>0:
-     needhealthV=healthmax[npc]-health[npc]
-         if needhealthV<=mana[npc]:
-			 mana[npc]-=needhealthV&health[npc]=healthmax[npc]&'Противник регенерирует'
-         else
-			 regeneratorV=0&'Обкаст регенерации спадает с противника'
-         end
-     end
+if regeneratorV=1 and health[npc]<healthmax[npc] and health[npc]>0:
+	needhealthV=healthmax[npc]-health[npc]
+    if needhealthV<=mana[npc]:
+		mana[npc]-=needhealthV&health[npc]=healthmax[npc]&'Противник регенерирует'
+    else
+		regeneratorV=0&'Обкаст регенерации спадает с противника'
+    end
 end
 if regenerator_manaV>0:mana[npc]+=regenerator_manaV&'Противник восстанавливает <<regenerator_manaV>> едениц маны'
 if nostunnerV>0:stunV=0
@@ -52,38 +41,32 @@ if demon_slave[you]>=1 and subbdsmwant[you]=0:health[you]+=3*(1+fullpierce[you])
 if restrikt=1 and pose[you]=1:pose[you]=3
 if h_slot[you]=4000 and defence_you<=0:h_slot[you]=0&health[you]=healthmax[you]&energy[you]=energymax[you]&mana[you]=manamax[you]&'<b>Маска лисы разбивается от удара</b>'
 if mana[npc]<0:mana[npc]=0
-    if mob[npc]=0:
-		if $title[npc]='' and $surname[npc]='':'<b><<$name[npc]>></b>'
-		if $title[npc]!'' and $surname[npc]='':'<b><<$title[npc]>> <<$name[npc]>></b>'
-		if $title[npc]='' and $surname[npc]!'':'<b><<$name[npc]>> <<$surname[npc]>></b>'
-		if $title[npc]!'' and $surname[npc]!'':'<b><<$title[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
-    end
-	if mob[npc]>0:'<b><<$nick[npc]>></b>'&!if mob[npc]=0:'<b><<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
-	gs'gen_d_view'&!вывод картинки второстепенных НПС и мобов
-	if npc=brokk:$d_view='pic/misc/exo.jpg'
-	'<center><img src="<<$d_view>>" ></center>'&*nl
-	'Жизнь <<health[npc]>>/<<healthmax[npc]>>'&if health[npc]>0:$func ('scale.table',health[npc],healthmax[npc])
-	'Энергия <<energy[npc]>>/<<energymax[npc]>>'&$func ('scale.energy',energy[npc],energymax[npc])
-	if manamax[npc]>0:'Мана <<mana[npc]>>/<<manamax[npc]>>'&$func ('scale.mana',mana[npc],manamax[npc])
-	if defenceV>0:'У противника <<defenceV>> единиц защиты'
-	if sfera_psihV>0:'У противника <<sfera_psihV>> единиц психической защиты'
-	if firedefV>0:'У противника <<firedefV>> единиц огненной защиты'
-	if storm_shildV>0:'Вокруг противника кружится вихрь <<storm_shildV>> едениц'
-	if godhand_defV>0:'<b><<$name[npc]>> находится внутри полупрозрачной ладони сжатой в кулак </b>'
-	if newFS=1:
-	if UronV<=0:
-		'Сила удара противника неизвестна в начале боя'
-	else
-		'Сила удара противника от <<minuronV>> до <<maxuronV>>'
-	end
+if mob[npc]=0:
+	if $title[npc]='' and $surname[npc]='':'<b><<$name[npc]>></b>'
+	if $title[npc]!'' and $surname[npc]='':'<b><<$title[npc]>> <<$name[npc]>></b>'
+	if $title[npc]='' and $surname[npc]!'':'<b><<$name[npc]>> <<$surname[npc]>></b>'
+	if $title[npc]!'' and $surname[npc]!'':'<b><<$title[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
+end
+if mob[npc]>0:'<b><<$nick[npc]>></b>'&!if mob[npc]=0:'<b><<$nick[npc]>> <<$name[npc]>> <<$surname[npc]>></b>'
+gs'gen_d_view'&!вывод картинки второстепенных НПС и мобов
+if npc=brokk:$d_view='pic/misc/exo.jpg'
+'<center><img src="<<$d_view>>" ></center>'&*nl'Жизнь <<health[npc]>>/<<healthmax[npc]>>'&if health[npc]>0:$func ('scale.table',health[npc],healthmax[npc])
+'Энергия <<energy[npc]>>/<<energymax[npc]>>'&$func ('scale.energy',energy[npc],energymax[npc])
+if manamax[npc]>0:'Мана <<mana[npc]>>/<<manamax[npc]>>'&$func ('scale.mana',mana[npc],manamax[npc])
+if defenceV>0:'У противника <<defenceV>> единиц защиты'
+if sfera_psihV>0:'У противника <<sfera_psihV>> единиц психической защиты'
+if firedefV>0:'У противника <<firedefV>> единиц огненной защиты'
+if storm_shildV>0:'Вокруг противника кружится вихрь <<storm_shildV>> едениц'
+if godhand_defV>0:'<b><<$name[npc]>> находится внутри полупрозрачной ладони сжатой в кулак </b>'
+if newFS=1:
+	$iif(UronV>0,'Сила удара противника от <<minuronV>> до <<maxuronV>>','Сила удара противника неизвестна в начале боя')
 else
 	if minuronV<=0:minuronV=10
 	if minuronV>=maxuronV:maxuronV=minuronV*2
 	'Сила удара противника от <<minuronV>> до <<maxuronV>>'
 end
 if stunV>0:'Противник оглушен'&*nl&*nl
-'<<$name[you]>> <<$surname[you]>>'
-'Жизнь <<health[you]>>/<<healthmax[you]>>'&$func ('scale.table',health[you],healthmax[you])
+'<<$name[you]>> <<$surname[you]>>'&*nl'Жизнь <<health[you]>>/<<healthmax[you]>>'&$func ('scale.table',health[you],healthmax[you])
 'Энергия <<energy[you]>>/<<energymax[you]>>'&$func ('scale.energy',energy[you],energymax[you])
 if manamax[you]>0:'Мана <<mana[you]>>/<<manamax[you]>>'&$func ('scale.mana',mana[you],manamax[you])
 if horny[you]>0:'<<horny[you]>> ваша похоть'
@@ -107,51 +90,30 @@ if w_slot[you]>0:
 		'Патроны <<w_patron_load[you]>>/<<w_patron_max[you]>>'
 		if w_patron_load[you]<w_patron_max[you]:
 			needpatron=w_patron_max[you]-w_patron_load[you]&patrontipe=w_patrontipe[you]
-			if item[patrontipe]>0:
-				'У вас <<item[patrontipe]>> патронов в запасе'
-			else
-				'У вас нет патронов для вашего оружия'
-			end
+			$iif(item[patrontipe]>0,'У вас <<item[patrontipe]>> патронов в запасе','У вас нет патронов для вашего оружия')
 		end
     end
 end
 if m_slot[you]>0:mslot=m_slot[you]&'Оружие ближнего боя. <<$item_m_name[mslot]>> Урон <<uron_weapon_m[you]>>'
-if pose[you]=1:'Вы на ногах'
-if pose[you]>1:'Вы лежите на земле'
-if uskor>0:'Еще <<uskor>> раунд у вас не человеческая скорость'
+$iif(pose[you]=1,'Вы на ногах','Вы лежите на земле')&if uskor>0:'Еще <<uskor>> раунд у вас не человеческая скорость'
 if hod=0:
 	if godoutofendless[you]=1:act'Воплотиться в истинного бога':gt 'godfight'&!Создаём действие под божество, в будущем через аналогичное действие можно будет реализовать кастомные скиллы
     if energy[you]>=5 and pose[you]=1:
 	    if restrikt=0:
 			act'Ударить':
 				hod=1&energy[you]-=5&energy[you]-=iif(nip_p[you]=1,1,iif(nip_p[you]=2,5,iif(nip_p[you]=3,10,0)))
-				if vag_pirs[you]=1:energy[you]-=1
-				if vag_pirs[you]=2:energy[you]-=5
-				if vag_pirs[you]=3:energy[you]-=10
-				if vag_pirs[you]=4:energy[you]-=7
-				if m_slot[you]=99:energy[you]+=20
-				gt 'punch'
+				energy[you]-=iif(vag_pirs[you]=1,1,iif(vag_pirs[you]=2,5,iif(vag_pirs[you]=3,10,7)))&energy[you]+=iif(m_slot[you]=99,20,0)&gt 'punch'
 			end
 			if energy[you]>=20 and sword_skill[you]>0:
 				act'Мощный удар':
 					hod=1&energy[you]-=20&energy[you]-=iif(nip_p[you]=1,1,iif(nip_p[you]=2,5,iif(nip_p[you]=3,10,0)))
-					if vag_pirs[you]=1:energy[you]-=1
-					if vag_pirs[you]=2:energy[you]-=5
-					if vag_pirs[you]=3:energy[you]-=10
-					if vag_pirs[you]=4:energy[you]-=7
-					if m_slot[you]=99:energy[you]+=20
-					gt 'strongpunch'
+					energy[you]-=iif(vag_pirs[you]=1,1,iif(vag_pirs[you]=2,5,iif(vag_pirs[you]=3,10,7)))&energy[you]+=iif(m_slot[you]=99,20,0)&gt 'strongpunch'
 				end
 			end
 			if borba_skill[you]>0 and defenceV=0 and brosoktime[you]!time and portal_defV=0:
 			 	act'Выполнить бросок':
 					hod=1&brosoktime[you]=time&energy[you]-=iif(nip_p[you]=1,1,iif(nip_p[you]=2,5,iif(nip_p[you]=3,10,0)))
-					if vag_pirs[you]=1:energy[you]-=1
-					if vag_pirs[you]=2:energy[you]-=5
-					if vag_pirs[you]=3:energy[you]-=10
-					if vag_pirs[you]=4:energy[you]-=7
-					if m_slot[you]=99:energy[you]+=20
-					gt 'brosok'
+					energy[you]-=iif(vag_pirs[you]=1,1,iif(vag_pirs[you]=2,5,iif(vag_pirs[you]=3,10,7)))&energy[you]+=iif(m_slot[you]=99,20,0)&gt 'brosok'
 				end
 			end
 			if w_slot[you]>0:
@@ -167,7 +129,7 @@ if hod=0:
 					'Кольцо шокер перезаряжается'
 			    else
 					act'Применить кольцо шокер':hod=1&shokertime[you]=time&gt'shoker'
-			     end
+			    end
 			end
 			if m_slot[you]=25:
 			    if H[you]=0 and hour>=7 and hour<=19 and light_sfera_time<time:
@@ -177,11 +139,9 @@ if hod=0:
 			end
 			if Tsukuyomi[you]>0 and  magik[you]>1:act'Чтение луны (1 канал магии)':cls&hod=1&magik[you]-=1&in_Tsukuyomi[npc]=health[npc]&gt $curloc
 			if mlev[you]>=2 and mana[you]>=25:act'Пресс 25 маны':cls&hod=1&gs'stat'&gt'press'
-			if mlev[you]>=3:
-			    if mana[you]>=50 and sfera_round<=round:
-					act'Сфера защиты 50 маны':cls&sfera_round=round+2&mana[you]-=50&hod=1&sfera_fiz=mlev[you]*100&sfera_psih=mlev[you]*20&fire_defence[you]=mlev[you]*20&gt $curloc
-			    end
-			    if mana[you]>=50 and sfera_round>round:'Вы пока не можете поставить сферу, умение откатывается'
+			if mlev[you]>=3 and mana[you]>=50:
+			    if sfera_round<=round:act'Сфера защиты 50 маны':cls&sfera_round=round+2&mana[you]-=50&hod=1&sfera_fiz=mlev[you]*100&sfera_psih=mlev[you]*20&fire_defence[you]=mlev[you]*20&gt $curloc
+			    if sfera_round>round:'Вы пока не можете поставить сферу, умение откатывается'
 			end
 			if mlev[you]>=4:
 				if soul[you]>100 and mlev[you]=4:act'Сжечь 100 ед души и получить 100 маны':cls&mana[you]+=100&soul[you]-=100&hod=1&gt $curloc
@@ -207,19 +167,15 @@ if hod=0:
 			end
 			if mlev[you]>=6:
 			    if mana[you]>=400:
-					act'Защита разума 400 маны':cls&mana[you]-=400&hod=1&sfera_psih=mlev[you]*100&gt $curloc&!2
-					!act'Защита от огня 400 маны':cls&mana[you]-=400&hod=1&fire_defence[you]=mlev[you]*100&gt $curloc
+					act'Защита разума 400 маны':cls&mana[you]-=400&hod=1&sfera_psih=mlev[you]*100&gt $curloc
+					!act'Защита от огня 400 маны':cls&mana[you]-=400&hod=1&fire_defence[you]=mlev[you]*100&gt $curloc&!2
 					act'Защита от гравитации 400 маны':cls&mana[you]-=400&hod=1&sfera_antigrav=mlev[you]*100&gt $curloc
 					if uskor<=0:act'Ускорение 400 маны':cls&mana[you]-=400&hod=1&uskor+=iif(mlev[you]>=8,10,iif(mlev[you]>=7,5,iif(mlev[you]>=6,3,0)))&gt $curloc
 				end
 				if mana[you]>=100:
 					act'Мглистый туман 100 маны':
 						mana[you]-=100&hod=1&cls&gs'stat'
-					    if clonV=0:
-							'Мглистый туман накрывает все вокруг'
-					    else
-							clonV=0&'Мглистый туман накрывает все вокруг и клоны противника лопаются как мыльные пузыри'
-					    end
+					    $iif(clonV=0,'Мглистый туман накрывает все вокруг','Мглистый туман накрывает все вокруг и клоны противника лопаются как мыльные пузыри')&if clonV!0:clonV=0
 					    if mgla_resist[npc]=0:
 							if defenceV>0:
 								if mlev[you]>=8:
@@ -312,14 +268,8 @@ if hod=0:
 				health[you]=healthmax[you]&energy[you]=energyMax[you]&mana[you]=manamax[you]&sfera_fiz+=1000&gt $curloc
 			end
 		end
-		if item[93]>0:
-			'<<item[93]>> шт. лекарств'
-		 	act'Выпить полное лекарство':hod=1&eatitem=93&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]=healthmax[you]&gt $curloc
-		end
-		if item[51]>0:
-			'<<item[51]>> шт малого лечения'
-		 	act'Выпить малое лечение':hod=1&eatitem=51&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]+=50&gt $curloc
-		end
+		if item[93]>0:'<<item[93]>> шт. лекарств'&act'Выпить полное лекарство':hod=1&eatitem=93&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]=healthmax[you]&gt $curloc
+		if item[51]>0:'<<item[51]>> шт малого лечения'&act'Выпить малое лечение':hod=1&eatitem=51&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&health[you]+=50&gt $curloc
 		if item[50]>0:
 			'<<item[50]>> шт зелий восстановления выносливости'
 		 	act'Выпить полное восстановление выносливости':hod=1&eatitem=50&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]=energymax[you]&gt $curloc
@@ -328,16 +278,10 @@ if hod=0:
 			'<<item[49]>> шт зелий малого восстановления выносливости'
 		 	act'Выпить малое восстановление выносливости':hod=1&eatitem=49&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&energy[you]+=50&gt $curloc
 		end
-		if item[68]>0:
-			'<<item[68]>> шт кристалов маны'
-		 	act'Сломать кристал маны':hod=1&eatitem=68&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&mana[you]+=100&gt $curloc
-		end
-		if item[36]>0:
-			'<<item[36]>> шт зелий защиты разума'
-		 	act'Выпить защиту разума':hod=1&eatitem=36&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&sfera_psih=100&gt $curloc
-		end
+		if item[68]>0:'<<item[68]>> шт кристалов маны'&act'Сломать кристал маны':hod=1&eatitem=68&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&mana[you]+=100&gt $curloc
+		if item[36]>0:'<<item[36]>> шт зелий защиты разума'&act'Выпить защиту разума':hod=1&eatitem=36&item[eatitem]-=1&burden[you]-=item_burden[eatitem]&sfera_psih=100&gt $curloc
 	end
-     if item[146]>0:
+    if item[146]>0:
 		'<<item[146]>> шт магических яиц'
 		act'Сьесть Магическое яйцо':
 			hod=1&eatitem=146&item[eatitem]-=1&burden[you]-=item_burden[eatitem]
@@ -350,6 +294,7 @@ if hod=0:
 			hod=1&rander=rand(1,10)&if stunV>0:rander=0
 		    if rander<8:
 				energy[you]-=50&busy[you]=0&run[you]+=1&gt 'preloc'
+				!energy[you]-=50&energy[you]=iif(energy[you]<0,1,energy[you])&busy[you]=0&run[you]+=1&X[you]+=rand(1)&Y[you]+=iif(X[you]>0,rand(1),1)&H[you]=0&gt 'world'
 		    else
 				energy[you]-=50&gt $curloc
 		    end
@@ -365,7 +310,7 @@ if hod=0:
 			if sfera_fiz<200:act'Наложить скипетром защитную сферу 100 маны':mana[you]-=100&hod=1&sfera_fiz=200&cls&gt $curloc
 			act'Поток энергии скипетра 100 маны':
 				mana[you]-=100&hod=1&cls&gs'stat'&'Из скипетра вылетает поток чистой энергии и врезается в противника'
-				 uron=iif(uron<10,10,iif(uron>350,350,mana[you]))
+				uron=iif(uron<10,10,iif(uron>350,350,mana[you]))
 				if defenceV>0:
 					if defenceV<uron:
 						uron=uron-defenceV&defenceV=0&health[npc]-=uron&'<<$name[npc]>> получает <<uron>> единиц урона'&if defenceV>0:'Вы разбиваете защиту противника'

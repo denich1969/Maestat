@@ -25,8 +25,7 @@ locrand=rand(1,20)
 		lake['<<$temploc>>']=1&can_drink['<<$temploc>>']=2&frog['<<$temploc>>']=rand(0,1)&Hirudinea['<<$temploc>>']=rand(0,1)&list['<<$temploc>>']=rand(0,1)
 	end
 	if locrand=18 or locrand=19:
-		$locname['<<$temploc>>']='Амбар'&$lname['<<$temploc>>']='Амбар'&$locopis['<<$temploc>>']='Старый амбар'&np['<<$temploc>>']=121&$wall_name['<<$temploc>>']='Амбар'
-		horand=rand(0,3)
+		$locname['<<$temploc>>']='Амбар'&$lname['<<$temploc>>']='Амбар'&$locopis['<<$temploc>>']='Старый амбар'&np['<<$temploc>>']=121&$wall_name['<<$temploc>>']='Амбар'&horand=rand(0,3)
 		if horand=0:n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
 		if horand=1:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
 		if horand=2:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
@@ -44,8 +43,7 @@ locrand=rand(1,20)
 		if horand=3:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
 		$n_wall['<<$temploc>>']='Ферма'&$s_wall['<<$temploc>>']='Ферма'&$e_wall['<<$temploc>>']='Ферма'&$w_wall['<<$temploc>>']='Ферма'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
-		mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&!can_sleep['<<$temploc>>']=1&
-		gs'farmerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'
+		mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'farmerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'&!can_sleep['<<$temploc>>']=1&
 	end
 end
 X+=1&if X<=10:jump'markgenworldTWO'

@@ -1,6 +1,6 @@
 ﻿temp_vag+=1&sexpower[you]-=1&$func('get_images', 'vag_fuck_cow', npc, you)&'<<$name[npc]>> садится на ваш член.'
 if vag[npc]=1:
-	horny[npc]=0&'<<$name[npc]>> стонет, вы чувствуете что рвете ей девственную плеву и ваш член обагряет кровь'
+	horny[npc]=0&'<<$name[npc]>> стонет, вы чувствуете что рвете ей девственную плеву и ваш член обагряет кровь'&deflorator[npc]=you&vag[npc]+=1
 else
 	horny[npc]+=lust[npc]/10
 	if agro[npc]<=20:'<<$name[npc]>> вяло елозит на вас постоянно сбиваясь с ритма'

@@ -38,22 +38,16 @@ if demon_slave[you]>=1 and dead[mrblood]>0 and dead[mrflesh]>0:demon_slave[you]=
 if BogartMedQW=17 and bangday<daystart:
 	BogartMedQW=18&daybigboom=daystart&dead[borisbogart]=2&knowRuneMasterQW=100&bogart_slut_reit[you]=100&afterBogartQW=6
 	X=1&Y=1&Z=5&H=7&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Руины выставки искусств'
-	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
-	$locname['<<$temploc>>']='Руины'&$lname['<<$temploc>>']='Руины'&$lname_go['<<$temploc>>']='на руины'
- 	$locopis['<<$temploc>>']='Взрыв и последующий пожар полностью уничтожили все произведения искусства и теперь тут только руины.'
-	np['<<$temploc>>']=0
-	mirror['<<$temploc>>']=0&bogart_art['<<$temploc>>']=0
-	dead[antey]=2&global_antey_dead_day=daystart&earth_gem[addboss]=1&globalQW=4
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Руины'&$lname['<<$temploc>>']='Руины'&$lname_go['<<$temploc>>']='на руины'
+ 	$locopis['<<$temploc>>']='Взрыв и последующий пожар полностью уничтожили все произведения искусства и теперь тут только руины.'&np['<<$temploc>>']=0
+	mirror['<<$temploc>>']=0&bogart_art['<<$temploc>>']=0&dead[antey]=2&global_antey_dead_day=daystart&earth_gem[addboss]=1&globalQW=4
 	X=4&Y=0&Z=3&H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Особняк Ханта'
-	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная Ханта'
-	$locname['<<$temploc>>']='Спальная Ханта'
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная Ханта'&$locname['<<$temploc>>']='Спальная Ханта'
 	Xhome[addboss]=X&Yhome[addboss]=Y&Zhome[addboss]=Z&Hhome[addboss]=H&Rhome[addboss]=R
-	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостевая спальная'
-	$locname['<<$temploc>>']='Гостевая спальная'
-	$history[addboss]='Я - аватар Земли, управляю Жилмассивом.'&win[addboss]+=1
-	$fightlog[addboss]+='<br>'&$fightlog[addboss]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[addboss]>>-<<loss[addboss]>> vs <<$name[borisbogart]>> <<$surname[borisbogart]>>. <<win[borisbogart]>>-<<loss[borisbogart]>>'
-	win[addboss]+=1
-	$fightlog[addboss]+='<br>'&$fightlog[addboss]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[addboss]>>-<<loss[addboss]>> vs <<$name[antey]>> <<$surname[antey]>>. <<win[antey]>>-<<loss[antey]>>'
+	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Гостевая спальная'&$locname['<<$temploc>>']='Гостевая спальная'
+	$history[addboss]='Я - аватар Земли, управляю Жилмассивом.'
+	win[addboss]+=1&$fightlog[addboss]+='<br>'&$fightlog[addboss]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[addboss]>>-<<loss[addboss]>> vs <<$name[borisbogart]>> <<$surname[borisbogart]>>. <<win[borisbogart]>>-<<loss[borisbogart]>>'
+	win[addboss]+=1&$fightlog[addboss]+='<br>'&$fightlog[addboss]+='<<day>> <<$month>> <<year>>года, <<$week>>. <font color=#008000>Победа</font> <<win[addboss]>>-<<loss[addboss]>> vs <<$name[antey]>> <<$surname[antey]>>. <<win[antey]>>-<<loss[antey]>>'
 	subwork[addkiller]=100&$history[addkiller]='Я - ученик Ханта и раньше исполнял роль убийцы в Агентстве. Теперь я - начальник Агентства.'
 end
 if earth_gem[addboss]=1 and husband[addboss]=0 and sexpartner['<<motherearth>>,<<addboss>>']=0:
@@ -104,8 +98,7 @@ if ub_slot[you]>0:last_uboot[you]=ub_slot[you]
 if barwork=>12:barwork=0&healthmax[you]+=1
 if Z[you]=10 and onceswordtr=0:onceswordtr=1&swordtree['15,15,10,0,0']=1
 if vag[you]=0 and inseminate[you]>0:inseminate[you]=0&pregnant_day[you]=0
-shame_tattoo[you]=0
-if stamp_t[you]>0:shame_tattoo[you]+=1
+shame_tattoo[you]=0&if stamp_t[you]>0:shame_tattoo[you]+=1
 if pubis_t[you]>0:shame_tattoo[you]+=1
 if l_ass_t[you]>0:shame_tattoo[you]+=1
 if r_ass_t[you]>0:shame_tattoo[you]+=1
@@ -119,12 +112,7 @@ if master[you]>0 and souleater[you]=0:souleater[you]=1
 if school_event>=3 and dead[borisbogart]>0 and dead[antey]>0 and dilaminaFallQW=0:dilaminaFallQW=1
 if dilaminaFallQW=2 and H[you]=0 and Z[you]=3 and hour>=10 and hour<=20 and dead[arhivson]=0 and dead[techer]=0:dilaminaFallQW=3&gt'talkdilaminaFallQW'
 if (BlackRoseQW[you]=20 or knowRuneMasterQW=100) and bogart_slut_reit[you]<100 and bogart_slut_reit[you]>0:bogart_slut_reit[you]=100
-if frank_viscontiQW=5:
-	if X[you]=4 and Y[you]=0 and Z[you]=4 and H[you]=1 and R[you]=0:
-	else
-		 X[you]=4&Y[you]=0&Z[you]=4&H[you]=1&R[you]=0&gt'preloc'
-	end
-end
+if frank_viscontiQW=5 and (X[you]!4 or Y[you]!0 or Z[you]!4 or H[you]!1 or R[you]!0): X[you]=4&Y[you]=0&Z[you]=4&H[you]=1&R[you]=0&gt'preloc'
 adultcinema=0
 if bimbopicQW=0 and lips[you]=3 and hcol[you]=3:bimbopicQW=1&spec_face_pic[you]=5&face_pic[you]=108
 if IamMilfQW=2 and guy[you]>1:IamMilfQW=3
@@ -138,8 +126,8 @@ if fire_gem[you]>0:avatar[you]+=1
 if earth_gem[you]>0:avatar[you]+=1
 if wind_gem[you]>0:avatar[you]+=1
 if soul_gem[you]>0:avatar[you]+=1
-if water_gem[necromancer]>0 and fire_gem[mabuta]>0 and earth_gem[addboss]>0 and wind_gem[addkiller]>0 and soul_gem[you]>0:
-    if intheendQW=0:dead[necromancer]=2&dead[mabuta]=2&dead[addkiller]=2&water_gem[addboss]=1&fire_gem[addboss]=1&wind_gem[addboss]=1&intheendQW=1&gt'endqwest'
+if water_gem[necromancer]>0 and fire_gem[mabuta]>0 and earth_gem[addboss]>0 and wind_gem[addkiller]>0 and soul_gem[you]>0 and intheendQW=0:
+	dead[necromancer]=2&dead[mabuta]=2&dead[addkiller]=2&water_gem[addboss]=1&fire_gem[addboss]=1&wind_gem[addboss]=1&intheendQW=1&gt'endqwest'
 end
 if water_gem[you]>0 and fire_gem[you]>0 and earth_gem[you]>0 and wind_gem[you]>0 and soul_gem[you]>0 and key['<<you>>,2,1,4,1']=0:key['<<you>>,2,1,4,1']=1
 if globalQW!7 and earth_gem[you]>0:globalQW=7
@@ -164,10 +152,8 @@ if tornton_dolg[you]>0 and tornton_dolg_day[you]<=daystart and rand(1,20)=7:
 		msg("Вас настигло проклятье Торнтона, который понял ваш замысел еще когда вы только пришли. Вам не удалось одурачить мага и вы поплатились за свою гордыню. Неведомая сила изменила вас и вашу одежду, а затем вы оказались в новом для себя месте...")
 		sluttyMomQW=3&pubis_t[you]=1&npc=tornton&whoreboss[you]=npc&vag_pirs[you]=4&vag_tipe[you]=2&dom[you]-=50&sutenerpayday[you]=daystart+14
 		lips[you]+=rand(1,2)&ass[you]=rand(10,30)&if ass[you]<20:ass[you]+=rand(5,10)&tits[you]=rand(10,21)&if nip[num]<=20:nip[num]+=rand(20,35)
-		hlong[you]=rand(60,100)
-		l_slot[you]=rand(15,22)&t_slot[you]=rand(31,36)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=0
-		X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]
-		solo=0&i=father&! проклятье Марты на мужа
+		hlong[you]=rand(60,100)&l_slot[you]=rand(15,22)&t_slot[you]=rand(31,36)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=0
+		X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&solo=0&i=father&! проклятье Марты на мужа
     	if face[i]<40:face[i]+=30
     	ind=0&rndfem=rand(20,35)&feminize[i]+=rndfem
     	:again
@@ -198,8 +184,7 @@ if tornton_dolg[you]>0 and tornton_dolg_day[you]<=daystart and rand(1,20)=6 and 
 		pol[you]=1&$name[you]='Лолочка'&$surname[you]='Ворэ'&npc=tornton&whoreboss[you]=npc
 		lips[you]+=rand(1,2)&ass[you]=rand(10,30)&tits[you]=rand(10,21)&nip_p[you]=3&if nip[you]<=30:nip[you]+=rand(25,40)
 		hlong[you]=rand(60,100)&if mus[you]>1000:mus[you]=1000
-		tongue_p[you]=1&stamp_t[you]=5 
-		t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=0
+		t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=0&tongue_p[you]=1&stamp_t[you]=5
 		X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&solo=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
     end
 end
@@ -310,7 +295,7 @@ if visout_panties[you]=4 and (UI_ELEMENT_STATE[89]=0 or CONFIG['UI_EDITOR'] = 1)
 end
 if visout_panties[you]=5 and (UI_ELEMENT_STATE[89]=0 or CONFIG['UI_EDITOR'] = 1):
 	forhorn[you]+=25&$view_nudepant='<center><video autoplay loop src="pic/clo/nopant/pant4.webm"  ></video></center>'
-	pl'<b>Все видят<a href="exec:$view_nudepant"> ваши трусики</b>' + $func("generate_links", 89, 14)
+	if pol[you]>0:pl'<b>Все видят<a href="exec:$view_nudepant"> ваши трусики</b>' + $func("generate_links", 89, 14)
 end
 if visible_nipple[you]=1 and (UI_ELEMENT_STATE[10]=0 or CONFIG['UI_EDITOR'] = 1):
     if t_slot[you]=32:
@@ -327,32 +312,21 @@ end
 if visible_lift[you]=2 and (UI_ELEMENT_STATE[12]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=10&pl'<b>У ВАС ВИДНО КОЖАННУЮ СБРУЮ ОБТЯГИВАЮЩУЮ ГРУДЬ.</b>' + $func("generate_links", 12, 14)
 if t_nude[you]=1 and (UI_ELEMENT_STATE[15]=0 or CONFIG['UI_EDITOR'] = 1):
 	if visible_lift[you]=1:
-		if tit[you]<2:
-			$view_titg='<center><video autoplay loop src="pic/clo/nopant/ntitman.webm" ></video></center>'
-		else
-			$view_titg='<center><video autoplay loop src="pic/clo/nopant/ntit<<rand(1,7)>>.webm" ></video></center>'
-		end
-		forhorn[you]+=25
-		if tit[you]>2:pl'<b>У ВАС <a href="exec:$view_titg">НЕ ПРИКРЫТЫЙ ЛИФЧИК</a>.</b>' + $func("generate_links", 15, 14)
+		$view_titg=$iif(tit[you]<2,'<center><video autoplay loop src="pic/clo/nopant/ntitman.webm" ></video></center>','<center><video autoplay loop src="pic/clo/nopant/ntit<<rand(1,7)>>.webm" ></video></center>')
+		forhorn[you]+=25&if tit[you]>2:pl'<b>У ВАС <a href="exec:$view_titg">НЕ ПРИКРЫТЫЙ ЛИФЧИК</a>.</b>' + $func("generate_links", 15, 14)
 	end
-	if visible_lift[you]=2 and (UI_ELEMENT_STATE[12]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=75&pl'<b>У ВАС ВИДНО КОЖАННУЮ СБРУЮ ОБТЯГИВАЮЩУЮ ГРУДЬ.</b>' + $func("generate_links", 12, 14)
+	if visible_lift[you]=2 and (UI_ELEMENT_STATE[12]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=75&pl'<b>КОЖАННАЯ СБРУЯ ОБТЯГИВАЕТ ВАШУ ГРУДЬ.</b>' + $func("generate_links", 12, 14)
 end
 if t_nude[you]=2 and (UI_ELEMENT_STATE[15]=0 or CONFIG['UI_EDITOR'] = 1):
-	if tit[you]<2:
-		$view_titg='<center><video autoplay loop src="pic/clo/nopant/ntitman.webm" ></video></center>'
-	else
-		$view_titg='<center><video autoplay loop src="pic/clo/nopant/ntit<<rand(1,7)>>.webm" ></video></center>'
-	end
-	forhorn[you]+=50
-	if tit[you]>2:pl'<b>У ВАС <a href="exec: $view_titg">ОБНАЖЕННАЯ ГРУДЬ</a>.</b>' + $func("generate_links", 15, 14)
+	$view_titg=$iif(tit[you]<2,'<center><video autoplay loop src="pic/clo/nopant/ntitman.webm" ></video></center>','<center><video autoplay loop src="pic/clo/nopant/ntit<<rand(1,7)>>.webm" ></video></center>')
+	forhorn[you]+=50&if tit[you]>2:pl'<b>У ВАС <a href="exec: $view_titg">ОБНАЖЕННАЯ ГРУДЬ</a>.</b>' + $func("generate_links", 15, 14)
 end
 if (l_nude[you]=4) and (UI_ELEMENT_STATE[16]=0 or CONFIG['UI_EDITOR'] = 1) and visout_panties[you]!4:
-	forhorn[you]+=50&$view_popa='<center><video autoplay loop src="pic/clo/nopant/0.webm" ></video></center>'
-	pl'<a href="exec: $view_popa"><b>У ВАС ГОЛАЯ ПОПА.</b></a>' + $func("generate_links", 16, 14)
+	forhorn[you]+=50&$view_popa='<center><video autoplay loop src="pic/clo/nopant/0.webm" ></video></center>'&pl'<a href="exec: $view_popa"><b>У ВАС ГОЛАЯ ПОПА.</b></a>' + $func("generate_links", 16, 14)
 end
 if (l_nude[you]=1 or l_nude[you]=2) and (UI_ELEMENT_STATE[16]=0 or CONFIG['UI_EDITOR'] = 1):
 	if visible_panties[you]=1:
-		forhorn[you]+=25&$view_popa='<center><video autoplay loop src="pic/clo/nopant/0.webm" ></video></center>'
+		forhorn[you]+=25&$view_popa='<center><video autoplay loop src="pic/clo/nopant/0.webm" ></video></center>'&
 		pl'<a href="exec: $view_popa"><b>НЕ ПРИКРЫТЫЕ ТРУСИКИ.</b></a>' + $func("generate_links", 16, 14)
 	end
 	if visible_panties[you]=2 and (UI_ELEMENT_STATE[14]=0 or CONFIG['UI_EDITOR'] = 1):forhorn[you]+=75&pl'<b>ВМЕСТО ТРУСОВ У ВАС ВИДНА КОЖАННАЯ СБРУЯ ОБТЯГИВАЮЩУЮ ПОПУ.</b>' + $func("generate_links", 14, 14)
@@ -368,8 +342,7 @@ if mutation[you]>=10 and (UI_ELEMENT_STATE[19]=0 or CONFIG['UI_EDITOR'] = 1):pl'
 if (energy[you]<1 and pose[you]!2 and CONFIG['DISABLE_position']=1) or (energy[you]<=0 and pose[you]=1 and CONFIG['DISABLE_position']=0):msg("От усталости ноги подкосились и вы упали.")&pose[you]=2
 if energy[you]>=1 and in_fight=0 and in_sex=0 and busy[you]=0 and CONFIG['DISABLE_position']=1:pose[you]=1
 !if $status[you]!'':pl'<b><<$status[you]>></b>. Действует еще <<status_minut>> '+$func('plural',status_minut,'минута','минуты','минут')
-!pl'<<$loc[you]>>, total <<$loc[you]>>'
-!pl'<<$nameloc[you]>>'
+!pl'<<$loc[you]>>, total <<$loc[you]>>'&pl'<<$nameloc[you]>>'
 !* ------------------------------- ДАТА/ВРЕМЯ ------------------------------- *!
 if (UI_ELEMENT_STATE[20]=0 or CONFIG['UI_EDITOR'] = 1):
 	pl'<img width="15" height="auto" src="pic/misc/UI/icons/clock.png">Время: <B><<hour>></B> '+$func('plural',hour,'час','часа','часов')+' <B><<$nilmin>><<minut>></B> '+$func('plural',minut,'минута','минуты','минут') + $func("generate_links", 20, 14)
@@ -389,13 +362,11 @@ if (UI_ELEMENT_STATE[22]=0 or CONFIG['UI_EDITOR'] = 1):
 end
 !* ------------------------------ НАГРУЖЕННОСТЬ ----------------------------- *!
 if burden[you]<0:burden[you]=0
-if (UI_ELEMENT_STATE[23]=0 or CONFIG['UI_EDITOR'] = 1):pl'<b><img width="15" height="auto" src="pic/misc/UI/icons/weight.png">Нагрузка: <<func("util_func", "get_weight_text")>></b>' + $func("generate_links", 23, 14)
+if (UI_ELEMENT_STATE[23]=0 or CONFIG['UI_EDITOR'] = 1):pl'<b><img width="15" height="auto" src="pic/misc/UI/icons/weight.png">Нагрузка: <<func("util_func", "get_weight_text")>></b>' + $func("generate_links", 23, 14)+'<b> кг.</b>'
 if burden[you]>burdenmax[you]:
 	if (UI_ELEMENT_STATE[24]=0 or CONFIG['UI_EDITOR'] = 1):pl'<b>ВЫ ПЕРЕГРУЖЕНЫ.</b>' + $func("generate_links", 24, 14)
-	ARGS['CALC_WEIGHT_PERCENT'] = (burden[you] * 100 / burdenmax[you]) - 100
-	if ARGS['CALC_WEIGHT_PERCENT']>50:ARGS['CALC_WEIGHT_PERCENT']=50
-	ARGS['CALC_DEBUFF_VALUE'] = (energymax[you] * ARGS['CALC_WEIGHT_PERCENT']) / 100
-	energymax[you]=energymax[you] - ARGS['CALC_DEBUFF_VALUE']&if energymax[you]<50:energymax[you]=50
+	ARGS['CALC_WEIGHT_PERCENT'] = (burden[you] * 100 / burdenmax[you]) - 100&if ARGS['CALC_WEIGHT_PERCENT']>50:ARGS['CALC_WEIGHT_PERCENT']=50
+	ARGS['CALC_DEBUFF_VALUE'] = (energymax[you] * ARGS['CALC_WEIGHT_PERCENT']) / 100&energymax[you]=energymax[you] - ARGS['CALC_DEBUFF_VALUE']&if energymax[you]<50:energymax[you]=50
 	if energy[you]>energymax[you]:energy[you]=energymax[you]
 end
 !* --------------------------------- РАЗНОЕ --------------------------------- *!
@@ -754,13 +725,9 @@ if perk_fantom_dick[you]>0:
 	if perk_fantom_dick_on[you]!0:dick[you]=30&dickd[you]=60&ball[you]=100&pl'<a href="exec:perk_fantom_dick_on[you]=0&gs''stat''">Членорост</a>'
 end
 !if tormoza_radar>0:pl'Количество циклов обработки взаимодействий между нпс <<tormoza_radar>>'
-!zxzx=follower[firstfoll]
-!pl'<<firstfoll>> <<follower[firstfoll]>> <<$name[zxzx]>> - <<secfoll>> <<follower[secfoll]>> - <<threfoll>> <<follower[threfoll]>> // <<sex_follow[you]>>'
+!zxzx=follower[firstfoll]&pl'<<firstfoll>> <<follower[firstfoll]>> <<$name[zxzx]>> - <<secfoll>> <<follower[secfoll]>> - <<threfoll>> <<follower[threfoll]>> // <<sex_follow[you]>>'
 !pl'<<probegfoll_a>> <<probegfoll_b>> <<probegfoll_c>> <<probegfoll_d>>'
-!'if owljora>0:
-	pl'Неясыть <<X[owljora]>>.<<Y[owljora]>>.<<Z[owljora]>> (<<walkprog[owljora]>>)'
-	pl'начало <<owl_start>>, ищет цель <<owl_go>>, нашел цель <<owl_stay>>, гуляет <<owl_fun>>'
-end'
+!'if owljora>0:pl'Неясыть <<X[owljora]>>.<<Y[owljora]>>.<<Z[owljora]>> (<<walkprog[owljora]>>)'&pl'начало <<owl_start>>, ищет цель <<owl_go>>, нашел цель <<owl_stay>>, гуляет <<owl_fun>>''
 $d_show_dick={
 	if inseminate[you]>0 and demon_dick_show[you]=1:demon_dick_show[you]=0&msg('Вы беременны, пока это не измениться вы не можене трансформироваться')
 	if demon_dick_show[you]=0:
@@ -796,3 +763,4 @@ end
 !* -------------------------------------------------------------------------- *!
 !*                              ДОП-ОПИСАНИЕ:END                              *!
 !* -------------------------------------------------------------------------- *!
+if sluttySlmashaQW<100 and dick[you]>0:sluttySlmashaQW=100

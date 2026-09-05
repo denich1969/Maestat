@@ -1,16 +1,6 @@
-﻿clo=ARGS[0]
-
-if ub_slot[you]=0:
-item_ub[clo]-=1
-burden[you]-=item_ub_burden[clo]
-ub_slot[you]=clo
+﻿if ub_slot[you]=0:
+	item_ub[args[0]]-=1&burden[you]-=item_ub_burden[args[0]]&ub_slot[you]=args[0]
 else
-clothednow=ub_slot[you]
-item_ub[clothednow]+=1
-burden[you]+=item_ub_burden[clothednow]
-item_ub[clo]-=1
-burden[you]-=item_ub_burden[clo]
-ub_slot[you]=clo
+	item_ub[ub_slot[you]]+=1&burden[you]+=item_ub_burden[ub_slot[you]]&item_ub[args[0]]-=1&burden[you]-=item_ub_burden[args[0]]&ub_slot[you]=args[0]
 end
-
 gt'preloc'

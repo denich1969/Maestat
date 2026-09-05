@@ -42,7 +42,7 @@ act'Идти за женой':
 								'<<$name[fat]>> застонал и начал кончать в киску вашей жены'&*nl	'<<$name[you]>> - Я сейчас кончу'&*nl'<<$name[npc]>> - Кончай любимый'
 								'<<$name[npc]>> еще сильнее сжала член губками'
 								act'Кончить':
-									cls
+									cls&orgasm[you]=time&superslut[you]=0
 									$global_npc_log[fat]+='<br>'&$global_npc_log[fat]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> дала мне на глазах у мужа.'
 									$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. Я отсосала мужу и <<$name[fat]>> <<$surname[fat]>> трахнул меня в киску.'
 									$global_npc_log[you]+='<br>'&$global_npc_log[you]+='<<day>> <<$month>> <<year>>года, <<$week>>. Моя жена отсосала мне и <<$name[fat]>> <<$surname[fat]>> выебал ее.'

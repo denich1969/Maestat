@@ -12,18 +12,18 @@ ACT "— А где лучше всего продавать добычу?":
 	DELACT "— А где лучше всего продавать добычу?"
 END
 ACT '— Покажи-ка свои товары.': 
-	cls&'<div id="bg"><img src = "<<$content>>/shop<<a>>.jpg"></div>' &GT "Shop_catalog"
+	cls&'<div id="bg"><img src = "<<$content>>/shop<<a>>.jpg"></div>' &ACT 'Посмотреть товары':GT "Shop_catalog"
 	'Компас для выхода из тумана в другие миры - 15000 искр'&*pl ''&'Электродубина 1000 искр'
 	if rome_pass=0:
 		'У механтера есть чипы гражданства рима вместе с установкой 100 искр.'&if iskr[you]>=100:act'Установить чип':time+=5&rome_pass=1&iskr[you]-=100&gt $curloc
 	end
 	if item[45]=0 and iskr[you]>=15000:act'Купить компас 15000':time+=5&item[45]+=1&iskr[you]-=15000&gt $curloc
-	 if iskr[you]>=1000:
+	if iskr[you]>=1000:
 		act'Купить электродубину':
 			item_m[13]+=1&iskr[you]-=1000&openinv=1&dynamic $d_inv&cls&gs'stat'&'Вы отдаете деньги и покупаете оружие'&act'...':gt $curloc
 		end
-	 end
-	ACT '— Мне пора, пока!':  GT "preloc"
+	end
+	ACT '— Мне пора, пока!':GT "preloc"
 END
 IF OBJ "Голова совомедведя":
 	ACT "Продать голову монстра Менхантеру":
@@ -32,6 +32,5 @@ IF OBJ "Голова совомедведя":
 		GT "preloc"
 	END
 END
-$loc[you]=$curloc&loc_for_drop=0
-gs'stat'&'<b><center>Арсенал Механтера</center></b>'&'В мастерской продаются разные устройства для поимки рабынь из других миров охотниками.'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
-gs'npconloc'&*pl ''&gs'item'&act'Уйти': GT "preloc"
+$loc[you]=$curloc&loc_for_drop=0&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+gs'stat'&'<b><center>Арсенал Механтера</center></b>'&'В мастерской продаются разные устройства для поимки рабынь из других миров охотниками.'&gs'npconloc'&*pl ''&gs'item'&act'Уйти': GT "preloc"

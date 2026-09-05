@@ -11,7 +11,7 @@ else
 		if sexpower[you]<=0:
 			act'Кончить':
 				womenbrain[you]-=2&tipe_orgasm=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/ffm/double_cum0.webm" ></video></center>'&'Вы кончили девчонкам на лица и в рты'
-				gs'fuck_cum_face',you,first&gs'fuck_cum_face',you,second&args[10]=func('fuck_final',in_sex[you])&act'...':gt $curloc
+				orgasm[you]=time&superslut[you]=0&gs'fuck_cum_face',you,first&gs'fuck_cum_face',you,second&args[10]=func('fuck_final',in_sex[you])&act'...':gt $curloc
 			end
 		else
 			act'...':gt $curloc
@@ -23,7 +23,7 @@ else
 		gs'fuck_vag',you,first&gs'fuck_oral_lick_vag',first,second&args[10]=func('fuck_final',in_sex[you])&gs'stat'
 		if sexpower[you]<=0:
 			act'Кончить':
-				womenbrain[you]-=1&tipe_orgasm=1
+				orgasm[you]=time&superslut[you]=0&womenbrain[you]-=1&tipe_orgasm=1
 				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/ffm/double_cum0.webm" ></video></center>'&'Вы поставили девченок перед собой на колени и начали кончать им на лица и в рты'
 				gs'fuck_cum_face',you,first&gs'fuck_cum_face',you,second&args[10]=func('fuck_final',in_sex[you])&act'...':gt $curloc
 			end
@@ -37,7 +37,7 @@ else
 		gs'fuck_vag',you,first&gs'fuck_oral_lick_vag',first,second&args[10]=func('fuck_final',in_sex[you])
 		if sexpower[you]<=0:
 			act'Кончить':
-				womenbrain[you]-=1&tipe_orgasm=1
+				orgasm[you]=time&superslut[you]=0&womenbrain[you]-=1&tipe_orgasm=1
 				cls&gs'stat'&'<center><video autoplay loop src="pic/sex/ffm/double_cum0.webm" ></video></center>'&'Вы поставили девченок перед собой на колени и начали кончать им на лица и в рты'&act'...':gt $curloc
 			end
 		else

@@ -10,8 +10,4 @@ if pelenki[npc]<time:
 		pelenki[npc]=time+120&cls&gs'stat'&'Вы меняете пеленки'&act'<b>Уйти</b>':gt 'preloc'
     end
 end
-if child_on_hand[you]=0:
-    act'Взять на ручки':
-		X[npc]=-1&Y[npc]=-1&Z[npc]=-1&H[npc]=-1&R[npc]=-1&child_on_hand[you]=npc&cls&gt 'preloc'
-    end
-end
+if child_on_hand[you]=0:act'Взять на ручки':X[npc]=-1&Y[npc]=-1&Z[npc]=-1&H[npc]=-1&R[npc]=-1&child_on_hand[you]=npc&cls&gt 'preloc'

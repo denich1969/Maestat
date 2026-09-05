@@ -1,8 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&elven[]=i&lvl[i]=1&soul[i]=100&mob[i]=71&mobexp[i]=50
-master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
-tipemobpic[i]=1&picture[i]=rand(137,142)
-$title[i]='Обычный лесной эльф'&$nick[i]='Эльф'
-gs'elf_man_name'&$name[i]=$genname&$surname[i]=''&!gs'surname'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&elven[]=i&lvl[i]=1&soul[i]=100&mob[i]=71&mobexp[i]=50&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0
+$title[i]='Обычный лесной эльф'&$nick[i]='Эльф'&gs'elf_man_name'&$name[i]=$genname&$surname[i]=''&tipemobpic[i]=1&picture[i]=rand(137,142)&!gs'surname'
 face[i]=rand(40,70)&gla[i]=3&glacol[i]=4&nose[i]=1&lips[i]=1
 dick[i]=rand(12,16)&dickd[i]=rand(30,40)&ball[i]=rand(30,40)&ass[i]=2&vag[i]=0&tit[i]=0&nip[i]=8
 rost[i]=rand(160,180)&fat[i]=rand(500,1000)&mus[i]=rand(800,1600)&skin[i]=2

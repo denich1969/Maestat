@@ -4,36 +4,31 @@ $replic_suck_default_before[]= {
 		'<i><<$name[args[0]]>> - Сразу видно талантливую хуесоску!</i>'&agro[args[1]]-=rand(1)	
 	else
 		'<i><<$name[args[0]]>> - Да! соси его детка</i>'
-	end
-}
+	end}
 $replic_suck_default_before[]= {
 	if all_in_oral[args[1]]>1000:
 		'<i><<$name[args[0]]>> - Шлюха... как же ты хорошо сосешь!</i>'&agro[args[1]]-=rand(1)	
 	else
 		'<i><<$name[args[0]]>> - Молодец! сосать у тебя хорошо получается</i>'
-	end
-}
+	end}
 $replic_suck_default_before[]= {
 	if all_in_oral[args[1]]>1000:
 		'<i><<$name[args[0]]>> - Еще немного и ты высосешь звание лучшей хуесоски в моем сердце</i>'&agro[args[1]]-=rand(1)	
 	else
 		'<i><<$name[args[0]]>> - Распробуй его как следует...</i>'
-	end
-}
+	end}
 $replic_suck_default_before[]= {
 	if rand(all_in_oral[args[1]])>1000:
 		'<i><<$name[args[0]]>> - Шлюха, ты хочешь высосать мою душу?</i>'&agro[args[1]]-=rand(1)
 	else
 		'<i><<$name[args[0]]>> - Тебе нравиться мой хуй малышка?</i>'
-	end
-}
+	end}
 $replic_suck_default_before[]= {
 	if rand(vafla[args[1]])>100:
 		'<i><<$name[args[0]]>> - Шлюха, ты хочешь высосать мою душу?</i>'&agro[args[1]]-=rand(1)	
 	else
 		'<i><<$name[args[0]]>> - Тебе нравиться мой хуй малышка?</i>'
-	end
-}
+	end}
 killvar('replic_suck_default_cumslut')
 $replic_suck_default_cumslut[]= {'<i><<$name[args[0]]>> - Кончила отсасывая член... вот же ты шлюха!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
 $replic_suck_default_cumslut[]= {'<i><<$name[args[0]]>> - А ты шлюшка с сюрпризами, хорошая шлюха должна много кончать</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
@@ -46,15 +41,13 @@ $replic_suck_whore_before[]= {
 		'<i><<$name[args[0]]>> - Твой отсос стоит каждой монетки, что я заплатил</i>'&agro[args[1]]-=rand(1)	
 	else
 		'<i><<$name[args[0]]>> - Соси лучше шлюха, отработай каждую монетку!</i>'
-	end
-}
+	end}
 $replic_suck_whore_before[]= {
 	if cumslut[args[1]]>100:
 		'<i><<$name[args[0]]>> - С твоими навыками убложать мой член, я могу разориться...</i>'&agro[args[1]]-=rand(1)	
 	else
 		'<i><<$name[args[0]]>> - Соси лучше шлюха, отработай каждую монетку!</i>'
-	end
-}
+	end}
 killvar('replic_suck_whore_cumslut')
 $replic_suck_whore_cumslut[]= {'<i><<$name[args[0]]>> - Шлюха, сосать за деньги твое призвание!</i>'&agro[args[1]]-=rand(1)}
 $replic_suck_whore_cumslut[]= {'<i><<$name[args[0]]>> - Тебе нравиться сосать за деньги шлюха?</i>'&agro[args[1]]-=rand(1)}
@@ -65,29 +58,25 @@ $replic_throat_default_before[]= {
 		'<i><<$name[args[0]]>> - До самых яиц!</i>'&agro[args[1]]-=rand(1)
 	else	
 		'<i><<$name[args[0]]>> - Ох, какя ты не опытная еще, но ничего скоро научишься!</i>'&agro[args[1]]-=rand(1)
-	end	
-}
+	end}
 $replic_throat_default_before[]= {
 	if throat[args[1]]>dick[args[0]]:
 		'<i><<$name[args[0]]>> - Сразу видно хорошую хуесоску!</i>'&agro[args[1]]-=rand(1)
 	else	
 		'<i><<$name[args[0]]>> - Давай повышай квалификацию детка!</i>'&agro[args[1]]-=rand(1)
-	end	
-}
+	end}
 $replic_throat_default_before[]= {
 	if throat[args[1]]>dick[args[0]]:
 		'<i><<$name[args[0]]>> - Какая хорошая членососка!</i>'&agro[args[1]]-=rand(1)
 	else	
 		'<i><<$name[args[0]]>> - Тебе нужно больше практиковаться машышка!</i>'&agro[args[1]]-=rand(1)
-	end	
-}
+	end}
 $replic_throat_default_before[]= {
 	if throat[args[1]]>dick[args[0]]:
 		'<i><<$name[args[0]]>> - Как же ты хороша в отсосе шлюха!</i>'&agro[args[1]]-=rand(1)
 	else	
 		'<i><<$name[args[0]]>> - Папочка покажет тебе пару уроков горлового!</i>'&agro[args[1]]-=rand(1)
-	end	
-}
+	end}
 killvar('replic_throat_default_cumslut')
 $replic_throat_default_cumslut[]= {
 '<i><<$name[args[0]]>> - Смотрю тебе очень понравился мой <<dick[args[0]]>>см хуй крошка, не волнуйся он с табой на долго!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
@@ -100,8 +89,7 @@ $replic_throat_default_cumslut[]= {
 		'<i><<$name[args[0]]>> - Любишь глотать большие члены шлюха? </i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/10
 	else
 		'<i><<$name[args[0]]>> - Кончаешь пока мой хуй у тебя в глотке шлюха? </i>'
-	end
-}
+	end}
 !replic_hold
 killvar('replic_hold_default_before')
 $replic_hold_default_before[]= {
@@ -109,8 +97,7 @@ $replic_hold_default_before[]= {
 		'<i><<$name[args[0]]>> - Нравиться ощущать его в глотке шлюха?</i>'&agro[args[1]]-=rand(1)
 	else	
 		'<i><<$name[args[0]]>> - Используй язычек крошка</i>'
-	end
-}
+	end}
 $replic_hold_default_before[]= {'<i><<$name[args[0]]>> - Какая же ты профессионалка своего дела!</i>'&agro[args[1]]-=rand(1)}
 $replic_hold_default_before[]= {'<i><<$name[args[0]]>> - Твой горловой лучший крошка!</i>'&agro[args[1]]-=rand(1)&if agro[args[1]]<50:none_horny[2]+=lust[args[1]]/20}
 $replic_hold_default_before[]= {'<i><<$name[args[0]]>> - Это похоже твое призвание шлюха!</i>'&agro[args[1]]-=rand(1)&}

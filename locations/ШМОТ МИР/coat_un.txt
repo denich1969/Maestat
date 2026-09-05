@@ -1,7 +1,2 @@
-﻿if ban_c[you]=0:
-	clo=ARGS[0]
-	item_c[clo]+=1
-	burden[you]+=item_c_burden[clo]
-	c_slot[you]=0
-end
+﻿if ban_c[you]=0:item_c[args[0]]+=1&burden[you]+=item_c_burden[args[0]]&c_slot[you]=0
 gt'preloc'

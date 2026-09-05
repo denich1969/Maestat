@@ -1,10 +1,9 @@
 ﻿!rvrsd[w]+=1&if rvrsd[w]>100:rvrsd[w]=1
 if mob_sleep[w]>=time and mob_busy[w]>0:
-	$think[w]='zzzzz в отключке'&if mob_busy[w]>0:mob_sleep[w]=time+60&mob_busy[w]=0
+	$think[w]='zzzzz в отключке'&if mob_busy[w]=1:mob_sleep[w]=time+60
+	mob_busy[w]=0
 else
-    if hour>=22 or hour<=6:
-		 !спит
-	else
+    if hour<22 and hour>6:
 		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
 			if hour>=7 and hour<=22:
 				tempde=rand(0,10)&event_loc[i]=0
@@ -14,8 +13,7 @@ else
 				if event_loc[i]=2:event_loc[i]=0
 				if lust[i]>=50 and lillith_event['dom']=1 and lillith_event['clap_curent']=0:
 					if $loc[lillith] = $loc[i]:
-						event_loc[i]=2&if agro[i]>0:agro[i]-=1
-						lust[i]+=3&throat[i]+=3&horny[lillith]=0
+						lust[i]+=3&throat[i]+=3&horny[lillith]=0&event_loc[i]=2&if agro[i]>0:agro[i]-=1
 					end
 				end
 				if event_loc[i]=1:$doing[i]='подметает'&$loc[i]='home_0'
@@ -38,5 +36,7 @@ else
 		else
 			$doing[i]=''&$loc[i]='vill_w_house'
 		end
+	else
+		$doing[w]='Спит'
 	end
 end

@@ -117,16 +117,14 @@ if satansToyQW[you]=3 and pol[npc]>0 and vag[npc]>1:
 						dominant_fucker=twardovski&submissive_slut=agen_who_kill_twardovski&girl[dominant_fucker]+=1&guy[submissive_slut]+=1
 						sexpartner['<<submissive_slut>>,<<dominant_fucker>>']+=1&sexpartner['<<dominant_fucker>>,<<submissive_slut>>']+=1
 						vagsex[submissive_slut]+=1&avagsex[dominant_fucker]+=1&bj[submissive_slut]+=1&abj[dominant_fucker]+=1
-						sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker
-						sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
-						time+=5&cls&gs'stat'&'<center><img src="pic/face/5/78.jpg" ></center>'
+						sexpartner_num_m['<<submissive_slut>>,<<guy[submissive_slut]>>']=dominant_fucker&sexpartner_num_f['<<dominant_fucker>>,<<girl[dominant_fucker]>>']=submissive_slut
+						time+=5&cls&gs'stat'&'<center><img src="pic/face/5/78.jpg" ></center>'&act'<b>Уйти</b>':gt 'preloc'
 						'В кафе входит ваша агентка под ручку с паном Твердовским, но как только они переступают порог, довольное лицо Твердовского перекашивает гримаса и он бормочет - Стоп. Что это со мной?'
 						'Из-за стола поднялся Люкс Эосфор и подошел к Твердовскому - Это ты почувствовал, как у тебя душа от тела отделилась.'
 						'<<$name[npc]>> отпрянул - Что? Но в договоре было прописано, что я получаю силу в обмен на душу, а душу отдам только находясь в Риме.'
 						'Эосфор вальяжно усмехнулся - Это и есть Рим. Кафе "Рим". И твоя душа целиком и полностью теперь принадлежат Сатане.'
-						'Пан попытался убежать, но ноги подкосились и он упал. К нему подошел Люкс и присел на корточки - Договор закрыт.'
-						'Пан Твердовский протяжно завыл и его вой оборвался на полуноте, а его бездыханное тело осталось на полу. Люкс встал с довольной физиономией и, подмигнув вам, вышел из кафе.'
-						act'<b>Уйти</b>':gt 'preloc'
+						'Пан попытался убежать, но ноги подкосились и он упал. '&*nl'К нему подошел Люкс и присел на корточки - Договор закрыт.'
+						'Пан Твердовский протяжно завыл и его вой оборвался на полуноте, а его бездыханное тело осталось на полу. '&*nl'Люкс встал с довольной физиономией и, подмигнув вам, вышел из кафе.'
 					 end
 				 end
 			 end
@@ -171,34 +169,34 @@ if saunakafehome[npc]=0 and saunakafeowner>=1:
 	end
 end
 act'Дать денег':
-	 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Огромное спасибо'&givemoney=input("Введите сумму в шиллингах")&givemoney=givemoney*100
-	 if givemoney<=money[you]:
-	     money[npc]+=givemoney&money[you]-=givemoney&'Вы дали денег'
-	 else
-	     'Что-то пошло не так'
-	 end
-	 act'<b>Уйти</b>':gt 'preloc'
+	cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Огромное спасибо'&givemoney=input("Введите сумму в шиллингах")&givemoney=givemoney*100
+	if givemoney<=money[you]:
+	    money[npc]+=givemoney&money[you]-=givemoney&'Вы дали денег'
+	else
+	    'Что-то пошло не так'
+	end
+	act'<b>Уйти</b>':gt 'preloc'
 end
 if blackrunepower[you]>=1:
-     if muggle[npc]>=1 and magik[you]>3:
-		 act'Сделать магом (-1 магичности)':
-			 magik[you]-=1&muggle[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> теперь может развиваться как маг'
-			 '<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
-     if muggle[npc]=0 and magik[you]>3 and magik[num]<36:
-		 act'Отдать магичность':
-			 magik[you]-=1&magik[npc]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> получил от вас магический канал'
-			 '<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-     end
-     if muggle[npc]=0 and magik[npc]>3 and magik[num]<36:
-         if marked_brp[npc]=0:
-			 act'Поставить клеймо':
-				 marked_total+=1&marked_brp[npc]=you&my_marked_brp[]=npc&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
-				 'Вы применили черную руну и <<$name[npc]>> получает от вас клеймо. Вы умирая можете забрать силу и убить отмеченного.'&act'<b>Уйти</b>':gt 'preloc'
-			 end
-         end
-     end
-     if marked_brp[npc]=you:'Клеймо позволяет вам умирая заменит свою силу на силу отмеченного'
+    if muggle[npc]>=1 and magik[you]>3:
+		act'Сделать магом (-1 магичности)':
+			magik[you]-=1&muggle[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> теперь может развиваться как маг'
+			'<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
+    if muggle[npc]=0 and magik[you]>3 and magik[num]<36:
+		act'Отдать магичность':
+			magik[you]-=1&magik[npc]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы применили черную руну и <<$name[npc]>> получил от вас магический канал'
+			'<<$name[npc]>> - Огромное спасибо'&act'<b>Уйти</b>':gt 'preloc'
+		end
+    end
+    if muggle[npc]=0 and magik[npc]>3 and magik[num]<36:
+        if marked_brp[npc]=0:
+			act'Поставить клеймо':
+				marked_total+=1&marked_brp[npc]=you&my_marked_brp[]=npc&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'Вы применили черную руну и <<$name[npc]>> получает от вас клеймо. Вы умирая можете забрать силу и убить отмеченного.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+        end
+    end
+    if marked_brp[npc]=you:'Клеймо позволяет вам умирая заменит свою силу на силу отмеченного'
 end

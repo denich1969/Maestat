@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&takemura=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0
-master[i]=0&delusion[i]=0&magik[i]=34&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=96
-$name[i]='Горо'&$surname[i]='Такемура'&$nick[i]='Азиатский охотник'&$title[i]=''&$history[i]='Я охотник из коллегии охотников.'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&takemura=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0&master[i]=0&delusion[i]=0&magik[i]=34&beliver[i]=0
+$name[i]='Горо'&$surname[i]='Такемура'&$nick[i]='Азиатский охотник'&$title[i]=''&$history[i]='Я охотник из коллегии охотников.'&spec_face_pic[i]=5&face_pic[i]=96
 face[i]=20&gla[i]=0&glacol[i]=0&nose[i]=0
 dick[i]=12&dickd[i]=30&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rost[i]=170&fat[i]=800&mus[i]=2000&skin[i]=1

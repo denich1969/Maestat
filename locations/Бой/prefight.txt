@@ -1,9 +1,7 @@
 ﻿if mob[npc]=0 and health[npc]<=0:health[npc]+=healthmax[npc]
-round=0&gs'gofight'
-cooldown_prth=0&cooldown_trth=0
+round=0&gs'gofight'&cooldown_prth=0&cooldown_trth=0
 uronV=0&mag_uronV=0&portal_defV=0&uskor=0&uskorV=0&mistice=0&hod=0&proboyV=0&proboy=0&anticlonV=0&anticlon=0&sfera_round=0&sfera_antigrav=0&!horny[you]=0
-regenerator=0&regeneratorV=0
-defenceV=0&!fire_defence[you]=0
+regenerator=0&regeneratorV=0&defenceV=0&!fire_defence[you]=0
 busy[you]=1&firedef=0&firedefV=0&sfera_psih=0&sfera_psihV=0&invisible=0&can_blocking=0&enemy_udar=0&sbivatel=0&!dubleuron=0
 drunk_bloodV=0&tentaV=0&cumming_atk=0&restrikt=0&defence_you=defence[you]&fearatkV=0&fire_resistV=0&firedefV=0&stunV=0
 storm_shildV=0&storm_shild=0&godhand_defV=0&godhand_def=0&evilgrassV=0&evilgrass=0&bullet_resistV=0&blunt_resist=0&regenerator_manaV=0&nostunnerV=0&mana[npc]=manamax[npc]

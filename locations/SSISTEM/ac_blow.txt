@@ -1,22 +1,22 @@
 ﻿cls&gs'can_varian_sex',you,npc&!temp_dirt_cock[you]
 if candoblow[npc]>0:
 	if dontwannablow[npc]>0:dontwannablow[npc]=0
-	temp_blow+=1&sexpower[you]-=1
+	temp_blow+=1&sexpower[you]-=1&if bj[npc]=0 and throat[npc]<5:oral_deflorator[npc]=you&throat[npc]=5&gs 'oral_fig',npc
 	if h_slot[npc]>0:
 		if h_slot[npc]=1 or h_slot[npc]=10:
-		    if skin[you]>4:
+		    if skin[you]>4 and skin[you]<7:
 			     '<center><video autoplay loop src="pic/sex/bdsm/mask_blowb.webm" ></video></center>'
 			else
 			     '<center><video autoplay loop src="pic/sex/bdsm/mask_blow<<rand(0,8)>>.webm" ></video></center>'
 			end
 		elseif h_slot[npc]=6 or h_slot[npc]=7:
-             if skin[you]>4:
-                 '<center><video autoplay loop src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
-             else
-			     '<center><video autoplay loop src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
-			 end
+            if skin[you]>4 and skin[you]<7:
+                '<center><video autoplay loop src="pic/sex/bdsm/bjb<<rand(0,4)>>.webm" ></video></center>'
+            else
+			    '<center><video autoplay loop src="pic/sex/bdsm/bj<<rand(0,10)>>.webm" ></video></center>'
+			end
         else
-             $func('get_images', 'blowjob', npc, you)
+            $func('get_images', 'blowjob', npc, you)
         end
 	else
 		$func('get_images', 'blowjob', npc, you)
@@ -25,7 +25,6 @@ if candoblow[npc]>0:
 	if bj[npc]<10:
 		if lust[npc]<20:'<<$name[npc]>> вяло и неохотно сосет ваш <<dick[you]>> сантиметровый член, постоянно задевает член зубами, теряет ритм и постоянно вытаскивает волосы изо рта'
 		if lust[npc]>=20 and lust[npc]<60:'<<$name[npc]>> старательно сосет ваш <<dick[you]>> сантиметровый член, у нее получается плохо, но девушка старается'
-		if lust[npc]>=60:'<<$name[npc]>> увлеченно полирует ваш <<dick[you]>> сантиметровый член, энтузиазма у девушки полно, но опыта не хватает и порой возникает чувство, что она сейчас вам его отгрызет'
 	end
 	if bj[npc]>=10:
 		if lust[npc]<20:'<<$name[npc]>> умело сосет ваш <<dick[you]>> сантиметровый член своими <<$text>>. Сосать она умеет, но делает это механистично и явно ее это не слишком заводит'

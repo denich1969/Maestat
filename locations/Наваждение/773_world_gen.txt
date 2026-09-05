@@ -18,7 +18,7 @@ Y-=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&camera['<<$temploc>>']=1
-	if rand(2)=0:&gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
+	if rand(2)=0:&gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
 Y+=2&&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 	room+=1&$locname['<<$temploc>>']='Комната №<<room>>'&$lname['<<$temploc>>']='Комната №<<room>>'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
 	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
@@ -26,7 +26,7 @@ Y+=2&&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&camera['<<$temploc>>']=1
-	if rand(2)=0:&gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
+	if rand(2)=0:&gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)
 X+=1&Y=10&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
 	H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 if X<=20:jump 'marksecondhotel'
@@ -57,9 +57,9 @@ X=20&Y=13&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<
     $locname['<<$temploc>>']='Гримерка'&$lname['<<$temploc>>']='Гримерка'&$locopis['<<$temploc>>']='Комната для макияжа перед съемками фильмов'&np['<<$temploc>>']=539&mirror['<<$temploc>>']=1
 	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&!$e_wall['<<$temploc>>']='Стена'
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
-	gs'bmale_gen'&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
+	gs'bmale_gen'&walkprog[i]=0&$nick[i]='Порноактер'&obsession_world[]=i&corr[i]=1000&agro[i]=rand(1,2)&mob[i]=45&mobexp[i]=10&total_pornacter+=1
 X=22&Y=13&maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
     $locname['<<$temploc>>']='Костюмерная'&$lname['<<$temploc>>']='Костюмерная'&$locopis['<<$temploc>>']='Комната для хранения одежды'&np['<<$temploc>>']=540&mirror['<<$temploc>>']=1
 	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0

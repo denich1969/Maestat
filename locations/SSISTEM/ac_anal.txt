@@ -1,11 +1,10 @@
 ﻿cls&gs'can_varian_sex',you,npc
 if candoanal[npc]>0:
-	anal_gape[npc]=1&if dontwannaanal[npc]>0:dontwannaanal[npc]=0
-	temp_dirt_cock[you]+=1
+	temp_dirt_cock[you]+=1&anal_gape[npc]=1&if dontwannaanal[npc]>0:dontwannaanal[npc]=0
 	if pose[you]=3:
 		temp_anal+=1&sexpower[you]-=1&cls&$func('get_images', 'anal_fuck_cow', npc, you)&*pl'<<$name[npc]>> садится на ваш член попой и он входит в колечко ее ануса.'
 		if dickd[you]>anus[npc]:
-			anus[npc]+=3&*pl'<<$name[npc]>> морщится от боли и едва двигается на вашем члене'
+			anus[npc]+=iif(anus[npc]=1,1,3)&*pl'<<$name[npc]>> морщится от боли и едва двигается на вашем члене'
 		else
 			if agro[npc]<=20:'<<$name[npc]>> вяло елозит на вас постоянно сбиваясь с ритма'
 			if agro[npc]>20 and agro[npc]<50:'<<$name[npc]>> ритмично двигается на вашем члене'
@@ -16,8 +15,7 @@ if candoanal[npc]>0:
 			act'...':gt 'activ_sex'
 			if dom[you]>=90:
 				act'Задрать ей ноги':
-					if slave[npc]=you:submission[npc]+=1
-					cls&$func('get_images', 'anal_fuck_cow_flex', npc, you)&*pl'<<$name[npc]>> стонет когда вы подхватываете ее и начинаете ебать ее в жопу'
+					submission[npc]+=iif(slave[npc]=you,1,0)&cls&$func('get_images', 'anal_fuck_cow_flex', npc, you)&*pl'<<$name[npc]>> стонет когда вы подхватываете ее и начинаете ебать ее в жопу'
 					gs'fuck_anal_lift_legs',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'&act'Уйти':gt 'activ_sex'
 				end
 			end
@@ -29,7 +27,8 @@ if candoanal[npc]>0:
 		end
 	end
 	if pose[npc]=3:
-		temp_anal+=1&sexpower[you]-=1&cls&$func('get_images', 'anal_fuck_mis', npc, you, 'fit')&'<<$name[npc]>> лежит на спине и вы вводите ей свой член в задницу.'
+		temp_anal+=1&sexpower[you]-=1&cls&$func('get_images', 'anal_fuck_mis', npc, you, 'fit')
+		'<<$name[npc]>> лежит на спине и вы вводите ей свой член в задницу.'&anus[npc]+=1&if anus[npc]=1:anal_deflorator[npc]=you
 		if dickd[you]>anus[npc]:
 			'<<$name[npc]>> морщится от боли и напрягается когда член трахает ее узкую попу'&!anus[npc]+=3
 		else
@@ -86,7 +85,7 @@ if candoanal[npc]>0:
 	if pose[npc]=4:
 		temp_anal+=1&sexpower[you]-=1
 		cls&$func('get_images', 'anal_fuck_dog', npc, you)
-		'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'
+		'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'&anus[npc]+=1&if anus[npc]=1:anal_deflorator[npc]=you
 		gs'fuck_anal',you,npc&args[10]=func('fuck_final',in_sex[you])&gs'stat'
 		if args[10]>0 and sexpower[you]>0 and item[79]>0 and (ass_bonus_num[npc]<30 or tits[npc]<26) and (lust[npc]>=90 or agro[npc]<=10):
 			!if func('analslut',you,npc)>0 and sexpower[you]>0 and item[79]>0 and (ass_bonus_num[npc]<30 or tits[npc]<26) and (lust[npc]>=90 or agro[npc]<=10):

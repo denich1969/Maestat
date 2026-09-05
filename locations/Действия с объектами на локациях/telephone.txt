@@ -11,8 +11,7 @@ else
 end
 'Мои контакты'&J_CanJump=IIF (mlev[you]>=5 and mana[you]>=500 and badworld[Z[you]]=0,1,0)&!Jorge.&Можно ли прыгнуть к контакту через мглу
 ar=0&npcmax=arrsize('my_contact')
-$npc_loc='<html><head></head><body>'
-$npc_loc+='<table width="100%" border=1 cellspacing="0" cellpadding="3">'&!===== Начало таблицы ====
+$npc_loc='<html><head></head><body>'&$npc_loc+='<table width="100%" border=1 cellspacing="0" cellpadding="3">'&!===== Начало таблицы ====
 $npc_loc+='<tr>'&!далее заголовки колонок
 $npc_loc+='<th width="40">Pic</th>'&$npc_loc+='<th width="4%">Код</th>'&$npc_loc+='<th>Имя</th>'&$npc_loc+='<th>Место нахождения</th>'&$npc_loc+='<th>Статус</th>'&$npc_loc+='</tr>'
 :markfamilypod

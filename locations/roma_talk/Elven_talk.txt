@@ -11,7 +11,7 @@ if pet_follower>0:
 		if iskr[you]>=150:act'Улучшить кожу рабыни':sl_skin[slave]=2&iskr[you]-=150&cls&gs'stat'&'Вашей рабыне улучшили кожу'&act'...':gt $curloc
 	end
 	act'Сколько вы заплатите за рабыню?':
-	slave=pet_follower&cls&gs'stat'
+		slave=pet_follower&cls&gs'stat'
 		if sl_total[slave]>=8 and sl_age[slave]<=23:
 			if sl_obediance[slave]>=60 and sl_lust[slave]>=50 and sl_oral[slave]>=5 and sl_emo[slave]>=50:
 				summa=sl_total[slave]*200&summa=summa+sl_lust[slave]*20+sl_oral[slave]*30+sl_emo[slave]*50&'Хозяйка салона - Я ее могу взять за <<summa>> искр'

@@ -300,7 +300,4 @@ if gra=297:$gensurname='Безгубов'&$gensurname_f=''
 if gra=298:$gensurname='Безгусков'&$gensurname_f=''
 if gra=299:$gensurname='Безделкин'&$gensurname_f=''
 if gra=300:$gensurname='Бездонов'&$gensurname_f=''
-
 if $gensurname_f='':$gensurname_f=$gensurname+'а'
-
-

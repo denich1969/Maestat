@@ -1,56 +1,55 @@
-﻿gs'drop_follower'&!act'<b>Уйти</b>':gt 'preloc'
-cls&gs'stat'&'<center><b>Кровать</b></center>'&*nl&'<center><img src="pic/misc/bed.jpg" ></center>'
+﻿gs'drop_follower'&cls&gs'stat'&'<center><b>Кровать</b></center>'&*nl&'<center><img src="pic/misc/bed.jpg" ></center>'
 if t_slot[you]>0 or l_slot[you]>0 or b_slot[you]>0:
 	'Спать в одежде неудобно'
-	 act'Раздеться до нижнего белья':
-		 if t_slot[you]>0:
+	act'Раздеться до нижнего белья':
+		if t_slot[you]>0:
 			clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
-		 end
-		 if l_slot[you]>0:
+		end
+		if l_slot[you]>0:
 			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
-		 end
-		 if b_slot[you]>0:
+		end
+		if b_slot[you]>0:
 			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
-		 end
-		 blockneed=1&gt $curloc
-	 end
-	 act'Раздеться догола':
+		end
+		blockneed=1&gt $curloc
+	end
+	act'Раздеться догола':
 		 if h_slot[you]>0:
 			clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$loc[you]>>']+=1&h_slot[you]=0
 		 end
-		  !{if m_slot[you]>0:
+		!{if m_slot[you]>0:
 			clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$loc[you]>>']+=1&m_slot[you]=0
-		 end
-		  if w_slot[you]>0:
+		end
+		if w_slot[you]>0:
 			clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$loc[you]>>']+=1&w_slot[you]=0
-		 end}
-		 if c_slot[you]>0:
+		end}
+		if c_slot[you]>0:
 			clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$loc[you]>>']+=1&c_slot[you]=0
-		 end
-		  if tz_slot[you]>0:
+		end
+		if tz_slot[you]>0:
 			clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$loc[you]>>']+=1&tz_slot[you]=0
-		 end
-		  if tg_slot[you]>0:
+		end
+		if tg_slot[you]>0:
 			clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$loc[you]>>']+=1&tg_slot[you]=0
-		 end
-		 if t_slot[you]>0:
+		end
+		if t_slot[you]>0:
 			clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
-		 end
-		 if l_slot[you]>0:
+		end
+		if l_slot[you]>0:
 			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
-		 end
-		 if b_slot[you]>0:
+		end
+		if b_slot[you]>0:
 			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
-		 end
-		 if ut_slot[you]>0:
+		end
+		if ut_slot[you]>0:
 			clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$loc[you]>>']+=1&ut_slot[you]=0
-		 end
-		 if ul_slot[you]>0:
+		end
+		if ul_slot[you]>0:
 			clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
-		 end
-		 if ub_slot[you]>0:
+		end
+		if ub_slot[you]>0:
 			clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
-		 end
+		end
 		blockneed=2&gt $curloc
 	end
 end
@@ -64,21 +63,12 @@ act'Спать':
 		if inseminate[you]>0:
 			'<center><img src="pic/event/pregg<<rand(1,4)>>.jpg" ></center>'
 		else
-			if vag_tipe[you]=0:
-				'<center><img src="pic/event/sleep<<rand(1,4)>>.jpg" ></center>'
-			else
-				'<center><img src="pic/event/sleeph<<rand(1,4)>>.jpg" ></center>'
-			end	
+			$iif(vag_tipe[you]=0,'<center><img src="pic/event/sleep<<rand(1,4)>>.jpg" ></center>','<center><img src="pic/event/sleeph<<rand(1,4)>>.jpg" ></center>')
 		end
 	else
-		if pol[you]>0:
-			'<center><img src="pic/event/sleep_s<<rand(1,2)>>.jpg" ></center>'
-		else
-			'<center><img src="pic/event/sleepm<<rand(1,2)>>.jpg" ></center>'
-		end
+		$iif(pol[you]>0,'<center><img src="pic/event/sleep_s<<rand(1,2)>>.jpg" ></center>','<center><img src="pic/event/sleepm<<rand(1,2)>>.jpg" ></center>')
 	end
-	shower=0&sleep[you]=0&makeup[you]=0&gs'stat'
-	sleep[you]=0&if blockneed=1 or blockneed=2:energy[you]+=50&health[you]+=10
+	shower=0&sleep[you]=0&makeup[you]=0&gs'stat'&sleep[you]=0&if blockneed=1 or blockneed=2:energy[you]+=50&health[you]+=10
 	if manamax[you]>0:mana[you]+=soul[you]/2
 	if ballmax[you]>0:ball[you]=ballmax[you]
 	if hunger[you]<2:hunger[you]=2
@@ -89,10 +79,8 @@ act'Спать':
 		womenbrain[you]+=10&if pregnant_day[you]+270<sumdaystart  and (Z[you]=200 or Z[you]>=500):gt'rodi'
 		if pregnant_day[you]+9<daystart and Z[you]<500: gt'rodi'
 	end
-	 sleeptime=iif(hour>=22,bud+(24-hour),bud-hour)
-	 time+=sleeptime*60&nim=60-minut&time+=nim
+	sleeptime=iif(hour>=22,bud+(24-hour),bud-hour)&time+=sleeptime*60&nim=60-minut&time+=nim&act'Встать':blockneed=0&gt 'world'
 	if blockneed=1:health[you]+=50&energy[you]=energyMax[you]&mana[you]=manamax[you]&if ballmax[you]>0:ball[you]=ballmax[you]
-	act'Встать':blockneed=0&gt 'world'
 end
 act'Спать в одежде':gt'sleep_clo'
 if makeup[you]>0:'надо бы смыть макияж'

@@ -151,8 +151,10 @@ if beliver[npc]=1 and master[you]>0 and delusion[npc]=0:'<<$name[npc]>> и ду�
 if delusion[npc]=1 and master[you]>0:'<<$name[npc]>> не настоящий человек, а тень богини луны'
 if deflorator[you]=npc:'<<$name[npc]>> дефлорировал вас'
 if deflorator[npc]=you:'<<$name[npc]>> была дефлорирована вами'
-if anal_deflorator[npc]=you:'<<$name[npc]>> распечатал вашу попку'
-if anal_deflorator[you]=npc:'Вы распечатали ее попку'
+if anal_deflorator[you]=npc:$iif(pol[npc]=0,'<<$name[npc]>> распечатал вашу попку','<<$name[npc]>> распечатала вашу попку')
+if anal_deflorator[npc]=you:$iif(pol[npc]>0,'Вы распечатали её попку','Вы распечатали его попку')
+if oral_deflorator[npc]=you:$iif(pol[npc]>0,'Вы первым дали ей в рот','Вы первым дали ему в рот')
+if oral_deflorator[you]=npc:$iif(pol[npc]>0,'Она первой дала вам в рот','Он первым дал вам в рот')
 if sexpartner['<<npc>>,<<you>>']>0 and sexpartner['<<you>>,<<npc>>']>0:
 	'<<$name[npc]>> и вы, занимались сексом вместе <<sexpartner[''<<npc>>,<<you>>'']>> раз'&!'<a href="exec:time+=5&gt ''sexsbros''">Тестовый сброс секс статистик</a>'
     if bj_mass['<<npc>>,<<you>>']>0 and visualpol[npc]=0:'<<$name[npc]>> <<bj_mass[''<<npc>>,<<you>>'']>> раз давал вам в рот'
@@ -181,12 +183,15 @@ end
 if sexpartner['<<npc>>,<<you>>']>0 and bj_mass['<<you>>,<<npc>>']>0 and anal_mass['<<you>>,<<npc>>']>0 and (piss_mass['<<you>>,<<npc>>']>0 or CONFIG['DISABLE_PEE']=1) and orgasm[npc]>0:
 	'<<$name[npc]>> ваша нижняя которую вы можете иметь как хотите'&if mysubslut[npc]=0:mysubslut[npc]=1
 end
-if know_whore['<<npc>>,<<you>>']>0:'Знает что вы шлюха'
+gs 'oral_fig',npc&gs 'vag_fig',npc&gs 'anus_fig',npc&if know_whore['<<npc>>,<<you>>']>0:'Знает что вы шлюха'
+$iif(father[you]=npc,'<i>Ваш отец</i>','')&$iif(mother[you]=npc,'<i>Ваша мать</i>','')&$iif(sister[you]=npc,'<i>Ваш брат</i>','')&$iif(brother[you]=npc,'<i>Ваша сестра</i>','')
 if rapist['<<you>>,<<npc>>']=0:
-	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=0 and husband[you]!npc:'<b>Любовник</b>'
-	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=1 and husband[you]!npc:'<b>Любовница</b>'
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=0 and husband[you]!npc:'<b>Любовник</b>'&'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=1 and husband[you]!npc:'<b>Любовница</b>'&'<<$vag_txt[npc]>>'&'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
 else
 	$iif(pol[npc]=0,'<b>Несчастный, которого вы изнасиловали</b>','<b>Несчастная, которую вы изнасиловали</b>')
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=0 and husband[you]!npc:'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
+	if sexpartner['<<npc>>,<<you>>']>0 and pol[npc]=1 and husband[you]!npc:'<<$vag_txt[npc]>>'&'<<$anus_txt[npc]>>'&'<<$oral_txt[npc]>>'
 end
 if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=90:'<i>Лучший друг</i>'
 if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=90:'<i>Лучшая подруга</i>'
@@ -194,5 +199,5 @@ if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=50 and friend
 if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=50 and friends['<<npc>>,<<you>>']<90:'<i>Подруга</i>'
 if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=10 and friends['<<npc>>,<<you>>']<50:'<i>Приятель</i>'
 if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=10 and friends['<<npc>>,<<you>>']<50:'<i>Приятельница</i>'
-if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10:'<i>Знакомый</i>'
-if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10:'<i>Знакомая</i>'
+if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10 and father[you]!npc and brother[you]!npc:'<i>Знакомый</i>'
+if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10 and mother[you]!npc and sister[you]!npc:'<i>Знакомая</i>'

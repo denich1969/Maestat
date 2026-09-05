@@ -20,7 +20,7 @@
 	end
 	if femin[npc]>0 and sex_times['<<npc>>,<<you>>']=0:
 		act'Флиртовать':
-			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
 			if vag[npc]=0:
 				'<<$name[npc]>> - Ты в своем уме? Мне такое не интересно!'
 			else
@@ -31,7 +31,6 @@
 					end
 				end
 			end
-			act'...':gt $loc[you]
 		end
 	end
 end

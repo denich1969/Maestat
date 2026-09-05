@@ -33,7 +33,7 @@ if dick[you]>1:
     end
     act'Трахнуть в жопу':
 		if manamax[you]>0:mana[you]+=soul[you]
-		aanal[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/anal/d<<rand(3)>>.webm" ></center>'
+		aanal[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/anal/d<<rand(3)>>.webm" ></center>'&if anus[npc]=1:anal_deflorator[npc]=you
 		'Вы поставили раком шлюху и вогнали ей в задницу свой член. Шлюха стонет, а вы размашисто дрючите ее в рабочую задницу.'
 	 	act'Кончить внутрь':
 			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/anal/anal_cream0.webm" ></center>'&'Вы кончаете в задницу шлюхе'&act'Уйти':gt 'preloc'

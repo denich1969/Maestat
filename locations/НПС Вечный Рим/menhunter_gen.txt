@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&menhunter=i&lvl[i]=1&soul[i]=100&work[i]=0
-master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=12
-spec_face_pic[i]=5&face_pic[i]=145
-$name[i]='Фрэнсис'&$surname[i]='Доллархайд'&$nick[i]='Менхантер'&$title[i]=''&$history[i]='Хозяин магазина, тертый детина по кличке Менхантер. Отличный мужик. Он всегда готов помочь посетителю с выбором товара, ведь ремесло искателя приключений и работорговца он знает не понаслышке!'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&menhunter=i&lvl[i]=1&soul[i]=100&work[i]=0&master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=12
+$name[i]='Фрэнсис'&$surname[i]='Доллархайд'&$nick[i]='Менхантер'&$title[i]=''&$history[i]='Хозяин магазина, тертый детина по кличке Менхантер. Отличный мужик. Он всегда готов помочь посетителю с выбором товара, ведь ремесло искателя приключений и работорговца он знает не понаслышке!'&spec_face_pic[i]=5&face_pic[i]=145
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=15&dickd[i]=32&ball[i]=70&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0&!Половые признаки
 rost[i]=180&fat[i]=600&mus[i]=1000&skin[i]=1

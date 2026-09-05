@@ -1,0 +1,9 @@
+﻿if throat[args[0]]<5:$oral_txt[args[0]]='<<$name[npc]>> имеет целомудренный ротик и девственное горло'&oral_pic[args[0]]=0
+if throat[args[0]]>=5 and throat[args[0]]<10:$oral_txt[args[0]]='<<$name[npc]>> имеет чрезвычайно неопытный ротик и узкое горло, можно использовать разве-что кляп'&oral_pic[args[0]]=1
+if throat[args[0]]>=10 and throat[args[0]]<20:$oral_txt[args[0]]='<<$name[npc]>> имеет немного опытный рот и нежное чувствительное горло с легко вызваемым рвотным рефлексом'&oral_pic[args[0]]=2
+if throat[args[0]]>=20 and throat[args[0]]<40:$oral_txt[args[0]]='<<$name[npc]>> имеет опытный рот и довольно хорошо разработаное горло'&oral_pic[args[0]]=3
+if throat[args[0]]>=40 and throat[args[0]]<60:$oral_txt[args[0]]='<<$name[npc]>> имеет старательный рот и хорошо натренированное горло'&oral_pic[args[0]]=4
+if throat[args[0]]>=60 and throat[args[0]]<80:$oral_txt[args[0]]='<<$name[npc]>> имеет натренированный рот и вместительное горло, как глубокий туннель способный принять любой член'&oral_pic[args[0]]=5
+if throat[args[0]]>=80:$oral_txt[args[0]]='<<$name[npc]>> имеет рот, в котором побывало почти столько же членов, сколько и пищи, и бездонное горло совершенно без рвотного рефлекса'&oral_pic[args[0]]=6
+$oral_pic[args[0]]='<center><img src="pic/throat/<<oral_pic[npc]>>.jpg"  width="100" height="100"></center>'
+$oral_txt[args[0]]+=$oral_pic[args[0]]

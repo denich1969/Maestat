@@ -1,17 +1,16 @@
 ﻿if Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=H[npc] and Rhome[npc]=R[npc]:
 	act'Поговорить':
-		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - тут очень спокойно, никаких демонов и угрозы.'&act'...':gt $loc[you]
-	end&!на маяке
+		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - тут на маяке очень спокойно, никаких демонов и угрозы.'&act'...':gt $loc[you]
+	end
 else
 	act'Деревня':
-		nuatpa_talk+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&!в деревне
+		nuatpa_talk+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
 		if hunter[kap]=1:
 			'<<$name[npc]>> грустно замечает - Деревня можно сказать полностью вымерла, остались только я и отец.'
 		else
 			'<<$name[npc]>> - я дочь трактирщика. Раньше тут было гораздо больше народа, приходили торговцы из города Нуатпы. '
 			'Люди торговали с гоблинами, а сейчас никто не может найти дорогу в Нуатпу, видимо демоны что то сделали и не дают найти этот город.'
 		end
-		act'...':gt $loc[you]
 	end
 	if nuatpa_talk>0:
 		act'Нуатпа':
@@ -63,13 +62,12 @@ else
 	end
 	if demonkill[you]>0:
 		act'Рассказывать о битвах с демонами':
-			time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+			time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
 			if wantyou[npc]=demonkill[you]:'Вы рассказываете о маяке, о битвах с демонами и <<$name[npc]>> скучает так как вы не рассказываете ничего нового.'
 			if wantyou[npc]<demonkill[you]:
 				wantyou[npc]=demonkill[you]
 				'Вы рассказываете о маяке, о битвах с демонами и <<$name[npc]>> слушает вас развесив уши. <<$name[npc]>> говорит восхищенно - Это так здорово, приключения, новые места, новые люди.'
 			end
-			act'...':gt $loc[you]
 		end
 	end
 end

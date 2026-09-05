@@ -1,8 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&slavemaker=i&lvl[i]=1&soul[i]=100&work[i]=0
-master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=12
-spec_face_pic[i]=5&face_pic[i]=50
-$title[i]='Работорговец'&$history[i]='Опытный воспитатель рабынь.'
-$name[i]=''&$surname[i]=''&$nick[i]='Мастер'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&slavemaker=i&lvl[i]=1&soul[i]=100&work[i]=0&master[i]=0&delusion[i]=0&magik[i]=5&beliver[i]=12
+$title[i]='Работорговец'&$history[i]='Опытный воспитатель рабынь.'&$name[i]=''&$surname[i]=''&$nick[i]='Мастер'&spec_face_pic[i]=5&face_pic[i]=50
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=15&dickd[i]=32&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
 rost[i]=180&fat[i]=600&mus[i]=1000&skin[i]=1

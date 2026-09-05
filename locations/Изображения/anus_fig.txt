@@ -1,0 +1,9 @@
+﻿if anus[args[0]]<2:$anus_txt[args[0]]='<<$name[npc]>> имеет девственный анус'&anus_pic[args[0]]=0
+if anus[args[0]]>=2 and anus[args[0]]<10:$anus_txt[args[0]]='<<$name[npc]>> имеет вход в анус в форме маленькой щелочки'&anus_pic[args[0]]=1
+if anus[args[0]]>=10 and anus[args[0]]<20:$anus_txt[args[0]]='<<$name[npc]>> имеет вход в анус в форме звёздочки'&anus_pic[args[0]]=2
+if anus[args[0]]>=20 and anus[args[0]]<30:$anus_txt[args[0]]='<<$name[npc]>> имеет рабочий анус со входом в форме заметной щёлки'&anus_pic[args[0]]=3
+if anus[args[0]]>=30 and anus[args[0]]<50:$anus_txt[args[0]]='<<$name[npc]>> имеет раздолбанный припухший анус со входом в форме раскрытой щели'&anus_pic[args[0]]=4
+if anus[args[0]]>=50:$anus_txt[args[0]]='<<$name[npc]>> имеет незакрывающуюся разъебанную дыру в жопе'&anus_pic[args[0]]=5
+if dick[args[0]]=0:$anus_pic[args[0]]='<center><img src="pic/anus/<<$colorSkin>><<anus_pic[npc]>>.jpg"  width="100" height="100"></center>'
+if dick[args[0]]>0:$anus_pic[args[0]]='<center><img src="pic/anus/m<<$colorSkin>><<anus_pic[npc]>>.jpg"  width="100" height="100"></center>'
+$anus_txt[args[0]]+=$anus_pic[args[0]]

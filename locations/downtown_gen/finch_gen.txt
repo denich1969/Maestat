@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&finch=i&lvl[i]=1&soul[i]=100&work[i]=56&subwork[i]=100
-master[i]=0&delusion[i]=0&magik[i]=1&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=98
-$name[i]='Брендон'&$surname[i]='Финч'&$nick[i]='Бармен'&$title[i]=''&$history[i]='Я владелец бара Мельбурн.'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&finch=i&lvl[i]=1&soul[i]=100&work[i]=56&subwork[i]=100&master[i]=0&delusion[i]=0&magik[i]=1&beliver[i]=0
+$name[i]='Брендон'&$surname[i]='Финч'&$nick[i]='Бармен'&$title[i]=''&$history[i]='Я владелец бара Мельбурн.'&spec_face_pic[i]=5&face_pic[i]=98
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=18&dickd[i]=35&ball[i]=60&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0&
 rost[i]=188&fat[i]=2000&mus[i]=1800&skin[i]=1

@@ -3,15 +3,18 @@ cls&gs'stat'&'<center> <<$title[npc]>></center>'&'<center><img src="<<$d_view>>"
 if dick[you]>1:
 	avagsex[you]+=1&manize[you]+=1
     act'Дать в рот':
-		abj[you]+=1&health[you]+=50&cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'
+		abj[you]+=1&bj[npc]+=1&health[you]+=50&cls&gs'stat'&$func('get_images', 'blowjob', npc, you)&'<<$name[npc]>> встает на колени и достав ваш член начинает его сосать.'
+		if bj[npc]=1 and throat[npc]<5:oral_deflorator[npc]=you&throat[npc]=5&gs 'oral_fig',npc
 	    act'Кончить в рот':
 			horny[you]=0&cls&gs'stat'&$func('get_images', 'cum_in_mouth', npc, you)&'<<$name[npc]>> открыла ротик принимая сперму в рот'&act'Уйти':gt 'preloc'
 		end
     end
     if vag[npc]>0:
 		act'Оттрахать':
-			avagsex[you]+=1&energy[you]+=100&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
-			'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище. <<$name[npc]>> стонет когда вы ее трахаете'
+			avagsex[you]+=1&vagsex[npc]+=1&energy[you]+=100&cls&gs'stat'&$func('get_images', 'vag_fuck_mis', npc, you)
+			$defl=$iif(vag[npc]=1,'<<$name[npc]>> стонет, вы чувствуете, что рвёте ей девственную плеву и ваш член обагряет кровь','<<$name[npc]>> стонет пока вы её трахаете')
+			if vag[npc]=1:$defl_pic='<center><img src="pic/vag/defl_<<rand(3,5)>>.jpg"  width="200" height="200"></center>'
+			'<<$name[npc]>> раздвигает ноги и вы вгоняете ей свой член во влагалище.'&*nl $defl&if vag[npc]=1:deflorator[npc]=you&$defl_pic&!vag[npc]+=1
 			act'Кончить внутрь':
 				horny[you]=0&cls&gs'stat'&$func('get_images', 'vag_cream_mis', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей внутрь'&act'Уйти':gt 'preloc'
 			end
@@ -21,8 +24,8 @@ if dick[you]>1:
 		end
     end
     act'Трахнуть в жопу':
-		aanal[you]+=1&if manamax[you]>0:mana[you]+=soul[you]
-		cls&gs'stat'&$func('get_images', 'anal_fuck_dog', npc, you)&'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'
+		aanal[you]+=1&anal[npc]+=1&mana[you]+=iif(manamax[you]>0,soul[you],0)&cls&gs'stat'&$func('get_images', 'anal_fuck_dog', npc, you)
+		'<<$name[npc]>> встает раком и вы вводите ей свой член в задницу. <<$name[npc]>> стонет при каждом движении члена в ее попке'&anus[npc]+=1&if anus[npc]=1:anal_deflorator[npc]=you
 	 	act'Кончить внутрь':
 			horny[you]=0&cls&gs'stat'&$func('get_images', 'anal_cream_dog', npc, you)&'<<$name[npc]>> стонет когда вы кончаете ей в задницу'&act'Уйти':gt 'preloc'
 		end

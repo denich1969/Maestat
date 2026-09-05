@@ -103,7 +103,7 @@ if Z[you]>=700 and Z[you]<800:
 				if slutegg[w]>0:
 					slutegg[w]-=1
 					if slutegg[w]=0:
-						 eggborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100&gs'mobgen'&if eggborn[w]>=10:total_slut-=1&dead[w]=1
+						eggborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100&gs'mobgen'&if eggborn[w]>=10:total_slut-=1&dead[w]=1
 					end
 				end
 				if slutborn[w]>0:
@@ -122,8 +122,7 @@ if demon_dick_stomath[w]>0: gs'demon_dick_stomath_func',w
 if w!you and dead[w]=0 and $name[w]!'' and immobilaze[w]=0 and age[w]>0:
 	!if pol[w]>0 and ul_slot[w]=5:ul_slot[w]=rand(1,4)
 	if mob_busy[w]>0 and daybusympb[w]!daystart:daybusympb[w]=daystart&mob_busy[w]=0
-	gs'noslutlist'
-	gs'wal_class'
+	gs'noslutlist'&gs'wal_class'
 end
 if w!you and dead[w]=0 and follower[w]=you and $name[w]!'' and immobilaze[w]=0 and age[w]>0:X[w]=X[you]&Y[w]=Y[you]&Z[w]=Z[you]
 !if follower[w]=you and (dead[w]>0 or corr[w]>=100 or health[w]<=0 or mob_busy[w]>0 or mob_sleep[w]>time):follower[w]=0&!последователи

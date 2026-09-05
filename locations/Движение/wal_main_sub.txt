@@ -14,7 +14,7 @@ if slutgirl=w and guy[w]>=20 and port_whore[w]=0 and slutgirlonce=0 and slave[w]
 end
 if port_whore[w]>0 and slave[w]=0:slave[w]=tornton
 if slutgirl=w and tornton_lose_slave=0 and myagent[w]=you:
-        tornton_lose_slave=1&if slave[w]=tornton:slave[w]=0
+    tornton_lose_slave=1&if slave[w]=tornton:slave[w]=0
 end
 walkOBR[w]+=1&if walkOBR[w]>100:walkOBR[w]=1
 gotogirlfriend_npc=0
@@ -49,7 +49,7 @@ if gotogirlfriend_npc=1:
 		if destroy_marriage=1:girlfriend_num[w]=0&boyfriend_num[s]=0&ex_girlfriend['<<w>>,<<s>>']=1
 	else
 		$destination[w]='дом'&gs'destination'&$think[w]='хочет домой'&gs'walk_dest'&!вне дома&
-	 end
+	end
 end
 if gotogirlfriend_npc=2 and w!father:
 	if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:

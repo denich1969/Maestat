@@ -1,13 +1,11 @@
 ﻿gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 if bf_meeting[npc]<4:
-    tipegift=rand(0,2)
-	if tipegift=0:randitem+=rand(86,88)&item[randitem]+=1&'<<$name[npc]>> достает из кармана колечко - Это подарок тебе!'
+    tipegift=rand(0,2)&if tipegift=0:randitem+=rand(86,88)&item[randitem]+=1&'<<$name[npc]>> достает из кармана колечко - Это подарок тебе!'
 	if tipegift=1:
 	    if item[26]=0:
-			randitem=26&item[randitem]+=1
-			'<<$name[npc]>> достает из кармана смартфон - В городе нет сети для такой штуки, но по нему можно смотреть видео и делать фотки'
+			randitem=26&item[randitem]+=1&'<<$name[npc]>> достает из кармана смартфон - В городе нет сети для такой штуки, но по нему можно смотреть видео и делать фотки'
 	    else
-			 kit+=20&'<<$name[npc]>> достает из кармана макияж - Это подарок тебе!'
+			kit+=20&'<<$name[npc]>> достает из кармана макияж - Это подарок тебе!'
 	    end
 	end
 	if tipegift=2:soul[you]+=10&soul[npc]-=10&'<<$name[npc]>> достает из кармана контракт на душу и прямо при вас оформляет часть души на вас. Вы получаете кусочек души.'

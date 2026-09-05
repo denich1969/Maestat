@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&cromar=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0
-master[i]=0&delusion[i]=0&magik[i]=12&beliver[i]=0
-spec_face_pic[i]=5&face_pic[i]=92
-$name[i]='Трой'&$surname[i]='Кромарти'&$nick[i]='Волевой охотник'&$title[i]=''&$history[i]='Я охотник из коллегии охотников.'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&cromar=i&lvl[i]=1&soul[i]=1000&work[i]=53&subwork[i]=0&master[i]=0&delusion[i]=0&magik[i]=12&beliver[i]=0
+$name[i]='Трой'&$surname[i]='Кромарти'&$nick[i]='Волевой охотник'&$title[i]=''&$history[i]='Я охотник из коллегии охотников.'&spec_face_pic[i]=5&face_pic[i]=92
 face[i]=20&gla[i]=0&glacol[i]=1&nose[i]=0
 dick[i]=16&dickd[i]=40&ball[i]=100&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
 rost[i]=190&fat[i]=800&mus[i]=2000&skin[i]=1

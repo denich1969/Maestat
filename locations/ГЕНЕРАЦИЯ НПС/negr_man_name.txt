@@ -400,8 +400,6 @@ if gra=397:$genname=''
 if gra=398:$genname=''
 if gra=399:$genname=''
 if gra=400:$genname=''
-
-
 if $gennameA='':$gennameA='<<$genname>>а'
 if $gennameU='':$gennameU='<<$genname>>у'
 if $gennameOM='':$gennameOM='<<$genname>>ом'

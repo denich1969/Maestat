@@ -1,9 +1,5 @@
-﻿horny[you]=0
-tipe_orgasm=0
-if soulMG[you]>0:soul[you]+=1
-soul[npc]-=2
-soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1
-anal_gape[first]=0
+﻿horny[you]=0&tipe_orgasm=0&if soulMG[you]>0:soul[you]+=1
+soul[npc]-=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&anal_gape[first]=0
 if lebeda_seed[you]>0:lebeda_seed[first]+=1&lebeda_seed[second]+=1
 if lebeda_seed[first]>0:lebeda_seed[you]+=1&lebeda_seed[second]+=1
 if lebeda_seed[second]>0:lebeda_seed[you]+=1&lebeda_seed[first]+=1

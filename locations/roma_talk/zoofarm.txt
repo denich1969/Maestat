@@ -2,9 +2,9 @@
 nl&gs'npconloc'&gs'item'&!act'Уйти':gt'rome_zoo'
 if hour>=8 and hour<=20:
 	if pet_follower>0:
-	slave=pet_follower
+		slave=pet_follower
 		act'Сколько вы заплатите за рабыню?':
-		cls&gs'stat'
+			cls&gs'stat'&act'Уйти':gt $curloc
 			if sl_age[slave]<30:
 				if sl_stren[slave]>=60:
 					if sl_obediance[slave]>=80 and sl_pony[slave]>=20:
@@ -23,26 +23,21 @@ if hour>=8 and hour<=20:
 			else
 				'Фермер - Она слишком старая, я беру рабынь только до 30 лет'
 			end
-			act'Уйти':gt $curloc
-		end
-		if iskr[you]>=100 and sl_energy_cur[slave]>0:
-			act'Тренировать рабыне навыки пони 100 искр':
-				if sl_char[slave]=0:sl_obediance[slave]+=rand(10,15)
-				if sl_char[slave]=1:sl_obediance[slave]+=rand(5,10)
-				if sl_char[slave]=2:sl_obediance[slave]+=rand(1,5)
-				sl_pony[slave]+=rand(5,10)&sl_stren[slave]+=rand(3,8)&iskr[you]-=100&time+=60&sl_energy_cur[slave]-=1&sl_emo[slave]-=1&cls&gs'stat'&'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
-				'Тренер одел вашу рабыню в упряж пони и начал ее гонять'&act'...':gt $curloc
+			if iskr[you]>=100 and sl_energy_cur[slave]>0:
+				act'Тренировать рабыне навыки пони 100 искр':
+					if sl_char[slave]=0:sl_obediance[slave]+=rand(10,15)
+					if sl_char[slave]=1:sl_obediance[slave]+=rand(5,10)
+					if sl_char[slave]=2:sl_obediance[slave]+=rand(1,5)
+					sl_pony[slave]+=rand(5,10)&sl_stren[slave]+=rand(3,8)&iskr[you]-=100&time+=60&sl_energy_cur[slave]-=1&sl_emo[slave]-=1&cls&gs'stat'&'<center><img src="pic/slave/guild/pony0.jpg" ></center>'
+					'Тренер одел вашу рабыню в упряж пони и начал ее гонять'&act'...':gt $curloc
+				end
 			end
-		end
-		if ponysbru=0:
-			if iskr[you]>=1000:
+			if ponysbru=0 and iskr[you]>=1000:
 				act'Купить сбрую пони 1000 искр':
 					ponysbru=1&iskr[you]-=1000&time+=60&cls&gs'stat'&'Вы купили сбрую пони, чтобы тренировать рабыню дома'&act'...':gt $curloc
 				end
 			end
-		end
-		if ponysbru>0 and ponicart=0:
-			if iskr[you]>=2000:
+			if ponysbru>0 and ponicart=0 and iskr[you]>=2000:
 				act'Купить тележку пони 2000 искр':
 					ponicart=1&iskr[you]-=2000&time+=60&cls&gs'stat'&'Вы купили тележку в которую можно запрягать пони'&act'...':gt $curloc
 				end

@@ -1,8 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&vikary=i&lvl[i]=1&soul[i]=100
-master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны и наваждению
-spec_face_pic[i]=5&face_pic[i]=207
-$title[i]='Викарий'&$history[i]=''
-$name[i]='Пью'&$surname[i]=''&$nick[i]='Святой отец с повязкой на глазах'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&vikary=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны и наваждению
+spec_face_pic[i]=5&face_pic[i]=207&$title[i]='Викарий'&$history[i]=''&$name[i]='Пью'&$surname[i]=''&$nick[i]='Святой отец с повязкой на глазах'
 face[i]=20&gla[i]=100&glacol[i]=1&nose[i]=0
 dick[i]=15&dickd[i]=35&ball[i]=70&ass[i]=2&nip[i]=8&vag[i]=0&tit[i]=0
 rost[i]=178&fat[i]=600&mus[i]=1600&skin[i]=1

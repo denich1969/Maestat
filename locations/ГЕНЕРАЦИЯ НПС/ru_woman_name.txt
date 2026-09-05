@@ -1,13 +1,10 @@
 ﻿gra=rand(0,58)
-if gra=0:$genname='Агата'&$gennameA='Агату'&$gennameU='Агату'&$gennameOM='Агатой'
-if gra=0:$gennames=''&$gennamesA=''&$gennamesU=''&$gennamesOM=''
-
+if gra=0:$genname='Агата'&$gennameA='Агату'&$gennameU='Агату'&$gennameOM='Агатой'&$gennameY='Агаты'
+if gra=0:$gennames=''&$gennamesA=''&$gennamesU=''&$gennamesOM=''&$gennameЫ=''
 if gra=1:$genname='Александра'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=1:$gennames='Саша'&$gennamesA=''&$gennamesU=''&$gennamesOM=''
-
 if gra=2:$genname='Алина'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=2:$gennames='Лина'&$gennamesA=''&$gennamesU=''&$gennamesOM=''
-
 if gra=3:$genname='Алиса'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=4:$genname='Алла'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=5:$genname='Альбина'&$gennameA=''&$gennameU=''&$gennameOM=''
@@ -61,8 +58,6 @@ if gra=36:$genname='Маргарита'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=37:$genname='Марина'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=38:$genname='Мария'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=38:$gennames='Маша'&$gennamesA=''&$gennamesU=''&$gennamesOM=''
-
-
 if gra=39:$genname='Надежда'&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=39:$gennames='Надя'&$gennamesA=''&$gennamesU=''&$gennamesOM=''
 if gra=40:$genname='Наталья'&$gennameA=''&$gennameU=''&$gennameOM=''
@@ -227,12 +222,3 @@ if gra=197:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=198:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=199:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
 if gra=200:$genname=''&$gennameA=''&$gennameU=''&$gennameOM=''
-
-
-
-
-
-
-
-
-

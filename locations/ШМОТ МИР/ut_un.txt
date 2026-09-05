@@ -1,5 +1,1 @@
-﻿clo=ARGS[0]
-item_ut[clo]+=1
-burden[you]+=item_ut_burden[clo]
-ut_slot[you]=0
-gt'preloc'
+﻿item_ut[args[0]]+=1&burden[you]+=item_ut_burden[args[0]]&ut_slot[you]=0&gt'preloc'

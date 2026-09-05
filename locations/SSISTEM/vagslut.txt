@@ -3,10 +3,8 @@ result=0&if args[4]=0:args[4]=200
 args[30]=0
 if perk_orgazm_reload[args[1]]>0:orgasm[args[1]]=0
 if args[0]>0 and sexpower[args[0]]=0 and args[2]=0:args[2] = 1
-if vag[args[1]]<15:vag_deflorator[args[0]]+=1&vag[args[1]]=15&horny[args[1]]=0&exit
-if vag[args[1]]<dickd[args[0]]:
-	vag[args[1]]+=1&if grief=args[0]:vag[args[1]]+=5
-end
+if vag[args[1]]=1:vag_deflorator[args[0]]+=1&vag[args[1]]+=1&horny[args[1]]=0&exit
+if vag[args[1]]<dickd[args[0]]:vag[args[1]]+=1&vag[args[1]]+=iif(grief=args[0] and vag[args[1]]>10,5,0)
 if dickd[args[0]]>0:args[30]+=20*dickd[args[0]]/50
 if dickd[args[0]]=0:args[30]+=15
 if orgasm[args[1]]-time>0 and horny[args[1]]>=100:horny[args[1]]-=(orgasm[args[1]]-time)/3&orgasm[args[1]]-=100
@@ -31,32 +29,16 @@ if horny[args[1]]>args[4] or args[2]=1 and horny[args[1]]>=100:
 	end
 	if args[3]=0 and solo>0:
 		if temp_orgazm[args[1]]=0:
-			if args[1]=you:
-				'<b>Вы стонете и изгибаетесь в оргазме.</b>'
-			else
-				'<b><<$name[args[1]]>> изгибается в оргазме и громко стонет</b>'
-			end
+			*nl $iif(args[1]=you,'<b>Вы стонете и изгибаетесь в оргазме.</b>','<b><<$name[args[1]]>> изгибается в оргазме и громко стонет</b>')
 		else
-			if args[1]=you:
-				'<b>Вы стонете от непрерывного удовольствия.</b>'
-			else
-				'<b><<$name[args[1]]>> пыхтит от непрерывного удовольствия</b>'
-			end
+			*nl $iif(args[1]=you,'<b>Вы стонете от непрерывного удовольствия.</b>','<b><<$name[args[1]]>> пыхтит от непрерывного удовольствия</b>')
 		end	
 	end
 	if args[3]=0 and solo=0:
 		if temp_orgazm[args[1]]=0:
-			if args[1]=you:
-				'<b>Вы стонете и извиваясь в оргазме.</b>'
-			else
-				'<b><<$name[args[1]]>> изгибается в оргазме и громко стонет</b>'
-			end
+			*nl $iif(args[1]=you,'<b>Вы стонете и извиваясь в оргазме.</b>','<b><<$name[args[1]]>> изгибается в оргазме и громко стонет</b>')
 		else
-			if args[1]=you:
-				'<b>Очередной член в киске сново кидает вас на пик блаженства.</b>'
-			else
-				'<b><<$name[args[1]]>> завывает от непрерывного удовольвия</b>'
-			end
+			*nl $iif(args[1]=you,'<b>Очередной член в киске сново кидает вас на пик блаженства.</b>','<b><<$name[args[1]]>> завывает от непрерывного удовольвия</b>')
 		end	
 	end
 	if temp_orgazm[args[1]]>0:temp_multiorgazm[args[1]]+=1

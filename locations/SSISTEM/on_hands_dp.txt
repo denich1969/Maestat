@@ -29,15 +29,15 @@ act'Стонать':
 				pubis_t[you]=1&'Вам зажгло лобок и на нем проступила татуировка шлюхи.'&if magworld[Znow]>0:soul[you]-=10
 			end
 			if skin[you_blow]>3 and skin[you_blow]<7:
-			     if camera['<<$loc[you]>>']=0 and r_leg_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
-				     r_leg_t[you]=1&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&'У вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
-				     if magworld[Znow]>0:soul[you]-=10
-				 end
+			    if camera['<<$loc[you]>>']=0 and r_leg_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
+				    r_leg_t[you]=1&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&'У вас жжёт кожу на правой ноге и на ней образовывается татуировка шлюхи для черных.'
+				    if magworld[Znow]>0:soul[you]-=10
+				end
 		    else
-		         if camera['<<$loc[you]>>']=0 and pubis_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
-				     pubis_t[you]=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&'Вы чувствуете жар на лобоке, где проступила татуировка шлюхи.'
-				     if magworld[Znow]>0:soul[you]-=10
-				 end
+		        if camera['<<$loc[you]>>']=0 and pubis_t[you]=0 and magworld[Znow]>0 and DeaActTat=0:
+				    pubis_t[you]=2&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&'Вы чувствуете жар на лобоке, где проступила татуировка шлюхи.'
+				    if magworld[Znow]>0:soul[you]-=10
+				end
 			end
 			if hcol[you]=3 and face_pic[you]=83:
 			else

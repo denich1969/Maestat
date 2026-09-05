@@ -1,4 +1,4 @@
-﻿if $ARGS[0]='npc':
+﻿!'if $ARGS[0]='npc':
 	if dick[npc]>=28:'<center><video autoplay loop src="pic/sex/cockm<<rand(0,4)>>.webm" ></video></center>'
 	if dick[npc]>=24 and dick[npc]<28:'<center><img src="pic/sex/cock<<rand(60,64)>>.jpg" ></center>'
 	if dick[npc]>=20 and dick[npc]<24:'<center><img src="pic/sex/cock<<rand(50,53)>>.jpg" ></center>'
@@ -19,4 +19,13 @@ if $ARGS[0]='you':
 	if dick[you]>=9 and dick[you]<14:'<center><img src="pic/sex/cock<<rand(10,19)>>.jpg" ></center>'
 	if dick[you]>=5 and dick[you]<9:'<center><img src="pic/sex/cock<<rand(10,19)>>.jpg" ></center>'
 	if dick[you]<5:'<center><img src="pic/sex/cock<<rand(1,9)>>.jpg" ></center>'
-end
+end'
+if dick[args[0]]>=28:'<center><video autoplay loop src="pic/sex/cockm<<rand(0,4)>>.webm" ></video></center>'
+if dick[args[0]]>=24 and dick[args[0]]<28:'<center><img src="pic/sex/cock<<rand(60,64)>>.jpg" ></center>'
+if dick[args[0]]>=20 and dick[args[0]]<24:'<center><img src="pic/sex/cock<<rand(50,53)>>.jpg" ></center>'
+if dick[args[0]]>=18 and dick[args[0]]<20:'<center><img src="pic/sex/cock<<rand(40,42)>>.jpg" ></center>'
+if dick[args[0]]>=16 and dick[args[0]]<18:'<center><img src="pic/sex/cock<<rand(30,36)>>.jpg" ></center>'
+if dick[args[0]]>=14 and dick[args[0]]<16:'<center><img src="pic/sex/cock<<rand(20,24)>>.jpg" ></center>'
+if dick[args[0]]>=9 and dick[args[0]]<14:'<center><img src="pic/sex/cock<<rand(10,19)>>.jpg" ></center>'
+if dick[args[0]]>=5 and dick[args[0]]<9:'<center><img src="pic/sex/cock<<rand(10,19)>>.jpg" ></center>'
+if dick[args[0]]<5:'<center><img src="pic/sex/cock<<rand(1,9)>>.jpg" ></center>'

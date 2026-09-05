@@ -17,16 +17,10 @@ if inix_w=5:w=s_world[ar]
 if w!you and dead[w]=0 and $name[w]!'' and immobilaze[w]=0 and Z[w]=inix_w:gs'wal_class'
 if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=inix_w and H[w]=0 and $name[w]!'' and walkprog[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0:gs'wal_zero'
 if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=inix_w and H[w]>0 and walkprog[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0:
-	$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
-	randtipe=rand(0,2)&!!!!!!!!!!!!!!!ВНУТРИ ПОМЕЩЕНИЯ
-	if cum_face[w]>0:randtipe=3
+	$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&randtipe=rand(0,2)&if cum_face[w]>0:randtipe=3&!ВНЕ ПОМЕЩЕНИЯ
 	if randtipe=1 and R[w]>0:R[w]=0
 	if randtipe=2 and R[w]=0 and maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']>0:maxpos=maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']&randgo_r=rand(1,maxpos)&R[w]=randgo_r
-	if randtipe=3:
-		cum_face[w]=0&$walklog+='<br>'
-		if know['<<w>>,<<you>>']=0:$walklog+='<<$nick[w]>> вытирает сперму'
-		if know['<<w>>,<<you>>']>0:$walklog+='<<$name[w]>> <<$surname[w]>> вытирает сперму'
-	end
+	if randtipe=3:cum_face[w]=0&$walklog+='<br>'&$walklog+=$iif(know['<<w>>,<<you>>']=0,'<<$nick[w]>> вытирает сперму','<<$name[w]>> <<$surname[w]>> вытирает сперму')
 end
 if w!you and dead[w]=0 and cantwalk[w]=0 and follower[w]=0 and Z[w]=inix_w and mob_busy[w]=0 and walker_cooldown[w]<time and immobilaze[w]=0:gs'wal_main'
 if mob_busy[w]>0 and mob_busy[w]<time and w!you and dead[w]=0 and Z[w]=inix_w and cantwalk[w]=0 and follower[w]=0 and immobilaze[w]=0:

@@ -1,7 +1,5 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&mech=i&lvl[i]=1&soul[i]=100&work[i]=0&mechanic[i]=1
-master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0&!fight_prog[i]=1
-spec_face_pic[i]=5&face_pic[i]=158&!face_npc[i]=1&face_pic[i]=2
-$name[i]='Мердок'&$surname[i]='Механик'
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&mech=i&lvl[i]=1&soul[i]=100&work[i]=0&mechanic[i]=1&master[i]=0&delusion[i]=0&magik[i]=0&beliver[i]=0&!fight_prog[i]=1
+$name[i]='Мердок'&$surname[i]='Механик'&spec_face_pic[i]=5&face_pic[i]=158&!face_npc[i]=1&face_pic[i]=2
 face[i]=10&gla[i]=0&glacol[i]=4&nose[i]=3&lips[i]=0
 dick[i]=23&dickd[i]=55&ball[i]=100&
 rost[i]=198&fat[i]=500&mus[i]=3000&skin[i]=2

@@ -1,2 +1,1 @@
-﻿surrand=rand(0,4)
-gs'surname<<surrand>>'
+﻿surrand=rand(0,4)&gs'surname<<surrand>>'

@@ -48,11 +48,9 @@ elseif hour = 22:
 elseif hour = 23:
 	FColor = RGB(255,255,255)&BColor = RGB(5,5,5)
 end
-!'
-if hour=8 and minut<=50 and seevonce!daystart:
-	seevonce=daystart&'<b>Среди темного неба на своем обычном месте пульсируя разгорается малиновый шар который разгорелся так, что смотреть на него стало больно. Начался новый день.</b>'
+!'if hour=8 and minut<=50 and seevonce!daystart:
+	seevonce=daystart&'<b>Среди темного неба на обычном месте пульсируя разгорается малиновый шар так, что смотреть на него стало больно. Начался новый день.</b>'
 end
 if hour=21 and minut<=50 and seezonce!daystart:
 	seezonce=daystart&'<b>Яркое солнце запульсировало и начало медленно гаснуть. Началась темная, непроглядная ночь с абсолютно черным, беззвездным небом.</b>'
-end
-'
+end'

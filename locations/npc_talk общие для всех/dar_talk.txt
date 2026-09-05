@@ -120,13 +120,9 @@
     end
     if powerup=npc:
      	act'Использовать дар':
-			mana[you]-=50
-			if vision_times[npc]=0:visioner[you]+=1
-			vision_times[npc]+=1
-			horny[you]+=50
-			cls&gs'stat'&'<center><img src="pic/sex/pornpic/cuckold_trio.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Вы в порно студии снимаете приватное порно со своей женой. Она сосет вам и еще двум парням на камеру.'
-			act'<b>Уйти</b>':gt 'preloc'
+			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+			vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'&'<center><img src="pic/sex/pornpic/cuckold_trio.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
+			'Вы в порно студии снимаете приватное порно со своей женой. Она сосет вам и еще двум парням на камеру.'&act'<b>Уйти</b>':gt 'preloc'
 		end
     end
     if powerupwife=npc:
@@ -204,9 +200,8 @@
     if dlong=npc and sexpartner['<<npc>>,<<sladkovamasha>>']>0:
      	act'Использовать дар':
 			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1&anus[sladkovamasha]+=10
-			vision_times[npc]+=1&horny[you]+=50&womenbrain[you]-=1&cls&gs'stat'&'<center><img src="pic/sex/pornpic/bbcanal.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
+			vision_times[npc]+=1&horny[you]+=50&womenbrain[you]-=1&cls&gs'stat'&'<center><img src="pic/sex/pornpic/bbcanal.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'&act'<b>Уйти</b>':gt 'preloc'
 			'Маша Сладкова сидит на вас сверху, а вы трахаете ее в задницу. Отдыхая вы вытаскиваете из девушки свой здоровенный член и видите как ее раскрасневшееся очко не может закрыться'
-			act'<b>Уйти</b>':gt 'preloc'
 		end
     end
     if elfmag=npc:
@@ -234,164 +229,117 @@
 		act'Использовать дар':
 			mana[you]-=50
 		    if vision_times[npc]=0:
-		        if sexpartner['<<tabernwoman>>,<<npc>>']=0:
-					girl[npc]+=1&guy[tabernwoman]+=1
-					bj[tabernwoman]+=1&abj[npc]+=1
-					gs'add_sex_stat',tabernwoman,npc
-			    end
-				sexpartner['<<tabernwoman>>,<<npc>>']+=1
-				sexpartner['<<npc>>,<<tabernwoman>>']+=1
+		        if sexpartner['<<tabernwoman>>,<<npc>>']=0:girl[npc]+=1&guy[tabernwoman]+=1&bj[tabernwoman]+=1&abj[npc]+=1&gs'add_sex_stat',tabernwoman,npc
+				sexpartner['<<tabernwoman>>,<<npc>>']+=1&sexpartner['<<npc>>,<<tabernwoman>>']+=1
 		    end
-	        wantblackcock[tabernwoman]=1
-		    if vision_times[npc]=0:visioner[you]+=1
-		    vision_times[npc]+=1
-		    horny[you]+=50
-		    womenbrain[you]-=1
-			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/startblow.webm" ></video></center>'&'Коснувшись руки вас охватывает виденье.'
+	        wantblackcock[tabernwoman]=1&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&horny[you]+=50&womenbrain[you]-=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/startblow.webm" ></video></center>'&'Коснувшись руки вас охватывает виденье.'
 			'Трактирщица с любопытством пялится на ваш черный член, по ее глазам видно, как у нее происходит внутренняя борьба и побеждает любопытство и похоть. '
-			'Трактрищица берет в рот черный член и начинает его сосать.'
-			act'<b>Уйти</b>':gt 'preloc'
+			'Трактрищица берет в рот черный член и начинает его сосать.'&act'<b>Уйти</b>':gt 'preloc'
 		    if knowaboutvision[npc]=0:
 				act'Рассказать о виденье':
-					knowaboutvision[npc]+=1
-					cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> удивляется - Ого! А у тебя есть Дар. Да, трактирщица не устояла и соснула мой большой черный хуй.'
+					knowaboutvision[npc]+=1&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> удивляется - Ого! А у тебя есть Дар. Да, трактирщица не устояла и соснула мой большой черный хуй.'
 					act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 end
-		 end
-     end
-     if sportgirl=npc and guy[npc]>2:
+				end
+			end
+		end
+    end
+    if sportgirl=npc and guy[npc]>2:
 		 act'Использовать дар':
-			mana[you]-=50
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-		     horny[you]+=50
-		     womenbrain[you]+=1
-			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/public/blow2.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Вы сидите на корточках в каком-то пропахшем рыбой углу и сосете хуй.'
-			act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-     if smartgirl=npc and guy[npc]>2:
-		 act'Использовать дар':
-			mana[you]-=50
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-		     horny[you]+=50
-		     womenbrain[you]+=1
-			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/public/blow2.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Вы сидите на корточках в каком-то пропахшем рыбой углу и отсасываете член.'
-			act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-     if slutgirl=npc and guy[npc]>11:
-		 act'Использовать дар':
-			mana[you]-=50
-			womenbrain[you]+=1
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-		     horny[you]+=50
-			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/public/blow2.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Вы сидите на корточках в каком-то пропахшем рыбой углу и шлифуете член своими пухлыми губами.'
-			act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-	 if father=npc:
-		 act'Использовать дар':
-			mana[you]-=50
-			womenbrain[you]-=1
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-			cls&gs'stat'&'<center><img src="pic/face/5/16.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
+			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&horny[you]+=50&womenbrain[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/public/blow2.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
+			'Вы сидите на корточках в каком-то пропахшем рыбой углу и сосете хуй.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+    if smartgirl=npc and guy[npc]>2:
+		act'Использовать дар':
+			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&horny[you]+=50&womenbrain[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/public/blow2.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
+			'Вы сидите на корточках в каком-то пропахшем рыбой углу и отсасываете член.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+    if slutgirl=npc and guy[npc]>11:
+		act'Использовать дар':
+			mana[you]-=50&womenbrain[you]+=1&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/public/blow2.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
+			'Вы сидите на корточках в каком-то пропахшем рыбой углу и шлифуете член своими пухлыми губами.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+	if father=npc:
+		act'Использовать дар':
+			mana[you]-=50&womenbrain[you]-=1&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&cls&gs'stat'&'<center><img src="pic/face/5/16.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
 			'Шериф, держа руку на пистолете, говорит - Дэн, ничего не имею против тебя, но еще раз тронешь инсмутца, я тебе прострелю голову. '
 			'У нас тут своя жизнь, и если девку решили посвятить Дагону, то ты не должен встревать и уж тем более бить священников и отвешивать пинка прелату. '
-			'Потому катись из Порта куда-нибудь в другое место, и девку с собой забери.'
-			act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
-	 if mother=npc:
-		 act'Использовать дар':
-			mana[you]-=50
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-		     horny[you]+=50
-		     womenbrain[you]+=1
-			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/four_slut.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
+			'Потому катись из Порта куда-нибудь в другое место, и девку с собой забери.'&act'<b>Уйти</b>':gt 'preloc'
+		end
+	end
+	if mother=npc:
+		act'Использовать дар':
+			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&horny[you]+=50&womenbrain[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/four_slut.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
 			'Инсмутцы зажали вас в углу, силой уложили животом на какую-то старую кушетку. Вам в рот вошел мерзко воняющий рыбой член, в ладошки сунули ещё два члена.'
 			'И вас приготовились ебать под песнопения, посвященные Дагону. Один из инсмутцев булькает - Ты, шлюха, снесешь много икры, отдашь нам свою душу, а потом мы вышвырнем тебя в море.'
-			 act'...':
+			act'...':
 				cls&gs'stat'&'<center><img src="pic/face/5/56.jpg" ></center>'&'Внезапно один из инсмутцев отлетает в сторону. Второму об голову ломается стул. '
 				'Рыбомордые уроды бросают вас и пытаются оказать сопротивление. Но здоровый молодой мужик, в котором вы узнаете отца, быстро выписывает им лещей и прогоняет пинками прочь. '
-				'Он подходит к вас и, запинаясь, говорит - Помнишь меня? Мы вместе сюда на корабле попали.'
-				act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-	 end
-	 if addkiller=npc:
-		 act'Использовать дар':
-			mana[you]-=50
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-		     womenbrain[you]-=1
-			cls&gs'stat'&'<center><img src="pic/face/5/31.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
+				'Он подходит к вас и, запинаясь, говорит - Помнишь меня? Мы вместе сюда на корабле попали.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+	end
+	if addkiller=npc:
+		act'Использовать дар':
+			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&womenbrain[you]-=1&cls&gs'stat'&'<center><img src="pic/face/5/31.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
 			'Вы стоите в туалете, смотритесь в зеркало и проверяете, заряжен ли пистолет. Делаете пасс рукой и чувствуете, что в бар вошел тот самый, за чью жизнь вам заплатили.'
-			 act'...':
+			act'...':
 				cls&gs'stat'&'<center><img src="pic/face/5/30.jpg" ></center>'&'Решительно выйдя из туалета, вы направляете пистолет в голову цели, тот поворачивается к вам и смотрит с недоумением. '
 				'Нажимете на спусковой крючек и ничего не происходит. Блондин поднимает ладонь и на ней лежат патроны - Ну, положим, из своей пукалки ты меня не убьешь. '
-				'И я мог бы сейчас одним щелчком в лоб оторвать тебе башку, но у тебя есть определенный дар, и отправлять этот дар в могилу было бы преступлением перед кармой.'
-				act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-	 end
-	 if borisbogart=npc and visioner[you]>=5 and BlackRoseQW[you]=100:
-		 act'Использовать дар':
-			mana[you]-=50
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-		     womenbrain[you]-=1
-			cls&gs'stat'&'<center><img src="pic/face/5/46.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
+				'И я мог бы сейчас одним щелчком в лоб оторвать тебе башку, но у тебя есть определенный дар, и отправлять этот дар в могилу было бы преступлением перед кармой.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+	end
+	if borisbogart=npc and visioner[you]>=5 and BlackRoseQW[you]=100:
+		act'Использовать дар':
+			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&womenbrain[you]-=1&cls&gs'stat'&'<center><img src="pic/face/5/46.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
 			'Вы сидите в ресторане с собеседником, на которого даже не смотрите и говорите. Если я тебя правильно понимаю, то если я тебе помогу, ты заключишь мою смерть в иглу и я стану неубиваемый?'
-		     if BlackRoseQW[you]>=8 and visioner[you]>=15:
-				 act'Смотреть дальше':
+		    if BlackRoseQW[you]>=8 and visioner[you]>=15:
+				act'Смотреть дальше':
 					cls&gs'stat'&'<center><img src="pic/face/5/45.jpg" ></center>'&'Вы поворачиваетесь и внимательно смотрите на собеседника.'
-				     if know['<<runemaster>>,<<you>>']>0:
+				    if know['<<runemaster>>,<<you>>']>0:
 						if knowRuneMasterQW=0:knowRuneMasterQW=1
 						'В Рунном маге вы узнаете татуировщика Пабло из Блэкберри.'&!BlackRoseQW[you]=9
-				     else
+				    else
 						'Татуированное лицо рунного мага вам неизвестно.'
-				     end
+				    end
 					'Рунный маг кивает - Да. Тебя будет не убить никаким способом, правда есть одно но. Эта игла с твоей смертью не может храниться рядом с тобой. Иначе смерть вырвется оттуда. '
-					'Тебе вообще нельзя будет трогать эту иглу. И если игла сломается, ты тут же умрешь.'
+					'Тебе вообще нельзя будет трогать эту иглу. И если игла сломается, ты тут же умрешь.'&act'<b>Уйти</b>':gt 'preloc'
 					if knowRuneMasterQW<2:BlackRoseQW[you]=101
-					act'<b>Уйти</b>':gt 'preloc'
-				 end
-			 else
-				'Вам не хватает силы дара и вас выбрасывает из виденья.'
-				act'<b>Уйти</b>':gt 'preloc'
-			 end
-		 end
-	 end
-	 if povar=npc:
-		 act'Использовать дар':
-			mana[you]-=50
-		 	 if vision_times[npc]=0:visioner[you]+=1
-		     vision_times[npc]+=1
-		     horny[you]+=50
-			cls&gs'stat'&'<center><video autoplay loop src="pic/sex/group/spitroast/vd13.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			womenbrain[you]-=1
-			'Вы трахаете жену, пока она сосет у Богарта. Да, вы знали, что женившись на ведьме, к тому же ученице Богарта, вы не будете ей владеть один. '
+				end
+			else
+				'Вам не хватает силы дара и вас выбрасывает из виденья.'&act'<b>Уйти</b>':gt 'preloc'
+			end
+		end
+	end
+	if povar=npc:
+		act'Использовать дар':
+			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
+		    vision_times[npc]+=1&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/group/spitroast/vd13.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
+			womenbrain[you]-=1&'Вы трахаете жену, пока она сосет у Богарта. Да, вы знали, что женившись на ведьме, к тому же ученице Богарта, вы не будете ей владеть один. '
 			'Но то, что жена сама уговорила вас на групповой секс с Богартом, было для вас сюрпризом. '
-			'Хотя, в процессе вас даже стало посещать извращенное удовольствие, когда вашу жену при вас трахает Богарт.'
-			act'<b>Уйти</b>':gt 'preloc'
-		 end
+			'Хотя, в процессе вас даже стало посещать извращенное удовольствие, когда вашу жену при вас трахает Богарт.'&act'<b>Уйти</b>':gt 'preloc'
+		end
 	end
 	if techer=npc:
 		act'Использовать дар':
 			mana[you]-=50&if vision_times[npc]=0:visioner[you]+=1
 		    vision_times[npc]+=1&womenbrain[you]+=1&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/lick.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Стоя на коленях, вы молите Богарта взять вас в ученицы. Богарт раздумывает, у него и так есть талантливые ученики, а вы особо звезд с неба не хватаете. Наклонившись к ботинкам Богарта, вы начинаете их вылизывать и Богарт хохочет - Ну ладно, все же кое-какие таланты у тебя есть! Я возьму тебя в ученицы, а ты будешь за это преподавать в школе. Не то что бы мне было не плевать на маленьких ублюдков, но взращивать этих даунов и лепить из них покорную биомассу гораздо проще, чем если будут из хаоса рождаться герои, с которыми потом придется разбираться. Это просто очередная система контроля над стадом баранов, а ты будешь моя пастушка.'
-			act'<b>Уйти</b>':gt 'preloc'
-		 end
+			'Стоя на коленях, вы молите Богарта взять вас в ученицы. Богарт раздумывает, у него и так есть талантливые ученики, а вы особо звезд с неба не хватаете. '
+			'Наклонившись к ботинкам Богарта, вы начинаете их вылизывать и Богарт хохочет - Ну ладно, все же кое-какие таланты у тебя есть! '&*nl'Я возьму тебя в ученицы, а ты будешь за это преподавать в школе. '
+			'Не то что бы мне было не плевать на маленьких ублюдков, но взращивать этих даунов и лепить из них покорную биомассу гораздо проще, чем если будут из хаоса рождаться герои, '
+			'с которыми потом придется разбираться. Это просто очередная система контроля над стадом баранов, а ты будешь моя пастушка.'&act'<b>Уйти</b>':gt 'preloc'
+		end
 	end
 	if janevalorama=npc:
 		act'Использовать дар':
@@ -509,8 +457,7 @@
 	if teleportwife=npc and knowRuneMasterQW=2:
 		act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1
-		    vision_times[npc]+=1
-		    knowRuneMasterQW=3&BlackRoseQW[you]=11
+		    vision_times[npc]+=1&knowRuneMasterQW=3&BlackRoseQW[you]=11
 		    know_needle=1&womenbrain[you]+=1&mana[you]-=50&cls&gs'stat'&'<center><img src="pic/face/5/52.jpg" ></center>'&'Коснувшись руки, вас охватывает виденье.'
 			'К вам подходит толстый бугай с глупой физиономией и держит в руках изящную статуэтку - Здраствуйте, мадам. Меня зовут Дюк Валорама, я - бизнесмен из Жилмассива. '
 			'Слышал, у вас есть галерея где выставляются произведения искусства. Вот, хотел бы внести свой вклад. Это статуэтка ангела-хранителя. Ее создала сама Богиня Земли.'&act'<b>Уйти</b>':gt 'preloc'
@@ -519,9 +466,8 @@
 	if elderbatory=npc:
 	 	act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1
-		    vision_times[npc]+=1
-		    womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/femdom/sit0.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Вы лежите на спине и дрочите член, пока ваша жена елозит своей разгорячённой щёлкой по вашему лицу.'&act'<b>Уйти</b>':gt 'preloc'
+		    vision_times[npc]+=1&womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/femdom/sit0.webm" ></video></center>'
+			'Коснувшись руки, вас охватывает виденье.'&*nl'Вы лежите на спине и дрочите член, пока ваша жена елозит своей разгорячённой щёлкой по вашему лицу.'&act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if fembatory=npc:
@@ -549,9 +495,8 @@
 	if dotbatory=npc:
 	 	act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1
-		    vision_times[npc]+=1&womenbrain[you]-=1&hmana[you]-=50&orny[you]+=50&cls&gs'stat'
-			'<center><video  autoplay loop src="pic/sex/lesb/kiss1.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Вы на работе в офисе теплиц и вдруг к вам подходит тетушка Лебеда и начинает вас страстно целовать.'&act'<b>Уйти</b>':gt 'preloc'
+		    vision_times[npc]+=1&womenbrain[you]-=1&hmana[you]-=50&orny[you]+=50&cls&gs'stat'&'<center><video  autoplay loop src="pic/sex/lesb/kiss1.webm" ></video></center>'
+			'Коснувшись руки, вас охватывает виденье.'&*nl'Вы на работе в офисе теплиц и вдруг к вам подходит тетушка Лебеда и начинает вас страстно целовать.'&act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if lebeda=npc:
@@ -581,9 +526,8 @@
 	if blackwood=npc:
 	 	act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1
-		    vision_times[npc]+=1
-		    womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/cuckold/jerk0.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Вы сидите на диване и дрочите свой член, пока перед вами огромный черный любовник трахает в жопу вашу жену, Пруденцию Блэквуд.'&act'<b>Уйти</b>':gt 'preloc'
+		    vision_times[npc]+=1&womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/cuckold/jerk0.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
+			'Коснувшись руки, вас охватывает виденье.'&*nl'Вы сидите на диване и дрочите свой член, пока перед вами огромный черный любовник трахает в жопу вашу жену, Пруденцию Блэквуд.'
 		end
 	end
 	if cavendish=npc:
@@ -597,37 +541,32 @@
 	 	act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1
 		    vision_times[npc]+=1
-		    womenbrain[you]+=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'
-			'<center><video autoplay loop src="pic/sex/solo/dildo_blow<<rand(0,17)>>.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Ваш муж - отличный маг и многому вас научил, но до чего же он скучный в постели. '
+		    womenbrain[you]+=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/dildo_blow<<rand(0,17)>>.webm" ></video></center>'
+			'Коснувшись руки, вас охватывает виденье.'&*nl'Ваш муж - отличный маг и многому вас научил, но до чего же он скучный в постели. '
 			'Вам так хочется ощутить во рту настоящий живой член, а он отказывается потому что не хочет целовать рот, в который трахали. '
 			'Постепенно эта развратная мысль вас стала возбуждат и вы тайком купили дилдо и маструбируете, отсасывая его перед зеркалом.'&act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if gilman=npc:
 	 	act'Использовать дар':
-		 	if vision_times[npc]=0:visioner[you]+=1
-		    vision_times[npc]+=1&!охранник стрипклуба
-		    womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'
-			'<center><video autoplay loop src="pic/sex/bj/mouthfull<<rand(0,3)>>.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Лебеда открыла свой рот и вы накончали ей до краев.'&act'<b>Уйти</b>':gt 'preloc'
+		 	if vision_times[npc]=0:visioner[you]+=1&!охранник стрипклуба
+		    vision_times[npc]+=1&womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/bj/mouthfull<<rand(0,3)>>.webm" ></video></center>'
+			'Коснувшись руки, вас охватывает виденье.'&'Лебеда открыла свой рот и вы накончали ей до краев.'&act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if gilmanwife=npc:
 	 	act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1&!сексшоп
-		    vision_times[npc]+=1
-		    womenbrain[you]+=2&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/sexmachine0.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Закрыв сексшоп, вы испытываете на себе новейшую секс-машину. Дилдо трахает вас в попу, а вибратор возбуждает ваш клитор, вскоре вас охватывает сильнейший оргазм в вашей жизни.'
-			act'<b>Уйти</b>':gt 'preloc'
+		    vision_times[npc]+=1&womenbrain[you]+=2&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/sexmachine0.webm" ></video></center>'
+			'Коснувшись руки, вас охватывает виденье.'&*nl'Закрыв сексшоп, вы испытываете на себе новейшую секс-машину. '
+			'Дилдо трахает вас в попу, а вибратор возбуждает ваш клитор, вскоре вас охватывает сильнейший оргазм в вашей жизни.'&act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if gruber=npc:
 	 	act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1&!порно кинотеатр
-		    vision_times[npc]+=1
-		    womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/wideopen.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			'Сама тетушка Лебеда раздвинула перед вами ноги и вы дрючите ее в кинотеатре.'&act'<b>Уйти</b>':gt 'preloc'
+		    vision_times[npc]+=1&womenbrain[you]-=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/wideopen.webm" ></video></center>'
+			'Коснувшись руки, вас охватывает виденье.'&*nl'Сама тетушка Лебеда раздвинула перед вами ноги и вы дрючите ее в кинотеатре.'&act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if cowgirl=npc:
@@ -729,7 +668,7 @@
 				'Вы минетите старому охотнику Мортимеру за какую-то мелкую услугу, оказанную вашему ковену.'
 		    end
 			act'<b>Уйти</b>':gt 'preloc'
-		 end
+		end
 	end
 	!if takemura=npc:''
 	!if takemurawife=npc:''& !бармен художников
@@ -756,8 +695,8 @@
 	if kinomehwife=npc:
 	 	act'Использовать дар':
 		 	if vision_times[npc]=0:visioner[you]+=1&!ведьма
-		    vision_times[npc]+=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/head_anal1.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
-			womenbrain[you]+=1&'Глава ковена Бойер, принимая вас в ковен, грубо трахает вас в жопу.'&act'<b>Уйти</b>':gt 'preloc'
+		    womenbrain[you]+=1&vision_times[npc]+=1&mana[you]-=50&horny[you]+=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/degraded/head_anal1.webm" ></video></center>'
+			'Коснувшись руки, вас охватывает виденье.'&*nl'Глава ковена Бойер, принимая вас в ковен, грубо трахает вас в жопу.'&act'<b>Уйти</b>':gt 'preloc'
 		end
 	end
 	if captain=npc and StealQW>=4:
@@ -765,6 +704,6 @@
 		 	if vision_times[npc]=0:visioner[you]+=1
 		    vision_times[npc]+=1&StealQW=5&mana[you]-=50&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/lesb/kiss1.webm" ></video></center>'&'Коснувшись руки, вас охватывает виденье.'
 			'Вы за штурвалом и в руке кристалл, из которого светит луч света, видимый далеко в тумане.'&*pl'Так вот, как он прокладывает маршрут в туманах. И где же он его прячет?'&act'<b>Уйти</b>':gt 'preloc'
-		 end
-	 end
+		end
+	end
 end

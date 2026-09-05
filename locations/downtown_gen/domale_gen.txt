@@ -1,15 +1,10 @@
-﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100
-master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
+﻿npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=1&magik[i]=0&beliver[i]=0&!Не имеет отношения к богине луны, иллюзия
 male_pic+=1&if male_pic>400:male_pic=1
 face_pic[i]=male_pic&!присвоение фотки
 $title[i]='Мужчина из даунтауна'&gs'name_nations',rand(9),0,i
 face[i]=rand(0,40)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&facetipe=rand(2)&scull[i]=iif(facetipe=1,1,0)&cheeks[i]=iif(facetipe=2,1,0)
 dick[i]=rand(21,28)&dickd[i]=rand(30,55)&ball[i]=rand(30,100)&vag[i]=0&ass[i]=2&nip[i]=8&tit[i]=0
-dicklongrand=rand(1,100)
-if dicklongrand<=80:dick[i]=rand(12,17)
-if dicklongrand>80 and dicklongrand<=90:dick[i]=rand(7,13)
-if dicklongrand>90 and dicklongrand<100:dick[i]=rand(18,25)
-if dicklongrand=100:dick[i]=rand(25,28)
+dicklongrand=rand(1,100)&dick[i]=iif(dicklongrand<=80,rand(12,17),iif(dicklongrand>80 and dicklongrand<=90,rand(7,13),iif(dicklongrand>90 and dicklongrand<100,rand(18,25),rand(25,28))))
 rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(300,1500)&mus[i]=rand(800,2500)&skin[i]=rand(0,3)
 $nick[i]=$iif(rost[i]<170,'Небольшого роста',$iif(rost[i]>185,'Высокий','Среднего роста'))&$nick[i]+=$iif(mus[i]>fat[i],' мускулистый',$iif(fat[i]<1000,' худощавый',' толстый'))
 face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]=10&hlong[i]=10&hcol[i]=rand(0,3)

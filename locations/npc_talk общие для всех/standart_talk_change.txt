@@ -37,15 +37,15 @@ act'walkprog <<$name[npc]>>':
 	walkprog[npc]=input("26-жилмассив программа передвижения")&gs'stat'&act'...':gt $curloc
 end
 if wantblackcock[npc]=0 and pol[npc]>0:
-	 act'<<$name[npc]>> wantblackcock <b>+</b> ':
-		 lust[npc]+=100&agro[npc]=0&r_leg_t[npc]=1&wantblackcock[npc]+=1
-		 cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Теперь я смогу участвовать в гангбанге с черными.'&act'<b>Уйти</b>':gt 'preloc'
-	 end
+	act'<<$name[npc]>> wantblackcock <b>+</b> ':
+		lust[npc]+=100&agro[npc]=0&r_leg_t[npc]=1&wantblackcock[npc]+=1
+		cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Теперь я смогу участвовать в гангбанге с черными.'&act'<b>Уйти</b>':gt 'preloc'
+	end
 end
 if wantblackcock[npc]>=1:
-	 act'<<$name[npc]>> wantblackcock <b>-</b> ':
+	act'<<$name[npc]>> wantblackcock <b>-</b> ':
 		wantblackcock[npc]=0&r_leg_t[npc]=0&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>>  - Я больше не смогу участвовать в гангбанге с черными.'&act'<b>Уйти</b>':gt 'preloc'
-	 end
+	end
 end
 if whoreblockON[npc]=0 and pol[npc]>0:act'Запретить <<$name[npc]>> стать whore':whoreblockON[npc]=1&gt 'preloc'
 if whoreblockON[npc]=1 and pol[npc]>0:act'Разрешить <<$name[npc]>> стать whore':whoreblockON[npc]=0&gt 'preloc'
@@ -62,8 +62,7 @@ if vag[you]>0 and vag[npc]>0:
 		drinkpee[npc]+=100&peecover[npc]+=100&pee[npc]+=100&piss_mass['<<npc>>,<<you>>']+=1
 		open_mouth[npc]=1&open_anus[npc]=1&open_vag[npc]=1&sexpartner['<<npc>>,<<you>>']+=1&lowered_status['<<npc>>,<<you>>']+=100
 		lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&horny[you]+=100&corr[you]+=100&lesb[you]+=1
-		drinkpee[you]+=100&peecover[you]+=100&pee[you]+=100
-		open_mouth[you]=1&open_anus[you]=1&open_vag[you]=1&gs'stat'&act'...':gt $curloc
+		drinkpee[you]+=100&peecover[you]+=100&pee[you]+=100&open_mouth[you]=1&open_anus[you]=1&open_vag[you]=1&gs'stat'&act'...':gt $curloc
 	end
 end
 if vag[you]=0 and vag[npc]>0:
@@ -90,20 +89,20 @@ if vag[you]=0 and dick[npc]>0:
 	end
 end
 if beliver[npc]=0:
-	 act'Сделать <<$name[npc]>> последователем':
+	act'Сделать <<$name[npc]>> последователем':
 		beliver[npc]=input("введите номер напр. дагон: 2 ")&gs'stat'&act'...':gt $curloc
-	 end
+	end
 end
 if beliver[npc]>0:act'<<$name[npc]>> не будет последователем':beliver[npc]=0&gs'stat'&gt $curloc
 if pol[npc]>0:
-	 act'Сделать <<$name[npc]>> шлюхой npc':
-		 whore[npc]+=1&whoreboss[npc]=input("номер npc")&lust[npc]+=100&agro[npc]=0&stamp_t[npc]=rand(1,4)&t_slot[npc]=rand(32,36)&l_slot[npc]=rand(70,79)&b_slot[npc]=rand(34,36)
-		 ul_slot[npc]=0&ut_slot[npc]=0&forhorn[npc]+=100&oral_fixation[npc]+=100&gs'stat'&act'...':gt $curloc
-	 end
+	act'Сделать <<$name[npc]>> шлюхой npc':
+		whore[npc]+=1&whoreboss[npc]=input("номер npc")&lust[npc]+=100&agro[npc]=0&stamp_t[npc]=rand(1,4)&t_slot[npc]=rand(32,36)&l_slot[npc]=rand(70,79)&b_slot[npc]=rand(34,36)
+		ul_slot[npc]=0&ut_slot[npc]=0&forhorn[npc]+=100&oral_fixation[npc]+=100&gs'stat'&act'...':gt $curloc
+	end
 end
 if whore[npc]>0:act'<<$name[npc]>> больше не будет шлюхой':whoreboss[npc]=0&whore[npc]=0&gs'stat'&gt $curloc
 if whore[you]=0:
-	 act'Самой стать шлюхой npc':
+	act'Самой стать шлюхой npc':
 		whoreboss[you]=npc&whore[you]+=1&lust[you]+=100&agro[you]=0&forhorn[you]+=100&oral_fixation[you]+=100&corr[you]+=100&horny[you]+=100
 		drinkpee[you]+=100&peecover[you]+=100&feminize[you]+=100&collar[you]=1&t_slot[you]=86&l_slot[you]=46&b_slot[you]=11&ul_slot[you]=14&ub_slot[you]=2&ut_slot[you]=2
 		lowered_status['<<npc>>,<<you>>']+=100&sexpartner['<<npc>>,<<you>>']+=1&know['<<npc>>,<<you>>']+=1&know_whore['<<npc>>,<<you>>']+=1&gs'stat'&act'...':gt $curloc

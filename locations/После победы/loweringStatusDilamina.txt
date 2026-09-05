@@ -1,17 +1,13 @@
-﻿soul[you]+=100&money[you]+=100000&dilaminaFallQW=100
-gs'stat'&'<center><img src="pic/face/5/64.jpg" ></center>'
+﻿soul[you]+=100&money[you]+=100000&dilaminaFallQW=100&gs'stat'&'<center><img src="pic/face/5/64.jpg" ></center>'
 'Диламина падает поверженная и рядом появляется Эдди Стованс, он довольно потирает руки - Наконец то я разберусь с этой сукой. На, что тебе причитается.'
 w=arhivson&s=npc&blackmail[npc]=1&gs'add_sex_stat',npc,arhivson
-$global_npc_log[npc]+='<br>'
-$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[arhivson]>> <<$surname[arhivson]>> изнасиловал и унизил меня.'
+$global_npc_log[npc]+='<br>'&$global_npc_log[npc]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[arhivson]>> <<$surname[arhivson]>> изнасиловал и унизил меня.'
 $global_npc_log[arhivson]+='<br>'
 $global_npc_log[arhivson]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[npc]>> <<$surname[npc]>> была изнасилована и унижена мной, я выебал ее во все дыры и обоссал'
 agro[s]=0&lust[s]=100&vagsex[s]+=1&avagsex[w]+=1&anal[s]+=1&aanal[w]+=1&bj[s]+=1&abj[w]+=1&vag[s]+=10&anus[s]+=10
 if throat[s]<10:throat[s]=10
 if dick[w]>throat[s]:throat[s]+=1
-pee[w]+=1&drinkpee[s]+=1
-t_slot[s]=rand(31,36)&l_slot[s]=rand(15,22)&b_slot[s]=rand(8,11)&if stamp_t[s]=0:stamp_t[s]=rand(1,4)
-act'Дальше меня не касается':gt'preloc'
+pee[w]+=1&drinkpee[s]+=1&t_slot[s]=rand(31,36)&l_slot[s]=rand(15,22)&b_slot[s]=rand(8,11)&if stamp_t[s]=0:stamp_t[s]=rand(1,4)&act'Дальше меня не касается':gt'preloc'
 act'Я пожалуй посмотрю':
 	X[you]=3&Y[you]=3&Z[you]=3&H[you]=1&R[you]=4&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
 	X[arhivson]=X[you]&Y[arhivson]=Y[you]&Z[arhivson]=Z[you]&H[arhivson]=H[you]&R[arhivson]=R[you]
