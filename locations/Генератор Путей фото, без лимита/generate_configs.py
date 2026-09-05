@@ -10,7 +10,7 @@ ALLOWED_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.webp', '.mp4', '.gif')
 def get_hierarchical_key(path_str):
     """
     ГЕНЕРАЦИЯ КЛЮЧА: Собирает ключ из всех папок (относительно ROOT_PHOTO_DIR).
-    Пример: D:\Maestat\Test\pic\face\11\0_0.jpg -> face_11_0
+    Пример: ..\pic\face\11\0_0.jpg -> face_11_0
     """
     path = Path(path_str)
     # 1. Вычисляем относительный путь:
