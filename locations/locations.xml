@@ -1726,5 +1726,8 @@
     <Folder name="Демоника">
       <Location name="pigman_gen"/>
     </Folder>
+    <Folder name="Генератор Путей фото, без лимита">
+      <Location name="all_found_paths_FINAL"/>
+    </Folder>
   </Structure>
 </QGen-project>
