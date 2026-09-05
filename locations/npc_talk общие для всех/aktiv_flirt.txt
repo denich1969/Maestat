@@ -30,7 +30,9 @@
 				if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
 				if horny[npc]>=50 and dick[you]=0:gs'take_follower'&!позвать с собой персонажа
 			else
-				flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+				if alko[npc]=0:flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+				if alko[npc]>3:'<<$name[npc]>> пытается убрать от себя ваши руки и заплетающимся языком повторяет - Ну, что ты делаешь?'&horny[you]+=10
+				if alko[npc]>9:'<<$name[npc]>> вяло пытается убрать от себя ваши руки и нечленораздельно мычит - Ну, .....'&horny[you]+=10&gs'take_follower'
 			end
 		end
 		if selfrespect[npc]=1:
@@ -47,7 +49,9 @@
 				flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&horny[you]+=10&'<<$name[npc]>> хихикает когда вы щупаете ее выпуклости - Ой, ну что ты делаешь?'
 				if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
 			else
-				flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+				if alko[npc]=0:flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+				if alko[npc]>3:'<<$name[npc]>> пытается убрать от себя ваши руки и заплетающимся языком повторяет - Ну, что ты делаешь?'&horny[you]+=10
+				if alko[npc]>9:'<<$name[npc]>> вяло пытается убрать от себя ваши руки и нечленораздельно мычит - Ну, .....'&horny[you]+=10&gs'take_follower'
 			end
 		end
 		if selfrespect[npc]=0:
@@ -64,7 +68,9 @@
 				flirt_point[npc]+=1&friends['<<npc>>,<<you>>']+=1&friends['<<you>>,<<npc>>']+=1&horny[you]+=10&'<<$name[npc]>> хихикает когда вы щупаете ее выпуклости - Ой, ну что ты делаешь?'
 				if horny[you]>=50 and dick[you]>1:gs'take_follower'&!позвать с собой персонажа
 			else
-				flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+				if alko[npc]=0:flirt_point[npc]-=1&friends['<<npc>>,<<you>>']-=1&friends['<<you>>,<<npc>>']-=1&'<<$name[npc]>> убирает от себя ваши руки - Ты что себе позволяешь?'
+				if alko[npc]>3:'<<$name[npc]>> пытается убрать от себя ваши руки и заплетающимся языком повторяет - Ну, что ты делаешь?'&horny[you]+=10
+				if alko[npc]>9:'<<$name[npc]>> вяло пытается убрать от себя ваши руки и нечленораздельно мычит - Ну, .....'&horny[you]+=10&gs'take_follower'
 			end
 		end
 	end

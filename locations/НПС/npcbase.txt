@@ -201,3 +201,7 @@ if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>=10 and friend
 if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>=10 and friends['<<npc>>,<<you>>']<50:'<i>Приятельница</i>'
 if pol[npc]=0 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10 and father[you]!npc and brother[you]!npc:'<i>Знакомый</i>'
 if pol[npc]=1 and husband[you]!npc and friends['<<npc>>,<<you>>']>0 and friends['<<npc>>,<<you>>']<10 and mother[you]!npc and sister[you]!npc:'<i>Знакомая</i>'
+if alko[npc]>0 and alko[npc]<4:'<i>в подпитии</i>'
+if alko[npc]>3 and alko[npc]<6:'<i>пьяненькая</i>'
+if alko[npc]>5 and alko[npc]<10:'<i>пьяная</i>'
+if alko[npc]>9:'<i>в дымину пьяная</i>'

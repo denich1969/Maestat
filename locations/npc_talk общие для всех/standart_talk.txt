@@ -596,8 +596,8 @@ act'Болтать':
 				if extrovert[npc]=1:friends['<<npc>>,<<you>>']+=5&friends['<<you>>,<<npc>>']+=5
 				if extrovert[npc]=2:friends['<<npc>>,<<you>>']+=10&friends['<<you>>,<<npc>>']+=10
 				X[you]=2&Y[you]=0&Z[you]=3&H[you]=2&R[you]=0&X[npc]=X[you]&Y[npc]=Y[you]&Z[npc]=Z[you]&H[npc]=H[you]&R[npc]=R[you]
-				money[you]-=500&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
-				'<<$name[npc]>> идет вместе с вами в кафе и вы там сидите с кофе и салатиками и болтаете в непринужденной обстановке.'&gs'ligia_kafe'
+				money[you]-=500&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
+				'<<$name[npc]>> идет вместе с вами в кафе и вы там сидите с кофе и салатиками и болтаете в непринужденной обстановке.'&gs'ligia_kafe'&act'<b>Уйти</b>':gt 'preloc'
 			end
 		end
 		if money[you]>=10000:

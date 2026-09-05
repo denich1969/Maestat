@@ -7,6 +7,7 @@ if Zhome[you]>0:
 end
 if Zhome[npc]>0 and husband[npc]>=0:
 	act'Пожениться и переехать к ней':
+		if npc=tabernwoman:lock['1,1,1,1,4']=1
 		husband[npc]=you&husband[you]=npc&Xhome[you]=Xhome[npc]&Yhome[you]=Yhome[npc]&Zhome[you]=Zhome[npc]&Hhome[you]=Hhome[npc]&Rhome[you]=Rhome[npc]
 		key['<<you>>,<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']=1&can_sleep['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>']=1
 		$locnameH['<<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>']+=' (Жилье жены)'

@@ -7,7 +7,7 @@ if demon_dick[npc]>0:
 		else
 			if demon_dick_queen[you]=npc:
 				if soul[you]>=soul[npc]*3:
-					'<b>Вы чувтвуете что клеймо на душе больше не оказывает сильного давления на ум и он остаеться вполне ясным</b>'
+					'<b>Вы чувствуете что клеймо на душе больше не оказывает сильного давления на ум и он остаеться вполне ясным</b>'
 					act'Снять с себя контроль':
 						cla&soul[you]-=soul[npc]&soul_loc['<<X[npc]>>,<<Y[npc]>>,<<Z[npc]>>,<<H[npc]>>,<<R[npc]>>']+=soul[npc]&demon_dick_queen[you]=0&!TODO - пока заготовка
 						"Наконец вы обрели свободу"&gs'stat'&act'Готово!':gt'npc'
@@ -45,7 +45,8 @@ else
 			if demon_dick_queen[npc]=0 and demon_dick_sub[npc]>25:
 				if soul[you]-soul[npc]*2>=soul[npc]*3+1000:
 					act'Сломать разум':
-						soul[you]-=soul[npc]*2&soul[npc]+=soul[npc]*2&demon_dick_queen[npc]=you&cla&"Вы вливаете в нее свою душу, отмечая свою метку на её душе"&gs'stat'&act'Готово!':gt'npc'
+						soul[you]-=soul[npc]*2&soul[npc]+=soul[npc]*2&demon_dick_queen[npc]=you&whoreboss[npc]=you&whore[npc]+=1
+						cla&'Вы вливаете в нее свою душу, отмечая свою метку на её душе'&gs'stat'&act'Готово!':gt'npc'
 					end
 				else
 					"Вашей силы души не хватит для подчинения и контроля"

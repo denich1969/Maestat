@@ -36,7 +36,8 @@ if tipe_view=0:
 	if slut[i]=1 and know_slut[i]>0:$status[i]+=' <i>блядь</i>'
 end
 if whoreboss[you]=i:$status[i]+=' <i>ваш сутенер</i>'
-if follower[i]=you:$status[i]+=' <b>следует за вами</b>'
+if follower[i]=you and alko[npc]<10:$status[i]+=' <b>следует за вами</b>'
+if follower[i]=you and alko[npc]>9:$status[i]+=' <b>тащится с вашей помощью</b>'
 $d_viewnpc=''&!далее вывод картинки второстепенных НПС и мобов
 !if mob[i]=0:gs 'init_d_view', i, 'd_viewnpc'
 if mob[i]>0:gs 'gen_d_view'
