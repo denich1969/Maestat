@@ -4,30 +4,28 @@
 import os
 from pathlib import Path
 import re
+# Скрипт будет искать подкаталог 'pic' по абсолютному пути.
 ROOT_PHOTO_DIR = r"D:\Maestat\Test\pic"
+# Скрипт будет искать подкаталог 'pic' в той же папке, где он сам запущен.
+#ROOT_PHOTO_DIR = Path(os.path.join(Path(__file__).parent, 'pic')).resolve()
 OUTPUT_FILE = "all_found_paths_tuple.txt"
-ALLOWED_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.webp', '.mp4', '.gif')
+ALLOWED_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.webp', '.mp4', '.gif', '.webm')
 def get_hierarchical_key(path_str):
     """
     ГЕНЕРАЦИЯ КЛЮЧА: Собирает ключ из всех папок (относительно ROOT_PHOTO_DIR).
-    Пример: ..\pic\face\11\0_0.jpg -> face_11_0
+    Пример: face/11/0_0.jpg -> face_11_0
     """
     path = Path(path_str)
-    # 1. Вычисляем относительный путь:
-    relative_path = path.relative_to(Path(ROOT_PHOTO_DIR))
-    # 2. Собираем все части пути в строковый ключ, заменяя разделители на подчеркивания.
-    # path.parent.relative_to(Path(ROOT_PHOTO_DIR)) даст 'face/11/0'
     try:
-        # Папка, содержащая файл (например, face/11)
+        # Используем относительный путь родительской папки
         parent_dir = path.parent
-        if parent_dir.relative_to(Path(ROOT_PHOTO_DIR)) == Path('.'):
-            # Если файл находится прямо в ROOT_PHOTO_DIR, то ключ будет просто имени_файла.
-            return f"root_level_photos"
-        # Папка иерархия: например, (face/11/0)
         relative_parts = list(parent_dir.relative_to(Path(ROOT_PHOTO_DIR)).parts)
+        if not relative_parts:
+             # Если роот-директория равна директории папки
+            return "root_level_photos"
         # Преобразуем чистый путь: face/11/0 -> face_11_0
-        key = "_".join(parent_dir.relative_to(Path(ROOT_PHOTO_DIR)).parts)
-        # !!! ГРАНТГАРАНТИРОВАННЫЙ КЛЮЧ !!!
+        key = "_".join(relative_parts)
+        # Префикс в конце, чтобы отделить от группы
         return f"{key}_photos"
     except Exception:
         # Fallback, если Path не может расчитать относительный путь
@@ -38,7 +36,7 @@ def scan_and_aggregate_paths(root_dir):
     print(f"[INFO] Начинаю универсальное сканирование в: {root_dir}")
     found_paths = []
     try:
-        base_path = Path(root_dir).resolve()
+        base_path = Path(root_dir)
         if not base_path.exists():
             print(f"[🔴 ERROR] Каталог не найден или недоступен: {base_path}")
             return []
@@ -49,6 +47,7 @@ def scan_and_aggregate_paths(root_dir):
                      found_paths.append(str(path))
         total = len(found_paths)
         print(f"[🟢 SUCCESS] Сканирование завершено. Найдено только {total} подходящих медиафайлов.")
+        # *** ДИАГНОСТИКА ***: Выводим первые 5 путей, чтобы доказать работу сканера.
         first_5 = found_paths[:5]
         print("[🔎 ДИАГНОСТИКА] Проверка: Вывод первых 5 найденных путей:")
         for path in first_5:
@@ -61,31 +60,49 @@ def format_output_to_tuple(paths):
     """Форматирует и возвращает СТРОКУ с кортежами, используя иерархическую логику: [ПАТТЕРН_ИЕРАРХИИ]"""
     if not paths:
         return "ERROR: Не обнаружено файлов для обработки по заданным расширениям."
+    # Структура: { 'имя_ключа': {'photos': [path1, path2], 'videos': [path1, path2]} }
     grouped = {}
     unique_sorted_paths = sorted(list(set(paths)))
     output = []
     for path in unique_sorted_paths:
-        # *** ИСПОЛЬЗУЕМ ГЕНЕРАТОР ИЕРАРХИЧЕСКОГО КЛЮЧА ***
+        # 1. Получаем иерархический ключ
         key = get_hierarchical_key(path)
         if key not in grouped:
-             grouped[key] = []
-        grouped[key].append(path)
+             grouped[key] = {'photos': [], 'videos': []}
+        # 2. Определяем тип файла для ветвления логики
+        ext = Path(path).suffix.lower()
+        if ext in ('.jpg', '.jpeg', '.png', '.webp', '.gif'):
+            # Добавляем в список фото
+            grouped[key]['photos'].append(path)
+        elif ext in ('.mp4', '.webm'):
+            # Добавляем в список видео
+            grouped[key]['videos'].append(path)
+        # Другие типы игнорируются
     # --- ГЕНЕРАЦИЯ КОНТЕНТА ---
-    for group_name in sorted(list(grouped.keys())):
-        paths_to_add = grouped[group_name]
-        # 1. Массив путей для группы
-        paths_str = ',\n    '.join([f'"{p}"' for p in paths_to_add])
-        output.append(f'{group_name}_paths = [\r\n    ' + '\r\n    '.join([f'"{p}"' for p in paths_to_add]) + ']\r\n')
-        # 2. Финальный кортеж
-        indices_list = list(range(len(paths_to_add)))
-        output.append(f'%{group_name} = ({group_name}_paths, [{", ".join(map(str, indices_list))}] )')
+    for key in sorted(list(grouped.keys())):
+        group_data = grouped[key]
+        # Обрабатываем фотографии (jpg/png/webp/gif)
+        photos_paths = group_data.get('photos', [])
+        if photos_paths:
+            photo_key = f'{key}_photos'
+            output.append(f'{photo_key}_paths = [\n    ' + '\n    '.join([f'"{p}"' for p in photos_paths]) + ']\n')
+            photo_indices_list = list(range(len(photos_paths)))
+            output.append(f'%{photo_key} = ({photo_key}_paths, [{", ".join(map(str, photo_indices_list))}] )')
+        # Обрабатываем видео (mp4/webm)
+        videos_paths = group_data.get('videos', [])
+        if videos_paths:
+            video_key = f'{key}_videos'
+            output.append(f'{video_key}_paths = [\n    ' + '\n    '.join([f'"{p}"' for p in videos_paths]) + ']\n')
+            video_indices_list = list(range(len(videos_paths)))
+            output.append(f'%{video_key} = ({video_key}_paths, [{", ".join(map(str, video_indices_list))}] )')
     return "\n".join(output)
 if __name__ == "__main__":
     print("=" * 60)
-    print("| [*] ЗАПУСК: ПРОВЕРКА ПУТИ И ИЕРАРХИЧНАЯ СБОРКА КОНФИГ-ПАРСЕРА |")
+    print("| [*] ЗАПУСК: АВТОМАТИЧЕСКАЯ ГЕНЕРАЦИЯ КОНФИГ-ПАРСЕРА |")
     print("================================================")
     found_paths = scan_and_aggregate_paths(ROOT_PHOTO_DIR)
     final_content = format_output_to_tuple(found_paths)
+    # --- ФИНАЛЬНАЯ ВАЛИДАЦИЯ (Запись файла) ---
     try:
         Path("photo_configs").mkdir(exist_ok=True)
         with open("photo_configs/all_found_paths_FINAL.txt", "w") as f:
