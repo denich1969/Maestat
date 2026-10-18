@@ -4,7 +4,7 @@ if X=0 and Y=0:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -15,7 +15,7 @@ X=0&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=0&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №2'&$lname['<<$temploc>>']='Комната №2'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -26,7 +26,7 @@ X=1&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=1&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Комната №3'&$lname['<<$temploc>>']='Комната №3'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -36,7 +36,7 @@ X=1&Y=2
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №4'&$lname['<<$temploc>>']='Комната №4'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -47,7 +47,7 @@ X=2&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=2&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №5'&$lname['<<$temploc>>']='Комната №5'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -55,7 +55,7 @@ X=2&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=2&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №6'&$lname['<<$temploc>>']='Комната №6'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -66,7 +66,7 @@ X=3&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=3&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №7'&$lname['<<$temploc>>']='Комната №7'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -75,7 +75,7 @@ X=3&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=3&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Комната №8'&$lname['<<$temploc>>']='Комната №8'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -86,7 +86,7 @@ X=4&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=4&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Комната №9'&$lname['<<$temploc>>']='Комната №9'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -94,7 +94,7 @@ X=4&Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 X=4&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №10'&$lname['<<$temploc>>']='Комната №10'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -105,7 +105,7 @@ X=5&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Комната №11'&$lname['<<$temploc>>']='Комната №11'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -114,7 +114,7 @@ Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №12'&$lname['<<$temploc>>']='Комната №12'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -125,7 +125,7 @@ X=6&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №13'&$lname['<<$temploc>>']='Комната №13'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -133,7 +133,7 @@ Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №14'&$lname['<<$temploc>>']='Комната №14'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -145,7 +145,7 @@ X=7&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №15'&$lname['<<$temploc>>']='Комната №15'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -154,7 +154,7 @@ Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №16'&$lname['<<$temploc>>']='Комната №16'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -166,7 +166,7 @@ X=8&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №17'&$lname['<<$temploc>>']='Комната №17'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -175,7 +175,7 @@ Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №18'&$lname['<<$temploc>>']='Комната №18'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -186,7 +186,7 @@ X=9&Y=1&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №19'&$lname['<<$temploc>>']='Комната №19'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -195,7 +195,7 @@ Y=0&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №20'&$lname['<<$temploc>>']='Комната №20'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -217,14 +217,14 @@ X=10&Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<
 	door2['<<$temploc>>']=1
 X=11&Y=2&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Туалет'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'&np['<<$temploc>>']=1
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=0
 	$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
 	can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3
 X=11&Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Туалет'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет'&np['<<$temploc>>']=1
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
@@ -238,7 +238,7 @@ X=9&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Комната №21'&$lname['<<$temploc>>']='Комната №21'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -246,7 +246,7 @@ Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №22'&$lname['<<$temploc>>']='Комната №22'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -258,7 +258,7 @@ X=8&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Комната №23'&$lname['<<$temploc>>']='Комната №23'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -267,7 +267,7 @@ Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №24'&$lname['<<$temploc>>']='Комната №24'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -279,7 +279,7 @@ X=7&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №25'&$lname['<<$temploc>>']='Комната №25'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -288,7 +288,7 @@ Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №26'&$lname['<<$temploc>>']='Комната №26'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'& !$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -300,7 +300,7 @@ X=6&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №27'&$lname['<<$temploc>>']='Комната №27'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -309,7 +309,7 @@ Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №28'&$lname['<<$temploc>>']='Комната №28'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -322,7 +322,7 @@ X=5&Y=4&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H
 Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №29'&$lname['<<$temploc>>']='Комната №29'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -331,7 +331,7 @@ Y=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&
 Y=5&maxPositionH['<<X>>,<<Y>>,<<Z>>']=0&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Номер'&maxPositionR['<<$templocH>>']=0
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
     $locname['<<$temploc>>']='Комната №30'&$lname['<<$temploc>>']='Комната №30'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Комната'

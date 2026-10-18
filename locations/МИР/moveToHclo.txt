@@ -1,4 +1,4 @@
-﻿gs'stat'&'Дверь закрыта'&$locH=$loc[you]&act'<b>Уйти</b>':$locH=''&gt 'preloc'
+﻿gs'stat'&'Дверь закрыта'&$locH=$LOC_str[you]&act'<b>Уйти</b>':$locH=''&gt 'preloc'
 if master[you]>0:
     act'Пройти сквозь дверь':cls&H[you]=args[0]&gt'preloc'
 else
@@ -34,7 +34,7 @@ else
 						if args[0]=0 and item[245]=0:'Вам кажется, что кто-то идёт'
 						if args[0]=4 and item[245]=1:'В каюте капитана больше ничего нет'
 						act 'Отойти и осмотреться':delact 'обшарить помещение'&time+=1&cls&H[you]=0&gt'world'
-						if args[0]!4 and $loc[you]!'3,0,1,0,0':
+						if args[0]!4 and $LOC_str[you]!'3,0,1,0,0':
 							if total_npc_on_loc=0:
 								act 'Войти внутрь':time+=1&cls&H[you]=args[0]&gt'world'
 							else

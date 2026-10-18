@@ -45,7 +45,7 @@ act'<<$textsea>>':
 				'еще раз оглядев вас, она брезгливо мехнула рукой, после чего отправила вас к поверхности...'&'<center><img src="pic/event/see/fishreal.jpg" ></center>'
 				act'Всплывать':
 					dagongene-=5&seeevent=99&horny[you]=0&health[you]=healthmax[you]/3&time+=15&cls&act'...':gt 'preloc'
-					'Выпыв на берег, вы неожиданно поняли, что своим отказом вы сильно рисковали и теперь действительно стоит избегать воды...'&'<center><img src="pic/event/see/end2.jpg" ></center>'
+					'Выплыв на берег, вы неожиданно поняли, что своим отказом вы сильно рисковали и теперь действительно стоит избегать воды...'&'<center><img src="pic/event/see/end2.jpg" ></center>'
 				end
 			end
 			act'Кивать, соглашаясь':

@@ -9,7 +9,7 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_male+=1
 womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=2&ratio[i]=2&brave[i]=1&lust[i]=100&!характер
 h_slot[i]=0&m_slot[i]=127&w_slot[i]=125&t_slot[i]=92&l_slot[i]=5&b_slot[i]=33&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=72
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=72
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&stavrogin=i&lvl[i]=1&soul[i]=1000&work[i]=0&subwork[i]=100&master[i]=0&delusion[i]=0&magik[i]=6&beliver[i]=0
 $name[i]='Николай'&$surname[i]='Ставрогин'&$nick[i]='Демонический красавец'&$title[i]=''&$history[i]='Я компаньон Верховенского'&spec_face_pic[i]=5&face_pic[i]=118
@@ -22,7 +22,7 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_male+=1
 womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&lust[i]=50&!характер
 h_slot[i]=0&m_slot[i]=124&w_slot[i]=112&t_slot[i]=91&l_slot[i]=91&b_slot[i]=32&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=72
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=72
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&pornstar=i&lvl[i]=1&soul[i]=15000&work[i]=0&subwork[i]=50&master[i]=0&delusion[i]=0&magik[i]=1&beliver[i]=0
 $name[i]='Шарлотта'&$surname[i]='Де Слат'&$nick[i]='Порнозвезда'&$title[i]=''&$history[i]='Я снимаюсь в порно и горжусь этим'&spec_face_pic[i]=5&face_pic[i]=119
@@ -35,7 +35,7 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=1&gs'body'&total_generated_female+=1
 womenbrain[i]=rand(10,40)&bisex[i]=1&agro[i]=10&selfrespect[i]=0&positiv[i]=1&extrovert[i]=1&ratio[i]=0&brave[i]=0&lust[i]=100&!характер
 h_slot[i]=7&t_slot[i]=35&l_slot[i]=46&b_slot[i]=11&ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=0&tongue_p[i]=1&nip_p[i]=1&vag_pirs[i]=1&stamp_t[i]=rand(1,4)&!l_hand_t[i]=3
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=72
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=72
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 slave[npc]=verhoven
 w=verhoven&s=stavrogin&know['<<w>>,<<s>>']+=1&know['<<s>>,<<w>>']+=1&friends['<<w>>,<<s>>']+=100&friends['<<s>>,<<w>>']+=100

@@ -20,16 +20,16 @@ if livingloc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1 and ownerloc['<<X[
 end	 '
 !{if StealQW>5 and lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=0 and key['<<you>>,<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=0:
 	!H[you]=args[0]&gt 'preloc'
-	!$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>,<<R[you]>>'
-	if ($locnameR['<<$loc[you]>>']='Прихожая' or R[you]=0) and hacking['<<$loc[you]>>']=0 and total_npc_on_loc=0:
+	!$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<args[0]>>,<<R[you]>>'
+	if ($locnameR['<<$LOC_str[you]>>']='Прихожая' or R[you]=0) and hacking['<<$LOC_str[you]>>']=0 and total_npc_on_loc=0:
 		act 'обшарить помещение':
-			hacking['<<$loc[you]>>']=1&'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
-			if rand(1)=1:tt=rand(1,131)&item_loc_t['<<tt>>,<<$loc[you]>>']=1&'<<$t_name[tt]>>'
-			if rand(1)=1:tt=rand(1,68)&item_loc_b['<<tt>>,<<$loc[you]>>']=1&'<<$b_name[tt]>>'
-			if rand(1)=1:tt=rand(1,121)&item_loc_l['<<tt>>,<<$loc[you]>>']=1&'<<$l_name[tt]>>'
+			hacking['<<$LOC_str[you]>>']=1&'Вы обшариваете пространство за дверью и обнаруживаете, что имеется:  '
+			if rand(1)=1:tt=rand(1,131)&item_loc_t['<<tt>>,<<$LOC_str[you]>>']=1&'<<$t_name[tt]>>'
+			if rand(1)=1:tt=rand(1,68)&item_loc_b['<<tt>>,<<$LOC_str[you]>>']=1&'<<$b_name[tt]>>'
+			if rand(1)=1:tt=rand(1,121)&item_loc_l['<<tt>>,<<$LOC_str[you]>>']=1&'<<$l_name[tt]>>'
 			cls&gt 'world'
 		end
-		if hacking['<<$loc[you]>>']=1:delact 'обшарить помещение'
+		if hacking['<<$LOC_str[you]>>']=1:delact 'обшарить помещение'
 		act'Выйти и закрыть дверь':
 			$buildingsList = " <<$locnameH['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']>> (<a href='exec:  gt""moveToHclo"", <<H[you]>>'>""</a>)"
 			lock['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>']=1&cls&H[you]=0&gt 'world'

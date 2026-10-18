@@ -12,4 +12,4 @@ womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=30&selfrespect[i]=2&positiv[i]=1&e
 girl[cavendish]+=1&guy[i]+=1&sexpartner['<<i>>,<<cavendish>>']+=100&sexpartner['<<cavendish>>,<<i>>']+=100&vagsex[i]+=100&avagsex[cavendish]+=100
 sexpartner_num_m['<<i>>,<<guy[i]>>']=cavendish&sexpartner_num_f['<<cavendish>>,<<girl[cavendish]>>']=i&husband[i]=cavendish&husband[cavendish]=i&oral_fixation[i]=100&!Сексуальный опыт
 t_slot[i]=89&l_slot[i]=0&b_slot[i]=31&ut_slot[i]=2&ul_slot[i]=15&ub_slot[i]=2&!l_hand_t[i]=3&nose_p[i]=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=67
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=67

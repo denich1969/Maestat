@@ -1,18 +1,18 @@
 ﻿X=16&Y=11&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!НА ВОСТОК
 	$locname['<<$temploc>>']='Галерея'&$lname['<<$temploc>>']='Галерея'&$locopis['<<$temploc>>']='Переход с картинами на стенах'&np['<<$temploc>>']=347
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=0
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=0&w_wall_num['<<$temploc>>']=0
 	$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'
 X=17&Y=11&gs 'toilet_gen',4&$locopis['<<$temploc>>']='Туалет для слуг'&np['<<$temploc>>']=1&!НА СЕВЕР
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=0
 	$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	item_loc['17,<<$temploc>>']+=5&item_loc['20,<<$temploc>>']+=3&!can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1
 X=16&Y=12&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!НА СЕВЕР
 	$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$locopis['<<$temploc>>']='Унылая комната с простыми но прочными кроватями'&np['<<$temploc>>']=175
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'
@@ -21,7 +21,7 @@ X=16&Y=12&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!НА СЕВЕР
 	gs'guard'&$title[npc]='Гвардеец королевства'&gs'guard'&$title[npc]='Гвардеец королевства'
 X=15&Y=11&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&!НА СЕВЕР
 	$locname['<<$temploc>>']='Комната для слуг'&$lname['<<$temploc>>']='Комната для слуг'&$locopis['<<$temploc>>']='Унылая комната с простыми но прочными кроватями'&np['<<X>>,<<Y>>,<<Z>>']=175
-	$wall_name['<<$temploc>>']='Комната'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
+	$wall_name['<<$temploc>>']='Комната'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=0&w_wall_num['<<$temploc>>']=1
 	$e_wall['<<$temploc>>']='Стена'&!$w_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'
 	$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'
 	$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<Z>>,<<H>>,<<R>>']='Комната'

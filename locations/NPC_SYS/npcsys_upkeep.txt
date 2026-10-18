@@ -1,0 +1,45 @@
+﻿! Slow per-NPC bookkeeping, every ns_upk_act minutes in the players world and ns_upk_bg in
+! background districts: what the old walker / wal_main / wal_main_sub did for every NPC on
+! every step (stats and clothes in wal_class, relationships, arousal).
+ns_uk=time-nsu_last[w]
+if nsu_last[w]=0 or ns_uk<1:ns_uk=ns_step_min
+if ns_uk>60:ns_uk=60
+nsu_last[w]=time
+nsu_next[w]=time+iif(ns_act=1,ns_upk_act,ns_upk_bg)
+tormoza+=1
+if age[w]<=0 and cantwalk[w]=0:age[w]=iif(mob[w]>0,rand(18,30),rand(18,25))
+if demon_dick_stomath[w]>0:gs'demon_dick_stomath_func',w & w=ns_w
+if immobilaze[w]=0 and age[w]>0:
+	if mob_busy[w]>0 and daybusympb[w]<>daystart:daybusympb[w]=daystart & mob_busy[w]=0
+	gs'noslutlist'
+	w=ns_w
+	gs'wal_class'
+	w=ns_w
+end
+! from wal_main_sub
+if soul[w]<=0 and slutgirl=w:X[w]=2&Y[w]=3&Z[w]=1&H[w]=0&R[w]=0&dead[w]=2&slutgirlgrave+=1    
+if slutgirl=w and guy[w]>=20 and port_whore[w]=0 and slutgirlonce=0 and slave[w]=0 and Zhome[w]=1:
+    gang[w]+=1&slutgirlonce=1&port_whore[w]=1&$history[w]='До попадания в город я была моделью. А тут сломалась и стала проституткой'
+    l_leg_t[w]=2&pubis_t[w]=1&stamp_t[w]=rand(1,4)&slot[w]=71&l_slot[w]=0&b_slot[w]=11&ut_slot[w]=0&ul_slot[w]=0&ub_slot[w]=0&nip_p[w]=3&vag_pirs[w]=3&nose_p[w]=2&tongue_p[w]=1
+end
+if port_whore[w]>0 and slave[w]=0:slave[w]=tornton
+if slutgirl=w and tornton_lose_slave=0 and myagent[w]=you:
+    tornton_lose_slave=1&if slave[w]=tornton:slave[w]=0
+end
+if pol[w]>0 and boyfriend_num[w]>0 and whore[w]>0:s=boyfriend_num[w]&girlfriend_num[s]=0&boyfriend_num[w]=0&ex_girlfriend['<<s>>,<<w>>']=1
+if pol[w]>0 and girlfriend_num[w]>0:s=girlfriend_num[w]&girlfriend_num[w]=0&boyfriend_num[w]=0&girlfriend_num[s]=0&boyfriend_num[s]=0&ex_girlfriend['<<w>>,<<s>>']=1
+! arousal (wal_main). The old code added it on every walker call, roughly every 10 game minutes,
+! so it is scaled by the minutes since the last upkeep.
+ns_uf=ns_uk/10
+if ns_uf<1:ns_uf=1
+if mob[w]=0 and lust[w]>50 and horny[w]<50:horny[w]+=ns_uf*(lust[w]/10)
+if mob[w]>0 and dick[w]>1:horny[w]+=ns_uf*(((corr[w]/10)+(lust[w]/10)+(agro[w]/10)+(dom[w]/10))/2)
+if mob[w]=0 and dick[w]>1 and horny[w]>100:horny[w]=100
+if mob[w]>0 and dick[w]>1 and horny[w]>100:horny[w]=100
+if soul[w]<=0:
+	if statist[w]=1:
+		X[w]=2&Y[w]=3&Z[w]=1&H[w]=0&R[w]=0&dead[w]=2
+	else
+		soul[w]=20
+	end
+end

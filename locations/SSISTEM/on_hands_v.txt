@@ -25,15 +25,15 @@ act'Стонать':
 			end
 			'Вы выгибаете спину пока вас трахают в киску'
 			if you_blow>0:fuckblow[you_blow]+=1&bj[you]+=1&bj_mass['<<you_blow>>,<<you>>']+=1&'Пока вас трахают в киску вы еще сосете второй член'&gs'fuck_oral',you_blow,you
-			gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$loc[you]>>']>=1:$porno[film]+='Вас ебут раком в пизду и вы сосете член. '
+			gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вас ебут раком в пизду и вы сосете член. '
 		end
 	else
-		if toilet['<<$loc[you]>>']>=1 and agro[vag_fucker]=2:
+		if toilet['<<$LOC_str[you]>>']>=1 and agro[vag_fucker]=2:
 			gs'wet'&'<center><video autoplay loop src="pic/sex/degraded/<<rand(0,1)>>.webm" ></video></center>'&'<<$nick[vag_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в пизду.'
-			if camera['<<$loc[you]>>']>=1:$porno[film]+='<<$nick[vag_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в пизду. '
+			if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='<<$nick[vag_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в пизду. '
 		else
 			$func('get_images', 'vag_fuck_dog', you, vag_fucker)&'Стоя раком вы выгибаете спину пока вас трахают в киску'
-			if camera['<<$loc[you]>>']>=1:$porno[film]+='Стоя раком вы выгибаете спину пока вас трахают в киску. '
+			if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Стоя раком вы выгибаете спину пока вас трахают в киску. '
 		end
 		gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'
 	end
@@ -61,7 +61,7 @@ act'Стонать':
 			horny[vag_fucker]=0&mob_sleep[vag_fucker]=time+60&cls&gs'soulcraft'&soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&target_soul=4&nnn=vag_fucker
 			$global_npc_log[vag_fucker]+='<br>'&$global_npc_log[vag_fucker]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> была пущена нами по кругу.'
 			gs'stat'&$func('get_images', 'vag_cream_dog', you, vag_fucker)&'Вам кончили в киску'&gs'fuck_cum_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'
-			if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам кончили в пизду. '
+			if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вам кончили в пизду. '
 			if demon_dick[you]>0 and pregnant_day[you]=0:
 				act'Принять семя':father_you_child=vag_fucker&gs'preggo'&gt 'sex'
 			else

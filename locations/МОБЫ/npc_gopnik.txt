@@ -1,11 +1,11 @@
-﻿if bocmanpimpwalk = 0 and $loc[you]=$loc[bocman] and whoreboss[you]=bocman and you=mother and ut_slot[you]=4: 
+﻿if bocmanpimpwalk = 0 and $LOC_str[you]=$LOC_str[bocman] and whoreboss[you]=bocman and you=mother and ut_slot[you]=4: 
 	cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'&'- Боцман, чирик говоришь? - удивился гопник, обшаривая свой карман в поисках мелочи - Беру!'
 	'- Э, лярва, сама потом дойдёшь до Корчмы и оденешься, я за тобой по городу бегать не собираюсь, - властным тоном произнёс Боцман.'
 	act'<b>Гулять с гопником</b>':
 		time+=60&cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'&money[you]+=5&money[bocman]+=5&submission[you]+=1&act'<b>Уйти</b>':gt 'world'
 	end 
 end
-if bocmanpimpwalk = 1 and $loc[you]=$loc[bocman] and whoreboss[you]=bocman and you=mother: 
+if bocmanpimpwalk = 1 and $LOC_str[you]=$LOC_str[bocman] and whoreboss[you]=bocman and you=mother: 
 	cls&'<center><img src="pic/event/bocmanpimp2.jpg" ></center>'&'- Э, Боцман, прив, - подошёл к вашему боссу гопник. - Слушок прошёл, что ты акции неслыханной щедрости устраиваешь…'
 	'- Ты про эту? - указал он на меня. - Устраиваю акции, отдам на проёб за чирик.'&*nl'- Ебать, она дешёвка, - гыкнул гопник, обшаривая свой карман в поисках мелочи - Беру!'
 	'- Э, лярва, как обычно сама дойдёшь до Корчмы и оденешься, я за тобой по городу бегать не собираюсь, - властным тоном произнёс Боцман.'

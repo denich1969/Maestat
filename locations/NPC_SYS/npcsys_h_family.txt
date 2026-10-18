@@ -1,0 +1,37 @@
+﻿! Hook of the players family (father 46, mother 47, sister 48): wages, cooking, TV, shower.
+! Runs when the NPC plans (every hour) and when it arrives somewhere (ns_at=1).
+if walkprog[w]=46:
+	if ns_at=0:
+		watchtv[w]=0
+		if ns_we=0 and ns_h>=7 and ns_h<=16 and daylypaymant[w]<>daystart:daylypaymant[w]=daystart & money[w]+=3500
+		if ns_we=1 and ns_h>=17 and $destination[w]='квартира зал':watchtv[w]=1
+	end
+end
+if walkprog[w]=47:
+	if ns_at=0:
+		cooking[w]=0
+		watchtv[w]=0
+		$loc_food[w]='3,1,3,1,1'
+		if ns_we=0 and ns_h>=7 and ns_h<=16 and daylypaymant[w]<>daystart:daylypaymant[w]=daystart & money[w]+=1000
+		! first free weekday evening: a long shower
+		if ns_we=0 and ns_h>=17 and $destination[w]='квартира зал' and dayshower[w]<>daystart:
+			dayshower[w]=daystart
+			$destination[w]='квартира туалет'
+		end
+		! weekend evenings: if the pot is (nearly) empty she cooks
+		if ns_we=1 and ns_h>=17 and here_food['<<$loc_food[w]>>']<=5:
+			$destination[w]='квартира кухня'
+			here_food['<<$loc_food[w]>>']+=10
+			cooking[w]=1
+		end
+		! in the kitchen she cooks when the pot is empty
+		if $destination[w]='квартира кухня' and here_food['<<$loc_food[w]>>']<5:here_food['<<$loc_food[w]>>']+=10 & cooking[w]=1
+		if ns_we=1 and $destination[w]='квартира зал':watchtv[w]=1
+	else
+		! she stays under the shower for two hours
+		if $destination[w]='квартира туалет':walker_cooldown[w]=time+120
+	end
+end
+if walkprog[w]=48:
+	if ns_at=0 and ns_we=0 and ns_h>=17 and $destination[w]='ресторан' and daylypaymant[w]<>daystart:daylypaymant[w]=daystart & money[w]+=1000
+end

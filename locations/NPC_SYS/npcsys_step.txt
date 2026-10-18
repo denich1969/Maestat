@@ -1,0 +1,61 @@
+﻿! One step of NPC w towards Xdest..Rdest: out of the room, out of the building,
+! one block along the street, into the building, into the room.
+ns_c_st+=1
+ns_vis=0
+if ns_act=1 and X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:ns_vis=1
+if Zdest[w]<>Z[w] and Zdest[w]>0:
+	! another district or world: there is no road, the NPC simply goes there
+	X[w]=Xdest[w] & Y[w]=Ydest[w] & Z[w]=Zdest[w] & H[w]=Hdest[w] & R[w]=Rdest[w]
+	ns_dirty=1
+	exit
+end
+if X[w]=Xdest[w] and Y[w]=Ydest[w]:
+	if H[w]=Hdest[w]:
+		! the right building: change room (indoors always through the hall)
+		if R[w]=0 or H[w]=0:
+			if ns_vis=1:gs'npcsys_say','идет '+$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,<<Rdest[w]>>']
+			R[w]=Rdest[w]
+		else
+			if ns_vis=1:gs'npcsys_say','выходит из комнаты'
+			R[w]=0
+		end
+	else
+		if ns_vis=1:gs'npcsys_say','идет '+$lname_go['<<Xdest[w]>>,<<Ydest[w]>>,<<Zdest[w]>>,<<Hdest[w]>>,0']
+		H[w]=Hdest[w]
+		R[w]=0
+	end
+	exit
+end
+if H[w]>0:
+	! the wrong block: get out to the street first
+	if R[w]>0:
+		if ns_vis=1:gs'npcsys_say','выходит из комнаты'
+		R[w]=0
+	else
+		if ns_vis=1:gs'npcsys_say','идет на улицу'
+		H[w]=0
+		R[w]=0
+	end
+	exit
+end
+! on the street: one block, along X or Y
+ns_ax=rand(0,1)
+if X[w]=Xdest[w]:ns_ax=1
+if Y[w]=Ydest[w]:ns_ax=0
+if ns_ax=1:
+	if Ydest[w]>Y[w]:
+		if ns_vis=1:gs'npcsys_say','идет на север'
+		Y[w]+=1
+	else
+		if ns_vis=1:gs'npcsys_say','идет на юг'
+		Y[w]-=1
+	end
+else
+	if Xdest[w]>X[w]:
+		if ns_vis=1:gs'npcsys_say','идет на восток'
+		X[w]+=1
+	else
+		if ns_vis=1:gs'npcsys_say','идет на запад'
+		X[w]-=1
+	end
+end

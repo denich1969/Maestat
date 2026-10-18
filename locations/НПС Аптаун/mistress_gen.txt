@@ -15,5 +15,5 @@ pol[i]=1&gs'body'&total_generated_female+=1&total_misstress+=1
 bisex[i]=iif(rand(1,100)>=70,1,0)&agro[i]=rand(1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=0&corr[i]=rand(10,100)
 bisexwomantotal+=iif(bisex[i]>0,1,0)&lust[i]=iif(bisex[i]>0,rand(40,100),0)&lust[i]+=iif(extrovert[i]=2,10,0)&lust[i]+=iif(ratio[i]=0,10,0)&womenbrain[i]=rand(70,100)&forbidsex[i]=0&!нет запрета
 if bisex[i]=0:templust=rand(1,100)&lust[i]=iif(age[i]<27,iif(templust<50,rand(1,30),iif(templust>80,rand(50,70),rand(30,50))),iif(templust<40,rand(1,40),iif(templust>70,rand(60,90),rand(40,70))))
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=0&fight_prog[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=0&fight_prog[i]=1
 def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться!если 1 то все удары героя попадают в нпс

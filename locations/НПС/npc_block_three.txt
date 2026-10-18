@@ -30,7 +30,7 @@
     if lunafriend>0 and moongodes=npc:cansex[npc]=1
     if lunafriend>0 and beliver[npc]=1:cansex[npc]=1
     if mrblood=npc or mrflesh=npc:cansex[npc]=0
-	if cansex[npc]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+	if cansex[npc]>0 and blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:
 		if follower[npc]=0:
 			if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0):
 				if gender[npc]>0:

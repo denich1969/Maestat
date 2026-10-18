@@ -17,5 +17,5 @@ healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&ene
 pol[i]=0&gs'body'&total_generated_male+=1&visualpol[i]=0&!видимый пол, не зависит от половых органов&minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
 forbidsex[i]=0&!присвоение отсутствия запрета
 womenbrain[i]=rand(10,40)&bisex[i]=0&agro[i]=rand(1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&rand(10,100)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=0&fight_prog[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=0&fight_prog[i]=1
 def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться!если 1 то все удары героя попадают в нпс

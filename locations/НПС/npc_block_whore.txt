@@ -1,4 +1,4 @@
-﻿if whore[you]>0 and whoreboss[you]!npc and boyfriend[you]!npc and husband[you]!npc and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+﻿if whore[you]>0 and whoreboss[you]!npc and boyfriend[you]!npc and husband[you]!npc and blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:
 	if pol[npc]=0:
 		act'Предложить секс':
 			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Отчаянно крутя бедрами, вы соблазнительно улыбнулись и промурлякали - Хочешь развлечься?'

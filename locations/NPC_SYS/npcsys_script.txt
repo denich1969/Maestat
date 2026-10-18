@@ -1,0 +1,11 @@
+﻿! Program run as code instead of a timetable: args[0]=program, $args[1]=code, $args[2]=name.
+! The code is executed with w set, once per planning (every hour); the NPC does not walk.
+! Rules after it belong to no program (npcsys_rule reports them).
+ns_npr+=1
+if args[0]<=0:gs'npcsys_err','программа <<args[0]>> (<<$args[2]>>): номер должен быть больше 0'
+if nsp_k[args[0]]<>0:gs'npcsys_err','программа <<args[0]>> (<<$args[2]>>) задана дважды'
+if $args[1]='':gs'npcsys_err','программа <<args[0]>> (<<$args[2]>>): пустой код'
+ns_cp=0
+nsp_k[args[0]]=2
+$nsp_sc[args[0]]=$args[1]
+$nsp_nm[args[0]]=$args[2]

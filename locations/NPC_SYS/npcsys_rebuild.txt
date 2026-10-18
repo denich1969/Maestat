@@ -1,0 +1,35 @@
+﻿! Sorts the registered NPCs by the world they are in now: nsb1..nsb5 for the city districts,
+! nsbx for the players world when that is not a city district. Runs every game hour, when
+! new NPCs appear and when the player changes world, so NPCs moved by other code are found.
+killvar 'nsb1'
+killvar 'nsb2'
+killvar 'nsb3'
+killvar 'nsb4'
+killvar 'nsb5'
+killvar 'nsbx'
+ns_bw=ns_pw
+ns_rb_at=ns_next
+ns_dirty=0
+ns_rn=arrsize('ns_list')
+ns_ri=0
+:ns_rbloop
+if ns_ri<ns_rn:
+	ns_rw=ns_list[ns_ri]
+	ns_rz=Z[ns_rw]
+	if ns_rz>=700 and ns_rz<800:ns_rz=700
+	if ns_rz>=200 and ns_rz<300:ns_rz=200
+	ns_keep=0
+	if dead[ns_rw]=0 and $name[ns_rw]<>'':ns_keep=1
+	! in the obsession world the dead can come back (respawn, the shaman)
+	if ns_rz=700 and (dead[ns_rw]=1 or dead[ns_rw]=3 or dead[ns_rw]=1000):ns_keep=1
+	if ns_keep=1:
+		if ns_rz=1:nsb1[]=ns_rw
+		if ns_rz=2:nsb2[]=ns_rw
+		if ns_rz=3:nsb3[]=ns_rw
+		if ns_rz=4:nsb4[]=ns_rw
+		if ns_rz=5:nsb5[]=ns_rw
+		if ns_rz=ns_bw and (ns_rz<1 or ns_rz>5):nsbx[]=ns_rw
+	end
+end
+ns_ri+=1
+if ns_ri<ns_rn:jump'ns_rbloop'

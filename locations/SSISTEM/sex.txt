@@ -1,6 +1,6 @@
 ﻿in_sex=1&if boid=npc and sexpartner['<<boid>>,<<you>>']>0 and dead[kraig]=0 and onceperadaygangkraig[kraig]!daystart:onceperadaygangkraig[kraig]=daystart&gt'boid_talk'
 if solo>0:gt'fem_sex_start'
-$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&if camera['<<$loc[you]>>']>=1 and camerastarttime<time:camerastarttime=time+30&film+=1
+$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&if camera['<<$LOC_str[you]>>']>=1 and camerastarttime<time:camerastarttime=time+30&film+=1
 gs'nudeness'&gs'stat'&busy[you]=1&$npc_loc=''&sexaction=0
 open_mouth[you]=1&open_anus[you]=1&open_lhand[you]=1&open_rhand[you]=1&open_vag[you]=iif(vag[you]=0,0,1)
 womenbrain[you]+=1&cantdo=0&you_blow=0&vag_fucker=0&anal_fucker=0&dp_you=0&npc_want_dp=0&total_fucker=0&once_pose=0
@@ -38,24 +38,24 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 							if agro[i]=1:
 								horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)+(corr[i]/10)
 								textrand=rand(0,5)
-								if textrand=0:$text='Выебите эту шлюху!'
-								if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
-								if textrand=2:$text='Классная шлюха!'
-								if textrand=3:$text='Понизим эту тупую телку!'
-								if textrand=4:$text='Шмара!'
-								if textrand=5:$text='Раздвигай ляжки, шлюха!'
-								$status[i]=' смеется - <<$text>>'
+								if textrand=0:$text_str='Выебите эту шлюху!'
+								if textrand=1:$text_str='Натолкайте этой шкуре во все дыры!'
+								if textrand=2:$text_str='Классная шлюха!'
+								if textrand=3:$text_str='Понизим эту тупую телку!'
+								if textrand=4:$text_str='Шмара!'
+								if textrand=5:$text_str='Раздвигай ляжки, шлюха!'
+								$status[i]=' смеется - <<$text_str>>'
 							end
 							if agro[i]=2:
 								horny[i]+=(sexiness[you]/8)+(forhorn[you]+pol[you]*3)+(corr[i]/10)
 								textrand=rand(0,5)
-								if textrand=0:$text='Выебите эту шлюху!'
-								if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
-								if textrand=2:$text='Классная шлюха!'
-								if textrand=3:$text='Понизим эту тупую телку!'
-								if textrand=4:$text='Шмара'
-								if textrand=5:$text='Раздвигай ляжки, шлюха!'
-								$status[i]=' орет - <<$text>>'
+								if textrand=0:$text_str='Выебите эту шлюху!'
+								if textrand=1:$text_str='Натолкайте этой шкуре во все дыры!'
+								if textrand=2:$text_str='Классная шлюха!'
+								if textrand=3:$text_str='Понизим эту тупую телку!'
+								if textrand=4:$text_str='Шмара'
+								if textrand=5:$text_str='Раздвигай ляжки, шлюха!'
+								$status[i]=' орет - <<$text_str>>'
 							end
 						end
 					end
@@ -65,9 +65,9 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 						if l_slot[you]>0 and cantdo=0:
 							ls=l_slot[you]
 							if long_l[ls]>0:
-								cantdo=1&item_loc_l['<<ls>>,<<$loc[you]>>']+=1&l_slot[you]=0&$status[i]=' <b>стаскивает с вас юбку</b>'
+								cantdo=1&item_loc_l['<<ls>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0&$status[i]=' <b>стаскивает с вас юбку</b>'
 							else
-								cantdo=1&item_loc_l['<<ls>>,<<$loc[you]>>']+=1&l_slot[you]=0&$status[i]=' <b>стаскивает с вас штаны</b>'
+								cantdo=1&item_loc_l['<<ls>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0&$status[i]=' <b>стаскивает с вас штаны</b>'
 							end
 						end
 						if ul_slot[you]>0 and cantdo=0:
@@ -75,7 +75,7 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 							if rand(1,5)=5:
 								ul_slot[you]=0&$status[i]=' <b>стаскивает с вас трусы и прячет их себе в карман</b>'
 							else
-								uls=ul_slot[you]&item_loc_ul['<<uls>>,<<$loc[you]>>']+=1&ul_slot[you]=0&$status[i]=' <b>стаскивает с вас трусы</b>'
+								uls=ul_slot[you]&item_loc_ul['<<uls>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0&$status[i]=' <b>стаскивает с вас трусы</b>'
 							end
 						end
 						if l_slot[you]=0 and ul_slot[you]=0 and cantdo=0:total_fucker+=1&gs'sexposerNV'
@@ -85,24 +85,24 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and H[you]=H[i] and R[you]=R[i] a
 				    if agro[i]=1:
 						horny[i]+=(sexiness[you]/10)+(forhorn[you]/2)+(pol[you]*2)+(corr[i]/10)
 						textrand=rand(0,5)
-						if textrand=0:$text='Выебите эту шлюху!'
-						if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
-						if textrand=2:$text='Классная шлюха!'
-						if textrand=3:$text='Понизим эту тупую телку!'
-						if textrand=4:$text='Шмара!'
-						if textrand=5:$text='Раздвигай ляжки, шлюха!'
-						$status[i]=' смеется - <<$text>>'
+						if textrand=0:$text_str='Выебите эту шлюху!'
+						if textrand=1:$text_str='Натолкайте этой шкуре во все дыры!'
+						if textrand=2:$text_str='Классная шлюха!'
+						if textrand=3:$text_str='Понизим эту тупую телку!'
+						if textrand=4:$text_str='Шмара!'
+						if textrand=5:$text_str='Раздвигай ляжки, шлюха!'
+						$status[i]=' смеется - <<$text_str>>'
                     end
 				    if agro[i]=2:
 						horny[i]+=(sexiness[you]/8)+(forhorn[you]+pol[you]*3)+(corr[i]/10)
 						textrand=rand(0,5)
-						if textrand=0:$text='Выебите эту шлюху!'
-						if textrand=1:$text='Натолкайте этой шкуре во все дыры!'
-						if textrand=2:$text='Классная шлюха!'
-						if textrand=3:$text='Понизим эту тупую телку!'
-						if textrand=4:$text='Шмара!'
-						if textrand=5:$text='Раздвигай ляжки, шлюха!'
-						$status[i]=' орет - <<$text>>'
+						if textrand=0:$text_str='Выебите эту шлюху!'
+						if textrand=1:$text_str='Натолкайте этой шкуре во все дыры!'
+						if textrand=2:$text_str='Классная шлюха!'
+						if textrand=3:$text_str='Понизим эту тупую телку!'
+						if textrand=4:$text_str='Шмара!'
+						if textrand=5:$text_str='Раздвигай ляжки, шлюха!'
+						$status[i]=' орет - <<$text_str>>'
                     end
 				end
 			end

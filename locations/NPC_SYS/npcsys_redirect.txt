@@ -1,0 +1,9 @@
+﻿! Program that picks another program: args[0]=program, $args[1]=expression giving the
+! program number to use (evaluated with w set). Rules after it belong to no program.
+ns_npr+=1
+if args[0]<=0:gs'npcsys_err','программа <<args[0]>>: номер должен быть больше 0'
+if nsp_k[args[0]]<>0:gs'npcsys_err','программа <<args[0]>> задана дважды'
+gs'npcsys_chkexpr',$args[1],'программа <<args[0]>>'
+ns_cp=0
+nsp_k[args[0]]=3
+$nsp_sc[args[0]]=$args[1]

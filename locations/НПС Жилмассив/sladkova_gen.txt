@@ -11,4 +11,4 @@ womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=60&selfrespect[i]=2&positiv[i]=2&e
 girl[sladkov]+=1&guy[i]+=1&sexpartner['<<i>>,<<sladkov>>']+=100&sexpartner['<<sladkov>>,<<i>>']+=100&vagsex[i]+=100&avagsex[sladkov]+=100
 sexpartner_num_m['<<i>>,<<guy[i]>>']=sladkov&sexpartner_num_f['<<sladkov>>,<<girl[sladkov]>>']=i&husband[i]=sladkov&husband[sladkov]=i
 t_slot[i]=57&l_slot[i]=30&b_slot[i]=17&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)&!l_hand_t[i]=3&nose_p[i]=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=RR&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=60
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=RR&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=60

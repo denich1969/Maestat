@@ -18,10 +18,10 @@ elseif X=1 and Y=3:
 elseif X=3 and Y=2:
     $locname['<<$temploc>>']='Котельная'&$lname['<<$temploc>>']='Котельная'&$locopis['<<$temploc>>']='Местная котельная подающая горячую воду в дома'&np['<<$temploc>>']=27
 elseif X=3 and Y=3:
-	$locname['<<$temploc>>']='Сквер'&$lname['<<$temploc>>']='Сквер'&$locopis['<<$temploc>>']='Убогий скверик между бетонными коробками человейников'&np['<<$temploc>>']=11&under['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Сквер'&$lname['<<$temploc>>']='Сквер'&$locopis['<<$temploc>>']='Убогий скверик между бетонными коробками человейников'&np['<<$temploc>>']=11&under_num['<<$temploc>>']=1
 elseif X=3 and Y=4:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	$locname['<<$temploc>>']='Универсам'&$lname['<<$temploc>>']='Универсам'&$locopis['<<$temploc>>']='Коробка магазина в котором продают всякое говно'&np['<<$temploc>>']=19&under['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Универсам'&$lname['<<$temploc>>']='Универсам'&$locopis['<<$temploc>>']='Коробка магазина в котором продают всякое говно'&np['<<$temploc>>']=19&under_num['<<$temploc>>']=1
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Вход в Универсальный магазин'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$locopis['<<$temploc>>']='Торговые залы магазина'&np['<<$temploc>>']=20&supermarket['<<$temploc>>']=2

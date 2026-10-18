@@ -47,7 +47,7 @@ IF $ARGS[0] = 'map_draw_loc':
 		END&!===== NPC Faces =====
 		if FirstRow=1:FirstRow=0&!Вывод колонки
 		$MyMap_text+='<td '+$JFon+'align=center vAlign=middle>'&!$MyMap_text+='<td '+$JFon+'align=left vAlign=top>'
-		$MyMap_text+=$j_cord&if under['<<$J_locXYZ>>,0,0']>=1:$MyMap_text+='<br><b><font size="2" color="green">Станция метро</font></b>'&!--- метро
+		$MyMap_text+=$j_cord&if under_num['<<$J_locXYZ>>,0,0']>=1:$MyMap_text+='<br><b><font size="2" color="green">Станция метро</font></b>'&!--- метро
 		$MyMap_text+='<font size="1">'+$buildingsList+'</font>'+$J_npcFaces+'</td>'&!Вывод колонки
 	end
 END

@@ -43,7 +43,7 @@ if demon_dick[i]>0:
 	if brave[i]<1:brave[i]=1
 end
 Xhome[i]=Xhome[args[0]]&Yhome[i]=Yhome[args[0]]&Zhome[i]=Zhome[args[0]]&Hhome[i]=Hhome[args[0]]&Rhome[i]=Rhome[args[0]]
-X[i]=X[args[0]]&Y[i]=Y[args[0]]&Z[i]=Z[args[0]]&H[i]=H[args[0]]&R[i]=R[args[0]]&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&$history_m[i]=$iif(args[0]=you,'Ты была моя мать и там','Там была моя мать')
+X[i]=X[args[0]]&Y[i]=Y[args[0]]&Z[i]=Z[args[0]]&H[i]=H[args[0]]&R[i]=R[args[0]]&$LOC_str[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&$history_m[i]=$iif(args[0]=you,'Ты была моя мать и там','Там была моя мать')
 if pol[i]=0:
 	t_slot[i]=rand(1,7)&l_slot[i]=rand(1,8)&b_slot[i]=rand(1,5)&ul_slot[i]=5
 	$history[i]='Я рос в виртуальной реальности, хотя я не замечал этого. '+$history_m[i]+', хотя теперь я понимаю что это была лишь цифровая копия. Там все было как на самом деле, дом, школа.'

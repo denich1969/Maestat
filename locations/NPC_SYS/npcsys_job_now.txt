@@ -1,0 +1,29 @@
+﻿! Where NPC w works right now, in $ns_jt ('' = not at work at this hour/day). See npcsys_jobs.
+$ns_jt=''
+ns_jw=work[w]
+if ns_jw<>0 and $nsj_p[ns_jw]<>'':
+	if ns_h>=nsj_a[ns_jw] and ns_h<=nsj_b[ns_jw]:
+		if nsj_d[ns_jw]=0 or ns_we=0:
+			if ns_jw=100:
+				! a pupil is put in a class once; each class takes 30
+				if klass[w]=0:
+					if klass_A<30:
+						klass_A+=1
+						klass[w]=1
+					elseif klass_B<30:
+						klass_B+=1
+						klass[w]=2
+					else
+						klass_C+=1
+						klass[w]=3
+					end
+				end
+				$ns_jt=$iif(klass[w]=1,'класс а',$iif(klass[w]=2,'класс б',$iif(klass[w]=3,'класс с','школа')))
+			elseif subwork[w]<>0 and $nsj_o[ns_jw]<>'':
+				$ns_jt=$nsj_o[ns_jw]
+			else
+				$ns_jt=$nsj_p[ns_jw]
+			end
+		end
+	end
+end

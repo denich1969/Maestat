@@ -21,7 +21,7 @@ elseif X=0 and Y=1:
     $locname['<<$temploc>>']='Комнаты'&$lname['<<$temploc>>']='Номера'&$locopis['<<$temploc>>']='Гостинничный коридор с комнатами по обеим сторонам'&np['<<$temploc>>']=509
 	gs'domale_gen'&walkprog[i]=0&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 	:markgenroom
-	R=+1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R>>'
+	R+=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R>>'
     $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
 	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&if R<5:gs'bdsmdom'&gs'randclo'
 	if R>=5 and R<11:gs'domale_gen'&walkprog[i]=0&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)
@@ -37,7 +37,7 @@ elseif X=1 and Y=1:
     $locname['<<$temploc>>']='Комнаты'&$lname['<<$temploc>>']='Номера'&$locopis['<<$temploc>>']='Гостинничный коридор с комнатами по обеим сторонам'&np['<<$temploc>>']=509
 	gs'domale_gen'&walkprog[i]=0&$title[i]='Работник отеля'&$nick[i]='Слуга'&total_bellboy+=1&obsession_world[]=i&walkprog[i]=1&mob[i]=37&mobexp[i]=10&agro[i]=rand(0,2)
 	:markgenroom
-	R=+1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R+17>>'
+	R+=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната №<<R+17>>'
     $locname['<<$temploc>>']='Комната №1'&$lname['<<$temploc>>']='Комната №1'&$locopis['<<$temploc>>']='Гостинничный номер'&np['<<$temploc>>']=510
 	mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&tvh['<<$temploc>>']=1&if R<5:gs'justgirl'&gs'randclo'
 	if R>=5 and R<15:gs'domale_gen'&walkprog[i]=0&$title[i]='Мужчина посещающий отель'&obsession_world[]=i&walkprog[i]=1&mob[i]=55&mobexp[i]=10&agro[i]=rand(0,2)&gs'randclo'

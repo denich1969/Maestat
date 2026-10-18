@@ -1,8 +1,8 @@
 ﻿if cum_skirt[you]>0 or cum_face[you]>0 or (makeup[you]=0 and pol[you]>0 and womenbrain[you]>30):
-	act'<b>Приводить себя в порядок (почиститься и накраситься)</b>':
+	act'<b>Приводить себя в порядок <br>(почиститься и накраситься)</b>':
 		cum_skirt[you]=0&cum_face[you]=0&if kit>0:makeup[you]=1
 		if kit=0:msg'Накраситься не получилось. Макияжа нет.'
-		time+=5&cla&gs'stat'&gt $curloc
+		time+=25&cla&gs'stat'&gt $curloc
 	end
 end
 gs'drop_follower'&$colorSkin=$iif(skin[you]>5,"b","")&act'<b>Уйти</b>':gt 'preloc'
@@ -177,7 +177,7 @@ if gender[you]>0:
 	if ass_bonus_num[you]>30:$args[15]+=$IIF($args[15]!'',', Огромная жопа','Огромная жопа')
 	if ass_bonus_num[you]>20 and ass_bonus_num[you]<30:$args[15]+=$IIF($args[15]!'',', Сексуальная задница','Сексуальная задница')
 	if ass_bonus_num[you]<-15:$args[15]+=$IIF($args[15]!'',', Задница как доска','Задница как доска')
-	$args[15] += '.'
+	$args[15]+= '.'
 end
 if tot_aristokrat[you]>0:
     if tot_aristokrat[you]<3:$ARGS['NOBILITY']='Легкий налет аристократичности.'
@@ -185,40 +185,20 @@ if tot_aristokrat[you]>0:
     if tot_aristokrat[you]>=6:$ARGS['NOBILITY']='Утонченно-гламурно-аристократичный вид.'
 	'Аристократичность: <<$ARGS["NOBILITY"]>>'
 end
-if sfera_amulet[you]>0:'На руке одет браслет с рунами, дающий вам: <b><<sfera_amulet[you]>></b> единиц защиты при входе в бой'
-$full=''
-if h_slot[you]>0:$d_hat_view='view"pic/clo/hat/<<h_slot[you]>>.jpg"'&$full+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<h_slot[you]>>.jpg" ></a>'&' <a href="exec:gt''hat_un'',<<h_slot[you]>>">снять</a>'
-if c_slot[you]>0:$d_coat_view='view"pic/clo/coat/<<c_slot[you]>>.jpg"'&$full+='<a href="exec:dynamic $d_coat_view"><img src="pic/clo/coat/<<c_slot[you]>>.jpg" ></a>'&'<a href="exec:gt''coat_un'',<<c_slot[you]>>">снять</a>'
-if t_slot[you]>0:
-	toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$full+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
-	!'<<$t_sexy[toptemp]>>'
-	!if aristokrat_t[toptemp]>0:'Офисная одежда'
-	!if leather_t[toptemp]>0:'Непромокаемая одежд'
-	!if sport_t[toptemp]>0:'Спортивная одежда'
-end
-if l_slot[you]>0:
-	lowtemp=l_slot[you]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'&$full+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'
-	!'<<$l_sexy[lowtemp]>>'
-	!if aristokrat_l[lowtemp]>0:'Офисная одежда'
-	!if leather_l[lowtemp]>0:'Непромокаемая одежд'
-	!if sport_l[lowtemp]>0:'Спортивная одежда'
-end
-if ub_slot[you]>0:uboottemp=ub_slot[you]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
-if b_slot[you]>0:
-	boottemp=b_slot[you]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'&$full+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
-	!'<<$b_sexy[boottemp]>>'
-	!if aristokrat_b[boottemp]>0:'Офисная обувь'
-	!if sport_b[boottemp]>0:'Спортивная обувь'
-end
+$full=''&$under=''&FS=70&if sfera_amulet[you]>0:'На руке одет браслет с рунами, дающий вам: <b><<sfera_amulet[you]>></b> единиц защиты при входе в бой'
+if h_slot[you]>0:$full+='<a href="exec:gs({view_fig},{pic/clo/hat/<<h_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/hat/<<h_slot[you]>>.jpg" ></a>'&!' <a href="exec:gt''hat_un'',<<h_slot[you]>>">снять</a>'
+if c_slot[you]>0:$full+='<a href="exec:gs({view_fig},{pic/clo/coat/<<c_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/coat/<<c_slot[you]>>.jpg" ></a>'&!'<a href="exec:gt''coat_un'',<<c_slot[you]>>">снять</a>'
+if t_slot[you]>0:$full+='<a href="exec:gs({view_fig},{pic/clo/top/<<t_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/top/<<t_slot[you]>>.jpg" ></a>'&!'<a href="exec:gt''top_un'',<<t_slot[you]>>">снять</a>'
+if l_slot[you]>0:$full+='<a href="exec:gs({view_fig},{pic/clo/low/<<l_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/low/<<l_slot[you]>>.jpg" ></a>'&!'<a href="exec:gt''low_un'',<<l_slot[you]>>">снять</a>'
+if ub_slot[you]>0:$full+='<a href="exec:gs({view_fig},{pic/clo/uboot/<<ub_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/uboot/<<ub_slot[you]>>.jpg" ></a>'&!'<a href="exec:gt''ub_un'',<<ub_slot[you]>>">снять</a>'
+if b_slot[you]>0:$full+='<a href="exec:gs({view_fig},{pic/clo/boot/<<b_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/boot/<<b_slot[you]>>.jpg" ></a>'&!'<a href="exec:gt''boot_un'',<<b_slot[you]>>">снять</a>'
 if collar[you]=1:'У вас на шее кожанный ошейник'
 if collar[you]=2:'У вас на шее металический ошейник'
-if plug[you]=2:$plug_view='view"pic/bodymod/view_plug2.jpg"'&$full+='<a href="exec:dynamic $plug_view"><img src="pic/bodymod/view_plug2.jpg" height="150"></a>'
-'<<$full>>'
-$under=''
-if ut_slot[you]>0:utoptemp=ut_slot[you]&$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'&$under+='<a href="exec:dynamic $d_utop_view"><img src="pic/clo/utop/<<utoptemp>>.jpg" ></a>'
-if ul_slot[you]=0:$underwear=$iIf(pol[you]=0 and womenbrain[you]<=10,'Вы без трусов','Вы без трусиков')&$underwear&killvar("$underwear")
-if ul_slot[you]>0:ulowtemp=ul_slot[you]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'&$under+='<a href="exec:dynamic $d_ulow_view"><img src="pic/clo/ulow/<<ulowtemp>>.jpg" ></a>'
-'<<$under>>'
+if plug[you]=2:$full+='<a href="exec:gs({view_fig},{pic/bodymod/view_plug2.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/bodymod/view_plug2.jpg" height="150"></a>'
+if ut_slot[you]>0:$under+='<a href="exec:gs({view_fig},{pic/clo/utop/<<ut_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/utop/<<ut_slot[you]>>.jpg" ></a>'&!'<a href="exec:gt''ut_un'',<<ut_slot[you]>>">снять</a>'
+if ul_slot[you]=0:$iIf(pol[you]=0 and womenbrain[you]<=10,'Вы без трусов','Вы без трусиков')
+if ul_slot[you]>0:$under+='<a href="exec:gs({view_fig},{pic/clo/ulow/<<ul_slot[you]>>.jpg})"><img width="<<FS>>" height="<<FS>>" src="pic/clo/ulow/<<ul_slot[you]>>.jpg" ></a>'&!'<a href="exec:gt''ul_un'',<<ul_slot[you]>>">снять</a>'
+*pl'<<$full>>'&*pl'<<$under>>'
 if l_hand_t[you]>0:'Татуировка на левой руке: <img src="pic/tattoo/l_hand_t_<<l_hand_t[you]>>.jpg" >'
 if r_hand_t[you]>0:'Татуировка на правой руке: <img src="pic/tattoo/r_hand_t_<<r_hand_t[you]>>.jpg" >'
 if back_t[you]>0:'Татуировка на спине: <img src="pic/tattoo/back_t_<<back_t[you]>>.jpg" >'
@@ -233,52 +213,52 @@ if l_leg_t[you]>0:'Татуировка на левой ноге: <img src="pic/
 if r_leg_t[you]>0:'Татуировка на правой ноге: <img src="pic/tattoo/r_leg_t_<<r_leg_t[you]>>.jpg" >'
 act'Раздеться до нижнего белья':
 	if t_slot[you]>0:
-		clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+		clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1&t_slot[you]=0
 	end
 	if l_slot[you]>0:
-		clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+		clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 	end
 	if b_slot[you]>0:
-		clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+		clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 	end
 	gt $curloc
 end
 act'Раздеться догола':
 	if h_slot[you]>0:
-		clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$loc[you]>>']+=1&h_slot[you]=0
+		clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$LOC_str[you]>>']+=1&h_slot[you]=0
 	end
 	!{if m_slot[you]>0:
-		clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$loc[you]>>']+=1&m_slot[you]=0
+		clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$LOC_str[you]>>']+=1&m_slot[you]=0
 	end
 	if w_slot[you]>0:
-		clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$loc[you]>>']+=1&w_slot[you]=0
+		clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$LOC_str[you]>>']+=1&w_slot[you]=0
 	end}
 	if c_slot[you]>0:
-		clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$loc[you]>>']+=1&c_slot[you]=0
+		clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$LOC_str[you]>>']+=1&c_slot[you]=0
 	end
 	if tz_slot[you]>0:
-		clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$loc[you]>>']+=1&tz_slot[you]=0
+		clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$LOC_str[you]>>']+=1&tz_slot[you]=0
 	end
 	if tg_slot[you]>0:
-		clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$loc[you]>>']+=1&tg_slot[you]=0
+		clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$LOC_str[you]>>']+=1&tg_slot[you]=0
 	end
 	if t_slot[you]>0:
-		clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+		clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1&t_slot[you]=0
 	end
 	if l_slot[you]>0:
-		clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+		clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 	end
 	if b_slot[you]>0:
-		clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+		clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 	end
 	if ut_slot[you]>0:
-		clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$loc[you]>>']+=1&ut_slot[you]=0
+		clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$LOC_str[you]>>']+=1&ut_slot[you]=0
 	end
 	if ul_slot[you]>0:
-		clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+		clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0
 	end
 	if ub_slot[you]>0:
-		clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+		clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$LOC_str[you]>>']+=1&ub_slot[you]=0
 	end
 	gt $curloc
 end
@@ -294,8 +274,7 @@ if l_hand_t[you]=2:
     end
 end
 if dagongene>110 and insmundface=1:
-	spec_face_pic[you]=6
-	face_tipe[you]=99
+	spec_face_pic[you]=6&face_tipe[you]=99
 	if face[you]<15:face_pic[you]=6
 	if face[you]>=15 and face[you]<25:face_pic[you]=5
 	if face[you]>=25 and face[you]<45:face_pic[you]=4
@@ -307,8 +286,7 @@ else
 	act'Установить фотку':
 		spec_face_pic[you]=input("Введите номер папки. ЖГГ До 5 стандартные внешности, ввести 0. 5 предустановленные фото. 6 фото по феминности. 7 и 8 только женское лицо.")
 		if spec_face_pic[you]=6:
-			face_tipe[you]=input("Введите тип внешности из 6-й папки.")
-			face_pic[you]=1
+			face_tipe[you]=input("Введите тип внешности из 6-й папки.")&face_pic[you]=1
 		else
 			face_pic[you]=input("Введите номер фотографии. Фотографию можно посмотреть в файлах игры.")
 		end
@@ -316,11 +294,9 @@ else
 	end
 end
 if cum_face[you]>0:
-	'<b>У вас на лице сперма</b>'
+	'<b>У вас на лице сперма</b>'&'<center><video autoplay loop src="pic/cum/<<iif(cum_face[you]<7,cum_face[you],6)>>.webm" ></center>'
     act'Стереть сперму с лица':
 		time+=5&cls&gs'stat'
-		if cum_face[you]<=6:'<center><video autoplay loop src="pic/cum/<<cum_face[you]>>.webm" ></center>'
-		if cum_face[you]>6:'<center><video autoplay loop src="pic/cum/6.webm" ></center>'
 	    if cum_face[you]=1:
 			'Вы старательно отчистили лицо от следов спермы'&act'<b>Уйти</b>':cum_face[you]=0&spit_face[you]=0&gt $curloc
         else
@@ -342,7 +318,7 @@ end
 act'Посмотреть грудь':
 	num=you&cls&gs'stat'&gs'body'
 	if tit[you]=0:
-		$iif(mus[you]>=2000 and mus[you]>fat[you],'Мускулистая грудь с <<$nip[you]>>','Плоская грудь с <<$nip[you]>>')
+		$iif(mus[you]>=2000 and mus[you]>fat[you],'Мускулистая грудь с <<$nip_str[you]>>','Плоская грудь с <<$nip_str[you]>>')
 	else
 		$sg=$iif(saggy[you]>0,'saggy','')&$sgtext=$iif(saggy[you]>0,'обвисшая грудь ','упругая грудь ')
 		'<center><img src="pic/tits/<<iif(dagongene>110, "istmtits", "")>><<$sg>><<$colorSkin>><<tit[you]>>.jpg" ></center>'
@@ -373,7 +349,7 @@ if nip_p[you]>=1:
 end
 act'Посмотреть тело':
 	num=you&cls&gs'stat'&gs'body'&$iif(pol[you]>0,'<center><img src="pic/body/<<bodypic[you]>>.jpg" ></center>','<center><img src="pic/bodyman/<<bodypic[you]>>.jpg" ></center>')&act'<b>Уйти</b>':gt $curloc
-	'Вы покрутились перед зеркалом осматривая свое тело. <<$ass[you]>>'&*nl $iif(leg_hair[you]>0,'На ногах растут волосы','Ноги гладкие и блестящие')
+	'Вы покрутились перед зеркалом осматривая свое тело. <<$ass_str[you]>>'&*nl $iif(leg_hair[you]>0,'На ногах растут волосы','Ноги гладкие и блестящие')
 	if plug[you]=2:'Из вашего зада торчит пушистых хвост'&'<center><video autoplay loop src="pic/bodymod/hvost<<rand(1,2)>>.webm" ></video></center>'
 	if total_npc_on_loc=0 and ass[you]>=27:
 		act'Пощупать попу':
@@ -485,7 +461,7 @@ act'Посмотреть анус':
 		if pol[you]>0 and dick[you]>0:$gend='s'
 		if vag[you]>=1:$gend=''
 		$iif(vag[you]>0 and rand(1,3)=2,'<center><video autoplay loop src="pic/anus/<<anus_pic[you]>>.webm" ></video></center>','<center><img src="pic/anus/<<$gend>><<$colorSkin>><<anus_pic[you]>>.jpg" ></center>')
-		'Вы наклонились и осмотрели свой анус. <<$anus[you]>>'
+		'Вы наклонились и осмотрели свой анус. <<$anus_str[you]>>'
 	   	if item[130]>0:
 			act'Засунуть анальную затычку':
 				if vag[you]>0 and dick[you]=0:'<center><video autoplay loop src="pic/bodymod/anal_plug_in.webm"></center>'
@@ -536,6 +512,8 @@ if CONFIG['ENABLE_advanced_menu']>0:
 	if beliver[you]>0:act'Отказаться быть последователем бога':beliver[you]=0&gt 'preloc'
 	if master[you]=0:act'маестат master=1':master[you]=1&gt 'preloc'
 	if master[you]=1:act'маестат master=0':master[you]=0&gt 'preloc'
+	if ns_dbg=0:act'Отладка НПС (npcsys) вкл':ns_dbg=2&gt 'preloc'
+	if ns_dbg>0:act'Отладка НПС (npcsys) выкл':ns_dbg=0&gt 'preloc'
 	if wantblackcockON=0:act'Разрешить bbc делать шлюх':wantblackcockON=1&gt 'preloc'
 	if wantblackcockON=1:act'Запретить bbc делать шлюх':wantblackcockON=0&gt 'preloc'
 	if blackON=0:act'негры со шлюхами вечером в общаге':skin[w]=rand(4,6)&blackON=1&gt 'preloc'

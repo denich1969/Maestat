@@ -1,0 +1,2 @@
+﻿! Debug: one old NPC list for the report, $args[0]=list name. Shows size / entries already read.
+$ns_rep+='<<$args[0]>> <<arrsize($args[0])>>/<<ns_seen[$args[0]]>>; '

@@ -33,8 +33,8 @@ elseif ARGS[1]=2:
 	i=0
 	ARGS['ARRSIZE'] = ARRSIZE('$FONT_LIST') - 1
 	:draw_fonts_loop
-		$ARGS['FONT_NAME']=$iif($FONT_LIST[i] = $CONFIG['CURRENT_FONT'],'<font color=green><<$FONT_LIST[i]>></font>','<<$FONT_LIST[i]>>')
-		$RESULT += '<a class="plain" href="exec:$CONFIG[''CURRENT_FONT''] = ''<<$FONT_LIST[i]>>'' & gt $curloc"><<$ARGS[''FONT_NAME'']>></a>'
+		$ARGS['FONT_NAME']=$iif($FONT_LIST[i] = $CONFIG_str['CURRENT_FONT'],'<font color=green><<$FONT_LIST[i]>></font>','<<$FONT_LIST[i]>>')
+		$RESULT += '<a class="plain" href="exec:$CONFIG_str[''CURRENT_FONT''] = ''<<$FONT_LIST[i]>>'' & gt $curloc"><<$ARGS[''FONT_NAME'']>></a>'
 		if i<ARGS['ARRSIZE']:$RESULT+=', '
 	if i<ARGS['ARRSIZE']:i+=1 & jump'draw_fonts_loop'&!Реверсируем цикл, чтоб вместо 5-4-3-2-1-0 было 0-1-2-3-4-5.
 	gs 'util_func','KILLVARS','i','$FONT_LIST'& !Убиваем все ненужные переменные.

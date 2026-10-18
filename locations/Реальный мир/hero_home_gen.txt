@@ -1,5 +1,6 @@
-﻿H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №1'&if H=Hstart and Z=Zstart:$locnameH['<<$templocH>>']='Ваша квартира'
-$locname['<<$temploc>>']='Квартира №1'&$lname['<<$temploc>>']='квартира №1'&$lname_go['<<$temploc>>']='в квартиру №1'&if hero=you:ownerloc['<<$templocH>>']=you
+﻿H=2&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №1'&lock['<<$templocH>>']=1
+if (H=Hstart and Z=Zstart) or hero=you:$locnameH['<<$templocH>>']='Ваша квартира'&ownerloc['<<$templocH>>']=you&lock['<<$templocH>>']=0&privat['<<$templocH>>']=1&homemarker['<<$templocH>>']=1
+$locname['<<$temploc>>']='Квартира №1'&$lname['<<$temploc>>']='квартира №1'&$lname_go['<<$temploc>>']='в квартиру №1'
 R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'&if H=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$locname['<<$temploc>>']='Ваша прихожая'
 $locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'&np['<<$temploc>>']=153
 item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1&mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
@@ -8,7 +9,7 @@ $locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='кухня'&$lname
 $locopis['<<$temploc>>']='Небольшая кухонька с раковиной, холодильником, плитой и маленьким столиком. На плите стоит кастрюля пельменей'&np['<<$temploc>>']=154
 can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&can_eat['<<$temploc>>']=1
 item_loc['1,<<$temploc>>']=1&item_loc['2,<<$temploc>>']=2&item_loc['3,<<$temploc>>']=1&item_loc['5,<<$temploc>>']=1&!gs $iif(pol[you]=0,'female_w_gen','male_w_gen')&!homeworld[]=i
-item_loc['8,<<$temploc>>']=3&item_loc['13,<<$temploc>>']=1&item_loc['6,<<$temploc>>']=2&item_loc['7,<<$temploc>>']=1&item_loc['98,<<$loc[you]>>']=10
+item_loc['8,<<$temploc>>']=3&item_loc['13,<<$temploc>>']=1&item_loc['6,<<$temploc>>']=2&item_loc['7,<<$temploc>>']=1&item_loc['98,<<$LOC_str[you]>>']=10
 R=2&gs 'toilet_gen',1&item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
 R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная'&np['<<$temploc>>']=156
 $locname['<<$temploc>>']='Спальная'&$lname['<<$temploc>>']='Спальная'&$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Узкая комната где едва помещается кровать со шкафом'

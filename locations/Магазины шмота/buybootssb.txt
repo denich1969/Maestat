@@ -10,6 +10,6 @@ clopayment=20000&if sexy_b[clo]>=5:clopayment+=sexy_b[clo]*1000
 clopayment+=aristokrat_b[clo]*10000&'Цена <<clopayment/100>> шиллингов'
 if money[you]>=clopayment:
 	act'Купить <<clopayment/100>> шиллингов':
-		cls&money[you]-=clopayment&boothere['<<clo>>,<<$loc[you]>>']=0&burden[you]+=item_b_burden[clo]&item_b[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
+		cls&money[you]-=clopayment&boothere['<<clo>>,<<$LOC_str[you]>>']=0&burden[you]+=item_b_burden[clo]&item_b[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
     end
 end

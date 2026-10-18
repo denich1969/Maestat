@@ -72,7 +72,7 @@ if hour>=8 and hour<=20:
 	end
 	if w_slot[you]>0:
 		www=w_slot[you]
-		if $weapon_tipe[www]='огнестрел' and item_w_patron_load[www]>0 and iskr[you]>=5:
+		if $weapon_tipe_str[www]='огнестрел' and item_w_patron_load[www]>0 and iskr[you]>=5:
 			act'Стрелять в мишень':
 				iskr[you]-=5&item_w_patron_load[www]-=1&shoot_skill[you]+=1
 				if shoot_skill[you]<100:shoot_skill[you]+=2

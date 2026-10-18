@@ -44,4 +44,20 @@ i=164&$item_name[i]='Соленый огурец'&can_use_item[i]=1&$item_use[i]
 i=165&$item_name[i]='Бутылка самогонки'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
 i=168&$item_name[i]='Слива'&can_use_item[i]=13&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=50&!вес
 i=169&$item_name[i]='Клубника'&can_use_item[i]=13&$item_use[i]='Съесть'&$item_text[i]=''&item_burden[i]=30&!вес
+i=175&$item_name[i]='Бутылка рома'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес
+i=176&$item_name[i]='Бутылка молока'&can_use_item[i]=2&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=1250&!вес
+i=177&$item_name[i]='Бутылка зелья вагина инкриментум'&can_use_item[i]=177&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=178&$item_name[i]='Бутылка зелья пуэр эст моллис'&can_use_item[i]=178&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=179&$item_name[i]='Бутылка зелья сангуис бистия'&can_use_item[i]=179&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=181&$item_name[i]='Бутылка вытяжки'&can_use_item[i]=181&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=231&$item_name[i]='Бутылка виски'&can_use_item[i]=26&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес
+i=232&$item_name[i]='Зелье защиты разума'&can_use_item[i]=232&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=233&$item_name[i]='Зелье восстановления маны'&can_use_item[i]=233&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=234&$item_name[i]='Зелье дьявольской жизни'&can_use_item[i]=234&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
+i=235&$item_name[i]='Божественная кровь'&can_use_item[i]=235&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=238&$item_name[i]='Синий шар'&can_use_item[i]=66&$item_use[i]='Сломать'&$item_text[i]=''&item_burden[i]=100&!вес
+i=240&$item_name[i]='Ухо зверя'&can_use_item[i]=68&$item_use[i]='Сломать'&$item_text[i]=''&item_burden[i]=50&!вес
+i=241&$item_name[i]='Яд'&can_use_item[i]=69&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=50&!вес
+i=242&$item_name[i]='Леденящая колба'&can_use_item[i]=70&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=100&!вес
 i=252&$item_name[i]='Тоник'&can_use_item[i]=2&$item_use[i]='Выпить'&$item_text[i]=''&item_burden[i]=750&!вес
+i=999&$item_name[i]='Яйцо морского монстра'&can_use_item[i]=999&$item_use[i]='Поглотить'&$item_text[i]=''&item_burden[i]=80&!вес

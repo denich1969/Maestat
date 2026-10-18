@@ -1,0 +1,29 @@
+﻿! $func('npcsys_pick', 'a|b|c?condition|работа') returns one of the options at random,
+! leaving out options whose condition is false and 'работа' while the NPC is off work.
+! Returns '' when nothing is available.
+$ns_ps=$args[0]+'|'
+ns_pn=0
+killvar 'ns_pc'
+:ns_pickloop
+ns_pq=instr($ns_ps,'|')
+if ns_pq>0:
+	$ns_po=$mid($ns_ps,1,ns_pq-1)
+	$ns_ps=$mid($ns_ps,ns_pq+1)
+	ns_pq2=instr($ns_po,'?')
+	if ns_pq2>0:
+		$ns_pcond=$mid($ns_po,ns_pq2+1)
+		$ns_po=$mid($ns_po,1,ns_pq2-1)
+		if dyneval('result=('+$ns_pcond+')')=0:$ns_po=''
+	end
+	if $ns_po='работа':
+		gs'npcsys_job_now'
+		$ns_po=$ns_jt
+	end
+	if $ns_po<>'':
+		$ns_pc[ns_pn]=$ns_po
+		ns_pn+=1
+	end
+end
+if ns_pq>0:jump'ns_pickloop'
+$result=''
+if ns_pn>0:$result=$ns_pc[rand(0,ns_pn-1)]

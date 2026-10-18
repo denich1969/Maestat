@@ -13,4 +13,4 @@ if txtrand=9:$name[i]='Фиолетовый'&picture[i]=200
 if txtrand=10:$name[i]='Зеленый'&picture[i]=210
 if txtrand=11:$name[i]='Синий'&picture[i]=211
 healthmax[i]=10*rand(30,60)&health[i]=healthmax[i]&energymax[i]=1000&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=rand(5,10)&maxuron[i]=rand(15,30)&reflex[i]=rand(20,60)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&obsession_world[]=i&

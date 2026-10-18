@@ -1,0 +1,19 @@
+﻿! Debug: finds NPCs of the old list $args[0] on the players street block that npcsys has not
+! registered, and adds them to the report (each NPC once).
+$ns_dln=$args[0]
+ns_dsn=arrsize($ns_dln)
+ns_dsi=0
+:ns_dsloop
+if ns_dsi<ns_dsn:
+	ns_dsw=dyneval('result=<<$ns_dln>>[<<ns_dsi>>]')
+	if ns_dsw>0 and ns_dsw<>you and ns_known[ns_dsw]=0 and ns_dsd[ns_dsw]=0:
+		if X[ns_dsw]=X[you] and Y[ns_dsw]=Y[you] and Z[ns_dsw]=Z[you]:
+			ns_dsd[ns_dsw]=1
+			ns_dc+=1
+			$ns_rep+='<br>(<<$ns_dln>>)'
+			gs'npcsys_dbg_npc',ns_dsw
+		end
+	end
+end
+ns_dsi+=1
+if ns_dsi<ns_dsn:jump'ns_dsloop'

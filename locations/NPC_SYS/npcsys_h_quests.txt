@@ -1,0 +1,31 @@
+﻿! Hook for NPCs whose moves drive quests: boss 32, sportgirl 34, smartgirl 65, germiona 67,
+! taberndot 6 (the grief story). Runs when the NPC plans and when it arrives (ns_at=1).
+if walkprog[w]=32:
+	! bossQW=4: the boss moves to his new home
+	if bossQW=4 and Z[w]<>3 and Z[w]<11:
+		Xhome[w]=Xboss & Yhome[w]=Yboss & Zhome[w]=Zboss & Hhome[w]=Hboss & Rhome[w]=Rboss
+		X[w]=Xboss & Y[w]=Yboss & Z[w]=Zboss & H[w]=Hboss & R[w]=Rboss
+		$destination[w]='стоп'
+		ns_dirty=1
+	end
+	! bossQW=1 and he stands at the cemetery: on arrival, or when he plans while already there
+	if bossQW=1 and $destination[w]='кладбище':
+		if X[w]=nsl_x['кладбище'] and Y[w]=nsl_y['кладбище'] and Z[w]=nsl_z['кладбище'] and H[w]=nsl_h['кладбище']:kelengrave+=1 & bossQW=2 & item_loc['82,<<$LOC_str[w]>>']+=1
+	end
+end
+! the old sportgirl/smartgirl programs had the bosss trigger copied in; kept as it was
+if walkprog[w]=34 or walkprog[w]=65:
+	if ns_at=1 and bossQW=1:bossQW=2 & item_loc['82,<<$LOC_str[w]>>']+=1
+end
+if walkprog[w]=67:
+	if ns_at=0 and $destination[w]='сексшоп глори':glory_bj[w]+=1 & throat[w]+=1
+end
+if walkprog[w]=6:
+	! griefs girls go after him until they have slept with him a few times
+	if ns_at=0 and ns_h>=8 and ns_h<=21 and grief>0 and dead[grief]=0:
+		if sexpartner['<<w>>,<<grief>>']<3:
+			if youngdot=w and sexpartner['<<grief>>,<<elderdot>>']>0:$destination[w]='@grief'
+			if elderdot=w:$destination[w]='@grief'
+		end
+	end
+end

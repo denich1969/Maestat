@@ -1,0 +1,64 @@
+﻿! Timetables: Аптаун (Z=4). Format: see npcsys_init.
+!--- 29 жители Аптауна: men go to the strip club, women elsewhere
+gs'npcsys_prog',29,'uptowner'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,18,'работа','думает о работе'
+gs'npcsys_rule','all',7,12,'#досуг_аптаун_м','думает о выпивке','pol[w]=0'
+gs'npcsys_rule','all',7,12,'#досуг_аптаун_ж','думает о выпивке'
+gs'npcsys_rule','all',13,16,'#досуг_аптаун_м','думает о выпивке','pol[w]=0'
+gs'npcsys_rule','all',13,16,'#досуг_аптаун_ж','думает о выпивке'
+gs'npcsys_rule','all',17,21,'#досуг_аптаун_м','думает о выпивке','pol[w]=0'
+gs'npcsys_rule','all',17,21,'#досуг_аптаун_ж','думает о выпивке'
+!--- 78 Лебеда people in Аптаун
+gs'npcsys_prog',78,'uptown_lebeda'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,18,'работа','думает о работе'
+gs'npcsys_rule','all',7,12,'#досуг_лебеда','думает о выпивке'
+gs'npcsys_rule','all',13,16,'#досуг_лебеда','думает о выпивке'
+gs'npcsys_rule','all',17,21,'#досуг_лебеда','думает о выпивке'
+!--- 77 шлюхи Аптауна
+gs'npcsys_prog',77,'uptownwhore'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,12,'прогулка|рынок|стрипклуб|бар наваждение|стрипклуб|варьете|порнотеатр зал','думает о выпивке'
+gs'npcsys_rule','all',13,16,'#досуг_шлюхи_аптаун','думает о выпивке'
+gs'npcsys_rule','all',17,21,'#досуг_шлюхи_аптаун','думает о выпивке'
+!--- 61 Пруденс
+gs'npcsys_prog',61,'prudence'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,21,'бар наваждение','думает об уга буга'
+!--- 67 Гермиона (glory hole: npcsys_h_quests)
+gs'npcsys_prog',67,'germiona'
+gs'npcsys_hook','npcsys_h_quests'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,16,'варьете','думает о работе','subwork[w]=0'
+gs'npcsys_rule','all',7,16,'варьете офис','думает о работе'
+gs'npcsys_rule','all',17,21,'сексшоп глори','','germionaQW>=40'
+gs'npcsys_rule','all',17,21,'прогулка|озеро|дуб|рынок','думает о прогулке'
+!--- 68 Кавендиш
+gs'npcsys_prog',68,'cavendish'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,21,'варьете офис','думает о работе'
+!--- 69 Серена
+gs'npcsys_prog',69,'serena'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,11,'#досуг_озеро','думает о прогулке'
+gs'npcsys_rule','all',12,21,'варьете','думает о работе'
+!--- 70 PowerUp
+gs'npcsys_prog',70,'powerup'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,11,'#досуг_озеро','думает о прогулке'
+gs'npcsys_rule','all',12,21,'варьете кухня','думает о работе'
+!--- 71 детектив: follows Гермиона, or Лебеда once her seed is in him
+gs'npcsys_prog',71,'detective'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,21,'@lebeda','думает о лебеде','lebeda_seed[w]>0'
+gs'npcsys_rule','all',7,21,'@germiona','думает о гермионе'
+!--- 72 порнорежиссёр
+gs'npcsys_prog',72,'porndirector'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,11,'#досуг_озеро','думает о прогулке'
+gs'npcsys_rule','all',12,21,'порнотеатр студия','думает о работе'
+!--- 79 массажист(ка): moves between the two rooms of the parlour
+gs'npcsys_prog',79,'tiler'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,21,'массаж_все','думает о работе'

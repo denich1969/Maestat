@@ -1,0 +1,41 @@
+﻿! Jobs by work[w] for the 'работа' timetable option (collected from the old *_walk programs).
+! gs'npcsys_job', work, place, office (used when subwork[w]<>0), from_hour, to_hour, weekdays_only
+! A rule with 'работа' only matches while the NPCs job is on, otherwise the next rule is tried.
+! Порт
+gs'npcsys_job',1,'рыбзавод','рыбзавод офис',7,16,0
+! Блэкберри
+gs'npcsys_job',2,'кирпичный завод','',7,16,0
+gs'npcsys_job',3,'пивоварня','',7,16,0
+! Жилмассив
+gs'npcsys_job',4,'машзавод','машзавод офис',7,16,1
+gs'npcsys_job',5,'электростанция','электростанция офис',7,16,1
+gs'npcsys_job',6,'больница_все','',7,16,1
+gs'npcsys_job',7,'адд_все','',7,16,1
+gs'npcsys_job',8,'спорт_работа','',7,16,1
+gs'npcsys_job',9,'богарт_все','',7,18,1
+gs'npcsys_job',10,'сладков_все','',7,18,1
+gs'npcsys_job',11,'телебашня студия','',7,18,1
+! 100 = school pupil; the class is picked by npcsys_job_now from klass[w]
+gs'npcsys_job',100,'школа','',7,16,1
+! Аптаун
+gs'npcsys_job',20,'теплица_все','теплица офис',7,16,1
+gs'npcsys_job',21,'рынок','',7,16,1
+gs'npcsys_job',22,'винзавод','винзавод офис',7,16,1
+gs'npcsys_job',23,'столярка','',7,16,1
+gs'npcsys_job',24,'хлебозавод','хлебозавод офис',7,16,1
+gs'npcsys_job',25,'аптаун_работа','',7,16,0
+gs'npcsys_job',26,'варьете','варьете офис',7,16,1
+gs'npcsys_job',27,'сексшоп','',7,16,1
+gs'npcsys_job',28,'порнотеатр зал','',7,16,1
+gs'npcsys_job',30,'прогулка','',7,16,0
+gs'npcsys_job',35,'батори_все','',7,18,1
+! Даунтаун
+gs'npcsys_job',50,'телепорт','телепорт офис',7,16,1
+gs'npcsys_job',51,'химлаб','химлаб офис',7,16,1
+gs'npcsys_job',52,'души','души офис',7,16,1
+gs'npcsys_job',53,'охота','охота офис',7,16,1
+gs'npcsys_job',54,'театр зал','театр гримерка',7,16,1
+gs'npcsys_job',55,'бар сияние','',7,16,1
+gs'npcsys_job',56,'бар мельбурн','',7,16,1
+gs'npcsys_job',57,'бар художников','',7,16,1
+gs'npcsys_job',58,'кинотеатр проектор','',7,16,1

@@ -7,7 +7,7 @@ if uskor>0 and uskorV=0:popad=1
 if uskor=0 and uskorV>0:popad=0
 if stun=>0:'Вы оглушены и не можете увернуться'&stun-=1&popad=2
 if waterdeep[you]>0:popad=0&'<<$name[npc]>> пытается скастовать молнию но сфера воды мешает'
-if itsrainingday['<<$loc[you]>>']>=time:health[npc]-=uronV/100&'Из-за дождя часть энергии от молнии противника бьет самого противника и он получает урон <<uronV/100>>'
+if itsrainingday['<<$LOC_str[you]>>']>=time:health[npc]-=uronV/100&'Из-за дождя часть энергии от молнии противника бьет самого противника и он получает урон <<uronV/100>>'
 if portal_def>0:
 	'Молния уходит в портал и никакого вреда не наносит'
 else

@@ -8,7 +8,7 @@ else
 	else
 		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
 			if healedWK=0:
-				$doing[w]='лежит на кровати'&!$loc[i]='home_3'
+				$doing[w]='лежит на кровати'&!$LOC_str[i]='home_3'
 			else
 				if hunting[w]=0:
 					if hour>=7 and hour<=22:
@@ -18,26 +18,26 @@ else
 							if foodfish=0 and egg>0:mechdo=1
 							if foodfish>0 and egg=0:mechdo=0
 							if mechdo=0:
-								hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&!$loc[w]='home_1'
+								hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&!$LOC_str[w]='home_1'
 							else
-								hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&!$loc[w]='home_1'
+								hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&!$LOC_str[w]='home_1'
 							end
 						else
-							if hour>=8 and hour<=9:$doing[w]='стреляет по мишени'&!$loc[w]='isle'
-							if hour>=10 and hour<=11:$doing[w]='сидит возле камина'&!$loc[w]='home_2'
-							if hour>=13 and hour<=14:$doing[w]='упражняется в фехтовании'&!$loc[w]='home_8'
-							if hour>=15 and hour<=17:$doing[w]='что то изучает'&!$loc[w]='home_7'
-							if hour>=19 and hour<=21:$doing[w]='читает книгу'&!$loc[w]='home_6'
+							if hour>=8 and hour<=9:$doing[w]='стреляет по мишени'&!$LOC_str[w]='isle'
+							if hour>=10 and hour<=11:$doing[w]='сидит возле камина'&!$LOC_str[w]='home_2'
+							if hour>=13 and hour<=14:$doing[w]='упражняется в фехтовании'&!$LOC_str[w]='home_8'
+							if hour>=15 and hour<=17:$doing[w]='что то изучает'&!$LOC_str[w]='home_7'
+							if hour>=19 and hour<=21:$doing[w]='читает книгу'&!$LOC_str[w]='home_6'
 						end 
 					else
-						$doing[w]='спит на кровати'&!$loc[w]='home_3'
+						$doing[w]='спит на кровати'&!$LOC_str[w]='home_3'
 					end
 				else
-					$doing[w]='охотится'&!$loc[w]='учертанакуличиках'
+					$doing[w]='охотится'&!$LOC_str[w]='учертанакуличиках'
 				end
 			end
 		else
-			$doing[w]='спит на кровати'&!$loc[w]='xxx'
+			$doing[w]='спит на кровати'&!$LOC_str[w]='xxx'
 		end
 	end
 end

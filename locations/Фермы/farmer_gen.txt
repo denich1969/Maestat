@@ -15,6 +15,6 @@ mus[i]=rand(1200,2400)&reflex[i]=rand(30,50)
 healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=100&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 agro[i]=0&corr[i]=0
 pre_class=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=2&fight_prog[i]=1&!программа движения и боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=2&fight_prog[i]=1&!программа движения и боя
 def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться  !если 1 то все удары героя попадают в нпс
 ownerloc['<<X>>,<<Y>>,<<Z>>,<<H>>']=i

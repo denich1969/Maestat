@@ -1,0 +1,38 @@
+﻿! Walks the rules of program ns_p for NPC w; the first rule that fits the day, the hour and its
+! condition, and has an option available, sets $destination[w] (and $think[w]).
+! The option picked is kept for the rest of the day while the same rule applies.
+! If no rule fits, the NPC keeps its previous destination.
+ns_r=nsp_r0[ns_p]
+ns_re=ns_r+nsp_rn[ns_p]
+:ns_ruleloop
+if ns_r<ns_re:
+	ns_ok=1
+	if nsr_d[ns_r]=1 and ns_we=1:ns_ok=0
+	if nsr_d[ns_r]=2 and ns_we=0:ns_ok=0
+	if ns_ok=1:
+		if nsr_a[ns_r]<=nsr_b[ns_r]:
+			if ns_h<nsr_a[ns_r] or ns_h>nsr_b[ns_r]:ns_ok=0
+		else
+			if ns_h<nsr_a[ns_r] and ns_h>nsr_b[ns_r]:ns_ok=0
+		end
+	end
+	if ns_ok=1 and $nsr_c[ns_r]<>'':
+		if dyneval('result=('+$nsr_c[ns_r]+')')=0:ns_ok=0
+	end
+	if ns_ok=1:
+		$ns_pick=''
+		if nsw_rule[w]=ns_r and nsw_day[w]=daystart:$ns_pick=$nsw_pick[w]
+		if $ns_pick='':$ns_pick=$func('npcsys_pick',$nsr_o[ns_r])
+		if $ns_pick<>'':
+			nsw_rule[w]=ns_r
+			nsw_day[w]=daystart
+			$nsw_pick[w]=$ns_pick
+			$destination[w]=$ns_pick
+			if $nsr_t[ns_r]<>'':$think[w]=$nsr_t[ns_r]
+			if ns_dbg>0:$nsw_why[w]='программа <<ns_p>> правило <<ns_r-nsp_r0[ns_p]+1>> (<<nsr_a[ns_r]>>-<<nsr_b[ns_r]>> ч) <<$nsr_o[ns_r]>>: <<$ns_pick>>'
+			exit
+		end
+	end
+end
+ns_r+=1
+if ns_r<ns_re:jump'ns_ruleloop'

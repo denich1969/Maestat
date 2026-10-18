@@ -1,0 +1,63 @@
+﻿! Interaction between NPC w and NPC s standing in the same room (the pair part of the old radarNew,
+! unchanged). npcsys_social calls it for the NPCs of busy rooms only.
+ns_c_meet+=1
+first_can=0
+!убрал условие and sexperaday[w]!daystart перед условием and w!s
+if w!you and s!you and dead[s]=0 and cantwalk[s]=0 and follower[s]=0 and $name[s]!'' and mob_busy[s]=0 and mob_busy[w]=0 and my_puppil[w]=0 and my_puppil[s]=0 and w!s and age[w]>0 and age[s]>0:first_can=1
+if (pol[w]=0 and sexperaday[w]=daystart and sextoday[w]>lust[w]/20) or (horny[w]/10<rand(3,7)):first_can=0&!новый расчет - если мужик затрахался или недостаточно возбужден
+if first_can=1:
+	if X[w]=X[s] and Y[w]=Y[s] and Z[w]=Z[s] and H[w]=H[s] and R[w]=R[s] and sexcentr['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and hardfucked_timer[s]<time and age[w]>0 and age[s]>0:
+		if mob[w]>0:
+			if mob[s]>0:
+				!мобы не нападают на мобов
+			else
+				num=s&gs'body'
+				if statist[s]=1:
+					gs $iif(pol[s]=0,'mob_vs_man','mob_vs_woman')&!увидел мужика!увидел тетку
+				else
+					if moon_curse[s]>=1:gs $iif(pol[s]=0,'mob_vs_man','mob_vs_woman')&!мобы не атакуют важных нпс!увидел мужика!увидел тетку
+				 end
+			end
+		else
+			num=w&gs'body'&num=s&gs'body'&gs'predicktor'&!предустановки
+			if tiler=w:
+				if pol[s]>0 and massageday[s]!daystart and s!femas:gs'massage_walk'
+			elseif femas=w:
+				 if pol[s]=0 and massageday[s]!daystart and s!tiler:gs'massage_hj'
+			elseif grief=w:
+				sexcanbe=0
+				if misstress[s]=0 and pol[s]>0 and sexperaday[s]!daystart:
+					if elderdot=s:sexcanbe=1
+					if youngdot=s and sexpartner['<<grief>>,<<elderdot>>']>0:sexcanbe=1
+					if selfrespect[s]=0:sexcanbe=1
+					if mrspiggy=s:sexcanbe=1
+					if positiv[s]=2:sexcanbe=1
+					if extrovert[s]=2:sexcanbe=1
+					if ratio[s]=0:sexcanbe=1
+					if brave[s]=0:sexcanbe=1
+					if sexcanbe=1:friends['<<w>>,<<s>>']+=100&friends['<<s>>,<<w>>']+=100&lust[s]+=5&horny[w]=100&horny[s]=100&gs'location_sex'
+				end
+				if pol[s]=0:gs'man_vs_man'
+			else
+				if dick[w]>1:
+					if mob[s]=0:gs $iif(pol[s]=0,'man_vs_man','man_vs_woman')&!членоносец осматривается!увидел мужика!увидел тетку
+				else
+					gs $iif(pol[s]=0,'woman_vs_man','woman_vs_woman')&!тетка осматривается!увидела мужика!увидела тетку
+				end
+			end
+		end
+	end
+end
+if w!you and s!you and dead[s]=0 and cantwalk[s]=0 and follower[s]=0 and $name[s]!'' and mob_busy[s]=0 and mob_busy[w]=0 and my_puppil[w]=0 and my_puppil[s]=0 and w!s and age[w]>0 and age[s]>0:
+    if X[w]=X[s] and Y[w]=Y[s] and Z[w]=Z[s] and H[w]=H[s] and R[w]=R[s] and sexcentr['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=100500:
+	    if dick[w]>1 and mob[w]=0 and dont_fuck!1 and vag[s]>0 and action_tipe[w]=0 and action_tipe[s]=0 and sextimer[w]<time:gs'locationhard_sex'
+    end
+end
+if w!you and s!you and dead[s]=0 and cantwalk[s]=0 and follower[s]=0 and $name[s]!'' and mob_busy[s]>0 and mob_busy[w]=0 and my_puppil[w]=0 and my_puppil[s]=0 and w!s and age[w]>0 and age[s]>0:
+	if X[w]=X[s] and Y[w]=Y[s] and Z[w]=Z[s] and H[w]=H[s] and R[w]=R[s]:
+        if mob[w]=3 and action_tipe[s]>=667 and action_tipe[s]<670 and aktive_tipe[s]=0 and action_tipe[w]=0:gs'raper'&action_tipe[s]+=1&!насилуют на локации
+        if mob[w]=3 and action_tipe[s]=666 and aktive_tipe[s]=0:gang[s]+=1&gs'raper'&action_tipe[s]=667&!насилуют на локации
+        if dick[w]>0 and action_tipe[s]>=701 and action_tipe[s]<770 and aktive_tipe[s]=0 and action_tipe[w]=0 and sextimer[w]<time:action_tipe[s]+=1&gs'locationhard_sex'&!насилуют на локации
+        if dick[w]>0 and action_tipe[s]=700 and aktive_tipe[s]=0 and action_tipe[w]=0 and sextimer[w]<time:gang[s]+=1&action_tipe[s]=701&gs'locationhard_sex'&!насилуют на локации
+    end
+end

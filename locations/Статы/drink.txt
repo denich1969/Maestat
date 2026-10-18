@@ -4,6 +4,7 @@
 		act'Купить выпивку':
 			act'Купить пиво':item[63]+=1&burden[you]+=item_burden[63]&cls&gs'stat'&'Вы заплатили деньги и купили пиво'
 			act'Купить виски':item[231]+=1&burden[you]+=item_burden[231]&cls&gs'stat'&'Вы заплатили деньги и купили виски'
+			act'Купить ром':item[175]+=1&burden[you]+=item_burden[175]&cls&gs'stat'&'Вы заплатили деньги и купили ром'
 			if $args[1]='rubl' and rubl[you]>=args[0]:rubl-=args[0]&$valuta='рублях'
 			if $args[1]='iskr' and iskr[you]>=args[0]:iskr-=args[0]&$valuta='искрах'
 			if $args[1]='gulden' and gulden[you]>=args[0]:gulden-=args[0]&$valuta='гульденах'
@@ -28,8 +29,15 @@
 				$iif(pol>0,'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(7,9)>>.jpg"></center>','<center><img <<$set_imgh>> src="pic/loc/eventloc/wiskey.jpg"></center>')
 				'Трактирщик поставил вам стопку наполненную вонючим пойлом, вы залпом его выпили. Остальное выпили собутыльники.'&act 'Отойти от стойки':gt $CURLOC
 			end
-		end	
+		end
+		if item[175]>0:
+			act 'Пить ром':
+				gs 'ViskiV',you&item[231]-=1&burden[you]-=item_burden[231]&pisswasser[you]+=10
+				$iif(pol>0,'<center><img <<$set_imgh>> src="pic/loc/eventloc/drink<<rand(7,9)>>.jpg"></center>','<center><img <<$set_imgh>> src="pic/loc/eventloc/wiskey.jpg"></center>')
+				'Трактирщик поставил вам стопку наполненную вонючим пойлом, вы залпом его выпили. Остальное выпили собутыльники.'&act 'Отойти от стойки':gt $CURLOC
+			end
+		end
 	end
 else
-	msg('Из-за вашей природы вы не нуждаетесь в воде, ')
+	msg('Из-за вашей природы вы не нуждаетесь в воде и другом питье, ')
 end

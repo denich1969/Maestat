@@ -42,24 +42,24 @@ elseif whoreboss[you]=npc and you=mother:
 	end
 	act '«Скинуть блядское шмотьё» и надеть сбрую':
 		cls&'<center><video autoplay loop src="pic/event/bocmanpimp1.webm" ></center>'
-		letherslut[you]=1&horny[npc]=50&pose[you]=2&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+		letherslut[you]=1&horny[npc]=50&pose[you]=2&$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
 		if t_slot[you]>0:
-			clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
+			clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1
 		end
 		if l_slot[you]>0:
-			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 		end
 		if b_slot[you]>0:
-			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 		end
 		if ut_slot[you]>0:
-			clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$loc[you]>>']+=1
+			clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$LOC_str[you]>>']+=1
 		end
 		if ul_slot[you]>0:
-			clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+			clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0
 		end
 		if ub_slot[you]>0:
-			clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+			clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$LOC_str[you]>>']+=1&ub_slot[you]=0
 		end
 		ut_slot[you]=4&ul_slot[you]=17&if h_slot[you]=0:h_slot[you]=10
 		gs'stat'&

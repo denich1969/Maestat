@@ -17,6 +17,6 @@ clopayment=1000&if sexy_t[clo]>=5:clopayment+=sexy_t[clo]*1000
 'Цена <<clopayment/100>> шиллингов'
 if money[you]>=clopayment:
     act'Купить <<clopayment/100>> шиллингов':
-		money[you]-=clopayment&clohere['<<clo>>,<<$loc[you]>>']=0&burden[you]+=item_t_burden[clo]&item_t[clo]+=1&cls&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
+		money[you]-=clopayment&clohere['<<clo>>,<<$LOC_str[you]>>']=0&burden[you]+=item_t_burden[clo]&item_t[clo]+=1&cls&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
     end
 end

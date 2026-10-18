@@ -11,4 +11,4 @@ womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=60&selfrespect[i]=2&positiv[i]=0&e
 girl[frank_visconti]+=1&guy[i]+=1&sexpartner['<<i>>,<<frank_visconti>>']+=100&sexpartner['<<frank_visconti>>,<<i>>']+=100&vagsex[i]+=100&avagsex[frank_visconti]+=100	 
 sexpartner_num_m['<<i>>,<<guy[i]>>']=frank_visconti&sexpartner_num_f['<<frank_visconti>>,<<girl[frank_visconti]>>']=i&husband[i]=frank_visconti&husband[frank_visconti]=i
 t_slot[i]=45&l_slot[i]=0&b_slot[i]=18&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)&!l_hand_t[i]=3&nose_p[i]=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=56
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=56

@@ -1,6 +1,6 @@
 ﻿if ceep=npc:gs'ceeper_talk'
-if mech=npc:gs'mech_talk'
-if kap=npc:gs'kap_talk'
+!if mech=npc:gs'mech_talk'
+!if kap=npc:gs'kap_talk'
 if whiteknight=npc:gs'whiteknight_talk'
 if whizard=npc:gs'whizard_talk'
 if traktirman=npc:gs'traktirman_talk'

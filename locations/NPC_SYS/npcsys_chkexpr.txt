@@ -1,0 +1,30 @@
+﻿! Check: brackets and quotes of a condition or expression are closed. $args[0]=expression,
+! $args[1]=where it is used. Other syntax errors only show up when the condition is evaluated.
+$ns_xs=$args[0]
+ns_xn=len($ns_xs)
+ns_xi=1
+ns_xp=0
+ns_xb=0
+ns_xbad=0
+$ns_xq=''
+:ns_xloop
+if ns_xi<=ns_xn:
+	$ns_xc=$mid($ns_xs,ns_xi,1)
+	if $ns_xq<>'':
+		if $ns_xc=$ns_xq:$ns_xq=''
+	elseif $ns_xc='''' or $ns_xc='"':
+		$ns_xq=$ns_xc
+	elseif $ns_xc='(':
+		ns_xp+=1
+	elseif $ns_xc=')':
+		ns_xp-=1
+	elseif $ns_xc='[':
+		ns_xb+=1
+	elseif $ns_xc=']':
+		ns_xb-=1
+	end
+	if ns_xp<0 or ns_xb<0:ns_xbad=1
+end
+ns_xi+=1
+if ns_xi<=ns_xn and ns_xbad=0:jump'ns_xloop'
+if ns_xbad=1 or ns_xp<>0 or ns_xb<>0 or $ns_xq<>'':gs'npcsys_err',$args[1]+': не закрыта скобка или кавычка в «<<$ns_xs>>»'

@@ -2,8 +2,8 @@
 if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
 	act'Вырвать пучок':item[99]+=1&time+=5&'вы быстро вырываете пучок, на который случайно наткнулись, не получая никакого опыта'&gt'preloc'
 	act'Собирать':
-		time+=30&cls&gs'walker'&gs'stat'&item_loc['99,<<$loc[you]>>']+=max(1,lvltravnik[you])&day_corn['<<$loc[you]>>']=daystart
-		"В течение получаса вы собирали листья и собрали <<item_loc['99,<<$loc[you]>>']>> пучков"&listnum=item_loc['99,<<$loc[you]>>']+item['99']&*nl'Всего у вас <<listnum>> пучков'
+		time+=30&cls&gs'walker'&gs'stat'&item_loc['99,<<$LOC_str[you]>>']+=max(1,lvltravnik[you])&day_corn['<<$LOC_str[you]>>']=daystart
+		"В течение получаса вы собирали листья и собрали <<item_loc['99,<<$LOC_str[you]>>']>> пучков"&listnum=item_loc['99,<<$LOC_str[you]>>']+item['99']&*nl'Всего у вас <<listnum>> пучков'
 		if fat[you]>10:fat[you]-=1
 		if fat[you]>100:fat[you]-=1
 		if fat[you]>500:fat[you]-=2

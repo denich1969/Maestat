@@ -1,0 +1,19 @@
+﻿! Debug: one line of the report about NPC args[0]. Red flags explain why it does not walk.
+ns_dw=args[0]
+ns_dp=walkprog[ns_dw]
+ns_dk=nsp_k[ns_dp]
+ns_dwk=nsw_wake[ns_dw]-time
+$ns_rep+='<br>#<<ns_dw>> <<$name[ns_dw]>> <<$nick[ns_dw]>> | прог <<ns_dp>> <<$nsp_nm[ns_dp]>> (тип <<ns_dk>>)'
+$ns_rep+=' | <<X[ns_dw]>>,<<Y[ns_dw]>>,<<Z[ns_dw]>>,<<H[ns_dw]>>,<<R[ns_dw]>> -> <<Xdest[ns_dw]>>,<<Ydest[ns_dw]>>,<<Zdest[ns_dw]>>,<<Hdest[ns_dw]>>,<<Rdest[ns_dw]>>'
+$ns_rep+=' | цель <<$destination[ns_dw]>>, режим <<nsw_mode[ns_dw]>>, план через <<ns_dwk>> мин'
+if $nsw_why[ns_dw]<>'':$ns_rep+=' | <<$nsw_why[ns_dw]>>'
+$ns_dfl=''
+if dead[ns_dw]<>0:$ns_dfl+=' dead=<<dead[ns_dw]>>'
+if cantwalk[ns_dw]<>0:$ns_dfl+=' cantwalk=<<cantwalk[ns_dw]>>'
+if follower[ns_dw]<>0:$ns_dfl+=' follower=<<follower[ns_dw]>>'
+if immobilaze[ns_dw]<>0:$ns_dfl+=' immobilaze=<<immobilaze[ns_dw]>>'
+if age[ns_dw]<=0:$ns_dfl+=' age=<<age[ns_dw]>>'
+if mob_busy[ns_dw]<>0:$ns_dfl+=' mob_busy=<<mob_busy[ns_dw]>>'
+if walker_cooldown[ns_dw]>=time:$ns_dfl+=' cooldown=<<walker_cooldown[ns_dw]-time>>'
+if ns_known[ns_dw]=0:$ns_dfl+=' не зарегистрирован в npcsys'
+if $ns_dfl<>'':$ns_rep+=' | <font color=#c00000><<$ns_dfl>></font>'

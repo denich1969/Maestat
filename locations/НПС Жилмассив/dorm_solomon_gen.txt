@@ -10,7 +10,7 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_male+=1
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=50&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=2&brave[i]=1&lust[i]=100&!характер
 h_slot[i]=0&t_slot[i]=76&l_slot[i]=6&b_slot[i]=4&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!прикид
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&sallisolomon=i&lvl[i]=1&soul[i]=100&work[i]=4&subwork[i]=1&master[i]=0&delusion[i]=0&statist[i]=1&muggle[i]=0&magik[i]=3&beliver[i]=0
 $name[i]='Салли'&$surname[i]='Соломон'&$nick[i]='Высокая блондинка'&$title[i]=''&$history[i]='Дик ученый, работающий на мануфактуре, и мой муж'&spec_face_pic[i]=5&face_pic[i]=138
@@ -26,7 +26,7 @@ girl[dicksolomon]+=1&guy[sallisolomon]+=1&sexpartner['<<sallisolomon>>,<<dicksol
 sexpartner_num_m['<<sallisolomon>>,<<guy[sallisolomon]>>']=dicksolomon&sexpartner_num_f['<<dicksolomon>>,<<girl[dicksolomon]>>']=sallisolomon
 vagsex[sallisolomon]+=100&avagsex[dicksolomon]+=100&husband[sallisolomon]=dicksolomon&husband[dicksolomon]=sallisolomon
 t_slot[i]=28&l_slot[i]=62&b_slot[i]=13&ut_slot[i]=3&ul_slot[i]=7&ub_slot[i]=0&!l_hand_t[i]=3&nose_p[i]=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Отношения
 npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&harrysolomon=i&lvl[i]=1&soul[i]=100&work[i]=0&master[i]=0&delusion[i]=0&statist[i]=0&muggle[i]=0&magik[i]=8&beliver[i]=0
 $title[i]=''&$history[i]='Дик мой старший брат. Он работает на мануфактуре, разработчиком. А я нигде не работаю. Меня никуда не берут.'
@@ -40,7 +40,7 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_male+=1
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=40&selfrespect[i]=0&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=0&lust[i]=100&!характер
 h_slot[i]=0&t_slot[i]=79&l_slot[i]=7&b_slot[i]=24&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&tommysolomon=i&lvl[i]=1&soul[i]=100&work[i]=100&klass_A+=1&klass[i]=1&master[i]=0&delusion[i]=0&statist[i]=0&muggle[i]=0&magik[i]=10&beliver[i]=0
 $title[i]='Школьник'&$history[i]='Нашу семью вытащил Висконти из порта, потому что мой отец гениальный ученый и теперь на нем держится мануфактура Фрэнка.'
@@ -54,7 +54,7 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_female+=1
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=40&selfrespect[i]=0&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=0&lust[i]=10&!характер
 h_slot[i]=0&t_slot[i]=78&l_slot[i]=7&b_slot[i]=24&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=26
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Отношения
 kid_first[dicksolomon]=tommysolomon&kid_first[sallisolomon]=tommysolomon&father[tommysolomon]=dicksolomon&mother[tommysolomon]=sallisolomon
 know['<<dicksolomon>>,<<sallisolomon>>']+=1&know['<<sallisolomon>>,<<dicksolomon>>']+=1&friends['<<dicksolomon>>,<<sallisolomon>>']+=100&friends['<<sallisolomon>>,<<dicksolomon>>']+=100

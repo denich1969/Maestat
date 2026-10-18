@@ -332,7 +332,7 @@ if $ARGS[0] ! '':
 			if punishedQW>=1:pl'<a href="exec:dynamic $d_punishedQW">Пониженный</a>'
 			if cuntmanQW>=1 and cuntmanQW<100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
 			if sluttySisQW>=1 and sluttySisQW<3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
-			if sluttySlmashaQW>=1 and sluttySlmashaQW<100:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
+			if sluttySlmashaQW>0 and sluttySlmashaQW<100:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
 			if IamMilfQW>=1 and IamMilfQW<100:pl'<a href="exec:dynamic $d_iammilfqw">Моя жизнь</a>'
 			if lebeda_birdQW>=1 and lebeda_birdQW<100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды</a>'
 			if prophecyQW>=1 and prophecyQW<100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество</a>'
@@ -373,7 +373,7 @@ if $ARGS[0] ! '':
 			if autodocQW>=100:pl'<a href="exec:dynamic $d_autodocQW">Обновление автодока</a>'
 			if cuntmanQW>=100:pl'<a href="exec:dynamic $d_cuntmanqw">Пиздатый мужик</a>'
 			if sluttySisQW>=3:pl'<a href="exec:dynamic $d_sisterfuckerqw">Сестра хуесоска</a>'
-			if sluttySlmashaQW>=100:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
+			if sluttySlmashaQW>99:pl'<a href="exec:dynamic $d_mashaqw">Месть Маши</a>'
 			if lebeda_birdQW=100:pl'<a href="exec:dynamic $d_lebeda_birdQW">Мама для Лебеды.</a>'
 			if prophecyQW>=100:pl'<a href="exec:dynamic $d_prophecyQW">Пророчество.</a>'
 			if against_portal>=4:pl'<a href="exec:dynamic $d_antiportalQW">Портальная магия.</a>'
@@ -447,53 +447,37 @@ if $ARGS[0] ! '':
 			pl''
 			pl'Ваша одежда:'
 			if c_slot[you]>0:
-				coattemp=c_slot[you]&$d_c_view='view"pic/clo/coat/<<coattemp>>.jpg"'
-				if ban_c[you]=0:pl'<a href="exec:dynamic $d_c_view"><<$c_name[coattemp]>></a> <a href="exec:gt''coat_un'',<<coattemp>>">снять</a>'
-				if ban_c[you]>0:pl'<a href="exec:dynamic $d_c_view"><<$c_name[coattemp]>></a>'
+				if ban_c[you]=0:pl'<a href="exec:gs({view_fig},{pic/clo/coat/<<c_slot[you]>>.jpg})"><<$c_name[c_slot[you]]>></a> <a href="exec:gt''coat_un'',<<c_slot[you]>>">снять</a>'
+				if ban_c[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/coat/<<c_slot[you]>>.jpg})"><<$c_name[c_slot[you]]>></a>'
 			end
 			if tz_slot[you]>0:
-				tztemp=tz_slot[you]&$d_tz_view='view"pic/clo/tz/<<coattemp>>.jpg"'
-				if ban_tz[you]=0:pl'<a href="exec:dynamic $d_tz_view"><<$tz_name[tztemp]>></a> <a href="exec:gt''tz_un'',<<tztemp>>">снять</a>'
-				if ban_tz[you]>0:pl'<a href="exec:dynamic $d_tz_view"><<$tz_name[tztemp]>></a>'
+				if ban_tz[you]=0:pl'<a href="exec:gs({view_fig},{pic/clo/tz/<<tz_slot[you]>>.jpg})"><<$tz_name[tz_slot[you]]>></a> <a href="exec:gt''tz_un'',<<tz_slot[you]>>">снять</a>'
+				if ban_tz[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/tz/<<tz_slot[you]>>.jpg})"><<$tz_name[tz_slot[you]]>></a>'
 			end
 			if tg_slot[you]>0:
-				tgtemp=tg_slot[you]&$d_tg_view='view"pic/clo/tg/<<coattemp>>.jpg"'
-				if ban_tg[you]=0:pl'<a href="exec:dynamic $d_tg_view"><<$tg_name[tgtemp]>></a> <a href="exec:gt''tg_un'',<<tgtemp>>">снять</a>'
-				if ban_tg[you]>0:pl'<a href="exec:dynamic $d_tg_view"><<$tg_name[tgtemp]>></a>'
+				if ban_tg[you]=0:pl'<a href="exec:gs({view_fig},{pic/clo/tg/<<tg_slot[you]>>.jpg})"><<$tg_name[tg_slot[you]]>></a> <a href="exec:gt''tg_un'',<<tg_slot[you]>>">снять</a>'
+				if ban_tg[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/tg/<<tg_slot[you]>>.jpg})"><<$tg_name[tg_slot[you]]>></a>'
 			end
 			if h_slot[you]>0:
-				hattemp=h_slot[you]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'
-				if ban_h[you]=0:pl'<a href="exec:dynamic $d_hat_view"><<$h_name[hattemp]>></a> <a href="exec:gt''hat_un'',<<hattemp>>">снять</a>'
-				if ban_h[you]>0:pl'<a href="exec:dynamic $d_hat_view"><<$h_name[hattemp]>></a>'
+				if ban_h[you]=0:pl'<a href="exec:gs({view_fig},{pic/clo/hat/<<h_slot[you]>>.jpg})"><<$h_name[h_slot[you]]>></a> <a href="exec:gt''hat_un'',<<h_slot[you]>>">снять</a>'
+				if ban_h[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/hat/<<h_slot[you]>>.jpg})"><<$h_name[h_slot[you]]>></a>'
 			end
 			if t_slot[you]>0:
-				toptemp=t_slot[you]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'
-				if ban_t[you]=0:pl'<a href="exec:dynamic $d_top_view"><<$t_name[toptemp]>></a> <a href="exec:gt''top_un'',<<toptemp>>">снять</a>'
-				if ban_t[you]>0:pl'<a href="exec:dynamic $d_top_view"><<$t_name[toptemp]>></a>'
+				if ban_t[you]=0:pl'<a href="exec:gs({view_fig},{pic/clo/top/<<t_slot[you]>>.jpg})"><<$t_name[t_slot[you]]>></a> <a href="exec:gt''top_un'',<<t_slot[you]>>">снять</a>'
+				if ban_t[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/top/<<t_slot[you]>>.jpg})"><<$t_name[t_slot[you]]>></a>'
 			end
 			if l_slot[you]>0:
-				lowtemp=l_slot[you]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'
-				if ban_l[you]=0:pl'<a href="exec:dynamic $d_low_view"><<$l_name[lowtemp]>></a> <a href="exec:gt''low_un'',<<lowtemp>>">снять</a>'
-				if ban_l[you]>0:pl'<a href="exec:dynamic $d_low_view"><<$l_name[lowtemp]>></a>'
+				if ban_l[you]=0:pl'<a href="exec:gs({view_fig},{pic/clo/low/<<l_slot[you]>>.jpg})"><<$l_name[l_slot[you]]>></a> <a href="exec:gt''low_un'',<<l_slot[you]>>">снять</a>'
+				if ban_l[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/low/<<l_slot[you]>>.jpg})"><<$l_name[l_slot[you]]>></a>'
 			end
 			if b_slot[you]>0:
-				boottemp=b_slot[you]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'
-				if ban_b[you]=0:pl'<a href="exec:dynamic $d_boot_view"><<$b_name[boottemp]>></a> <a href="exec:gt''boot_un'',<<boottemp>>">снять</a>'
-				if ban_b[you]>0:pl'<a href="exec:dynamic $d_boot_view"><<$b_name[boottemp]>></a>'
+				if ban_b[you]=0:pl'<a href="exec:gs({view_fig},{pic/clo/boot/<<b_slot[you]>>.jpg})"><<$b_name[b_slot[you]]>></a> <a href="exec:gt''boot_un'',<<b_slot[you]>>">снять</a>'
+				if ban_b[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/boot/<<b_slot[you]>>.jpg})"><<$b_name[b_slot[you]]>></a>'
 			end
-			if ut_slot[you]>0:
-				utoptemp=ut_slot[you]&$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'
-				pl'<a href="exec:dynamic $d_utop_view"><<$ut_name[utoptemp]>></a> <a href="exec:gt''ut_un'',<<utoptemp>>">снять</a>'
-			end
-			if ul_slot[you]>0:
-				ulowtemp=ul_slot[you]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'
-				pl'<a href="exec:dynamic $d_ulow_view"><<$ul_name[ulowtemp]>></a> <a href="exec:gt''ul_un'',<<ulowtemp>>">снять</a>'
-			end
+			if ut_slot[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/utop/<<ut_slot[you]>>.jpg})"><<$ut_name[ut_slot[you]]>></a> <a href="exec:gt''ut_un'',<<ut_slot[you]>>">снять</a>'
+			if ul_slot[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/ulow/<<ul_slot[you]>>.jpg})"><<$ul_name[ul_slot[you]]>></a> <a href="exec:gt''ul_un'',<<ul_slot[you]>>">снять</a>'
 			if ul_slot[you]=0:pl $iIf(pol[you]=0 and womenbrain[i]<=10,'Вы без трусов','Вы без трусиков')
-			if ub_slot[you]>0:
-				uboottemp=ub_slot[you]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'
-				pl'<a href="exec:dynamic $d_uboot_view"><<$ub_name[uboottemp]>></a> <a href="exec:gt''ub_un'',<<uboottemp>>">снять</a>'
-			end
+			if ub_slot[you]>0:pl'<a href="exec:gs({view_fig},{pic/clo/uboot/<<ub_slot[you]>>.jpg})"><<$ub_name[ub_slot[you]]>></a> <a href="exec:gt''ub_un'',<<ub_slot[you]>>">снять</a>'
 			if tongue_p[you]>0 or nose_p[you]>0 or nip_p[you]>0 or vag_pirs[you]>0:pl'Пирсинг:'&pl $func('generate_links', 0, 18)
 		end
 	end

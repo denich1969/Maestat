@@ -10,14 +10,14 @@
 					'Мишка поцеловал вас - <<$name[you]>>, хочешь сегодня немного пожестче?'
 					act'Да, мне нравятся доминантные мужчины':
 						agro[npc]=60&lust[npc]=60&base_lust[you]+=1
-						X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$loc[npc]='apart2'
+						X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$LOC_str[npc]='apart2'
 						X[npc]=Xhome[you]&Y[npc]=Yhome[you]&Z[npc]=Zhome[you]&H[npc]=Hhome[you]&R[npc]=Rhome[you]&gt'sex'
 					end
-					act'Нет, давай помягче':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt'sex'&!gt'sex'&!$loc[you]='apart2'
+					act'Нет, давай помягче':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt'sex'&!gt'sex'&!$LOC_str[you]='apart2'
 				end
 				if sex_times['<<you>>,<<npc>>']=0:
 					act'Пригласить и заняться сексом':
-						X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$loc[npc]='apart2'
+						X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$LOC_str[npc]='apart2'
 						X[npc]=Xhome[you]&Y[npc]=Yhome[you]&Z[npc]=Zhome[you]&H[npc]=Hhome[you]&R[npc]=Rhome[you]&gt'sex'
 					end
 				end
@@ -45,8 +45,8 @@ if (friends['<<npc>>,<<you>>']>10 or (boyfriend[you]=miha and you=girlfrend[miha
 			meetQW=2
 			time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> пожал вашу руку - Привет <<$name[you]>>, ну что, сходим в наш бар неподалеку, выпьем пивка для рывка.'
 			act'Идти с Михой в бар':
-				alko[you]+=8&time+=60*3&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&$loc[you]='1,4,200,1,0'&$loc[miha]='1,4,200,1,0'
-				'Вы пошли с Михой в бар и там начали с пивка и стали вести разговоры за жизнь. Постепенно довольно сильно набрались и вам приспичило в туалет.'&gt $loc[you]
+				alko[you]+=8&time+=60*3&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&$LOC_str[you]='1,4,200,1,0'&$LOC_str[miha]='1,4,200,1,0'
+				'Вы пошли с Михой в бар и там начали с пивка и стали вести разговоры за жизнь. Постепенно довольно сильно набрались и вам приспичило в туалет.'&gt $LOC_str[you]
 				act'Идти в туалет':
 					seeblondQW=1&cls&gs'stat'&!'<center><img src="pic/npc/5.jpg" ></center>'
 					X[you]=1&Y[you]=4&Z[you]=200&H[you]=1&R[you]=1&X[lillith]=1&Y[lillith]=4&Z[lillith]=200&H[lillith]=1&R[lillith]=1&gt 'world'
@@ -99,7 +99,7 @@ if (friends['<<npc>>,<<you>>']>10 or (boyfriend[you]=miha and you=girlfrend[miha
 				act'Попрощаться':X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt 'world'&!gt'street_ap'
 				act'Пригласить и заняться сексом':
 					meetQW=2&base_lust[you]+=1&X[miha]=Xhome[you]&Y[miha]=Yhome[you]&Z[miha]=Zhome[you]&H[miha]=Hhome[you]&R[miha]=Rhome[you]
-					X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt'sex'&!gt'sex'&!$loc[you]='apart2'
+					X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&gt'sex'&!gt'sex'&!$LOC_str[you]='apart2'
 				end
 			end
 		end

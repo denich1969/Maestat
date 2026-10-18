@@ -1,0 +1,50 @@
+﻿! Moves NPC w for this tick (modes: see npcsys_resolve). In the players world NPCs walk
+! ns_steps steps; in background districts, after long time gaps and for teleporting
+! programs they appear at their target at once.
+tormoza+=1
+ns_c_mv+=1
+ns_mp=walkprog[w]
+if nsw_mode[w]=3:gs'npcsys_follow'
+if nsw_mode[w]=1 or nsw_mode[w]=2:
+	! wandering is only worth doing where the player can see it
+	if ns_act=1 and ns_snap=0 and mob_sleep[w]<time:
+		if nsw_mode[w]=1 or stander[w]=0:
+			ns_s=0
+			:ns_wloop
+			if ns_s<ns_steps:gs'npcsys_wander' & w=ns_w
+			ns_s+=1
+			if ns_s<ns_steps:jump'ns_wloop'
+			$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
+		end
+	end
+	exit
+end
+if X[w]=Xdest[w] and Y[w]=Ydest[w] and Z[w]=Zdest[w] and H[w]=Hdest[w] and R[w]=Rdest[w]:exit
+if nsp_tp[ns_mp]=1 or ns_act=0 or ns_snap=1:
+	if ns_act=1 and nsp_tp[ns_mp]=1 and X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
+		gs'npcsys_say',$nsp_tm[ns_mp]
+		w=ns_w
+		if $nsp_tc[ns_mp]<>'':
+			$ns_code=$nsp_tc[ns_mp]
+			dynamic $ns_code
+			w=ns_w
+		end
+	end
+	if Z[w]<>Zdest[w]:ns_dirty=1
+	X[w]=Xdest[w] & Y[w]=Ydest[w] & Z[w]=Zdest[w] & H[w]=Hdest[w] & R[w]=Rdest[w]
+	gs'npcsys_arrived'
+	w=ns_w
+	exit
+end
+ns_s=0
+:ns_mloop
+if ns_s<ns_steps:
+	if X[w]<>Xdest[w] or Y[w]<>Ydest[w] or Z[w]<>Zdest[w] or H[w]<>Hdest[w] or R[w]<>Rdest[w]:
+		gs'npcsys_step'
+		w=ns_w
+		if X[w]=Xdest[w] and Y[w]=Ydest[w] and Z[w]=Zdest[w] and H[w]=Hdest[w] and R[w]=Rdest[w]:gs'npcsys_arrived' & w=ns_w
+	end
+end
+ns_s+=1
+if ns_s<ns_steps:jump'ns_mloop'
+$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'

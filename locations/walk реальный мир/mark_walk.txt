@@ -5,6 +5,6 @@ else
     if hour>=22 or hour<=6:
 		$doing[w]='Спит'
 	else
-		$loc[w]='<<Xhome[mark]>>,<<Yhome[mark]>>,<<Zhome[mark]>>,<<Hhome[mark]>>,<<Rhome[mark]>>'&$doing[w]='Смотрит на вас'
+		$LOC_str[w]='<<Xhome[mark]>>,<<Yhome[mark]>>,<<Zhome[mark]>>,<<Hhome[mark]>>,<<Rhome[mark]>>'&$doing[w]='Смотрит на вас'
 	end
 end

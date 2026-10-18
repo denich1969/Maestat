@@ -1,0 +1,27 @@
+﻿! Check: can rule ns_nr of program ns_cp ever match, or does an earlier rule always win at all of
+! its hours? ns_cvd[h] / ns_cve[h] hold the number of the first rule that always matches at hour h
+! on weekdays / at weekends (no condition, and ns_valw=1 from npcsys_chkopts); npcsys_prog clears them.
+! $args[0]=where it is used, args[1]=number of this rule in its program.
+if ns_cp<=0:exit
+if nsr_a[ns_nr]<0 or nsr_a[ns_nr]>23 or nsr_b[ns_nr]<0 or nsr_b[ns_nr]>23:exit
+ns_cmark=0
+if $nsr_c[ns_nr]='' and ns_valw=1:ns_cmark=1
+ns_cfree=0
+ns_cby=0
+ns_ch=nsr_a[ns_nr]
+ns_cleft=((nsr_b[ns_nr]-nsr_a[ns_nr]+24) mod 24)+1
+:ns_cvloop
+if nsr_d[ns_nr]<>2:
+	if ns_cvd[ns_ch]=0:ns_cfree=1
+	if ns_cby=0:ns_cby=ns_cvd[ns_ch]
+	if ns_cmark=1 and ns_cvd[ns_ch]=0:ns_cvd[ns_ch]=args[1]
+end
+if nsr_d[ns_nr]<>1:
+	if ns_cve[ns_ch]=0:ns_cfree=1
+	if ns_cby=0:ns_cby=ns_cve[ns_ch]
+	if ns_cmark=1 and ns_cve[ns_ch]=0:ns_cve[ns_ch]=args[1]
+end
+ns_ch=(ns_ch+1) mod 24
+ns_cleft-=1
+if ns_cleft>0:jump'ns_cvloop'
+if ns_cfree=0:gs'npcsys_err',$args[0]+': никогда не сработает, его всегда перекрывает правило <<ns_cby>>'

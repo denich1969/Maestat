@@ -1,0 +1,125 @@
+﻿! Debug report (the report link of the npcsys_dbg panel): system state, the old NPC lists,
+! the NPCs on the players street block and the first NPCs of the players world.
+$ns_rep='<b>npcsys отчёт</b><br>'
+$ns_rep+='ready <<ns_ready>>, on <<ns_on>>, init <<ns_c_init>>, вызовов <<ns_c_calls>>, тиков <<ns_c_ticks>>, dbg <<ns_dbg>><br>'
+ns_d_gap=time-ns_last
+$ns_rep+='сейчас time <<time>> (<<hour>>:<<minut>>), week <<week_num>>, daystart <<daystart>><br>'
+$ns_rep+='последний тик в <<ns_last>> (<<ns_d_gap>> мин назад): час <<ns_h>>, выходной <<ns_we>>, +<<ns_d_dt>> мин, шагов <<ns_steps>>, snap <<ns_snap>><br>'
+$ns_rep+='в том тике: НПС <<ns_c_pass>>, могут ходить <<ns_c_ok>>, решили <<ns_c_dec>>, двигались <<ns_c_mv>>, шагов <<ns_c_st>>, пришли <<ns_c_arr>>, встреч <<ns_c_meet>>, <<ns_ms>> мс<br>'
+$ns_rep+='таблицы: мест <<ns_npl>>, программ <<ns_npr>>, правил <<ns_nr>><br>'
+! mistakes found while the tables were built (npcsys_err), at most 40
+if ns_nerr>0:$ns_rep+='<font color=#c00000><b>ошибки в расписаниях: <<ns_nerr>></b></font>'
+ns_di=0
+:ns_deloop
+if ns_di<ns_nerr and ns_di<40:$ns_rep+='<br><font color=#c00000><<$ns_err[ns_di]>></font>'
+ns_di+=1
+if ns_di<ns_nerr and ns_di<40:jump'ns_deloop'
+if ns_nerr>0:$ns_rep+='<br>'
+! walkprog numbers that NPCs have but no program is defined for (these NPCs stand still)
+killvar 'ns_dup' & killvar 'ns_dpl'
+ns_dn=arrsize('ns_list')
+ns_di=0
+:ns_duloop
+if ns_di<ns_dn:
+	ns_dw=ns_list[ns_di]
+	ns_dp=walkprog[ns_dw]
+	if ns_dp<>0 and nsp_k[ns_dp]=0 and dead[ns_dw]=0:
+		if ns_dup[ns_dp]=0:ns_dpl[]=ns_dp
+		ns_dup[ns_dp]+=1
+	end
+end
+ns_di+=1
+if ns_di<ns_dn:jump'ns_duloop'
+ns_dn=arrsize('ns_dpl')
+if ns_dn>0:$ns_rep+='НПС с неописанной программой (стоят на месте), программа - сколько НПС:'
+ns_di=0
+:ns_dploop
+if ns_di<ns_dn:$ns_rep+=' <<ns_dpl[ns_di]>> - <<ns_dup[ns_dpl[ns_di]]>>;'
+ns_di+=1
+if ns_di<ns_dn:jump'ns_dploop'
+if ns_dn>0:$ns_rep+='<br>'
+killvar 'ns_dup' & killvar 'ns_dpl'
+$ns_rep+='игрок <<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>; мир <<ns_pw>>, корзины собраны для мира <<ns_bw>>, следующая сборка в <<ns_rb_at>><br>'
+ns_d1=arrsize('nsb1')
+ns_d2=arrsize('nsb2')
+ns_d3=arrsize('nsb3')
+ns_d4=arrsize('nsb4')
+ns_d5=arrsize('nsb5')
+ns_d6=arrsize('nsbx')
+ns_dn=arrsize('ns_list')
+$ns_rep+='зарегистрировано НПС <<ns_dn>>; по мирам: 1=<<ns_d1>> 2=<<ns_d2>> 3=<<ns_d3>> 4=<<ns_d4>> 5=<<ns_d5>> другой=<<ns_d6>><br>'
+$ns_rep+='<br><b>старые списки</b> (размер/прочитано):<br>'
+gs'npcsys_dbg_list','homeworld'
+gs'npcsys_dbg_list','paradiseworld'
+gs'npcsys_dbg_list','moonworld'
+gs'npcsys_dbg_list','n_world'
+gs'npcsys_dbg_list','ne_world'
+gs'npcsys_dbg_list','e_world'
+gs'npcsys_dbg_list','se_world'
+gs'npcsys_dbg_list','s_world'
+gs'npcsys_dbg_list','root_world'
+gs'npcsys_dbg_list','romaworld'
+gs'npcsys_dbg_list','mistworld'
+gs'npcsys_dbg_list','lighthouse'
+gs'npcsys_dbg_list','se_lighthouse'
+gs'npcsys_dbg_list','obsession_world'
+gs'npcsys_dbg_list','l_obsession_world'
+gs'npcsys_dbg_list','t_obsession_world'
+gs'npcsys_dbg_list','m_obsession_world'
+gs'npcsys_dbg_list','real_world'
+! --- NPCs on the players street block ---
+$ns_rep+='<br><br><b>НПС рядом</b> (квартал <<X[you]>>,<<Y[you]>>,<<Z[you]>>):'
+ns_di=0
+ns_dc=0
+:ns_dloop1
+if ns_di<ns_dn:
+	ns_dw=ns_list[ns_di]
+	if ns_dw<>you and ns_dc<40:
+		if X[ns_dw]=X[you] and Y[ns_dw]=Y[you] and Z[ns_dw]=Z[you]:
+			gs'npcsys_dbg_npc',ns_dw
+			ns_dc+=1
+		end
+	end
+end
+ns_di+=1
+if ns_di<ns_dn:jump'ns_dloop1'
+! the same block in the old lists, for NPCs npcsys does not know about
+killvar 'ns_dsd'
+gs'npcsys_dbg_scan','homeworld'
+gs'npcsys_dbg_scan','paradiseworld'
+gs'npcsys_dbg_scan','moonworld'
+gs'npcsys_dbg_scan','n_world'
+gs'npcsys_dbg_scan','ne_world'
+gs'npcsys_dbg_scan','e_world'
+gs'npcsys_dbg_scan','se_world'
+gs'npcsys_dbg_scan','s_world'
+gs'npcsys_dbg_scan','root_world'
+gs'npcsys_dbg_scan','romaworld'
+gs'npcsys_dbg_scan','mistworld'
+gs'npcsys_dbg_scan','lighthouse'
+gs'npcsys_dbg_scan','se_lighthouse'
+gs'npcsys_dbg_scan','obsession_world'
+gs'npcsys_dbg_scan','l_obsession_world'
+gs'npcsys_dbg_scan','t_obsession_world'
+gs'npcsys_dbg_scan','m_obsession_world'
+gs'npcsys_dbg_scan','real_world'
+killvar 'ns_dsd'
+if ns_dc=0:$ns_rep+='<br>никого'
+! --- the first NPCs of the players world, in the order npcsys walks them ---
+killvar 'nsd'
+if ns_pw=1:copyarr 'nsd','nsb1'
+if ns_pw=2:copyarr 'nsd','nsb2'
+if ns_pw=3:copyarr 'nsd','nsb3'
+if ns_pw=4:copyarr 'nsd','nsb4'
+if ns_pw=5:copyarr 'nsd','nsb5'
+if ns_pw<1 or ns_pw>5:copyarr 'nsd','nsbx'
+ns_dn=arrsize('nsd')
+$ns_rep+='<br><br><b>НПС мира <<ns_pw>></b>: <<ns_dn>>, первые 25:'
+ns_di=0
+:ns_dloop2
+if ns_di<ns_dn and ns_di<25:gs'npcsys_dbg_npc',nsd[ns_di]
+ns_di+=1
+if ns_di<ns_dn and ns_di<25:jump'ns_dloop2'
+killvar 'nsd'
+msg $ns_rep
+$ns_rep=''

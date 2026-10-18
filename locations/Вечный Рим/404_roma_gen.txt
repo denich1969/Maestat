@@ -160,7 +160,7 @@ elseif X=4 and Y=2:
 	item_loc_ut['2,<<$temploc>>']=1&item_loc_ul['2,<<$temploc>>']=1&item_loc_ub['3,<<$temploc>>']=1
 	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Столовая'
 	$locname['<<$temploc>>']='Столовая'&$lname['<<$temploc>>']='Столовая'&$lname_go['<<$temploc>>']='в столовую'&$locopis['<<$temploc>>']='В центре комнаты длинный стол'&np['<<$temploc>>']=176
-	item_loc['98,<<$loc[you]>>']=10&can_drink['<<$temploc>>']=1&can_eat['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&!kitchentable['<<$temploc>>']=1
+	item_loc['98,<<$LOC_str[you]>>']=10&can_drink['<<$temploc>>']=1&can_eat['<<$temploc>>']=1&kitchen['<<$temploc>>']=1&!kitchentable['<<$temploc>>']=1
 	R=4&gs 'toilet_gen',5&$locopis['<<$temploc>>']='Роскошный туалет особняка'
 	item_loc['12,<<$temploc>>']=10&item_loc['14,<<$temploc>>']=1&item_loc['16,<<$temploc>>']=3&item_loc['17,<<$temploc>>']=5&item_loc['20,<<$temploc>>']=3
 	R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Комната для слуг и рабов'

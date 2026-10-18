@@ -13,4 +13,4 @@ girl[powerup]+=1&guy[i]+=1&sexpartner['<<i>>,<<powerup>>']+=100&sexpartner['<<po
 vagsex[i]+=100&avagsex[powerup]+=100&anal[i]+=100&aanal[powerup]+=100&bj[i]+=100&abj[powerup]+=100
 sexpartner_num_m['<<i>>,<<guy[i]>>']=powerup&sexpartner_num_f['<<powerup>>,<<girl[powerup]>>']=i&husband[i]=powerup&husband[powerup]=i
 t_slot[i]=29&l_slot[i]=74&b_slot[i]=13&ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=0&tongue_p[i]=1&nip_p[i]=1&vag_pirs[i]=1&!l_hand_t[i]=3
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=29
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=29

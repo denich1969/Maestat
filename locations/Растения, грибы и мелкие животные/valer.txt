@@ -1,11 +1,11 @@
 ﻿$nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/loc/ras/cvety<<rand(1,4)>>.jpg" ></center>'&'Валериану лекарственную собирают с августа по октябрь.'
-if valerianknow[you]>0 and zd2sekret=1 and month>7 and month<10:
+if valerianknow[you]>0 and zd2sekret=1 and month_num>7 and month_num<10:
 	'На поляне растёт валериана'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Сорвать пучок валерианы':item_loc['191,<<$loc[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act'Сорвать пучок валерианы':item_loc['191,<<$LOC_str[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
 		act 'Собирать валериану':
-			time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['191,<<$loc[you]>>']+=max(rand(2),lvltravnik[you])
-			"В течение получаса вы собирали валериану лекарственную и собрали <<item_loc['191,<<$loc[you]>>']>> порций"&valeriannum=item_loc['191,<<$loc[you]>>']+item['189']
+			time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['191,<<$LOC_str[you]>>']+=max(rand(2),lvltravnik[you])
+			"В течение получаса вы собирали валериану лекарственную и собрали <<item_loc['191,<<$LOC_str[you]>>']>> порций"&valeriannum=item_loc['191,<<$LOC_str[you]>>']+item['189']
 			'Всего у вас <<valeriannum>> порций'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

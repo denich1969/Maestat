@@ -1,0 +1,40 @@
+﻿! Obsession world (Z 700-799): what the old walker did there for every NPC, dead or alive -
+! respawn and despawn, monsters turning girls into whores, eggs and births. The random
+! steps are npcsys_wander now, and the old subwalkerNW is npcsys_obs_meet (via npcsys_social).
+if w!you and dead[w]=1000 and startnewspawn=1:dead[w]=0
+if canagromob=1 and corr[w]>=1000 and onceuptime[w]=0:onceuptime[w]=1&dead[w]=1000
+if w!you and dead[w]=0 and Z[w]=Z[you]:
+	if corr[w]>=100 and vag[w]>=1 and agro[w]=0:
+		if mob[w]!4 and fucked[w]>=50:
+			exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
+			vag[w]=40&minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
+		end
+	end
+	if mob[w]=21 and corr[w]>=100:
+		exmob[w]=mob[w]&mob[w]=4&mobexp[w]=5&$title[w]='Сисси шлюха'&tipemobpic[w]=1&picture[w]=rand(104,111)
+		minuron[w]=rand(3,6)&maxuron[w]=rand(8,15)&reflex[w]=rand(30,40)
+	end
+	if succubus_slut[w]>0:
+		if corr[w]<100:corr[w]=100
+		sucslut=succubus_slut[w]&if dead[sucslut]>0:succubus_slut[w]=0&exsucslave[w]=sucslut&corr[w]=0
+	end
+end
+if w<>you and dead[w]=0 and cantwalk[w]=0 and w<>recepboy:
+	if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]>0:
+		if mob_busy[w]=1:mob_sleep[w]=time+60
+		mob_busy[w]=0
+	end
+	if mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0:
+		if slutegg[w]>0:
+			slutegg[w]-=1
+			if slutegg[w]=0:
+				eggborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100&gs'mobgen'&if eggborn[w]>=10:total_slut-=1&dead[w]=1
+			end
+		end
+		if slutborn[w]>0:
+			slutborn[w]-=1
+		if slutborn[w]=0 and slutborntipe[w]=1:slutborntipe[w]=0&motherborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&gs'aborigen_gen'&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100
+		if slutborn[w]=0 and slutborntipe[w]=2:timesgoblinbird[w]+=1&slutborntipe[w]=0&motherborn[w]+=1&X=X[w]&Y=Y[w]&Z=Z[w]&H=H[w]&R=R[w]&gs'goblin'&corr[w]+=rand(10,50)&if corr[w]>100:corr[w]=100
+		end
+	end
+end

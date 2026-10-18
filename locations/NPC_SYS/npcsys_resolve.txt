@@ -1,0 +1,28 @@
+﻿! Turns $destination[w] into a target (Xdest..Rdest) and a way of moving, nsw_mode[w]:
+! 0 go to the target and stay there, 1 wander anywhere ('прогулка'),
+! 2 wander nearby (NPCs without a program), 3 follow NPC nsw_tgt[w] ('@...').
+$ns_t=$destination[w]
+nsw_mode[w]=0
+nsw_tgt[w]=0
+Xdest[w]=X[w] & Ydest[w]=Y[w] & Zdest[w]=Z[w] & Hdest[w]=H[w] & Rdest[w]=R[w]
+if $ns_t='' or $ns_t='стоп':exit
+if $ns_t='прогулка':
+	nsw_mode[w]=1
+	exit
+end
+if $ns_t='дом':
+	Xdest[w]=Xhome[w] & Ydest[w]=Yhome[w] & Zdest[w]=Zhome[w] & Hdest[w]=Hhome[w] & Rdest[w]=Rhome[w]
+	exit
+end
+if $mid($ns_t,1,1)='@':
+	nsw_tgt[w]=dyneval('result='+$mid($ns_t,2))
+	nsw_mode[w]=3
+	gs'npcsys_follow'
+	exit
+end
+! a set of rooms: pick one (again every hour, so the NPC moves around inside)
+if $nsl_al[$ns_t]<>'':$ns_t=$func('npcsys_pick',$nsl_al[$ns_t])
+if nsl_z[$ns_t]>0:
+	Xdest[w]=nsl_x[$ns_t] & Ydest[w]=nsl_y[$ns_t] & Zdest[w]=nsl_z[$ns_t] & Hdest[w]=nsl_h[$ns_t] & Rdest[w]=nsl_r[$ns_t]
+	if Hdest[w]<0:Hdest[w]=Hmass
+end

@@ -20,7 +20,7 @@ if sexpower[you]>0:
 			if temp_npc_clothe=1:act'Раздеть':temp_npc_clothe=0&gt $curloc
 			act'Целовать':
 				cls&gs'stat'&$func('get_images', 'poser_kiss', you, npc)&act'...':gt $curloc
-				$text=$iif (lips[npc]=1,'пухленькие губы',$iif (lips[npc]=2,'толстые губы',$iif (lips[npc]=3,'огромные губы, похожие на букву О','желанные губы')))&'Вы страстно целуете <<$text>>'
+				$text_str=$iif (lips[npc]=1,'пухленькие губы',$iif (lips[npc]=2,'толстые губы',$iif (lips[npc]=3,'огромные губы, похожие на букву О','желанные губы')))&'Вы страстно целуете <<$text_str>>'
 				if lust[npc]<20:'<<$name[npc]>> неуклюже и холодно целует вас в ответ.'
 				if lust[npc]>=20 and lust[npc]<70:'<<$name[npc]>> охотно целует вас в ответ.'
 				if lust[npc]>=70:'<<$name[npc]>> страстно целует вас, ее губы буквально летают по вашим и ее горячий и острый язычок проникает вам в рот.'
@@ -36,14 +36,14 @@ if sexpower[you]>0:
                         end
                     end
 					if pol[you]>0:'<center><video autoplay loop src="pic/sex/poser/tits_suck_lesb<<rand(0,18)>>.webm" ></video></center>'
-					$text='желанные губы'
-					if tit[npc]<=1:$text='крошечную остренькую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
-					if tit[npc]=2:$text='маленькую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
-					if tit[npc]=3:$text='округлую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
-					if tit[npc]=4:$text='объемную грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
-					if tit[npc]=5:$text='большую грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
-					if tit[npc]>=6:$text='огромную грудь <<tit[npc]>>го размера с <<$nip[npc]>>'
-					'Вы страстно целуете и вылизываете <<$text>>'&act'...':gt $curloc
+					$text_str='желанные губы'
+					if tit[npc]<=1:$text_str='крошечную остренькую грудь <<tit[npc]>>го размера с <<$nip_str[npc]>>'
+					if tit[npc]=2:$text_str='маленькую грудь <<tit[npc]>>го размера с <<$nip_str[npc]>>'
+					if tit[npc]=3:$text_str='округлую грудь <<tit[npc]>>го размера с <<$nip_str[npc]>>'
+					if tit[npc]=4:$text_str='объемную грудь <<tit[npc]>>го размера с <<$nip_str[npc]>>'
+					if tit[npc]=5:$text_str='большую грудь <<tit[npc]>>го размера с <<$nip_str[npc]>>'
+					if tit[npc]>=6:$text_str='огромную грудь <<tit[npc]>>го размера с <<$nip_str[npc]>>'
+					'Вы страстно целуете и вылизываете <<$text_str>>'&act'...':gt $curloc
 					if lust[npc]<20:'<<$name[npc]>> спокойно принимает ваши ласки.'
 					if lust[npc]>=20 and lust[npc]<70:'<<$name[npc]>> закрывает глаза и прикусив губу тихо стонет от удовольствия.'
 					if lust[npc]>=70:$iif(agro[npc]<50,'<<$name[npc]>> постанывая, гладит ваши волосы.','<<$name[npc]>> постанывая, хватает вас за волосы и старается управлять вашими ласками.') 
@@ -224,8 +224,8 @@ if sexpower[you]>0:
 			act'Сосать':
 				cls&temp_blow_fss+=1&sexpower[npc]-=1&if corr[you]<10:corr[you]+=1
 				$iif(H[you]>0,$func('get_images', 'blowjob', you, npc),$func('get_images', 'public_blow', you, npc))
-				$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
-				'Вы сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'&gs'fuck_oral',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
+				$text_str=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+				'Вы сосете <<dick[npc]>> сантиметровый член своими <<$text_str>>.'&gs'fuck_oral',npc,you&args[10]=func('fuck_final',in_sex[you])&gs'stat'
 				if sexpower[npc]>1:
 					act'...':gt 'activ_sex'
 				else
@@ -429,7 +429,7 @@ else
 			if piss_fixation[npc]>0:canbepisswhore[npc]=1
 			if canbepisswhore[npc]>0:
 				corr[npc]+=20&if soulMG[you]>0:soul[you]+=1
-				piss_mass['<<you>>,<<npc>>']+=1&peecover[npc]=time+30&drinkpee[npc]+=1&pee[you]+=1&pisswasser[you]=0&pissonloc['<<$loc[you]>>']=time+250
+				piss_mass['<<you>>,<<npc>>']+=1&peecover[npc]=time+30&drinkpee[npc]+=1&pee[you]+=1&pisswasser[you]=0&pissonloc['<<$LOC_str[you]>>']=time+250
 				if piss_fixation[npc]>0 and orgasm[npc]<time:horny[npc]+=piss_fixation[npc]
 				if horny[npc]>100:piss_fixation[npc]+=1
 				gs'stat'

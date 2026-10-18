@@ -1,0 +1,5 @@
+﻿! Defines a place that is really a set of rooms: $args[0]=name, $args[1]='room|room|...'.
+! Each time an NPC plans (every hour) it picks one of the rooms, so it moves around inside.
+if $nsl_al[$args[0]]<>'':gs'npcsys_err','набор «<<$args[0]>>» задан дважды'
+gs'npcsys_chkopts',$args[1],'набор «<<$args[0]>>»',1
+$nsl_al[$args[0]]=$args[1]

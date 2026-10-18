@@ -16,7 +16,7 @@ if X=3 and Y=3:
 	$locname['<<$temploc>>']='Подъезд'&$lname['<<$temploc>>']='подъезд'&$lname_go['<<$temploc>>']='в подъезд'&$locopis['<<$temploc>>']='Грязный подъезд '&np['<<$temploc>>']=7&gs'hero_home_gen'
 	if H+1=Hstart and X=Xstart and Y=Ystart and Z=Zstart:$locname['<<$temploc>>']='Подъезд вашего дома'&$lname['<<$temploc>>']='подъезд вашего дома'
 	H=3&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №2'&ownerloc['<<$templocH>>']=mark&privat['<<$templocH>>']=1
-	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №2'&$lname_go['<<$temploc>>']='в квартиру №2'&!'надпись над фото'
+	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №2'&$lname_go['<<$temploc>>']='в квартиру №2'&lock['<<$templocH>>']=1&!'надпись над фото'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'&telephone['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
 	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'&np['<<$temploc>>']=153
 	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'
@@ -30,7 +30,7 @@ if X=3 and Y=3:
 	$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'
 	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'&np['<<$temploc>>']=157&tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
 	H=4&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №3'&ownerloc['<<$templocH>>']=katja&privat['<<$templocH>>']=1
-	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №3'&$lname_go['<<$temploc>>']='в квартиру №3'&!'надпись над фото'
+	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №3'&$lname_go['<<$temploc>>']='в квартиру №3'&lock['<<$templocH>>']=1&!'надпись над фото'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'
 	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'&np['<<$temploc>>']=153
 	item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1&telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1&mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
@@ -45,7 +45,7 @@ if X=3 and Y=3:
 	$locname['<<$temploc>>']='Гостиная'&$lname['<<$temploc>>']='Гостиная'&$lname_go['<<$temploc>>']='в гостинную'&tv['<<$temploc>>']=1&mirror['<<$temploc>>']=1
 	$locopis['<<$temploc>>']='Большая гостинная с парадным сервантом где стоит бабушкин хрусталь, диваном и телевизором'&np['<<$temploc>>']=157
 	H=5&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&maxPositionR['<<$templocH>>']=4&$locnameH['<<$templocH>>']='Квартира №4'&ownerloc['<<$templocH>>']=katja&privat['<<$templocH>>']=1
-	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №4'&$lname_go['<<$temploc>>']='в квартиру №4'&!'надпись над фото'
+	$locname['<<$temploc>>']='Квартира №3'&$lname['<<$temploc>>']='квартира №4'&$lname_go['<<$temploc>>']='в квартиру №4'&lock['<<$templocH>>']=1&!'надпись над фото'
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Прихожая'&mirror['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
 	$locname['<<$temploc>>']='Прихожая'&$lname['<<$temploc>>']='прихожая'&$lname_go['<<$temploc>>']='в прихожую'&$locopis['<<$temploc>>']='Тесная прихожая'&np['<<$temploc>>']=153
 	item_loc_b['2,<<$temploc>>']=1&item_loc_b['9,<<$temploc>>']=1&telephone['<<$temploc>>']=1&my_telephone['<<$temploc>>']=1

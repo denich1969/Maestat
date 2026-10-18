@@ -11,4 +11,4 @@ pol[i]=0&gs'body'&total_generated_male+=1
 womenbrain[i]=0&bisex[i]=0&agro[i]=100&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=1&brave[i]=2&ust[i]=100&!характер
 girl[i]+=100&avagsex[i]+=100&aanal[i]+=100&abj[i]+=100
 pre_class=2&lclass[i]=pre_class&m_slot[i]=114&w_slot[i]=111&t_slot[i]=49&l_slot[i]=7&b_slot[i]=4&ul_slot[i]=5
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=39
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=39

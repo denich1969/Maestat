@@ -94,8 +94,8 @@ if deadly[you]>5:gt'dead'
 gs'nudeness'
 if pisswasser[you]>=100:pisswasser[you]=0&status_tipe[you]=3&status_time[you]=time+200&msg("Вы обоссались!")&!peecover[you]+=2
 lust[you]=max(lust[you],base_lust[you]+temp_lust[you])
-if cum_face[you]<=6:$d_cumface_view='<video autoplay loop autoplay loop src="pic/cum/<<cum_face[you]>>.webm" >'
-if cum_face[you]>6:$d_cumface_view='<video autoplay loop autoplay loop src="pic/cum/6.webm" >'
+!if cum_face[you]<=6:$d_cumface_view='<video autoplay loop autoplay loop src="pic/cum/<<cum_face[you]>>.webm" >'
+!if cum_face[you]>6:$d_cumface_view='<video autoplay loop autoplay loop src="pic/cum/6.webm" >'
 if ass[you]>=20:
     if l_slot[you]=5:l_slot[you]=23
     if l_slot[you]=58:l_slot[you]=59
@@ -121,4 +121,30 @@ elseif tits_real[you]<10 and pol[you]=0:
     if t_slot[you]=15:t_slot[you]=1
     if t_slot[you]=85:t_slot[you]=84
 end
-$d_view_tatoo_moon='<img src="pic/tattoo/moon.jpg" >'&!{view("pic/tattoo/moon.jpg")}
+!$d_view_tatoo_moon='<img src="pic/tattoo/moon.jpg" >'&!{view("pic/tattoo/moon.jpg")}
+if obschaga=0:
+	obschaga=1&X=1&Y=0&Z=3&maxPositionH['<<X>>,<<Y>>,<<Z>>']=6
+	H=6&privat['<<X>>,<<Y>>,<<Z>>,<<H>>']=0&lock['<<X>>,<<Y>>,<<Z>>,<<H>>']=0&$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']='Общежитие'&maxPositionR['<<X>>,<<Y>>,<<Z>>,<<H>>']=3
+	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Вестибюль'&$lname['<<$temploc>>']='Вестибюль'&$lname_go['<<$temploc>>']='в вестибюль'
+	$locopis['<<$temploc>>']='Обшарпаная комната с коридором'&np['<<$temploc>>']=221&mirror['<<$temploc>>']=1&telephone['<<$temploc>>']=1&!family_pod['<<$temploc>>']=1
+	R=1&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Кухня'&$locname['<<$temploc>>']='Кухня'&$lname['<<$temploc>>']='Кухня'&$lname_go['<<$temploc>>']='на кухню'
+	$locopis['<<$temploc>>']='Общая общажная кухня'&np['<<$temploc>>']=222&can_drink['<<$temploc>>']=1&kitchen['<<$temploc>>']=1
+	R=2&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Туалет'&$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$lname_go['<<$temploc>>']='в туалет'
+	$locopis['<<$temploc>>']='Большой санузел с душевыми кабинами и туалетом представляющим из себя дырки в полу.'
+	np['<<$temploc>>']=223&can_drink['<<$temploc>>']=1&mirror['<<$temploc>>']=1&toilet['<<$temploc>>']=1&shower['<<$temploc>>']=1
+	R=3&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №1'&$locname['<<$temploc>>']='Спальная №1'&$lname['<<$temploc>>']='Спальная №1'
+	$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224&can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0&gs'black_runners_gang_gen'
+end
+if obschaga=1:
+	obschaga=2&X=1&Y=0&Z=3&H=6&maxPositionR['<<X>>,<<Y>>,<<Z>>,<<H>>']=6
+	R=4&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №2'&$locname['<<$temploc>>']='Спальная №2'&$lname['<<$temploc>>']='Спальная №2'
+	$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224&can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0&gs'dorm_male_gen'
+	R=5&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №3'&$locname['<<$temploc>>']='Спальная №3'&$lname['<<$temploc>>']='Спальная №3'
+	$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224&can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0&gs'dorm_female_gen'
+	R=6&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locnameR['<<$temploc>>']='Спальная №4'&$locname['<<$temploc>>']='Спальная №4'&$lname['<<$temploc>>']='Спальная №4'
+	$lname_go['<<$temploc>>']='в спальную'&$locopis['<<$temploc>>']='Общая спальная с рядами железных кроватей'
+	np['<<$temploc>>']=224&can_sleep['<<$temploc>>']=1&mirror['<<$temploc>>']=1&sexcentr['<<$temploc>>']=0&gs'dorm_solomon_gen'
+end

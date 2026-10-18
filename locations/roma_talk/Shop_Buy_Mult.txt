@@ -6,9 +6,9 @@ $Prompt["Афродизиак"] = "Каждый флакон афродизиа�
 $Prompt["Усыпляющий <u>г</u>аз"] = "Каждая граната с газом стоит 40 золотых. Сколько Вам нужно?"
 $Goods = $args[0]&!Первым и единственным аргументом передается название товара
 $Return_location=$iif($Goods="<u>П</u>рипасы","Shop_catalog","Shop_misc")
-number = input($Prompt[$Goods])&IF number*Price_list[$Goods] > money:msg "К сожалению, у Вас не хватает денег."&cls&cla&$loc[you]=$loc[menhunter] 
+number = input($Prompt[$Goods])&IF number*Price_list[$Goods] > money:msg "К сожалению, у Вас не хватает денег."&cls&cla&$LOC_str[you]=$LOC_str[menhunter] 
 IF number > 0:
 	Goods_mult[$Goods]+=number&GS 'Change_Object_Count', $Goods, Goods_mult[$Goods]
-	money -= number*Price_list[$Goods]&msg "Спасибо за покупку!"&cls&cla&$loc[you]=$loc[menhunter] 
+	money -= number*Price_list[$Goods]&msg "Спасибо за покупку!"&cls&cla&$LOC_str[you]=$LOC_str[menhunter] 
 end
-act 'Закончить покупки':&cls&cla&$loc[you]=$loc[menhunter] 
+act 'Закончить покупки':&cls&cla&$LOC_str[you]=$LOC_str[menhunter] 

@@ -11,7 +11,7 @@ else
         end
     else
 		needonwork=0&$think[w]='думает о том что хватит спать'
-		if work[w]>0 and week<6:needonwork=1
+		if work[w]>0 and week_num<6:needonwork=1
 		if work[w]=30:needonwork=1
         if needonwork=1:
 		    if work[w]=30 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='прогулка'

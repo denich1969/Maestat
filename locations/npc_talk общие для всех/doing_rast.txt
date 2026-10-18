@@ -6,7 +6,7 @@ if cooking[i]>0 and kitchen['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1:$d
 if watchtv[i]=1 and tv['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1:$doing[i]+=' смотрит телевизор'
 if adultcinema=1 and tv['<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>']=1 and dick[i]>1:$doing[i]+=' дрочит свой член глядя на экран'
 if mother=i:
-    if week<6 and hour<10 and hour>=7 and atestat[you]=0 and H[you]>0:
+    if week_num<6 and hour<10 and hour>=7 and atestat[you]=0 and H[you]>0:
 		randtalker=rand(1)
         if husband[i]!you:
 			if randtalker=0:$doing[i]=' - Тебе не пора в школу?'

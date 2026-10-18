@@ -1,8 +1,11 @@
 ﻿$nameloc[you]=$curloc&gs'stat'&'Полки с продуктами'&gs'Item'&*nl''&gs 'npconloc'&act'Уйти':gt 'preloc'
-if supermarket['<<$loc[you]>>']=1:
+if supermarket['<<$LOC_str[you]>>']=1:
 	if rubl[you]>=100000:
 		act'Купить продукты 1000р':
 			rubl[you]-=100000&item[98]+=1&burden[you]+=item_burden[98]&cls&gs'stat'&'Вы заплатили деньги и купили продукты'&act'<b>Уйти</b>':gt $curloc
+		end
+		act'Купить макияж 10ш':
+			rubl[you]-=100000:&kit+=20&cls&gs'stat'&'Вы заплатили деньги и купили макияж'&act'<b>Уйти</b>':gt $curloc
 		end
 	end
 	if rubl[you]>=10000:
@@ -44,7 +47,7 @@ if supermarket['<<$loc[you]>>']=1:
 		end
 	end
 end
-if supermarket['<<$loc[you]>>']=2:
+if supermarket['<<$LOC_str[you]>>']=2:
     act'<b>Смотреть карту</b>':gt 'mapwatch'
     if map=0:
 		'Карту города можно купить за 10 шиллингов'
@@ -111,7 +114,7 @@ if supermarket['<<$loc[you]>>']=2:
 		end
 	end
 end
-if supermarket['<<$loc[you]>>']=3:
+if supermarket['<<$LOC_str[you]>>']=3:
 	if gulden[you]>=25000:
 		act'Купить стационарный телефон 250г':
 			gulden[you]-=25000&item[143]+=1&burden[you]+=item_burden[143]&

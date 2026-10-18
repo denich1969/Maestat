@@ -7,7 +7,7 @@ else
 		$doing[w]='Спит'
 	else
 		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w] and BossmainQW=7:
-			$doing[w]='сидит в клетке'&!$loc[i]='home_8'
+			$doing[w]='сидит в клетке'&!$LOC_str[i]='home_8'
 			if dick[you]>21 and agro[you]>90 and horny[you]>=50:
 				lillith_event['dom']=1
 			else	

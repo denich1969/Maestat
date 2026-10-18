@@ -1,0 +1,4 @@
+﻿! Records a mistake found while the tables are built: $args[0]=text.
+! npcsys_init clears the list; the stat panel and the report (npcsys_dbg, npcsys_dbg_report) show it.
+$ns_err[ns_nerr]=$args[0]
+ns_nerr+=1

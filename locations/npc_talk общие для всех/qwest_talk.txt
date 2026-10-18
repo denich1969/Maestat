@@ -73,7 +73,7 @@ if npc=sister:
 			end
 		end
     end
-    if sluttySisQW!2 and you=brother and sluttySlmashaQW>4 and sluttySlmashaQW!100 and you=brother and vag[you]=1 and dick[you]=0:
+    if sluttySisQW!2 and you=brother and sluttySlmashaQW>4 and sluttySlmashaQW<100 and you=brother and vag[you]=1 and dick[you]=0:
 		cls&'<center><img src="<<$d_view>>" ></center>'
 		act'<b>Видишь, что Маша со мной сделала? </b>':
 			'<<$name[npc]>> усмехается - <<$name[you]>>, ты же вёл себя как последний мудак и хотел шантажировать Машу, хотя она в твои дела вообще не лезла. Какое тебе вообще дело до её занятий?!'
@@ -723,8 +723,8 @@ if youseehowgodoflightmove>0 and lighthousekeeper=npc:
 		end
 	end
 	if talkaboutbeliver>0 and beliver[you]=0:
-		$beliver=$iif(pol[you]=0,'твоим последователем','твоей последовательницей')
-		act'А что если я стану <<$beliver>>?':
+		$beliver_str=$iif(pol[you]=0,'твоим последователем','твоей последовательницей')
+		act'А что если я стану <<$beliver_str>>?':
 			talkaboutbeliver+=1&time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 			if myrealbody>0 and myrealbody!you:
 				'<<$name[npc]>> - Это не твое настоящее тело.'&act'<b>Уйти</b>':gt 'preloc'

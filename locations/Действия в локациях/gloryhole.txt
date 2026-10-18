@@ -5,7 +5,7 @@
 			visc_glory+=1&if visc_glory>=10:frank_viscontiQW=6
 	    end
 		cls&gs'stat'&$func('get_images', 'glory_cum_in_mouth', you)&'Член начинает кончать вам в рот, а вы сосете, глотая сперму.'
-		if gloryhole['<<$loc[you]>>']=2:money[you]+=rand(10,50)&'После этого из дыры вам кинули несколько монет.'
+		if gloryhole['<<$LOC_str[you]>>']=2:money[you]+=rand(10,50)&'После этого из дыры вам кинули несколько монет.'
 		if oral_fixation[you]>=1000:
 			'Едва вы дотрагиваетесь себе между ног, как тут же кончаете.'&if func('oralslut',-1,you,1)=1:horny[you]=0
 		else

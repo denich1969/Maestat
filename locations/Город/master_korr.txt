@@ -4,10 +4,10 @@
 if pose[you]=1:
     if resus=1:
 		act'<b>Уйти</b>':
-			time+=1&if useminihome=0:useminihome+=1&X[you]=5&Y[you]=5&Z[you]=210&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>'
+			time+=1&if useminihome=0:useminihome+=1&X[you]=5&Y[you]=5&Z[you]=210&$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>'
 			gt'world'
 		end
-		act'<b>Дверной глазок</b>':time+=1&X[you]=4&Y[you]=5&Z[you]=210&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>'&gt'world'
+		act'<b>Дверной глазок</b>':time+=1&X[you]=4&Y[you]=5&Z[you]=210&$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>'&gt'world'
 	else
 	 	act'<b>Уйти</b>':time+=5&gt'master_hunt'
 	end

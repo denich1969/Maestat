@@ -88,6 +88,6 @@ if total_blacked_whore>=15 and total_blacked_whore>blackpower:
 	womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(90,100)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(90,100)&!характер
 	class[i]=pre_class&t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!низший класс
 	e_world[]=i&walkprog[i]=26&Xhome[i]=Xhome[tbigg]&Yhome[i]=Yhome[tbigg]&Zhome[i]=Zhome[tbigg]&Hhome[i]=Hhome[tbigg]&Rhome[i]=Rhome[tbigg]
-	X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+	X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 end
 horny[w]=0&horny[s]=0

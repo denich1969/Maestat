@@ -1,12 +1,12 @@
 ﻿$nameloc[you]=$curloc
 gs'stat'&'<center><img src="pic/loc/ras/cvety<<rand(1,4)>>.jpg" ></center>'&'Листья трав для чая собирают мая по октябрь.'
-if teaknow[you]>0 and sovasekret=1 and month>4 and month<11:
+if teaknow[you]>0 and sovasekret=1 and month_num>4 and month_num<11:
 	'На горном склоне растут травы для чая'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Сорвать пучок трав для чая':item_loc['189,<<$loc[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act'Сорвать пучок трав для чая':item_loc['189,<<$LOC_str[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
 		act 'Собирать горный чай':
-			time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['189,<<$loc[you]>>']+=max(rand(2),lvltravnik[you])
-			"В течение получаса вы собирали чай на горных склонах и собрали <<item_loc['189,<<$loc[you]>>']>> порций"&teanum=item_loc['189,<<$loc[you]>>']+item['189']
+			time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['189,<<$LOC_str[you]>>']+=max(rand(2),lvltravnik[you])
+			"В течение получаса вы собирали чай на горных склонах и собрали <<item_loc['189,<<$LOC_str[you]>>']>> порций"&teanum=item_loc['189,<<$LOC_str[you]>>']+item['189']
 			'Всего у вас <<teanum>> порций чая'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

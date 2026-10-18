@@ -1,5 +1,5 @@
 ﻿if massagegirl[you]>0:
-    if pol[npc]=0 and pol[you]>0 and massage['<<$loc[you]>>']>0 and massageday[npc]!daystart and tiler!npc and femas!npc:
+    if pol[npc]=0 and pol[you]>0 and massage['<<$LOC_str[you]>>']>0 and massageday[npc]!daystart and tiler!npc and femas!npc:
 		act'<b>МАССАЖ</b>':
 			money[you]+=2000&temp_ahj+=1&massageday[npc]=daystart&time+=60&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
 			'Вам отдали деньги и вы проводили клиента в комнату и там положили его раздетог она кушетку и анчали массажировать вливая в него энергию. '

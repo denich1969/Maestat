@@ -12,4 +12,4 @@ womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=10&selfrespect[i]=0&positiv[i]=2&e
 friends['<<grief>>,<<i>>']+=100&friends['<<i>>,<<grief>>']+=100&friends['<<i>>,<<jeff>>']+=100&friends['<<jeff>>,<<i>>']+=100&grief_lover[i]=100
 t_slot[i]=35&l_slot[i]=46&b_slot[i]=31&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=2&r_leg_t[i]=3
 Xhome[i]=Xhome[grief]&Yhome[i]=Yhome[grief]&Zhome[i]=Zhome[grief]&Hhome[i]=Hhome[grief]&Rhome[i]=Rhome[grief]
-X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=24
+X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=24

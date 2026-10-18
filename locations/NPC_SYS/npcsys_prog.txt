@@ -1,0 +1,15 @@
+﻿! Starts a timetable program: args[0]=program number (walkprog), $args[1]=name.
+! The npcsys_rule / npcsys_hook / npcsys_teleport calls that follow belong to it.
+ns_npr+=1
+if args[0]<=0:gs'npcsys_err','программа <<args[0]>> (<<$args[1]>>): номер должен быть больше 0'
+if nsp_k[args[0]]<>0:gs'npcsys_err','программа <<args[0]>> (<<$args[1]>>) задана дважды'
+ns_plist[]=args[0]
+killvar 'ns_cvd'
+killvar 'ns_cve'
+ns_cp=args[0]
+nsp_k[ns_cp]=1
+nsp_r0[ns_cp]=ns_nr
+nsp_rn[ns_cp]=0
+$nsp_nm[ns_cp]=$args[1]
+$nsp_hk[ns_cp]=''
+nsp_tp[ns_cp]=0

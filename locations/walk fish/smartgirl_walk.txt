@@ -20,7 +20,7 @@ else
 		    if $destination[w]!'':
 				if Xdest[w]=X[w] and Ydest[w]=Y[w] and Zdest[w]=Z[w] and Hdest[w]=H[w] and Rdest[w]=R[w]:
 					$think[w]='думает о всякой ерунде'&!на точке назначения
-				    if bossQW=1:bossQW=2&takeitem=82&item_loc['<<takeitem>>,<<$loc[w]>>']+=1
+				    if bossQW=1:bossQW=2&takeitem=82&item_loc['<<takeitem>>,<<$LOC_str[w]>>']+=1
 				else
 					gs'walk_dest'&!вне точки назначения
 				end

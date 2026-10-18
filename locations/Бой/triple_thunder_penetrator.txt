@@ -8,7 +8,7 @@ if def_tipeV=1:'<<$name[npc]>> даже не пытается защищатьс
 if uskor>0:popad=1
 if stunV>0:stunV-=1&popad=2
 if waterdeep[npc]>0:popad=0&'Вы не можете ударить молнией не убив себя из-за того что вы в сфере воды'
-if itsrainingday['<<$loc[you]>>']>=time:health[you]-=uron/100&'Из-за дождя часть энергии бьет вас и вы получаете урон <<uron/100>>'
+if itsrainingday['<<$LOC_str[you]>>']>=time:health[you]-=uron/100&'Из-за дождя часть энергии бьет вас и вы получаете урон <<uron/100>>'
 if portal_defV>0:
 	'Молния уходит в портал и никакого вреда не наносит'
 else
@@ -41,7 +41,7 @@ if def_tipeV=0:'<<$name[npc]>> пытается увернутся'&popad=iif(de
 if def_tipeV=1:'<<$name[npc]>> даже не пытается защищаться'&popad=1
 if uskor>0:popad=1
 if stunV>0:stunV-=1&popad=2
-if itsrainingday['<<$loc[you]>>']>=time:health[you]-=uron/100&'Из-за дождя часть энергии бьет вас и вы получаете урон <<uron/100>>'
+if itsrainingday['<<$LOC_str[you]>>']>=time:health[you]-=uron/100&'Из-за дождя часть энергии бьет вас и вы получаете урон <<uron/100>>'
 if portal_defV>0:
 	'Молния уходит в портал и никакого вреда не наносит'
 else
@@ -74,7 +74,7 @@ if def_tipeV=0:'<<$name[npc]>> пытается увернутся'&popad=iif(de
 if def_tipeV=1:'<<$name[npc]>> даже не пытается защищаться'&popad=1
 if uskor>0:popad=1
 if stunV>0:stunV-=1&popad=2
-if itsrainingday['<<$loc[you]>>']>=time:health[you]-=uron/100&'Из-за дождя часть энергии бьет вас и вы получаете урон <<uron/100>>'
+if itsrainingday['<<$LOC_str[you]>>']>=time:health[you]-=uron/100&'Из-за дождя часть энергии бьет вас и вы получаете урон <<uron/100>>'
 if portal_defV>0:
 	'Молния уходит в портал и никакого вреда не наносит'
 else

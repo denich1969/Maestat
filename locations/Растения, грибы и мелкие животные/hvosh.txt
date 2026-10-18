@@ -1,11 +1,11 @@
 ﻿$nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/loc/ras/hvosh.jpg" ></center>'&'Хвощ  собирают с середины июня по август.'
-if hvoshknow[you]>0 and (pgrudsekret[you]=1 or penissekret=1) and month > 6 and month < 9:
+if hvoshknow[you]>0 and (pgrudsekret[you]=1 or penissekret=1) and month_num>6 and month_num<9:
 	'На болоте растёт хвощ'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Сорвать пучок хвоща':item_loc['185,<<$loc[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act'Сорвать пучок хвоща':item_loc['185,<<$LOC_str[you]>>']+=1&time+=5&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
 		act 'Собирать горицвет':
-			time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['185,<<$loc[you]>>']+=max(rand(2),lvltravnik[you])
-			"В течение получаса вы собирали хвощ на болоте и собрали <<item_loc['185,<<$loc[you]>>']>> порций"&hvoshnum=item_loc['185,<<$loc[you]>>']+item['185']
+			time+=30&cls&gs'walker'&gs'stat'&energy[you]-=50&sportiv[you]+=1&mus[you]+=1&if rand(100)>=(100-travnik):item_loc['185,<<$LOC_str[you]>>']+=max(rand(2),lvltravnik[you])
+			"В течение получаса вы собирали хвощ на болоте и собрали <<item_loc['185,<<$LOC_str[you]>>']>> порций"&hvoshnum=item_loc['185,<<$LOC_str[you]>>']+item['185']
 			'Всего у вас <<hvoshnum>> порций хвоща'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

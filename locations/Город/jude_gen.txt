@@ -8,4 +8,4 @@ pol[i]=0&gs'body'&total_generated_male+=1
 mus[i]=800&health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 age[i]=55&vital[i]=40&will[i]=50&reflex[i]=40                                 &!!!!!!!!!!!!характер
 t_slot[i]=37&l_slot[i]=7&b_slot[i]=5&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!l_hand_t[i]=2
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&!программа движения!downworld[]=i
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&!программа движения!downworld[]=i

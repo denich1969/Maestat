@@ -1,4 +1,4 @@
-﻿$loc[you]=$curloc&loc_for_drop=0&gs'stat'&'<b><center>Рынок рабов</center></b>'&*pl ''&'<center><img src="pic/slave/guild/auktion.jpg" ></center>'
+﻿$LOC_str[you]=$curloc&loc_for_drop=0&gs'stat'&'<b><center>Рынок рабов</center></b>'&*pl ''&'<center><img src="pic/slave/guild/auktion.jpg" ></center>'
 'Все не клейменные рабыни пойманные охотниками стекаются сюда, где их продают с дощатого помоста.'&*nl"Вы стоите посреди шумной рыночной площади. '
 'Впереди, на помосте, окруженном покупателями и зеваками, усатый караванщик демонстрирует живой товар. В толпе вы замечаете знакомого работорговца — Фарида"
 gs'npconloc'&*pl ''&gs'item'&!GT "Slavemarket"

@@ -1,4 +1,4 @@
-﻿$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&gs'wal_main_sub'
+﻿$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&gs'wal_main_sub'
 if gotogirlfriend_npc=0:
 	party[w]=0&walker_work_times[w]+=1&!Район Маяка и рыбаков (fish)
 	if walkprog[w]=1:gs'godoflight_walk'

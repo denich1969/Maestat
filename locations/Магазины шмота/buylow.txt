@@ -22,6 +22,6 @@ if leather_l[clo]>0:clopayment+=2000
 'Цена <<clopayment/100>> шиллингов'
 if money[you]>=clopayment:
     act'Купить <<clopayment/100>> шиллингов':
-		cls&money[you]-=clopayment&lowhere['<<clo>>,<<$loc[you]>>']=0&burden[you]+=item_l_burden[clo]&item_l[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
+		cls&money[you]-=clopayment&lowhere['<<clo>>,<<$LOC_str[you]>>']=0&burden[you]+=item_l_burden[clo]&item_l[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
     end
 end

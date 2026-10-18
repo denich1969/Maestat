@@ -80,7 +80,7 @@ else
 		gs'dworf_woman_name'&$name[args[2]]=$genname&$surname[args[2]]=''&$nation[args[2]]=' гномка'
 	end
 end
-nation[args[2]]=args[0]&pretipename=0
+nation_num[args[2]]=args[0]&pretipename=0
 !{if skin[i]>3 and skin[i]<7:
 	face_pic[i]=rand(70001,70029)&skin[i]=rand(4,6)&hcol[i]=0&gla[i]=rand(0,3)&glacol[i]=0&nose[i]=3
 else

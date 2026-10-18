@@ -19,9 +19,9 @@
 							if total_npc_on_loc=1:
 								'Абориген заговорщицки вам подмигивает - Крошка, если будешь ласкова со мной, я дам тебе лекарство или дубинку. 
 								Ты понимаешь? Тебе нужно всего лишь встать на колени и сделать мне приятно.'
-								act'Я хочу за секс лекарство':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['28,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
-								act'Я хочу за секс зелье выносливости':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['50,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
-								if m_slot[you]=0:act'Я хочу за секс дубинку':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['27,<<$loc[you]>>']+=1&pose[you]=2&gt'sex'
+								act'Я хочу за секс лекарство':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['28,<<$LOC_str[you]>>']+=1&pose[you]=2&gt'sex'
+								act'Я хочу за секс зелье выносливости':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['50,<<$LOC_str[you]>>']+=1&pose[you]=2&gt'sex'
+								if m_slot[you]=0:act'Я хочу за секс дубинку':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&item_loc['27,<<$LOC_str[you]>>']+=1&pose[you]=2&gt'sex'
 								if fight_skill[you]<100:act'Научи меня драться, а я тебя отблагодарю':friends[npc]+=1&solo=npc&horny[npc]=50&corr[npc]-=10&fight_skill[you]+=25&pose[you]=2&gt'sex'
 							end
 						end

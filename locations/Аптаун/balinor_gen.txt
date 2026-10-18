@@ -29,4 +29,4 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_elvenman+=1
 bisex[i]=0&agro[i]=30&selfrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=1&brave[i]=1&lust[i]=60&!характер
 m_slot[i]=0&w_slot[i]=0&t_slot[i]=76&l_slot[i]=7&b_slot[i]=5&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=28&!l_hand_t[i]=2&r_hand_t[i]=1
-X=3&Y=2&Z=4&H=1&R=2&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=29
+X=3&Y=2&Z=4&H=1&R=2&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=29

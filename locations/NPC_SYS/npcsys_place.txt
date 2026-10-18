@@ -1,0 +1,12 @@
+﻿! Defines a place for timetables: $args[0]=name, args[1..5]=X,Y,Z,H,R.
+! H=-1 means "the building in Hmass" (the massage parlour moves).
+ns_npl+=1
+if $args[0]='':gs'npcsys_err','место без имени'
+if nsl_z[$args[0]]>0:gs'npcsys_err','место «<<$args[0]>>» задано дважды'
+if args[3]<=0:gs'npcsys_err','место «<<$args[0]>>»: Z должен быть больше 0'
+if args[4]<-1 or args[5]<0:gs'npcsys_err','место «<<$args[0]>>»: H или R меньше допустимого'
+nsl_x[$args[0]]=args[1]
+nsl_y[$args[0]]=args[2]
+nsl_z[$args[0]]=args[3]
+nsl_h[$args[0]]=args[4]
+nsl_r[$args[0]]=args[5]

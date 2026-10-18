@@ -22,7 +22,7 @@ act'Поговорить':
 	time+=5&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - проклятые бесы, они все заполонили, из за них торговля совсем зачахла. Но я по прежнему торгую в обмен на серебро.'
 	if flirttrakdot>0:'<<$name[npc]>> хмурится - И завязывай подкатывать к моей дочери!'
 	if hunter[kap]=1:'<<$name[npc]>> раздосадованно качает головой - Совсем никого не осталось в деревне!'
-	act'...':gt $loc[you]
+	act'...':gt $LOC_str[you]
 	if (horny[npc]>=50) and pol[you]>0 and sex_times['<<npc>>,<<you>>']>0:
 		whorePay=total_sexy[you]-GF_whore&if whorePay<10:whorePay=10
 		'<<$name[npc]>> сально осматривает вас - Детка, я дам тебе <<whorePay>> серебра, если ты приласкаешь меня'
@@ -74,11 +74,11 @@ act'Поговорить':
 			'<<$name[npc]>> осматривает вас и достает из кармана пустой шприц - хочешь его получить?'
 			act'Да':
 				cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - не подумай чего плохого, но тут очень трудно с женщинами, бесы украли всех девиц. '
-				'Вообщем если согласишся со мной переспать, то шприц твой. И естественно полная конфеденциальность.'&act'Послать его':talkaboutsex=1&gt $loc[you]
+				'Вообщем если согласишся со мной переспать, то шприц твой. И естественно полная конфеденциальность.'&act'Послать его':talkaboutsex=1&gt $LOC_str[you]
 				act'Заняться сексом':sexday[npc]=daystart&item[16]+=1&talkaboutsex=2&lust[npc]=70&agro[npc]=70&gt'sex'
 			end
 		else
-			'<<$name[npc]>> - Детка, хочешь заработать 50 серебра? Тебе хватит и на еду и на выпивку. А ты приласкаешь меня. Не бойся, я никому не расскажу.'&act'Послать его':talkaboutsex=1&gt $loc[you]
+			'<<$name[npc]>> - Детка, хочешь заработать 50 серебра? Тебе хватит и на еду и на выпивку. А ты приласкаешь меня. Не бойся, я никому не расскажу.'&act'Послать его':talkaboutsex=1&gt $LOC_str[you]
 			act'Заняться сексом':sexday[npc]=daystart&item[24]+=50&talkaboutsex=2&lust[npc]=70&agro[npc]=70&gt'sex'
 		end
 	end
@@ -86,13 +86,13 @@ end
 act'Расспросить про окрестности':
 	time+=rand(5,15)&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - как демоны пришли, так осквернили лес. Теперь нельзя оттуда ничего есть. '
 	'И не заметишь как отрастишь задницу и бидоны как у дойной коровы. К тому же в лесу полно бесов, они слабые, но их много и могут не лабо запудрить мозги. '
-	'Еще там много гоблинов, теперь они не торгуют с людьми, а нападают на всех кто в лес заходит. Тоже думаю без демонов тут не обошлось.'&act'...':gt $loc[you]
+	'Еще там много гоблинов, теперь они не торгуют с людьми, а нападают на всех кто в лес заходит. Тоже думаю без демонов тут не обошлось.'&act'...':gt $LOC_str[you]
 end
 if item[24]>=10:
 	if (burden[you]+item_burden[25])<=burdenmax[you]:
 		act'Купить виски 10 серебра':
 			item[24]-=10&burden[you]-=item_burden[24]&item[25]+=1&burden[you]+=item_burden[25]&!вычесть серебро и получить виски
-			time+=rand(1,3)&cls&gs'stat'&dynamic $d_inv&'<center><img src="<<$d_view>>" ></center>'&'Вы платите серебром и трактирщик дает вам бутылку виски'&act'...':gt $loc[you]
+			time+=rand(1,3)&cls&gs'stat'&dynamic $d_inv&'<center><img src="<<$d_view>>" ></center>'&'Вы платите серебром и трактирщик дает вам бутылку виски'&act'...':gt $LOC_str[you]
 		end
 	end
 end
@@ -100,7 +100,7 @@ if item[24]>=obedCost:
 	if hunger[you]>1:
 		act'Заказать еду <<obedCost>> серебра':
 			item[24]-=obedCost&burden[you]-=item_burden[24]*obedCost&energy[you]=energyMax[you]&fat[you]+=25&if vag[you]>0:fat[you]+=20
-			time+=15&cls&gs'eat'&gs'eat'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> положил вам горячей еды. Съев еду вы отдали миску трактирщику.'&act'...':gt $loc[you]
+			time+=15&cls&gs'eat'&gs'eat'&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> положил вам горячей еды. Съев еду вы отдали миску трактирщику.'&act'...':gt $LOC_str[you]
 		end
 	end
 end

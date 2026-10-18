@@ -17,3 +17,4 @@ i=157&$item_name[i]='Резиновое кольцо'&can_use_item[i]=3&$item_us
 i=158&$item_name[i]='Кольцо мула'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
 i=159&$item_name[i]='Кольцо похоти'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
 i=243&$item_name[i]='Кольцо защиты от огня'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес
+i=339&$item_name[i]='Кольцо бессмертия'&can_use_item[i]=3&$item_use[i]='Одеть на палец'&$item_text[i]=''&item_burden[i]=10&!вес

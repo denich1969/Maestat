@@ -34,17 +34,17 @@ act'Стонать':
 			if you_blow>0:
 				fuckblow[you_blow]+=1&bj[you]+=1&bj_mass['<<you_blow>>,<<you>>']+=1&'Пока вас трахают, вы еще сосете второй член'&gs'fuck_oral',you_blow,you&if mob[anal_fucker]=3:insmout_gang[you]+=1
 			end
-			gs'fuck_anal',anal_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы стоите раком, вас дрючат в задницу и вы сосете член. '
+			gs'fuck_anal',anal_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вы стоите раком, вас дрючат в задницу и вы сосете член. '
 		end
 	else
-		if toilet['<<$loc[you]>>']>=1 and agro[anal_fucker]=2:
+		if toilet['<<$LOC_str[you]>>']>=1 and agro[anal_fucker]=2:
 			gs'wet'&if magworld[Znow]>0:gs'soulcraft',10
 			target_soul=4&nnn=anal_fucker&'<center><video autoplay loop src="pic/sex/degraded/<<rand(0,1)>>.webm" ></video></center>'
 			'<<$nick[anal_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в жопу.'&!dog anal
-			if camera['<<$loc[you]>>']>=1:$porno[film]+='<<$nick[anal_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в жопу. '&gs'fuck_anal_hard',anal_fucker,you
+			if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='<<$nick[anal_fucker]>> засунул вашу голову в унитаз и начал вас яростно ебать в жопу. '&gs'fuck_anal_hard',anal_fucker,you
 		else
 			$func('get_images', 'anal_fuck_dog', you, anal_fucker)&'Вы стоите раком и выгибаете спину пока вас трахают в задницу'
-			if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы стоите раком и выгибаете спину пока вас трахают в задницу. '&gs'fuck_anal',anal_fucker,you
+			if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вы стоите раком и выгибаете спину пока вас трахают в задницу. '&gs'fuck_anal',anal_fucker,you
 		end
 		gs'fuck_final',in_sex[you]&gs'stat'
 	end
@@ -76,7 +76,7 @@ act'Стонать':
 			soul_loc['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']+=1&target_soul=4&nnn=anal_fucker
 			$global_npc_log[anal_fucker]+='<br>'&$global_npc_log[anal_fucker]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> была пущена нами по кругу.'
 			gs'stat'&$func('get_images', 'anal_cream_dog', you, anal_fucker)&'Вам кончили в попку'
-			gs'fuck_cum_anus',anal_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам кончили в раздолбанную попку. '
+			gs'fuck_cum_anus',anal_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вам кончили в раздолбанную попку. '
 			act'...':
 				empty_ball[anal_fucker]=time+(60*koefball[anal_fucker])&if vag[you]>0:open_vag[you]=1
 				open_anus[you]=1&open_mouth[you]=1&vag_fucker=0&anal_fucker=0&you_blow=0&dick[you]-=iif(dick[you]>2,rand(1,2),0)&gt 'sex'

@@ -4,7 +4,7 @@ $n_board[Z]='Жилмассив'&$w_board[Z]='Даунтаун'&$e_board[Z]='Т�
 H=0&R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&if X=0 and Y>0 and Y<4:d_border_way['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']=5
 if Y=Ymax[Z] and X>0 and X<4:d_border_way['<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>']=3
 if X=2 and Y=2:
-	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'& $locname['<<$temploc>>']='Стрипклуб Аптаун'&$lname['<<$temploc>>']='Стрипклуб Аптаун'&np['<<$temploc>>']=108&under['<<$temploc>>']=1
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'& $locname['<<$temploc>>']='Стрипклуб Аптаун'&$lname['<<$temploc>>']='Стрипклуб Аптаун'&np['<<$temploc>>']=108&under_num['<<$temploc>>']=1
 	$locopis['<<$temploc>>']='Огромное старинное здание издревле находящееся в центре Аптауна, квартала развлечений. Это центр и само сердце Аптауна.'&gs'uptown_gen'&gs'uptown_houses_gen'
 elseif X=2 and Y=4:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Бульвар Молчаливых героев (север)'&$lname['<<$temploc>>']='Бульвар Молчаливых героев'

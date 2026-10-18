@@ -1,4 +1,4 @@
-﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Звероферма</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+﻿$LOC_str[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Звероферма</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
 nl&gs'npconloc'&gs'item'&!act'Уйти':gt'rome_zoo'
 if hour>=8 and hour<=20:
 	if pet_follower>0:

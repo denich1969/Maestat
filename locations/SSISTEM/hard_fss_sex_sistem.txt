@@ -313,8 +313,8 @@ $d_hard_fss_pose_two = {
 		else
 			"<<$iif(H[you]>0,$func('get_images', 'public_blow', you, npc),$func('get_images', 'blowjob', you, npc))>>"
 		end
-		$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
-		'Вы сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'
+		$text_str=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+		'Вы сосете <<dick[npc]>> сантиметровый член своими <<$text_str>>.'
 		if oral_fixation[you]>=10 and orgasm[you]<time:'Вас возбуждает мужской прибор между ваших губок и вы увлеченно его сосете причмокивая'
 		gs'fuck_oral',npc,you&gs'fuck_final',in_sex[you]&gs'stat'
 		if sexpower[npc]>1:
@@ -835,7 +835,7 @@ $d_hard_fss_pose_finish = {
 	if you_dirty_slut[npc]>=100 and drink_spit[npc]>0 and CONFIG['DISABLE_PEE']=0 and CONFIG['DISABLE_SPIT']=0:
 		'<<$name[npc]>> довольно усмехается и направляет опадающий член вам в лицо - Открой рот, шлюха!'
 		act'Открыть':
-			you_dirty_slut[npc]+=50&peecover[you]+=2&cum_face[you]=0&spit_face[you]=0&pissonloc['<<$loc[you]>>']=time+250&corr[you]+=5&cls&if magworld[Znow]>0:gs'soulcraft',10
+			you_dirty_slut[npc]+=50&peecover[you]+=2&cum_face[you]=0&spit_face[you]=0&pissonloc['<<$LOC_str[you]>>']=time+250&corr[you]+=5&cls&if magworld[Znow]>0:gs'soulcraft',10
 			target_soul=4&piss_mass['<<npc>>,<<you>>']+=1&drinkpee[you]+=1&gs'stat'
 			if drinkpee[you]=0:
 				if skin[npc]>3 and skin[npc]<7:

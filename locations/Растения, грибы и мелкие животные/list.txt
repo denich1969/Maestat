@@ -1,12 +1,12 @@
 ﻿$nameloc[you]=$curloc&gs'stat'&'<center><img src="pic/loc/ras/list.jpg" ></center>'&'Белокрыльник болотный на котором растут лекарственные листья.'
-if last_list['<<$loc[you]>>']=0 and day_list['<<$loc[you]>>']!daystart:last_list['<<$loc[you]>>']=rand(0,1)&day_list['<<$loc[you]>>']=daystart
-if last_list['<<$loc[you]>>']>0:
+if last_list['<<$LOC_str[you]>>']=0 and day_list['<<$LOC_str[you]>>']!daystart:last_list['<<$LOC_str[you]>>']=rand(0,1)&day_list['<<$LOC_str[you]>>']=daystart
+if last_list['<<$LOC_str[you]>>']>0:
 	'На кустике растет плотный и налившийся соками лекарственный лист'
 	if (energy[you]>=10 and pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=10 and CONFIG['DISABLE_position']=1):
-		act'Сорвать лист':item_loc['28,<<$loc[you]>>']+=1&time+=5&last_list['<<$loc[you]>>']=0&'Вы быстро срываете лист, на который случайно наткнулись, не получая никакого опыта.'
+		act'Сорвать лист':item_loc['28,<<$LOC_str[you]>>']+=1&time+=5&last_list['<<$LOC_str[you]>>']=0&'Вы быстро срываете лист, на который случайно наткнулись, не получая никакого опыта.'
 		act'Собирать листья':
-			energy[you]-=10&time+=5&cls&gs'walker'&gs'stat'&last_list['<<$loc[you]>>']=0&item_loc['28,<<$loc[you]>>']+=max(1,lvltravnik[you])&day_list['<<$loc[you]>>']=daystart
-			"В течение получаса вы собирали листья и собрали <<item_loc['28,<<$loc[you]>>']>> порций"&listnum=item_loc['28,<<$loc[you]>>']+item['28']
+			energy[you]-=10&time+=5&cls&gs'walker'&gs'stat'&last_list['<<$LOC_str[you]>>']=0&item_loc['28,<<$LOC_str[you]>>']+=max(1,lvltravnik[you])&day_list['<<$LOC_str[you]>>']=daystart
+			"В течение получаса вы собирали листья и собрали <<item_loc['28,<<$LOC_str[you]>>']>> порций"&listnum=item_loc['28,<<$LOC_str[you]>>']+item['28']
 			'Всего у вас <<listnum>> порций листьев'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

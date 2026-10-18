@@ -9,4 +9,4 @@ age[i]=18&vital[i]=40&will[i]=50&reflex[i]=40
 pol[i]=1&gs'body'&total_generated_female+=1
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=60&selfrespect[i]=2&positiv[i]=2&extrovert[i]=2&ratio[i]=0&brave[i]=1&lust[i]=70&!характер
 h_slot[i]=0&t_slot[i]=49&l_slot[i]=7&b_slot[i]=5&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=62
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=62

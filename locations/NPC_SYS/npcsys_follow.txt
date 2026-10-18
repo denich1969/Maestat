@@ -1,0 +1,5 @@
+﻿! A following NPCs target is wherever NPC nsw_tgt[w] is now.
+ns_ft=nsw_tgt[w]
+if ns_ft>0 and ns_ft<>w:
+	Xdest[w]=X[ns_ft] & Ydest[w]=Y[ns_ft] & Zdest[w]=Z[ns_ft] & Hdest[w]=H[ns_ft] & Rdest[w]=R[ns_ft]
+end

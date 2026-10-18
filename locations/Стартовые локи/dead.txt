@@ -1,7 +1,7 @@
 ﻿SHOWSTAT 0&SHOWOBJS 0&showinput 0&times_dead[you]+=1
 if master[you]=1 or immortal[you]>=1:
-	if l_ring[you]=46:l_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
-	if r_ring[you]=46:r_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
+	if l_ring[you]=339:l_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
+	if r_ring[you]=339 and l_ring[you]!46:r_ring[you]=0&'Кольцо разрушилось и не дало вам умереть вселив снова в вас жизнь.'
 	health[you]=healthmax[you]&X[you]=3&Y[you]=3&Z[you]=7777&H[you]=1&R[you]=1&gt 'preloc'
 end
 if princess=you:

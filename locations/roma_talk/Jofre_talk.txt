@@ -1,4 +1,4 @@
-﻿loc_for_drop=0&gs'stat'&'<b><center>Салон Мадам Жофрэ</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'&!$loc[you]=$curloc
+﻿loc_for_drop=0&gs'stat'&'<b><center>Салон Мадам Жофрэ</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'&!$LOC_str[you]=$curloc
 'Приличный бордель с отлично выдрессированными рабынями.'&gs'npconloc'&gs'item'
 if pet_follower>0:
 	'Мадам Жофре смотрит на вашу рабыню оценивающе'

@@ -1,13 +1,13 @@
 ﻿horny[you]+=50&gs'stat'
-if dom=tiler and massage['<<$loc[you]>>']>0:
+if dom=tiler and massage['<<$LOC_str[you]>>']>0:
 	'<center><video autoplay loop src="pic/sex/massage/sex<<rand(0,3)>>.webm" ></video></center>'
 	'<<$name[sub]>> <<$surname[sub]>> стонет когда <<$name[dom]>> <<$surname[dom]>> массирует её и трахает.'
-elseif femas=sub and massage['<<$loc[you]>>']>0:
+elseif femas=sub and massage['<<$LOC_str[you]>>']>0:
 	'<center><video autoplay loop src="pic/sex/massage/hj<<rand(0,5)>>.webm" ></video></center>'
 	'<<$name[sub]>> <<$surname[sub]>> дрочит член и <<$name[dom]>> <<$surname[dom]>> наслаждается умелыми руками массажистки.'
 else
 	face[sub]+=1
-	if toilet['<<$loc[you]>>']>0:
+	if toilet['<<$LOC_str[you]>>']>0:
 		if rand(1)=0:
 			$func('get_images', 'toilet_blow', sub, dom)
 			'<<$name[sub]>> <<$surname[sub]>> отсасывает член, <<$name[dom]>> <<$surname[dom]>> с удовольствием подается навстречу вгоняя ей свой член в рот.'&you_see_bj[sub]+=1

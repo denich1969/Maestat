@@ -5,5 +5,5 @@ ACT 'Купить дымовые <u>ш</u>ашки': GS 'Shop_Buy_Mult', 'Дым
 ACT 'Купить <u>а</u>фродизиак': GS 'Shop_Buy_Mult', 'Афродизиак'
 ACT 'Купить усыпляющий <u>г</u>аз': GS 'Shop_Buy_Mult', 'Усыпляющий <u>г</u>аз'
 ACT "Посмотреть другие товары": GT "Shop_catalog"
-ACT "Закончить покупки":cls&cla&$loc[you]=$loc[menhunter]
+ACT "Закончить покупки":cls&cla&$LOC_str[you]=$LOC_str[menhunter]
 CLR&PL "В кошельке: <<money>> з.м."&play "content/sound/rome.mp3",40

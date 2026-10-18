@@ -1,4 +1,4 @@
-﻿!$loc[you]=$curloc&gs'stat'&loc_for_drop=0&gs'npconloc'&gs'item'
+﻿!$LOC_str[you]=$curloc&gs'stat'&loc_for_drop=0&gs'npconloc'&gs'item'
 !'<b><center>Гастрономикон</center></b>'&'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'&!'Магазин продуктов и еще бойня, где забивают рабынь на мясо и торгуют этим мясом.'
 $MAINDESC_BACKIMAGE = ''&*CLR&'<div id="header_right">Мясник</div>'&'<div id="bg"><img src = "<<$content>>/butcher_talk.jpg"></div>'
 !Флаги в этой локации:
@@ -62,16 +62,16 @@ if iskr[you]>=5:
 	'Вы можете побыстрому перекусить за 5 искр'
    	if hunger[you]>1:act'Поесть за 5 искр':iskr[you]-=5&energy[you]=energyMax[you]&fat[you]+=25&if vag[you]>0:fat[you]+=25&gs'eat'&gs'drink'&time+=30&gt $curloc
 	act'Выпить возбуждающего пива за 5 искр':iskr[you]-=5&energy[you]=energyMax[you]&fat[you]+=25&if vag[you]>0:fat[you]+=25&gs'drink'&horny[you]=25&time+=30&gt $curloc
-	'10 порций еды для приготовления стоят 1 искру'&if iskr[you]>=1:act'Купить 10 порций':iskr[you]-=1&item_loc['98,<<$loc[you]>>']+=10&time+=30&gt $curloc
+	'10 порций еды для приготовления стоят 1 искру'&if iskr[you]>=1:act'Купить 10 порций':iskr[you]-=1&item_loc['98,<<$LOC_str[you]>>']+=10&time+=30&gt $curloc
 end
 if (burden[you]+item_burden[48])<=burdenmax[you] and iskr[you]>=3:act'Купить возбудитель 3 искры':iskr[you]-=3&item[48]+=1&burden[you]+=item_burden[48]&time+=5&!gt $curloc
 if thirst[you]>=1:act'Попить воды':time+=5&gs'drink'
 if item[2]>0 and (burden[you]-item_burden[2]+item_burden[3])<=burdenmax[you]:act'Налить бутылку воды':item[2]-=1&burden[you]-=item_burden[2]&item[3]+=1&burden[you]+=item_burden[3]&time+=5
 if pet_follower>0:
-	IF возраст = 1:price = 10*целка&$price = "Ишь ты какая молоденькая и сочная! Такая потянет на <<price>> золотых."
-	IF возраст = 2:price = 5*целка&$price = "Что ж, мясо довольно молодое. Дам за нее <<price>> золотых."
-	IF возраст = 3:price = 3*целка&$price = "Не слишком-то молодое мясо. Но <<price>> золотых за нее я пожалуй могу дать."
-	IF возраст = 4:price = 2*целка&$price = "Жесткое, старое мясо. Эта туша стоит не больше <<price>> золотых."
+	IF возраст = 1:price = 10*целка&$price_str="Ишь ты какая молоденькая и сочная! Такая потянет на <<price>> золотых."
+	IF возраст = 2:price = 5*целка&$price_str="Что ж, мясо довольно молодое. Дам за нее <<price>> золотых."
+	IF возраст = 3:price = 3*целка&$price_str="Не слишком-то молодое мясо. Но <<price>> золотых за нее я пожалуй могу дать."
+	IF возраст = 4:price = 2*целка&$price_str="Жесткое, старое мясо. Эта туша стоит не больше <<price>> золотых."
 	'Мясник смотрит на рабыню - Вы можете сдать рабыню на мясо, за 300 искр или <<price>> золотых'&!ОЦЕНКА СТОИМОСТИ МЯСА
 	act'Сдать на мясо':
 		pet_tipe=0&slave=pet_follower&pet_follower=0&owner[slave]=0&sl_dead[slave]=1&slave_meat+=1&iskr[you]+=300&!money[you]+=price

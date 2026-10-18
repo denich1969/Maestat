@@ -17,7 +17,7 @@ else
      	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 		$locname['<<$temploc>>']='Таверна'&$lname['<<$temploc>>']='Таверна'&$locopis['<<$temploc>>']='Просторная таверна с крепкими деревянными столами и лавками.'&np['<<$temploc>>']=586
-		$wall_name['<<$temploc>>']='Таверна'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		$wall_name['<<$temploc>>']='Таверна'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 		$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Таверна'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Таверна'
 		$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Таверна'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Таверна'
@@ -29,7 +29,7 @@ else
 	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 		$locname['<<$temploc>>']='Храм'&$lname['<<$temploc>>']='Храм'&$locopis['<<$temploc>>']='Храм поклонения чистому свету'&np['<<$temploc>>']=596
-		$wall_name['<<$temploc>>']='Храм'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		$wall_name['<<$temploc>>']='Храм'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 		$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$n_wall['<<$temploc>>']='Стена'&!$s_wall['<<$temploc>>']='Стена'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Храм'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Храм'
 		$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Храм'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Храм'&gs'mother'&altar['<<$temploc>>']=1
@@ -37,7 +37,7 @@ else
 	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 		$locname['<<$temploc>>']='Кузня'&$lname['<<$temploc>>']='Кузня'&$locopis['<<$temploc>>']='Городская кузня в которой изготавливают оружие и броню'&np['<<$temploc>>']=597
-		$wall_name['<<$temploc>>']='Кузня'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		$wall_name['<<$temploc>>']='Кузня'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 		$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Кузня'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Кузня'
 		$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Кузня'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Кузня'&mirror['<<$temploc>>']=1&blacksmith['<<$temploc>>']=1
@@ -45,7 +45,7 @@ else
 	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 		$locname['<<$temploc>>']='Портной'&$lname['<<$temploc>>']='Портной'&$locopis['<<$temploc>>']='Пошив одежды'&np['<<$temploc>>']=598
-		$wall_name['<<$temploc>>']='Портной'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		$wall_name['<<$temploc>>']='Портной'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 		$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Портной'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Портной'
 		$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Портной'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Портной'&mirror['<<$temploc>>']=1&portnoi['<<$temploc>>']=1
@@ -53,7 +53,7 @@ else
 	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 		$locname['<<$temploc>>']='Туалет'&$lname['<<$temploc>>']='Туалет'&$locopis['<<$temploc>>']='Общественный туалет с кабинками и кабинкой с душем'&np['<<$temploc>>']=1
-		$wall_name['<<$temploc>>']='Туалет'&n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		$wall_name['<<$temploc>>']='Туалет'&n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 		$n_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Туалет'
 		$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Туалет'
@@ -67,7 +67,7 @@ else
 	 	!maxPositionH['<<X>>,<<Y>>,<<Z>>']=1&H=0&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']=''&maxPositionR['<<$templocH>>']=0
 		!R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 		$locname['<<$temploc>>']='Башня мага'&$lname['<<$temploc>>']='Башня мага'&$locopis['<<$temploc>>']='Пошив одежды'&np['<<$temploc>>']=500
-		$wall_name['<<$temploc>>']='Башня мага'&n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
+		$wall_name['<<$temploc>>']='Башня мага'&n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
 		$e_wall['<<$temploc>>']='Стена'&$w_wall['<<$temploc>>']='Стена'&$s_wall['<<$temploc>>']='Стена'&!$n_wall['<<$temploc>>']='Стена'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>,<<H>>,<<R>>']='Башня мага'&$s_wall['<<X>>,<<Y+1>>,<<Z>>,<<H>>,<<R>>']='Башня мага'
 		$e_wall['<<X-1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Башня мага'&$w_wall['<<X+1>>,<<Y>>,<<Z>>,<<H>>,<<R>>']='Башня мага'&mirror['<<$temploc>>']=1&magik['<<$temploc>>']=1&gs'magus'

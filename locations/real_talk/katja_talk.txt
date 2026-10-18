@@ -13,7 +13,7 @@
 		act'Отойти':gt $curloc
 	end
 else
-	if $loc[you]='1,1,200,1,1' and friends['<<npc>>,<<you>>'] >4:
+	if $LOC_str[you]='1,1,200,1,1' and friends['<<npc>>,<<you>>'] >4:
 		act'Поболтать по дружески':
 			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&!на работе
 			if pol[you]=0:
@@ -39,7 +39,7 @@ else
 				'<<$name[npc]>> поприветствовала вас и вы повели девушку в кафе, там вы заказали столик и весело провели время. '
 				X[you]=1&Y[you]=1&Z[you]=200&H[you]=2&R[you]=1&X[katja]=1&Y[katja]=1&Z[katja]=200&H[katja]=2&R[katja]=1&gt 'world'
 				act'А после кафе пригласили её к себе домой, на дессерт.':
-					X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$loc[npc]='apart2'
+					X[you]=Xhome[you]&Y[you]=Yhome[you]&Z[you]=Zhome[you]&H[you]=Hhome[you]&R[you]=Rhome[you]&!$LOC_str[npc]='apart2'
 					X[npc]=Xhome[you]&Y[npc]=Yhome[you]&Z[npc]=Zhome[you]&H[npc]=Hhome[you]&R[npc]=Rhome[you]&gt'world'
 					act'Секс':base_lust[you]+=1&katjanightclub=10&gt'sex'
 				end
@@ -54,7 +54,7 @@ else
 					act'Отказатся':
 						time+=60*2&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 						'Вы отказались и продолжили танцевать. Протанцевав еще парочку часов вам стало скучно и вы устали. Подруга тоже утомилась и вы решили разъезжаться по домам'
-						act'Уехать домой':$loc[you]='<<Xhome[you]>>,<<Yhome[you]>>,<<Zhome[you]>>,<<Hhome[you]>>,<<Rhome[you]>>'&gt 'world'&!gt'street_ap'
+						act'Уехать домой':$LOC_str[you]='<<Xhome[you]>>,<<Yhome[you]>>,<<Zhome[you]>>,<<Hhome[you]>>,<<Rhome[you]>>'&gt 'world'&!gt'street_ap'
 					end
 					act'Согласится':
 						alko[you]+=6&horny[you]+=50&time+=60*2&cls&gs'eat'&gs'drink'&gs'stat'&'<center><img src="pic/ev/club/meet.jpg" ></center>'
@@ -63,7 +63,7 @@ else
 						act'Ехать к Марку':
 							npc=mark&time+=15&cls&gs'stat'&!'<center><img src="pic/npc/11.jpg" ></center>'
 							'Марк заказал такси и вы быстро доехали до его квартиры. Попав в квартиру Марк подтянул вас к себе.'
-							X[you]=Xhome[mark]&Y[you]=Yhome[mark]&Z[you]=Zhome[mark]&H[you]=Hhome[mark]&R[you]=Rhome[mark]&!$loc[you]='markQWQ'
+							X[you]=Xhome[mark]&Y[you]=Yhome[mark]&Z[you]=Zhome[mark]&H[you]=Hhome[mark]&R[you]=Rhome[mark]&!$LOC_str[you]='markQWQ'
 							X[mark]=Xhome[mark]&Y[mark]=Yhome[mark]&Z[mark]=Zhome[mark]&H[mark]=Hhome[mark]&R[mark]=Rhome[mark]&gt'world'
 							act'Секс':base_lust[you]+=10&gt'sex'
 						end

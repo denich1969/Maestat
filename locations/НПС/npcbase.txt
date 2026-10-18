@@ -41,7 +41,7 @@ if t_slot[npc]>0:
 end
 if l_slot[npc]>0:
 	lowtemp=l_slot[npc]&sexiness[npc]+=sexy_l[lowtemp]&if sheer_t_l[lowtemp]>0:l_nude[npc]=1
-     if aristokrat_l[lowtemp]>0:tot_aristokrat[npc]+=aristokrat_l[lowtemp]
+    if aristokrat_l[lowtemp]>0:tot_aristokrat[npc]+=aristokrat_l[lowtemp]
 end
 if b_slot[npc]>0:
 	boottemp=b_slot[npc]&sexiness[npc]+=sexy_b[boottemp]&if aristokrat_b[boottemp]>0:tot_aristokrat[npc]+=aristokrat_b[boottemp]
@@ -92,13 +92,7 @@ if tot_aristokrat[npc]>0:
     if tot_aristokrat[npc]>=6:'Утонченно гламурно аристократичный вид'
 end
 if inseminate[npc]>0:
-	$d_view_preggo='<video autoplay loop src="pic/cum/<<cum_face[you]>>.webm" >'&fat=inseminate[npc]
-	if Z[npc]<7:
-		'<a class="plain" href="exec:$d_view_preggo"><b><<$name[npc]>> беременна </a>.</b> Забеременела от <<$name[fat]>> <<$surname[fat]>> <<daystart-pregnant_day[npc]>> дней назад. Родить должна через <<9-(daystart-pregnant_day[npc])>> дней'
-    ! if pregnant_day[npc]<daystart:'<b><<$name[npc]>> беременна.</b>'
-    else
-		'<a class="plain" href="exec$d_view_preggo"><b><<$name[npc]>> беременна </a>.</b> Забеременела от <<$name[fat]>> <<$surname[fat]>> <<daystart-pregnant_day[npc]>> дней назад. Родить должна через <<270-(daystart-pregnant_day[npc])>> дней'
-    end
+	'<a class="plain" href="exec:gs({view_fig},{pic/body/preggo<<rand(1,5)>>.webm})"><b><<$name[npc]>> беременна </a>.</b> Забеременела от <<$name[inseminate[npc]]>> <<$surname[inseminate[npc]]>> <<daystart-pregnant_day[npc]>> дней назад. Родить должна через <<$iif(Z[npc]<7,"<<9-(daystart-pregnant_day[npc])>> дней","<<270-(daystart-pregnant_day[npc])>> дней")>>'
 end
 if inseminate[npc]>0 and husband[npc]=you:'<<$name[npc]>>: - Дорогой, скоро у нас родится малыш и ты станешь отцом'
 if inseminate[npc]>0 and husband[npc]=you and inseminate[npc]<>you:
@@ -107,38 +101,27 @@ if inseminate[npc]>0 and husband[npc]=you and inseminate[npc]<>you:
 	end
 end
 if m_slot[npc]>0:
-	mslo=m_slot[npc]
-	if item_w_holdtipe[mslo]=0:'<<$item_name[mslo]>> висит на поясе'
-	if item_w_holdtipe[mslo]=1:'<<$item_name[mslo]>>'
+	if item_w_holdtipe[m_slot[npc]]=0:'<<$item_name[mslo]>> висит на поясе'
+	if item_w_holdtipe[m_slot[npc]]=1:'<<$item_name[mslo]>>'
 end
 if w_slot[npc]>0:
-	wslo=w_slot[npc]
-	if item_w_holdtipe[wslo]=0:'<<$item_name[wslo]>> висит на поясе'
-	if item_w_holdtipe[wslo]=1:'<<$item_name[wslo]>>'
+	if item_w_holdtipe[w_slot[npc]]=0:'<<$item_name[wslo]>> висит на поясе'
+	if item_w_holdtipe[w_slot[npc]]=1:'<<$item_name[wslo]>>'
 end
-if sfera_amulet[npc]>0:'На руке одет напульсник с рунами'
-$fullnpc=''
-if h_slot[npc]>0:hattemp=h_slot[npc]&$d_hat_view='view"pic/clo/hat/<<hattemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_hat_view"><img src="pic/clo/hat/<<hattemp>>.jpg" ></a>'
-if t_slot[npc]>0:toptemp=t_slot[npc]&$d_top_view='view"pic/clo/top/<<toptemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_top_view"><img src="pic/clo/top/<<toptemp>>.jpg" ></a>'
-if l_slot[npc]>0:
-	lowtemp=l_slot[npc]&$d_low_view='view"pic/clo/low/<<lowtemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_low_view"><img src="pic/clo/low/<<lowtemp>>.jpg" ></a>'&if l_tipe[lowtemp]=0:can_see_legs=1
-end
+$fullnpc=''&if sfera_amulet[npc]>0:'На руке одет напульсник с рунами'
+if h_slot[npc]>0:$fullnpc+='<a href="exec:gs({view_fig},{pic/clo/hat/<<h_slot[npc]>>.jpg})"><img src="pic/clo/hat/<<h_slot[npc]>>.jpg" ></a>'
+if t_slot[npc]>0:$fullnpc+='<a href="exec:gs({view_fig},{pic/clo/top/<<t_slot[npc]>>.jpg})"><img src="pic/clo/top/<<t_slot[npc]>>.jpg" ></a>'
+if l_slot[npc]>0:$fullnpc+='<a href="exec:gs({view_fig},{pic/clo/low/<<l_slot[npc]>>.jpg})"><img src="pic/clo/low/<<l_slot[npc]>>.jpg" ></a>'
+if l_slot[npc]>0 and l_tipe[l_slot[npc]]=0:can_see_legs=1
 if l_slot[npc]=0:can_see_legs=1
-if ub_slot[npc]>0 and can_see_legs=1:
-	uboottemp=ub_slot[npc]&$d_uboot_view='view"pic/clo/uboot/<<uboottemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_uboot_view"><img src="pic/clo/uboot/<<uboottemp>>.jpg" ></a>'
-end
-if b_slot[npc]>0:boottemp=b_slot[npc]&$d_boot_view='view"pic/clo/boot/<<boottemp>>.jpg"'&$fullnpc+='<a href="exec:dynamic $d_boot_view"><img src="pic/clo/boot/<<boottemp>>.jpg" ></a>'
+if ub_slot[npc]>0 and can_see_legs=1:$fullnpc+='<a href="exec:gs({view_fig},{pic/clo/uboot/<<ub_slot[npc]>>.jpg})"><img src="pic/clo/uboot/<<ub_slot[npc]>>.jpg" ></a>'
+if b_slot[npc]>0:$fullnpc+='<a href="exec:gs({view_fig},{pic/clo/boot/<<b_slot[npc]>>.jpg})"><img src="pic/clo/boot/<<b_slot[npc]>>.jpg" ></a>'
 '<<$fullnpc>>'
 if ut_slot[npc]>0 and (t_slot[npc]=0 or sheer[toptemp]=1) :
-	utoptemp=ut_slot[npc]
-	if sheer_t[utoptemp]=0:
-		$d_utop_view='view"pic/clo/utop/<<utoptemp>>.jpg"'&'<a href="exec:dynamic $d_utop_view"><<$ut_name[utoptemp]>></a>'
-	else
-		'Через лифчик просвечиваются сиськи'
-	end
+	$iif(sheer_t[utoptemp]=0,'<a href="exec:gs({view_fig},{pic/clo/utop/<<ut_slot[npc]>>.jpg})"><img src="pic/clo/utop/<<ut_slot[npc]>>.jpg" ><<$ut_name[ut_slot[npc]]>></a>','Через лифчик просвечиваются сиськи')
 end
 if (ul_slot[npc]>0 and l_slot[npc]=0 and t_slot[npc]=0) or (ul_slot[npc]>0 and l_slot[npc]=0 and t_slot[npc]>0 and (long_t[toptemp]=0 or sheer[toptemp]=1)):
-	ulowtemp=ul_slot[npc]&$d_ulow_view='view"pic/clo/ulow/<<ulowtemp>>.jpg"'&'<a href="exec:dynamic $d_ulow_view"><<$ul_name[ulowtemp]>></a>'
+	'<a href="exec:gs({view_fig},{pic/clo/ulow/<<ul_slot[npc]>>.jpg})"><img src="pic/clo/ulow/<<ul_slot[npc]>>.jpg" ><<$ul_name[ul_slot[npc]]>></a>'
 end
 if (ul_slot[npc]=0 and l_slot[npc]=0 and t_slot[npc]=0) or (ul_slot[npc]=0 and l_slot[npc]=0 and t_slot[npc]>0 and (long_t[toptemp]=0 or sheer[toptemp]=1)):'Без трусиков'&*nl
 if master[you]>0:'Координаты дома <<Xhome[npc]>>,<<Yhome[npc]>>,<<Zhome[npc]>>,<<Hhome[npc]>>,<<Rhome[npc]>>'

@@ -1,4 +1,4 @@
-﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Салон Elven laid</center></b>'&*pl ''&'Салон красоты где предлагают полный спектр услуг'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+﻿$LOC_str[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Салон Elven laid</center></b>'&*pl ''&'Салон красоты где предлагают полный спектр услуг'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
 gs'npconloc'&*pl ''&gs'item'&act'Уйти': GT "preloc"
 if pet_follower>0:
 	slave=pet_follower

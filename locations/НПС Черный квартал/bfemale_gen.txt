@@ -4,7 +4,7 @@ face[i]=rand(65,100)&gla[i]=rand(0,3)&glacol[i]=rand(0,4)&nose[i]=rand(0,4)&face
 dick[i]=0&dickd[i]=0&ball[i]=0&vag[i]=1&ass[i]=rand(26,38)&nip[i]=rand(30,70)&tits[i]=rand(10,21)
 rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(170,185),rand(155,170)))&fat[i]=rand(100,2000)&mus[i]=rand(300,1000)&skin[i]=rand(4,6)&$nick[i]+=' негритянка'
 face_hair[i]=0&tit_hair_can[i]=0&tit_hair[i]=0&leg_hair_can[i]=0&leg_hair[i]=0&hlong[i]=rand(60,100)&hcol[i]=0&$nick[i]='Негритянка'
-spec_face_pic[i]=4&face_pic[i]=1&face_pic[i]+=1&if face_pic[i]>20:face_pic[i]=1
+spec_face_pic[i]=4&face_pic[i]+=1&if face_pic[i]>46:face_pic[i]=2
 age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=40&will[i]=50&reflex[i]=40
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 visualpol[i]=1&pol[i]=1&gs'body'&total_generated_female+=1
@@ -21,4 +21,4 @@ if class[i]=2:t_slot[i]=rand(25,30)&l_slot[i]=rand(9,14)&b_slot[i]=rand(17,19)&!
 if misstress[i]=1:t_slot[i]=40&l_slot[i]=9&b_slot[i]=rand(14,16)
 if subslut[i]=1:vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&stamp_t[i]=rand(1,4)&t_slot[i]=rand(31,36)&l_slot[i]=rand(15,22)&b_slot[i]=rand(8,11)
 if femwhore[i]=1:vag[i]=50&anus[i]=50&guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&stamp_t[i]=rand(1,4)&t_slot[i]=rand(31,36)&l_slot[i]=rand(45,51)&b_slot[i]=rand(8,11)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

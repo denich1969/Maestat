@@ -1,0 +1,24 @@
+﻿! Check: an option list like a|b?condition|работа. $args[0]=options, $args[1]=where it is used,
+! args[2]=1 only real places (room sets). Sets ns_valw=1 when at least one option is always
+! available (no condition and not работа) - npcsys_chkcover needs that.
+ns_valw=0
+$ns_vs=$args[0]+'|'
+:ns_voloop
+ns_vq=instr($ns_vs,'|')
+if ns_vq>0:
+	$ns_vo=$mid($ns_vs,1,ns_vq-1)
+	$ns_vs=$mid($ns_vs,ns_vq+1)
+	ns_vq2=instr($ns_vo,'?')
+	if ns_vq2>0:
+		if ns_vq2=len($ns_vo):
+			gs'npcsys_err',$args[1]+': пустое условие у «<<$ns_vo>>»'
+		else
+			gs'npcsys_chkexpr',$mid($ns_vo,ns_vq2+1),$args[1]
+		end
+		$ns_vo=$mid($ns_vo,1,ns_vq2-1)
+	elseif $ns_vo<>'' and $ns_vo<>'работа':
+		ns_valw=1
+	end
+	gs'npcsys_chkname',$ns_vo,$args[1],args[2]
+end
+if ns_vq>0:jump'ns_voloop'

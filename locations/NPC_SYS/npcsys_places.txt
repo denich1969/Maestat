@@ -1,0 +1,172 @@
+﻿! Places NPC timetables can send NPCs to (generated from the old 'destination').
+! gs'npcsys_place', name, X, Y, Z, H, R   (H=-1: the building number is taken from Hmass)
+! Moving targets are not places: 'дом' is the NPCs own home, '@grief' follows NPC grief, etc.
+
+gs'npcsys_place','маяк',0,0,1,1,0
+gs'npcsys_place','маяк лампа',0,0,1,1,3
+gs'npcsys_place','трактир',1,1,1,1,0
+gs'npcsys_place','трактир кухня',1,1,1,1,1
+gs'npcsys_place','трактир спальная',1,1,1,1,3
+gs'npcsys_place','пирс',1,0,1,0,0
+gs'npcsys_place','пирс лачуга',1,0,1,1,0
+gs'npcsys_place','пакгауз',1,2,1,0,0
+gs'npcsys_place','колодец',2,1,1,0,0
+gs'npcsys_place','храм',2,2,1,1,0
+gs'npcsys_place','кладбище',2,3,1,0,0
+gs'npcsys_place','сторожка',2,3,1,1,0
+gs'npcsys_place','бар',3,0,1,1,0
+gs'npcsys_place','бар2',3,2,1,1,0
+gs'npcsys_place','бар3',4,3,1,1,0
+gs'npcsys_place','порт',3,0,1,0,0
+gs'npcsys_place','рыбзавод',3,1,1,1,0
+gs'npcsys_place','рыбзавод офис',3,1,1,1,1
+gs'npcsys_place','шериф',3,3,1,1,0
+gs'npcsys_place','бордель',3,0,1,3,0
+gs'npcsys_place','книжный',3,2,1,2,0
+gs'npcsys_place','одежда',3,2,1,3,0
+gs'npcsys_place','снасти',3,3,1,2,0
+gs'npcsys_place','спортзал_лена',4,3,1,2,0
+
+gs'npcsys_place','круг друида',4,2,2,0,0
+gs'npcsys_place','кирпичный завод',3,0,2,0,0
+gs'npcsys_place','кирпичный офис',3,0,2,1,0
+gs'npcsys_place','баскетбол',3,1,2,0,0
+gs'npcsys_place','тату салон',3,1,2,1,0
+gs'npcsys_place','забегаловка',1,1,2,1,0
+gs'npcsys_place','забегаловка_кухня',1,1,2,1,2
+gs'npcsys_place','бар2_0',2,0,2,1,0
+gs'npcsys_place','бар2_1',1,2,2,1,0
+gs'npcsys_place','пивоварня',2,1,2,1,0
+gs'npcsys_place','пивоварня_офис',2,1,2,1,2
+gs'npcsys_place','клуб',2,1,2,2,0
+gs'npcsys_place','клуб_туалет',2,1,2,2,1
+gs'npcsys_place','клуб_офис',2,1,2,2,2
+gs'npcsys_place','арсенал',2,1,2,3,0
+gs'npcsys_place','арсенал_туалет',2,1,2,3,1
+gs'npcsys_place','арсенал_офис',2,1,2,3,2
+
+gs'npcsys_place','общага',1,0,3,6,3
+gs'npcsys_place','универсам',3,0,3,1,0
+gs'npcsys_place','машзавод',4,3,3,1,0
+gs'npcsys_place','машзавод офис',4,3,3,1,2
+gs'npcsys_place','каторга',1,4,3,6,0
+gs'npcsys_place','электростанция',1,3,3,1,0
+gs'npcsys_place','электростанция офис',1,3,3,1,2
+gs'npcsys_place','школа',3,3,3,1,0
+gs'npcsys_place','класс а',3,3,3,1,1
+gs'npcsys_place','класс б',3,3,3,1,2
+gs'npcsys_place','класс с',3,3,3,1,3
+gs'npcsys_place','физкультура',3,3,3,1,4
+gs'npcsys_place','учительская',3,3,3,1,6
+gs'npcsys_place','сквер',2,1,3,0,0
+gs'npcsys_place','больница',2,3,3,1,0
+gs'npcsys_place','ординаторская',2,3,3,1,2
+gs'npcsys_place','процедурная',2,3,3,1,3
+gs'npcsys_place','лаборатория',2,3,3,1,4
+gs'npcsys_place','операционная',2,3,3,1,5
+gs'npcsys_place','палата',2,3,3,1,6
+gs'npcsys_place','агентство',4,4,3,1,0
+gs'npcsys_place','адд директор',4,4,3,1,2
+gs'npcsys_place','адд офис',4,4,3,1,3
+gs'npcsys_place','адд архив',4,4,3,1,4
+gs'npcsys_place','адд спорт',4,4,3,1,5
+gs'npcsys_place','бильярдная',2,4,3,6,0
+gs'npcsys_place','ресторан',4,0,3,1,0
+gs'npcsys_place','ресторан кухня',4,0,3,1,2
+gs'npcsys_place','квартира зал',3,1,3,1,4
+gs'npcsys_place','квартира кухня',3,1,3,1,1
+gs'npcsys_place','квартира туалет',3,1,3,1,2
+gs'npcsys_place','телебашня',2,0,3,1,0
+gs'npcsys_place','телебашня студия',2,0,3,1,2
+gs'npcsys_place','сауна кафе',2,0,3,2,0
+gs'npcsys_place','парилка',2,0,3,2,2
+gs'npcsys_place','траходром',2,0,3,2,3
+gs'npcsys_place','салон красоты',3,1,3,10,0
+gs'npcsys_place','раздевалка',4,1,3,6,2
+gs'npcsys_place','спорт',4,1,3,6,3
+gs'npcsys_place','богарт0',4,0,3,2,0
+gs'npcsys_place','богарт1',4,0,3,2,1
+gs'npcsys_place','богарт2',4,0,3,2,2
+gs'npcsys_place','богарт3',4,0,3,2,3
+gs'npcsys_place','богарт4',4,0,3,2,4
+gs'npcsys_place','богарт5',4,0,3,2,5
+gs'npcsys_place','богарт6',4,0,3,2,6
+gs'npcsys_place','сладков0',4,0,3,5,0
+gs'npcsys_place','сладков1',4,0,3,5,1
+gs'npcsys_place','сладков2',4,0,3,5,2
+gs'npcsys_place','сладков3',4,0,3,5,3
+gs'npcsys_place','сладков4',4,0,3,5,4
+gs'npcsys_place','сладков5',4,0,3,5,5
+gs'npcsys_place','полиция',2,0,3,3,0
+gs'npcsys_place','полиция офис',2,0,3,3,2
+gs'npcsys_place','полиция тюрьма',2,0,3,3,3
+
+gs'npcsys_place','аптаун',2,2,4,1,0
+gs'npcsys_place','стриптиз',2,2,4,1,1
+gs'npcsys_place','вип',2,2,4,1,2
+gs'npcsys_place','теплица',0,4,4,1,0
+gs'npcsys_place','теплица2',0,4,4,2,0
+gs'npcsys_place','теплица3',0,4,4,3,0
+gs'npcsys_place','теплица офис',0,4,4,4,0
+gs'npcsys_place','теплица5',0,4,4,5,0
+gs'npcsys_place','рынок',0,1,4,0,0
+gs'npcsys_place','дуб',3,1,4,0,0
+gs'npcsys_place','озеро',3,2,4,0,0
+gs'npcsys_place','бар наваждение',2,4,4,6,0
+gs'npcsys_place','винзавод',0,3,4,6,0
+gs'npcsys_place','винзавод офис',0,3,4,6,2
+gs'npcsys_place','столярка',1,4,4,6,0
+gs'npcsys_place','хлебозавод',0,0,4,6,0
+gs'npcsys_place','хлебозавод офис',0,0,4,6,2
+gs'npcsys_place','батори',2,1,4,1,0
+gs'npcsys_place','батори1',2,1,4,1,1
+gs'npcsys_place','батори2',2,1,4,1,2
+gs'npcsys_place','батори3',2,1,4,1,3
+gs'npcsys_place','батори4',2,1,4,1,4
+gs'npcsys_place','батори5',2,1,4,1,5
+gs'npcsys_place','батори6',2,1,4,1,6
+gs'npcsys_place','батори7',2,1,4,1,7
+gs'npcsys_place','батори8',2,1,4,1,8
+gs'npcsys_place','батори9',2,1,4,1,9
+gs'npcsys_place','сексшоп',1,3,4,6,0
+gs'npcsys_place','сексшоп глори',1,3,4,6,2
+gs'npcsys_place','варьете',0,2,4,6,0
+gs'npcsys_place','варьете офис',0,2,4,6,2
+gs'npcsys_place','варьете кухня',0,2,4,6,3
+gs'npcsys_place','порнотеатр',1,0,4,6,0
+gs'npcsys_place','порнотеатр зал',1,0,4,6,2
+gs'npcsys_place','порнотеатр студия',1,0,4,6,4
+gs'npcsys_place','преисподняя',0,4,4,1,0
+gs'npcsys_place','массаж',1,2,4,-1,0
+gs'npcsys_place','массаж кабинет',1,2,4,-1,2
+
+gs'npcsys_place','иуда',2,2,5,1,0
+gs'npcsys_place','бар сияние',3,2,5,6,0
+gs'npcsys_place','бар мельбурн',2,3,5,6,0
+gs'npcsys_place','бар художников',1,1,5,6,0
+gs'npcsys_place','выставка',1,1,5,7,0
+gs'npcsys_place','кинотеатр',4,1,5,6,0
+gs'npcsys_place','кинотеатр проектор',4,1,5,6,2
+gs'npcsys_place','телепорт',4,0,5,6,0
+gs'npcsys_place','телепорт офис',4,0,5,6,2
+gs'npcsys_place','химлаб',2,0,5,6,0
+gs'npcsys_place','химлаб офис',2,0,5,6,2
+gs'npcsys_place','души',1,3,5,6,0
+gs'npcsys_place','души офис',1,3,5,6,2
+gs'npcsys_place','охота',1,2,5,6,0
+gs'npcsys_place','охота офис',1,2,5,6,2
+gs'npcsys_place','театр',3,1,5,6,0
+gs'npcsys_place','театр гримерка',3,1,5,6,2
+gs'npcsys_place','театр зал',3,1,5,6,3
+
+! Room sets: an NPC sent here picks one of the rooms each hour, so it moves around inside.
+gs'npcsys_alias','больница_все','больница|ординаторская|процедурная|лаборатория|операционная|палата'
+gs'npcsys_alias','адд_все','агентство|адд директор|адд офис|адд архив|адд спорт'
+gs'npcsys_alias','спорт_работа','раздевалка|спорт|спорт|спорт'
+gs'npcsys_alias','богарт_все','богарт0|богарт1|богарт2|богарт3|богарт4|богарт5|богарт6'
+gs'npcsys_alias','сладков_все','сладков0|сладков1|сладков2|сладков3|сладков4|сладков5'
+gs'npcsys_alias','теплица_все','теплица|теплица2|теплица3'
+gs'npcsys_alias','аптаун_работа','аптаун|стриптиз|вип'
+gs'npcsys_alias','батори_все','батори1|батори2|батори3|батори4|батори5|батори6|батори7|батори8|батори9'
+gs'npcsys_alias','стрипклуб','стриптиз|стриптиз|вип'
+gs'npcsys_alias','массаж_все','массаж|массаж кабинет'

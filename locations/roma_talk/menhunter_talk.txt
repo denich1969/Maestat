@@ -32,5 +32,5 @@ IF OBJ "Голова совомедведя":
 		GT "preloc"
 	END
 END
-$loc[you]=$curloc&loc_for_drop=0&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+$LOC_str[you]=$curloc&loc_for_drop=0&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
 gs'stat'&'<b><center>Арсенал Механтера</center></b>'&'В мастерской продаются разные устройства для поимки рабынь из других миров охотниками.'&gs'npconloc'&*pl ''&gs'item'&act'Уйти': GT "preloc"

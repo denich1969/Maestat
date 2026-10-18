@@ -1,4 +1,4 @@
-﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Кабак Бедро девственницы</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+﻿$LOC_str[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Кабак Бедро девственницы</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
 'Популярное заведение где подают человеческое мясо и отличное пиво. Так же за 5 искр можно поспать в общей комнате.'&gs'npconloc'&gs'item'
 if iskr[you]>=2:
 	'Вы можете побыстрому перекусить за 2 искры'

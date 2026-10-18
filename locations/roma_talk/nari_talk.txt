@@ -1,5 +1,5 @@
 ﻿if nari=npc  and Z[you]=550:
-	$loc[nari]='4,2,404,5,0'&!дома
+	$LOC_str[nari]='4,2,404,5,0'&!дома
 	act'Поговорить':
 		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - тут так необычно'&act'...':gt 'preloc'
 	end

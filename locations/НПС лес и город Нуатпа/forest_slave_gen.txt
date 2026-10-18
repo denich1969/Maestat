@@ -12,5 +12,5 @@ pol[i]=1&gs'body'&total_generated_female+=1&!gs'body_auto_unce',i&!костыл�
 womenbrain[i]=rand(70,100)&bisex[i]=1&agro[i]=-100&selfrespect[i]=0&positiv[i]=0&extrovert[i]=0&ratio[i]=0&brave[i]=0&lust[i]=100&!характер
 corrupt[i]=100&cumslut[i]=100&analslut[i]=100&all_in_anal[i]=100&all_in_oral[i]=100&all_in_vag[i]=100&can_bj[i]=1&can_anal[i]=1
 h_slot[i]=0&ct_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=15&l_slot[i]=0&b_slot[i]=6&ut_slot[i]=10&ul_slot[i]=2&ub_slot[i]=5&w_slot[i]=0&!l_hand_t[i]=3&nose_p[i]=1
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=67
-!in_home[i]=2&!$loc[i]='fv_tavern'&!npcii[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=67
+!in_home[i]=2&!$LOC_str[i]='fv_tavern'&!npcii[i]=1

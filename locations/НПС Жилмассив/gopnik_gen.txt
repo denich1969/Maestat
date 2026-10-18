@@ -123,7 +123,7 @@ age[i]=iif(preage>0,preage,rand(18,40))&preage=0&vital[i]=rand(60,90)&will[i]=50
 healthmax[i]=10*rand(10,20)&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 pol[i]=0&gs'body'&total_generated_male+=1&!minuron[i]=rand(5,10)&maxuron[i]=rand(15,20)
 womenbrain[i]=rand(0,30)&bisex[i]=0&agro[i]=rand(0,1)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&lust[i]=rand(10,100)&corr[i]=rand(10,100)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 fight_prog[i]=1&def_tipe[i]=0&notfast[i]=0&!программа боя!тип защиты. 1 это не пытается защищаться!если 1 то все удары героя попадают в нпс
 if Z<=10:e_world[]=i&walkprog[i]=25&!Район и программа движения
 if Z<300 and Z>=200:real_world[]=i&walkprog[i]=25&!Район и программа движения

@@ -4,13 +4,13 @@ if mob_sleep[w]>=time and mob_busy[w]>0:
 	mob_busy[w]=0
 else
     if hour>=22 or hour<=6:
-		$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!спит дома2
+		$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!спит дома2
 	else
 		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
-			$loc[w]=''&$doing[w]=''&in_home[w]=1
-			if hour>=7 and hour<=16:X[w]=1&Y[w]=1&Z[w]=200&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&$doing[w]='перекладывает бумаги'&!$loc[w]='ofis'
-			if katjanightclub=2:$doing[w]='ковыряется в телефоне'&$loc[w]='<<Xhome[w]>>,<<Yhome[w]>>,<<Zhome[w]>>,<<Hhome[w]>>,<<Rhome[w]>>'&in_home[w]=1&!$loc[w]='street_ap'
-			if katjanightclub=10 and (week<7 or hour<6):$doing[w]=''&$loc[w]='<<Xhome[w]>>,<<Yhome[w]>>,<<Zhome[w]>>,<<Hhome[w]>>,<<Rhome[w]>>'&!in_home[w]=1&!$loc[w]='apart2'
+			$LOC_str[w]=''&$doing[w]=''&in_home[w]=1
+			if hour>=7 and hour<=16:X[w]=1&Y[w]=1&Z[w]=200&H[w]=1&R[w]=1&$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&$doing[w]='перекладывает бумаги'&!$LOC_str[w]='ofis'
+			if katjanightclub=2:$doing[w]='ковыряется в телефоне'&$LOC_str[w]='<<Xhome[w]>>,<<Yhome[w]>>,<<Zhome[w]>>,<<Hhome[w]>>,<<Rhome[w]>>'&in_home[w]=1&!$LOC_str[w]='street_ap'
+			if katjanightclub=10 and (week_num<7 or hour<6):$doing[w]=''&$LOC_str[w]='<<Xhome[w]>>,<<Yhome[w]>>,<<Zhome[w]>>,<<Hhome[w]>>,<<Rhome[w]>>'&!in_home[w]=1&!$LOC_str[w]='apart2'
 		end
 		if Xhome[w]=X[w] and Yhome[w]=Y[w] and Zhome[w]=Z[w] and Hhome[w]=H[w] and Rhome[w]=R[w]:
 			katja_test+=1&in_home[w]=1&!дома1
@@ -21,14 +21,14 @@ else
 					if foodfish=0 and egg>0:mechdo=1
 					if foodfish>0 and egg=0:mechdo=0
 					if foodfish=0 and egg=0:mechdo=2
-					if mechdo=0:hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&X[w]=0&Y[w]=0&Z[w]=300&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&
-					if mechdo=1:hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&$loc[w]='0,0,300,1,1'
-					if mechdo=2:$doing[w]='пьет воду'&$loc[w]='<<0>>,<<0>>,<<300>>,<<1>>,<<1>>'
+					if mechdo=0:hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&X[w]=0&Y[w]=0&Z[w]=300&H[w]=1&R[w]=1&$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&
+					if mechdo=1:hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&$LOC_str[w]='0,0,300,1,1'
+					if mechdo=2:$doing[w]='пьет воду'&$LOC_str[w]='<<0>>,<<0>>,<<300>>,<<1>>,<<1>>'
 				else
-					$doing[w]='Сидит на берегу'&$loc[w]='0,0,300,0,0'&X[w]=0&Y[w]=0&Z[w]=300&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!$loc[w]='isle'
+					$doing[w]='Сидит на берегу'&$LOC_str[w]='0,0,300,0,0'&X[w]=0&Y[w]=0&Z[w]=300&H[w]=1&R[w]=1&$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!$LOC_str[w]='isle'
 				end
 			else
-				$doing[w]='спит на кровати'&X[w]=1&Y[w]=1&Z[w]=300&H[w]=1&R[w]=1&$loc[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!$loc[w]='home_5'
+				$doing[w]='спит на кровати'&X[w]=1&Y[w]=1&Z[w]=300&H[w]=1&R[w]=1&$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'&!$LOC_str[w]='home_5'
 			end
 		end
 	end

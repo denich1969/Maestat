@@ -6,7 +6,7 @@ if X=0 and Y>0 and Y<5:d_border_way['<<$temploc>>']=6
 if Y=5 and X>0 and X<5:d_border_way['<<$temploc>>']=4
 if X=3 and Y=3:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	$locname['<<$temploc>>']='Универсам'&$lname['<<$temploc>>']='Универсам'&$locopis['<<$temploc>>']='Коробка магазина в котором продают всякое говно'&np['<<$temploc>>']=19&under['<<$temploc>>']=1
+	$locname['<<$temploc>>']='Универсам'&$lname['<<$temploc>>']='Универсам'&$locopis['<<$temploc>>']='Коробка магазина в котором продают всякое говно'&np['<<$temploc>>']=19&under_num['<<$temploc>>']=1
 	H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Вход в Универсальный магазин'&maxPositionR['<<$templocH>>']=1
 	R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 	$locname['<<$temploc>>']='Магазин'&$lname['<<$temploc>>']='Магазин'&$locopis['<<$temploc>>']='Торговые залы магазина'&np['<<$temploc>>']=20&supermarket['<<$temploc>>']=2

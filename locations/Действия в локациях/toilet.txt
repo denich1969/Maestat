@@ -238,7 +238,9 @@ else
 								else
 									cls&$func('get_images', 'glory_ass_in', you)&	'Вы встаете в полный рост и пристраиваете свою задницу к дырке, одновременно направляя член себе в попку...'
 									act 'Насаживаться':
-										gs'soulcraft'&dom[you]-=1&dagongene+=rand(1,5)&anus[you]+=rand(1,3)&ass[you]+=1&cls&$func('get_images', 'glory_ass', you)&'Начав ритмично двигать тазом, вы всаживаете член незнакомца в свою задницу, совершенно позабыв о том, что вы сейчас ничем не лучше уличных шлюх, отдающих себя в убогом туалете непонятно кому.'
+										gs'soulcraft'&dom[you]-=1&dagongene+=rand(1,5)&anus[you]+=rand(1,3)&ass[you]+=1&cls&$func('get_images', 'glory_ass', you)
+										'Начав ритмично двигать тазом, вы всаживаете член незнакомца в свою задницу, '
+										'совершенно позабыв о том, что вы сейчас ничем не лучше уличных шлюх, отдающих себя в убогом туалете непонятно кому.'
 										act 'Закончить':
 											feminize[you]+=rand(2,4)&womenbrain[you]+=1
 											time+=15&cls&gs'stat'&$func('get_images', 'anal_cream_dog', you)&'Ваш партнер молча кончил в ваш зад и исчез, не говоря ни слова, оставив вас со своей спермой в кишке...'
@@ -251,8 +253,7 @@ else
 						if volya=1:act'Уйти':gt 'preloc'
 				else
 					if rand(1,5)=4:
-						horny[you]+=35&$d_view_ghole='<center><video autoplay loop src="pic/event/viewglory<<rand(1,2)>>.webm" ></video></center>'
-						'В стене туалетной кабинки видна дырка, за которой <a href="exec:$d_view_ghole">что-то происходит и слышны возбуждающие звуки</a>'
+						horny[you]+=35&'В стене туалетной кабинки видна дырка, за которой <a href="exec:gs({view_fig},{pic/event/viewglory<<rand(1,2)>>.webm})">что-то происходит и слышны возбуждающие звуки</a>'
 						if dick[you]<7 and vag[you]<1 and corr[you]>40 and anus[you]>25:
 							act'Прислониться промежностью к дырке':
 								if rand(1,5)=4:

@@ -209,4 +209,4 @@ if whoreboss[you]=npc:
 	 	end
 	end
 end
-if $loc[you]=$loc[npc] and hacking['<<$loc[you]>>']=1:'Вот ты и попался ворюга'&cant_fight_run=1&gs'progcurse'&gt 'prefight'
+if $LOC_str[you]=$LOC_str[npc] and hacking['<<$LOC_str[you]>>']=1:'Вот ты и попался ворюга'&cant_fight_run=1&gs'progcurse'&gt 'prefight'

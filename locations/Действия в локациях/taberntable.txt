@@ -43,14 +43,17 @@ end
 if tabernwork[you]=1:
     if worktabernpol!daystart and energy[you]>=40:
      	act'Мыть полы':
-			energy[you]-=40&worktabernpol=daystart&money[you]+=100&time+=60&cls&gs'stat'&'Вы целый час моете полы в трактире, за свою работу вы получаете шиллинг.'
-			'<center><video autoplay loop src="pic/misc/Cleanpol<<rand(0,4)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
+			energy[you]-=40&worktabernpol=daystart&money[you]+=100&time+=60&cls&gs'stat'&if pol[you]=0:'<center><a href="exec:gs({view_fig},{pic/misc/CleanpolM.jpg})"></center>'
+			if pol[you]>0 and tits[you]<23:'<center><video autoplay loop src="pic/misc/Cleanpol<<rand(0,4)>>.webm" ></video></center>'
+			if pol[you]>0 and tits[you]>22:'<center><video autoplay loop src="pic/misc/Cleanpol5.webm" ></video></center>'
+			'Вы целый час моете полы в трактире, за свою работу вы получаете шиллинг.'&act'<b>Уйти</b>':gt 'preloc'
 		end
     end
     if worktabernposuda!daystart and energy[you]>=40:
      	act'Мыть посуду':
-			energy[you]-=40&worktabernposuda=daystart&money[you]+=100&time+=60&cls&gs'stat'&'Вы целый час моете посуду в трактире, за свою работу вы получаете шиллинг.'
-			'<center><video autoplay loop src="pic/misc/Cleanpos<<rand(0,4)>>.webm" ></video></center>'&act'<b>Уйти</b>':gt 'preloc'
+			energy[you]-=40&worktabernposuda=daystart&money[you]+=100&time+=60&cls&gs'stat'&if pol[you]=0:'<center><video autoplay loop src="pic/misc/CleanposM.webm" ></video></center>'
+			if pol[you]>0:'<center><video autoplay loop src="pic/misc/Cleanpos<<rand(0,4)>>.webm" ></video></center>'
+			'Вы целый час моете посуду в трактире, за свою работу вы получаете шиллинг.'&act'<b>Уйти</b>':gt 'preloc'
 		end
     end
 end

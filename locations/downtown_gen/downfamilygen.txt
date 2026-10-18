@@ -19,31 +19,31 @@ end
 if tipe=1:
 	gs'upmale_gen'&$famili_surname=$gensurname_f&$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
 	s_world[]=i&walkprog[i]=30&dynamic $downwork
-	fi=i&pretipename=nation[fi]&gs'upfemale_gen'&$surname[i]=$famili_surname&s_world[]=i&walkprog[i]=30&dynamic $downwork
+	fi=i&pretipename=nation_num[fi]&gs'upfemale_gen'&$surname[i]=$famili_surname&s_world[]=i&walkprog[i]=30&dynamic $downwork
 	sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100
 	vag[i]=1+dickd[fi]&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100&a_vag_lon[fi]=100&p_vag_lon[i]=100
 	guy[i]+=1&girl[fi]+=1&sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i&husband[i]=fi&husband[fi]=i
 elseif tipe=2:
 	preage=rand(35,45)&gs'upmale_gen'&$famili_surname=$gensurname_f&$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
 	s_world[]=i&walkprog[i]=30&dynamic $downwork
-	fi=i&preage=rand(35,45)&pretipename=nation[fi]&gs'upfemale_gen'&$surname[i]=$famili_surname&s_world[]=i&walkprog[i]=30&dynamic $downwork	
+	fi=i&preage=rand(35,45)&pretipename=nation_num[fi]&gs'upfemale_gen'&$surname[i]=$famili_surname&s_world[]=i&walkprog[i]=30&dynamic $downwork	
 	sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100
 	vag[i]=1+dickd[fi]&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100&a_vag_lon[fi]=100&	p_vag_lon[i]=100
 	guy[i]+=1&girl[fi]+=1&sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&	sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i&husband[i]=fi&husband[fi]=i
-	ma=i&preage=18&pretipename=nation[fi]&polrand=rand(1,10)&pol[i]=iif(polrand>6,1,0)&$surname[i]=$iif(polrand>6,$surname[ma],$surname[fi])&gs $iif(polrand>6,'upfemale_gen','upmale_gen')
+	ma=i&preage=18&pretipename=nation_num[fi]&polrand=rand(1,10)&pol[i]=iif(polrand>6,1,0)&$surname[i]=$iif(polrand>6,$surname[ma],$surname[fi])&gs $iif(polrand>6,'upfemale_gen','upmale_gen')
 	s_world[]=i&walkprog[i]=30&dynamic $downwork
 	kid_first[fi]=i&kid_first[ma]=i&father[i]=fi&mother[i]=ma
 elseif tipe=3:
 	preage=rand(35,45)&gs'upmale_gen'&$famili_surname=$gensurname_f&$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']=$locnameH['<<X>>,<<Y>>,<<Z>>,<<H>>']+' (<<$surname[i]>>)'
 	s_world[]=i&walkprog[i]=30&dynamic $downwork
-	fi=i&preage=rand(35,45)&pretipename=nation[fi]&gs'upfemale_gen'&$surname[i]=$famili_surname&s_world[]=i&walkprog[i]=30&dynamic $downwork
+	fi=i&preage=rand(35,45)&pretipename=nation_num[fi]&gs'upfemale_gen'&$surname[i]=$famili_surname&s_world[]=i&walkprog[i]=30&dynamic $downwork
 	sexpartner['<<i>>,<<fi>>']=100&sexpartner['<<fi>>,<<i>>']=100&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100
 	vag[i]=1+dickd[fi]&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100&a_vag_lon[fi]=100&p_vag_lon[i]=100
 	guy[i]+=1&girl[fi]+=1&sexpartner_num_m['<<i>>,<<guy[i]>>']=fi&sexpartner_num_f['<<fi>>,<<girl[fi]>>']=i&husband[i]=fi&husband[fi]=i
-	ma=i&preage=18&pretipename=nation[fi]&polrand=rand(1,10)&pol[i]=iif(polrand>6,1,0)&$surname[i]=$iif(polrand>6,$surname[ma],$surname[fi])&gs $iif(polrand>6,'upfemale_gen','upmale_gen')
+	ma=i&preage=18&pretipename=nation_num[fi]&polrand=rand(1,10)&pol[i]=iif(polrand>6,1,0)&$surname[i]=$iif(polrand>6,$surname[ma],$surname[fi])&gs $iif(polrand>6,'upfemale_gen','upmale_gen')
 	s_world[]=i&walkprog[i]=30&dynamic $downwork
 	kid_first[fi]=i&kid_first[ma]=i&father[i]=fi&mother[i]=ma
-	eld=i&preage=18&pretipename=nation[fi]&polrand=rand(1,10)&pol[i]=iif(polrand>6,1,0)&$surname[i]=$iif(polrand>6,$surname[ma],$surname[fi])&gs $iif(polrand>6,'upfemale_gen','upmale_gen')
+	eld=i&preage=18&pretipename=nation_num[fi]&polrand=rand(1,10)&pol[i]=iif(polrand>6,1,0)&$surname[i]=$iif(polrand>6,$surname[ma],$surname[fi])&gs $iif(polrand>6,'upfemale_gen','upmale_gen')
 	s_world[]=i&walkprog[i]=30&dynamic $downwork
 	father[i]=fi&mother[i]=ma&kid_second[fi]=i&kid_second[ma]=i&brother[eld]=i&brother[i]=eld
 end

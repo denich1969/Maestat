@@ -13,4 +13,4 @@ girl[gruber]+=1&guy[i]+=1&sexpartner['<<i>>,<<gruber>>']+=100&sexpartner['<<grub
 vagsex[i]+=100&avagsex[gruber]+=100&anal[i]+=100&aanal[gruber]+=100&anal[gruber]+=100&aanal[i]+=100&bj[i]+=100&abj[gruber]+=100
 sexpartner_num_m['<<i>>,<<guy[i]>>']=gruber&sexpartner_num_f['<<gruber>>,<<girl[gruber]>>']=i
 t_slot[i]=90&l_slot[i]=34&b_slot[i]=10&ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=0&tongue_p[i]=1&nip_p[i]=1&vag_pirs[i]=1&!l_hand_t[i]=3
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=29
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_world[]=i&walkprog[i]=29

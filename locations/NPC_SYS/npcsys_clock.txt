@@ -1,0 +1,8 @@
+﻿! Time of day for the planner: ns_h (hour), ns_next (the next full hour in 'time' units),
+! ns_we (1 on Saturday and Sunday). Correct even when 'stat' has not updated hour/minut yet.
+ns_mm=(hour*60+minut+time-lastmin) mod 1440
+if ns_mm<0:ns_mm+=1440
+ns_h=ns_mm/60
+ns_next=time+60-(ns_mm mod 60)
+ns_we=0
+if week_num>=6:ns_we=1

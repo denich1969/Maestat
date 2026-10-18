@@ -1,0 +1,14 @@
+﻿! Debug panel for the stat window; stat calls it while ns_dbg>0 (see npcsys_init).
+! The numbers are for the last tick that did work.
+! Links: full report, re-plan every NPC, run one tick now (10 minutes of walking), hide the panel.
+! Mistakes found in the tables (npcsys_err) are shown even while the debug panel is off.
+if ns_nerr>0:pl'<font color=#c00000><b>npcsys: ошибок в расписаниях <<ns_nerr>></b>. Первая: <<$ns_err[0]>></font> <a href="exec:gs''npcsys_dbg_report''">[отчёт]</a>'
+if ns_dbg<=0:exit
+ns_d_min=ns_mm mod 60
+ns_d_all=arrsize('ns_list')
+ns_d_skip=ns_c_cw+ns_c_fol+ns_c_imm+ns_c_age+ns_c_busy+ns_c_cool
+pl'<font color=#0080c0><b>npcsys</b>: вызовов <<ns_c_calls>>, тиков <<ns_c_ticks>>, init <<ns_c_init>>, ready <<ns_ready>></font>'
+pl'<font color=#0080c0>последний тик: time <<ns_d_t>> (<<ns_h>>:<<ns_d_min>>), +<<ns_d_dt>> мин, шагов <<ns_steps>>, snap <<ns_snap>>, мир <<ns_pw>>, <<ns_ms>> мс</font>'
+pl'<font color=#0080c0>НПС всего <<ns_d_all>>; в тике <<ns_c_pass>>, могут ходить <<ns_c_ok>>, решили <<ns_c_dec>>, двигались <<ns_c_mv>>, шагов <<ns_c_st>>, пришли <<ns_c_arr>>, встреч <<ns_c_meet>></font>'
+if ns_d_skip>0:pl'<font color=#0080c0>не ходят: cantwalk <<ns_c_cw>>, follower <<ns_c_fol>>, immobilaze <<ns_c_imm>>, age <<ns_c_age>>, mob_busy <<ns_c_busy>>, cooldown <<ns_c_cool>></font>'
+if ns_dbg>=2:pl'<a href="exec:gs''npcsys_dbg_report''">[отчёт]</a> <a href="exec:killvar ''nsw_wake''&gs''stat''">[перепланировать]</a> <a href="exec:ns_last=time-ns_step_min&gs''npcsys_tick''&gs''stat''">[тик]</a> <a href="exec:ns_dbg=0&gs''stat''">[скрыть]</a>'

@@ -80,7 +80,7 @@ if $ARGS[0] = 'SHOW_INPUT_FOR_V_SIZE':
    $ARGS['INPUT'] = INPUT ('Введите размер в пикселях - (Размер по умолчанию: <<$ARGS[2]>>)')&ARGS['VAL'] = VAL($ARGS['INPUT'])&!Инпут для размера видео/картинок.
    if ARGS['VAL']<0:ARGS['VAL']=0
    if ARGS['VAL']>2000:ARGS['VAL']=2000
-   $CONFIG['<<$ARGS[1]>>']='<<ARGS["VAL"]>>px'&if ARGS['VAL']=0:$CONFIG['<<$ARGS[1]>>']='auto'
+   $CONFIG_str['<<$ARGS[1]>>']='<<ARGS["VAL"]>>px'&if ARGS['VAL']=0:$CONFIG_str['<<$ARGS[1]>>']='auto'
    CONFIG['UPDATE_CSS']=1
 end
 if $ARGS[0] = 'KILLVARS':

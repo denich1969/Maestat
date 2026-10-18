@@ -1,0 +1,6 @@
+﻿! The current program moves by teleporting instead of walking.
+! $args[0]=text shown when the player sees the NPC leave, $args[1]=code run at that moment.
+if ns_cp<=0:gs'npcsys_err','телепорт «<<$args[0]>>» стоит до npcsys_prog'
+nsp_tp[ns_cp]=1
+$nsp_tm[ns_cp]=$args[0]
+$nsp_tc[ns_cp]=$args[1]

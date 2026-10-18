@@ -33,24 +33,24 @@ if money[npc]>0:
 	end
 end
 act'Разденься!':
-	$loc[npc]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+	$LOC_str[npc]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
 	if t_slot[npc]>0:
-		clo=t_slot[npc]&if ban_h[npc]=0:&t_slot[npc]=0&item_loc_t['<<clo>>,<<$loc[npc]>>']+=1
+		clo=t_slot[npc]&if ban_h[npc]=0:&t_slot[npc]=0&item_loc_t['<<clo>>,<<$LOC_str[npc]>>']+=1
 	end
 	if l_slot[npc]>0:
-		clo=l_slot[npc]&if ban_l[npc]=0:&item_loc_l['<<clo>>,<<$loc[npc]>>']+=1&l_slot[npc]=0
+		clo=l_slot[npc]&if ban_l[npc]=0:&item_loc_l['<<clo>>,<<$LOC_str[npc]>>']+=1&l_slot[npc]=0
 	end
 	if b_slot[npc]>0:
-		clo=b_slot[npc]&if ban_b[npc]=0:&item_loc_b['<<clo>>,<<$loc[npc]>>']+=1&b_slot[npc]=0
+		clo=b_slot[npc]&if ban_b[npc]=0:&item_loc_b['<<clo>>,<<$LOC_str[npc]>>']+=1&b_slot[npc]=0
 	end
 	if ut_slot[npc]>0:
-		clo=ut_slot[npc]&if ban_ut[npc]=0:&ut_slot[npc]=0&item_loc_ut['<<clo>>,<<$loc[npc]>>']+=1
+		clo=ut_slot[npc]&if ban_ut[npc]=0:&ut_slot[npc]=0&item_loc_ut['<<clo>>,<<$LOC_str[npc]>>']+=1
 	end
 	if ul_slot[npc]>0:
-		clo=ul_slot[npc]&if ban_ul[npc]=0:&item_loc_ul['<<clo>>,<<$loc[npc]>>']+=1&ul_slot[npc]=0
+		clo=ul_slot[npc]&if ban_ul[npc]=0:&item_loc_ul['<<clo>>,<<$LOC_str[npc]>>']+=1&ul_slot[npc]=0
 	end
 	if ub_slot[npc]>0:
-		clo=ub_slot[npc]&if ban_ub[npc]=0:&item_loc_ub['<<clo>>,<<$loc[npc]>>']+=1&ub_slot[npc]=0
+		clo=ub_slot[npc]&if ban_ub[npc]=0:&item_loc_ub['<<clo>>,<<$LOC_str[npc]>>']+=1&ub_slot[npc]=0
 	end
 	gt'preloc'
 end

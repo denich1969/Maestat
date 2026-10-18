@@ -23,7 +23,7 @@ IF time > 3:
 		!msg "Когда вы проснулись, вокруг все осталось прежним. В туманах трудно понять, сколько прошло времени, но по крайней мере вы выспались."
 		! *** изменена вероятность побега с учётом строптивости  (было >8)
 		escape = (RAND (1,10)+ловкость)*строптивость
-		IF OBJ "Добыча" and girl = 1 and NO OBJ "Оковы" and NO $class = "dominatrix" and escape > 60:
+		IF OBJ "Добыча" and girl = 1 and NO OBJ "Оковы" and NO $class_str = "dominatrix" and escape > 60:
 			DELOBJ "Добыча"&girl = 0&if CONFIG['ENABLE_sound']=1:play "<<$contentS>>/Rome//oh.mp3",Громкость_эффектов
 			msg "Пока вы спали, дикарке удалось избавиться от веревок и убежать."   
 		END
@@ -34,7 +34,7 @@ IF time < 4:
 	ACT "Отдохнуть":
 		energy-=1&IF energy < 0:energy = 0
 		msg "Отдых постепенно восстанавливает ваши силы"&GS "!Time"&escape = RAND (1,10)+ловкость*строптивость
-		IF OBJ "Добыча" and girl = 1 and NO OBJ "Оковы" and NO $class = "dominatrix" and escape > 75:
+		IF OBJ "Добыча" and girl = 1 and NO OBJ "Оковы" and NO $class_str = "dominatrix" and escape > 75:
 		    DELOBJ "Добыча"&msg "Дикарке как-то удалось ослабить веревку, которой вы ее связали. Улучив момент когда вы отвернулись, она шустро бросается в сторону и скрывается в лесу."&GT "Hunt_chase"
 		END
 		GT "Camp"

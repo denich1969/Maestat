@@ -15,4 +15,4 @@ class[i]=pre_class&ul_slot[i]=5
 if class[i]=0:t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&!низший класс
 if class[i]=1:t_slot[i]=rand(5,7)&l_slot[i]=rand(4,5)&b_slot[i]=rand(2,3)&!средний класс
 if class[i]=2:t_slot[i]=rand(8,10)&l_slot[i]=rand(6,7)&b_slot[i]=rand(4,5)&!элитный класс
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

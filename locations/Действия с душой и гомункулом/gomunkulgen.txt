@@ -12,4 +12,4 @@ age[i]=age[you]&vital[i]=vital[you]&will[i]=will[you]&reflex[i]=reflex[you]&heal
 womenbrain[i]=womenbrain[you]&bisex[i]=bisex[you]&agro[i]=dom[you]&selfrespect[i]=1&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=1&lust[i]=lust[you]&!характер
 h_slot[i]=h_slot[you]&t_slot[i]=t_slot[you]&l_slot[i]=l_slot[you]&b_slot[i]=b_slot[you]&ut_slot[i]=ut_slot[you]&ul_slot[i]=ul_slot[you]&ub_slot[i]=ub_slot[you]
 n_world[]=i&ne_world[]=i&e_world[]=i&se_world[]=i&s_world[]=i&walkprog[i]=31
-Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=0&R[i]=0&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=0&R[i]=0&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

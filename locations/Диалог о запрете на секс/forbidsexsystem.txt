@@ -2,7 +2,7 @@
 fight_for_forbid = 0&!Драка за запрет на секс, буде задействованна в локациях win, lose, agrowin
 $you_gender_check=""&!проверка вашего пола будет перенесенно в отдельную локацию так как пригодится много где
 $you_gender_check=$iif(dick[you]>0 and vag[you]=0,"male",$iif(vag[you]>0 and dick[you]=0,"female",$iif(vag[you]>0 and dick[you]>0 and tit[you]<4,"cuntboy","femboy")))&!шимейл=кунтбой!фунтари=фембой
-npc_gender_check=""&!проверка пола нпс делаем отдельно, чтобы не путаться
+npc_gender_check_num=""&!проверка пола нпс делаем отдельно, чтобы не путаться
 $npc_gender_check=$iif(dick[npc]>0 and vag[npc]=0,"male",$iif(vag[npc]>0 and dick[npc]=0,"female",$iif(vag[npc]>0 and dick[npc]>0 and tit[npc]<4,"cuntboy","femboy")))&
 if(girlfriend[you]=npc or girlfriend[npc]=you or boyfriend[you]=npc or boyfriend[npc]=you or husband[npc]=you or husband[you]=npc or wife[npc]=you) and forbidsex[npc]=0:
 	!Проверка наличия  отношений (муж, жена, девушка, парень), запрета и доминации   !Затем Проверка являемся ли мы богом

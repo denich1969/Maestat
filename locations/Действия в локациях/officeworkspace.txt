@@ -1,7 +1,7 @@
 ﻿$nameloc[you]=$curloc&loc_for_drop=0&act'Уйти':gt 'preloc'&!gt 'street_work'
 if Z[you]=200 and R[you]=1 and BossmainQW>0:
 	gs'stat'&'Ваше рабочее место'&gs'Item'&*pl ''&gs 'npconloc'&!'<center><img src="pic/loc/ras/car.jpg" ></center>'
-	if week<6:
+	if week_num<6:
 		if hour>=7 and hour<=9:
 			act'Работать':
 				nopee=1&rubl[you]+=50000&time+=60*4&cls&gs'stat'&nopee=0&'Вы работаете свою работу, нудную, неинтересную, однообразную и тягомотную. Вам плятят тысячу рублей в день, но за обе части дня .'
@@ -20,7 +20,7 @@ if Z[you]=200 and R[you]=1 and BossmainQW>0:
 						energy[you]=1&rubl[you]+=50000&time+=60*4&cls&gs'stat'&gs'eat','extra'&'<center><img src="pic/loc/app/ofis.jpg" ></center>'&gs'stat'&if soul[you]>50:soul[you]-=1
 						'Вы весь день составляете сметы и пишите отчеты. Начальник отдела Рылов стоит над душой и постоянно придирается и отчитывает вас, не давая вам ни малейшей передышки. '
 						'Но все когда то кончается, приходит и к концу очередной день офисного ада с верховным демоном Борисом Евгеньевичем.'&act'Закончить работу':gt $curloc
-						if week>1 and  BossmainQW>3:gt'forced_qwest'
+						if week_num>1 and  BossmainQW>3:gt'forced_qwest'
 					end
 				end
 			end

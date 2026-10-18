@@ -171,7 +171,7 @@ IF $ARGS[0] = 'FillTable':
 		if j_PortalYou>0:$j_name='<a href="exec:gt ''TechLoc'',''GoCord'',<<$J_locXYZ>>">'+$j_name+'</a>'
 		$j_name='<b>'+$j_name+'</b>'&!$uniqlocnames=''&!убрать повторы названий зданий
 		$buildingsList=''&!здания на локации
-		if under['<<$J_locXYZ>>,0,0']>=1 :$buildingsList+='<br><b>Станция метро</b>'&!--- метро
+		if under_num['<<$J_locXYZ>>,0,0']>=1 :$buildingsList+='<br><b>Станция метро</b>'&!--- метро
 		if maxPositionH['<<$J_locXYZ>>']>0:
 			jh = 1
 			:mm_areaHouseHLoop

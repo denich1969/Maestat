@@ -1,0 +1,58 @@
+﻿! npcsys_tick - brings all NPCs up to the current game time.
+! walker and walk_programm call it, so it runs from ~60 places, often several times in a row.
+! It only does work when 'time' has moved on since the previous call; other calls exit at once.
+ns_c_calls+=1
+if ns_ready<>1:gs'npcsys_init'
+if ns_on<>1:
+	ns_on=1
+	ns_last=time-ns_step_min
+end
+ns_dt=time-ns_last
+if ns_dt<0:ns_last=time
+if ns_dt<=0:exit
+ns_t0=msecscount
+ns_last=time
+! debug counters of this tick (shown by npcsys_dbg)
+ns_c_ticks+=1
+ns_d_dt=ns_dt
+ns_d_t=time
+ns_c_pass=0 & ns_c_ok=0 & ns_c_dec=0 & ns_c_mv=0 & ns_c_st=0 & ns_c_arr=0 & ns_c_meet=0
+ns_c_cw=0 & ns_c_fol=0 & ns_c_imm=0 & ns_c_age=0 & ns_c_busy=0 & ns_c_cool=0
+$walklog=''
+global_radar=0
+tormoza=0
+gs'npcsys_clock'
+gs'npcsys_ingest'
+! the world the player is in (all obsession zones count as one world, so do the real-world ones)
+ns_pw=Z[you]
+if ns_pw>=700 and ns_pw<800:ns_pw=700
+if ns_pw>=200 and ns_pw<300:ns_pw=200
+if ns_dirty=1 or ns_pw<>ns_bw or time>=ns_rb_at:gs'npcsys_rebuild'
+! walking steps owed for the time that passed; after a long gap NPCs just appear where they are going
+ns_acc+=ns_dt
+ns_steps=ns_acc/ns_step_min
+ns_acc-=ns_steps*ns_step_min
+ns_snap=0
+if ns_steps>=ns_snap_steps:ns_snap=1
+! the players world in full detail
+gs'npcsys_pass',ns_pw,1
+gs'npcsys_social',1
+! the other city districts, coarsely, every ns_bg_every minutes
+if time>=ns_bg_at:
+	ns_bg_at=time+ns_bg_every
+	ns_bgk=1
+	:ns_bgloop
+	if ns_bgk<>ns_pw:
+		gs'npcsys_pass',ns_bgk,0
+		gs'npcsys_social',0
+	end
+	ns_bgk+=1
+	if ns_bgk<=5:jump'ns_bgloop'
+end
+! the working lists are rebuilt every tick; keep them out of save files
+killvar 'nsc'
+killvar 'nsm'
+killvar 'nsm_n'
+killvar 'nsm_busy'
+ns_ms=msecscount-ns_t0
+if ns_dbg>=2:$walklog+='<br><font color=#0080c0>[npcsys] тик <<ns_c_ticks>>: +<<ns_d_dt>> мин, шагов <<ns_steps>>, НПС <<ns_c_pass>>, могут ходить <<ns_c_ok>>, решили <<ns_c_dec>>, двигались <<ns_c_mv>>, шагов сделано <<ns_c_st>>, пришли <<ns_c_arr>>, <<ns_ms>> мс</font><a href="exec:ns_dbg=0&gs''stat''">[скрыть]</a>'

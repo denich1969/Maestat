@@ -11,8 +11,8 @@ else
 			if hour>=7 and hour<23:
 				if hunger[i]<=rand(2,6):
 					temp=rand(0,1)  
-					if temp=0:$doing[i]='гуляет по камням'&!$loc[i]='isle'
-					if temp=1:$doing[i]='сидит в кресле и смотрит в огонь горящий в камине'&!$loc[i]='home_2'
+					if temp=0:$doing[i]='гуляет по камням'&!$LOC_str[i]='isle'
+					if temp=1:$doing[i]='сидит в кресле и смотрит в огонь горящий в камине'&!$LOC_str[i]='home_2'
 				else
 					mechdoung=0
 					if foodfish>0:mechdoung=1
@@ -20,9 +20,9 @@ else
 					if foodfish=0 and egg=0:mechdoung=0
 					if mechdoung=0:
 						if eggciper[i]=0:
-							eggciper[i]=rand(1,2)&$doing[i]='ходит по камням и ищет птичьи гнезда'&!$loc[i]='isle'
+							eggciper[i]=rand(1,2)&$doing[i]='ходит по камням и ищет птичьи гнезда'&!$LOC_str[i]='isle'
 						else
-							egg+=eggciper[i]&eggciper[i]=0&$doing[i]='жарит яйца стоя у плиты'&!$loc[i]='home_1'
+							egg+=eggciper[i]&eggciper[i]=0&$doing[i]='жарит яйца стоя у плиты'&!$LOC_str[i]='home_1'
 						end
 					else
 						mechdo=0
@@ -30,19 +30,19 @@ else
 						if foodfish=0 and egg>0:mechdo=1
 						if foodfish>0 and egg=0:mechdo=0
 						if mechdo=0:
-							hunger[i]=0&foodfish-=1&$doing[i]='ест рыбу сидя за столом'&!$loc[i]='home_1'
+							hunger[i]=0&foodfish-=1&$doing[i]='ест рыбу сидя за столом'&!$LOC_str[i]='home_1'
 						else
-							hunger[i]=0&egg-=1&$doing[i]='ест яичницу сидя за столом'&!$loc[i]='home_1'
+							hunger[i]=0&egg-=1&$doing[i]='ест яичницу сидя за столом'&!$LOC_str[i]='home_1'
 						end
 					end
 				end
 			else
-				$doing[i]='спит на кровати'&$loc[i]='home_5'
+				$doing[i]='спит на кровати'&$LOC_str[i]='home_5'
 			end
 		else
-			if hour>=20 or hour<=6:$doing[i]='охраняет'&!$loc[i]='forest_village'
-			if hour>=16 and hour<=19:$doing[i]='сидит за столом'&!$loc[i]='fv_tavern'
-			if hour>=7 and hour<16:$doing[i]='спит'&!$loc[i]='fv_kap'
+			if hour>=20 or hour<=6:$doing[i]='охраняет'&!$LOC_str[i]='forest_village'
+			if hour>=16 and hour<=19:$doing[i]='сидит за столом'&!$LOC_str[i]='fv_tavern'
+			if hour>=7 and hour<16:$doing[i]='спит'&!$LOC_str[i]='fv_kap'
 		end
 	end
 end

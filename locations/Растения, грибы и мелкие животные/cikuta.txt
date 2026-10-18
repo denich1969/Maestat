@@ -1,12 +1,12 @@
 ﻿gs'stat'&'<center><img src="pic/loc/ras/cikuta.jpg" ></center>'&'Высокая трава цикуты.'
-if last_cikuta['<<$loc[you]>>']=0 and day_cikuta['<<$loc[you]>>']!daystart:last_cikuta['<<$loc[you]>>']=rand(0,1)&day_cikuta['<<$loc[you]>>']=daystart
-if last_cikuta['<<$loc[you]>>']>0:
+if last_cikuta['<<$LOC_str[you]>>']=0 and day_cikuta['<<$LOC_str[you]>>']!daystart:last_cikuta['<<$LOC_str[you]>>']=rand(0,1)&day_cikuta['<<$LOC_str[you]>>']=daystart
+if last_cikuta['<<$LOC_str[you]>>']>0:
 	'На кустах растут цветы'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Сорвать пучок с цветами':item_loc['57,<<$loc[you]>>']+=1&time+=5&last_cikuta['<<$loc[you]>>']=0&'вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта'
+		act'Сорвать пучок с цветами':item_loc['57,<<$LOC_str[you]>>']+=1&time+=5&last_cikuta['<<$LOC_str[you]>>']=0&'вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта'
 		act'Собирать цветы цикуты':
-			time+=30&cls&gs'walker'&gs'stat'&last_cikuta['<<$loc[you]>>']=0&item_loc['57,<<$loc[you]>>']+=max(1,lvltravnik[you])&day_cikuta['<<$loc[you]>>']=daystart
-			"В течение получаса вы собирали цикуту и собрали <<item_loc['57,<<$loc[you]>>']>> порций"&cikutanum=item_loc['57,<<$loc[you]>>']+item['57']
+			time+=30&cls&gs'walker'&gs'stat'&last_cikuta['<<$LOC_str[you]>>']=0&item_loc['57,<<$LOC_str[you]>>']+=max(1,lvltravnik[you])&day_cikuta['<<$LOC_str[you]>>']=daystart
+			"В течение получаса вы собирали цикуту и собрали <<item_loc['57,<<$LOC_str[you]>>']>> порций"&cikutanum=item_loc['57,<<$LOC_str[you]>>']+item['57']
 			'Всего у вас <<cikutanum>> порций цикуты'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

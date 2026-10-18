@@ -1,0 +1,48 @@
+﻿! Interactions between NPCs (the old radarNew / subwalkerNW). npcsys_pass noted who stands where
+! (nsm, nsm_n) and which rooms hold two or more NPCs (nsm_busy); only those rooms are looked at,
+! and each NPC there only meets the others in its room.
+! args[0]=1 the players world, 0 a background district. At most ns_meet_cap (ns_meet_cap_bg)
+! NPCs start interactions per tick; the starting room rotates, so every room gets its turn.
+ns_cap=iif(args[0]=1,ns_meet_cap,ns_meet_cap_bg)
+ns_bn=arrsize('nsm_busy')
+if ns_bn=0:exit
+ns_rot+=1
+ns_bi=0
+:ns_roomloop
+if ns_bi<ns_bn and ns_cap>0:
+	$ns_room=$nsm_busy[(ns_rot+ns_bi) mod ns_bn]
+	ns_rcnt=nsm_n[$ns_room]
+	ns_ra=0
+	:ns_actorloop
+	if ns_ra<ns_rcnt and ns_cap>0:
+		w=nsm['<<$ns_room>>#<<ns_ra>>']
+		ns_w=w
+		gs'npcsys_canmeet'
+		w=ns_w
+		if ns_cm>0 or ns_cmo>0:
+			ns_cap-=1
+			tormoza+=1
+			ns_rb=0
+			:ns_partnerloop
+			if ns_rb<ns_rcnt:
+				s=nsm['<<$ns_room>>#<<ns_rb>>']
+				if s<>w:
+					ns_s2=s
+					if ns_cmo>0:
+						sub=s
+						gs'npcsys_obs_meet'
+						w=ns_w
+						s=ns_s2
+					end
+					if ns_cm>0:gs'npcsys_meet' & w=ns_w
+				end
+			end
+			ns_rb+=1
+			if ns_rb<ns_rcnt:jump'ns_partnerloop'
+		end
+	end
+	ns_ra+=1
+	if ns_ra<ns_rcnt and ns_cap>0:jump'ns_actorloop'
+end
+ns_bi+=1
+if ns_bi<ns_bn and ns_cap>0:jump'ns_roomloop'

@@ -349,10 +349,9 @@ if captain=npc:
     end
     if tipe_start=1:
      	act'Спросить как вы оказались тут':
-			know_about_gods+=1&if MainQW[you]<10:MainQW[you]=10
-			cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы начали расспрашивать старого капитана, как вы оказались на корабле и где вы вообще.'&*pl''&'<<$name[npc]>> флегматично отвечает '
-			'- Этот город находится между миров и в нем присутствуют разные силы, включая божественные. А на корабле все оказываются исключительно по божьей воле. А она мне неведома.'
-			act'<b>Уйти</b>':gt 'preloc'
+			know_about_gods+=1&if MainQW[you]<10:MainQW[you]=10&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'<b>Уйти</b>':gt 'preloc'
+			'Вы начали расспрашивать старого капитана, как вы оказались на корабле и где вы вообще.'&*pl'<<$name[npc]>> флегматично отвечает '
+			'- Этот город находится между миров и в нем присутствуют разные силы, включая божественные.'&*nl'На корабле все оказываются исключительно по божьей воле. А она мне неведома.'
 		end
 		if MainQW[you]>=10:
 			act'Хрупкие сестрицы':
@@ -428,7 +427,7 @@ if martamarsh=npc:
 		        else
 					vag[you]=1&'<<$name[npc]>> фыркает - уже успела потерять девственность. Придется немного поколдовать. Она колдует и у вас снова появляется девственная плева.'
 		        end
-		        feminize[you]+=rand(2,5)&'Она протягивает вам бутылочку с розоватой жидкостью и заставляет ее выпить.'&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+		        feminize[you]+=rand(2,5)&'Она протягивает вам бутылочку с розоватой жидкостью и заставляет ее выпить.'&$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
 				act'Выпить':gt'lezdom_sex' 
 		    end
 		end
@@ -664,7 +663,7 @@ if martamarsh=npc:
 					act'Согласиться':
 						msg('Марта кивнула, щелкнула пальцами, и вы буквально провалились в какой-то портал, оказавшись в новой одежде, на коленях перед Торнтоном Маршем...')
 						dick[you]=5&ball[you]=15&vag[you]=0&whoreboss[you]=tornton&npc=tornton&lips[you]+=rand(1,2)&tits[you]=rand(10,21)&ass[you]=rand(10,30)&hlong[you]=rand(60,100)
-						tongue_p[you]=1&nip[you]+=iif(nip[you]<=30,rand(25,40),0)&stamp_t[you]=5&nip_p[you]=3&home[you]=home[sister]&if sluttySlmashaQW<100:sluttySlmashaQW=100
+						tongue_p[you]=1&nip[you]+=iif(nip[you]<=30,rand(25,40),0)&stamp_t[you]=5&nip_p[you]=3&home[you]=home[sister]&if sluttySlmashaQW>3 and sluttySlmashaQW<100:sluttySlmashaQW=100
 						t_slot[you]=rand(31,36)&l_slot[you]=rand(15,22)&b_slot[you]=rand(8,11)&ut_slot[you]=0&ul_slot[you]=21&if mus[you]>1000:mus[you]=1000
 						X[you]=X[npc]&Y[you]=Y[npc]&Z[you]=Z[npc]&H[you]=H[npc]&R[you]=R[npc]&solo=0&horny[npc]=50&pose[you]=2&gs'stat'&gt'sex'
 					end	
@@ -672,7 +671,7 @@ if martamarsh=npc:
 				if money[you]>100000:
 					act'Я могу заплатить! Вот деньги':
 						dick[you]=5&ball[you]=15&vag[you]=0&money[you]-=100000&cls&'<center><img src="<<$d_view>>" ></center>'
-						'<<$name[npc]>>, взяв ваши деньги, кивает - '&if sluttySlmashaQW<100:sluttySlmashaQW=100
+						'<<$name[npc]>>, взяв ваши деньги, кивает - '&if sluttySlmashaQW>3 and sluttySlmashaQW<100:sluttySlmashaQW=100
 						'Хорошо. Меня это устроит. Прислушайся к себе. Чувствуешь? Писюнчик уже на месте. Я свою часть работы выполнила, дальше ты сам.'&act'Уйти':gt 'preloc'
 					end
 				end
@@ -687,7 +686,7 @@ if martamarsh=npc:
 					 if money[you]>150000:
 						act'Я могу заплатить! Вот деньги':
 							cls&'<center><img src="<<$d_view>>" ></center>'&dick[you]=5&ball[you]=15&vag[you]=0&money[you]-=150000
-							'<<$name[npc]>>, взяв ваши деньги, кивает '&if sluttySlmashaQW<100:sluttySlmashaQW=100
+							'<<$name[npc]>>, взяв ваши деньги, кивает '&if sluttySlmashaQW>3 and sluttySlmashaQW<100:sluttySlmashaQW=100
 							'- Хорошо. Меня это устроит. Прислушайся к себе. Чувствуешь? Писюнчик уже на месте. Я свою часть работы выполнила, дальше ты сам.'&act'Уйти':gt 'preloc'
 						end
 					end
@@ -704,7 +703,8 @@ if martamarsh=npc:
     if (sluttySisQW=12 or sluttySlmashaQW>4) and money[you]>150000 and vag[you]>0 and dick[you]<1:
 		act'Я накопил деньги на преображение!':
 			cls&'<center><img src="<<$d_view>>" ></center>'&SysterIsp=vag_mass['<<you>>,<<sister>>']&money[you]-=150000&if sluttySisQW=12:sluttySisQW=13
-			'<<$name[npc]>> радостно улыбается – Ой, ты мой золотой пиздатый мальчик. Принес ведьме денежки. Ну давай, все как договаривались. Миг и готово!'&if sluttySlmashaQW<100:sluttySlmashaQW=100
+			'<<$name[npc]>> радостно улыбается – Ой, ты мой золотой пиздатый мальчик. Принес ведьме денежки. Ну давай, все как договаривались. Миг и готово!'
+			if sluttySlmashaQW>3 and sluttySlmashaQW<100:sluttySlmashaQW=100
 			gs 'cleanfate'&gs'male_gen',you&lips[you]=rand(0,1)&home[you]=home[sister]&genderbendermarsha=daystart&sister[you]=sister&father[you]=father&mother[you]=mother
 			$name[you]='Алекс'&$surname[you]='Гросс'&act'Моргнуть':msg('Вы лишь моргнули на миг и тут же ощутили, что ваше тело полностью преобразилось!')&gt 'preloc'
 		end

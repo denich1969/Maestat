@@ -2,5 +2,5 @@
 visualpol[i]=0&gs'man_name'&$name[i]=''&gs'surname'&$surname[i]=''&$nick[i]='Хрупкая сестрица'&$name[i]=$nick[i]&$nick[i]=$nick[i]&$basestatus[i]=' рычит'&mistnumber+=1
 dick[i]=rand(12,28)&dickd[i]=rand(40,55)&ball[i]=rand(40,100)&reflex[i]=150&agro[i]=rand(0,2)&corr[i]=rand(10,100)
 healthmax[i]=1500&healthmax[i]=healthmax[i]&health[i]=healthmax[i]&energymax[i]=250&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]&minuron[i]=150&maxuron[i]=350
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&fight_prog[i]=17&!программа движения!программа боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&fight_prog[i]=17&!программа движения!программа боя
 def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться!если 1 то все удары героя попадают в нпс

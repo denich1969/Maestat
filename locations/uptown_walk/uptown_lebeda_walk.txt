@@ -10,7 +10,7 @@ else
 			$destination[w]='дом'&gs'destination'&$think[w]='хочет домой'&gs'walk_dest'&!вне дома
         end
     else
-		needonwork=0&$think[w]='думает о том что хватит спать'&if (work[w]>0 and week<6) or work[w]=25 or work[w]=30:needonwork=1
+		needonwork=0&$think[w]='думает о том что хватит спать'&if (work[w]>0 and week_num<6) or work[w]=25 or work[w]=30:needonwork=1
         if needonwork=1:
             if work[w]=20 and hour>=7 and hour<=16:$think[w]='думает о работе'&tiperand=rand(2)&$destination[w]=$iif(subwork[w]=0,$iif(tiperand=0,'теплица',$iif(tiperand=1,'теплица2','теплица3')),'теплица офис')
 		    if work[w]=21 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='рынок'

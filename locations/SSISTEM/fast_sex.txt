@@ -7,19 +7,19 @@ if $args[0]='all':
 	if candoanal[args[2]]>0:$can_varian_sex[] = 'fuck_anal_hard'
 	if candoblow[args[2]]>0:$can_varian_sex[] = 'fuck_oral'
 	if candoblow[args[2]]>0:$can_varian_sex[] = 'fuck_oral_throat'
-	if arrsize('can_varian_sex')=0:can_varian_sex[] = 'fuck_oral'
+	if arrsize('can_varian_sex_num')=0:can_varian_sex_num[] = 'fuck_oral'
 	:fast_multy
 	if sexpower[args[1]]>0:
-		sexpower[args[1]]-=1&gs $can_varian_sex[rand(arrsize('can_varian_sex')-1)],args[1],args[2]&gs'fuck_final',in_sex[args[1]]&jump'fast_multy'
+		sexpower[args[1]]-=1&gs $can_varian_sex[rand(arrsize('can_varian_sex_num')-1)],args[1],args[2]&gs'fuck_final',in_sex[args[1]]&jump'fast_multy'
 	else	
 		gs'fuck_cum_face',args[1],args[2]&gs'fuck_final',in_sex[args[1]]&!можно добавить вариант чтоб кончали туда где остановились (в киску в задницу и т.д.)
 	end
 else
 	if $args[0]='minet':
-		killvar('can_varian_sex')&$can_varian_sex[] = 'fuck_oral'&$can_varian_sex[] = 'fuck_oral_throat'
+		killvar('can_varian_sex_num')&killvar '$can_varian_sex'&$can_varian_sex[] = 'fuck_oral'&$can_varian_sex[] = 'fuck_oral_throat'
 		:minet
 		if sexpower[args[1]]>0:
-			sexpower[args[1]]-=1&gs $can_varian_sex[rand(arrsize('can_varian_sex')-1)],args[1],args[2]&gs'fuck_final',in_sex[args[1]]&jump'minet'
+			sexpower[args[1]]-=1&gs $can_varian_sex[rand(arrsize('can_varian_sex_num')-1)],args[1],args[2]&gs'fuck_final',in_sex[args[1]]&jump'minet'
 		else	
 			gs'fuck_cum_face',args[1],args[2]&gs'fuck_final',in_sex[args[1]]
 		end
@@ -34,4 +34,4 @@ else
 	end
 end
 if in_sex[you]=in_sex[args[1]]:gs'sex_func','deleteScene',in_sex[you]&!если с участием игрока, значит можно сразу удалить
-killvar('can_varian_sex')
+killvar('can_varian_sex_num') & killvar '$can_varian_sex'

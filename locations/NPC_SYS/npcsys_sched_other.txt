@@ -1,0 +1,52 @@
+﻿! Timetables that are not tied to one district. Format: see npcsys_init.
+!--- 90 generic townsfolk: the program of the district they live in
+gs'npcsys_redirect',90,'iif(Zhome[w]=1,7,iif(Zhome[w]=2,27,iif(Zhome[w]=3,26,iif(Zhome[w]=4,29,iif(Zhome[w]=5,30,0)))))'
+!--- 66 сова (root world): flies after the player there, otherwise roams
+gs'npcsys_prog',66,'walk_root'
+gs'npcsys_rule','all',0,23,'@you','полеты','Z[you]=10'
+gs'npcsys_rule','all',0,23,'прогулка','думает о прогулке'
+!--- 74 рабыни Мабуты: follow their owner
+gs'npcsys_prog',74,'slave'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,21,'@slave[w]','думает о работе'
+!--- 75 отпрыски: stay with their mother
+gs'npcsys_prog',75,'otprisk'
+gs'npcsys_rule','all',22,6,'дом'
+gs'npcsys_rule','all',7,21,'@mother[w]','думает о маме','mother[w]>0'
+gs'npcsys_rule','all',7,21,'прогулка','думает о прогулке'
+!--- Вечный Рим: shopkeepers that stay put (program, name, what they do in the day, $loc text)
+gs'npcsys_static',100,'nari','сидит на кресле','2,2,404,3,0'
+gs'npcsys_static',101,'Butcher','стоит за прилавком','2,2,404,2,2'
+gs'npcsys_static',102,'menhunter','стоит за прилавком','2,2,404,2,1'
+gs'npcsys_static',103,'Jofre','сидит на кресле','2,2,404,5,2'
+gs'npcsys_static',104,'Horse','сидит на кресле','2,2,404,7,4'
+gs'npcsys_static',105,'Elven','сидит на кресле','2,2,404,2,4'
+gs'npcsys_static',106,'Aptekar','стоит за прилавком','2,2,404,2,5'
+gs'npcsys_static',107,'mistra','стоит за стойкой','2,2,404,7,3'
+gs'npcsys_static',108,'Farid','стоит на площади','2,2,404,2,9'
+gs'npcsys_static',109,'consul','стоит на трибуне','2,2,404,2,7'
+gs'npcsys_static',300,'slavemaker','сидит в кресле','2,2,404,2,10'
+gs'npcsys_static',301,'innkeeper','стоит за барной стойкой','2,2,404,6,3'
+gs'npcsys_static',302,'Guildman','стоит на арене','2,2,404,2,6'
+gs'npcsys_static',303,'Surgeon','склонился над операционным столом','2,2,404,6,2'
+gs'npcsys_static',304,'Servilia','сидит на кресле','2,2,404,2,3'
+gs'npcsys_static',305,'Bo','стоит за стойкой','2,2,404,7,2'
+gs'npcsys_static',306,'Stalina','сидит на кресле','2,2,404,8,2'
+!--- Реальный мир: these NPCs run their own scene code (they place themselves and set $doing)
+gs'npcsys_script',201,'gs''miha_walk''','miha'
+gs'npcsys_script',202,'gs''katja_walk''','katja'
+gs'npcsys_script',203,'gs''elis_walk''','elis'
+gs'npcsys_script',204,'gs''demonboss_walk''','demonboss'
+gs'npcsys_script',205,'gs''kirill_walk''&gs''mark_walk''','kirill+mark'
+!--- остров и лесная деревня: these NPCs do not walk, their old programs only set what they do
+! ($doing) and run the fish and egg economy; now once per planning (every hour), not every turn
+gs'npcsys_script',110,'gs''ceeper_walk''','ceeper'
+gs'npcsys_script',111,'gs''belinda_walk''','belinda'
+gs'npcsys_script',112,'gs''kapitan_walk''','kapitan'
+gs'npcsys_script',151,'gs''whizard_walk''','whizard'
+gs'npcsys_script',152,'gs''mechanic_walk''','mechanic'
+gs'npcsys_script',153,'gs''whiteknight_walk''','whiteknight'
+gs'npcsys_script',154,'gs''traktirman_walk''','traktirman'
+gs'npcsys_script',155,'gs''lillith_walk''','lillith'
+gs'npcsys_script',156,'gs''lerch_walk''','lerch'
+! 222 (topotun) has no program, as before: the NPC stays where it is

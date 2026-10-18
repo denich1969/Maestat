@@ -1,0 +1,19 @@
+﻿! Defines a job for the 'работа' option: args[0]=work code, $args[1]=place,
+! $args[2]=office used when subwork[w]<>0 ('' = none), args[3]/args[4]=hours,
+! args[5]=1 weekdays only, 0 every day.
+$ns_vj='работа <<args[0]>>'
+if args[0]<=0:gs'npcsys_err',$ns_vj+': код должен быть больше 0'
+if $nsj_p[args[0]]<>'':gs'npcsys_err',$ns_vj+' задана дважды'
+if $args[1]='работа' or $mid($args[1],1,1)='@':
+	gs'npcsys_err',$ns_vj+': местом работы не может быть «<<$args[1]>>»'
+else
+	gs'npcsys_chkname',$args[1],$ns_vj,0
+end
+if $args[2]<>'':gs'npcsys_chkname',$args[2],$ns_vj+' (офис)',1
+if args[3]<0 or args[3]>23 or args[4]<0 or args[4]>23:gs'npcsys_err',$ns_vj+': часы вне 0-23'
+if args[5]<>0 and args[5]<>1:gs'npcsys_err',$ns_vj+': будни должно быть 0 или 1'
+$nsj_p[args[0]]=$args[1]
+$nsj_o[args[0]]=$args[2]
+nsj_a[args[0]]=args[3]
+nsj_b[args[0]]=args[4]
+nsj_d[args[0]]=args[5]

@@ -27,10 +27,10 @@ else
 	if locrand=18 or locrand=19:
 		$locname['<<$temploc>>']='Амбар'&$lname['<<$temploc>>']='Амбар'&$locopis['<<$temploc>>']='Старый амбар'&np['<<$temploc>>']=121&$wall_name['<<$temploc>>']='Амбар'
 		horand=rand(0,3)
-		if horand=0:n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-		if horand=1:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-		if horand=2:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
-		if horand=3:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+		if horand=0:n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
+		if horand=1:n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
+		if horand=2:n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=0&w_wall_num['<<$temploc>>']=1
+		if horand=3:n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=0
 		$n_wall['<<$temploc>>']='Ферма'&$s_wall['<<$temploc>>']='Ферма'&$e_wall['<<$temploc>>']='Ферма'&$w_wall['<<$temploc>>']='Ферма'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
 		mirror['<<$temploc>>']=1&can_sleep['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&item_loc['66,<<$temploc>>']=rand(1,10)&gs'batrakgen'&gs'batrakgen'&gs'batrakgen'
@@ -38,10 +38,10 @@ else
 	if locrand=20:
 	$locname['<<$temploc>>']='Домик'&$lname['<<$temploc>>']='Домик'&$locopis['<<$temploc>>']='Простой и добротный фермерский домик'&np['<<$temploc>>']=103&$wall_name['<<$temploc>>']='Ферма'
 	horand=rand(0,3)
-		if horand=0:n_wall['<<$temploc>>']=0&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-		if horand=1:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=0&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=1
-		if horand=2:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=0&w_wall['<<$temploc>>']=1
-		if horand=3:n_wall['<<$temploc>>']=1&s_wall['<<$temploc>>']=1&e_wall['<<$temploc>>']=1&w_wall['<<$temploc>>']=0
+		if horand=0:n_wall_num['<<$temploc>>']=0&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
+		if horand=1:n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=0&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=1
+		if horand=2:n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=0&w_wall_num['<<$temploc>>']=1
+		if horand=3:n_wall_num['<<$temploc>>']=1&s_wall_num['<<$temploc>>']=1&e_wall_num['<<$temploc>>']=1&w_wall_num['<<$temploc>>']=0
 		$n_wall['<<$temploc>>']='Ферма'&$s_wall['<<$temploc>>']='Ферма'&$e_wall['<<$temploc>>']='Ферма'&$w_wall['<<$temploc>>']='Ферма'
 		$n_wall['<<X>>,<<Y-1>>,<<Z>>']='Стена'&$s_wall['<<X>>,<<Y+1>>,<<Z>>']='Стена'&$e_wall['<<X-1>>,<<Y>>,<<Z>>']='Стена'&$w_wall['<<X+1>>,<<Y>>,<<Z>>']='Стена'
 		mirror['<<$temploc>>']=1&can_drink['<<$temploc>>']=1&gs'farmerfamilygen'&gs'farmerchildren'&gs'farmerchildren'&gs'farmerchildren'

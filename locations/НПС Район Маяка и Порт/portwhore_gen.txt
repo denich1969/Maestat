@@ -34,4 +34,4 @@ if femwhore[i]=1:
 	t_slot[i]=rand(31,36)&l_slot[i]=rand(45,51)&b_slot[i]=rand(8,11)&stamp_t[i]=rand(1,4)
 end
 guy[i]+=100&vagsex[i]+=100&anal[i]+=100&bj[i]+=100&whore[i]+=100
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&n_world[]=i&!walkprog[i]=5
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&n_world[]=i&!walkprog[i]=5

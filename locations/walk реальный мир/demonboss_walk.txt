@@ -7,9 +7,9 @@ else
 		$doing[w]='спит'
 	else
 		if demonbosssubwork=0:
-			$doing[w]='смотрит на вас с плохо скрываемым презрением'&$loc[w]='1,1,200,1,2'&!$loc[w]='ofis'
+			$doing[w]='смотрит на вас с плохо скрываемым презрением'&$LOC_str[w]='1,1,200,1,2'&!$LOC_str[w]='ofis'
 		else
-			$loc[w]=''&$doing[w]=''
+			$LOC_str[w]=''&$doing[w]=''
 		end
 	end
 end

@@ -1,0 +1,9 @@
+﻿! Adds '<NPC w> <$args[0]>' to the movement log shown under the location description.
+! Known people are named, others are described by their nick (as the old walker did).
+$ns_who=''
+if mob[w]=0 and know['<<w>>,<<you>>']>0:
+	$ns_who=$name[w]+' '+$surname[w]
+elseif $nick[w]<>'':
+	$ns_who=$nick[w]
+end
+if $ns_who<>'':$walklog+='<br><<$ns_who>> <<$args[0]>>'

@@ -1,0 +1,24 @@
+﻿! Function: args[0]=options, args[1]=where they are used. Returns the options with every #name replaced by the
+! options of route name (npcsys_route). Runs while the tables are built, never at runtime.
+! An unknown route is reported and left as it is; it then works like an unknown place (the NPC stays).
+$ns_es=$args[0]+'|'
+$ns_eo=''
+ns_ek=0
+:ns_eloop
+ns_eq=instr($ns_es,'|')
+if ns_eq>0:
+	$ns_ei=$mid($ns_es,1,ns_eq-1)
+	$ns_es=$mid($ns_es,ns_eq+1)
+	if $mid($ns_ei,1,1)='#':
+		if $nsrt[$mid($ns_ei,2)]<>'':
+			$ns_ei=$nsrt[$mid($ns_ei,2)]
+		else
+			gs'npcsys_err',$args[1]+': неизвестный маршрут «<<$ns_ei>>»'
+		end
+	end
+	if ns_ek>0:$ns_eo+='|'
+	$ns_eo+=$ns_ei
+	ns_ek+=1
+end
+if ns_eq>0:jump'ns_eloop'
+$result=$ns_eo

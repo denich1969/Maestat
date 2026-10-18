@@ -63,7 +63,7 @@ if sex_scene_npc[args[100]]>0:
 	sex_anal_slot_horny[sex_cel]=anal_fuckers_horny[sex_cel]+anal_hard_fuckers_horny[sex_cel]+anal_fisting_fuckers_horny[sex_cel]+anal_lift_legs_fuckers_horny[sex_cel]+anal_slap_face_fuckers_horny[sex_cel]+anal_spit_face_fuckers_horny[sex_cel]+anal_lick_fuckers_horny[sex_cel]+cum_anus_fuckers_horny[sex_cel]&!тоже что и выше с попой
 	if sex_anal_slot[sex_cel]>0:temp_anal[sex_cel]+=1
 	if sex_anal_slot[sex_cel]=0:temp_anal[sex_cel]=0
-	sex_cum_slot[sex_cel]=+cum_anus_fuckers_horny_isset[sex_cel]+cum_vag_fuckers_horny_isset[sex_cel]+cum_oral_fuckers_horny_isset[sex_cel]+cum_face_fuckers_horny_isset[sex_cel]+cum_ass_fuckers_horny_isset[sex_cel]&!сколько раз кончили активы!БЛОК ГРУППИРОВКИ КОНЕЦ-------------
+	sex_cum_slot[sex_cel]=cum_anus_fuckers_horny_isset[sex_cel]+cum_vag_fuckers_horny_isset[sex_cel]+cum_oral_fuckers_horny_isset[sex_cel]+cum_face_fuckers_horny_isset[sex_cel]+cum_ass_fuckers_horny_isset[sex_cel]&!сколько раз кончили активы!БЛОК ГРУППИРОВКИ КОНЕЦ-------------
 	if arrsize("sex_gangs_<<sex_cel>>")>1:sex_horny_cikl[sex_cel]=sex_horny_cikl[sex_cel]*(corr[sex_cel]+lust[sex_cel])/200
 	sex_horny_cikl[sex_cel] = func('to_arouse',sex_cel,sex_horny_cikl[sex_cel])&!групповуха (больше 1 партнера)
 	if horny[sex_cel]+sex_horny_cikl[sex_cel]>200:dynamic("cums_<<args[0]>>+=1")&!сколько раз всего кончили

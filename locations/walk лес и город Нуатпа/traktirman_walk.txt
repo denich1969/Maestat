@@ -6,6 +6,6 @@ else
     if hour>=22 or hour<=6:
 		$doing[w]='Спит'
 	else
-		$doing[w]='стоит за стойкой'&!$loc[w]='fv_tavern'
+		$doing[w]='стоит за стойкой'&!$LOC_str[w]='fv_tavern'
 	end
 end

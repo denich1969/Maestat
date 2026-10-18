@@ -98,9 +98,9 @@ end
 if statist[npc]=1:$textkill='Убить'
 if statist[npc]=0:$textkill='Убить (Это убийство может повлиять на вашу судьбу)'
 act'<<$textkill>>':
-	maniac[you]+=1&cls&item_loc_t['<<t_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_l['<<l_slot[npc]>>,<<$loc[you]>>']+=1&item_loc_b['<<b_slot[npc]>>,<<$loc[you]>>']+=1
-	if m_slot[npc]>0:item_loc['<<m_slot[npc]>>,<<$loc[you]>>']+=1
-	if w_slot[npc]>0:item_loc['<<w_slot[npc]>>,<<$loc[you]>>']+=1
+	maniac[you]+=1&cls&item_loc_t['<<t_slot[npc]>>,<<$LOC_str[you]>>']+=1&item_loc_l['<<l_slot[npc]>>,<<$LOC_str[you]>>']+=1&item_loc_b['<<b_slot[npc]>>,<<$LOC_str[you]>>']+=1
+	if m_slot[npc]>0:item_loc['<<m_slot[npc]>>,<<$LOC_str[you]>>']+=1
+	if w_slot[npc]>0:item_loc['<<w_slot[npc]>>,<<$LOC_str[you]>>']+=1
 	wictim[npc]=you&reward[you]+=rand(50000,250000)&murderer[you]+=1&if magik[you]>0:magik[you]-=1
     killbyyou[]=npc&Z=Z[you]&sinner[Z]+=1&!magik_exp[you]+=1
     dead[npc]=2&if npc=lebeda:dead[lebeda]=10

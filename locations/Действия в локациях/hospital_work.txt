@@ -12,7 +12,7 @@ if horny[you]>70 and ul_slot[you]>0 and vag[you]>0:
 	act'Пошалить':
 		cls&gs'stat'&'<center><video autoplay loop src="pic/event/nopantyoffice.webm" ></video></center>'
 		'Вы поднялись со своего кресла и, оглядевшись, чтобы вас никто не заметил, сятянули свои трусики и убрали их в ящик стола.'
-		'- Ну, я же ничего плохого никому не делаю, - прошептали вы, чувствуя прилив возбуждения.'&uls=ul_slot[you]&item_loc_ul['<<uls>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+		'- Ну, я же ничего плохого никому не делаю, - прошептали вы, чувствуя прилив возбуждения.'&uls=ul_slot[you]&item_loc_ul['<<uls>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0
 		act'Мастурбировать':
 			jerk[you]+=1&horny[you]=0&energy[you]+=5&time+=5&cls&gs'stat'&'<center><video autoplay loop src="pic/sex/solo/shlik3.webm" ></video></center>'&act'Отойти':gt 'preloc'
 			'Опустив руку на свою киску, вы стали натирать горячую кнопочку клитора, пока не забились в оргазме... Ощущения были осбенно приятными, из-за мысли, что вас могли заметить за этим делом...'

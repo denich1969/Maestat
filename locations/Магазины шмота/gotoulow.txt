@@ -3,6 +3,6 @@ if pol_ul[clo]=0:'Мужская одежда'
 clopayment=1000&'Сексуальность <<sexy_ul[clo]>>'&act'Убрать обратно':gt'junkstore'
 if money[you]>=clopayment:
     act'Купить <<clopayment/100>> шиллингов':
-		cls&money[you]-=clopayment&ulhere['<<clo>>,<<$loc[you]>>']=0&burden[you]+=item_ul_burden[clo]&item_ul[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
+		cls&money[you]-=clopayment&ulhere['<<clo>>,<<$LOC_str[you]>>']=0&burden[you]+=item_ul_burden[clo]&item_ul[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
     end
 end

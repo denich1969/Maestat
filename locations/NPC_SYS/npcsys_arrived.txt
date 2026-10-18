@@ -1,0 +1,21 @@
+﻿! NPC w has just reached its target.
+ns_c_arr+=1
+$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
+if nsw_date[w]=1:
+	! came home for a date: plan again now, npcsys_date holds the meeting
+	gs'npcsys_decide'
+	w=ns_w
+	exit
+end
+! let the programs hook react to the arrival (quest triggers and the like)
+ns_ap=walkprog[w]
+if nsp_k[ns_ap]=3:ns_ap=dyneval('result='+$nsp_sc[ns_ap])
+if ns_ap>0:
+	if $nsp_hk[ns_ap]<>'':
+		ns_at=1
+		$ns_before=$destination[w]
+		gs $nsp_hk[ns_ap]
+		w=ns_w
+		if $destination[w]<>$ns_before:gs'npcsys_resolve'
+	end
+end

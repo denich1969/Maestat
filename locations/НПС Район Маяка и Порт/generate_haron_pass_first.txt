@@ -10,7 +10,7 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=1&gs'body'&total_generated_female+=1
 womenbrain[i]=rand(60,100)&bisex[i]=0&agro[i]=100&lust[i]=0&selfrespect[i]=2&positiv[i]=0&extrovert[i]=0&ratio[i]=0&brave[i]=2&thenoob[i]=1&!характер
 t_slot[i]=95&l_slot[i]=0&b_slot[i]=9&ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=2
-Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=2&R[i]=0&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&n_world[]=i&walkprog[i]=31
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=2&R[i]=0&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&n_world[]=i&walkprog[i]=31
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 npcmaxnum+=1&i=npcmaxnum&num=i&human[]=i&popescu=i&lvl[i]=1&soul[i]=100&master[i]=0&delusion[i]=0&statist[i]=0&muggle[i]=0&!Не имеет отношения к богине луны и наваждению
 $title[i]='Вамп'&$history[i]='Я недавно попала сюда на корабле Харон в довольно странной компании из старика капитана и мрачной девочки с косичками'
@@ -24,4 +24,4 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=1&gs'body'&total_generated_female+=1
 womenbrain[i]=rand(60,100)&bisex[i]=0&agro[i]=100&lust[i]=50&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=1&brave[i]=2&thenoob[i]=1&!характер
 t_slot[i]=96&l_slot[i]=0&b_slot[i]=22&ut_slot[i]=2&ul_slot[i]=2&ub_slot[i]=8
-Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=2&R[i]=0&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&n_world[]=i&walkprog[i]=31
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=2&R[i]=0&$LOC_str[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&n_world[]=i&walkprog[i]=31

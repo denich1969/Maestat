@@ -391,7 +391,7 @@ if X[you]=X[i] and Y[you]=Y[i] and Z[you]=Z[i] and i!you and dead[i]=1:
 	$fullname[i]=$iif($nick[i]!'',$nick[i],$name[i]+' '+$surname[i])&$deadnpc_loc+='<br>'&$deadnpc_loc+='<a href="exec:gt ''godeadnpc'',<<i>>"><<$fullname[i]>></a> (Мертвое тело)'
 end
 i+=1&if i<=npcmax:jump'marknpcloc'
-!'$mob_loc=''&mob=1&mobmax=arrsize('$mobname')&markmobloc&if $mobloc[mob]=$loc[you] and mobdead[mob]=0 and $mobname[mob]!'':tm=mobtipe_uni[mob]&$mob_loc+='<br>'&$mob_loc+='<a href="exec:gt ''gomob'',<<mob>>"><<$mobname[tm]>></a>'
+!'$mob_loc=''&mob=1&mobmax=arrsize('$mobname')&markmobloc&if $mobloc[mob]=$LOC_str[you] and mobdead[mob]=0 and $mobname[mob]!'':tm=mobtipe_uni[mob]&$mob_loc+='<br>'&$mob_loc+='<a href="exec:gt ''gomob'',<<mob>>"><<$mobname[tm]>></a>'
 	mob+=1&if mob<=mobmax:jump'markmobloc''
 !'<<$mob_loc>>'
 *nl ''
@@ -405,7 +405,7 @@ if aggressor>0 and last_time_agressor<time:last_time_agressor=time+30&gt 'gonpc'
 if H[you]>0:mistagressor=0
 if total_npc_on_loc=0 and H[you]=0:
     if hour>22 or hour<5:
-        if druidcirkl['<<$loc[you]>>']>=1:
+        if druidcirkl['<<$LOC_str[you]>>']>=1:
 			'Тени и мгла вьются вокруг круга камней и не в силах пробиться внутрь'
         else
 			if Z[you]=10:

@@ -9,7 +9,7 @@ else
 			$destination[w]='дом'&gs'destination'&$think[w]='хочет домой'&gs'walk_dest'&!вне дома
         end
     else
-        if week<6:
+        if week_num<6:
             if hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]='класс а'
 			if hour>=17:
 				if wantday[w]!daystart:wantday[w]=daystart&wantdayloc[w]=rand(0,1)
@@ -17,7 +17,7 @@ else
 				if wantdayloc[w]=1:$think[w]='думает о выпивке'&$destination[w]='универсам'
 			end
         end
-        if week>=6:
+        if week_num>=6:
 			if hour>=7 and hour<=12:
 				if wantutroday[w]!daystart:wantutroday[w]=daystart&wantutrodayloc[w]=rand(0,1)
 				if wantutrodayloc[w]=0:$think[w]='думает о выпивке'&$destination[w]='дом'

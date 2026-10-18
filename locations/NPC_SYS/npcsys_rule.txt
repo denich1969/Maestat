@@ -1,0 +1,24 @@
+﻿! Adds a rule to the current program (see npcsys_init for the format).
+! $args[0]=days 'all'/'wd'/'we', args[1]=from hour, args[2]=to hour,
+! $args[3]=options, $args[4]=think text (optional), $args[5]=condition (optional).
+! Mistakes are recorded by npcsys_err (shown in the stat panel), the rule is still added.
+ns_vrn=nsp_rn[ns_cp]+1
+$ns_vr='программа <<ns_cp>> (<<$nsp_nm[ns_cp]>>), правило <<ns_vrn>>'
+if ns_cp<=0:gs'npcsys_err','правило «<<$args[3]>>» стоит до npcsys_prog'
+if $args[0]<>'all' and $args[0]<>'wd' and $args[0]<>'we':gs'npcsys_err',$ns_vr+': дни «<<$args[0]>>», нужно all, wd или we'
+if args[1]<0 or args[1]>23 or args[2]<0 or args[2]>23:gs'npcsys_err',$ns_vr+': часы вне 0-23'
+! #name options are replaced by their routes (npcsys_route) here, once
+$ns_ro=$func('npcsys_expand',$args[3],$ns_vr)
+gs'npcsys_chkopts',$ns_ro,$ns_vr,0
+if $args[5]<>'':gs'npcsys_chkexpr',$args[5],$ns_vr
+nsr_d[ns_nr]=0
+if $args[0]='wd':nsr_d[ns_nr]=1
+if $args[0]='we':nsr_d[ns_nr]=2
+nsr_a[ns_nr]=args[1]
+nsr_b[ns_nr]=args[2]
+$nsr_o[ns_nr]=$ns_ro
+$nsr_t[ns_nr]=$args[4]
+$nsr_c[ns_nr]=$args[5]
+gs'npcsys_chkcover',$ns_vr,ns_vrn
+ns_nr+=1
+nsp_rn[ns_cp]+=1

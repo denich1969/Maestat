@@ -139,6 +139,6 @@ if kre=12:
     if brave[i]=1:'Трусость и храбрость в зависимости от степени опасности <a href="exec:brave[i]+=1&gt $curloc">+</a> <a href="exec:brave[i]-=1&gt $curloc">-</a>'
     if brave[i]=2:'Храбрец <a href="exec:brave[i]-=1&gt $curloc">-</a>'
     act'Отправить в реальный мир (офис)':
-		X=5&Y=5&Z=0&H=1&R=0&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&gt'preloc'
+		X=5&Y=5&Z=0&H=1&R=0&Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&gt'preloc'
     end
 end

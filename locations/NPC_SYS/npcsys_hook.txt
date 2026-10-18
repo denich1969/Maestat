@@ -1,0 +1,6 @@
+﻿! Sets the hook of the current program: $args[0]=location. The hook runs after the
+! timetable picked $destination[w] (and again on arrival with ns_at=1) and may change it.
+! QSP 5.7 cannot test whether a location exists; a wrong name fails when the hook is first run.
+if ns_cp<=0:gs'npcsys_err','хук «<<$args[0]>>» стоит до npcsys_prog'
+if $args[0]='':gs'npcsys_err','программа <<ns_cp>>: пустое имя хука'
+$nsp_hk[ns_cp]=$args[0]

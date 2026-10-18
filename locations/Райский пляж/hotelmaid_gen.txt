@@ -13,5 +13,5 @@ rosttemp=rand(1,100)&rost[i]=iif(rosttemp<80,rand(165,175),iif(rosttemp>90,rand(
 age[i]=iif(preage>0,preage,rand(18,30))&preage=0&vital[i]=40&will[i]=50&reflex[i]=40&pol[i]=1&gs'body'&total_generated_female+=1
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 t_slot[i]=41&l_slot[i]=0&b_slot[i]=9&ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=rand(1,5)&l_hand_t[i]=2&!l_leg_t[i]=1&! Прикид
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
 paradiseworld[]=i&walkprog[i]=0&fight_prog[i]=1&!Программа движения и боя

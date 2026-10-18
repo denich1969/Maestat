@@ -1,12 +1,12 @@
 ﻿gs'stat'&'<center><img src="pic/loc/118.jpg" ></center>'
-if last_corn['<<$loc[you]>>']=0 and day_corn['<<$loc[you]>>']!daystart:last_corn['<<$loc[you]>>']=rand(0,1)&day_corn['<<$loc[you]>>']=daystart
-if last_corn['<<$loc[you]>>']>0:
+if last_corn['<<$LOC_str[you]>>']=0 and day_corn['<<$LOC_str[you]>>']!daystart:last_corn['<<$LOC_str[you]>>']=rand(0,1)&day_corn['<<$LOC_str[you]>>']=daystart
+if last_corn['<<$LOC_str[you]>>']>0:
 	'На кукурузном стебле виден зрелый початок'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Взять початок':item_loc['66,<<$loc[you]>>']+=1&time+=5&last_corn['<<$loc[you]>>']=0&'вы быстро срываете початок, на который случайно наткнулись, не получая никакого опыта'
+		act'Взять початок':item_loc['66,<<$LOC_str[you]>>']+=1&time+=5&last_corn['<<$LOC_str[you]>>']=0&'вы быстро срываете початок, на который случайно наткнулись, не получая никакого опыта'
 		act'Собирать кукурузу':
-			time+=30&cls&gs'walker'&gs'stat'&last_corn['<<$loc[you]>>']=0&item_loc['66,<<$loc[you]>>']+=max(10,5*lvltravnik[you])&day_corn['<<$loc[you]>>']=daystart
-			"В течение получаса вы собирали кукурузу и собрали <<item_loc['66,<<$loc[you]>>']>> порций"&cornnum=item_loc['66,<<$loc[you]>>']+item['66']
+			time+=30&cls&gs'walker'&gs'stat'&last_corn['<<$LOC_str[you]>>']=0&item_loc['66,<<$LOC_str[you]>>']+=max(10,5*lvltravnik[you])&day_corn['<<$LOC_str[you]>>']=daystart
+			"В течение получаса вы собирали кукурузу и собрали <<item_loc['66,<<$LOC_str[you]>>']>> порций"&cornnum=item_loc['66,<<$LOC_str[you]>>']+item['66']
 			'Всего у вас <<cornnum>> початков кукурузы'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

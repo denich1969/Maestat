@@ -1,0 +1,17 @@
+﻿! Check: one option or room name. $args[0]=name, $args[1]=where it is used (for the message),
+! args[2]=1 only real places and room sets are allowed (no дом/прогулка/стоп/работа/@npc).
+$ns_vn=$args[0]
+if $ns_vn='':
+	gs'npcsys_err',$args[1]+': пустой вариант (лишний знак |)'
+	exit
+end
+if args[2]<>1:
+	if $mid($ns_vn,1,1)='#':exit
+	if $ns_vn='дом' or $ns_vn='прогулка' or $ns_vn='стоп' or $ns_vn='работа':exit
+	if $mid($ns_vn,1,1)='@':
+		if len($ns_vn)<2:gs'npcsys_err',$args[1]+': пустое @'
+		exit
+	end
+end
+if nsl_z[$ns_vn]>0 or $nsl_al[$ns_vn]<>'':exit
+gs'npcsys_err',$args[1]+': неизвестное место «<<$ns_vn>>»'

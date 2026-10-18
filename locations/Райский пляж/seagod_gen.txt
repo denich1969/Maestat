@@ -7,4 +7,4 @@ face_hair[i]=10&tit_hair_can[i]=10&tit_hair[i]=77&leg_hair_can[i]=10&leg_hair[i]
 health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80&!здоровье, мана, энергия, урон
 age[i]=21&vital[i]=rand(60,90)&will[i]=100&reflex[i]=150&pol[i]=0&gs'body'&total_generated_male+=1
 t_slot[i]=8&l_slot[i]=6&b_slot[i]=5&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!l_hand_t[i]=2&r_hand_t[i]=1&! Прикид
-X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'

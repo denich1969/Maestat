@@ -1,0 +1,3 @@
+﻿! DICT_DATA_START
+! {"version":"1.0","words":["семки","трениках","http"]}
+! DICT_DATA_END

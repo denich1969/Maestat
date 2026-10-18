@@ -27,26 +27,26 @@ uron_w_item[i]=450&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!огнес�
 i=280&$item_w_name[i]='Пистолет Затычкина'&can_use_item[i]=7&$item_w_name_oi[i]='пистолетом'&$item_w_use[i]='Взять'&item_burden[i]=500&!вес
 $item_w_text[i]='Пистолет под патрон 9х18мм, магазин на 8 патронов'&clo_w_item[i]=4&uron_w_item[i]=350&item_w_patron_max[i]=8&item_w_patrontipe[i]=27&!item_w_patron_load[i]=0
 i=281&$item_w_name[i]='Пищаль охотника'&can_use_item[i]=7&$item_w_name_oi[i]='пищалью'&$item_w_use[i]='Взять'&item_burden[i]=2500&!вес
-$item_w_text[i]=''&$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=350&item_w_patron_max[i]=1&item_w_patrontipe[i]=23&!item_w_patron_load[i]=0
+$item_w_text[i]=''&$weapon_tipe_str[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=350&item_w_patron_max[i]=1&item_w_patrontipe[i]=23&!item_w_patron_load[i]=0
 i=282&$item_w_name[i]='Волшебная палочка'&can_use_item[i]=7&$item_w_name_oi[i]='палочкой'&$item_w_use[i]='Взять'&item_burden[i]=200&!вес
-$item_w_text[i]=''&$weapon_tipe[i]='палочка'&clo_w_item[i]=4&uron_w_item[i]=10&item_w_patron_max[i]=1&item_w_patrontipe[i]=0&!item_w_patron_load[i]=0
+$item_w_text[i]=''&$weapon_tipe_str[i]='палочка'&clo_w_item[i]=4&uron_w_item[i]=10&item_w_patron_max[i]=1&item_w_patrontipe[i]=0&!item_w_patron_load[i]=0
 i=283&$item_name[i]='Однозарядная винтовка'&can_use_item[i]=7&$item_name_oi[i]='винтовкой'&$item_w_use[i]='Взять'&item_burden[i]=2500&!вес
-$item_w_text[i]=''&$weapon_tipe[i]='огнестрел'&uron_w_item[i]=800&item_w_patron_max[i]=1&item_w_patrontipe[i]=23&!clo_w_item[i]=4&!item_w_patron_load[i]=0
+$item_w_text[i]=''&$weapon_tipe_str[i]='огнестрел'&uron_w_item[i]=800&item_w_patron_max[i]=1&item_w_patrontipe[i]=23&!clo_w_item[i]=4&!item_w_patron_load[i]=0
 i=284&$item_name[i]='Мушкетон'&can_use_item[i]=7&$item_name_oi[i]='мушкетоном'&$item_w_use[i]='Взять'&item_burden[i]=2500&!вес
-$item_w_text[i]=''&$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=500&item_w_patron_max[i]=1&item_patrontipe[i]=23&!item_w_patron_load[i]=0
+$item_w_text[i]=''&$weapon_tipe_str[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=500&item_w_patron_max[i]=1&item_patrontipe[i]=23&!item_w_patron_load[i]=0
 i=285&$item_name[i]='Двухстволка'&can_use_item[i]=7&$item_name_oi[i]='двухстволкой'&$item_use[i]='Взять'&item_burden[i]=3500&!item_w_patron_load[i]=0
-$item_w_text[i]=''&$weapon_tipe[i]='огнестрел'&uron_w_item[i]=300&item_w_patron_max[i]=2&item_w_patrontipe[i]=23&!clo_w_item[i]=4
+$item_w_text[i]=''&$weapon_tipe_str[i]='огнестрел'&uron_w_item[i]=300&item_w_patron_max[i]=2&item_w_patrontipe[i]=23&!clo_w_item[i]=4
 i=340&$item_w_name[i]='Винчестер'&can_use_item[i]=7&$item_w_name_oi[i]='винчестером'&$item_w_use[i]='Взять'&item_burden[i]=3500
-$item_w_text[i]=''&$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=400&item_w_patron_max[i]=12&item_w_patron_max_reload[i]=1&item_w_patrontipe[i]=23
+$item_w_text[i]=''&$weapon_tipe_str[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=400&item_w_patron_max[i]=12&item_w_patron_max_reload[i]=1&item_w_patrontipe[i]=23
 i=341&$item_name[i]='Патрон 10,5х34мм'&can_use_item[i]=0&$item_use[i]='Взять'&$item_text[i]='Патрон калибра .44 для винчестера'&item_burden[i]=10&!вес
 uron_w_item[i]=930&item_w_patron_max[i]=15&item_w_patrontipe[i]=105&!урон равен энергии пули в Дж!номер в итемах патронов!
 i=173&$item_name[i]='Патрон'&can_use_item[i]=0&$item_use[i]='осмотреть'&$item_text[i]=''&item_burden[i]=10&!вес
 i=342&$item_w_name[i]='Автомат Калашникова'&can_use_item[i]=7&$item_name_oi[i]='калашом'&$item_use[i]='Взять'&item_burden[i]=3300
-$item_w_text[i]='АК-74 под патрон  5,45×39 мм'&$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=1200&item_w_patron_max[i]=30&item_w_patron_max_reload[i]=1&item_w_patrontipe[i]=36
+$item_w_text[i]='АК-74 под патрон  5,45×39 мм'&$weapon_tipe_str[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=1200&item_w_patron_max[i]=30&item_w_patron_max_reload[i]=1&item_w_patrontipe[i]=36
 i=343&$item_name[i]='Патрон  5,45×39 мм'&can_use_item[i]=0&$item_use[i]='осмотреть'&$item_text[i]=''&item_burden[i]=10&!вес
 i=344&$item_name[i]='Патрон .44 магнум'&can_use_item[i]=0&$item_use[i]='Взять в руку'&$item_text[i]='Патрон для мощных пистолетов и револьверов .44 Magnum'&item_burden[i]=10&!вес
 uron_w_item[i]=2000&item_w_patron_max[i]=17&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!
 i=345&$item_name[i]='Патрон .45 кольт'&can_use_item[i]=0&$item_use[i]='Взять в руку'&$item_text[i]='Патрон для мощных пистолетов и револьверов .45 Colt'&item_burden[i]=10&!вес
 uron_w_item[i]=1000&item_w_patron_max[i]=17&item_w_patrontipe[i]=105&!огнестрел!номер в итемах патронов!
 i=346&$item_name[i]='Двухстволка'&can_use_item[i]=7&$item_use[i]='Взять в руку'&$item_text[i]='двухстволкой'&item_burden[i]=1830&!вес
-$item_w_text[i]='Двухствольный дробовик'&$weapon_tipe[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=100&item_w_patron_max[i]=2&item_w_patrontipe[i]=40&!огнестрел!номер в итемах патронов!
+$item_w_text[i]='Двухствольный дробовик'&$weapon_tipe_str[i]='огнестрел'&clo_w_item[i]=4&uron_w_item[i]=100&item_w_patron_max[i]=2&item_w_patrontipe[i]=40&!огнестрел!номер в итемах патронов!

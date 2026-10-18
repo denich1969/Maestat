@@ -18,7 +18,7 @@ elseif X=1 and Y=2:
 	R=0&gs'townhouses'
 elseif X=2 and Y=2:
 	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Центр Блэкберри'&$lname['<<$temploc>>']='Центр Блэкберри'&!центр
-	$locopis['<<$temploc>>']='В центре района крупные дома из темного кирпича которые прозвали в народе муравейниками.'&np['<<$temploc>>']=91&under['<<$temploc>>']=1
+	$locopis['<<$temploc>>']='В центре района крупные дома из темного кирпича которые прозвали в народе муравейниками.'&np['<<$temploc>>']=91&under_num['<<$temploc>>']=1
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=6&	!gs 'housegen',номер объекта,'имя объекта','число комнат','жильцы',номер предмета,замок
 	gs'antbuild_1'&gs'antbuild_2'&gs'antbuild_3'&gs'antbuild_4'&gs'antbuild_5'&!gs 'housegen',1,'Муравейник Дом 1',1,'jeff_gen',rand(1,10),0
 	H=6&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Вход в Универсальный магазин'&maxPositionR['<<$templocH>>']=1

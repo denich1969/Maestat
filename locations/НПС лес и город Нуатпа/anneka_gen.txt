@@ -11,5 +11,5 @@
 	womenbrain[i]=rand(60,90)&bisex[i]=1&agro[i]=50&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=100&corr[i]=rand(10,30)&!характер
 	h_slot[i]=0&w_slot[i]=0&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=17&l_slot[i]=13&b_slot[i]=0&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=0
 	can_bj[i]=1&can_anal[i]=1&cantvag[i]=1&vafla[i]=60&cumslut[i]=60&all_in_anal[i]=100&all_in_oral[i]=100&all_in_vag[i]=100&perk_cumslut[i]=1
-	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0&in_home[i]=2
+	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0&in_home[i]=2
 end

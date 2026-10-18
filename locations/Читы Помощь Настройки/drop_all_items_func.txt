@@ -17,7 +17,7 @@ if $ARGS[0] ! '':
 		:drop_all_items_loop
 		dynamic'
 		if <<$ITEM_TYPES[i]>>[<<item_index>>]>0:
-			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$loc[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
+			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$LOC_str[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
 			burden[you]-=<<$ITEM_TYPES[i]>>_burden[<<item_index>>] * <<$ITEM_TYPES[i]>>[<<item_index>>]
 			<<$ITEM_TYPES[i]>>[<<item_index>>]=0
 		end    '
@@ -33,7 +33,7 @@ if $ARGS[0] ! '':
 		:drop_only_items_loop
 		dynamic'
 		if <<$ITEM_TYPES[i]>>[<<item_index>>]>0:
-			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$loc[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
+			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$LOC_str[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
 			burden[you]-=<<$ITEM_TYPES[i]>>_burden[<<item_index>>] * <<$ITEM_TYPES[i]>>[<<item_index>>]
 			<<$ITEM_TYPES[i]>>[<<item_index>>]=0
 		end    '
@@ -52,7 +52,7 @@ if $ARGS[0] ! '':
 		:drop_only_clothes_loop
 		dynamic'
 		if <<$ITEM_TYPES[i]>>[<<item_index>>]>0:
-			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$loc[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
+			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$LOC_str[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
 			burden[you]-=<<$ITEM_TYPES[i]>>_burden[<<item_index>>] * <<$ITEM_TYPES[i]>>[<<item_index>>]
 			<<$ITEM_TYPES[i]>>[<<item_index>>]=0
 		end    '
@@ -71,7 +71,7 @@ if $ARGS[0] ! '':
 		:drop_only_underwear_loop
 		dynamic'
 		if <<$ITEM_TYPES[i]>>[<<item_index>>]>0:
-			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$loc[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
+			<<$ITEM_ON_LOC_TYPE[i]>>["<<item_index>>,<<$LOC_str[you]>>"]+=<<$ITEM_TYPES[i]>>[<<item_index>>]
 			burden[you]-=<<$ITEM_TYPES[i]>>_burden[<<item_index>>] * <<$ITEM_TYPES[i]>>[<<item_index>>]
 			<<$ITEM_TYPES[i]>>[<<item_index>>]=0
 		end   '

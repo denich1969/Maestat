@@ -8,7 +8,7 @@ if X=0 or Y=Ymax[Z]:
 	$locopis['<<$temploc>>']='Морские волны мерно омывают каменную набережную с кованной оградой'&np['<<$temploc>>']=140&can_swim['<<$temploc>>']=1&!gs'streetgen',1,0,Y,'Морская набережная',140
 elseif X=2 and Y=2:
 	maxPositionH['<<X>>,<<Y>>,<<Z>>']=1
-	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Церковь святого Иуды'&$lname['<<$temploc>>']='Церковь святого Иуды'&np['<<$temploc>>']=131&under['<<$temploc>>']=1
+	$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Церковь святого Иуды'&$lname['<<$temploc>>']='Церковь святого Иуды'&np['<<$temploc>>']=131&under_num['<<$temploc>>']=1
 	$locopis['<<$temploc>>']='Единственная церковь устоявшая в городе и, продолжающая принимать прихожан, хотя конечно время не щадит старинное здание и оно явно знавало лучшие дни'
     H=1&$templocH='<<X>>,<<Y>>,<<Z>>,<<H>>'&$locnameH['<<$templocH>>']='Церковь'&!ownerloc['<<$templocH>>']=you
     R=0&$temploc='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&$locname['<<$temploc>>']='Церковь'&$lname['<<$temploc>>']='Церковь'&$lname_go['<<$temploc>>']='в церковь'

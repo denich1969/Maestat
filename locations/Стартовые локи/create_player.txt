@@ -2,7 +2,7 @@
 	CLOSE ALL&$music_theme = 'startmaestat'&'<center><a href="exec:CONFIG[''IN_START_SCREEN''] = 1 & gt''settings''"><h2>&#11166[ НАСТРОЙКИ ]&#11164</h2></a></center>'
 	'<center>Это позволит отключить некоторый недопустимый для вас материал и включить читы для знакомства с игрой, однако помните, что читы могут сломать игру</center>'
 	bud=6&bcolor=rgb(255,255,255)&!LCOLOR = rgb(106,90,205)&LColor = RGB(255,255,255)
-	year=2022&month=9&day=3&week=1&hour=7&daystart=1&SHOWACTS 1
+	year=2022&month_num=9&day=3&week_num=1&hour=7&daystart=1&SHOWACTS 1
 	you=1&num=you&npcmaxnum=1&lvl[you]=1&soul[you]=100&souldar[you]=3&$name[you]=''&$surname[you]=''&$worldloc[you]='world'&!if rand(3)=1:souldar[you]=3
 	godoutofendless[you]=0&!атрибуты для режима бога если будет мешать скажите
 	barwork=0&superslut[you]=0&portvenerafix=0&!! новые атрибуты - регистрация

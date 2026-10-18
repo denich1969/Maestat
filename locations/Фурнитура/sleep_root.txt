@@ -1,5 +1,5 @@
 ﻿nosave=0&opasnoste=0&'Кровать на которой можно спать и рядом с кроватью жаровня в которой нужно жечь грибы, чтобы отогнать тени корневища, пока вы спите.'
-if jarovna['<<$loc[you]>>']>0 and jarovna['<<$loc[you]>>']>=time:
+if jarovna['<<$LOC_str[you]>>']>0 and jarovna['<<$LOC_str[you]>>']>=time:
 	'В жаровне дымится гриб отгоняя тени от вашего ложа'
 else
 	opasnoste=1&'В жаровне ничего нет и спать без защиты опасно.'
@@ -11,9 +11,9 @@ if hour>=22 or hour<6:
 		opasnoste=0&gt'sleep_walk_root'
     end
     if item[97]>0:
-        if jarovna['<<$loc[you]>>']<time:
+        if jarovna['<<$LOC_str[you]>>']<time:
 			act'Раскурить гриб':
-				item[97]-=1&jarovna['<<$loc[you]>>']=time+60*6&time+=5&cls&gs'stat'&'Вы легли отдохнуть и пол часа расслабленно валялись.'&act'Встать':gt 'world'
+				item[97]-=1&jarovna['<<$LOC_str[you]>>']=time+60*6&time+=5&cls&gs'stat'&'Вы легли отдохнуть и пол часа расслабленно валялись.'&act'Встать':gt 'world'
 			end
         end 
     end

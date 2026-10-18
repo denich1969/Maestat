@@ -1,0 +1,30 @@
+﻿! Hook of the Жилмассив residents (riverside 26, sladkovamasha 80): evening parties and pimps,
+! on top of the timetable. Runs when the NPC plans (every hour) and when it arrives (ns_at=1).
+rvrsd[w]+=1
+if rvrsd[w]>100:rvrsd[w]=1
+if ns_at=1:exit
+if ns_h>=17 and ns_h<=21:
+	if allniggadead=0 and whore[w]=0:
+		if wantblackcock[w]>0 and hardfucked[w]<>daystart:
+			horny[w]=100
+			party[w]=1
+			$destination[w]='общага'
+		end
+		if skin[w]>3 and skin[w]<7 and blackganger[w]=1 and action_tipe[w]=0:
+			sexperaday[w]=0
+			agro[w]=100
+			lust[w]=100
+			if horny[w]<100:horny[w]+=5
+			want_talk[w]=1
+			party[w]=1
+			$destination[w]='общага'
+		end
+	end
+	if walkprog[w]=26 and blackON=1 and whore[w]>0:
+		if whoreboss[w]=tbigg or whoreboss[w]=mgreen or whoreboss[w]=dlong:$destination[w]='общага'
+	end
+end
+! the whores of Боцман work at the каторга at weekends and in the evenings
+if walkprog[w]=26 and whore[w]>0 and whoreboss[w]=bocman and ns_h>=7 and ns_h<=21:
+	if ns_we=1 or ns_h>=17:$destination[w]='каторга'
+end

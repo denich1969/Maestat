@@ -12,5 +12,5 @@ if you=domina:
 	know['<<you>>,<<nari>>']+=1&know['<<nari>>,<<you>>']+=1&friends['<<you>>,<<nari>>']+=20&friends['<<nari>>,<<you>>']+=20
 	brother[nari]=you&brother[you]=nari&sister[domina]=nari&sister[nari]=domina
 end
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&roma_world[]=i&walkprog[i]=100&fight_prog[i]=1
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&roma_world[]=i&walkprog[i]=100&fight_prog[i]=1
 !in_home[i]=2&!X[i]=4&Y[i]=2&Z[i]=404&H[i]=1&R[i]=1

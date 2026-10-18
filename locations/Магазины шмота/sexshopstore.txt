@@ -2,26 +2,26 @@
 'Феминайзер 10 шиллингов'&*nl'Манайзер 80 шиллингов'&*nl'Ошейник 30 шиллингов'&*nl'бдсм маска 50 шиллингов'&*nl'Кляп 80 шиллингов'
 $hat_loc=''&clo=1&clomax=arrsize('$h_name')
 :markhatthelocss
-    if sexy_h[clo]>=5:hathere['<<clo>>,<<$loc[you]>>']=1
-    if hathere['<<clo>>,<<$loc[you]>>']>0:$d_hatclo_view='view"pic/clo/hat/<<clo>>.jpg"'&$hat_loc+='<a href="exec:gt''gotohatss'',<<clo>>"><img src="pic/clo/hat/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+    if sexy_h[clo]>=5:hathere['<<clo>>,<<$LOC_str[you]>>']=1
+    if hathere['<<clo>>,<<$LOC_str[you]>>']>0:$d_hatclo_view='view"pic/clo/hat/<<clo>>.jpg"'&$hat_loc+='<a href="exec:gt''gotohatss'',<<clo>>"><img src="pic/clo/hat/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
 clo+=1&if clo<clomax:jump'markhatthelocss'
 *pl''&'<<$hat_loc>>'&$clo_loc=''&clo=1&clomax=arrsize('$t_name')
 :markclothelocss
-    if sexy_t[clo]>=20:clohere['<<clo>>,<<$loc[you]>>']=1
-    if clohere['<<clo>>,<<$loc[you]>>']>0:$d_topclo_view='view"pic/clo/top/<<clo>>.jpg"'&$clo_loc+='<a href="exec:gt''gotocloss'',<<clo>>"><img src="pic/clo/top/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
+    if sexy_t[clo]>=20:clohere['<<clo>>,<<$LOC_str[you]>>']=1
+    if clohere['<<clo>>,<<$LOC_str[you]>>']>0:$d_topclo_view='view"pic/clo/top/<<clo>>.jpg"'&$clo_loc+='<a href="exec:gt''gotocloss'',<<clo>>"><img src="pic/clo/top/<<clo>>.jpg" ></a>'&!$clo_loc+='<br>'
 clo+=1&if clo<clomax:jump'markclothelocss'
 *pl''&'<<$clo_loc>>'&$low_loc=''&clo=1&clomax=arrsize('$l_name')
 :marklowthelocss
-    if sexy_l[clo]>=20:lowhere['<<clo>>,<<$loc[you]>>']=1    
-    if lowhere['<<clo>>,<<$loc[you]>>']>0:$d_topclo_view='view"pic/clo/low/<<clo>>.jpg"'&$low_loc+='<a href="exec:gt''gotlowss'',<<clo>>"><img src="pic/clo/low/<<clo>>.jpg" ></a>'& !$clo_loc+='<br>'
+    if sexy_l[clo]>=20:lowhere['<<clo>>,<<$LOC_str[you]>>']=1    
+    if lowhere['<<clo>>,<<$LOC_str[you]>>']>0:$d_topclo_view='view"pic/clo/low/<<clo>>.jpg"'&$low_loc+='<a href="exec:gt''gotlowss'',<<clo>>"><img src="pic/clo/low/<<clo>>.jpg" ></a>'& !$clo_loc+='<br>'
 clo+=1&if clo<clomax:jump'marklowthelocss'
 *pl''&'<<$low_loc>>'&$low_loc=''&clo=10&$u_topclo_view='view"pic/clo/utop/10.jpg"'
-if tophere['<<clo>>,<<$loc[you]>>']=0:$utop_loc+='<a href="exec:gt''gotoutop'',<<clo>>"><img src="pic/clo/utop/10.jpg" ></a>'&tophere['<<clo>>,<<$loc[you]>>']=1
+if tophere['<<clo>>,<<$LOC_str[you]>>']=0:$utop_loc+='<a href="exec:gt''gotoutop'',<<clo>>"><img src="pic/clo/utop/10.jpg" ></a>'&tophere['<<clo>>,<<$LOC_str[you]>>']=1
 *pl''&'<<$utop_loc>>'
 $boot_loc=''&clo=1&clomax=arrsize('$b_name')
 :markbootthelocss
-    if sexy_b[clo]>=20:boothere['<<clo>>,<<$loc[you]>>']=1
-    if boothere['<<clo>>,<<$loc[you]>>']>0:$boot_loc+='<a href="exec:gt''gotobootss'',<<clo>>"><img src="pic/clo/boot/<<clo>>.jpg" ></a>'& !$clo_loc+='<br>'
+    if sexy_b[clo]>=20:boothere['<<clo>>,<<$LOC_str[you]>>']=1
+    if boothere['<<clo>>,<<$LOC_str[you]>>']>0:$boot_loc+='<a href="exec:gt''gotobootss'',<<clo>>"><img src="pic/clo/boot/<<clo>>.jpg" ></a>'& !$clo_loc+='<br>'
 clo+=1&if clo<clomax:jump'markbootthelocss'
 *pl''&'<<$boot_loc>>'&gs'Item'&*pl''&gs 'npconloc'
 act'Отойти':gt 'preloc'

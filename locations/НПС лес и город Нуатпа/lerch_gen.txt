@@ -9,5 +9,5 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_male+=1&gs'male_gen'
 womenbrain[i]=0&bisex[i]=0&agro[i]=0&selrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=2&lust[i]=0
 h_slot[i]=0&m_slot[i]=0&w_slot[i]=0&c_slot[i]=0&tz_slot[i]=2&tg_slot[i]=1&t_slot[i]=8&l_slot[i]=4&b_slot[i]=5&ut_slot[i]=0&ul_slot[i]=3&ub_slot[i]=0&!шмот
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&walkprog[i]=0&!программа движения
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&walkprog[i]=0&!программа движения
 !in_home[i]=2&!на маяке ????????&!roma_world[]=i

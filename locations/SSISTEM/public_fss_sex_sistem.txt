@@ -6,8 +6,8 @@ if sexpower[npc]>0:
 	else
 		'<center><video autoplay loop src="pic/sex/public/blow<<rand(0,27)>>.webm" ></video></center>'
 	end
-	$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
-	'Вы сидите на корточках и сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'
+	$text_str=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+	'Вы сидите на корточках и сосете <<dick[npc]>> сантиметровый член своими <<$text_str>>.'
 	gs'fuck_oral',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&act'Сосать':gt'public_fss_sex_sistem'
 else
 	gs'stat'&$func('get_images', 'cum_in_mouth', you, npc)&'<<$name[npc]>> кончает вам в рот и на лицо.'

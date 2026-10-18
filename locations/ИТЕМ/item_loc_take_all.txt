@@ -1,6 +1,6 @@
-﻿cls&tempitem=item_loc['<<ARGS[0]>>,<<$loc[you]>>']
+﻿cls&tempitem=item_loc['<<ARGS[0]>>,<<$LOC_str[you]>>']
 if burden[you]+item_burden[ARGS[0]]*tempitem<=burdenmax[you]:
-	item_loc['<<ARGS[0]>>,<<$loc[you]>>']-=tempitem&item[ARGS[0]]+=tempitem&burden[you]+=item_burden[ARGS[0]]*tempitem&!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
+	item_loc['<<ARGS[0]>>,<<$LOC_str[you]>>']-=tempitem&item[ARGS[0]]+=tempitem&burden[you]+=item_burden[ARGS[0]]*tempitem&!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
 else
 	msg("Слишком тяжело")
 end

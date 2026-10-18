@@ -12,5 +12,5 @@ dick[i]=rand(12,28)&dickd[i]=rand(40,55)&ball[i]=rand(40,100)&!Половые п
 healthmax[i]=10*rand(5,15)&healthmax[i]+=10*mistnumber+mistcurse[you]*10&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=0&mana[i]=manamax[i]
 minuron[i]=rand(20,50)&minuron[i]+=mistnumber*5+mistcurse[you]*10&maxuron[i]=rand(100,200)&maxuron[i]+=mistnumber*5+mistcurse[you]*10&reflex[i]=rand(50,100)&reflex[i]+=mistnumber+mistcurse[you]
 agro[i]=rand(0,2)&corr[i]=rand(10,100)
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&fight_prog[i]=16&!программа движения!программа боя
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&walkprog[i]=0&fight_prog[i]=16&!программа движения!программа боя
 def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться!если 1 то все удары героя попадают в нпс

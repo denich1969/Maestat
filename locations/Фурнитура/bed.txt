@@ -3,52 +3,52 @@ if t_slot[you]>0 or l_slot[you]>0 or b_slot[you]>0:
 	'Спать в одежде неудобно'
 	act'Раздеться до нижнего белья':
 		if t_slot[you]>0:
-			clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+			clo=t_slot[you]&if ban_h[you]=0:item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1&t_slot[you]=0
 		end
 		if l_slot[you]>0:
-			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 		end
 		if b_slot[you]>0:
-			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 		end
 		blockneed=1&gt $curloc
 	end
 	act'Раздеться догола':
 		 if h_slot[you]>0:
-			clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$loc[you]>>']+=1&h_slot[you]=0
+			clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$LOC_str[you]>>']+=1&h_slot[you]=0
 		 end
 		!{if m_slot[you]>0:
-			clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$loc[you]>>']+=1&m_slot[you]=0
+			clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$LOC_str[you]>>']+=1&m_slot[you]=0
 		end
 		if w_slot[you]>0:
-			clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$loc[you]>>']+=1&w_slot[you]=0
+			clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$LOC_str[you]>>']+=1&w_slot[you]=0
 		end}
 		if c_slot[you]>0:
-			clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$loc[you]>>']+=1&c_slot[you]=0
+			clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$LOC_str[you]>>']+=1&c_slot[you]=0
 		end
 		if tz_slot[you]>0:
-			clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$loc[you]>>']+=1&tz_slot[you]=0
+			clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$LOC_str[you]>>']+=1&tz_slot[you]=0
 		end
 		if tg_slot[you]>0:
-			clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$loc[you]>>']+=1&tg_slot[you]=0
+			clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$LOC_str[you]>>']+=1&tg_slot[you]=0
 		end
 		if t_slot[you]>0:
-			clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+			clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1&t_slot[you]=0
 		end
 		if l_slot[you]>0:
-			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+			clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 		end
 		if b_slot[you]>0:
-			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+			clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 		end
 		if ut_slot[you]>0:
-			clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$loc[you]>>']+=1&ut_slot[you]=0
+			clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$LOC_str[you]>>']+=1&ut_slot[you]=0
 		end
 		if ul_slot[you]>0:
-			clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+			clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0
 		end
 		if ub_slot[you]>0:
-			clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+			clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$LOC_str[you]>>']+=1&ub_slot[you]=0
 		end
 		blockneed=2&gt $curloc
 	end

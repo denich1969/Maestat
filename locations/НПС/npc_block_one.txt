@@ -4,7 +4,7 @@ if l_slot[you]=0:
 	tempslot=t_slot[you]&if t_slot[you]=0 or long_t[tempslot]=0:gt'nudereact'
 end
 if boyfriend_num[you]=npc and bf_want_walk[npc]>0:gt'bf_talk'
-if follower[npc]=you and secfoll>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+if follower[npc]=you and secfoll>0 and blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:
     if sexpartner['<<firstfoll>>,<<you>>']>0 and sexpartner['<<secfoll>>,<<you>>']>0 and threfoll=0:
         if pol[you]>0 and total_npc_on_loc<=2:
             act'Устроить групповушку':

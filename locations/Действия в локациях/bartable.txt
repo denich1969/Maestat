@@ -33,7 +33,7 @@ if BT=2 or BT=4:
 		end
 	end
 	if sallivan_work=1 and bar_shepot['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1 and hour>9 and hour<21:act'Работать за стойкой': gt 'bar_shepot'
-	act'<b>Уйти</b>':gt 'preloc'
+	!act'<b>Уйти</b>':gt 'preloc'
 end
 if bartable['<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>']=1:
 	*nl'Бургер - 1 шиллинг'&*nl'Пицца - 1 шиллинг'&*nl'Кола - 50 пенсов'

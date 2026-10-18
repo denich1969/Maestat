@@ -30,8 +30,8 @@ if sexpower[npc]>0:
 			else
 				'<center><video autoplay loop src="pic/sex/public/toilet_blow<<rand(0,13)>>.webm" ></video></center>'
 			end
-			$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
-			'Вы сидите на корточках в сортире и сосете <<dick[npc]>> сантиметровый член своими <<$text>>.'
+			$text_str=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+			'Вы сидите на корточках в сортире и сосете <<dick[npc]>> сантиметровый член своими <<$text_str>>.'
 			if oral_fixation[you]>0 and orgasm[you]<time:gs'to_arouse',you,oral_fixation[you]&'Вас возбуждает мужской прибор между ваших губок и вы увлеченно его сосете причмокивая'
 			act'Сосать':
 				cls&gs'stat'
@@ -168,7 +168,7 @@ else
 		act'Уйти':gt 'after_fss'
 	else
 		act'...':
-			you_dirty_slut[npc]+=50&peecover[you]+=2&cum_face[you]=0&spit_face[you]=0&pissonloc['<<$loc[you]>>']=time+250
+			you_dirty_slut[npc]+=50&peecover[you]+=2&cum_face[you]=0&spit_face[you]=0&pissonloc['<<$LOC_str[you]>>']=time+250
 			corr[you]+=5&target_soul=4&piss_mass['<<npc>>,<<you>>']+=1&drinkpee[you]+=1&!gs'souleater'
 			cls&gs'stat'
 			if rand(0, 1) = 0:

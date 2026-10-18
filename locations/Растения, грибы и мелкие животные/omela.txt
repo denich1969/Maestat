@@ -1,12 +1,12 @@
 ﻿gs'stat'&'<center><img src="pic/loc/ras/omela.jpg" ></center>'&'Омела опутавшая ствол дерева.'
-if (Z[you]<11 or trezvsekret[you]=1) and last_omela['<<$loc[you]>>']=0 and day_omela['<<$loc[you]>>']!daystart:last_omela['<<$loc[you]>>']=rand(0,1)&day_omela['<<$loc[you]>>']=daystart
-if last_omela['<<$loc[you]>>']>0:
+if (Z[you]<11 or trezvsekret[you]=1) and last_omela['<<$LOC_str[you]>>']=0 and day_omela['<<$LOC_str[you]>>']!daystart:last_omela['<<$LOC_str[you]>>']=rand(0,1)&day_omela['<<$LOC_str[you]>>']=daystart
+if last_omela['<<$LOC_str[you]>>']>0:
 	'На ветвях омелы растут ягодки'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Сорвать пучок с ягодами':item_loc['39,<<$loc[you]>>']+=1&time+=5&last_omela['<<$loc[you]>>']=0&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act'Сорвать пучок с ягодами':item_loc['39,<<$LOC_str[you]>>']+=1&time+=5&last_omela['<<$LOC_str[you]>>']=0&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
 		act'Собирать ягоды':
-			time+=30&cls&gs'walker'&gs'stat'&last_omela['<<$loc[you]>>']=0&item_loc['39,<<$loc[you]>>']+=max(1,lvltravnik[you])&day_omela['<<$loc[you]>>']=daystart
-			"В течение получаса вы собирали ягоды и собрали <<item_loc['39,<<$loc[you]>>']>> порций"&omelanum=item_loc['39,<<$loc[you]>>']+item['39']
+			time+=30&cls&gs'walker'&gs'stat'&last_omela['<<$LOC_str[you]>>']=0&item_loc['39,<<$LOC_str[you]>>']+=max(1,lvltravnik[you])&day_omela['<<$LOC_str[you]>>']=daystart
+			"В течение получаса вы собирали ягоды и собрали <<item_loc['39,<<$LOC_str[you]>>']>> порций"&omelanum=item_loc['39,<<$LOC_str[you]>>']+item['39']
 			'Всего у вас <<omelanum>> порций ягоды омелы'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

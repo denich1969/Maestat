@@ -1,0 +1,22 @@
+﻿! May NPC w start interactions now (the "canradar" rules of the old wal_main)?
+! ns_cm: the usual interactions (npcsys_meet); ns_cmo: an obsession-world monster (npcsys_obs_meet).
+ns_cm=0
+ns_cmo=0
+if w=you or dead[w]<>0:exit
+if cantwalk[w]<>0 or follower[w]<>0 or immobilaze[w]<>0 or age[w]<=0 or walker_cooldown[w]>=time:exit
+if ns_obs=1 and mob[w]>=1 and mob_sleep[w]<time and mob_busy[w]=0 and w<>recepboy and Z[w]=Z[you]:ns_cmo=1
+if mob_busy[w]<>0:exit
+if blocksex[$ns_room]<>0:exit
+if mob[w]>0 and dick[w]>1 and corr[w]>=50 and last_radar[w]<time and global_radar<10:ns_cm=1
+if mob[w]=0 and last_radar[w]<time and (dick[w]>1 or lust[w]>=50):
+	if extrovert[w]=2:ns_cm=1
+	if extrovert[w]=1:ns_cm=rand(0,1)
+	! dominant women look around too
+	if dick[w]=0 and (TOL[w]=9 or agro[w]>50):ns_cm=1
+end
+if want_talk[w]=1:want_talk[w]=0 & ns_cm=1
+if slave[w]=you and last_radar[w]<time:ns_cm=1
+if whoreboss[w]>0 and last_radar[w]<time:ns_cm=1
+if tiler=w:ns_cm=1
+if femas=w:ns_cm=1
+if ns_cm>0:global_radar+=1 & last_radar[w]=time+15

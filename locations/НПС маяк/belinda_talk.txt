@@ -1,10 +1,10 @@
 ﻿if Xhome[npc]=X[npc] and Yhome[npc]=Y[npc] and Zhome[npc]=Z[npc] and Hhome[npc]=H[npc] and Rhome[npc]=R[npc]:
 	act'Поговорить':
-		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - тут на маяке очень спокойно, никаких демонов и угрозы.'&act'...':gt $loc[you]
+		time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - тут на маяке очень спокойно, никаких демонов и угрозы.'&act'...':gt $LOC_str[you]
 	end
 else
 	act'Деревня':
-		nuatpa_talk+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
+		nuatpa_talk+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $LOC_str[you]
 		if hunter[kap]=1:
 			'<<$name[npc]>> грустно замечает - Деревня можно сказать полностью вымерла, остались только я и отец.'
 		else
@@ -14,18 +14,18 @@ else
 	end
 	if nuatpa_talk>0:
 		act'Нуатпа':
-			nuatpa_talk+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Я там давно уже не была. '&act'...':gt $loc[you]
+			nuatpa_talk+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Я там давно уже не была. '&act'...':gt $LOC_str[you]
 			'Всем правит королева Элизабет и аристократия, но церковь там усилилась в последнее время. '
 			'У церкви есть лекарство от всех болезней, божественная кровь, естественно в город идет вереница паломников, а когда вторглись демоны, так еще и беженцы бросающие свои дома потянулись в город.'
 		end
 		act'Гоблины':
 			goblins_belinda_talk+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - Особой дружбы между людьми и гоблинами никогда не было. Но была торговля. '
-			'А сейчас в лес гоблинов лучше не ходить, гоблины агрессивны и никому не дают пройти в свой город Люмен'&act'...':gt $loc[you]
+			'А сейчас в лес гоблинов лучше не ходить, гоблины агрессивны и никому не дают пройти в свой город Люмен'&act'...':gt $LOC_str[you]
 		end
 	end
 	if goblins_belinda_talk>0:
 		act'Город гоблинов':
-			lumen_know+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
+			lumen_know+=1&time+=15&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $LOC_str[you]
 			'<<$name[npc]>> - Да, у гоблинов есть город. Они его естественно не строили. Гоблины не умеют строить, они только воюют и содержут рабов которые добывают им серебро. '
 			'Серебро они продавали людям в обмен на все что угодно, зачастую на те же самые кирки для добычи серебра. '
 			'А город гоблинов, это бывший человеческий город, назывался он Люмен когда то он был больше Нуатпы, '
@@ -40,13 +40,13 @@ else
 			else
 				'<<$name[npc]>> с интересом флиртует с вами.'
 				act'Предложить осмотреть заброшенные дома':
-					horny[you]+=5&time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы предложили девушке походить по деревне и посмотреть пустующие дома. '&!$loc[you]='forest_village'
-					'<<$name[npc]>> согласилась и вы пошли вместе гулять, пустых домов было много и вы быстр онашли подходящий дом и проникли туда'&act'...':gt $loc[you]
+					horny[you]+=5&time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'Вы предложили девушке походить по деревне и посмотреть пустующие дома. '&!$LOC_str[you]='forest_village'
+					'<<$name[npc]>> согласилась и вы пошли вместе гулять, пустых домов было много и вы быстр онашли подходящий дом и проникли туда'&act'...':gt $LOC_str[you]
 					act'Лапать':
 						if lust[npc]<50:lust[npc]+=1
 						time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'
 						if lust[npc]+wantyou[npc]<40:
-							'Вы лапаете девушку и <<$name[npc]>> увертывается от вас - Ну прекрати, я не такая!'&act'...':gt $loc[you]
+							'Вы лапаете девушку и <<$name[npc]>> увертывается от вас - Ну прекрати, я не такая!'&act'...':gt $LOC_str[you]
 						else
 							if sex_times['<<npc>>,<<you>>']=0:
 								'Вы лапаете девушку и <<$name[npc]>> смущается - У меня еще никого не было. Я боюсь.'&act'Обнять':gt'sex'
@@ -57,12 +57,12 @@ else
 					end
 				end
 			end
-			act'...':gt $loc[you]
+			act'...':gt $LOC_str[you]
 		end
 	end
 	if demonkill[you]>0:
 		act'Рассказывать о битвах с демонами':
-			time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $loc[you]
+			time+=30&cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&act'...':gt $LOC_str[you]
 			if wantyou[npc]=demonkill[you]:'Вы рассказываете о маяке, о битвах с демонами и <<$name[npc]>> скучает так как вы не рассказываете ничего нового.'
 			if wantyou[npc]<demonkill[you]:
 				wantyou[npc]=demonkill[you]

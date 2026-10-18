@@ -11,7 +11,7 @@ else
         end
     else
 		$think[w]='думает о том что хватит спать'
-        if week<6:
+        if week_num<6:
 			if work[w]=4 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]=$iif(subwork[w]=0,'машзавод','машзавод офис')
 			if work[w]=5 and hour>=7 and hour<=16:$think[w]='думает о работе'&$destination[w]=$iif(subwork[w]=0,'электростанция','электростанция офис')
 			if work[w]=6 and hour>=7 and hour<=16:

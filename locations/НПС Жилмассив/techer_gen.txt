@@ -12,4 +12,4 @@ womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=60&selfrespect[i]=1&positiv[i]=0&e
 girl[povar]+=1& guy[i]+=1&sexpartner['<<i>>,<<povar>>']+=100&sexpartner['<<povar>>,<<i>>']+=100& vagsex[i]+=100&avagsex[povar]+=100	 
 sexpartner_num_m['<<i>>,<<guy[i]>>']=povar&sexpartner_num_f['<<povar>>,<<girl[povar]>>']=i&husband[i]=povar&husband[povar]=i
 t_slot[i]=59&l_slot[i]=31&b_slot[i]=21&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=rand(1,5)&m_slot[i]=117&!l_hand_t[i]=3&nose_p[i]=1   
-Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=50
+Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&e_world[]=i&walkprog[i]=50

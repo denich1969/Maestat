@@ -13,5 +13,5 @@ h_slot[i]=24&t_slot[i]=133&l_slot[i]=0&b_slot[i]=20&ut_slot[i]=1&ul_slot[i]=1&ub
 addobj'Персонаж'&addobj'Характеристики'&addobj'Статистика'&addobj'Инвентарь'&addobj'Журнал'&addobj'Обновить'&addobj'Аварийка'&!addobj'Настройки'
 Xstart=10&Ystart=10&Zstart=740&Hstart=0&Rstart=0&gs'castle_gen'&obsession_world[]=i&walkprog[i]=29
 X[you]=Xstart&Y[you]=Ystart&Z[you]=Zstart&H[you]=Hstart&R[you]=Rstart&ownerloc['<<Xstart>>,<<Ystart>>,<<Zstart>>,<<Hstart>>']=you
-$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&item_loc['11,<<$loc[you]>>']=1&item_loc['55,<<$loc[you]>>']=1&item_loc['25,<<$loc[you]>>']=1&!Скипетр&!$worldloc[you]='world'
+$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'&item_loc['11,<<$LOC_str[you]>>']=1&item_loc['55,<<$LOC_str[you]>>']=1&item_loc['25,<<$LOC_str[you]>>']=1&!Скипетр&!$worldloc[you]='world'
 Xhome[you]=Xstart&Yhome[you]=Ystart&Zhome[you]=Zstart&Hhome[you]=Hstart&Rhome[you]=Rstart&gt'world'

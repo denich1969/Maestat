@@ -1,7 +1,7 @@
 ﻿$texwalk='идет'
 if randtipe=1:
 	randnapr=rand(0,1)&!по Х
-	if randnapr=0 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and e_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+	if randnapr=0 and $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and e_wall_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
 		if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
 			$walklog+='<br>'
 			if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на восток'
@@ -9,7 +9,7 @@ if randtipe=1:
 		end
 		X[w]+=1
 	end
-	if randnapr=1 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and w_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+	if randnapr=1 and $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and w_wall_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
 		if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
 			$walklog+='<br>'
 			if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на запад'
@@ -20,7 +20,7 @@ if randtipe=1:
  end
 if randtipe=2:
 	randnapr=rand(0,1)&!по У
-	if randnapr=0 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and n_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+	if randnapr=0 and $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and n_wall_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
 		if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
 			$walklog+='<br>'
 			if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на север'
@@ -28,7 +28,7 @@ if randtipe=2:
 		end
 		Y[w]+=1
 	end
-	if randnapr=1 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and s_wall['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+	if randnapr=1 and $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']!'' and s_wall_num['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
 		if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:
 			$walklog+='<br>'
 			if know['<<w>>,<<you>>']=0 and $nick[w]!'':$walklog+='<<$nick[w]>> <<$texwalk>> на юг'

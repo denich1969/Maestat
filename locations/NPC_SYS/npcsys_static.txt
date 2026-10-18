@@ -1,0 +1,7 @@
+﻿! Program for an NPC that never leaves home (the Roma shopkeepers).
+! args[0]=program, $args[1]=name, $args[2]=$doing text in the daytime, $args[3]=$loc text.
+gs'npcsys_prog',args[0],$args[1]
+$nsp_dt[ns_cp]=$args[2]
+$nsp_dl[ns_cp]=$args[3]
+gs'npcsys_hook','npcsys_h_static'
+gs'npcsys_rule','all',0,23,'стоп'

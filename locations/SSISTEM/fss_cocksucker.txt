@@ -6,7 +6,7 @@ if sexpower[npc]>0:
 	else
 		$func('get_images', 'public_blow', you, npc)
 	end
-	$text=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
+	$text_str=$iif (lips[npc]=1,'пухленькими губами',$iif (lips[npc]=2,'толстыми губами',$iif (lips[npc]=3,'огромными губами похожие на букву О','губами')))
 	'Вы сосете <<dick[npc]>> сантиметровый член'&gs'fuck_oral',npc,you&gs'fuck_final',in_sex[you]&gs'stat'&destiny=0
 	if agro[npc]>=50 and agro[npc]<75 and rand(20,80)>=agro[npc]:destiny=rand(1,3)
 	if agro[npc]>=75:

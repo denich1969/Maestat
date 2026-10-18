@@ -10,9 +10,9 @@ else
 			$doing[w]='сидит в клетке'
 		else
 			walkrand=rand(0,2)
-			if walkrand=0:$doing[w]='стоит столбом'&!$loc[w]='t_holl'
-			if walkrand=1:$doing[w]='убирается'&!$loc[w]='t_holl'
-			if walkrand=2:$doing[w]='расставляет столовые приборы'&!$loc[w]='t_stol'
+			if walkrand=0:$doing[w]='стоит столбом'&!$LOC_str[w]='t_holl'
+			if walkrand=1:$doing[w]='убирается'&!$LOC_str[w]='t_holl'
+			if walkrand=2:$doing[w]='расставляет столовые приборы'&!$LOC_str[w]='t_stol'
 		end
 	end
 end

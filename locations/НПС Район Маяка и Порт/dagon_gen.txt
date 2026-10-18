@@ -6,5 +6,5 @@ age[i]=25&vital[i]=100&will[i]=50&reflex[i]=rand(30,40)
 healthmax[i]=5000&health[i]=healthmax[i]&energymax[i]=rand(80,160)&energy[i]=energymax[i]&manamax[i]=100&mana[i]=0&minuron[i]=mus[i]/120&maxuron[i]=mus[i]/80
 visualpol[i]=0&pol[i]=0&gs'body'&total_generated_demon+=1
 womenbrain[i]=0&bisex[i]=0&agro[i]=2&selfrespect[i]=2&positiv[i]=2&extrovert[i]=0&ratio[i]=1&brave[i]=2&lust[i]=100&&corr[i]=1000!характер
-Xhome[i]=2&Yhome[i]=2&Zhome[i]=1&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&Hhome[i]=1&n_world[]=i&walkprog[i]=0&fight_prog[i]=8&!программы движения и боя
+Xhome[i]=2&Yhome[i]=2&Zhome[i]=1&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&Hhome[i]=1&n_world[]=i&walkprog[i]=0&fight_prog[i]=8&!программы движения и боя
 def_tipe[i]=0&notfast[i]=0&!тип защиты. 1 это не пытается защищаться!если 1 то все удары героя попадают в нпс

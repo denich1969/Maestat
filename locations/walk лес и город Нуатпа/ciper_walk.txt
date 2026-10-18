@@ -9,38 +9,38 @@ else
 			if foodfish>0:
 				if egg<=0:
 					if eggciper[w]=0:
-						eggciper[w]=rand(1,2)&$doing[w]='ходит по камням и ищет птичьи гнезда'&!$loc[w]='isle'
+						eggciper[w]=rand(1,2)&$doing[w]='ходит по камням и ищет птичьи гнезда'&!$LOC_str[w]='isle'
 					else
-						egg+=eggciper[w]&eggciper[w]=0&$doing[w]='жарит яйца стоя у плиты'&!$loc[w]='home_1'
+						egg+=eggciper[w]&eggciper[w]=0&$doing[w]='жарит яйца стоя у плиты'&!$LOC_str[w]='home_1'
 					end
 				else
 					if hour>=10 and fichcageday!daystart:
-						fichcageday=hunterdaystart&fishtemp=rand(1,3)&fish+=fishtemp&$doing[w]='проверяет ловушку для рыбы'&!$loc[w]='isle'
+						fichcageday=hunterdaystart&fishtemp=rand(1,3)&fish+=fishtemp&$doing[w]='проверяет ловушку для рыбы'&!$LOC_str[w]='isle'
 					else
 						if hunger[w]<=4:
 							tipe=rand(2)
-							if tipe=0:$doing[w]='сидит на диване'&!$loc[w]='home_2'
+							if tipe=0:$doing[w]='сидит на диване'&!$LOC_str[w]='home_2'
 							if tipe=1:
 								if lust[w]<20:lust[i]+=1
-								$doing[w]='читает книгу'&!$loc[w]='home_6'
+								$doing[w]='читает книгу'&!$LOC_str[w]='home_6'
 							end
-							if tipe=2:$doing[w]='протирает лампу'&!$loc[w]='home_9'
+							if tipe=2:$doing[w]='протирает лампу'&!$LOC_str[w]='home_9'
 						else
 							if rand(1)=0:
-								hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&!$loc[w]='home_1'
+								hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&!$LOC_str[w]='home_1'
 							else
-								hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&!$loc[w]='home_1'
+								hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&!$LOC_str[w]='home_1'
 							end
 						end
 					end
 				end
 			else
-				fish-=1&foodfish+=4&$doing[w]='готовит рыбу стоя у плиты'&!$loc[w]='home_1'
+				fish-=1&foodfish+=4&$doing[w]='готовит рыбу стоя у плиты'&!$LOC_str[w]='home_1'
 			end
 		else
-			$doing[w]='спит на кровати'&!$loc[w]='home_5'
+			$doing[w]='спит на кровати'&!$LOC_str[w]='home_5'
 		end
 	else
-		$doing[w]='pppp'&!$loc[w]='xxx'
+		$doing[w]='pppp'&!$LOC_str[w]='xxx'
 	end
 end

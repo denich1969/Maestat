@@ -28,7 +28,7 @@ if regenerator_manaV>0:mana[npc]+=regenerator_manaV&'Противник восс
 if nostunnerV>0:stunV=0
 anticlonV=0&anticlon=0&proboyV=0&proboy=0&gs'stat'
 if waterdeep[npc]>0:'Вода из тысяч маленьких порталов собирается в сферу вокруг вас и противника'
-if itsrainingday['<<$loc[you]>>']>=time and H[you]=0:status_tipe[you]=1&status_time[you]=time+120&'Идет дождь'
+if itsrainingday['<<$LOC_str[you]>>']>=time and H[you]=0:status_tipe[you]=1&status_time[you]=time+120&'Идет дождь'
 if round>=10 and antey=npc and afterBogartQW>=4:gt'deathofantey'
 if health[npc]<=0 and falselife[npc]>0:gt'falselife'
 if health[you]<=0 and falselife[you]>0:gt'falselife_gg'
@@ -197,7 +197,7 @@ if hod=0:
 			    if mana[you]>=800 and round>2 and cooldown_prth<=0:act'Удар пробивающей молнией 800 маны':cls&hod=1&mana[you]-=800&cooldown_prth=3&gs'stat'&gt'thunder_penetrator'&!1
 			    if mana[you]>=500 and storm_spell[you]>0:act'Раскрутить вокруг себя вихрь 500 маны':cls&hod=1&mana[you]-=500&hod=1&storm_shild+=magik[you]*10&gt $curloc
 			    if mana[you]>=100 and rock_spell[you]>0:act'Каменный молот 100 маны':hod=1&gt 'rockpunch'
-			    if mana[you]>=500 and water_spell[you]>0:act'Вызвать дождь 500 маны':cls&hod=1&mana[you]-=500&hod=1&itsrainingday['<<$loc[you]>>']=time+120&gt $curloc
+			    if mana[you]>=500 and water_spell[you]>0:act'Вызвать дождь 500 маны':cls&hod=1&mana[you]-=500&hod=1&itsrainingday['<<$LOC_str[you]>>']=time+120&gt $curloc
 			    if soul[you]>100 and soul_spell[you]>0:
 			        if falselife[you]>0 and falselife_day[you]!daystart:act'Ложная жизнь 100 души':cls&falselife_day[you]=daystart&soul[you]-=100&hod=1&falselife[you]+=1&gt $curloc
 			    end

@@ -1,10 +1,10 @@
 ﻿gs'stat'&'<center><img src="pic/loc/ras/orange.jpg" ></center>'
-if last_orange['<<$loc[you]>>']=0 and day_orange['<<$loc[you]>>']!daystart:last_orange['<<$loc[you]>>']=rand(0,1)&day_orange['<<$loc[you]>>']=daystart
-if last_orange['<<$loc[you]>>']>0:
+if last_orange['<<$LOC_str[you]>>']=0 and day_orange['<<$LOC_str[you]>>']!daystart:last_orange['<<$LOC_str[you]>>']=rand(0,1)&day_orange['<<$LOC_str[you]>>']=daystart
+if last_orange['<<$LOC_str[you]>>']>0:
 	'На дереве растут апельсины'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
 		act'Трясти':
-			time+=5&cls&gs'walker'&gs'stat'&last_orange['<<$loc[you]>>']=0&item_loc['23,<<$loc[you]>>']+=1&day_orange['<<$loc[you]>>']=daystart&time+=5&energy[you]-=50&sportiv[you]+=1&mus[you]+=1
+			time+=5&cls&gs'walker'&gs'stat'&last_orange['<<$LOC_str[you]>>']=0&item_loc['23,<<$LOC_str[you]>>']+=1&day_orange['<<$LOC_str[you]>>']=daystart&time+=5&energy[you]-=50&sportiv[you]+=1&mus[you]+=1
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1
 			if fat[you]>500:fat[you]-=2

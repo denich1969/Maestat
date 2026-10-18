@@ -1,9 +1,9 @@
 ﻿$d_border={
-	Znow=Z[you]&Zgo=d_border_way['<<$loc[you]>>']
+	Znow=Z[you]&Zgo=d_border_way['<<$LOC_str[you]>>']
 	onlyonewalk=0
-	if key_power_wall[you]>0:power_wall['<<$loc[you]>>']=0
-	if master[you]>0:power_wall['<<$loc[you]>>']=0
-    if power_wall['<<$loc[you]>>']>0:
+	if key_power_wall[you]>0:power_wall['<<$LOC_str[you]>>']=0
+	if master[you]>0:power_wall['<<$LOC_str[you]>>']=0
+    if power_wall['<<$LOC_str[you]>>']>0:
 		if power_wallQW[you]=0:power_wallQW[you]=1
 		cls&gs'stat'&'Невидимая стена неожиданно отпихивает вас обратно'&act'Ой!':gt'preloc'
     else 
@@ -21,30 +21,30 @@
 }
 $d_move={gt'move',Xgo,Ygo,Z[you]}&Xgo=X[you]&Ygo=Y[you]&Z=Z[you]&$d_go_nord={Ygo=Y[you]+1}&$d_go_suid={Ygo=Y[you]-1}&$d_go_west={Xgo=X[you]-1}&$d_go_east={Xgo=X[you]+1}
 $nord=''&$wnord=''&$enord=''&$west=''&$east=''&$suid=''&$wsuid=''&$esuid=''
-if n_wall['<<$loc[you]>>']=0 and s_wall['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']>0:n_wall['<<$loc[you]>>']=1&$n_wall['<<$loc[you]>>']=$wall_name['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']
-if s_wall['<<$loc[you]>>']=0 and n_wall['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']>0:s_wall['<<$loc[you]>>']=1&$s_wall['<<$loc[you]>>']=$wall_name['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']
-if e_wall['<<$loc[you]>>']=0 and w_wall['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']>0:e_wall['<<$loc[you]>>']=1&$e_wall['<<$loc[you]>>']=$wall_name['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']
-if w_wall['<<$loc[you]>>']=0 and e_wall['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']>0:w_wall['<<$loc[you]>>']=1&$w_wall['<<$loc[you]>>']=$wall_name['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']
-if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']!'' and n_wall['<<$loc[you]>>']=0:
+if n_wall_num['<<$LOC_str[you]>>']=0 and s_wall_num['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']>0:n_wall_num['<<$LOC_str[you]>>']=1&$n_wall['<<$LOC_str[you]>>']=$wall_name['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']
+if s_wall_num['<<$LOC_str[you]>>']=0 and n_wall_num['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']>0:s_wall_num['<<$LOC_str[you]>>']=1&$s_wall['<<$LOC_str[you]>>']=$wall_name['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']
+if e_wall_num['<<$LOC_str[you]>>']=0 and w_wall_num['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']>0:e_wall_num['<<$LOC_str[you]>>']=1&$e_wall['<<$LOC_str[you]>>']=$wall_name['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']
+if w_wall_num['<<$LOC_str[you]>>']=0 and e_wall_num['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']>0:w_wall_num['<<$LOC_str[you]>>']=1&$w_wall['<<$LOC_str[you]>>']=$wall_name['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']
+if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']!'' and n_wall_num['<<$LOC_str[you]>>']=0:
 	$nord = "<a href='exec: dynamic $d_go_nord & dynamic $d_move'><<$lname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']>></a>"
 end
-if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']='':$nord =$iif(d_border_way['<<$loc[you]>>']=0,"<<$n_board[Z]>>","<a href='exec: dynamic $d_border '><<$n_board[Z]>></a> ")&!$nord = "Север"
-if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']!'' and n_wall['<<$loc[you]>>']>0:$nord = "<<$n_wall['<<$loc[you]>>']>>"
-if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and w_wall['<<$loc[you]>>']=0:
+if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']='':$nord =$iif(d_border_way['<<$LOC_str[you]>>']=0,"<<$n_board[Z]>>","<a href='exec: dynamic $d_border '><<$n_board[Z]>></a> ")&!$nord = "Север"
+if $locname['<<X[you]>>,<<Y[you]+1>>,<<Z[you]>>,0,0']!'' and n_wall_num['<<$LOC_str[you]>>']>0:$nord = "<<$n_wall['<<$LOC_str[you]>>']>>"
+if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and w_wall_num['<<$LOC_str[you]>>']=0:
 	$west = "<a href='exec: dynamic $d_go_west & dynamic $d_move '><<$lname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']>></a>"
 end
-if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']='':$west =$iif(d_border_way['<<$loc[you]>>']=0,"<<$w_board[Z]>>","<a href='exec: dynamic $d_border '><<$w_board[Z]>></a> ")&!$west = "Запад"
-if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and w_wall['<<$loc[you]>>']>0:$west = "<<$w_wall['<<$loc[you]>>']>>"
-if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and e_wall['<<$loc[you]>>']=0:
+if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']='':$west =$iif(d_border_way['<<$LOC_str[you]>>']=0,"<<$w_board[Z]>>","<a href='exec: dynamic $d_border '><<$w_board[Z]>></a> ")&!$west = "Запад"
+if $locname['<<X[you]-1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and w_wall_num['<<$LOC_str[you]>>']>0:$west = "<<$w_wall['<<$LOC_str[you]>>']>>"
+if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and e_wall_num['<<$LOC_str[you]>>']=0:
 	$east = "<a href='exec: dynamic $d_go_east & dynamic $d_move '><<$lname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']>></a>"
 end
-if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']='':$east =$iif(d_border_way['<<$loc[you]>>']=0, "<<$e_board[Z]>>","<a href='exec: dynamic $d_border '><<$e_board[Z]>></a> ")&!$east = "Восток"
-if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and e_wall['<<$loc[you]>>']>0:$east = "<<$e_wall['<<$loc[you]>>']>>"
-if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']!'' and s_wall['<<$loc[you]>>']=0:
+if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']='':$east =$iif(d_border_way['<<$LOC_str[you]>>']=0, "<<$e_board[Z]>>","<a href='exec: dynamic $d_border '><<$e_board[Z]>></a> ")&!$east = "Восток"
+if $locname['<<X[you]+1>>,<<Y[you]>>,<<Z[you]>>,0,0']!'' and e_wall_num['<<$LOC_str[you]>>']>0:$east = "<<$e_wall['<<$LOC_str[you]>>']>>"
+if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']!'' and s_wall_num['<<$LOC_str[you]>>']=0:
 	$suid = "<a href='exec: dynamic $d_go_suid & dynamic $d_move '><<$lname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']>></a>"
 end
-if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']='':$suid =$iif(d_border_way['<<$loc[you]>>']=0,"<<$s_board[Z]>>","<a href='exec: dynamic $d_border '><<$s_board[Z]>></a> ")&!$suid = "Юг"
-if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']!'' and s_wall['<<$loc[you]>>']>0:$suid = "<<$s_wall['<<$loc[you]>>']>>"
+if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']='':$suid =$iif(d_border_way['<<$LOC_str[you]>>']=0,"<<$s_board[Z]>>","<a href='exec: dynamic $d_border '><<$s_board[Z]>></a> ")&!$suid = "Юг"
+if $locname['<<X[you]>>,<<Y[you]-1>>,<<Z[you]>>,0,0']!'' and s_wall_num['<<$LOC_str[you]>>']>0:$suid = "<<$s_wall['<<$LOC_str[you]>>']>>"
 !'$wnord=$iif($locname['<<X[you]-1>>,<<Y[you]+1>>,<<Z[you]>>']!'',"<a href='exec: dynamic $d_go_nord & dynamic $d_go_west & dynamic $d_move '><<$lname['<<X[you]-1>>,<<Y[you]+1>>,<<Z[you]>>']>></a> ",
 "Море")&"С-З"
 $enord=$iif($locname['<<X[you]+1>>,<<Y[you]+1>>,<<Z[you]>>']!'',"<a href='exec: dynamic $d_go_nord & dynamic $d_go_east & dynamic $d_move '><<$lname['<<X[you]+1>>,<<Y[you]+1>>,<<Z[you]>>']>></a> ",

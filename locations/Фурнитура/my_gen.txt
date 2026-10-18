@@ -14,7 +14,7 @@ act'добавить негра в общагу':
 	womenbrain[i]=rand(0,30)&bisex[i]=0&lust[i]=rand(90,100)&agro[i]=rand(90,100)&selfrespect[i]=rand(0,2)&positiv[i]=rand(0,2)&extrovert[i]=rand(0,2)&ratio[i]=rand(0,2)&brave[i]=rand(0,2)&!характер
 	class[i]=pre_class&t_slot[i]=rand(1,4)&l_slot[i]=rand(1,3)&b_slot[i]=rand(1,2)&ul_slot[i]=5&!низший класс
 	Xhome[i]=Xhome[tbigg]&Yhome[i]=Yhome[tbigg]&Zhome[i]=Zhome[tbigg]&Hhome[i]=Hhome[tbigg]&Rhome[i]=Rhome[tbigg]&e_world[]=i&walkprog[i]=26
-	X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&gt $curloc
+	X[i]=Xhome[i]&Y[i]=Yhome[i]&Z[i]=Zhome[i]&H[i]=Hhome[i]&R[i]=Rhome[i]&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&gt $curloc
 end
 act'<b>insmouth_gen</b>':gs'insmouth_gen'&gt $curloc
 act'<b>seaman_gen</b>':gs'seaman_gen'&gt $curloc

@@ -154,6 +154,9 @@
       <Location name="vag_fig"/>
       <Location name="anus_fig"/>
       <Location name="oral_fig"/>
+	  <Location name="view_fig"/>
+      <Location name="piss_fig"/>
+      <Location name="pissm_fig"/>						 
     </Folder>
     <Folder name="Статы">
       <Location name="stat"/>
@@ -1728,6 +1731,72 @@
     </Folder>
     <Folder name="Генератор Путей фото, без лимита">
       <Location name="all_found_paths_FINAL"/>
+<Folder name="NPC_SYS">
+      <Location name="npcsys_rule"/>
+      <Location name="npcsys_sched_black"/>
+      <Location name="npcsys_wander"/>
+      <Location name="npcsys_step"/>
+      <Location name="npcsys_tick"/>
+      <Location name="npcsys_upkeep"/>
+      <Location name="npcsys_teleport"/>
+      <Location name="npcsys_static"/>
+      <Location name="npcsys_social"/>
+      <Location name="npcsys_script"/>
+      <Location name="npcsys_sched_uptown"/>
+      <Location name="npcsys_sched_river"/>
+      <Location name="npcsys_sched_port"/>
+      <Location name="npcsys_sched_other"/>
+      <Location name="npcsys_sched_downtown"/>
+      <Location name="npcsys_resolve"/>
+      <Location name="npcsys_redirect"/>
+      <Location name="npcsys_rebuild"/>
+      <Location name="npcsys_places"/>
+      <Location name="npcsys_pick"/>
+      <Location name="npcsys_obs_meet"/>
+      <Location name="npcsys_pass"/>
+      <Location name="npcsys_obs"/>
+      <Location name="npcsys_move"/>
+      <Location name="npcsys_meet"/>
+      <Location name="npcsys_job_now"/>
+      <Location name="npcsys_jobs"/>
+      <Location name="npcsys_job"/>
+      <Location name="npcsys_init"/>
+      <Location name="npcsys_ingest1"/>
+      <Location name="npcsys_ingest"/>
+      <Location name="npcsys_hook"/>
+      <Location name="npcsys_h_static"/>
+      <Location name="npcsys_h_riverside"/>
+      <Location name="npcsys_h_family"/>
+      <Location name="npcsys_follow"/>
+      <Location name="npcsys_decide"/>
+      <Location name="npcsys_date"/>
+      <Location name="npcsys_clock"/>
+      <Location name="npcsys_canmeet"/>
+      <Location name="npcsys_arrived"/>
+      <Location name="npcsys_alias"/>
+      <Location name="npcsys_h_quests"/>
+      <Location name="npcsys_place"/>
+      <Location name="npcsys_prog"/>
+      <Location name="npcsys_say"/>
+      <Location name="npcsys_rules"/>
+      <Location name="npcsys_dbg"/>
+      <Location name="npcsys_dbg_list"/>
+      <Location name="npcsys_dbg_npc"/>
+      <Location name="npcsys_dbg_report"/>
+      <Location name="npcsys_dbg_scan"/>
+      <Location name="npcsys_dbg_skip"/>
+      <Location name="npcsys_chkcover"/>
+      <Location name="npcsys_chkexpr"/>
+      <Location name="npcsys_chkopts"/>
+      <Location name="npcsys_chkname"/>
+      <Location name="npcsys_err"/>
+      <Location name="npcsys_expand"/>
+      <Location name="npcsys_route"/>
+      <Location name="npcsys_routes"/>
+    </Folder>
+    <Location name="STORYMAP_DATA"/>
+    <Location name="DICT_DATA"/>
+    <Location name="TODO_DATA"/>									  
     </Folder>
   </Structure>
 </QGen-project>

@@ -18,32 +18,32 @@ else
 	end
 	if tipe=2:
 		gs'surnamegen'&$famili_surname=$gensurname&$famili_surname_f=$gensurname_f&gs'male_gen'&$surname[i]=$famili_surname
-		fi=i&npcmaxnum+=1&age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		fi=i&npcmaxnum+=1&age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$LOC_str[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
 		gs'female_gen'&$surname[i]=$famili_surname_f&vag[i]=dickd[fi]&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&guy[i]=1&girl[fi]=1
 		a_vag_lon[fi]=100&p_vag_lon[i]=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100
-		age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$LOC_str[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
 		si=i&npcmaxnum+=1&pol[i]=iif(rand(1,10)<=7,0,1)
 		if pol[i]=0:gs'male_gen'&$surname[i]=$famili_surname
 		if pol[i]=1:gs'female_gen'&$surname[i]=$famili_surname_f&vag[i]=1
-		age[i]=rand(18,20)&$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		age[i]=rand(18,20)&$home_loc[i]='korr'&home_cell[i]=cell&$LOC_str[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
 		kid_first[fi]=i&kid_first[si]=i&father[i]=fi&mother[i]=si&husband[si]=fi&husband[fi]=si&!Отношения мужа и жены
 	end
 	if tipe=3:
 		gs'surnamegen'&$famili_surname=$gensurname&$famili_surname_f=$gensurname_f&gs'male_gen'&$surname[i]=$famili_surname
-		age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$LOC_str[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
 		fi=i&npcmaxnum+=1&gs'female_gen'&$surname[i]=$famili_surname_f
 		vag[i]=dickd[fi]&sex_times['<<i>>,<<fi>>']=100&sex_times['<<fi>>,<<i>>']=100&a_vag['<<fi>>,<<i>>']=100&p_vag['<<i>>,<<fi>>']=100&guy[i]=1&girl[fi]=1&a_vag_lon[fi]=100&p_vag_lon[i]=100
-		age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		age[i]=rand(36,50)&$home_loc[i]='korr'&home_cell[i]=cell&$LOC_str[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
 		si=i&npcmaxnum+=1&pol[i]=iif(rand(1,10)<=7,0,1)
 		if pol[i]=0:gs'male_gen'&$surname[i]=$famili_surname
 		if pol[i]=1:gs'female_gen'&$surname[i]=$famili_surname_f&vag[i]=1
-		age[i]=rand(18,20)&$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		age[i]=rand(18,20)&$home_loc[i]='korr'&home_cell[i]=cell&$LOC_str[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
 		husband[si]=fi&husband[fi]=si&!Отношения мужа и жены
 		kid_first[fi]=i&kid_first[si]=i&father[i]=fi&mother[i]=si&!Первый ребёнок
 		bro=i&npcmaxnum+=1&pol[i]=iif(rand(1,10)<=7,0,1)&!генерация второго ребёнка
 		if pol[i]=0:gs'male_gen'&$surname[i]=$famili_surname
 		if pol[i]=1:gs'female_gen'&$surname[i]=$famili_surname_f&vag[i]=1
-		age[i]=rand(18,20)&$home_loc[i]='korr'&home_cell[i]=cell&$loc[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
+		age[i]=rand(18,20)&$home_loc[i]='korr'&home_cell[i]=cell&$LOC_str[i]=''&ghlevel[i]=803&ghlevel_home[i]=ghlevel[i]
 		kid_second[fi]=i&kid_second[si]=i&father[i]=fi&mother[i]=si&brother[i]=bro&brother[bro]=i&!Второй ребёнок
 	end
 end

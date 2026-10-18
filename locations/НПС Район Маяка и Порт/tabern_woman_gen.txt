@@ -12,4 +12,4 @@ womenbrain[i]=rand(70,100)&bisex[i]=1&agro[i]=20&selfrespect[i]=1&positiv[i]=1&e
 girl[tabernman]+=1&guy[i]+=1& vagsex[i]+=100&avagsex[tabernman]+=100&maso_fixation[i]=20
 sexpartner['<<i>>,<<tabernman>>']+=100&sexpartner['<<tabernman>>,<<i>>']+=100&sexpartner_num_m['<<i>>,<<guy[i]>>']=tabernman&sexpartner_num_f['<<tabernman>>,<<girl[tabernman]>>']=i
 t_slot[i]=44&l_slot[i]=0&b_slot[i]=20&ut_slot[i]=1&ul_slot[i]=1&ub_slot[i]=6&!l_hand_t[i]=3&nose_p[i]=1
-X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&n_world[]=i&walkprog[i]=5
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&n_world[]=i&walkprog[i]=5

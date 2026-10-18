@@ -12,14 +12,14 @@
 			else
 				you_slut[you_blow]+=1&you_slut[vag_fucker]+=1&temp_gang+=1&bj_mass['<<you_blow>>,<<you>>']+=1&corr[you]+=1
 				$func('get_images', 'splitroast_vms', you, vag_fucker)&'Вы раздвигаете ляжки и вас трахают в киску.'
-				if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы лежите на спине, вас трахают в пизду и вы сосете член.'
+				if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вы лежите на спине, вас трахают в пизду и вы сосете член.'
 				if you_blow>0:fuckblow[you_blow]+=1&bj[you]+=1&bj_mass['<<you_blow>>,<<you>>']+=1&'Пока вас трахают в киску, вы еще сосете второй член.'
 				gs'fuck_vag',vag_fucker,you&gs'fuck_oral',you_blow,you&gs'fuck_final',in_sex[you]&gs'stat'
 			end
 		else
 			$func('get_images', 'vag_fuck_mis', you, vag_fucker)
 			'Вы раздвигаете свои пухлые ляжки и вам внутрь вторгается <<dick[vag_fucker]>> сантиметровый член. Вы стонете, ощущая как твердая плоть движется внутри вас.'
-			gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$loc[you]>>']>=1:$porno[film]+='Вы лежите на спине и вас трахают в пизду.'
+			gs'fuck_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'&if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вы лежите на спине и вас трахают в пизду.'
 		end
 		if horny[vag_fucker]<100:
 			act'...':
@@ -33,7 +33,7 @@
 				$global_npc_log[vag_fucker]+='<br>'
 				$global_npc_log[vag_fucker]+='<<day>> <<$month>> <<year>>года, <<$week>>. <<$name[you]>> <<$surname[you]>> была пущена нами по кругу.'
 				gs'stat'&$func('get_images', 'vag_cream_mis', you, vag_fucker)&'Вам кончили в киску'&gs'fuck_cum_vag',vag_fucker,you&gs'fuck_final',in_sex[you]&gs'stat'
-				if camera['<<$loc[you]>>']>=1:$porno[film]+='Вам кончили в киску.'
+				if camera['<<$LOC_str[you]>>']>=1:$porno[film]+='Вам кончили в киску.'
 				if demon_dick[you]>0 and pregnant_day[you]=0:
 					act'Принять семя':father_you_child=vag_fucker&gs'preggo'&gt 'sex'
 				else

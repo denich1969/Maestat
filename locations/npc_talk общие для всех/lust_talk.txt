@@ -32,24 +32,24 @@ if know_whore['<<npc>>,<<you>>']=0:
 				'<<$name[npc]>> ухмыляется и передает вам трусики и лифчик из кожанных ремней - У меня для тебя есть еще сбруя, хочешь примерить?'
 	            act'<b>Переодеться в новую сбрую</b>':
 					letherslut[you]=2&solo=npc&horny[npc]=50&pose[you]=2&X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
-					X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+					X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]&$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
 					if t_slot[you]>0:
-						clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
+						clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1
 					end
 					if l_slot[you]>0:
-						clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+						clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 					end
 					if b_slot[you]>0:
-						clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+						clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 					end
 					if ut_slot[you]>0:
-						clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$loc[you]>>']+=1
+						clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$LOC_str[you]>>']+=1
 					end
 					if ul_slot[you]>0:
-						clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+						clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0
 					end
 					if ub_slot[you]>0:
-						clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+						clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$LOC_str[you]>>']+=1&ub_slot[you]=0
 					end
 					ut_slot[you]=5&ul_slot[you]=18&if h_slot[you]=0:h_slot[you]=9
 					cls&gs'stat'&'<center><img src="pic/sex/bdsm/before.jpg" ></center>'&'<<$name[npc]>> ведет вас к себе и вы одеваете сбрую из кожанных ремней.'
@@ -62,24 +62,24 @@ if know_whore['<<npc>>,<<you>>']=0:
 				'<<$name[npc]>> ухмыляется и передает вам трусики и лифчик из кожанных ремней - У меня для тебя подарок. Только чур, мы идем ко мне и ты прямо при мне переоденешся.'
 	            act'<b>Переодеться в сбрую</b>':
 					letherslut[you]=1&solo=npc&horny[npc]=50&pose[you]=2&X[npc]=Xhome[npc]&Y[npc]=Yhome[npc]&Z[npc]=Zhome[npc]&H[npc]=Hhome[npc]&R[npc]=Rhome[npc]
-					X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]&$loc[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
+					X[you]=Xhome[npc]&Y[you]=Yhome[npc]&Z[you]=Zhome[npc]&H[you]=Hhome[npc]&R[you]=Rhome[npc]&$LOC_str[you]='<<X[you]>>,<<Y[you]>>,<<Z[you]>>,<<H[you]>>,<<R[you]>>'
 					if t_slot[you]>0:
-						clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$loc[you]>>']+=1
+						clo=t_slot[you]&if ban_h[you]=0:t_slot[you]=0&item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1
 					end
 					if l_slot[you]>0:
-						clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+						clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 					end
 					if b_slot[you]>0:
-						clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+						clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 					end
 					if ut_slot[you]>0:
-						clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$loc[you]>>']+=1
+						clo=ut_slot[you]&if ban_ut[you]=0:ut_slot[you]=0&item_loc_ut['<<clo>>,<<$LOC_str[you]>>']+=1
 					end
 					if ul_slot[you]>0:
-						clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+						clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0
 					end
 					if ub_slot[you]>0:
-						clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+						clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$LOC_str[you]>>']+=1&ub_slot[you]=0
 					end
 					ut_slot[you]=4&ul_slot[you]=17&if h_slot[you]=0:h_slot[you]=10
 					cls&gs'stat'&'<center><img src="pic/sex/bdsm/before.jpg" ></center>'&'<<$name[npc]>> ведет вас к себе и вы одеваете сбрую из кожанных ремней.'

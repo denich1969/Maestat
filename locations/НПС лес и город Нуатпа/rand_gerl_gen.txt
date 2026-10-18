@@ -11,7 +11,7 @@
 	pol[i]=1&gs'body'&total_generated_female+=1&gs'female_gen'&!gs'body_auto',i,'old_npc_once'
 	womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=100&selfrespect[i]=2&positiv[i]=1&extrovert[i]=1&ratio[i]=2&brave[i]=1&lust[i]=0&!характер
 	h_slot[i]=0&c_slot[i]=0&tz_slot[i]=0&tg_slot[i]=0&t_slot[i]=4&l_slot[i]=3&b_slot[i]=6&ut_slot[i]=0&ul_slot[i]=0&ub_slot[i]=2
-	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0
+	Xhome[i]=X&Yhome[i]=Y&Zhome[i]=Z&Hhome[i]=H&Rhome[i]=R&X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&se_lighthouse[]=i&!walkprog[i]=0
 end	
 !sex_times['<<you>>,<<i>>']=0&sex_times['<<i>>,<<you>>']=0
 !energy[rand_gerl]=energymax[rand_gerl]

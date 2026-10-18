@@ -26,11 +26,11 @@ act'Далее':
 					'Девушка встревоженно осмотрела Гастона - Дело тут не в травмах, тут заклинание гнили, что то темное, демоническое.'&*nl'Гастон хрипло пробормотал - Лиллит все таки меня достала.'
 					'Девушка неожиданно легко, словно пушинку подняла Гастона и обратилась к вам - помоги мне дотащить его до кровати.'
 					act'Нести Гастона':
-						X[ciper]=1&Y[ciper]=1&Z[ciper]=300&H[ciper]=1&R[ciper]=1&$loc[ciper]='<<X[ciper]>>,<<Y[ciper]>>,<<Z[ciper]>>,<<H[ciper]>>,<<R[ciper]>>'&$doing[ciper]='стоит возле кровати'&!$loc[ciper]='home_3'
-						targetday=daystart&X[whiteknight]=1&Y[whiteknight]=1&Z[whiteknight]=300&H[whiteknight]=1&R[whiteknight]=1&$loc[whiteknight]=$loc[ciper]&$doing[whiteknight]='лежит на кровати'&!'home_3'
+						X[ciper]=1&Y[ciper]=1&Z[ciper]=300&H[ciper]=1&R[ciper]=1&$LOC_str[ciper]='<<X[ciper]>>,<<Y[ciper]>>,<<Z[ciper]>>,<<H[ciper]>>,<<R[ciper]>>'&$doing[ciper]='стоит возле кровати'&!$LOC_str[ciper]='home_3'
+						targetday=daystart&X[whiteknight]=1&Y[whiteknight]=1&Z[whiteknight]=300&H[whiteknight]=1&R[whiteknight]=1&$LOC_str[whiteknight]=$LOC_str[ciper]&$doing[whiteknight]='лежит на кровати'&!'home_3'
 						cls&gs'stat'&'<center><img src="pic/npc/1.jpg" ></center>'&'Вы подхватили раненного охотника и вместе с девушкой повели его вниз по леснице, мимо каких-то комнат '
 						'Наконец, вы пришли в комнату с кроватями, где уложили Гастона и девушка срезав с него одежду наложила повязки.'
-						act'Осмотреться':X[you]=1&Y[you]=1&Z[you]=300&H[you]=1&R[you]=1&$loc[you]=$loc[ciper]&gt 'world'&!gt'home_3'
+						act'Осмотреться':X[you]=1&Y[you]=1&Z[you]=300&H[you]=1&R[you]=1&$LOC_str[you]=$LOC_str[ciper]&gt 'world'&!gt'home_3'
 					end
 				end
 			end

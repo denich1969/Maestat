@@ -1,0 +1,76 @@
+﻿! ============================================================================
+! npcsys - NPC life system. Replaces walker / sim_life / wal_main / *_walk.
+!
+! How it works
+!  - npcsys_tick runs when game time has moved on (walker and walk_programm
+!    call it). Calls with no elapsed time cost almost nothing.
+!  - Every NPC has a wake time (nsw_wake). It thinks about where to be only
+!    when that time comes (the next full hour) and then walks there. An NPC
+!    that has arrived costs one line per tick until the next hour.
+!  - Timetables are data (npcsys_sched_*), not code. One program = a list of
+!    rules, first match wins:
+!      gs'npcsys_rule', days, from_hour, to_hour, 'options', 'think', 'condition'
+!    days: 'all' / 'wd' (Mon-Fri) / 'we' (Sat-Sun); hours may wrap (22..6).
+!    options: 'бар|бар2|храм' - one is chosen per day per rule.
+!      'place?condition' - option only available while the condition holds.
+!      'дом' home, 'прогулка' wander, 'стоп' stay, 'работа' job from work[w],
+!      '@expr' follow NPC number expr (e.g. '@grief', '@slave[w]').
+!  - Places: npcsys_places. Jobs: npcsys_jobs.
+!  - Story side effects live in hooks (npcsys_h_*), run after the timetable.
+!  - Interactions (old radarNew) only pair NPCs standing in the same room.
+!
+! This location builds the tables. 'const' calls it at start-up and on every
+! load, so timetable edits apply to existing saves.
+! Other code may set nsw_wake[npc]=0 to make an NPC re-plan on the next tick.
+! ============================================================================
+! --- tuning ---
+ns_step_min=10
+ns_snap_steps=4
+ns_upk_act=20
+ns_upk_bg=60
+ns_bg_every=30
+ns_meet_cap=60
+ns_meet_cap_bg=20
+ns_wake_jitter=15
+! --- debug: 0 off, 1 panel in the stat window, 2 also a line per tick under the location text ---
+! The panel has links to a full report (npcsys_dbg_report). The mirror menu can switch it too.
+ns_dbg=2
+ns_c_init+=1
+! lists read before dyneval was fixed (it runs code and returns result) must be read again
+if ns_ver<2:killvar 'ns_seen' & ns_ver=2
+ns_npl=0
+ns_npr=0
+! --- tables ---
+killvar 'nsl_x' & killvar 'nsl_y' & killvar 'nsl_z' & killvar 'nsl_h' & killvar 'nsl_r' & killvar 'nsl_al'
+killvar 'nsj_p' & killvar 'nsj_o' & killvar 'nsj_a' & killvar 'nsj_b' & killvar 'nsj_d'
+killvar 'nsp_k' & killvar 'nsp_r0' & killvar 'nsp_rn' & killvar 'nsp_nm' & killvar 'nsp_hk' & killvar 'nsp_sc'
+killvar 'nsp_tp' & killvar 'nsp_tm' & killvar 'nsp_tc' & killvar 'nsp_dt' & killvar 'nsp_dl'
+killvar 'nsr_d' & killvar 'nsr_a' & killvar 'nsr_b' & killvar 'nsr_o' & killvar 'nsr_t' & killvar 'nsr_c' & killvar 'nsrt'
+! mistakes in the tables are collected in $ns_err (npcsys_err) and shown by npcsys_dbg
+killvar 'ns_err' & ns_nerr=0 & killvar 'ns_plist' & killvar 'ns_cvd' & killvar 'ns_cve'
+ns_nr=0
+ns_cp=0
+gs'npcsys_places'
+gs'npcsys_jobs'
+gs'npcsys_routes'
+! ns_cp=0 before each file: a rule at the top of a file without npcsys_prog is reported
+! instead of silently joining the last program of the previous file
+ns_cp=0 & gs'npcsys_sched_port'
+ns_cp=0 & gs'npcsys_sched_black'
+ns_cp=0 & gs'npcsys_sched_river'
+ns_cp=0 & gs'npcsys_sched_uptown'
+ns_cp=0 & gs'npcsys_sched_downtown'
+ns_cp=0 & gs'npcsys_sched_other'
+ns_cp=0
+! timetable programs without a single rule
+ns_vi=0
+ns_vpn=arrsize('ns_plist')
+:ns_vploop
+if ns_vi<ns_vpn:
+	ns_vp=ns_plist[ns_vi]
+	if nsp_rn[ns_vp]=0:gs'npcsys_err','программа <<ns_vp>> (<<$nsp_nm[ns_vp]>>) без правил'
+end
+ns_vi+=1
+if ns_vi<ns_vpn:jump'ns_vploop'
+killvar 'ns_plist' & killvar 'ns_cvd' & killvar 'ns_cve'
+ns_ready=1

@@ -10,7 +10,7 @@ else
 			in_home[w]=2&tempmechhunger=rand(2,6)
 			if hour>=7 and hour<23:
 				if hunger[w]<=tempmechhunger:
-					$doing[w]='что то мастерит у верстака'&!$loc[w]='home_0'
+					$doing[w]='что то мастерит у верстака'&!$LOC_str[w]='home_0'
 				else
 					mechdoung=0
 					if foodfish>0:mechdoung=1
@@ -18,9 +18,9 @@ else
 					if foodfish=0 and egg=0:mechdoung=0
 					if mechdoung=0:
 						if eggciper[w]=0:
-							eggciper[w]=rand(1,2)&$doing[w]='ходит по камням и ищет птичьи гнезда'&!$loc[w]='isle'
+							eggciper[w]=rand(1,2)&$doing[w]='ходит по камням и ищет птичьи гнезда'&!$LOC_str[w]='isle'
 						else
-							egg+=eggciper[w]&eggciper[w]=0&$doing[w]='жарит яйца стоя у плиты'&!$loc[w]='home_1'
+							egg+=eggciper[w]&eggciper[w]=0&$doing[w]='жарит яйца стоя у плиты'&!$LOC_str[w]='home_1'
 						end
 					else
 						mechdo=0
@@ -28,19 +28,19 @@ else
 						if foodfish=0 and egg>0:mechdo=1
 						if foodfish>0 and egg=0:mechdo=0
 						if mechdo=0:
-							hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&!$loc[w]='home_1'
+							hunger[w]=0&foodfish-=1&$doing[w]='ест рыбу сидя за столом'&!$LOC_str[w]='home_1'
 						else
-							hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&!$loc[w]='home_1'
+							hunger[w]=0&egg-=1&$doing[w]='ест яичницу сидя за столом'&!$LOC_str[w]='home_1'
 						end
 					end
 				end
 			else
-				$doing[w]='спит на кровати'&!$loc[w]='home_5'
+				$doing[w]='спит на кровати'&!$LOC_str[w]='home_5'
 			end
 		else
-			if hour>=7 and hour<=19:$doing[w]='охраняет'&!$loc[w]='forest_village'
-			if hour>=20:$doing[w]='сидит за столом'&!$loc[w]='fv_tavern'
-			if hour<7:$doing[w]='спит'&!$loc[w]='fv_mast'
+			if hour>=7 and hour<=19:$doing[w]='охраняет'&!$LOC_str[w]='forest_village'
+			if hour>=20:$doing[w]='сидит за столом'&!$LOC_str[w]='fv_tavern'
+			if hour<7:$doing[w]='спит'&!$LOC_str[w]='fv_mast'
 		end
 	end
 end

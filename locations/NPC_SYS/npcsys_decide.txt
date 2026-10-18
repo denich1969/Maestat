@@ -1,0 +1,53 @@
+﻿! NPC w decides where to be until its next wake time (the next full hour, give or take a few minutes).
+tormoza+=1
+ns_c_dec+=1
+ns_p=walkprog[w]
+! hooks see ns_at=0 when called from here (planning) and ns_at=1 from npcsys_arrived
+ns_at=0
+nsw_wake[w]=ns_next+rand(0,ns_wake_jitter)
+$LOC_str[w]='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
+! an evening date with a girlfriend or wife comes before the timetable
+nsw_date[w]=0
+if girlfriend_num[w]>0 or husband[w]>0:gs'npcsys_date' & w=ns_w
+if nsw_date[w]=1:
+	if ns_dbg>0:$nsw_why[w]='свидание, домой'
+	$destination[w]='дом'
+	$think[w]='хочет домой'
+	gs'npcsys_resolve'
+	exit
+end
+if nsw_date[w]=2:
+	if ns_dbg>0:$nsw_why[w]='свидание, ждет'
+	$destination[w]='стоп'
+	gs'npcsys_resolve'
+	exit
+end
+party[w]=0
+walker_work_times[w]+=1
+walkOBR[w]+=1
+if walkOBR[w]>100:walkOBR[w]=1
+! the program chosen by walkprog
+if nsp_k[ns_p]=3:ns_p=dyneval('result='+$nsp_sc[ns_p])
+if ns_dbg>0:
+	$nsw_why[w]='программа <<ns_p>> не описана, стоит'
+	if nsp_k[ns_p]=1:$nsw_why[w]='программа <<ns_p>>: ни одно правило не подошло'
+	if nsp_k[ns_p]=2:$nsw_why[w]='программа <<ns_p>>: скрипт <<$nsp_sc[ns_p]>>'
+end
+if ns_p=0:
+	! no program: stroll around the neighbourhood
+	if ns_dbg>0:$nsw_why[w]='нет программы, гуляет рядом'
+	$destination[w]=''
+	gs'npcsys_resolve'
+	nsw_mode[w]=2
+	exit
+end
+if nsp_k[ns_p]=1:gs'npcsys_rules' & w=ns_w
+if nsp_k[ns_p]=2:
+	$ns_code=$nsp_sc[ns_p]
+	dynamic $ns_code
+	w=ns_w
+	$destination[w]='стоп'
+end
+if nsp_k[ns_p]=0:$destination[w]='стоп'
+if $nsp_hk[ns_p]<>'':gs $nsp_hk[ns_p] & w=ns_w
+gs'npcsys_resolve'

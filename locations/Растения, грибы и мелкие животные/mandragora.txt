@@ -1,12 +1,12 @@
 ﻿gs'stat'&'<center><img src="pic/loc/ras/mandragora.jpg" ></center>'&'Кусты Мандрагоры'
-if last_mandragora['<<$loc[you]>>']=0 and day_mandragora['<<$loc[you]>>']!daystart:last_mandragora['<<$loc[you]>>']=rand(0,1)&day_mandragora['<<$loc[you]>>']=daystart
-if last_mandragora['<<$loc[you]>>']>0:
+if last_mandragora['<<$LOC_str[you]>>']=0 and day_mandragora['<<$LOC_str[you]>>']!daystart:last_mandragora['<<$LOC_str[you]>>']=rand(0,1)&day_mandragora['<<$LOC_str[you]>>']=daystart
+if last_mandragora['<<$LOC_str[you]>>']>0:
 	'На кустах растут цветы'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Сорвать пучок с цветами':item_loc['58,<<$loc[you]>>']+=1&time+=5&last_mandragora['<<$loc[you]>>']=0&'вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта'
+		act'Сорвать пучок с цветами':item_loc['58,<<$LOC_str[you]>>']+=1&time+=5&last_mandragora['<<$LOC_str[you]>>']=0&'вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта'
 		act'Собирать цветки мандрагоры':
-			time+=30&cls&gs'walker'&gs'stat'&last_mandragora['<<$loc[you]>>']=0&item_loc['58,<<$loc[you]>>']+=max(1,lvltravnik[you])&day_mandragora['<<$loc[you]>>']=daystart
-			"В течение получаса вы собирали мандрагору и собрали <<item_loc['58,<<$loc[you]>>']>> порций"&mandragoranum=item_loc['58,<<$loc[you]>>']+item['58']
+			time+=30&cls&gs'walker'&gs'stat'&last_mandragora['<<$LOC_str[you]>>']=0&item_loc['58,<<$LOC_str[you]>>']+=max(1,lvltravnik[you])&day_mandragora['<<$LOC_str[you]>>']=daystart
+			"В течение получаса вы собирали мандрагору и собрали <<item_loc['58,<<$LOC_str[you]>>']>> порций"&mandragoranum=item_loc['58,<<$LOC_str[you]>>']+item['58']
 			'Всего у вас <<mandragoranum>> порций мандрагоры'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

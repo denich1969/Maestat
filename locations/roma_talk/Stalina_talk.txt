@@ -1,4 +1,4 @@
-﻿$loc[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Студия Стальная Роза</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
+﻿$LOC_str[you]=$curloc&gs'stat'&loc_for_drop=0&'<b><center>Студия Стальная Роза</center></b>'&!'<center><img src="pic/loc/forest/t_tabern.jpg" ></center>'
 'В студии предлагают любое оборудование для содержания рабынь, клетки, цепи и прочее.'&gs'npconloc'&gs'item'
 if strapon=0:
 	'Продается набор страпонов за 100 искр'

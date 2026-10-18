@@ -1,0 +1,63 @@
+﻿! One random move of NPC w. Mode 1 ('прогулка') may also enter and leave buildings;
+! mode 2 (no program) stays on its streets, or inside its building.
+ns_vis=0
+if X[w]=X[you] and Y[w]=Y[you] and Z[w]=Z[you] and H[w]=H[you]:ns_vis=1
+ns_full=0
+if nsw_mode[w]=1:ns_full=1
+ns_rt=rand(0,2+ns_full)
+if H[w]>0:
+	if ns_rt=1 and R[w]>0:
+		if ns_vis=1:gs'npcsys_say','выходит из комнаты'
+		R[w]=0
+	elseif ns_rt=2 and R[w]=0:
+		ns_mx=maxPositionR['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>']
+		if ns_mx>0:
+			R[w]=rand(1,ns_mx)
+			if ns_vis=1:gs'npcsys_say','идет '+$lname_go['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']
+		end
+	elseif ns_rt=3 and R[w]=0:
+		if ns_vis=1:gs'npcsys_say','выходит на улицу'
+		H[w]=0
+	end
+	exit
+end
+$ns_verb=$iif(canfly[w]=0,'идет','летит')
+$ns_here='<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>'
+if ns_rt=1:
+	if rand(0,1)=0:
+		if $locname['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']<>'' and e_wall_num[$ns_here]=0 and privat['<<X[w]+1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			if ns_vis=1:gs'npcsys_say',$ns_verb+' на восток'
+			X[w]+=1
+		end
+	else
+		if $locname['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']<>'' and w_wall_num[$ns_here]=0 and privat['<<X[w]-1>>,<<Y[w]>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			if ns_vis=1:gs'npcsys_say',$ns_verb+' на запад'
+			X[w]-=1
+		end
+	end
+elseif ns_rt=2:
+	if rand(0,1)=0:
+		if $locname['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']<>'' and n_wall_num[$ns_here]=0 and privat['<<X[w]>>,<<Y[w]+1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			if ns_vis=1:gs'npcsys_say',$ns_verb+' на север'
+			Y[w]+=1
+		end
+	else
+		if $locname['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']<>'' and s_wall_num[$ns_here]=0 and privat['<<X[w]>>,<<Y[w]-1>>,<<Z[w]>>,<<H[w]>>,<<R[w]>>']=0:
+			if ns_vis=1:gs'npcsys_say',$ns_verb+' на юг'
+			Y[w]-=1
+		end
+	end
+elseif ns_rt=3:
+	! into one of the buildings of this block (a private one only if it is the NPCs home)
+	ns_mx=maxPositionH['<<X[w]>>,<<Y[w]>>,<<Z[w]>>']
+	if ns_mx>0:
+		ns_hr=rand(1,ns_mx)
+		if lock['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<ns_hr>>']=0:
+			if privat['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<ns_hr>>,0']=0 or (X[w]=Xhome[w] and Y[w]=Yhome[w] and Z[w]=Zhome[w] and ns_hr=Hhome[w]):
+				if ns_vis=1:gs'npcsys_say','идет '+$lname_go['<<X[w]>>,<<Y[w]>>,<<Z[w]>>,<<ns_hr>>,0']
+				H[w]=ns_hr
+				R[w]=0
+			end
+		end
+	end
+end

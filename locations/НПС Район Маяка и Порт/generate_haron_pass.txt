@@ -46,4 +46,4 @@ if poltemp=1:
 	if subslut[i]=1:t_slot[i]=rand(31,36)&l_slot[i]=rand(15,22)&b_slot[i]=rand(8,11)&!stamp_t[i]=rand(1,4)
 	if femwhore[i]=1:t_slot[i]=rand(31,36)&l_slot[i]=rand(45,51)&b_slot[i]=rand(8,11)&!stamp_t[i]=rand(1,4)
 end
-Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=0&R[i]=0&$loc[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&n_world[]=i&walkprog[i]=31
+Xhome[i]=3&Yhome[i]=0&Zhome[i]=1&Hhome[i]=2&Rhome[i]=0&X[i]=3&Y[i]=0&Z[i]=1&H[i]=0&R[i]=0&$LOC_str[i]='<<X[i]>>,<<Y[i]>>,<<Z[i]>>,<<H[i]>>,<<R[i]>>'&n_world[]=i&walkprog[i]=31

@@ -84,8 +84,8 @@ else
 	*p'<tr>'
 	*p'<<func("generate_links","ENABLE_V_SIZE")>>'
 	*p'<td width="100%">Установить фиксированный размер видео/картинок. Т.е. мелкие видео/картинки будут скэйлится а большие уменьшаться до установленных значений.
-	<b>ВИДЕО:</b> ШИРИНА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''VIDEO_WIDTH'', ''auto'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG[''VIDEO_WIDTH'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a> | ВЫСОТА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''VIDEO_HEIGHT'', ''АВТО'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG[''VIDEO_HEIGHT'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a>
-	<b>КАРТИНКИ:</b> ШИРИНА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''IMG_WIDTH'', ''auto'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG[''IMG_WIDTH'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a> | ВЫСОТА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''IMG_HEIGHT'', ''АВТО'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG[''IMG_HEIGHT'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a>
+	<b>ВИДЕО:</b> ШИРИНА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''VIDEO_WIDTH'', ''auto'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG_str[''VIDEO_WIDTH'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a> | ВЫСОТА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''VIDEO_HEIGHT'', ''АВТО'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG_str[''VIDEO_HEIGHT'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a>
+	<b>КАРТИНКИ:</b> ШИРИНА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''IMG_WIDTH'', ''auto'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG_str[''IMG_WIDTH'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a> | ВЫСОТА -> <a href="exec:gs ''util_func'',''SHOW_INPUT_FOR_V_SIZE'',''IMG_HEIGHT'', ''АВТО'' & gt $curloc"><font color=green>УСТАНОВИТЬ</font></a> &#8596 <a href="exec:$CONFIG_str[''IMG_HEIGHT'']=''auto'' & CONFIG[''UPDATE_CSS'']=1 & gt $curloc"><font color=green>АВТО</font></a>
 	<i>Рекомендую оставить "высоту" на авто, т.к. если установить не пропорциональное значение высоты - вертикальные видео/картики будут выглядеть не правильно.</i>
 	По умолчанию: <font color=#be2919>Отключено</font>.</td>'
 	*p'<td align="center"><a href="exec:msg(''Для видео используется просто ширина/высота, т.е. при установке обоих значений на 500, видео которые имеют разрешение ниже 500px будут растягиваться а те, что больше 500px будут уменьшены. Для картинок используется лимит по максимальной высоте/ширине, т.е. если мы установим оба значения на 500px, то для иконки 15 на 15 - никаких изменений не будет, но большая картинка выше 500px будет уменьшена до 500px.'')">[?]</a></td>'
@@ -172,8 +172,8 @@ if newFS=1:*p'<td width="100%">Выключить новую боевку<br>П�
 !* -------------------------------------------------------------------------- *!
 !*                              МЕНЮ НАСТРОЕК:END                             *!
 !* -------------------------------------------------------------------------- *!
-If UCASE($loc)='START' or UCASE($loc)='ACHTUNG':
-	'<center><a href="exec:gt''<<$loc>>''"><H2><div><u>Вернуться</u></div></H2></a></center>'
+If UCASE($LOC_str)='START' or UCASE($LOC_str)='ACHTUNG':
+	'<center><a href="exec:gt''<<$LOC_str>>''"><H2><div><u>Вернуться</u></div></H2></a></center>'
 else
 	act'<b><font color="green">&#11164;&#11164;&#11164;</font> Назад</b>':dynamic "<<$ARGS['GT_WHERE']>>"
 end

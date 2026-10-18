@@ -1,6 +1,6 @@
 ﻿cls
 if burden[you]+item_burden[ARGS[0]]*10<=burdenmax[you]:
-	item_loc['<<ARGS[0]>>,<<$loc[you]>>']-=10&item[ARGS[0]]+=10&burden[you]+=item_burden[ARGS[0]]*10&!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
+	item_loc['<<ARGS[0]>>,<<$LOC_str[you]>>']-=10&item[ARGS[0]]+=10&burden[you]+=item_burden[ARGS[0]]*10&!msg("Взят итем №<<dat_item>> <<$item_name[dat_item]>>")
 else
 	msg("Слишком тяжело")
 end

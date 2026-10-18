@@ -5,6 +5,6 @@ clopayment=10000&if sexy_h[clo]>=5:clopayment+=sexy_h[clo]*1000
 'Цена <<clopayment/100>> шиллингов'
 if money[you]>=clopayment:
     act'Купить <<clopayment/100>> шиллингов':
-		cls&money[you]-=clopayment&hathere['<<clo>>,<<$loc[you]>>']=0&burden[you]+=item_h_burden[clo]&item_h[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
+		cls&money[you]-=clopayment&hathere['<<clo>>,<<$LOC_str[you]>>']=0&burden[you]+=item_h_burden[clo]&item_h[clo]+=1&gs'stat'&'Вы оплачиваете товар и забираете его'&act'...':gt 'preloc'
     end
 end

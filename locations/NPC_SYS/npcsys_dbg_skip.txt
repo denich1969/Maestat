@@ -1,0 +1,14 @@
+﻿! Debug: counts why NPC w may not walk now (npcsys_pass calls it only while ns_dbg>0).
+if cantwalk[w]<>0:
+	ns_c_cw+=1
+elseif follower[w]<>0:
+	ns_c_fol+=1
+elseif immobilaze[w]<>0:
+	ns_c_imm+=1
+elseif age[w]<=0:
+	ns_c_age+=1
+elseif mob_busy[w]<>0:
+	ns_c_busy+=1
+else
+	ns_c_cool+=1
+end

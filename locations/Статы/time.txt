@@ -69,7 +69,7 @@ if hour >= 24:
 	if princessdaystart>0 and Z[you]>=700 and Z[you]<800 and you=prinsess:princessdaystart+=1
 	!if daystartobsession>0 and Z[you]>=700 and Z[you]<800:daystartobsession+=1
 	sumdaystart=daystart+realdaystart+romadaystart+daystartobsession+princessdaystart
-	week+=1&hour-=24&hlong[you]+=1&paidnpc=1&npcmax=arrsize('$name')&!зарплата НПС и переодевание 19.04.2026
+	week_num+=1&hour-=24&hlong[you]+=1&paidnpc=1&npcmax=arrsize('$name')&!зарплата НПС и переодевание 19.04.2026
 	payday1=rand(200,300)&payday2=rand(250,500)&payday3=rand(300,600)&payday4=rand(400,700)&payday5=rand(500,800)&payday6=rand(500,1000)&payday7=rand(800,1300)
 	if daylypaymantdone=0:
 		:paynpc
@@ -229,40 +229,40 @@ if hour >= 24:
 	npcnum+=1&if npcnum<=maxnpcnum: jump'fixhp'
 	daylypaymantdone=0
 end
-if month=1 or month=3 or month=5 or month=7 or month=8 or month=10 or month=12:
-	if day>31:day-=31&month+=1&!31
-elseif month=2:
-	if day>28:day-=28&month+=1&!28
-elseif month = 0:
-	month=1&if day>31:day-=31&month+=1
-elseif month = 13:
-	month=1&if day>31:day-=31&month+=1
+if month_num=1 or month_num=3 or month_num=5 or month_num=7 or month_num=8 or month_num=10 or month_num=12:
+	if day>31:day-=31&month_num+=1&!31
+elseif month_num=2:
+	if day>28:day-=28&month_num+=1&!28
+elseif month_num=0:
+	month_num=1&if day>31:day-=31&month_num+=1
+elseif month_num=13:
+	month_num=1&if day>31:day-=31&month_num+=1
 else
-	if day>30:day-=30&month+=1&!30
+	if day>30:day-=30&month_num+=1&!30
 end
 if day=0:day=1
-if week > 7:
+if week_num>7:
 	:loopweek
-	set week-=7&if week > 7:jump 'loopweek'
+	set week_num-=7&if week_num>7:jump 'loopweek'
 end
-if week = 1:Set $week = 'Понедельник'
-if week = 2:Set $week = 'Вторник'
-if week = 3:Set $week = 'Среда'
-if week = 4:Set $week = 'Четверг'
-if week = 5:Set $week = 'Пятница'
-if week = 6:Set $week = 'Суббота'
-if week = 7:Set $week = 'Воскресенье'
-if month = 0:Set month = 1
-if month = 13:Set month = 1&year+=1
-If month = 1:set $month = 'Январь'
-If month = 2:set $month = 'Февраль'
-If month = 3:set $month = 'Март'
-If month = 4:set $month = 'Апрель'
-If month = 5:set $month = 'Май'
-If month = 6:set $month = 'Июнь'
-If month = 7:set $month = 'Июль'
-If month = 8:set $month = 'Август'
-If month = 9:set $month = 'Сентябрь'
-If month = 10:set $month = 'Октябрь'
-If month = 11:set $month = 'Ноябрь'
-If month = 12:set $month = 'Декабрь'
+if week_num=1:Set $week='Понедельник'
+if week_num=2:Set $week='Вторник'
+if week_num=3:Set $week='Среда'
+if week_num=4:Set $week='Четверг'
+if week_num=5:Set $week='Пятница'
+if week_num=6:Set $week='Суббота'
+if week_num=7:Set $week='Воскресенье'
+if month_num= 0:Set month_num=1
+if month_num=13:Set month_num=1&year+=1
+If month_num=1:set $month='Январь'
+If month_num=2:set $month='Февраль'
+If month_num=3:set $month='Март'
+If month_num=4:set $month='Апрель'
+If month_num=5:set $month='Май'
+If month_num=6:set $month='Июнь'
+If month_num=7:set $month='Июль'
+If month_num=8:set $month='Август'
+If month_num=9:set $month='Сентябрь'
+If month_num=10:set $month='Октябрь'
+If month_num=11:set $month='Ноябрь'
+If month_num=12:set $month='Декабрь'

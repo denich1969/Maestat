@@ -14,10 +14,10 @@ if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG[
 					if insmouth_loc_num>0 and X[you]=3 and Y[you]=1 and Z[you]=1 and H[you]=1 and pol[you]>0:
 						if rand(1,6)=3 and horny[you]>70:							 
 							 :loop
-								if item_loc_l['<<cloint>>,<<$loc[you]>>']>0:item_loc_l['<<cloint>>,<<$loc[you]>>']=0							
-								if item_loc_t['<<cloint>>,<<$loc[you]>>']>0:item_loc_t['<<cloint>>,<<$loc[you]>>']=0
-								if item_loc_b['<<cloint>>,<<$loc[you]>>']>0:item_loc_b['<<cloint>>,<<$loc[you]>>']=0
-								if item_loc_ul['<<cloint>>,<<$loc[you]>>']>0:item_loc_ul['<<cloint>>,<<$loc[you]>>']=0
+								if item_loc_l['<<cloint>>,<<$LOC_str[you]>>']>0:item_loc_l['<<cloint>>,<<$LOC_str[you]>>']=0							
+								if item_loc_t['<<cloint>>,<<$LOC_str[you]>>']>0:item_loc_t['<<cloint>>,<<$LOC_str[you]>>']=0
+								if item_loc_b['<<cloint>>,<<$LOC_str[you]>>']>0:item_loc_b['<<cloint>>,<<$LOC_str[you]>>']=0
+								if item_loc_ul['<<cloint>>,<<$LOC_str[you]>>']>0:item_loc_ul['<<cloint>>,<<$LOC_str[you]>>']=0
 							cloint+=1&if cloint<100:jump 'loop'
 							'Вам послышалось, что кто-то снаружи трогает выши вещи... Однако это могло и показаться из-за шума воды.'						 
 						else
@@ -31,7 +31,7 @@ if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG[
 					act'...':gt $curloc
 					if cloint>0:
 						msg('Похоже вашу одежду и часть денег кто-то украл... точнее не украл, а заменил...')&money[you]-=iif((money[you]/10)>5000,5000,money[you]/10)
-						item_loc_l['<<rand(87,89)>>,<<$loc[you]>>']=1&item_loc_t['<<rand(31,34)>>,<<$loc[you]>>']=1&item_loc_b['<<rand(17,22)>>,<<$loc[you]>>']=1&cloint=0
+						item_loc_l['<<rand(87,89)>>,<<$LOC_str[you]>>']=1&item_loc_t['<<rand(31,34)>>,<<$LOC_str[you]>>']=1&item_loc_b['<<rand(17,22)>>,<<$LOC_str[you]>>']=1&cloint=0
 					end
 					if horny[you]>=50 and energy[you]>=5 and vag[you]>0:
 						act'Тереть клитор':
@@ -47,40 +47,40 @@ if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG[
 			'Моются голыми, вам нужно раздеться догола.'
 			act'Раздеться догола':
 				if h_slot[you]>0:
-					clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$loc[you]>>']+=1&h_slot[you]=0
+					clo=h_slot[you]&if ban_h[you]=0:item_loc_h['<<clo>>,<<$LOC_str[you]>>']+=1&h_slot[you]=0
 				end
 				 !{if m_slot[you]>0:
-					clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$loc[you]>>']+=1&m_slot[you]=0
+					clo=m_slot[you]&if ban_m[you]=0:item_loc_m['<<clo>>,<<$LOC_str[you]>>']+=1&m_slot[you]=0
 				end
 				 if w_slot[you]>0:
-					clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$loc[you]>>']+=1&w_slot[you]=0
+					clo=w_slot[you]&if ban_w[you]=0:item_loc_w['<<clo>>,<<$LOC_str[you]>>']+=1&w_slot[you]=0
 				end}
 				if c_slot[you]>0:
-					clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$loc[you]>>']+=1&c_slot[you]=0
+					clo=c_slot[you]&if ban_c[you]=0:item_loc_c['<<clo>>,<<$LOC_str[you]>>']+=1&c_slot[you]=0
 				end
 				 if tz_slot[you]>0:
-					clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$loc[you]>>']+=1&tz_slot[you]=0
+					clo=tz_slot[you]&if ban_tz[you]=0:item_loc_tz['<<clo>>,<<$LOC_str[you]>>']+=1&tz_slot[you]=0
 				end
 				if tg_slot[you]>0:
-					clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$loc[you]>>']+=1&tg_slot[you]=0
+					clo=tg_slot[you]&if ban_tg[you]=0:item_loc_tg['<<clo>>,<<$LOC_str[you]>>']+=1&tg_slot[you]=0
 				end
 				if t_slot[you]>0:
-					clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$loc[you]>>']+=1&t_slot[you]=0
+					clo=t_slot[you]&if ban_t[you]=0:item_loc_t['<<clo>>,<<$LOC_str[you]>>']+=1&t_slot[you]=0
 				end
 				if l_slot[you]>0:
-					clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$loc[you]>>']+=1&l_slot[you]=0
+					clo=l_slot[you]&if ban_l[you]=0:item_loc_l['<<clo>>,<<$LOC_str[you]>>']+=1&l_slot[you]=0
 				end
 				if b_slot[you]>0:
-					clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$loc[you]>>']+=1&b_slot[you]=0
+					clo=b_slot[you]&if ban_b[you]=0:item_loc_b['<<clo>>,<<$LOC_str[you]>>']+=1&b_slot[you]=0
 				end
 				if ut_slot[you]>0:
-					clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$loc[you]>>']+=1&ut_slot[you]=0
+					clo=ut_slot[you]&if ban_ut[you]=0:item_loc_ut['<<clo>>,<<$LOC_str[you]>>']+=1&ut_slot[you]=0
 				end
 				if ul_slot[you]>0:
-					clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$loc[you]>>']+=1&ul_slot[you]=0
+					clo=ul_slot[you]&if ban_ul[you]=0:item_loc_ul['<<clo>>,<<$LOC_str[you]>>']+=1&ul_slot[you]=0
 				end
 				if ub_slot[you]>0:
-					clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$loc[you]>>']+=1&ub_slot[you]=0
+					clo=ub_slot[you]&if ban_ub[you]=0:item_loc_ub['<<clo>>,<<$LOC_str[you]>>']+=1&ub_slot[you]=0
 				end
 				gt $curloc
 			end

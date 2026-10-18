@@ -1,4 +1,4 @@
-﻿cls&item_loc['<<ARGS[0]>>,<<$loc[you]>>']-=1
+﻿cls&item_loc['<<ARGS[0]>>,<<$LOC_str[you]>>']-=1
 if $ARGS[1]='t':t_slot[you]=ARGS[0]
 if $ARGS[1]='l':l_slot[you]=ARGS[0]
 if $ARGS[1]='b':b_slot[you]=ARGS[0]

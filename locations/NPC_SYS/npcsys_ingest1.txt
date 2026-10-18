@@ -1,0 +1,21 @@
+﻿! Registers the NPCs of one old list ($args[0]) that are not known yet.
+! Each NPC is registered once, however many lists (or duplicate entries) it appears in.
+$ns_lname=$args[0]
+ns_lsize=arrsize($ns_lname)
+ns_li=ns_seen[$ns_lname]
+if ns_li>ns_lsize:ns_li=0
+:ns_ingloop
+if ns_li<ns_lsize:
+	ns_lw=dyneval('result=<<$ns_lname>>[<<ns_li>>]')
+	if ns_lw>0:
+		if ns_known[ns_lw]=0:
+			ns_known[ns_lw]=1
+			ns_list[]=ns_lw
+			ns_dirty=1
+			nsu_next[ns_lw]=time+rand(0,ns_upk_act)
+		end
+	end
+end
+ns_li+=1
+if ns_li<ns_lsize:jump'ns_ingloop'
+ns_seen[$ns_lname]=ns_lsize

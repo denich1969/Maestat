@@ -4,7 +4,7 @@
 	if follower[npc]!you and alko[npc]<10:'Следует за кем-то'
 	if follower[npc]!you and alko[npc]>9:'Тащится с чьей-то помощью'
 	if sex_follow[you]=npc:
-		if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0) and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+		if dick[you]>0 and horny[you]>=50 and (womenbrain[you]<75 or demon_dick[you]>0) and blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:
 			if gender[npc]>0:
 				if total_npc_on_loc>1 and whore[npc]=0 and demon_dick_queen[npc]!you:
 					act'Я хочу заняться с тобой сексом':
@@ -12,13 +12,13 @@
 					end
 				else
 					act'Я хочу занятся с тобой сексом':
-						friends[npc]+=1&gs'drop_follower'&gs'sexpower'&if blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:sistersex+=iif(sluttySisQW=3 and npc=sister and you=brother,1,0)&gt'justsex'
-						if blocksex['<<$loc[you]>>']=1 or blocksexH['<<$loc[you]>>']=1:'Здесь запрещено, идём в другое место'&gt $curloc
+						friends[npc]+=1&gs'drop_follower'&gs'sexpower'&if blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:sistersex+=iif(sluttySisQW=3 and npc=sister and you=brother,1,0)&gt'justsex'
+						if blocksex['<<$LOC_str[you]>>']=1 or blocksexH['<<$LOC_str[you]>>']=1:'Здесь запрещено, идём в другое место'&gt $curloc
 					 end
 				end
 			end
 		end
-		if dick[npc]>1 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+		if dick[npc]>1 and blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:
 			if total_npc_on_loc>1:
 			    if hubby>0 and hubby!npc:
 					act'Трахни меня при муже, он куколд':
@@ -60,7 +60,7 @@
 				end
         	end
         else
-			if dick[you]=1 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+			if dick[you]=1 and blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:
 				act'Возьми меня':
 					if you=mother and npc=father and MinetDocha=3:
 						cls&gs'stat'&'<center><img src="<<$d_view>>" ></center>'&'<<$name[npc]>> - милая, ну не издевайся, ты же знаешь что случилось... Я сейчас не могу...'
@@ -71,7 +71,7 @@
 				end
 			end
 		end
-		if vag[you]>0 and vag[npc]>0 and blocksex['<<$loc[you]>>']=0 and blocksexH['<<$loc[you]>>']=0:
+		if vag[you]>0 and vag[npc]>0 and blocksex['<<$LOC_str[you]>>']=0 and blocksexH['<<$LOC_str[you]>>']=0:
 		    lesboBlock=0&if cuntmanQW=1 and npc=mother and you=father and wifeKnowCunt=0:lesboBlock=1&$acttwosex='Вылижи мне'&if dick[you]>3:$acttwosex='Я хочу секса'
 		    if lesboBlock=0:
 				act'<<$acttwosex>>':

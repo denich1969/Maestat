@@ -7,6 +7,6 @@ if vag[args[0]]>=75 and vag[args[0]]<90:$vag_txt[args[0]]='<<$name[args[0]]>> и
 if vag[args[0]]>=90 and vag[args[0]]<110:$vag_txt[args[0]]='<<$name[args[0]]>> имеет рыхлую мягкую пизду, регулярно принимающую толстые крепкие хуи'&vag_pic[args[0]]=6
 if vag[args[0]]>=110 and vag[args[0]]<160:$vag_txt[args[0]]='<<$name[args[0]]>> имеет раздолбанную широкую сочащуюся пизду, часто принимающую толстые крепкие хуи, иногда сразу по несколько'&vag_pic[args[0]]=7
 if vag[args[0]]>=161:$vag_txt[args[0]]='<<$name[args[0]]>> имеет широченную, как зияющая пропасть, пиздень шлюхи, разъёбаную множеством хуёв во время ежедневных секс-марафонов'&vag_pic[args[0]]=8
-if skin[args[0]]>3:$vag_pic[args[0]]='<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[args[0]]>><<vag_pic[args[0]]>>.jpg"  width="100" height="100"></center>'
-if skin[args[0]]<4:$vag_pic[args[0]]='<center><img src="pic/vag/<<vag_tipe[args[0]]>><<vag_pic[args[0]]>>.jpg"  width="100" height="100"></center>'
-$vag_txt[args[0]]+=$vag_pic[args[0]]
+if skin[args[0]]>3:$vag_pic_str[args[0]]='<center><img src="pic/vag/<<$colorSkin>><<vag_tipe[args[0]]>><<vag_pic[args[0]]>>.jpg"  width="100" height="100"></center>'
+if skin[args[0]]<4:$vag_pic_str[args[0]]='<center><img src="pic/vag/<<vag_tipe[args[0]]>><<vag_pic[args[0]]>>.jpg"  width="100" height="100"></center>'
+$vag_txt[args[0]]+=$vag_pic_str[args[0]]

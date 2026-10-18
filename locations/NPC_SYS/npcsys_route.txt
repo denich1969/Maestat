@@ -1,0 +1,10 @@
+﻿! Defines a route: a named option list that rules use as #name (for example the option #досуг_гопник).
+! $args[0]=name, $args[1]=options in the rule format (may use routes defined above it).
+! The options are checked once here; rules get them pasted in when they are built (no runtime cost).
+$ns_vt='маршрут «<<$args[0]>>»'
+if $args[0]='':gs'npcsys_err','маршрут без имени'
+if instr($args[0],'|')>0 or instr($args[0],'?')>0:gs'npcsys_err',$ns_vt+': в имени нельзя | и ?'
+if $nsrt[$args[0]]<>'':gs'npcsys_err',$ns_vt+' задан дважды'
+$ns_vto=$func('npcsys_expand',$args[1],$ns_vt)
+gs'npcsys_chkopts',$ns_vto,$ns_vt,0
+$nsrt[$args[0]]=$ns_vto

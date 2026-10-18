@@ -10,7 +10,7 @@ if tentakl=0:
 				if long_l[l_slot[you]]<2 and l_tipe[l_slot[you]]=0:
 					if long_l[l_slot[you]]>0:'<<$nick[npc]>> щупальцами задирает вашую юбку на поясницу.'
 				else
-					'<<$nick[npc]>> щупальцами рвёт ваши штаны.'&l_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1
+					'<<$nick[npc]>> щупальцами рвёт ваши штаны.'&l_slot[you]=0&item_loc['1,<<$LOC_str[you]>>']+=1
 				end
 			end
 		end
@@ -19,7 +19,7 @@ if tentakl=0:
 end
 if tentakl=1:
     if ul_slot[you]>0:
-		ul_slot[you]=0&item_loc['1,<<$loc[you]>>']+=1&'Щупальца рвут в клочья ваши трусы'&act'Прекрати!':tentakl=2&gt $curloc
+		ul_slot[you]=0&item_loc['1,<<$LOC_str[you]>>']+=1&'Щупальца рвут в клочья ваши трусы'&act'Прекрати!':tentakl=2&gt $curloc
     else
 		tentakl=2&gt $curloc
     end
@@ -42,11 +42,11 @@ if tentakl=2:
 			'Второе щупальце раздвигает ваши челюсти и входит в ваш рот, оно проникает все глубже в горло и начинает накачивать вас слизью. '
 			'Щупальце проникшее вам в анус начинает набухать и вы чувствуете, как болезненно раздвигая ваш анус, вам в попку входят яйца тентакля. '
 			'Отложив внутрь вас яйцо тентакль вытаскивает из вас щупальце и швыряет вас на землю. Вы чувствуете, как теряете часть своей души'&tentakl=10&anal_egg_timer[you]=10&anal_egg[you]=1
-			horny[you]=100&tentacle[you]+=1&feminize[you]+=rand(3,6)&cum['<<$loc[you]>>']=time+120&!status_tipe[you]=2&status_time[you]=time+520
+			horny[you]=100&tentacle[you]+=1&feminize[you]+=rand(3,6)&cum['<<$LOC_str[you]>>']=time+120&!status_tipe[you]=2&status_time[you]=time+520
 			act'Аааа...':tentakl=10&gt $curloc
 		else
 			'<<$nick[npc]>>, чувствуя в вашей заднице другое яйцо, выдергивает щупальце пачкая вас своей слизью'
-			horny[you]=100&tentacle[you]+=1&feminize[you]+=rand(3,6)&cum['<<$loc[you]>>']=time+120
+			horny[you]=100&tentacle[you]+=1&feminize[you]+=rand(3,6)&cum['<<$LOC_str[you]>>']=time+120
 			 gs'soulcraft',5&t_bj[you]+=1&gs'stat'&'<center><video autoplay loop src="pic/sex/rape/tent_blow.webm" ></video></center>'
 			 'Щупальца скрутили вас и словно обнюхали, после чего щупальце с силой вторглось в ваш рот и начало накачивать вас своей слизью. Вы чувствуете что теряете часть своей души'
 			 act'Фууу':tentakl=10&gt $curloc

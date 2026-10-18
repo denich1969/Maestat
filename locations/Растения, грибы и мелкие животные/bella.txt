@@ -1,12 +1,12 @@
 ﻿gs'stat'&'<center><img src="pic/loc/ras/bella.jpg" ></center>'&'Кусты беладонны.'
-if last_bella['<<$loc[you]>>']=0 and day_bella['<<$loc[you]>>']!daystart:last_bella['<<$loc[you]>>']=rand(0,1)&day_bella['<<$loc[you]>>']=daystart
-if last_bella['<<$loc[you]>>']>0:
+if last_bella['<<$LOC_str[you]>>']=0 and day_bella['<<$LOC_str[you]>>']!daystart:last_bella['<<$LOC_str[you]>>']=rand(0,1)&day_bella['<<$LOC_str[you]>>']=daystart
+if last_bella['<<$LOC_str[you]>>']>0:
 	'На кустах растут цветы'
 	if (pose[you]=1 and CONFIG['DISABLE_position']=0) or (energy[you]>=1 and CONFIG['DISABLE_position']=1):
-		act'Сорвать пучок с цветами':item_loc['38,<<$loc[you]>>']+=1&time+=5&last_bella['<<$loc[you]>>']=0&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
+		act'Сорвать пучок с цветами':item_loc['38,<<$LOC_str[you]>>']+=1&time+=5&last_bella['<<$LOC_str[you]>>']=0&'Вы быстро срываете пучок, на который случайно наткнулись, не получая никакого опыта.'
 		act'Собирать цветы беладонны':
-			time+=30&cls&gs'walker'&gs'stat'&last_bella['<<$loc[you]>>']=0&item_loc['38,<<$loc[you]>>']+=max(1,lvltravnik[you])&day_bella['<<$loc[you]>>']=daystart
-			"В течение получаса вы собирали беладонну и собрали <<item_loc['38,<<$loc[you]>>']>> порций"&bellanum=item_loc['38,<<$loc[you]>>']+item['38']
+			time+=30&cls&gs'walker'&gs'stat'&last_bella['<<$LOC_str[you]>>']=0&item_loc['38,<<$LOC_str[you]>>']+=max(1,lvltravnik[you])&day_bella['<<$LOC_str[you]>>']=daystart
+			"В течение получаса вы собирали беладонну и собрали <<item_loc['38,<<$LOC_str[you]>>']>> порций"&bellanum=item_loc['38,<<$LOC_str[you]>>']+item['38']
 			'Всего у вас <<bellanum>> порций беладонны'
 			if fat[you]>10:fat[you]-=1
 			if fat[you]>100:fat[you]-=1

@@ -11,4 +11,4 @@ womenbrain[i]=rand(90,100)&bisex[i]=1&agro[i]=10&selfrespect[i]=0&positiv[i]=0&e
 girl[dj]+=1&guy[i]+=1&sexpartner['<<i>>,<<dj>>']+=100&sexpartner['<<dj>>,<<i>>']+=100&vagsex[i]+=100&avagsex[dj]+=100&anal[i]+=100&aanal[dj]+=100&bj[i]+=100&abj[dj]+=100
 husband[i]=brokk&husband[dj]=i&sexpartner_num_m['<<i>>,<<guy[i]>>']=dj&sexpartner_num_f['<<dj>>,<<girl[dj]>>']=i
 t_slot[i]=28&l_slot[i]=23&b_slot[i]=13&ut_slot[i]=rand(1,3)&ul_slot[i]=rand(1,4)&ub_slot[i]=9&!l_hand_t[i]=3&nose_p[i]=1
-X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=43
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=43

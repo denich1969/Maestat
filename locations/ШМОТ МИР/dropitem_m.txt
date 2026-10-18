@@ -1,1 +1,1 @@
-﻿clr&item_m[args[0]]-=1&burden[you]-=item_m_burden[args[0]]&item_loc_m['<<args[0]>>,<<$loc[you]>>']+=1&gt 'world'
+﻿clr&item_m[args[0]]-=1&burden[you]-=item_m_burden[args[0]]&item_loc_m['<<args[0]>>,<<$LOC_str[you]>>']+=1&gt 'world'

@@ -9,4 +9,4 @@ health[i]=healthmax[i]&mana[i]=manamax[i]&mana[i]=0&energy[i]=energymax[i]&minur
 pol[i]=0&gs'body'&total_generated_male+=1
 womenbrain[i]=rand(0,10)&bisex[i]=0&agro[i]=30&selfrespect[i]=1&positiv[i]=1&extrovert[i]=0&ratio[i]=2&brave[i]=1&lust[i]=100&!характер
 t_slot[i]=1&l_slot[i]=5&b_slot[i]=3&ut_slot[i]=0&ul_slot[i]=5&ub_slot[i]=0&!l_hand_t[i]=2&r_hand_t[i]=1
-X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$loc[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=44
+X[i]=X&Y[i]=Y&Z[i]=Z&H[i]=H&R[i]=R&$LOC_str[i]='<<X>>,<<Y>>,<<Z>>,<<H>>,<<R>>'&ne_world[]=i&walkprog[i]=44
